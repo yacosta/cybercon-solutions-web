@@ -35,18 +35,6 @@ export const es: Messages = {
     emailPlaceholder: 'jordan@company.com',
     error: 'Algo salió mal. Inténtalo de nuevo.',
     turnstileError: 'Completa la verificación, por favor.',
-    graphicLabel:
-      'Mapa de red interactivo. Mueve el puntero; los nodos se encienden al completar el formulario.',
-    graphicCaption: 'Tu stack, mapeado',
-    graphicHint: 'Desliza por la malla: cada campo que completas refuerza el enlace.',
-    nodeName: 'Identidad',
-    nodeCompany: 'Empresa',
-    nodeEmail: 'Canal',
-    nodeCore: 'Cybercon',
-    progressIdle: 'Esperando datos',
-    progressPartial: 'Construyendo tu mapa',
-    progressReady: 'Listo para evaluar',
-    progressDone: 'Solicitud asegurada',
   },
   services: {
     eyebrow: 'Lo que gestionamos',
