@@ -7,7 +7,14 @@ export const en = {
   nav: {
     client: 'Client area',
     search: 'Search',
-    privacy: 'Privacy',
+    searchOpen: 'Open search',
+    searchClose: 'Close search',
+    searchLabel: 'Search the site',
+    searchPlaceholder: 'Search services, pages…',
+    searchResults: 'Search results',
+    searchEmpty: 'No results for “{query}”.',
+    searchUnavailable: 'Search index unavailable until the site is built.',
+    searchAllResults: 'View all results',
   },
   hero: {
     eyebrow: 'Coming soon',

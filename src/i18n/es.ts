@@ -9,7 +9,14 @@ export const es: Messages = {
   nav: {
     client: 'Área de clientes',
     search: 'Buscar',
-    privacy: 'Privacidad',
+    searchOpen: 'Abrir búsqueda',
+    searchClose: 'Cerrar búsqueda',
+    searchLabel: 'Buscar en el sitio',
+    searchPlaceholder: 'Buscar servicios, páginas…',
+    searchResults: 'Resultados de búsqueda',
+    searchEmpty: 'Sin resultados para “{query}”.',
+    searchUnavailable: 'El índice de búsqueda estará disponible tras el build.',
+    searchAllResults: 'Ver todos los resultados',
   },
   hero: {
     eyebrow: 'Próximamente',
