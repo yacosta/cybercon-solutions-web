@@ -7,50 +7,68 @@ interface Props {
 }
 
 const { locale, t } = Astro.props;
-const year = new Date().getFullYear();
+const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
 ---
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>{t.footer.area}</p>
-    <p>
-      © {year} CYBERCON SOLUTIONS.
-      <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
-      ·
-      <button type="button" class="cookie-reset" data-cookie-settings>
-        {t.footer.cookies}
-      </button>
-    </p>
-    <p class="contact">
-      <a href="mailto:info@cybercon-solutions.com">info@cybercon-solutions.com</a>
-      ·
-      <a href="tel:+19735730007">973-573-0007</a>
-    </p>
-  </div>
+  <p>
+    <span class="servicing">
+      {t.footer.area}
+      {' '}
+      <span class="heart" role="img" aria-label={heartLabel}>&#10084;</span>
+    </span>
+    <span class="divider" aria-hidden="true">|</span>
+    {t.footer.copyright}
+    <span class="divider" aria-hidden="true">|</span>
+    <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
+    <span class="divider" aria-hidden="true">|</span>
+    <button type="button" class="cookie-reset" data-cookie-settings>
+      {t.footer.cookies}
+    </button>
+  </p>
 </footer>
 
 <script>
   document.querySelector('[data-cookie-settings]')?.addEventListener('click', () => {
-    // Reopen banner without clearing choice until user accepts/declines again
     window.dispatchEvent(new CustomEvent('cybercon:cookie-settings'));
   });
 </script>
 
 <style>
   .site-footer {
-    padding: 2rem 0 5rem;
-    color: var(--body-muted);
-    font-size: 0.8125rem;
+    background: var(--navy);
+    padding: 28px clamp(1.5rem, 5vw, 4.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .footer-inner {
-    display: grid;
-    gap: 0.35rem;
+  .site-footer p {
+    margin: 0;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: var(--muted-blue);
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .servicing {
+    color: #c6d2de;
+  }
+
+  .heart {
+    color: var(--coral);
+  }
+
+  .divider {
+    color: rgba(140, 160, 180, 0.5);
+    margin: 0 10px;
   }
 
   .site-footer a,
   .cookie-reset {
-    color: var(--navy);
+    color: var(--muted-blue);
+    text-decoration: underline;
   }
 
   .cookie-reset {
@@ -59,21 +77,30 @@ const year = new Date().getFullYear();
     padding: 0;
     font: inherit;
     cursor: pointer;
-    text-decoration: underline;
     min-height: 44px;
   }
 
-  .cookie-reset:focus-visible {
+  .site-footer a:hover,
+  .cookie-reset:hover {
+    color: var(--cream);
+  }
+
+  .cookie-reset:focus-visible,
+  .site-footer a:focus-visible {
     outline: 2px solid var(--coral);
     outline-offset: 2px;
   }
 
-  .contact a {
-    text-decoration: none;
-  }
+  @media (max-width: 720px) {
+    .divider {
+      display: none;
+    }
 
-  .contact a:hover,
-  .contact a:focus-visible {
-    text-decoration: underline;
+    .site-footer p {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+    }
   }
 </style>
