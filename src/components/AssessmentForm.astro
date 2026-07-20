@@ -125,8 +125,8 @@ const privacyHref = localePath(locale, '/privacy/');
           </g>
 
           <g class="mesh-node mesh-node-core" data-node="core" data-parallax="0.18">
-            <circle class="mesh-node-halo" cx="210" cy="210" r="34" />
-            <circle class="mesh-node-disc" cx="210" cy="210" r="22" />
+            <circle class="mesh-node-halo" cx="210" cy="210" r="38" />
+            <circle class="mesh-node-disc" cx="210" cy="210" r="26" />
             <text class="mesh-node-label" x="210" y="214" text-anchor="middle">{t.form.nodeCore}</text>
           </g>
 
@@ -367,9 +367,14 @@ const privacyHref = localePath(locale, '/privacy/');
     max-width: 28rem;
   }
 
-  .form {
+  .form:not([hidden]) {
     display: grid;
     gap: 1rem;
+  }
+
+  .form[hidden],
+  .thanks[hidden] {
+    display: none;
   }
 
   .turnstile-wrap {
@@ -393,7 +398,7 @@ const privacyHref = localePath(locale, '/privacy/');
     margin: 0;
   }
 
-  .thanks {
+  .thanks:not([hidden]) {
     display: grid;
     gap: 0.75rem;
     justify-items: start;
@@ -511,8 +516,8 @@ const privacyHref = localePath(locale, '/privacy/');
 
   .mesh-node-core .mesh-node-label {
     fill: var(--white);
-    font-size: 9px;
-    letter-spacing: 0.06em;
+    font-size: 8px;
+    letter-spacing: 0.04em;
   }
 
   .mesh-node.is-active .mesh-node-disc {
