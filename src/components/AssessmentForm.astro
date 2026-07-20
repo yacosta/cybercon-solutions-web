@@ -13,65 +13,159 @@ const privacyHref = localePath(locale, '/privacy/');
 ---
 
 <section class="capture" aria-labelledby="assessment-title">
-  <div class="container">
-    <h2 id="assessment-title">{t.form.title}</h2>
-    <p class="lede">{t.form.lede}</p>
+  <div class="container capture-grid">
+    <div class="capture-copy">
+      <h2 id="assessment-title">{t.form.title}</h2>
+      <p class="lede">{t.form.lede}</p>
 
-    <form id="assessment-form" class="form" novalidate>
-      <div class="field">
-        <label for="full-name">{t.form.name}</label>
-        <input
-          id="full-name"
-          name="name"
-          type="text"
-          required
-          autocomplete="name"
-          placeholder={t.form.namePlaceholder}
-        />
-      </div>
-      <div class="field">
-        <label for="company-name">{t.form.company}</label>
-        <input
-          id="company-name"
-          name="company"
-          type="text"
-          required
-          autocomplete="organization"
-          placeholder={t.form.companyPlaceholder}
-        />
-      </div>
-      <div class="field">
-        <label for="work-email">{t.form.email}</label>
-        <input
-          id="work-email"
-          name="email"
-          type="email"
-          required
-          autocomplete="email"
-          placeholder={t.form.emailPlaceholder}
-        />
-      </div>
-
-      {siteKey && (
-        <div class="turnstile-wrap">
-          <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+      <form id="assessment-form" class="form" novalidate>
+        <div class="field">
+          <label for="full-name">{t.form.name}</label>
+          <input
+            id="full-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            placeholder={t.form.namePlaceholder}
+            data-mesh-field="name"
+          />
         </div>
-      )}
+        <div class="field">
+          <label for="company-name">{t.form.company}</label>
+          <input
+            id="company-name"
+            name="company"
+            type="text"
+            required
+            autocomplete="organization"
+            placeholder={t.form.companyPlaceholder}
+            data-mesh-field="company"
+          />
+        </div>
+        <div class="field">
+          <label for="work-email">{t.form.email}</label>
+          <input
+            id="work-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder={t.form.emailPlaceholder}
+            data-mesh-field="email"
+          />
+        </div>
 
-      <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
-      <button type="submit" class="btn btn-primary">{t.form.submit}</button>
-      <p class="micro">
-        {t.form.microcopy}
-        {' '}
-        <a href={privacyHref}>{t.cookies.policy}</a>.
-      </p>
-    </form>
+        {siteKey && (
+          <div class="turnstile-wrap">
+            <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+          </div>
+        )}
 
-    <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
-      <div class="check" aria-hidden="true">✓</div>
-      <h2>{t.form.thanksTitle}</h2>
-      <p>{t.form.thanksBody}</p>
+        <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
+        <button type="submit" class="btn btn-primary">{t.form.submit}</button>
+        <p class="micro">
+          {t.form.microcopy}
+          {' '}
+          <a href={privacyHref}>{t.cookies.policy}</a>.
+        </p>
+      </form>
+
+      <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>{t.form.thanksTitle}</h2>
+        <p>{t.form.thanksBody}</p>
+      </div>
     </div>
+
+    <aside
+      class="mesh"
+      id="assessment-mesh"
+      aria-label={t.form.graphicLabel}
+      data-progress-idle={t.form.progressIdle}
+      data-progress-partial={t.form.progressPartial}
+      data-progress-ready={t.form.progressReady}
+      data-progress-done={t.form.progressDone}
+    >
+      <div class="mesh-stage" data-mesh-stage>
+        <svg
+          class="mesh-svg"
+          viewBox="0 0 420 420"
+          role="img"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <defs>
+            <radialGradient id="mesh-glow" cx="50%" cy="45%" r="55%">
+              <stop offset="0%" stop-color="rgba(242, 107, 94, 0.22)" />
+              <stop offset="55%" stop-color="rgba(15, 44, 76, 0.08)" />
+              <stop offset="100%" stop-color="rgba(15, 44, 76, 0)" />
+            </radialGradient>
+            <linearGradient id="mesh-orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="rgba(15, 44, 76, 0.08)" />
+              <stop offset="100%" stop-color="rgba(242, 107, 94, 0.28)" />
+            </linearGradient>
+          </defs>
+
+          <circle class="mesh-aura" cx="210" cy="210" r="168" fill="url(#mesh-glow)" />
+          <circle class="mesh-ring mesh-ring-a" cx="210" cy="210" r="148" fill="none" stroke="url(#mesh-orbit)" />
+          <circle class="mesh-ring mesh-ring-b" cx="210" cy="210" r="108" fill="none" stroke="rgba(15, 44, 76, 0.12)" />
+
+          <g class="mesh-links" data-mesh-links>
+            <line data-link="name" x1="210" y1="210" x2="118" y2="112" />
+            <line data-link="company" x1="210" y1="210" x2="318" y2="128" />
+            <line data-link="email" x1="210" y1="210" x2="292" y2="302" />
+            <line class="mesh-link-soft" x1="118" y1="112" x2="318" y2="128" />
+            <line class="mesh-link-soft" x1="318" y1="128" x2="292" y2="302" />
+            <line class="mesh-link-soft" x1="292" y1="302" x2="118" y2="112" />
+          </g>
+
+          <g class="mesh-packet" data-mesh-packet hidden>
+            <circle r="4.5" />
+          </g>
+
+          <g class="mesh-node mesh-node-core" data-node="core" data-parallax="0.18">
+            <circle class="mesh-node-halo" cx="210" cy="210" r="34" />
+            <circle class="mesh-node-disc" cx="210" cy="210" r="22" />
+            <text class="mesh-node-label" x="210" y="214" text-anchor="middle">{t.form.nodeCore}</text>
+          </g>
+
+          <g class="mesh-node" data-node="name" data-parallax="0.42" data-field="name">
+            <circle class="mesh-node-halo" cx="118" cy="112" r="26" />
+            <circle class="mesh-node-disc" cx="118" cy="112" r="15" />
+            <text class="mesh-node-label" x="118" y="152" text-anchor="middle">{t.form.nodeName}</text>
+          </g>
+
+          <g class="mesh-node" data-node="company" data-parallax="0.34" data-field="company">
+            <circle class="mesh-node-halo" cx="318" cy="128" r="26" />
+            <circle class="mesh-node-disc" cx="318" cy="128" r="15" />
+            <text class="mesh-node-label" x="318" y="168" text-anchor="middle">{t.form.nodeCompany}</text>
+          </g>
+
+          <g class="mesh-node" data-node="email" data-parallax="0.48" data-field="email">
+            <circle class="mesh-node-halo" cx="292" cy="302" r="26" />
+            <circle class="mesh-node-disc" cx="292" cy="302" r="15" />
+            <text class="mesh-node-label" x="292" y="342" text-anchor="middle">{t.form.nodeEmail}</text>
+          </g>
+
+          <g class="mesh-satellites" aria-hidden="true">
+            <circle data-parallax="0.55" cx="86" cy="248" r="5" />
+            <circle data-parallax="0.3" cx="164" cy="318" r="4" />
+            <circle data-parallax="0.62" cx="348" cy="228" r="4.5" />
+            <circle data-parallax="0.25" cx="210" cy="74" r="3.5" />
+          </g>
+        </svg>
+
+        <div class="mesh-readout" aria-live="polite">
+          <p class="mesh-caption">{t.form.graphicCaption}</p>
+          <p class="mesh-status" data-mesh-status>{t.form.progressIdle}</p>
+          <p class="mesh-hint">{t.form.graphicHint}</p>
+          <div class="mesh-meter" aria-hidden="true">
+            <span class="mesh-meter-fill" data-mesh-meter style="width: 0%"></span>
+          </div>
+        </div>
+      </div>
+    </aside>
   </div>
 </section>
 
@@ -81,6 +175,112 @@ const privacyHref = localePath(locale, '/privacy/');
   const form = document.getElementById('assessment-form');
   const thanks = document.getElementById('assessment-thanks');
   const errorEl = document.getElementById('form-error');
+  const mesh = document.getElementById('assessment-mesh');
+  const stage = mesh?.querySelector('[data-mesh-stage]');
+  const statusEl = mesh?.querySelector('[data-mesh-status]');
+  const meterEl = mesh?.querySelector('[data-mesh-meter]');
+  const packet = mesh?.querySelector('[data-mesh-packet]');
+  const packetDot = packet instanceof SVGGElement ? packet.querySelector('circle') : null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const fields = ['name', 'company', 'email'];
+  let pointerX = 0.5;
+  let pointerY = 0.5;
+  let targetX = 0.5;
+  let targetY = 0.5;
+  let raf = 0;
+  let packetAngle = 0;
+  let secured = false;
+
+  function filledCount() {
+    if (!(form instanceof HTMLFormElement)) return 0;
+    return fields.filter((name) => {
+      const input = form.elements.namedItem(name);
+      return input instanceof HTMLInputElement && input.value.trim().length > 0;
+    }).length;
+  }
+
+  function setProgress(done = false) {
+    if (!mesh || !statusEl || !(meterEl instanceof HTMLElement)) return;
+    const count = done ? fields.length : filledCount();
+    const pct = Math.round((count / fields.length) * 100);
+    meterEl.style.width = `${pct}%`;
+    mesh.dataset.progress = String(count);
+    mesh.classList.toggle('is-ready', count === fields.length && !done);
+    mesh.classList.toggle('is-secured', done);
+
+    fields.forEach((name) => {
+      const input =
+        form instanceof HTMLFormElement ? form.elements.namedItem(name) : null;
+      const active =
+        done ||
+        (input instanceof HTMLInputElement && input.value.trim().length > 0);
+      mesh.querySelectorAll(`[data-field="${name}"], [data-link="${name}"]`).forEach((el) => {
+        el.classList.toggle('is-active', active);
+      });
+    });
+
+    const key = done
+      ? 'progressDone'
+      : count === 0
+        ? 'progressIdle'
+        : count < fields.length
+          ? 'progressPartial'
+          : 'progressReady';
+    statusEl.textContent = mesh.dataset[key] ?? messages[key];
+  }
+
+  function applyParallax() {
+    if (!mesh || reduceMotion) return;
+    pointerX += (targetX - pointerX) * 0.08;
+    pointerY += (targetY - pointerY) * 0.08;
+    const dx = (pointerX - 0.5) * 28;
+    const dy = (pointerY - 0.5) * 22;
+
+    mesh.querySelectorAll('[data-parallax]').forEach((node) => {
+      if (!(node instanceof SVGElement)) return;
+      const depth = Number(node.dataset.parallax ?? 0.3);
+      node.style.transform = `translate(${dx * depth}px, ${dy * depth}px)`;
+    });
+
+    if (packet instanceof SVGGElement && packetDot instanceof SVGCircleElement && !secured) {
+      packet.hidden = false;
+      packetAngle = (packetAngle + 0.018) % (Math.PI * 2);
+      const radius = 108 + Math.sin(packetAngle * 2) * 8;
+      packetDot.setAttribute('cx', String(210 + Math.cos(packetAngle) * radius));
+      packetDot.setAttribute('cy', String(210 + Math.sin(packetAngle) * radius));
+    }
+
+    raf = window.requestAnimationFrame(applyParallax);
+  }
+
+  if (stage instanceof HTMLElement && !reduceMotion) {
+    stage.addEventListener('pointermove', (event) => {
+      const rect = stage.getBoundingClientRect();
+      targetX = (event.clientX - rect.left) / rect.width;
+      targetY = (event.clientY - rect.top) / rect.height;
+    });
+    stage.addEventListener('pointerleave', () => {
+      targetX = 0.5;
+      targetY = 0.5;
+    });
+    raf = window.requestAnimationFrame(applyParallax);
+  }
+
+  form?.addEventListener('input', () => setProgress(false));
+  form?.addEventListener('focusin', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement) || !target.dataset.meshField || !mesh) return;
+    mesh.querySelectorAll('.is-focus').forEach((el) => el.classList.remove('is-focus'));
+    mesh
+      .querySelectorAll(`[data-field="${target.dataset.meshField}"], [data-link="${target.dataset.meshField}"]`)
+      .forEach((el) => el.classList.add('is-focus'));
+  });
+  form?.addEventListener('focusout', () => {
+    mesh?.querySelectorAll('.is-focus').forEach((el) => el.classList.remove('is-focus'));
+  });
+
+  setProgress(false);
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -118,14 +318,36 @@ const privacyHref = localePath(locale, '/privacy/');
     form.hidden = true;
     thanks.hidden = false;
     thanks.focus();
+    secured = true;
+    setProgress(true);
+    if (packet instanceof SVGGElement) packet.hidden = true;
   });
 </script>
 
 <style>
   .capture {
-    background: var(--cream);
+    --mesh-ink: var(--navy);
+    --mesh-accent: var(--coral);
+    background:
+      radial-gradient(ellipse 70% 55% at 85% 40%, rgba(242, 107, 94, 0.1), transparent 60%),
+      radial-gradient(ellipse 50% 45% at 10% 80%, rgba(15, 44, 76, 0.06), transparent 55%),
+      var(--cream);
     color: var(--navy);
     padding: clamp(3rem, 6vw, 5rem) 0;
+    overflow: hidden;
+  }
+
+  .capture-grid {
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .capture-grid {
+      grid-template-columns: minmax(0, 28rem) minmax(0, 1fr);
+      gap: 3.5rem;
+    }
   }
 
   .capture h2 {
@@ -187,5 +409,237 @@ const privacyHref = localePath(locale, '/privacy/');
     color: var(--white);
     font-size: 1.625rem;
     font-weight: 700;
+  }
+
+  .mesh {
+    position: relative;
+    min-height: 20rem;
+  }
+
+  .mesh-stage {
+    position: relative;
+    touch-action: none;
+    border-radius: 0;
+    padding: 0.5rem 0 0;
+  }
+
+  .mesh-svg {
+    width: min(100%, 420px);
+    height: auto;
+    display: block;
+    margin-inline: auto;
+    overflow: visible;
+  }
+
+  .mesh-ring {
+    stroke-width: 1.25;
+  }
+
+  .mesh-ring-a {
+    stroke-dasharray: 6 10;
+    animation: mesh-spin 28s linear infinite;
+    transform-origin: 210px 210px;
+  }
+
+  .mesh-ring-b {
+    stroke-dasharray: 2 8;
+    animation: mesh-spin 18s linear infinite reverse;
+    transform-origin: 210px 210px;
+  }
+
+  .mesh-links line {
+    stroke: rgba(15, 44, 76, 0.18);
+    stroke-width: 1.5;
+    transition: stroke 0.35s ease, stroke-width 0.35s ease, opacity 0.35s ease;
+  }
+
+  .mesh-link-soft {
+    stroke: rgba(15, 44, 76, 0.08) !important;
+    stroke-dasharray: 4 6;
+  }
+
+  .mesh-links line.is-active {
+    stroke: rgba(242, 107, 94, 0.75);
+    stroke-width: 2;
+  }
+
+  .mesh-links line.is-focus {
+    stroke: var(--coral);
+    stroke-width: 2.5;
+  }
+
+  .mesh-node {
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .mesh-node-halo {
+    fill: rgba(15, 44, 76, 0.05);
+    stroke: rgba(15, 44, 76, 0.12);
+    stroke-width: 1;
+    transition: fill 0.35s ease, stroke 0.35s ease;
+  }
+
+  .mesh-node-disc {
+    fill: var(--white);
+    stroke: rgba(15, 44, 76, 0.35);
+    stroke-width: 1.5;
+    transition: fill 0.35s ease, stroke 0.35s ease, filter 0.35s ease;
+  }
+
+  .mesh-node-core .mesh-node-disc {
+    fill: var(--navy);
+    stroke: var(--navy);
+  }
+
+  .mesh-node-core .mesh-node-halo {
+    fill: rgba(242, 107, 94, 0.12);
+    stroke: rgba(242, 107, 94, 0.35);
+    animation: mesh-pulse 3.2s ease-in-out infinite;
+  }
+
+  .mesh-node-label {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    fill: var(--body-muted);
+    transition: fill 0.35s ease;
+  }
+
+  .mesh-node-core .mesh-node-label {
+    fill: var(--white);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+
+  .mesh-node.is-active .mesh-node-disc {
+    fill: var(--coral);
+    stroke: var(--coral);
+  }
+
+  .mesh-node.is-active .mesh-node-halo {
+    fill: rgba(242, 107, 94, 0.16);
+    stroke: rgba(242, 107, 94, 0.45);
+  }
+
+  .mesh-node.is-active .mesh-node-label {
+    fill: var(--navy);
+  }
+
+  .mesh-node.is-focus .mesh-node-halo {
+    stroke: var(--coral);
+    fill: rgba(242, 107, 94, 0.22);
+  }
+
+  .mesh-satellites circle {
+    fill: rgba(15, 44, 76, 0.28);
+  }
+
+  .mesh-packet circle {
+    fill: var(--coral);
+  }
+
+  .mesh.is-ready .mesh-node-core .mesh-node-halo {
+    animation-duration: 1.6s;
+  }
+
+  .mesh.is-secured .mesh-node-disc {
+    fill: var(--coral);
+    stroke: var(--coral);
+  }
+
+  .mesh.is-secured .mesh-node-core .mesh-node-disc {
+    fill: var(--navy);
+    stroke: var(--coral);
+    stroke-width: 2.5;
+  }
+
+  .mesh.is-secured .mesh-links line {
+    stroke: rgba(242, 107, 94, 0.55);
+  }
+
+  .mesh-readout {
+    margin-top: 0.75rem;
+    text-align: center;
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .mesh-caption {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+    color: var(--navy);
+  }
+
+  .mesh-status {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--coral);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  .mesh-hint {
+    margin: 0.45rem 0 0.85rem;
+    font-size: 0.8125rem;
+    color: var(--body-muted);
+  }
+
+  .mesh-meter {
+    height: 3px;
+    background: rgba(15, 44, 76, 0.1);
+    overflow: hidden;
+  }
+
+  .mesh-meter-fill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy), var(--coral));
+    transition: width 0.35s ease;
+  }
+
+  @keyframes mesh-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes mesh-pulse {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+  }
+
+  @media (max-width: 899px) {
+    .mesh {
+      min-height: 0;
+    }
+
+    .mesh-svg {
+      width: min(100%, 320px);
+    }
+
+    .mesh-hint {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mesh-ring-a,
+    .mesh-ring-b,
+    .mesh-node-core .mesh-node-halo {
+      animation: none;
+    }
   }
 </style>
