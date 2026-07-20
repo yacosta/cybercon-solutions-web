@@ -13,14 +13,14 @@ function servicesMarkdown(locale: 'en' | 'es'): string {
 const pages: Record<string, string> = {
   '/': `---
 title: "Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions"
-description: "Managed IT, cybersecurity, cloud, and AI for South Florida businesses. Proactive by design. Secure by default."
+description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. Proactive by design. Secure by default."
 ---
 
 # Cybercon Solutions
 
-Your new IT department is being built.
+Your IT department, without the overhead.
 
-The full site is under construction. While we finish, our team is already doing what we do best — preventing problems before they cost you.
+Managed IT, cybersecurity, cloud, and AI — proactive by design, secure by default. Tell us where to start and a real engineer will follow up within one business day.
 
 **Proactive by design. Secure by default.**
 
@@ -32,7 +32,7 @@ Submit name, company, and work email via the form on https://cybercon-solutions.
 
 ## What we handle
 
-One partner for your entire technology stack.
+One partner for your entire technology stack. Everything below is managed proactively and bundled into predictable per-user pricing — no break/fix surprises, no jargon.
 
 ${servicesMarkdown('en')}
 
@@ -42,26 +42,32 @@ info@cybercon-solutions.com · 973-573-0007 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions"
-description: "TI administrada, ciberseguridad, nube e IA para empresas del sur de Florida. Proactivos por diseño. Seguros por defecto."
+description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Proactivos por diseño. Seguros por defecto."
 ---
 
 # Cybercon Solutions
 
-Estamos construyendo tu nuevo departamento de TI.
+Tu departamento de TI, sin la sobrecarga.
+
+TI administrada, ciberseguridad, nube e IA: proactivos por diseño, seguros por defecto. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
 
 **Proactivos por diseño. Seguros por defecto.**
 
 ## Solicita una evaluación gratuita
 
-Sin tecnicismos ni compromisos.
+Sin tecnicismos ni compromisos: solo una lectura clara del estado de tu tecnología.
+
+Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-solutions.com/es/ (protegido con Cloudflare Turnstile).
 
 ## Lo que gestionamos
+
+Un solo aliado para toda tu tecnología. Todo lo siguiente se gestiona de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.
 
 ${servicesMarkdown('es')}
 
 ## Contacto
 
-info@cybercon-solutions.com · 973-573-0007
+info@cybercon-solutions.com · 973-573-0007 · Cooper City y Davie, Florida
 `,
   '/privacy/': privacyToMarkdown('en'),
   '/privacy': privacyToMarkdown('en'),
@@ -82,6 +88,22 @@ title: "Search | Cybercon Solutions"
 # Search
 
 Find pages and services across cybercon-solutions.com using the on-site search powered by Pagefind.
+`,
+  '/es/search/': `---
+title: "Buscar | Cybercon Solutions"
+---
+
+# Buscar
+
+Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del sitio (Pagefind).
+`,
+  '/es/search': `---
+title: "Buscar | Cybercon Solutions"
+---
+
+# Buscar
+
+Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del sitio (Pagefind).
 `,
 };
 

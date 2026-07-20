@@ -13,7 +13,7 @@ export const en = {
     searchPlaceholder: 'Search services, pages…',
     searchResults: 'Search results',
     searchEmpty: 'No results for “{query}”.',
-    searchUnavailable: 'Search index unavailable until the site is built.',
+    searchUnavailable: 'Search isn’t available right now. Try again in a moment.',
     searchAllResults: 'View all results',
   },
   hero: {
@@ -21,7 +21,7 @@ export const en = {
     title: 'Your IT department, without the overhead.',
     lede:
       'Managed IT, cybersecurity, cloud, and AI — proactive by design, secure by default. Tell us where to start and a real engineer will follow up within one business day.',
-    status: 'Proactive by design. Secure by default.',
+    status: 'Serving South Florida businesses',
     cta: 'Book a free assessment',
   },
   form: {
@@ -33,9 +33,9 @@ export const en = {
     submit: 'Request my free assessment',
     microcopy:
       'A real engineer replies within one business day. We never share your details.',
-    thanksTitle: 'Thanks — you’re on the list.',
+    thanksTitle: 'Thanks — we received your request.',
     thanksBody:
-      "Your assessment request is in. We'll be in touch within one business day — no sales pressure, just clarity.",
+      "We'll be in touch within one business day — no sales pressure, just a clear next step.",
     namePlaceholder: 'Jordan Rivera',
     companyPlaceholder: 'Rivera Logistics, Inc.',
     emailPlaceholder: 'jordan@company.com',
@@ -73,7 +73,7 @@ export const en = {
     welcome: 'Welcome back',
     dashboard: 'Your dashboard',
     placeholder:
-      'This area will connect to your support portal. Auth0 is configured — add your tenant credentials to enable login.',
+      'Sign in to your support portal to view tickets, documents, and account details. Contact us if you need access.',
   },
   cookies: {
     title: 'Cookies & privacy',

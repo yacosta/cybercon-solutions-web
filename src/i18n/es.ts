@@ -15,7 +15,7 @@ export const es: Messages = {
     searchPlaceholder: 'Buscar servicios, páginas…',
     searchResults: 'Resultados de búsqueda',
     searchEmpty: 'Sin resultados para “{query}”.',
-    searchUnavailable: 'El índice de búsqueda estará disponible tras el build.',
+    searchUnavailable: 'La búsqueda no está disponible ahora. Inténtalo de nuevo en un momento.',
     searchAllResults: 'Ver todos los resultados',
   },
   hero: {
@@ -23,7 +23,7 @@ export const es: Messages = {
     title: 'Tu departamento de TI, sin la sobrecarga.',
     lede:
       'TI administrada, ciberseguridad, nube e IA: proactivos por diseño, seguros por defecto. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
-    status: 'Proactivos por diseño. Seguros por defecto.',
+    status: 'Al servicio de empresas del sur de Florida',
     cta: 'Solicita una evaluación gratuita',
   },
   form: {
@@ -35,9 +35,9 @@ export const es: Messages = {
     submit: 'Solicitar mi evaluación gratuita',
     microcopy:
       'Un ingeniero real responde en un día hábil. Nunca compartimos tus datos.',
-    thanksTitle: 'Gracias — ya estás en la lista.',
+    thanksTitle: 'Gracias — recibimos tu solicitud.',
     thanksBody:
-      'Recibimos tu solicitud de evaluación. Te contactaremos en un día hábil, sin presión de ventas, solo claridad.',
+      'Te contactaremos en un día hábil, sin presión de ventas: solo el siguiente paso con claridad.',
     namePlaceholder: 'Jordan Rivera',
     companyPlaceholder: 'Rivera Logistics, Inc.',
     emailPlaceholder: 'jordan@company.com',
@@ -75,7 +75,7 @@ export const es: Messages = {
     welcome: 'Bienvenido de nuevo',
     dashboard: 'Tu panel',
     placeholder:
-      'Esta área se conectará con tu portal de soporte. Auth0 está configurado — agrega las credenciales de tu tenant para habilitar el acceso.',
+      'Inicia sesión en tu portal de soporte para ver tickets, documentos y detalles de la cuenta. Contáctanos si necesitas acceso.',
   },
   cookies: {
     title: 'Cookies y privacidad',
