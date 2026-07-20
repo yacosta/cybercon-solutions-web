@@ -1,14 +1,15 @@
 ---
-import { services } from '../data/services';
+import { services, servicePath } from '../data/services';
 
 interface Props {
   locale: 'en' | 'es';
   eyebrow: string;
   title: string;
   lede: string;
+  learnMore: string;
 }
 
-const { locale, eyebrow, title, lede } = Astro.props;
+const { locale, eyebrow, title, lede, learnMore } = Astro.props;
 ---
 
 <section class="services" aria-labelledby="services-title">
@@ -20,12 +21,15 @@ const { locale, eyebrow, title, lede } = Astro.props;
       {services.map((service) => (
         <article class="card">
           <p class="num" aria-hidden="true">{service.id}</p>
-          <h3>{service.title[locale]}</h3>
+          <h3>
+            <a href={servicePath(locale, service.slug)}>{service.title[locale]}</a>
+          </h3>
           <ul>
             {service.items.map((item) => (
               <li>{item[locale]}</li>
             ))}
           </ul>
+          <a class="more" href={servicePath(locale, service.slug)}>{learnMore}</a>
         </article>
       ))}
     </div>
@@ -60,6 +64,9 @@ const { locale, eyebrow, title, lede } = Astro.props;
     border: 1px solid rgba(15, 44, 76, 0.12);
     border-radius: var(--radius-md);
     padding: 1.125rem 1.25rem;
+    display: grid;
+    gap: 0.65rem;
+    align-content: start;
   }
 
   .num {
@@ -68,13 +75,23 @@ const { locale, eyebrow, title, lede } = Astro.props;
     font-weight: 600;
     letter-spacing: 0.12em;
     color: var(--coral);
-    margin: 0 0 0.35rem;
+    margin: 0;
   }
 
   .card h3 {
     font-size: 1.05rem;
-    margin-bottom: 0.65rem;
+    margin: 0;
     color: var(--navy);
+  }
+
+  .card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .card h3 a:hover,
+  .card h3 a:focus-visible {
+    color: var(--button-red);
   }
 
   .card ul {
@@ -86,5 +103,20 @@ const { locale, eyebrow, title, lede } = Astro.props;
 
   .card li + li {
     margin-top: 0.35rem;
+  }
+
+  .more {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--button-red);
+    text-decoration: none;
+    margin-top: 0.25rem;
+  }
+
+  .more:hover,
+  .more:focus-visible {
+    text-decoration: underline;
   }
 </style>

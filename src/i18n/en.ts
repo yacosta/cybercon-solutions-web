@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions',
     description:
-      'Managed IT, cybersecurity, cloud, and AI for South Florida businesses. Proactive by design. Secure by default.',
+      'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. Proactive by design. Secure by default.',
   },
   nav: {
     client: 'Client area',
@@ -17,11 +17,12 @@ export const en = {
     searchAllResults: 'View all results',
   },
   hero: {
-    eyebrow: 'Coming soon',
-    title: 'Your new IT department is being built.',
+    eyebrow: 'Cooper City & Davie, Florida',
+    title: 'Your IT department, without the overhead.',
     lede:
-      'The full site is under construction. While we finish, our team is already doing what we do best — preventing problems before they cost you. Tell us where to start.',
+      'Managed IT, cybersecurity, cloud, and AI — proactive by design, secure by default. Tell us where to start and a real engineer will follow up within one business day.',
     status: 'Proactive by design. Secure by default.',
+    cta: 'Book a free assessment',
   },
   form: {
     title: 'Book a free assessment',
@@ -32,7 +33,7 @@ export const en = {
     submit: 'Request my free assessment',
     microcopy:
       'A real engineer replies within one business day. We never share your details.',
-    thanksTitle: 'Thanks, there.',
+    thanksTitle: 'Thanks — you’re on the list.',
     thanksBody:
       "Your assessment request is in. We'll be in touch within one business day — no sales pressure, just clarity.",
     namePlaceholder: 'Jordan Rivera',
@@ -45,7 +46,14 @@ export const en = {
     eyebrow: 'What we handle',
     title: 'One partner for your entire technology stack.',
     lede:
-      'Everything below is included and managed proactively, bundled into predictable per-user pricing — no break/fix surprises, no jargon. Full plans and pricing arrive with the new site.',
+      'Everything below is managed proactively and bundled into predictable per-user pricing — no break/fix surprises, no jargon.',
+    learnMore: 'Learn more',
+  },
+  servicePage: {
+    back: 'All services',
+    ctaTitle: 'Ready for a clear read on your stack?',
+    ctaBody: 'Book a free assessment. A real engineer replies within one business day.',
+    cta: 'Book a free assessment',
   },
   footer: {
     area: 'Servicing Cooper City & Davie, Florida',

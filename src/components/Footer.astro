@@ -1,5 +1,6 @@
 ---
 import { localePath, type Messages } from '../i18n';
+import { site } from '../lib/site';
 
 interface Props {
   locale: string;
@@ -11,21 +12,28 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
 ---
 
 <footer class="site-footer">
-  <p>
-    <span class="servicing">
-      {t.footer.area}
-      {' '}
-      <span class="heart" role="img" aria-label={heartLabel}>&#10084;</span>
-    </span>
-    <span class="divider" aria-hidden="true">|</span>
-    {t.footer.copyright}
-    <span class="divider" aria-hidden="true">|</span>
-    <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
-    <span class="divider" aria-hidden="true">|</span>
-    <button type="button" class="cookie-reset" data-cookie-settings>
-      {t.footer.cookies}
-    </button>
-  </p>
+  <div class="footer-inner">
+    <p class="footer-line">
+      <span class="servicing">
+        {t.footer.area}
+        {' '}
+        <span class="heart" role="img" aria-label={heartLabel}>&#10084;</span>
+      </span>
+      <span class="divider" aria-hidden="true">|</span>
+      {t.footer.copyright}
+      <span class="divider" aria-hidden="true">|</span>
+      <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
+      <span class="divider" aria-hidden="true">|</span>
+      <button type="button" class="cookie-reset" data-cookie-settings>
+        {t.footer.cookies}
+      </button>
+    </p>
+    <p class="footer-contact">
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <span class="divider" aria-hidden="true">|</span>
+      <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+    </p>
+  </div>
 </footer>
 
 <script>
@@ -43,12 +51,19 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
     justify-content: center;
   }
 
-  .site-footer p {
+  .footer-inner {
+    display: grid;
+    gap: 0.55rem;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer-line,
+  .footer-contact {
     margin: 0;
     font-size: 0.8125rem;
     letter-spacing: 0.02em;
     color: var(--muted-blue);
-    text-align: center;
     line-height: 1.7;
   }
 
@@ -96,7 +111,8 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
       display: none;
     }
 
-    .site-footer p {
+    .footer-line,
+    .footer-contact {
       display: flex;
       flex-direction: column;
       align-items: center;

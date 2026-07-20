@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import type { Service } from '../data/services';
+import { getMessages, localePath } from '../i18n';
+import { jsonLdScript, serviceJsonLd } from '../lib/seo';
+
+interface Props {
+  locale: 'en' | 'es';
+  service: Service;
+}
+
+const { locale, service } = Astro.props;
+const t = getMessages(locale);
+const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
+const homePath = localePath(locale, '/');
+const title = `${service.title[locale]} | Cybercon Solutions`;
+const description = service.summary[locale];
+const assessmentHref = `${homePath}#assessment`;
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
+    { name: service.title[locale], path },
+  ]}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={jsonLdScript(serviceJsonLd(service, locale))} />
+  </Fragment>
+
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="service container" data-pagefind-body>
+    <p class="eyebrow">{t.services.eyebrow}</p>
+    <p class="num" aria-hidden="true">{service.id}</p>
+    <h1>{service.title[locale]}</h1>
+    <p class="lede">{service.summary[locale]}</p>
+    <ul>
+      {service.items.map((item) => (
+        <li>{item[locale]}</li>
+      ))}
+    </ul>
+
+    <section class="cta" aria-labelledby="service-cta-title">
+      <h2 id="service-cta-title">{t.servicePage.ctaTitle}</h2>
+      <p>{t.servicePage.ctaBody}</p>
+      <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+    </section>
+
+    <p class="back">
+      <a href={`${homePath}#services-title`}>{t.servicePage.back}</a>
+    </p>
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .service {
+    padding: clamp(2.5rem, 5vw, 4rem) 0 4rem;
+    max-width: 44rem;
+  }
+
+  .num {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--coral);
+    margin: 0.75rem 0 0.35rem;
+  }
+
+  .service h1 {
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    color: var(--navy);
+    margin-bottom: 0.85rem;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    font-size: 1.0625rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .service ul {
+    margin: 0 0 2.5rem;
+    padding-left: 1.15rem;
+    color: var(--navy);
+  }
+
+  .service li + li {
+    margin-top: 0.55rem;
+  }
+
+  .cta {
+    background: var(--cream);
+    border: 1px solid rgba(15, 44, 76, 0.1);
+    border-radius: var(--radius-md);
+    padding: 1.35rem 1.4rem;
+    display: grid;
+    gap: 0.65rem;
+    justify-items: start;
+  }
+
+  .cta h2 {
+    font-size: 1.25rem;
+    color: var(--navy);
+  }
+
+  .cta p {
+    margin: 0;
+    color: var(--body-muted);
+  }
+
+  .back {
+    margin: 1.75rem 0 0;
+  }
+
+  .back a {
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+  }
+</style>

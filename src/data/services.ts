@@ -1,13 +1,20 @@
 export type Service = {
   id: string;
+  slug: string;
   title: { en: string; es: string };
+  summary: { en: string; es: string };
   items: { en: string; es: string }[];
 };
 
 export const services: Service[] = [
   {
     id: '01',
+    slug: 'managed-it',
     title: { en: 'Managed IT Services', es: 'Servicios de TI Administrados' },
+    summary: {
+      en: 'Proactive help desk, monitoring, and onsite support for South Florida businesses — predictable per-user pricing instead of break/fix surprises.',
+      es: 'Mesa de ayuda, monitoreo y soporte in situ para empresas del sur de Florida: precio predecible por usuario, sin sorpresas por averías.',
+    },
     items: [
       {
         en: 'Help Desk Support — 24/7/365 local help desk with live phone response.',
@@ -29,7 +36,12 @@ export const services: Service[] = [
   },
   {
     id: '02',
+    slug: 'cybersecurity',
     title: { en: 'Cybersecurity & Compliance', es: 'Ciberseguridad y Cumplimiento' },
+    summary: {
+      en: 'Endpoint protection, 24/7 SOC monitoring, and compliance support mapped to HIPAA, SOC 2, PCI DSS, and GLBA.',
+      es: 'Protección de endpoints, monitoreo SOC 24/7 y apoyo al cumplimiento alineado con HIPAA, SOC 2, PCI DSS y GLBA.',
+    },
     items: [
       {
         en: 'Advanced Endpoint Protection — EDR/XDR, firewalls, and multi-layered threat detection.',
@@ -47,7 +59,12 @@ export const services: Service[] = [
   },
   {
     id: '03',
+    slug: 'cloud',
     title: { en: 'Cloud Services & Architecture', es: 'Servicios de Nube y Arquitectura' },
+    summary: {
+      en: 'Microsoft 365 and Google Workspace migrations, identity with Entra ID, and secure consolidation of files and servers.',
+      es: 'Migraciones a Microsoft 365 y Google Workspace, identidad con Entra ID y consolidación segura de archivos y servidores.',
+    },
     items: [
       {
         en: 'Cloud Migrations & Management — Microsoft 365 and Google Workspace.',
@@ -61,7 +78,12 @@ export const services: Service[] = [
   },
   {
     id: '04',
+    slug: 'it-consulting',
     title: { en: 'IT Consulting & Strategic Leadership', es: 'Consultoría de TI y Liderazgo Estratégico' },
+    summary: {
+      en: 'Virtual CIO guidance — roadmaps, risk assessments, budgets, and quarterly business reviews.',
+      es: 'Orientación de CIO virtual: hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
+    },
     items: [
       {
         en: 'Virtual CIO (vCIO) — roadmapping, risk assessments, and quarterly business reviews.',
@@ -71,7 +93,12 @@ export const services: Service[] = [
   },
   {
     id: '05',
+    slug: 'backup-disaster-recovery',
     title: { en: 'Backup & Disaster Recovery', es: 'Respaldo y Recuperación ante Desastres' },
+    summary: {
+      en: 'Automated backups, off-site replication, and recovery validation so an outage does not become a crisis.',
+      es: 'Respaldos automatizados, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
+    },
     items: [
       {
         en: 'Data Protection — automated backups, off-site replication, and recovery validation.',
@@ -81,7 +108,12 @@ export const services: Service[] = [
   },
   {
     id: '06',
+    slug: 'cabling-communications',
     title: { en: 'Structured Cabling & Communications', es: 'Cableado Estructurado y Comunicaciones' },
+    summary: {
+      en: 'Fiber and low-voltage cabling, business VoIP, and workplace AV built for reliable day-to-day operations.',
+      es: 'Fibra y cableado de baja tensión, VoIP empresarial y AV de oficina pensados para el día a día.',
+    },
     items: [
       {
         en: 'Structured Cabling — fiber, low-voltage cabling, and infrastructure labeling.',
@@ -95,7 +127,12 @@ export const services: Service[] = [
   },
   {
     id: '07',
+    slug: 'ai-consulting',
     title: { en: 'AI Consulting & Strategy', es: 'Consultoría y Estrategia de IA' },
+    summary: {
+      en: 'Practical AI roadmaps and honest ROI assessment — start where value is highest and risk is lowest.',
+      es: 'Hojas de ruta de IA prácticas y evaluación honesta de ROI: empieza donde hay más valor y menos riesgo.',
+    },
     items: [
       {
         en: 'AI Roadmap & Adoption — practical plans starting with highest-value opportunities.',
@@ -109,7 +146,12 @@ export const services: Service[] = [
   },
   {
     id: '08',
+    slug: 'ai-integration',
     title: { en: 'AI Integration & Automation', es: 'Integración y Automatización de IA' },
+    summary: {
+      en: 'Connect AI tools to your ERP, CRM, and existing stack; automate repetitive work with ongoing tuning.',
+      es: 'Conecta herramientas de IA con tu ERP, CRM y stack actual; automatiza lo repetitivo con ajuste continuo.',
+    },
     items: [
       {
         en: 'Systems Integration — connect AI tools to ERP, CRM, and your existing stack.',
@@ -119,7 +161,12 @@ export const services: Service[] = [
   },
   {
     id: '09',
+    slug: 'conversational-ai',
     title: { en: 'Conversational AI & Voice', es: 'IA Conversacional y Voz' },
+    summary: {
+      en: 'Chatbots and AI voice systems that handle routine questions and keep human support focused on exceptions.',
+      es: 'Chatbots y sistemas de voz con IA que resuelven lo rutinario y dejan el soporte humano para las excepciones.',
+    },
     items: [
       {
         en: 'AI Chatbots — routine questions handled, support elevated.',
@@ -129,7 +176,12 @@ export const services: Service[] = [
   },
   {
     id: '10',
+    slug: 'web-design-development',
     title: { en: 'Web Design & Development', es: 'Diseño y Desarrollo Web' },
+    summary: {
+      en: 'Accessible, on-brand sites and custom applications with secure hosting and ongoing support.',
+      es: 'Sitios accesibles y con tu marca, aplicaciones a medida, hosting seguro y soporte continuo.',
+    },
     items: [
       {
         en: 'Website Design & UX — accessible, on-brand sites that turn visitors into customers.',
@@ -138,3 +190,11 @@ export const services: Service[] = [
     ],
   },
 ];
+
+export function getServiceBySlug(slug: string): Service | undefined {
+  return services.find((service) => service.slug === slug);
+}
+
+export function servicePath(locale: string, slug: string): string {
+  return locale === 'es' ? `/es/services/${slug}/` : `/services/${slug}/`;
+}

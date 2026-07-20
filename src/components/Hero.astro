@@ -19,6 +19,8 @@ const videoLabel =
   locale === 'es'
     ? 'Vídeo decorativo: ingeniero de redes trabajando entre racks de servidores'
     : 'Decorative video: network engineer walking through server racks and working on a server';
+
+const assessmentHref = '#assessment';
 ---
 
 <section
@@ -54,10 +56,13 @@ const videoLabel =
     <p class="eyebrow">{t.hero.eyebrow}</p>
     <h1 id="hero-title">{t.hero.title}</h1>
     <p id="hero-lede" class="lede">{t.hero.lede}</p>
-    <p class="status">
-      <span class="status-dot" aria-hidden="true"></span>
-      {t.hero.status}
-    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href={assessmentHref}>{t.hero.cta}</a>
+      <p class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        {t.hero.status}
+      </p>
+    </div>
     <p class="sr-only">{videoLabel}</p>
   </div>
 </section>
@@ -147,7 +152,18 @@ const videoLabel =
     color: var(--secondary-dark);
     font-size: clamp(1rem, 1.4vw, 1.125rem);
     line-height: 1.65;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.25rem;
+  }
+
+  .hero-actions .btn-primary {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
   }
 
   .status {

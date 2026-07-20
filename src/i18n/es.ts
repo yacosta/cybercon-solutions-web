@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions',
     description:
-      'TI administrada, ciberseguridad, nube e IA para empresas del sur de Florida. Proactivos por diseño. Seguros por defecto.',
+      'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Proactivos por diseño. Seguros por defecto.',
   },
   nav: {
     client: 'Área de clientes',
@@ -19,11 +19,12 @@ export const es: Messages = {
     searchAllResults: 'Ver todos los resultados',
   },
   hero: {
-    eyebrow: 'Próximamente',
-    title: 'Estamos construyendo tu nuevo departamento de TI.',
+    eyebrow: 'Cooper City y Davie, Florida',
+    title: 'Tu departamento de TI, sin la sobrecarga.',
     lede:
-      'El sitio completo está en construcción. Mientras terminamos, nuestro equipo ya hace lo que mejor sabe hacer: prevenir problemas antes de que te cuesten. Dinos por dónde empezar.',
+      'TI administrada, ciberseguridad, nube e IA: proactivos por diseño, seguros por defecto. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
     status: 'Proactivos por diseño. Seguros por defecto.',
+    cta: 'Solicita una evaluación gratuita',
   },
   form: {
     title: 'Solicita una evaluación gratuita',
@@ -34,7 +35,7 @@ export const es: Messages = {
     submit: 'Solicitar mi evaluación gratuita',
     microcopy:
       'Un ingeniero real responde en un día hábil. Nunca compartimos tus datos.',
-    thanksTitle: 'Gracias, de nuevo.',
+    thanksTitle: 'Gracias — ya estás en la lista.',
     thanksBody:
       'Recibimos tu solicitud de evaluación. Te contactaremos en un día hábil, sin presión de ventas, solo claridad.',
     namePlaceholder: 'Jordan Rivera',
@@ -47,7 +48,14 @@ export const es: Messages = {
     eyebrow: 'Lo que gestionamos',
     title: 'Un solo aliado para toda tu tecnología.',
     lede:
-      'Todo lo siguiente se incluye y gestiona de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos. Los planes y precios completos llegarán con el nuevo sitio.',
+      'Todo lo siguiente se gestiona de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.',
+    learnMore: 'Saber más',
+  },
+  servicePage: {
+    back: 'Todos los servicios',
+    ctaTitle: '¿Quieres una lectura clara de tu stack?',
+    ctaBody: 'Solicita una evaluación gratuita. Un ingeniero real responde en un día hábil.',
+    cta: 'Solicita una evaluación gratuita',
   },
   footer: {
     area: 'Servicio en Cooper City y Davie, Florida',

@@ -5,6 +5,7 @@ export const site = {
   email: 'info@cybercon-solutions.com',
   phone: '+1-973-573-0007',
   phoneDisplay: '973-573-0007',
+  slogan: 'Technology, handled.',
   address: {
     street: '407 Lincoln Rd. Suite 6H PMB 7209',
     locality: 'Miami Beach',
@@ -12,10 +13,20 @@ export const site = {
     postalCode: '33139',
     country: 'US',
   },
-  serviceArea: ['Cooper City, FL', 'Davie, FL', 'South Florida'],
+  serviceArea: ['Cooper City, FL', 'Davie, FL', 'Miami Beach, FL', 'South Florida', 'United States'],
+  knowsAbout: [
+    'Managed IT services',
+    'Cybersecurity',
+    'Endpoint management',
+    'Server management',
+    'Backup and disaster recovery',
+    'IT compliance',
+    'Cloud services',
+    'AI consulting',
+  ],
   ogImage: '/og-image.png',
   social: {
-    // Add when available
+    linkedin: 'https://www.linkedin.com/company/cybercon-solutions',
   },
 } as const;
 
