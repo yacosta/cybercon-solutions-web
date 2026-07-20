@@ -1,0 +1,66 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getMessages } from '../../i18n';
+
+const locale = 'en' as const;
+const t = getMessages(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t.search.title} | Cybercon Solutions`}
+  description={t.search.lede}
+  path="/search/"
+>
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <div class="search-page container">
+    <h1>{t.search.title}</h1>
+    <p class="lede">{t.search.lede}</p>
+    <div id="search" class="pagefind-ui"></div>
+  </div>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<script is:inline>
+  (async function () {
+    var mount = document.getElementById('search');
+    if (!mount) return;
+    try {
+      var css = document.createElement('link');
+      css.rel = 'stylesheet';
+      css.href = '/pagefind/pagefind-ui.css';
+      document.head.appendChild(css);
+      await import('/pagefind/pagefind-ui.js');
+      new window.PagefindUI({
+        element: '#search',
+        showSubResults: true,
+        autofocus: true,
+      });
+    } catch (e) {
+      mount.innerHTML =
+        '<p>Search index will be available after the production build (<code>npm run build</code>).</p>';
+    }
+  })();
+</script>
+
+<style>
+  .search-page {
+    padding: 3rem 0 4rem;
+    min-height: 50vh;
+  }
+
+  .search-page h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    margin-bottom: 1.5rem;
+  }
+</style>

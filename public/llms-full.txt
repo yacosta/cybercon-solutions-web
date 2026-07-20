@@ -1,0 +1,38 @@
+# Cybercon Solutions — full site summary for AI agents
+
+Cybercon Solutions LLC provides managed IT and cybersecurity in South Florida (Cooper City, Davie, and surrounding areas). Positioning: "Your new IT department." Brand promise: "Proactive by design. Secure by default."
+
+## What we do
+
+One partner for the technology stack with predictable per-user pricing:
+
+1. Managed IT — 24/7 help desk, monitoring, patching, onsite support
+2. Cybersecurity & Compliance — EDR/XDR, SOC, SIEM, HIPAA/SOC 2/PCI/GLBA
+3. Cloud — Microsoft 365, Google Workspace, Entra ID / Azure AD
+4. vCIO & consulting — roadmaps, QBRs, business continuity
+5. Backup & disaster recovery
+6. Structured cabling, VoIP, AV
+7. AI consulting & strategy (honest ROI assessment)
+8. AI integration & automation
+9. Conversational AI & voice
+10. Web design & development
+
+## Key URLs
+
+| Page | URL |
+|------|-----|
+| Home (EN) | https://cybercon-solutions.com/ |
+| Home (ES) | https://cybercon-solutions.com/es/ |
+| Privacy | https://cybercon-solutions.com/privacy/ |
+| Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
+| Search | https://cybercon-solutions.com/search/ |
+| Client login | https://cybercon-solutions.com/client/ |
+| Assessment API | POST https://cybercon-solutions.com/api/assessment |
+
+## Contact
+
+info@cybercon-solutions.com · 973-573-0007
+
+## Markdown negotiation
+
+Send `Accept: text/markdown` to receive Markdown versions of HTML pages (`Content-Type: text/markdown`, `Vary: Accept`).

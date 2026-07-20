@@ -1,0 +1,46 @@
+---
+/**
+ * Loads Google Analytics (via gtag) only after cybercon-consent-v1 === "accept".
+ * Set PUBLIC_GA_MEASUREMENT_ID in Cloudflare Pages env to enable.
+ */
+const measurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
+---
+
+{measurementId && (
+  <script define:vars={{ measurementId }} is:inline>
+    (function () {
+      const KEY = 'cybercon-consent-v1';
+      let loaded = false;
+
+      function loadAnalytics() {
+        if (loaded || !measurementId) return;
+        loaded = true;
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          analytics_storage: 'granted',
+          wait_for_update: 500,
+        });
+        gtag('config', measurementId, { anonymize_ip: true });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+        document.head.appendChild(s);
+      }
+
+      function maybeLoad(value) {
+        if (value === 'accept') loadAnalytics();
+      }
+
+      maybeLoad(localStorage.getItem(KEY));
+      window.addEventListener('cybercon:consent', function (e) {
+        maybeLoad(e.detail && e.detail.value);
+      });
+    })();
+  </script>
+)}

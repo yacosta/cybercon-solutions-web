@@ -1,0 +1,93 @@
+---
+export const prerender = false;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getMessages } from '../../i18n';
+import { auth0Configured } from '../../lib/auth0';
+
+const locale = 'en' as const;
+const t = getMessages(locale);
+const user = Astro.locals.user;
+const configured = auth0Configured();
+const error = Astro.url.searchParams.get('error');
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t.client.title} | Cybercon Solutions`}
+  description={t.client.lede}
+  path="/client/"
+  noindex={true}
+>
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <div class="client container">
+    <p class="eyebrow">{t.client.title}</p>
+    <h1>{user ? t.client.welcome : t.client.dashboard}</h1>
+    <p class="lede">{t.client.lede}</p>
+
+    {error && (
+      <p class="error" role="alert">
+        {error === 'auth0_not_configured'
+          ? 'Auth0 is not configured yet. Add credentials in Cloudflare Pages environment variables.'
+          : 'Sign-in failed. Please try again.'}
+      </p>
+    )}
+
+    {user ? (
+      <div class="panel">
+        <p>
+          Signed in as <strong>{user.name ?? user.email ?? user.sub}</strong>
+        </p>
+        <p class="muted">{t.client.placeholder}</p>
+        <a class="btn btn-primary" href="/client/logout">Sign out</a>
+      </div>
+    ) : configured ? (
+      <a class="btn btn-primary" href="/client/login">{t.client.login}</a>
+    ) : (
+      <div class="panel">
+        <p>{t.client.placeholder}</p>
+        <p class="muted">
+          Required env: AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_BASE_URL, SESSION_SECRET
+        </p>
+      </div>
+    )}
+  </div>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .client {
+    padding: 3rem 0 4rem;
+  }
+
+  .client h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.35rem 0 0.75rem;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    max-width: 36rem;
+  }
+
+  .panel {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: 12px;
+    max-width: 32rem;
+    background: var(--white);
+  }
+
+  .muted {
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+  }
+
+  .error {
+    color: var(--button-red);
+  }
+</style>

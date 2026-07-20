@@ -1,0 +1,198 @@
+---
+/**
+ * Cookie consent banner — ADA dialog, localStorage persistence, analytics gate.
+ * Storage key: cybercon-consent-v1 ("accept" | "decline")
+ */
+interface Props {
+  locale: 'en' | 'es';
+  title: string;
+  body: string;
+  acceptLabel: string;
+  declineLabel: string;
+  policyLabel: string;
+  policyHref?: string;
+}
+
+const {
+  locale,
+  title,
+  body,
+  acceptLabel,
+  declineLabel,
+  policyLabel,
+  policyHref = '/privacy/',
+} = Astro.props;
+---
+
+<div
+  id="cookie-banner"
+  class="cookie-banner"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cookie-title"
+  aria-describedby="cookie-desc"
+  hidden
+>
+  <div class="cookie-copy">
+    <strong id="cookie-title">{title}</strong>
+    <p id="cookie-desc">
+      {body}
+      {' '}
+      <a href={policyHref} id="cookie-policy-link">{policyLabel}</a>.
+    </p>
+  </div>
+  <div class="actions">
+    <button type="button" class="btn btn-primary" data-consent="accept" id="cookie-accept">
+      {acceptLabel}
+    </button>
+    <button type="button" class="btn btn-ghost" data-consent="decline" id="cookie-decline">
+      {declineLabel}
+    </button>
+  </div>
+</div>
+
+<script define:vars={{ locale }}>
+  const KEY = 'cybercon-consent-v1';
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  let previousFocus = null;
+
+  function getConsent() {
+    return localStorage.getItem(KEY);
+  }
+
+  function setConsent(value) {
+    localStorage.setItem(KEY, value);
+    window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value } }));
+  }
+
+  function showBanner() {
+    if (!banner) return;
+    previousFocus = document.activeElement;
+    banner.hidden = false;
+    acceptBtn?.focus();
+  }
+
+  function hideBanner() {
+    if (!banner) return;
+    banner.hidden = true;
+    if (previousFocus instanceof HTMLElement) previousFocus.focus();
+  }
+
+  function applyConsent(value) {
+    setConsent(value);
+    hideBanner();
+  }
+
+  if (banner && !getConsent()) {
+    showBanner();
+  } else if (getConsent() === 'accept') {
+    window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value: 'accept' } }));
+  }
+
+  banner?.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLButtonElement)) return;
+    const value = target.dataset.consent;
+    if (value === 'accept' || value === 'decline') applyConsent(value);
+  });
+
+  banner?.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !banner.hidden) {
+      applyConsent('decline');
+    }
+    if (event.key !== 'Tab' || banner.hidden) return;
+    const focusable = [acceptBtn, declineBtn, document.getElementById('cookie-policy-link')].filter(Boolean);
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  window.addEventListener('cybercon:cookie-settings', () => {
+    showBanner();
+  });
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    inset: auto 1rem 1rem 1rem;
+    z-index: 50;
+    background: var(--navy);
+    color: var(--secondary-dark);
+    border-radius: 12px;
+    padding: 1.125rem 1.25rem;
+    display: grid;
+    gap: 1rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    max-width: 42rem;
+  }
+
+  .cookie-banner[hidden] {
+    display: none !important;
+  }
+
+  .cookie-banner strong {
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+  }
+
+  .cookie-banner p {
+    margin: 0.4rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--secondary-dark);
+  }
+
+  .cookie-banner a {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .cookie-banner a:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .actions .btn {
+    min-height: 44px;
+    min-width: 7rem;
+  }
+
+  .actions .btn:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  @media (min-width: 720px) {
+    .cookie-banner {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      inset: auto auto 1.5rem 1.5rem;
+      width: min(640px, calc(100vw - 3rem));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cookie-banner {
+      transition: none;
+    }
+  }
+</style>

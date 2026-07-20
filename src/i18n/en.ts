@@ -1,0 +1,72 @@
+export const en = {
+  meta: {
+    title: 'Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions',
+    description:
+      'Managed IT, cybersecurity, cloud, and AI for South Florida businesses. Proactive by design. Secure by default.',
+  },
+  nav: {
+    client: 'Client area',
+    search: 'Search',
+    privacy: 'Privacy',
+  },
+  hero: {
+    eyebrow: 'Coming soon',
+    title: 'Your new IT department is being built.',
+    lede:
+      'The full site is under construction. While we finish, our team is already doing what we do best — preventing problems before they cost you. Tell us where to start.',
+    status: 'Proactive by design. Secure by default.',
+  },
+  form: {
+    title: 'Book a free assessment',
+    lede: 'No jargon, no obligation — just a clear read on where your technology stands.',
+    name: 'Full name',
+    company: 'Company name',
+    email: 'Work email',
+    submit: 'Request my free assessment',
+    microcopy:
+      'A real engineer replies within one business day. We never share your details.',
+    thanksTitle: 'Thanks, there.',
+    thanksBody:
+      "Your assessment request is in. We'll be in touch within one business day — no sales pressure, just clarity.",
+    namePlaceholder: 'Jordan Rivera',
+    companyPlaceholder: 'Rivera Logistics, Inc.',
+    emailPlaceholder: 'jordan@company.com',
+    error: 'Something went wrong. Please try again.',
+    turnstileError: 'Please complete the verification check.',
+  },
+  services: {
+    eyebrow: 'What we handle',
+    title: 'One partner for your entire technology stack.',
+    lede:
+      'Everything below is included and managed proactively, bundled into predictable per-user pricing — no break/fix surprises, no jargon. Full plans and pricing arrive with the new site.',
+  },
+  footer: {
+    area: 'Servicing Cooper City & Davie, Florida',
+    copyright: 'Copyright 2026 CYBERCON SOLUTIONS. All Rights Reserved.',
+    privacy: 'Privacy & Cookies',
+    cookies: 'Cookie settings',
+  },
+  search: {
+    title: 'Search',
+    lede: 'Find pages and services across the site.',
+  },
+  client: {
+    title: 'Client area',
+    lede: 'Sign in to view tickets, documents, and account details.',
+    login: 'Sign in',
+    logout: 'Sign out',
+    welcome: 'Welcome back',
+    dashboard: 'Your dashboard',
+    placeholder:
+      'This area will connect to your support portal. Auth0 is configured — add your tenant credentials to enable login.',
+  },
+  cookies: {
+    title: 'Cookies & privacy',
+    body: 'We use only strictly necessary cookies to run this site. With your consent we also use analytics to understand site traffic.',
+    accept: 'Accept analytics',
+    decline: 'Decline',
+    policy: 'Privacy & Cookie Policy',
+  },
+} as const;
+
+export type Messages = typeof en;

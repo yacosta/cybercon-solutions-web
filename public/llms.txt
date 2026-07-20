@@ -1,0 +1,44 @@
+# Cybercon Solutions
+
+> Managed IT, cybersecurity, cloud, and AI for South Florida businesses.
+> Proactive by design. Secure by default.
+
+## Site
+
+- Homepage: https://cybercon-solutions.com/
+- Spanish: https://cybercon-solutions.com/es/
+- Privacy: https://cybercon-solutions.com/privacy/
+- Search: https://cybercon-solutions.com/search/
+- Client area: https://cybercon-solutions.com/client/
+
+## Services
+
+- Managed IT Services
+- Cybersecurity & Compliance (HIPAA, SOC 2, PCI DSS, GLBA)
+- Cloud Services & Architecture (Microsoft 365, Google Workspace, Entra ID)
+- IT Consulting & Virtual CIO
+- Backup & Disaster Recovery
+- Structured Cabling & Communications
+- AI Consulting, Integration, and Conversational AI
+- Web Design & Development
+
+## Contact
+
+- Email: info@cybercon-solutions.com
+- Phone: 973-573-0007
+- Service area: Cooper City & Davie, Florida
+- Legal: Cybercon Solutions LLC, 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139
+
+## Agent discovery
+
+- Full text map: https://cybercon-solutions.com/llms-full.txt
+- API catalog: https://cybercon-solutions.com/.well-known/api-catalog
+- Auth for agents: https://cybercon-solutions.com/auth.md
+- MCP server card: https://cybercon-solutions.com/.well-known/mcp/server-card.json
+- OpenAPI: https://cybercon-solutions.com/openapi.json
+- Sitemap: https://cybercon-solutions.com/sitemap-index.xml
+- Markdown: request any page with `Accept: text/markdown`
+
+## Optional
+
+- DNS-AID: publish SVCB/HTTPS at `_index._agents.cybercon-solutions.com` pointing to this host (Cloudflare DNS)

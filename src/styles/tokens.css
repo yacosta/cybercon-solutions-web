@@ -1,0 +1,20 @@
+:root {
+  --navy: #0f2c4c;
+  --coral: #f26b5e;
+  --button-red: #c0453a;
+  --button-red-hover: #a83a31;
+  --cream: #f7f4f1;
+  --muted-blue: #8ca0b4;
+  --secondary-dark: #b7c4d1;
+  --body-muted: #5a6b7b;
+  --placeholder: #9aa6b0;
+  --border: #6b7a89;
+  --white: #ffffff;
+
+  --font-heading: 'Sora', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius-sm: 9px;
+  --radius-md: 11px;
+  --shadow-focus: 0 0 0 3px rgba(242, 107, 94, 0.16);
+}

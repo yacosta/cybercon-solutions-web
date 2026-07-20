@@ -1,0 +1,18 @@
+{
+  "resource": "https://cybercon-solutions.com/",
+  "resource_name": "Cybercon Solutions",
+  "resource_documentation": "https://cybercon-solutions.com/auth.md",
+  "authorization_servers": [
+    "https://cybercon-solutions.com"
+  ],
+  "scopes_supported": [
+    "openid",
+    "profile",
+    "email",
+    "assessment:write",
+    "mcp:tools"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}

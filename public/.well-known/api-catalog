@@ -1,0 +1,50 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://cybercon-solutions.com/api/assessment",
+      "service-desc": [
+        {
+          "href": "https://cybercon-solutions.com/openapi.json#/paths/~1api~1assessment",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://cybercon-solutions.com/auth.md",
+          "type": "text/markdown"
+        },
+        {
+          "href": "https://cybercon-solutions.com/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://cybercon-solutions.com/api/health"
+        }
+      ]
+    },
+    {
+      "anchor": "https://cybercon-solutions.com/api/health",
+      "service-desc": [
+        {
+          "href": "https://cybercon-solutions.com/openapi.json#/paths/~1api~1health",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://cybercon-solutions.com/",
+      "service-doc": [
+        {
+          "href": "https://cybercon-solutions.com/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://cybercon-solutions.com/privacy/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

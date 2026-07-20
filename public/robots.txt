@@ -1,0 +1,67 @@
+# As a condition of accessing this website, you agree to abide by the following
+# content signals:
+#
+# (a)  If a Content-Signal = yes, you may collect content for the corresponding use.
+# (b)  If a Content-Signal = no, you may not collect content for the corresponding use.
+# (c)  If the website operator does not include a Content-Signal for a corresponding use,
+#      the website operator neither grants nor restricts permission via Content-Signal
+#      with respect to that use.
+#
+# search:   building a search index and providing search results
+# ai-input: inputting content into AI models (RAG, grounding, generative answers)
+# ai-train: training or fine-tuning AI models
+
+User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+# Explicit AI bot rules (agent-ready / isitagentready.com)
+User-agent: GPTBot
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: ClaudeBot
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+User-agent: CCBot
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Content-Signal: search=yes,ai-input=yes,ai-train=no
+Allow: /
+
+Sitemap: https://cybercon-solutions.com/sitemap-index.xml

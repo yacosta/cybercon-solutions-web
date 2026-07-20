@@ -1,0 +1,36 @@
+// @ts-check
+import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://cybercon-solutions.com',
+  output: 'server',
+  adapter: cloudflare({
+    platformProxy: { enabled: true },
+    prerenderEnvironment: 'node',
+  }),
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en-US',
+          es: 'es-US',
+        },
+      },
+      filter: (page) =>
+        !page.includes('/client/') &&
+        !page.includes('/api/') &&
+        !page.includes('/search'),
+    }),
+  ],
+  prefetch: true,
+});

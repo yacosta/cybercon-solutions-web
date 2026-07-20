@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "crv": "Ed25519",
+      "x": "Hlg4aYLYLNjdZNZXKRNo7p3rXjoh5rxl0vK0j6aiJ_0",
+      "kty": "OKP",
+      "kid": "cybercon-web-bot-auth-1",
+      "use": "sig",
+      "alg": "EdDSA"
+    }
+  ]
+}

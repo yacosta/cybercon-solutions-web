@@ -1,0 +1,14 @@
+{
+  "skills": [
+    {
+      "name": "cybercon-services",
+      "description": "Summarize Cybercon Solutions managed IT, cybersecurity, cloud, and AI service offerings for South Florida businesses.",
+      "path": "/.well-known/agent-skills/cybercon-services/SKILL.md"
+    },
+    {
+      "name": "cybercon-assessment",
+      "description": "How to help a visitor request a free technology assessment from Cybercon Solutions.",
+      "path": "/.well-known/agent-skills/cybercon-assessment/SKILL.md"
+    }
+  ]
+}

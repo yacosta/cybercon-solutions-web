@@ -1,0 +1,66 @@
+---
+interface Props {
+  variant?: 'dark' | 'light';
+  href?: string;
+}
+
+const { variant = 'dark', href = '/' } = Astro.props;
+---
+
+<a href={href} class:list={['wordmark', variant]} aria-label="Cybercon Solutions home">
+  <img src="/favicon.svg" alt="" width="28" height="28" class="mark" decoding="async" />
+  <span class="name">CYBERCON</span>
+  <span class="dot" aria-hidden="true"></span>
+  <span class="sub">SOLUTIONS</span>
+</a>
+
+<style>
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    text-decoration: none;
+  }
+
+  .wordmark:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .mark {
+    border-radius: 6px;
+  }
+
+  .name,
+  .sub {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.3125rem;
+    letter-spacing: 0.02em;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    background: var(--coral);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  .wordmark.dark .name {
+    color: var(--white);
+  }
+
+  .wordmark.dark .sub {
+    color: var(--muted-blue);
+  }
+
+  .wordmark.light .name {
+    color: var(--navy);
+  }
+
+  .wordmark.light .sub {
+    color: var(--muted-blue);
+  }
+</style>

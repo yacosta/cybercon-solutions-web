@@ -1,0 +1,183 @@
+---
+import { turnstileSiteKey } from '../lib/turnstile';
+import { localePath, type Messages } from '../i18n';
+
+interface Props {
+  locale: string;
+  t: Messages;
+}
+
+const { locale, t } = Astro.props;
+const siteKey = turnstileSiteKey();
+const privacyHref = localePath(locale, '/privacy/');
+---
+
+<section class="capture" aria-labelledby="assessment-title">
+  <h2 id="assessment-title">{t.form.title}</h2>
+  <p class="lede">{t.form.lede}</p>
+
+  <form id="assessment-form" class="form" novalidate>
+    <div class="field">
+      <label for="full-name">{t.form.name}</label>
+      <input
+        id="full-name"
+        name="name"
+        type="text"
+        required
+        autocomplete="name"
+        placeholder={t.form.namePlaceholder}
+      />
+    </div>
+    <div class="field">
+      <label for="company-name">{t.form.company}</label>
+      <input
+        id="company-name"
+        name="company"
+        type="text"
+        required
+        autocomplete="organization"
+        placeholder={t.form.companyPlaceholder}
+      />
+    </div>
+    <div class="field">
+      <label for="work-email">{t.form.email}</label>
+      <input
+        id="work-email"
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        placeholder={t.form.emailPlaceholder}
+      />
+    </div>
+
+    {siteKey && (
+      <div class="turnstile-wrap">
+        <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+      </div>
+    )}
+
+    <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
+    <button type="submit" class="btn btn-primary">{t.form.submit}</button>
+    <p class="micro">
+      {t.form.microcopy}
+      {' '}
+      <a href={privacyHref}>{t.cookies.policy}</a>.
+    </p>
+  </form>
+
+  <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
+    <div class="check" aria-hidden="true">✓</div>
+    <h2>{t.form.thanksTitle}</h2>
+    <p>{t.form.thanksBody}</p>
+  </div>
+</section>
+
+{siteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+<script define:vars={{ locale, messages: t.form, requireTurnstile: Boolean(siteKey) }}>
+  const form = document.getElementById('assessment-form');
+  const thanks = document.getElementById('assessment-thanks');
+  const errorEl = document.getElementById('form-error');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement) || !thanks || !errorEl) return;
+
+    errorEl.hidden = true;
+    const data = new FormData(form);
+    const turnstile = form.querySelector('[name="cf-turnstile-response"]');
+    const turnstileToken = turnstile instanceof HTMLInputElement ? turnstile.value : '';
+
+    if (requireTurnstile && !turnstileToken) {
+      errorEl.textContent = messages.turnstileError;
+      errorEl.hidden = false;
+      return;
+    }
+
+    const response = await fetch('/api/assessment', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', accept: 'application/json' },
+      body: JSON.stringify({
+        name: String(data.get('name') ?? ''),
+        company: String(data.get('company') ?? ''),
+        email: String(data.get('email') ?? ''),
+        locale,
+        turnstileToken,
+      }),
+    });
+
+    if (!response.ok) {
+      errorEl.textContent = messages.error;
+      errorEl.hidden = false;
+      return;
+    }
+
+    form.hidden = true;
+    thanks.hidden = false;
+    thanks.focus();
+  });
+</script>
+
+<style>
+  .capture {
+    background: var(--cream);
+    color: var(--navy);
+    padding: clamp(2rem, 4vw, 3rem);
+  }
+
+  .capture h2 {
+    font-size: 1.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .turnstile-wrap {
+    min-height: 1.5rem;
+  }
+
+  .micro {
+    font-size: 0.8125rem;
+    color: var(--body-muted);
+    margin: 0;
+  }
+
+  .micro a {
+    color: var(--navy);
+    text-decoration: underline;
+  }
+
+  .form-error {
+    color: var(--button-red);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .thanks {
+    display: grid;
+    gap: 0.75rem;
+    justify-items: start;
+  }
+
+  .check {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--coral);
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    font-size: 1.625rem;
+    font-weight: 700;
+  }
+</style>

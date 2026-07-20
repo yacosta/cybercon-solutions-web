@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getMessages, localePath } from '../i18n';
+import { privacyContent, type PrivacyLocale } from '../data/privacy';
+
+interface Props {
+  locale: PrivacyLocale;
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const p = privacyContent[locale];
+const path = localePath(locale, '/privacy/');
+---
+
+<BaseLayout
+  locale={locale}
+  title={p.metaTitle}
+  description={p.metaDescription}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: localePath(locale, '/') },
+    { name: p.title, path },
+  ]}
+>
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="privacy container" data-pagefind-body>
+    <header class="privacy-head">
+      <p class="eyebrow">{locale === 'es' ? 'Legal' : 'Legal'}</p>
+      <h1>{p.title}</h1>
+      <p class="updated">{p.lastUpdated}</p>
+    </header>
+
+    <p class="lead">{p.intro}</p>
+
+    <section aria-labelledby="controller-heading">
+      <h2 id="controller-heading">{p.controllerHeading}</h2>
+      <p>{p.controller}</p>
+    </section>
+
+    {p.sections.map((section, i) => (
+      <section aria-labelledby={`privacy-s-${i}`}>
+        <h2 id={`privacy-s-${i}`}>{section.heading}</h2>
+        {'body' in section && section.body && <p>{section.body}</p>}
+        {'blocks' in section &&
+          section.blocks?.map((block) => (
+            <>
+              <h3>{block.sub}</h3>
+              <p>{block.body}</p>
+            </>
+          ))}
+        {'list' in section && section.list && (
+          <ul>
+            {section.list.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+        {'table' in section && section.table && (
+          <div class="table-wrap" role="region" aria-label={section.heading} tabindex="0">
+            <table>
+              <thead>
+                <tr>
+                  {section.table.headers.map((h) => (
+                    <th scope="col">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {section.table.rows.map((row) => (
+                  <tr>
+                    {row.map((cell) => (
+                      <td>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {'after' in section && section.after && <p>{section.after}</p>}
+      </section>
+    ))}
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .privacy {
+    padding: 2rem 0 4rem;
+    color: var(--body-muted);
+  }
+
+  .privacy-head {
+    margin-bottom: 1.5rem;
+  }
+
+  .privacy h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--navy);
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .updated {
+    font-size: 0.875rem;
+    color: var(--muted-blue);
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: var(--navy);
+    max-width: 42rem;
+  }
+
+  .privacy section {
+    margin-top: 2rem;
+    max-width: 46rem;
+  }
+
+  .privacy h2 {
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .privacy h3 {
+    font-size: 1rem;
+    color: var(--navy);
+    margin: 1rem 0 0.4rem;
+  }
+
+  .privacy ul {
+    padding-left: 1.25rem;
+  }
+
+  .privacy li + li {
+    margin-top: 0.35rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 1rem 0;
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: 8px;
+  }
+
+  .table-wrap:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.75rem 0.875rem;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.1);
+    vertical-align: top;
+  }
+
+  th {
+    background: var(--cream);
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  code {
+    font-size: 0.8125rem;
+    background: var(--cream);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    color: var(--navy);
+  }
+</style>

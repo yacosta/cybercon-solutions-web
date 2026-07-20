@@ -1,0 +1,70 @@
+---
+export const prerender = true;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import AssessmentForm from '../../components/AssessmentForm.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
+import { getMessages } from '../../i18n';
+
+const locale = 'es' as const;
+const t = getMessages(locale);
+---
+
+<BaseLayout locale={locale} path="/es/">
+  <link slot="head" rel="preload" as="image" href="/videos/hero-poster.jpg" fetchpriority="high" />
+
+  <div slot="header" class="hero-shell">
+    <Header locale={locale} t={t} variant="dark" />
+  </div>
+
+  <Hero locale={locale} t={t} />
+
+  <div class="split">
+    <div class="form-panel">
+      <AssessmentForm locale={locale} t={t} />
+    </div>
+  </div>
+
+  <ServicesGrid
+    locale={locale}
+    eyebrow={t.services.eyebrow}
+    title={t.services.title}
+    lede={t.services.lede}
+  />
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .hero-shell {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 3;
+  }
+
+  .split {
+    background: var(--cream);
+  }
+
+  .form-panel {
+    width: min(560px, 100%);
+    margin: 0 auto;
+  }
+
+  @media (min-width: 960px) {
+    .form-panel {
+      margin: 0;
+      margin-left: auto;
+      margin-right: max(1.25rem, calc((100% - 1120px) / 2));
+      width: min(480px, 42%);
+      margin-top: -8rem;
+      position: relative;
+      z-index: 2;
+      background: var(--cream);
+      border-radius: 12px 0 0 0;
+      box-shadow: 0 -12px 40px rgba(15, 44, 76, 0.12);
+    }
+  }
+</style>

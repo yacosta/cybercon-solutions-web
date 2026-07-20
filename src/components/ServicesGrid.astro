@@ -1,0 +1,90 @@
+---
+import { services } from '../data/services';
+
+interface Props {
+  locale: 'en' | 'es';
+  eyebrow: string;
+  title: string;
+  lede: string;
+}
+
+const { locale, eyebrow, title, lede } = Astro.props;
+---
+
+<section class="services" aria-labelledby="services-title">
+  <div class="container">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2 id="services-title">{title}</h2>
+    <p class="sub">{lede}</p>
+    <div class="grid" data-pagefind-body>
+      {services.map((service) => (
+        <article class="card">
+          <p class="num" aria-hidden="true">{service.id}</p>
+          <h3>{service.title[locale]}</h3>
+          <ul>
+            {service.items.map((item) => (
+              <li>{item[locale]}</li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: var(--white);
+    padding: clamp(3rem, 6vw, 5rem) 0;
+  }
+
+  .services h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0.75rem;
+    color: var(--navy);
+  }
+
+  .sub {
+    color: var(--body-muted);
+    max-width: 36rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: var(--radius-md);
+    padding: 1.125rem 1.25rem;
+  }
+
+  .num {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--coral);
+    margin: 0 0 0.35rem;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.65rem;
+    color: var(--navy);
+  }
+
+  .card ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+  }
+
+  .card li + li {
+    margin-top: 0.35rem;
+  }
+</style>

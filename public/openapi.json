@@ -1,0 +1,70 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Cybercon Solutions Public API",
+    "version": "1.0.0",
+    "description": "Public HTTP endpoints for the Cybercon Solutions website.",
+    "contact": {
+      "name": "Cybercon Solutions",
+      "email": "info@cybercon-solutions.com",
+      "url": "https://cybercon-solutions.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://cybercon-solutions.com"
+    }
+  ],
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Health check",
+        "operationId": "getHealth",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": { "type": "boolean" },
+                    "service": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/assessment": {
+      "post": {
+        "summary": "Submit free assessment request",
+        "operationId": "postAssessment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "company", "email"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "company": { "type": "string" },
+                  "email": { "type": "string", "format": "email" },
+                  "locale": { "type": "string", "enum": ["en", "es"] },
+                  "turnstileToken": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Accepted" },
+          "400": { "description": "Validation or Turnstile failure" }
+        }
+      }
+    }
+  }
+}

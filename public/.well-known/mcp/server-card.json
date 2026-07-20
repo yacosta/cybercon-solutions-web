@@ -1,0 +1,29 @@
+{
+  "serverInfo": {
+    "name": "cybercon-solutions",
+    "title": "Cybercon Solutions MCP",
+    "version": "1.0.0"
+  },
+  "description": "Read-oriented MCP tools for Cybercon Solutions public site content: services, contact discovery, and assessment intake metadata.",
+  "url": "https://cybercon-solutions.com/mcp",
+  "endpoint": "https://cybercon-solutions.com/mcp",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://cybercon-solutions.com/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "authentication": {
+    "required": false
+  },
+  "documentationUrl": "https://cybercon-solutions.com/auth.md",
+  "icons": [
+    {
+      "src": "https://cybercon-solutions.com/favicon.svg",
+      "mimeType": "image/svg+xml"
+    }
+  ]
+}
