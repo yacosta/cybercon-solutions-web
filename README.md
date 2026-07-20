@@ -55,6 +55,24 @@ npx wrangler deploy
 # or: npm run deploy   # build + deploy
 ```
 
+### CI/CD: GitHub Actions → Cloudflare Workers
+
+This repo ships two workflows in `.github/workflows/`:
+
+| Workflow | Trigger | What it does |
+|----------|---------|--------------|
+| `ci.yml` | Pull requests to `main`, pushes to non-`main` branches | `npm ci` → `npm run build` → `wrangler deploy --dry-run` (bundles the Worker, no Cloudflare credentials needed) |
+| `deploy.yml` | Pushes to `main`, manual `workflow_dispatch` | `npm ci` → `npm run build` → `wrangler deploy` (production) |
+
+Add these **GitHub repository secrets** (Settings → Secrets and variables → Actions) for `deploy.yml`:
+
+| Secret | Notes |
+|--------|--------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions |
+| `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID |
+
+Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
+
 ### Environment variables (Workers → Settings → Variables and Secrets)
 
 | Variable | Required | Notes |
