@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { attioConfigured, createAssessmentProspect } from '../../lib/attio';
 import { verifyTurnstile } from '../../lib/turnstile';
 
 export const prerender = false;
@@ -21,6 +22,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const name = body.name?.trim() ?? '';
   const company = body.company?.trim() ?? '';
   const email = body.email?.trim() ?? '';
+  const locale = body.locale ?? 'en';
   const turnstileToken = body.turnstileToken?.trim() ?? '';
 
   if (!name || !company || !email) {
@@ -40,6 +42,16 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+  let delivered = false;
+
+  if (attioConfigured()) {
+    const prospectOk = await createAssessmentProspect({ name, company, email, locale });
+    if (!prospectOk) {
+      return Response.json({ error: 'CRM delivery failed' }, { status: 502 });
+    }
+    delivered = true;
+  }
+
   if (accessKey) {
     const formRes = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -51,14 +63,22 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         name,
         company,
         email,
-        locale: body.locale ?? 'en',
+        locale,
       }),
     });
     if (!formRes.ok) {
-      return Response.json({ error: 'Delivery failed' }, { status: 502 });
+      // If Attio already stored the prospect, don't fail the user on email delivery.
+      if (!delivered) {
+        return Response.json({ error: 'Delivery failed' }, { status: 502 });
+      }
+      console.error('[assessment] web3forms failed after Attio success', formRes.status);
+    } else {
+      delivered = true;
     }
-  } else {
-    console.log('[assessment]', { name, company, email, locale: body.locale });
+  }
+
+  if (!delivered) {
+    console.log('[assessment]', { name, company, email, locale });
   }
 
   return Response.json({ ok: true });

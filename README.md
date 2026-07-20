@@ -61,7 +61,9 @@ npx wrangler deploy
 |----------|----------|--------|
 | `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key |
 | `TURNSTILE_SECRET_KEY` | Yes (prod forms) | Turnstile secret |
-| `WEB3FORMS_ACCESS_KEY` | Recommended | Delivers assessment emails |
+| `WEB3FORMS_ACCESS_KEY` | Optional | Email alert for assessment submissions |
+| `ATTIO_API_KEY` | Recommended | Upserts form submitters to Attio as People/Companies (prospects) |
+| `ATTIO_PROSPECTS_LIST_ID` | Optional | Attio People list ID/slug to add each prospect into |
 | `PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 ID; loads only after Accept analytics |
 | `AUTH0_DOMAIN` | For client area | e.g. `your-tenant.auth0.com` |
 | `AUTH0_CLIENT_ID` | For client area | |
