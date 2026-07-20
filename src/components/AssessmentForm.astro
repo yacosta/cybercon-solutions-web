@@ -173,14 +173,14 @@ const privacyHref = localePath(locale, '/privacy/');
   }
 
   .form .btn-primary {
-    grid-column: 1 / -1;
-    justify-self: start;
-    width: auto;
-    min-width: min(100%, 22rem);
+    grid-column: 3;
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
   }
 
   .micro {
-    grid-column: 1 / -1;
+    grid-column: 3;
     font-size: 0.8125rem;
     color: var(--body-muted);
     margin: 0;
@@ -220,9 +220,9 @@ const privacyHref = localePath(locale, '/privacy/');
       grid-template-columns: 1fr;
     }
 
-    .form .btn-primary {
-      width: 100%;
-      min-width: 0;
+    .form .btn-primary,
+    .micro {
+      grid-column: 1;
     }
   }
 </style>
