@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import cloudflare from '@astrojs/cloudflare';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://cybercon-solutions.com',
@@ -33,4 +34,7 @@ export default defineConfig({
     }),
   ],
   prefetch: true,
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

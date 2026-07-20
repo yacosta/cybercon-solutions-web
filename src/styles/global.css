@@ -1,3 +1,16 @@
+/*
+ * Tailwind CSS v4 (via @tailwindcss/vite).
+ * Preflight (Tailwind's base reset) is intentionally omitted: this site ships
+ * its own hand-authored reset/design below and some headings rely on
+ * browser-default sizing, which Preflight would collapse. Importing only the
+ * theme + utilities layers makes every Tailwind utility class available while
+ * leaving the existing design untouched. To adopt Tailwind's full reset later,
+ * replace the three lines below with: @import "tailwindcss";
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
 @import './tokens.css';
 
 *,
