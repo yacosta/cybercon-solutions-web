@@ -13,63 +13,65 @@ const privacyHref = localePath(locale, '/privacy/');
 ---
 
 <section class="capture" aria-labelledby="assessment-title">
-  <h2 id="assessment-title">{t.form.title}</h2>
-  <p class="lede">{t.form.lede}</p>
+  <div class="container">
+    <h2 id="assessment-title">{t.form.title}</h2>
+    <p class="lede">{t.form.lede}</p>
 
-  <form id="assessment-form" class="form" novalidate>
-    <div class="field">
-      <label for="full-name">{t.form.name}</label>
-      <input
-        id="full-name"
-        name="name"
-        type="text"
-        required
-        autocomplete="name"
-        placeholder={t.form.namePlaceholder}
-      />
-    </div>
-    <div class="field">
-      <label for="company-name">{t.form.company}</label>
-      <input
-        id="company-name"
-        name="company"
-        type="text"
-        required
-        autocomplete="organization"
-        placeholder={t.form.companyPlaceholder}
-      />
-    </div>
-    <div class="field">
-      <label for="work-email">{t.form.email}</label>
-      <input
-        id="work-email"
-        name="email"
-        type="email"
-        required
-        autocomplete="email"
-        placeholder={t.form.emailPlaceholder}
-      />
-    </div>
-
-    {siteKey && (
-      <div class="turnstile-wrap">
-        <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+    <form id="assessment-form" class="form" novalidate>
+      <div class="field">
+        <label for="full-name">{t.form.name}</label>
+        <input
+          id="full-name"
+          name="name"
+          type="text"
+          required
+          autocomplete="name"
+          placeholder={t.form.namePlaceholder}
+        />
       </div>
-    )}
+      <div class="field">
+        <label for="company-name">{t.form.company}</label>
+        <input
+          id="company-name"
+          name="company"
+          type="text"
+          required
+          autocomplete="organization"
+          placeholder={t.form.companyPlaceholder}
+        />
+      </div>
+      <div class="field">
+        <label for="work-email">{t.form.email}</label>
+        <input
+          id="work-email"
+          name="email"
+          type="email"
+          required
+          autocomplete="email"
+          placeholder={t.form.emailPlaceholder}
+        />
+      </div>
 
-    <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
-    <button type="submit" class="btn btn-primary">{t.form.submit}</button>
-    <p class="micro">
-      {t.form.microcopy}
-      {' '}
-      <a href={privacyHref}>{t.cookies.policy}</a>.
-    </p>
-  </form>
+      {siteKey && (
+        <div class="turnstile-wrap">
+          <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+        </div>
+      )}
 
-  <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
-    <div class="check" aria-hidden="true">✓</div>
-    <h2>{t.form.thanksTitle}</h2>
-    <p>{t.form.thanksBody}</p>
+      <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
+      <button type="submit" class="btn btn-primary">{t.form.submit}</button>
+      <p class="micro">
+        {t.form.microcopy}
+        {' '}
+        <a href={privacyHref}>{t.cookies.policy}</a>.
+      </p>
+    </form>
+
+    <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
+      <div class="check" aria-hidden="true">✓</div>
+      <h2>{t.form.thanksTitle}</h2>
+      <p>{t.form.thanksBody}</p>
+    </div>
   </div>
 </section>
 
@@ -123,18 +125,24 @@ const privacyHref = localePath(locale, '/privacy/');
   .capture {
     background: var(--cream);
     color: var(--navy);
-    padding: clamp(2rem, 4vw, 3rem);
+    padding: clamp(3rem, 6vw, 5rem) 0;
   }
 
   .capture h2 {
-    font-size: 1.625rem;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
     margin-bottom: 0.5rem;
   }
 
   .lede {
     color: var(--body-muted);
-    font-size: 0.9375rem;
+    font-size: 1rem;
+    max-width: 36rem;
     margin-bottom: 1.75rem;
+  }
+
+  .form,
+  .thanks {
+    max-width: 28rem;
   }
 
   .form {

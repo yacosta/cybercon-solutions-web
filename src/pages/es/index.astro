@@ -21,18 +21,14 @@ const t = getMessages(locale);
 
   <Hero locale={locale} t={t} />
 
-  <div class="split">
-    <div class="form-panel">
-      <AssessmentForm locale={locale} t={t} />
-    </div>
-  </div>
-
   <ServicesGrid
     locale={locale}
     eyebrow={t.services.eyebrow}
     title={t.services.title}
     lede={t.services.lede}
   />
+
+  <AssessmentForm locale={locale} t={t} />
 
   <Footer slot="footer" locale={locale} t={t} />
 </BaseLayout>
@@ -42,29 +38,5 @@ const t = getMessages(locale);
     position: absolute;
     inset: 0 0 auto 0;
     z-index: 3;
-  }
-
-  .split {
-    background: var(--cream);
-  }
-
-  .form-panel {
-    width: min(560px, 100%);
-    margin: 0 auto;
-  }
-
-  @media (min-width: 960px) {
-    .form-panel {
-      margin: 0;
-      margin-left: auto;
-      margin-right: max(1.25rem, calc((100% - 1120px) / 2));
-      width: min(480px, 42%);
-      margin-top: -8rem;
-      position: relative;
-      z-index: 2;
-      background: var(--cream);
-      border-radius: 12px 0 0 0;
-      box-shadow: 0 -12px 40px rgba(15, 44, 76, 0.12);
-    }
   }
 </style>
