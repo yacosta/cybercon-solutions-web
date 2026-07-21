@@ -31,7 +31,8 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/client/') &&
         !page.includes('/api/') &&
-        !page.includes('/search'),
+        !page.includes('/search') &&
+        !page.includes('/404'),
     }),
   ],
   prefetch: true,
