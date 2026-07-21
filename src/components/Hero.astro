@@ -33,8 +33,8 @@ const assessmentHref = '#assessment';
       class="hero-poster"
       src={posterSrc}
       alt={videoLabel}
-      width="1920"
-      height="1080"
+      width="1280"
+      height="800"
       fetchpriority="high"
       decoding="async"
     />
@@ -119,6 +119,8 @@ const assessmentHref = '#assessment';
     height: 100%;
     max-width: none;
     object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1280 / 800;
   }
 
   .hero-overlay {

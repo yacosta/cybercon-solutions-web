@@ -89,4 +89,23 @@ export const es: Messages = {
     decline: 'Rechazar',
     policy: 'Política de Privacidad y Cookies',
   },
+  notFound: {
+    title: 'Página no encontrada | Cybercon Solutions',
+    description:
+      'Esa página no existe. Explora servicios de TI administrada y ciberseguridad en el Sur de Florida, o solicita una evaluación gratuita.',
+    kicker: '404',
+    heading: 'Página no encontrada',
+    lede: 'Ese enlace no coincide con una página de este sitio. Prueba una de estas opciones o vuelve al inicio.',
+    home: 'Ir al inicio',
+    services: 'Ver servicios',
+    assessment: 'Solicitar evaluación gratuita',
+    privacy: 'Privacidad y cookies',
+    search: 'Buscar en el sitio',
+    popular: 'Páginas populares',
+    languages: 'Idioma',
+    homeEn: 'Inicio en inglés',
+    homeEs: 'Inicio en español',
+    otherLocale: 'English',
+    otherLocaleHref: '/',
+  },
 };

@@ -87,6 +87,25 @@ export const en = {
     decline: 'Decline',
     policy: 'Privacy & Cookie Policy',
   },
+  notFound: {
+    title: 'Page not found | Cybercon Solutions',
+    description:
+      'That page does not exist. Explore managed IT and cybersecurity services for South Florida, or book a free assessment.',
+    kicker: '404',
+    heading: 'Page not found',
+    lede: 'That link does not match a page on this site. Try one of these instead, or go back home.',
+    home: 'Go to homepage',
+    services: 'Browse services',
+    assessment: 'Book a free assessment',
+    privacy: 'Privacy & Cookies',
+    search: 'Search the site',
+    popular: 'Popular pages',
+    languages: 'Language',
+    homeEn: 'English homepage',
+    homeEs: 'Spanish homepage',
+    otherLocale: 'Español',
+    otherLocaleHref: '/es/',
+  },
 } as const;
 
 export type Messages = typeof en;

@@ -2,14 +2,16 @@
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"name": "cybercon-solutions-web",
 	"compatibility_date": "2026-07-20",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	// Keep plaintext vars set in the Cloudflare dashboard across deploys.
 	// Without this, `wrangler deploy` deletes dashboard Text vars (secrets are kept).
 	"keep_vars": true,
 	"assets": {
 		"binding": "ASSETS",
-		"directory": "./dist"
+		"directory": "./dist",
+		// Serve prerendered 404.html for unknown static routes.
+		"not_found_handling": "404-page"
 	},
 	"observability": {
 		"enabled": true
