@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions',
     description:
-      'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Proactivos por diseño. Seguros por defecto.',
+      'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Trabajamos de forma proactiva y tomamos la seguridad como base.',
   },
   nav: {
     client: 'Área de clientes',
@@ -22,7 +22,7 @@ export const es: Messages = {
     eyebrow: 'Cooper City y Davie, Florida',
     title: 'Tu departamento de TI, sin la sobrecarga.',
     lede:
-      'TI administrada, ciberseguridad, nube e IA: proactivos por diseño, seguros por defecto. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
+      'TI administrada, ciberseguridad, nube e IA: nos adelantamos a los problemas y tomamos la seguridad como base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
     status: 'Al servicio de empresas del sur de Florida',
     cta: 'Solicita una evaluación gratuita',
   },
@@ -48,12 +48,12 @@ export const es: Messages = {
     eyebrow: 'Lo que gestionamos',
     title: 'Un solo aliado para toda tu tecnología.',
     lede:
-      'Todo lo siguiente se gestiona de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.',
+      'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.',
     learnMore: 'Saber más',
   },
   servicePage: {
     back: 'Todos los servicios',
-    ctaTitle: '¿Quieres una lectura clara de tu stack?',
+    ctaTitle: '¿Quieres ver con claridad cómo está tu tecnología?',
     ctaBody: 'Solicita una evaluación gratuita. Un ingeniero real responde en un día hábil.',
     cta: 'Solicita una evaluación gratuita',
   },

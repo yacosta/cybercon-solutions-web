@@ -13,16 +13,16 @@ function servicesMarkdown(locale: 'en' | 'es'): string {
 const pages: Record<string, string> = {
   '/': `---
 title: "Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions"
-description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. Proactive by design. Secure by default."
+description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We work proactively, and security is the default."
 ---
 
 # Cybercon Solutions
 
 Your IT department, without the overhead.
 
-Managed IT, cybersecurity, cloud, and AI — proactive by design, secure by default. Tell us where to start and a real engineer will follow up within one business day.
+Managed IT, cybersecurity, cloud, and AI — we stay ahead of problems, and security is the default. Tell us where to start and a real engineer will follow up within one business day.
 
-**Proactive by design. Secure by default.**
+**We work proactively, and security is the default.**
 
 ## Book a free assessment
 
@@ -32,7 +32,7 @@ Submit name, company, and work email via the form on https://cybercon-solutions.
 
 ## What we handle
 
-One partner for your entire technology stack. Everything below is managed proactively and bundled into predictable per-user pricing — no break/fix surprises, no jargon.
+One partner for all of your technology. We manage everything below proactively, with predictable per-user pricing — no break/fix surprises, no jargon.
 
 ${servicesMarkdown('en')}
 
@@ -42,16 +42,16 @@ info@cybercon-solutions.com · 973-573-0007 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions"
-description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Proactivos por diseño. Seguros por defecto."
+description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Trabajamos de forma proactiva y tomamos la seguridad como base."
 ---
 
 # Cybercon Solutions
 
 Tu departamento de TI, sin la sobrecarga.
 
-TI administrada, ciberseguridad, nube e IA: proactivos por diseño, seguros por defecto. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
+TI administrada, ciberseguridad, nube e IA: nos adelantamos a los problemas y tomamos la seguridad como base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
 
-**Proactivos por diseño. Seguros por defecto.**
+**Trabajamos de forma proactiva y tomamos la seguridad como base.**
 
 ## Solicita una evaluación gratuita
 
@@ -61,7 +61,7 @@ Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-
 
 ## Lo que gestionamos
 
-Un solo aliado para toda tu tecnología. Todo lo siguiente se gestiona de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.
+Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.
 
 ${servicesMarkdown('es')}
 

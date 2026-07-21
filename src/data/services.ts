@@ -44,9 +44,10 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Advanced Endpoint Protection — EDR/XDR, firewalls, and multi-layered threat detection.',
-        es: 'Protección avanzada de endpoints — EDR/XDR, firewalls y detección en múltiples capas.',
+        en: 'Advanced Endpoint Protection — EDR/XDR, firewalls, and threat detection across layers.',
+        es: 'Protección avanzada de endpoints — EDR/XDR, firewalls y detección de amenazas en varias capas.',
       },
+
       {
         en: 'Managed IT Security — 24/7 SOC monitoring, SIEM logging, and incident response.',
         es: 'Seguridad de TI administrada — monitoreo SOC 24/7, SIEM y respuesta a incidentes.',
@@ -169,9 +170,10 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'AI Chatbots — routine questions handled, support elevated.',
-        es: 'Chatbots de IA — consultas rutinarias resueltas, soporte elevado.',
+        en: 'AI Chatbots — routine questions handled so human support can focus on exceptions.',
+        es: 'Chatbots de IA — resuelven lo rutinario para que el soporte humano se centre en las excepciones.',
       },
+
     ],
   },
   {

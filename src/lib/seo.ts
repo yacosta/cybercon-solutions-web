@@ -19,7 +19,7 @@ export function organizationJsonLd() {
     slogan: site.slogan,
     priceRange: '$$',
     description:
-      'Proactive, security-first managed IT services for growing organizations — endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate.',
+      'Proactive managed IT for growing organizations, with security as the default — endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,

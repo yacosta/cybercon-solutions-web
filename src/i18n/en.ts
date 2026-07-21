@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions',
     description:
-      'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. Proactive by design. Secure by default.',
+      'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We work proactively, and security is the default.',
   },
   nav: {
     client: 'Client area',
@@ -20,7 +20,7 @@ export const en = {
     eyebrow: 'Cooper City & Davie, Florida',
     title: 'Your IT department, without the overhead.',
     lede:
-      'Managed IT, cybersecurity, cloud, and AI — proactive by design, secure by default. Tell us where to start and a real engineer will follow up within one business day.',
+      'Managed IT, cybersecurity, cloud, and AI — we stay ahead of problems, and security is the default. Tell us where to start and a real engineer will follow up within one business day.',
     status: 'Serving South Florida businesses',
     cta: 'Book a free assessment',
   },
@@ -44,19 +44,19 @@ export const en = {
   },
   services: {
     eyebrow: 'What we handle',
-    title: 'One partner for your entire technology stack.',
+    title: 'One partner for all of your technology.',
     lede:
-      'Everything below is managed proactively and bundled into predictable per-user pricing — no break/fix surprises, no jargon.',
+      'We manage everything below proactively, with predictable per-user pricing — no break/fix surprises, no jargon.',
     learnMore: 'Learn more',
   },
   servicePage: {
     back: 'All services',
-    ctaTitle: 'Ready for a clear read on your stack?',
+    ctaTitle: 'Want a clear picture of where your tech stands?',
     ctaBody: 'Book a free assessment. A real engineer replies within one business day.',
     cta: 'Book a free assessment',
   },
   footer: {
-    area: 'Servicing Cooper City & Davie, Florida',
+    area: 'Serving Cooper City & Davie, Florida',
     copyright: 'Copyright 2026 CYBERCON SOLUTIONS. All Rights Reserved.',
     privacy: 'Privacy & Cookies',
     cookies: 'Cookie settings',
