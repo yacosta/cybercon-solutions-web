@@ -27,7 +27,8 @@ export const site = {
     'Cloud services',
     'AI consulting',
   ],
-  ogImage: '/og-image.png',
+  /** JPEG keeps broad social-crawler compatibility while staying much smaller than PNG. */
+  ogImage: '/og-image-social.jpg',
   social: {
     linkedin: 'https://www.linkedin.com/company/cybercon-solutions',
   },

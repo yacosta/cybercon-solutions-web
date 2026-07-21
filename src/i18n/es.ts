@@ -20,9 +20,9 @@ export const es: Messages = {
   },
   hero: {
     eyebrow: 'Cooper City y Davie, Florida',
-    title: 'Tu departamento de TI, sin la sobrecarga.',
+    title: 'TI administrada en el Sur de Florida, sin la sobrecarga.',
     lede:
-      'TI administrada, ciberseguridad, nube e IA. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
+      'TI administrada, ciberseguridad, nube e IA para empresas en Cooper City y Davie. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
     status: 'Atendemos a empresas del sur de Florida',
     cta: 'Solicita una evaluación gratuita',
   },
@@ -46,9 +46,9 @@ export const es: Messages = {
   },
   services: {
     eyebrow: 'Lo que gestionamos',
-    title: 'Un solo aliado para toda tu tecnología.',
+    title: 'TI administrada, ciberseguridad y nube en el Sur de Florida.',
     lede:
-      'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.',
+      'Gestionamos todo lo siguiente de forma proactiva para empresas en Cooper City y Davie, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.',
     learnMore: 'Saber más',
   },
   servicePage: {

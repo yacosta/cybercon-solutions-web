@@ -22,9 +22,9 @@ description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Co
 
 # Cybercon Solutions
 
-Your IT department, without the overhead.
+Managed IT in South Florida, without the overhead.
 
-Managed IT, cybersecurity, cloud, and AI. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.
+Managed IT, cybersecurity, cloud, and AI for Cooper City and Davie businesses. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.
 
 **We catch issues early and treat security as the baseline.**
 
@@ -36,7 +36,7 @@ Submit name, company, and work email via the form on https://cybercon-solutions.
 
 ## What we handle
 
-One partner for all of your technology. We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.
+Managed IT, cybersecurity, and cloud for South Florida. We manage everything below proactively for Cooper City and Davie businesses, with predictable per-user pricing. No break/fix surprises, and no jargon.
 
 ${servicesMarkdown('en')}
 
@@ -51,9 +51,9 @@ description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA
 
 # Cybercon Solutions
 
-Tu departamento de TI, sin la sobrecarga.
+TI administrada en el Sur de Florida, sin la sobrecarga.
 
-TI administrada, ciberseguridad, nube e IA. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
+TI administrada, ciberseguridad, nube e IA para empresas en Cooper City y Davie. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
 
 **Detectamos problemas a tiempo y tratamos la seguridad como la base.**
 
@@ -65,7 +65,7 @@ Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-
 
 ## Lo que gestionamos
 
-Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.
+TI administrada, ciberseguridad y nube en el Sur de Florida. Gestionamos todo lo siguiente de forma proactiva para empresas en Cooper City y Davie, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.
 
 ${servicesMarkdown('es')}
 

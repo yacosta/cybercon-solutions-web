@@ -15,6 +15,46 @@ const agentLinkHeader = [
   '</.well-known/mcp/server-card.json>; rel="mcp"',
 ].join(', ');
 
+/** Prefer https://cybercon-solutions.com/.../ over www / missing trailing slash. */
+const canonicalizeMiddleware = defineMiddleware(async (context, next) => {
+  const url = context.url;
+  const host = url.hostname.toLowerCase();
+
+  if (host.startsWith('www.')) {
+    const target = new URL(url);
+    target.protocol = 'https:';
+    target.hostname = host.slice(4);
+    return Response.redirect(target, 301);
+  }
+
+  const { pathname } = url;
+  const hasFileExtension = /\.[a-zA-Z0-9]{1,8}$/.test(pathname);
+  const skipTrailingSlash =
+    hasFileExtension ||
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/_astro/') ||
+    pathname.startsWith('/pagefind/') ||
+    pathname.startsWith('/cdn-cgi/');
+
+  if (!skipTrailingSlash && pathname !== '/' && !pathname.endsWith('/')) {
+    const target = new URL(url);
+    target.protocol = 'https:';
+    target.pathname = `${pathname}/`;
+    return Response.redirect(target, 301);
+  }
+
+  // Normalize bare apex URL (no trailing slash in the request URL) to canonical `/`.
+  const requestPath = context.request.url.split('?')[0] ?? '';
+  if (pathname === '/' && requestPath !== '' && !requestPath.endsWith('/')) {
+    const target = new URL(url);
+    target.protocol = 'https:';
+    target.pathname = '/';
+    return Response.redirect(target, 301);
+  }
+
+  return next();
+});
+
 const markdownMiddleware = defineMiddleware(async (context, next) => {
   const accept = context.request.headers.get('accept') ?? '';
   const mdIndex = accept.indexOf('text/markdown');
@@ -94,7 +134,7 @@ const authMiddleware = defineMiddleware(async (context, next) => {
   return next();
 });
 
-export const onRequest = sequence(markdownMiddleware, authMiddleware);
+export const onRequest = sequence(canonicalizeMiddleware, markdownMiddleware, authMiddleware);
 
 declare namespace App {
   interface Locals {
