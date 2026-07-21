@@ -3,8 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import type { Service } from '../data/services';
+import { getServiceDetails } from '../data/service-details';
 import { getMessages, localePath } from '../i18n';
-import { jsonLdScript, serviceJsonLd } from '../lib/seo';
+import { faqPageJsonLd, jsonLdScript, serviceJsonLd } from '../lib/seo';
 
 interface Props {
   locale: 'en' | 'es';
@@ -13,11 +14,17 @@ interface Props {
 
 const { locale, service } = Astro.props;
 const t = getMessages(locale);
+const details = getServiceDetails(service.slug);
+if (!details) {
+  throw new Error(`Missing service details for slug: ${service.slug}`);
+}
+
 const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
 const homePath = localePath(locale, '/');
-const title = `${service.title[locale]} | Cybercon Solutions`;
-const description = service.summary[locale];
+const title = details.metaTitle[locale];
+const description = details.metaDescription[locale];
 const assessmentHref = `${homePath}#assessment`;
+const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean);
 ---
 
 <BaseLayout
@@ -32,6 +39,7 @@ const assessmentHref = `${homePath}#assessment`;
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={jsonLdScript(serviceJsonLd(service, locale))} />
+    <script type="application/ld+json" set:html={jsonLdScript(faqPageJsonLd(details.faqs, locale))} />
   </Fragment>
 
   <Header slot="header" locale={locale} t={t} variant="light" />
@@ -41,11 +49,51 @@ const assessmentHref = `${homePath}#assessment`;
     <p class="num" aria-hidden="true">{service.id}</p>
     <h1>{service.title[locale]}</h1>
     <p class="lede">{service.summary[locale]}</p>
-    <ul>
-      {service.items.map((item) => (
-        <li>{item[locale]}</li>
+
+    <section class="block" aria-labelledby="audience-title">
+      <h2 id="audience-title">{t.servicePage.audienceTitle}</h2>
+      <p>{details.audience[locale]}</p>
+    </section>
+
+    <section class="block" aria-labelledby="overview-title">
+      <h2 id="overview-title" class="visually-hidden">
+        {locale === 'es' ? 'Descripción' : 'Overview'}
+      </h2>
+      {overviewParagraphs.map((paragraph) => (
+        <p>{paragraph}</p>
       ))}
-    </ul>
+    </section>
+
+    <section class="block" aria-labelledby="included-title">
+      <h2 id="included-title">{t.servicePage.includedTitle}</h2>
+      <ul>
+        {service.items.map((item) => (
+          <li>{item[locale]}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="process-title">
+      <h2 id="process-title">{t.servicePage.processTitle}</h2>
+      <ol class="process">
+        {details.process.map((step) => (
+          <li>
+            <h3>{step.title[locale]}</h3>
+            <p>{step.body[locale]}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="block faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">{t.servicePage.faqTitle}</h2>
+      {details.faqs.map((faq) => (
+        <details>
+          <summary>{faq.question[locale]}</summary>
+          <p>{faq.answer[locale]}</p>
+        </details>
+      ))}
+    </section>
 
     <section class="cta" aria-labelledby="service-cta-title">
       <h2 id="service-cta-title">{t.servicePage.ctaTitle}</h2>
@@ -85,17 +133,81 @@ const assessmentHref = `${homePath}#assessment`;
   .lede {
     color: var(--body-muted);
     font-size: 1.0625rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
   }
 
-  .service ul {
-    margin: 0 0 2.5rem;
+  .block {
+    margin: 0 0 2rem;
+  }
+
+  .block h2 {
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin: 0 0 0.75rem;
+  }
+
+  .block p {
+    color: var(--body-muted);
+    margin: 0 0 0.85rem;
+  }
+
+  .block ul {
+    margin: 0;
     padding-left: 1.15rem;
     color: var(--navy);
   }
 
-  .service li + li {
+  .block li + li {
     margin-top: 0.55rem;
+  }
+
+  .process {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .process h3 {
+    font-size: 1rem;
+    color: var(--navy);
+    margin: 0 0 0.35rem;
+  }
+
+  .process p {
+    margin: 0;
+  }
+
+  .faq details {
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+    padding: 0.85rem 0;
+  }
+
+  .faq details:last-of-type {
+    border-bottom: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .faq summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .faq details p {
+    margin: 0.65rem 0 0;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .cta {

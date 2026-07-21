@@ -2,7 +2,7 @@ import type { Messages } from './en';
 
 export const es: Messages = {
   meta: {
-    title: 'Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions',
+    title: 'TI y ciberseguridad en el Sur de Florida | Cybercon',
     description:
       'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base.',
   },
@@ -53,12 +53,17 @@ export const es: Messages = {
   },
   servicePage: {
     back: 'Todos los servicios',
+    audienceTitle: 'Para quién es',
+    includedTitle: 'Qué incluye',
+    processTitle: 'Cómo trabajamos',
+    faqTitle: 'Preguntas frecuentes',
     ctaTitle: '¿Quieres ver con claridad cómo está tu tecnología?',
     ctaBody: 'Solicita una evaluación gratuita. Un ingeniero real responde en un día hábil.',
     cta: 'Solicita una evaluación gratuita',
   },
   footer: {
     area: 'Servicio en Cooper City y Davie, Florida',
+    mailing: 'Dirección postal: Miami Beach, FL',
     copyright: 'Copyright 2026 CYBERCON SOLUTIONS. Todos los derechos reservados.',
     privacy: 'Privacidad y cookies',
     cookies: 'Configuración de cookies',

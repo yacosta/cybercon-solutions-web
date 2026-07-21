@@ -20,6 +20,8 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
         <span class="heart" role="img" aria-label={heartLabel}>&#10084;</span>
       </span>
       <span class="divider" aria-hidden="true">|</span>
+      <span class="mailing">{t.footer.mailing}</span>
+      <span class="divider" aria-hidden="true">|</span>
       {t.footer.copyright}
       <span class="divider" aria-hidden="true">|</span>
       <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>

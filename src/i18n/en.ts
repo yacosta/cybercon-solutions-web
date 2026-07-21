@@ -1,6 +1,6 @@
 export const en = {
   meta: {
-    title: 'Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions',
+    title: 'Managed IT & Cybersecurity in South Florida | Cybercon',
     description:
       'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline.',
   },
@@ -51,12 +51,17 @@ export const en = {
   },
   servicePage: {
     back: 'All services',
+    audienceTitle: 'Who it’s for',
+    includedTitle: 'What’s included',
+    processTitle: 'How we work',
+    faqTitle: 'FAQ',
     ctaTitle: 'Want a clear picture of where your tech stands?',
     ctaBody: 'Book a free assessment. A real engineer replies within one business day.',
     cta: 'Book a free assessment',
   },
   footer: {
     area: 'Serving Cooper City & Davie, Florida',
+    mailing: 'Mailing address: Miami Beach, FL',
     copyright: 'Copyright 2026 CYBERCON SOLUTIONS. All Rights Reserved.',
     privacy: 'Privacy & Cookies',
     cookies: 'Cookie settings',
