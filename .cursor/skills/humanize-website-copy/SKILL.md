@@ -45,6 +45,7 @@ Only touch files the user `@`d or clearly implied. If both EN and ES exist for t
 - One idea per sentence
 - Contractions where the site already uses them (`we'll`, `isn't`)
 - Specificity already present in the source (keep “one business day”, “per-user”, etc.)
+- Be more creative with the copy if needed to get the point across (still same meaning and claims)
 
 **Cut or rewrite**
 - Stacked adjectives and buzzword chains (“seamless end-to-end holistic solutions”)
@@ -52,6 +53,7 @@ Only touch files the user `@`d or clearly implied. If both EN and ES exist for t
 - Fake urgency or hype the source never stated
 - Parallel slogan spam that says the same thing three ways
 - Robotic symmetry (“We don’t just X. We Y.”) unless it already earns its keep
+- Avoid using — too much. Prefer commas, periods, colons, or a fresh sentence over em-dash stacks
 
 **Leave alone**
 - Brand name, product names, legal copy, form labels that are already plain
@@ -80,7 +82,7 @@ For each weak line, note the tell in one short phrase (e.g. “buzzword stack”
 
 ### 3. Rewrite
 
-Produce a drop-in replacement that a human would say. Keep the claim set identical.
+Produce a drop-in replacement that a human would say. Keep the claim set identical. Be more creative with the copy if needed to get the point across. Avoid using — too much.
 
 **Before → after test:** If you removed the brand name, would a competitor’s page still be able to use this sentence unchanged for a *different* claim set? If yes, you drifted — restore the original specifics.
 
