@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { attioConfigured } from '../../lib/attio';
+import { auth0Configured } from '../../lib/auth0';
 import { runtimeEnv } from '../../lib/env';
 
 export const prerender = false;
@@ -13,5 +14,6 @@ export const GET: APIRoute = async () => {
     attio: attioConfigured(),
     turnstile: Boolean(runtimeEnv('TURNSTILE_SECRET_KEY')),
     web3forms: Boolean(runtimeEnv('WEB3FORMS_ACCESS_KEY')),
+    auth0: auth0Configured(),
   });
 };

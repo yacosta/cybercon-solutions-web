@@ -30,7 +30,7 @@ const error = Astro.url.searchParams.get('error');
     {error && (
       <p class="error" role="alert">
         {error === 'auth0_not_configured'
-          ? 'Auth0 is not configured yet. Add credentials in Cloudflare Pages environment variables.'
+          ? 'Auth0 is not configured yet. Add AUTH0_* and SESSION_SECRET on the Cloudflare Worker (Variables and Secrets).'
           : 'Sign-in failed. Please try again.'}
       </p>
     )}

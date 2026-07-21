@@ -98,10 +98,37 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 
 Optional build variable: `NODE_VERSION=22`.
 
-**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` when that secret is set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM.
+**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"auth0": true` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
 
-Auth0 application callback URL: `https://cybercon-solutions.com/client/callback`  
-Logout return: `https://cybercon-solutions.com/client/`
+### Auth0 client area (`/client/`)
+
+The login UI and OAuth routes are already in the app. You only need an Auth0 Application + Worker secrets.
+
+1. In [Auth0 Dashboard](https://manage.auth0.com/) → **Applications → Applications → Create Application**
+   - Name: `Cybercon Solutions Web`
+   - Type: **Regular Web Application**
+2. On the app **Settings** tab, set:
+
+| Field | Value |
+|-------|--------|
+| **Allowed Callback URLs** | `https://cybercon-solutions.com/client/callback` (plus `http://localhost:4321/client/callback` for local) |
+| **Allowed Logout URLs** | `https://cybercon-solutions.com/client/` (plus `http://localhost:4321/client/`) |
+| **Allowed Web Origins** | `https://cybercon-solutions.com` (plus `http://localhost:4321`) |
+
+3. Copy **Domain**, **Client ID**, and **Client Secret** from that page.
+4. On Cloudflare → Workers → `cybercon-solutions-web` → **Settings → Variables and Secrets**, add:
+
+| Name | Type | Value |
+|------|------|--------|
+| `AUTH0_DOMAIN` | Text or Secret | e.g. `your-tenant.us.auth0.com` (no `https://`) |
+| `AUTH0_CLIENT_ID` | Text or Secret | from Auth0 |
+| `AUTH0_CLIENT_SECRET` | **Secret** | from Auth0 |
+| `AUTH0_BASE_URL` | Text | `https://cybercon-solutions.com` |
+| `SESSION_SECRET` | **Secret** | long random string (`openssl rand -base64 48`) |
+
+5. Confirm: `GET /api/health` → `"auth0": true`, then open `/client/` → **Sign in**.
+
+Optional: create a test user under Auth0 → **User Management → Users** if you are not using a social connection yet. Leave `AUTH0_AUDIENCE` empty unless you also configure an Auth0 API.
 
 ### DNS-AID (optional, Level 5 agent score)
 
