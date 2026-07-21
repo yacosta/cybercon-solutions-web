@@ -81,6 +81,8 @@ Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **
 
 Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets). The app reads them at runtime via `cloudflare:workers`.
 
+**Important:** Prefer **Secret** type for anything sensitive. Plaintext dashboard vars used to be wiped on each GitHub deploy; the Worker now uses `keep_vars` so plaintext vars persist. Secrets (like `ATTIO_API_KEY`) always persist.
+
 | Variable | Required | Notes |
 |----------|----------|--------|
 | `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key (also set as a **Build** var if you want it baked into prerendered HTML) |
@@ -123,8 +125,10 @@ The login UI and OAuth routes are already in the app. You only need an Auth0 App
 | `AUTH0_DOMAIN` | Text or Secret | e.g. `your-tenant.us.auth0.com` (no `https://`) |
 | `AUTH0_CLIENT_ID` | Text or Secret | from Auth0 |
 | `AUTH0_CLIENT_SECRET` | **Secret** | from Auth0 |
-| `AUTH0_BASE_URL` | Text | `https://cybercon-solutions.com` |
+| `AUTH0_BASE_URL` | Text or Secret | `https://cybercon-solutions.com` |
 | `SESSION_SECRET` | **Secret** | long random string (`openssl rand -base64 48`) |
+
+Re-add these after enabling `keep_vars` if a prior deploy cleared plaintext values. Then confirm `/api/health` → `"auth0": true`.
 
 5. Confirm: `GET /api/health` → `"auth0": true`, then open `/client/` → **Sign in**.
 
