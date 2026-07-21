@@ -18,9 +18,9 @@ export const en = {
   },
   hero: {
     eyebrow: 'Cooper City & Davie, Florida',
-    title: 'Your IT department, without the overhead.',
+    title: 'Managed IT in South Florida, without the overhead.',
     lede:
-      'Managed IT, cybersecurity, cloud, and AI. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.',
+      'Managed IT, cybersecurity, cloud, and AI for Cooper City and Davie businesses. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.',
     status: 'Serving South Florida businesses',
     cta: 'Book a free assessment',
   },
@@ -44,9 +44,9 @@ export const en = {
   },
   services: {
     eyebrow: 'What we handle',
-    title: 'One partner for all of your technology.',
+    title: 'Managed IT, cybersecurity, and cloud for South Florida.',
     lede:
-      'We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.',
+      'We manage everything below proactively for Cooper City and Davie businesses, with predictable per-user pricing. No break/fix surprises, and no jargon.',
     learnMore: 'Learn more',
   },
   servicePage: {

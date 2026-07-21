@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://cybercon-solutions.com',
   output: 'server',
+  trailingSlash: 'always',
   adapter: cloudflare({
     platformProxy: { enabled: true },
     // Default prerenderEnvironment is workerd so `cloudflare:workers` env

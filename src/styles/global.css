@@ -13,6 +13,13 @@
 
 @import './tokens.css';
 
+/* Self-hosted latin fonts — avoids render-blocking Google Fonts CSS. */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/sora/latin-600.css';
+@import '@fontsource/sora/latin-700.css';
+
 *,
 *::before,
 *::after {
@@ -107,6 +114,27 @@ p {
 .container {
   width: min(1120px, calc(100% - 2rem));
   margin-inline: auto;
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 0.9375rem;
+  }
+
+  .container {
+    width: min(1120px, calc(100% - 1.25rem));
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    width: 100%;
+  }
+}
+
+@media (min-width: 960px) {
+  body {
+    font-size: 1.03125rem;
+  }
 }
 
 .eyebrow {

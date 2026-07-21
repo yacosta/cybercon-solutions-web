@@ -5,6 +5,8 @@ interface Props {
   locale: 'en' | 'es';
   t: Messages;
   posterSrc?: string;
+  posterWebpSrc?: string;
+  posterAvifSrc?: string;
   videoSrc?: string;
 }
 
@@ -12,6 +14,8 @@ const {
   locale,
   t,
   posterSrc = '/videos/hero-poster.jpg',
+  posterWebpSrc = '/videos/hero-poster.webp',
+  posterAvifSrc = '/videos/hero-poster.avif',
   videoSrc = '/videos/hero-server-racks.webm',
 } = Astro.props;
 
@@ -29,15 +33,19 @@ const assessmentHref = '#assessment';
   aria-describedby="hero-lede"
 >
   <div class="hero-media">
-    <img
-      class="hero-poster"
-      src={posterSrc}
-      alt={videoLabel}
-      width="1920"
-      height="1080"
-      fetchpriority="high"
-      decoding="async"
-    />
+    <picture>
+      <source srcset={posterAvifSrc} type="image/avif" />
+      <source srcset={posterWebpSrc} type="image/webp" />
+      <img
+        class="hero-poster"
+        src={posterSrc}
+        alt={videoLabel}
+        width="1280"
+        height="800"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
     <video
       class="hero-video"
       muted
@@ -194,6 +202,19 @@ const assessmentHref = '#assessment';
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+  }
+
+  @media (max-width: 720px) {
+    .hero-content {
+      max-width: none;
+      padding-top: 6.5rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
