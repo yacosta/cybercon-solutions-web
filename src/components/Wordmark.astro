@@ -8,7 +8,14 @@ const { variant = 'dark', href = '/' } = Astro.props;
 ---
 
 <a href={href} class:list={['wordmark', variant]} aria-label="Cybercon Solutions home">
-  <img src="/favicon.svg" alt="Cybercon Solutions logo" width="28" height="28" class="mark" decoding="async" />
+  <img
+    src="/favicon.svg"
+    alt="Cybercon Solutions logo"
+    width="32"
+    height="32"
+    class="mark"
+    decoding="async"
+  />
   <span class="name">CYBERCON</span>
   <span class="dot" aria-hidden="true"></span>
   <span class="sub">SOLUTIONS</span>
@@ -29,6 +36,8 @@ const { variant = 'dark', href = '/' } = Astro.props;
   }
 
   .mark {
+    width: 28px;
+    height: 28px;
     border-radius: 6px;
   }
 

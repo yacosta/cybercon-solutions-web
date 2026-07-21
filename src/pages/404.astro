@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { services, servicePath } from '../data/services';
+import { en as enMessages } from '../i18n/en';
+import { es as esMessages } from '../i18n/es';
+
+export const prerender = true;
+
+const en = enMessages.notFound;
+const es = esMessages.notFound;
+const featured = services.slice(0, 4);
+---
+
+<BaseLayout title={en.title} description={en.description} locale="en" path="/404/" noindex>
+	<Header slot="header" locale="en" t={enMessages} variant="light" />
+
+	<section class="not-found container" data-pagefind-ignore>
+		<p class="eyebrow">{en.kicker}</p>
+		<div id="nf-en" class="nf-locale">
+			<h1>{en.heading}</h1>
+			<p class="lede">{en.lede}</p>
+			<div class="nf-actions">
+				<a class="btn btn-primary" href="/">{en.home}</a>
+				<a class="btn btn-ghost" href="/#assessment">{en.assessment}</a>
+				<a class="btn btn-ghost" href="/search/">{en.search}</a>
+			</div>
+			<div class="nf-grid">
+				<div>
+					<h2>{en.popular}</h2>
+					<ul class="nf-links">
+						{featured.map((service) => (
+							<li>
+								<a href={servicePath('en', service.slug)}>{service.title.en}</a>
+							</li>
+						))}
+						<li><a href="/privacy/">{en.privacy}</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>{en.languages}</h2>
+					<ul class="nf-links">
+						<li><a href="/">{en.homeEn}</a></li>
+						<li><a href="/es/">{en.homeEs}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="nf-es" class="nf-locale" data-doc-title={es.title} hidden>
+			<h1>{es.heading}</h1>
+			<p class="lede">{es.lede}</p>
+			<div class="nf-actions">
+				<a class="btn btn-primary" href="/es/">{es.home}</a>
+				<a class="btn btn-ghost" href="/es/#assessment">{es.assessment}</a>
+				<a class="btn btn-ghost" href="/es/search/">{es.search}</a>
+			</div>
+			<div class="nf-grid">
+				<div>
+					<h2>{es.popular}</h2>
+					<ul class="nf-links">
+						{featured.map((service) => (
+							<li>
+								<a href={servicePath('es', service.slug)}>{service.title.es}</a>
+							</li>
+						))}
+						<li><a href="/es/privacy/">{es.privacy}</a></li>
+					</ul>
+				</div>
+				<div>
+					<h2>{es.languages}</h2>
+					<ul class="nf-links">
+						<li><a href="/">{es.homeEn}</a></li>
+						<li><a href="/es/">{es.homeEs}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<Footer slot="footer" locale="en" t={enMessages} />
+</BaseLayout>
+
+<script is:inline>
+	(function () {
+		var isEs = location.pathname === '/es' || location.pathname.indexOf('/es/') === 0;
+		var show = document.getElementById(isEs ? 'nf-es' : 'nf-en');
+		var hide = document.getElementById(isEs ? 'nf-en' : 'nf-es');
+		if (show) show.hidden = false;
+		if (hide) hide.hidden = true;
+		if (isEs && show) {
+			document.documentElement.lang = 'es';
+			if (show.dataset.docTitle) document.title = show.dataset.docTitle;
+		}
+	})();
+</script>
+
+<style>
+	.not-found {
+		padding-block: clamp(3rem, 8vw, 5.5rem) 4rem;
+	}
+
+	.not-found h1 {
+		margin: 0 0 0.85rem;
+		max-width: 18ch;
+		font-size: clamp(2.1rem, 5vw, 3.2rem);
+		line-height: 1.05;
+		letter-spacing: -0.04em;
+	}
+
+	.not-found .lede {
+		margin: 0 0 1.5rem;
+		max-width: 38rem;
+		color: var(--body-muted);
+		font-size: 1.05rem;
+	}
+
+	.nf-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 2.5rem;
+	}
+
+	.nf-grid {
+		display: grid;
+		gap: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+	}
+
+	@media (min-width: 720px) {
+		.nf-grid {
+			grid-template-columns: 1.4fr 1fr;
+		}
+	}
+
+	.nf-grid h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1rem;
+		letter-spacing: -0.02em;
+	}
+
+	.nf-links {
+		display: grid;
+		gap: 0.55rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.nf-links a {
+		color: var(--navy);
+		text-decoration: none;
+		border-bottom: 1px solid transparent;
+	}
+
+	.nf-links a:hover {
+		border-bottom-color: color-mix(in srgb, var(--coral) 55%, transparent);
+	}
+</style>
