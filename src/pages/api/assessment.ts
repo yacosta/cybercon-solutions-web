@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { attioConfigured, createAssessmentProspect } from '../../lib/attio';
-import { verifyTurnstile } from '../../lib/turnstile';
+import { runtimeEnv } from '../../lib/env';
+import { verifyTurnstile } from '../../lib/turnstile-verify';
 
 export const prerender = false;
 
@@ -33,7 +34,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return Response.json({ error: 'Invalid email' }, { status: 400 });
   }
 
-  const secret = import.meta.env.TURNSTILE_SECRET_KEY;
+  const secret = runtimeEnv('TURNSTILE_SECRET_KEY');
   if (secret) {
     const ok = await verifyTurnstile(turnstileToken, clientAddress);
     if (!ok) {
@@ -41,7 +42,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
   }
 
-  const accessKey = import.meta.env.WEB3FORMS_ACCESS_KEY;
+  const accessKey = runtimeEnv('WEB3FORMS_ACCESS_KEY');
   let delivered = false;
 
   if (attioConfigured()) {
@@ -50,6 +51,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       return Response.json({ error: 'CRM delivery failed' }, { status: 502 });
     }
     delivered = true;
+  } else {
+    console.warn('[assessment] ATTIO_API_KEY not configured — skipping CRM upsert');
   }
 
   if (accessKey) {
