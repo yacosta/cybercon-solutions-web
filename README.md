@@ -81,15 +81,13 @@ Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **
 
 Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets). The app reads them at runtime via `cloudflare:workers`.
 
-**Important:** Prefer **Secret** type for anything sensitive. Plaintext dashboard vars used to be wiped on each GitHub deploy; the Worker now uses `keep_vars` so plaintext vars persist. Secrets (like `ATTIO_API_KEY`) always persist.
+**Important:** Prefer **Secret** type for anything sensitive. Plaintext dashboard vars used to be wiped on each GitHub deploy; the Worker now uses `keep_vars` so plaintext vars persist. Secrets always persist.
 
 | Variable | Required | Notes |
 |----------|----------|--------|
 | `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key (also set as a **Build** var if you want it baked into prerendered HTML) |
 | `TURNSTILE_SECRET_KEY` | Yes (prod forms) | Turnstile secret |
 | `WEB3FORMS_ACCESS_KEY` | Optional | Email alert for assessment submissions |
-| `ATTIO_API_KEY` | Recommended | Upserts form submitters to Attio as People/Companies (prospects) |
-| `ATTIO_PROSPECTS_LIST_ID` | Optional | Attio People list ID/slug to add each prospect into |
 | `PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 ID; loads only after Accept analytics |
 | `AUTH0_DOMAIN` | For client area | e.g. `your-tenant.auth0.com` |
 | `AUTH0_CLIENT_ID` | For client area | |
@@ -100,7 +98,7 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 
 Optional build variable: `NODE_VERSION=22`.
 
-**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"auth0": true` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
+**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"turnstile": true` / `"web3forms": true` / `"auth0": true` when those secrets are set. If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip email delivery, and `/client/` will not start Auth0 login.
 
 ### Auth0 client area (`/client/`)
 
