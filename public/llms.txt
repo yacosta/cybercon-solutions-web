@@ -1,7 +1,7 @@
 # Cybercon Solutions
 
 > Managed IT, cybersecurity, cloud, and AI for South Florida businesses.
-> We work proactively, and security is the default.
+> We catch issues early and treat security as the baseline.
 
 ## Site
 

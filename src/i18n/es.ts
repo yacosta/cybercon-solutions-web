@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions',
     description:
-      'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Trabajamos de forma proactiva y tomamos la seguridad como base.',
+      'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base.',
   },
   nav: {
     client: 'Área de clientes',
@@ -22,22 +22,22 @@ export const es: Messages = {
     eyebrow: 'Cooper City y Davie, Florida',
     title: 'Tu departamento de TI, sin la sobrecarga.',
     lede:
-      'TI administrada, ciberseguridad, nube e IA: nos adelantamos a los problemas y tomamos la seguridad como base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
-    status: 'Al servicio de empresas del sur de Florida',
+      'TI administrada, ciberseguridad, nube e IA. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
+    status: 'Atendemos a empresas del sur de Florida',
     cta: 'Solicita una evaluación gratuita',
   },
   form: {
     title: 'Solicita una evaluación gratuita',
-    lede: 'Sin tecnicismos ni compromisos: solo una lectura clara del estado de tu tecnología.',
+    lede: 'Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.',
     name: 'Nombre completo',
     company: 'Nombre de la empresa',
     email: 'Correo del trabajo',
     submit: 'Solicitar mi evaluación gratuita',
     microcopy:
       'Un ingeniero real responde en un día hábil. Nunca compartimos tus datos.',
-    thanksTitle: 'Gracias — recibimos tu solicitud.',
+    thanksTitle: 'Gracias, recibimos tu solicitud.',
     thanksBody:
-      'Te contactaremos en un día hábil, sin presión de ventas: solo el siguiente paso con claridad.',
+      'Te contactaremos en un día hábil. Sin presión de ventas: solo el siguiente paso, con claridad.',
     namePlaceholder: 'Jordan Rivera',
     companyPlaceholder: 'Rivera Logistics, Inc.',
     emailPlaceholder: 'jordan@company.com',
@@ -48,7 +48,7 @@ export const es: Messages = {
     eyebrow: 'Lo que gestionamos',
     title: 'Un solo aliado para toda tu tecnología.',
     lede:
-      'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.',
+      'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.',
     learnMore: 'Saber más',
   },
   servicePage: {

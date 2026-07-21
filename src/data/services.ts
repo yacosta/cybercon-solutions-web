@@ -12,25 +12,25 @@ export const services: Service[] = [
     slug: 'managed-it',
     title: { en: 'Managed IT Services', es: 'Servicios de TI Administrados' },
     summary: {
-      en: 'Proactive help desk, monitoring, and onsite support for South Florida businesses — predictable per-user pricing instead of break/fix surprises.',
-      es: 'Mesa de ayuda, monitoreo y soporte in situ para empresas del sur de Florida: precio predecible por usuario, sin sorpresas por averías.',
+      en: 'Help desk, monitoring, and onsite support for South Florida businesses, run proactively. Per-user pricing you can plan around, instead of break/fix surprises.',
+      es: 'Mesa de ayuda, monitoreo y soporte in situ para empresas del sur de Florida, con un enfoque proactivo. Precio por usuario que puedes planificar, sin sorpresas por averías.',
     },
     items: [
       {
-        en: 'Help Desk Support — 24/7/365 local help desk with live phone response.',
-        es: 'Mesa de ayuda — soporte local 24/7/365 con respuesta telefónica en vivo.',
+        en: 'Help Desk Support: 24/7/365 local help desk with live phone response.',
+        es: 'Mesa de ayuda: soporte local 24/7/365 con respuesta telefónica en vivo.',
       },
       {
-        en: 'Proactive Monitoring & Maintenance — monitoring, patching, and endpoint management.',
-        es: 'Monitoreo y mantenimiento proactivo — supervisión, parches y gestión de endpoints.',
+        en: 'Proactive Monitoring & Maintenance: monitoring, patching, and endpoint management.',
+        es: 'Monitoreo y mantenimiento proactivo: supervisión, parches y gestión de endpoints.',
       },
       {
-        en: 'Onsite IT Support — hardware failures, network issues, rollouts, and office moves.',
-        es: 'Soporte in situ — fallos de hardware, red, despliegues y mudanzas de oficina.',
+        en: 'Onsite IT Support: hardware failures, network issues, rollouts, and office moves.',
+        es: 'Soporte in situ: fallos de hardware, red, despliegues y mudanzas de oficina.',
       },
       {
-        en: 'Flat-Rate Predictable Support — per-user packages instead of break/fix billing.',
-        es: 'Soporte de tarifa plana — paquetes por usuario en lugar de facturación por averías.',
+        en: 'Flat-Rate Predictable Support: per-user packages instead of break/fix billing.',
+        es: 'Soporte de tarifa plana: paquetes por usuario en lugar de facturación por averías.',
       },
     ],
   },
@@ -44,17 +44,16 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Advanced Endpoint Protection — EDR/XDR, firewalls, and threat detection across layers.',
-        es: 'Protección avanzada de endpoints — EDR/XDR, firewalls y detección de amenazas en varias capas.',
-      },
-
-      {
-        en: 'Managed IT Security — 24/7 SOC monitoring, SIEM logging, and incident response.',
-        es: 'Seguridad de TI administrada — monitoreo SOC 24/7, SIEM y respuesta a incidentes.',
+        en: 'Advanced Endpoint Protection: EDR/XDR, firewalls, and threat detection across layers.',
+        es: 'Protección avanzada de endpoints: EDR/XDR, firewalls y detección de amenazas en varias capas.',
       },
       {
-        en: 'Compliance Support — HIPAA, SOC 2, PCI DSS, and GLBA mapping.',
-        es: 'Apoyo al cumplimiento — alineación con HIPAA, SOC 2, PCI DSS y GLBA.',
+        en: 'Managed IT Security: 24/7 SOC monitoring, SIEM logging, and incident response.',
+        es: 'Seguridad de TI administrada: monitoreo SOC 24/7, SIEM y respuesta a incidentes.',
+      },
+      {
+        en: 'Compliance Support: HIPAA, SOC 2, PCI DSS, and GLBA mapping.',
+        es: 'Apoyo al cumplimiento: alineación con HIPAA, SOC 2, PCI DSS y GLBA.',
       },
     ],
   },
@@ -68,12 +67,12 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Cloud Migrations & Management — Microsoft 365 and Google Workspace.',
-        es: 'Migraciones y gestión en la nube — Microsoft 365 y Google Workspace.',
+        en: 'Cloud Migrations & Management: Microsoft 365 and Google Workspace.',
+        es: 'Migraciones y gestión en la nube: Microsoft 365 y Google Workspace.',
       },
       {
-        en: 'Microsoft Entra ID / Azure AD — identity provisioning and SSO.',
-        es: 'Microsoft Entra ID / Azure AD — aprovisionamiento de identidades y SSO.',
+        en: 'Microsoft Entra ID / Azure AD: identity provisioning and SSO.',
+        es: 'Microsoft Entra ID / Azure AD: aprovisionamiento de identidades y SSO.',
       },
     ],
   },
@@ -82,13 +81,13 @@ export const services: Service[] = [
     slug: 'it-consulting',
     title: { en: 'IT Consulting & Strategic Leadership', es: 'Consultoría de TI y Liderazgo Estratégico' },
     summary: {
-      en: 'Virtual CIO guidance — roadmaps, risk assessments, budgets, and quarterly business reviews.',
+      en: 'Virtual CIO guidance: roadmaps, risk assessments, budgets, and quarterly business reviews.',
       es: 'Orientación de CIO virtual: hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
     },
     items: [
       {
-        en: 'Virtual CIO (vCIO) — roadmapping, risk assessments, and quarterly business reviews.',
-        es: 'CIO virtual (vCIO) — hoja de ruta, evaluaciones de riesgo y revisiones trimestrales.',
+        en: 'Virtual CIO (vCIO): roadmapping, risk assessments, and quarterly business reviews.',
+        es: 'CIO virtual (vCIO): hoja de ruta, evaluaciones de riesgo y revisiones trimestrales.',
       },
     ],
   },
@@ -102,8 +101,8 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Data Protection — automated backups, off-site replication, and recovery validation.',
-        es: 'Protección de datos — respaldos automatizados, replicación externa y validación de recuperación.',
+        en: 'Data Protection: automated backups, off-site replication, and recovery validation.',
+        es: 'Protección de datos: respaldos automatizados, replicación externa y validación de recuperación.',
       },
     ],
   },
@@ -117,12 +116,12 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Structured Cabling — fiber, low-voltage cabling, and infrastructure labeling.',
-        es: 'Cableado estructurado — fibra, cableado de baja tensión y etiquetado de infraestructura.',
+        en: 'Structured Cabling: fiber, low-voltage cabling, and infrastructure labeling.',
+        es: 'Cableado estructurado: fibra, cableado de baja tensión y etiquetado de infraestructura.',
       },
       {
-        en: 'Business VoIP Systems — unified telephony platforms.',
-        es: 'Sistemas VoIP empresariales — plataformas de telefonía unificada.',
+        en: 'Business VoIP Systems: unified telephony platforms.',
+        es: 'Sistemas VoIP empresariales: plataformas de telefonía unificada.',
       },
     ],
   },
@@ -131,17 +130,17 @@ export const services: Service[] = [
     slug: 'ai-consulting',
     title: { en: 'AI Consulting & Strategy', es: 'Consultoría y Estrategia de IA' },
     summary: {
-      en: 'Practical AI roadmaps and honest ROI assessment — start where value is highest and risk is lowest.',
-      es: 'Hojas de ruta de IA prácticas y evaluación honesta de ROI: empieza donde hay más valor y menos riesgo.',
+      en: 'Practical AI roadmaps and an honest look at ROI. We start where the value is high and the risk is low.',
+      es: 'Hojas de ruta de IA prácticas y una mirada honesta al ROI. Empezamos donde hay más valor y menos riesgo.',
     },
     items: [
       {
-        en: 'AI Roadmap & Adoption — practical plans starting with highest-value opportunities.',
-        es: 'Hoja de ruta de IA — planes prácticos empezando por las oportunidades de mayor valor.',
+        en: 'AI Roadmap & Adoption: practical plans starting with highest-value opportunities.',
+        es: 'Hoja de ruta de IA: planes prácticos empezando por las oportunidades de mayor valor.',
       },
       {
-        en: 'Readiness & ROI Assessment — honest evaluation of where AI fits and where it does not.',
-        es: 'Evaluación de preparación y ROI — valoración honesta de dónde encaja la IA y dónde no.',
+        en: 'Readiness & ROI Assessment: honest evaluation of where AI fits and where it does not.',
+        es: 'Evaluación de preparación y ROI: valoración honesta de dónde encaja la IA y dónde no.',
       },
     ],
   },
@@ -155,8 +154,8 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Systems Integration — connect AI tools to ERP, CRM, and your existing stack.',
-        es: 'Integración de sistemas — conecta herramientas de IA con ERP, CRM y tu stack actual.',
+        en: 'Systems Integration: connect AI tools to ERP, CRM, and your existing stack.',
+        es: 'Integración de sistemas: conecta herramientas de IA con ERP, CRM y tu stack actual.',
       },
     ],
   },
@@ -170,10 +169,9 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'AI Chatbots — routine questions handled so human support can focus on exceptions.',
-        es: 'Chatbots de IA — resuelven lo rutinario para que el soporte humano se centre en las excepciones.',
+        en: 'AI Chatbots: routine questions handled so human support can focus on exceptions.',
+        es: 'Chatbots de IA: resuelven lo rutinario para que el soporte humano se centre en las excepciones.',
       },
-
     ],
   },
   {
@@ -186,8 +184,8 @@ export const services: Service[] = [
     },
     items: [
       {
-        en: 'Website Design & UX — accessible, on-brand sites that turn visitors into customers.',
-        es: 'Diseño web y UX — sitios accesibles, con tu marca, que convierten visitantes en clientes.',
+        en: 'Website Design & UX: accessible, on-brand sites that turn visitors into customers.',
+        es: 'Diseño web y UX: sitios accesibles, con tu marca, que convierten visitantes en clientes.',
       },
     ],
   },

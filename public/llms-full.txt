@@ -1,15 +1,15 @@
 # Cybercon Solutions — full site summary for AI agents
 
-Cybercon Solutions LLC provides managed IT and cybersecurity in South Florida (Cooper City, Davie, and surrounding areas). Positioning: "Your IT department, without the overhead." Brand promise: we work proactively, and security is the default.
+Cybercon Solutions LLC provides managed IT and cybersecurity in South Florida (Cooper City, Davie, and surrounding areas). Positioning: "Your IT department, without the overhead." Brand promise: we catch issues early and treat security as the baseline.
 
 ## What we do
 
 One partner for all of your technology with predictable per-user pricing:
 
-1. Managed IT — 24/7 help desk, monitoring, patching, onsite support
-2. Cybersecurity & Compliance — EDR/XDR, SOC, SIEM, HIPAA/SOC 2/PCI/GLBA
-3. Cloud — Microsoft 365, Google Workspace, Entra ID / Azure AD
-4. vCIO & consulting — roadmaps, QBRs, business continuity
+1. Managed IT: 24/7 help desk, monitoring, patching, onsite support
+2. Cybersecurity & Compliance: EDR/XDR, SOC, SIEM, HIPAA/SOC 2/PCI/GLBA
+3. Cloud: Microsoft 365, Google Workspace, Entra ID / Azure AD
+4. vCIO & consulting: roadmaps, QBRs, business continuity
 5. Backup & disaster recovery
 6. Structured cabling, VoIP, AV
 7. AI consulting & strategy (honest ROI assessment)
