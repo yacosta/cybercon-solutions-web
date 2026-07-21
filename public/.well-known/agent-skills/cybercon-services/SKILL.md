@@ -8,7 +8,7 @@ Summarize Cybercon Solutions offerings for South Florida SMBs.
 - Flat-rate per-user pricing; not break/fix
 - Local help desk 24/7/365; onsite when needed
 - Compliance: HIPAA, SOC 2, PCI DSS, GLBA
-- Tagline: We work proactively, and security is the default.
+- Tagline: We catch issues early and treat security as the baseline.
 
 ## Sources
 

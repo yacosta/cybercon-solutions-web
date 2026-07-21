@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions',
     description:
-      'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We work proactively, and security is the default.',
+      'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline.',
   },
   nav: {
     client: 'Client area',
@@ -20,22 +20,22 @@ export const en = {
     eyebrow: 'Cooper City & Davie, Florida',
     title: 'Your IT department, without the overhead.',
     lede:
-      'Managed IT, cybersecurity, cloud, and AI — we stay ahead of problems, and security is the default. Tell us where to start and a real engineer will follow up within one business day.',
+      'Managed IT, cybersecurity, cloud, and AI. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.',
     status: 'Serving South Florida businesses',
     cta: 'Book a free assessment',
   },
   form: {
     title: 'Book a free assessment',
-    lede: 'No jargon, no obligation — just a clear read on where your technology stands.',
+    lede: 'Plain English, no obligation. You get a clear picture of where your technology stands.',
     name: 'Full name',
     company: 'Company name',
     email: 'Work email',
     submit: 'Request my free assessment',
     microcopy:
       'A real engineer replies within one business day. We never share your details.',
-    thanksTitle: 'Thanks — we received your request.',
+    thanksTitle: 'Thanks, we received your request.',
     thanksBody:
-      "We'll be in touch within one business day — no sales pressure, just a clear next step.",
+      "We'll be in touch within one business day. No sales pressure, just a clear next step.",
     namePlaceholder: 'Jordan Rivera',
     companyPlaceholder: 'Rivera Logistics, Inc.',
     emailPlaceholder: 'jordan@company.com',
@@ -46,7 +46,7 @@ export const en = {
     eyebrow: 'What we handle',
     title: 'One partner for all of your technology.',
     lede:
-      'We manage everything below proactively, with predictable per-user pricing — no break/fix surprises, no jargon.',
+      'We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.',
     learnMore: 'Learn more',
   },
   servicePage: {

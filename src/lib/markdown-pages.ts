@@ -13,26 +13,26 @@ function servicesMarkdown(locale: 'en' | 'es'): string {
 const pages: Record<string, string> = {
   '/': `---
 title: "Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions"
-description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We work proactively, and security is the default."
+description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline."
 ---
 
 # Cybercon Solutions
 
 Your IT department, without the overhead.
 
-Managed IT, cybersecurity, cloud, and AI — we stay ahead of problems, and security is the default. Tell us where to start and a real engineer will follow up within one business day.
+Managed IT, cybersecurity, cloud, and AI. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.
 
-**We work proactively, and security is the default.**
+**We catch issues early and treat security as the baseline.**
 
 ## Book a free assessment
 
-No jargon, no obligation — just a clear read on where your technology stands.
+Plain English, no obligation. You get a clear picture of where your technology stands.
 
 Submit name, company, and work email via the form on https://cybercon-solutions.com/ (protected by Cloudflare Turnstile).
 
 ## What we handle
 
-One partner for all of your technology. We manage everything below proactively, with predictable per-user pricing — no break/fix surprises, no jargon.
+One partner for all of your technology. We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.
 
 ${servicesMarkdown('en')}
 
@@ -42,26 +42,26 @@ info@cybercon-solutions.com · 973-573-0007 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions"
-description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Trabajamos de forma proactiva y tomamos la seguridad como base."
+description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base."
 ---
 
 # Cybercon Solutions
 
 Tu departamento de TI, sin la sobrecarga.
 
-TI administrada, ciberseguridad, nube e IA: nos adelantamos a los problemas y tomamos la seguridad como base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
+TI administrada, ciberseguridad, nube e IA. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
 
-**Trabajamos de forma proactiva y tomamos la seguridad como base.**
+**Detectamos problemas a tiempo y tratamos la seguridad como la base.**
 
 ## Solicita una evaluación gratuita
 
-Sin tecnicismos ni compromisos: solo una lectura clara del estado de tu tecnología.
+Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.
 
 Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-solutions.com/es/ (protegido con Cloudflare Turnstile).
 
 ## Lo que gestionamos
 
-Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario: sin sorpresas por averías, sin tecnicismos.
+Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.
 
 ${servicesMarkdown('es')}
 
