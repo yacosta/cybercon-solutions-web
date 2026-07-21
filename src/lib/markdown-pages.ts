@@ -1,18 +1,22 @@
 import { privacyContent } from '../data/privacy';
 import { services } from '../data/services';
+import { getServiceDetails } from '../data/service-details';
 
 function servicesMarkdown(locale: 'en' | 'es'): string {
   return services
     .map((s) => {
+      const details = getServiceDetails(s.slug);
       const items = s.items.map((i) => `- ${i[locale]}`).join('\n');
-      return `### ${s.id} — ${s.title[locale]}\n\n${items}`;
+      const audience = details ? `\n\n**${locale === 'es' ? 'Para quién' : 'Who it’s for'}:** ${details.audience[locale]}` : '';
+      const overview = details ? `\n\n${details.overview[locale]}` : '';
+      return `### ${s.id} — ${s.title[locale]}\n\n${s.summary[locale]}${audience}${overview}\n\n${items}`;
     })
     .join('\n\n');
 }
 
 const pages: Record<string, string> = {
   '/': `---
-title: "Managed IT Services & Cybersecurity in South Florida | Cybercon Solutions"
+title: "Managed IT & Cybersecurity in South Florida | Cybercon"
 description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline."
 ---
 
@@ -41,7 +45,7 @@ ${servicesMarkdown('en')}
 info@cybercon-solutions.com · 973-573-0007 · Cooper City & Davie, Florida
 `,
   '/es/': `---
-title: "Servicios de TI Administrados y Ciberseguridad en el Sur de Florida | Cybercon Solutions"
+title: "TI y ciberseguridad en el Sur de Florida | Cybercon"
 description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base."
 ---
 

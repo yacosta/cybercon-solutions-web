@@ -28,11 +28,11 @@ const assessmentHref = '#assessment';
   aria-labelledby="hero-title"
   aria-describedby="hero-lede"
 >
-  <div class="hero-media" aria-hidden="true">
+  <div class="hero-media">
     <img
       class="hero-poster"
       src={posterSrc}
-      alt=""
+      alt={videoLabel}
       width="1920"
       height="1080"
       fetchpriority="high"
@@ -46,6 +46,7 @@ const assessmentHref = '#assessment';
       preload="none"
       poster={posterSrc}
       tabindex="-1"
+      aria-label={videoLabel}
     >
       <source data-src={videoSrc} type="video/webm" />
     </video>

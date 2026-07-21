@@ -1,12 +1,42 @@
 import { services } from '../data/services';
-import { absoluteUrl, site } from './site';
+import type { LocaleText } from '../data/service-details';
+import { getServiceDetails } from '../data/service-details';
+import { absoluteUrl, formatMailingAddress, site } from './site';
 
 type Locale = 'en' | 'es';
+
+function areaServedPlaces() {
+  return [
+    {
+      '@type': 'City',
+      name: 'Cooper City',
+      containedInPlace: { '@type': 'State', name: 'Florida' },
+    },
+    {
+      '@type': 'City',
+      name: 'Davie',
+      containedInPlace: { '@type': 'State', name: 'Florida' },
+    },
+    {
+      '@type': 'City',
+      name: 'Miami Beach',
+      containedInPlace: { '@type': 'State', name: 'Florida' },
+    },
+    {
+      '@type': 'AdministrativeArea',
+      name: 'South Florida',
+    },
+    {
+      '@type': 'Country',
+      name: 'United States',
+    },
+  ];
+}
 
 export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
+    '@type': ['LocalBusiness', 'ProfessionalService'],
     '@id': `${site.url}/#organization`,
     name: site.name,
     legalName: site.legalName,
@@ -19,7 +49,7 @@ export function organizationJsonLd() {
     slogan: site.slogan,
     priceRange: '$$',
     description:
-      'Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate.',
+      `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
@@ -28,7 +58,7 @@ export function organizationJsonLd() {
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
-    areaServed: site.serviceArea,
+    areaServed: areaServedPlaces(),
     knowsAbout: [...site.knowsAbout],
     sameAs: [site.social.linkedin],
     contactPoint: {
@@ -37,6 +67,7 @@ export function organizationJsonLd() {
       email: site.email,
       telephone: site.phone,
       availableLanguage: ['English', 'Spanish'],
+      areaServed: site.serviceAreaFocus,
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -48,6 +79,7 @@ export function organizationJsonLd() {
           name: service.title.en,
           description: service.summary.en,
           url: absoluteUrl(`/services/${service.slug}/`),
+          areaServed: areaServedPlaces(),
         },
       })),
     },
@@ -89,14 +121,31 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
 
 export function serviceJsonLd(service: (typeof services)[number], locale: Locale) {
   const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
+  const details = getServiceDetails(service.slug);
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.title[locale],
-    description: service.summary[locale],
+    description: details?.metaDescription[locale] ?? service.summary[locale],
     url: absoluteUrl(path),
     provider: { '@id': `${site.url}/#organization` },
-    areaServed: site.serviceArea,
+    areaServed: areaServedPlaces(),
+    serviceType: service.title[locale],
+  };
+}
+
+export function faqPageJsonLd(faqs: { question: LocaleText; answer: LocaleText }[], locale: Locale) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question[locale],
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer[locale],
+      },
+    })),
   };
 }
 
