@@ -4,6 +4,9 @@
 	"compatibility_date": "2026-07-20",
 	"compatibility_flags": ["nodejs_compat"],
 	"main": "@astrojs/cloudflare/entrypoints/server",
+	// Keep plaintext vars set in the Cloudflare dashboard across deploys.
+	// Without this, `wrangler deploy` deletes dashboard Text vars (secrets are kept).
+	"keep_vars": true,
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist"
