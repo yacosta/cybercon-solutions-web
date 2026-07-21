@@ -9,7 +9,8 @@ export default defineConfig({
   output: 'server',
   adapter: cloudflare({
     platformProxy: { enabled: true },
-    prerenderEnvironment: 'node',
+    // Default prerenderEnvironment is workerd so `cloudflare:workers` env
+    // bindings resolve the same way as production (Node cannot load that module).
   }),
   i18n: {
     defaultLocale: 'en',

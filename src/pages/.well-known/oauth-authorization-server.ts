@@ -1,10 +1,11 @@
 import type { APIRoute } from 'astro';
+import { runtimeEnv } from '../../lib/env';
 
 export const prerender = false;
 
 /** Proxies Auth0 OIDC discovery when configured; otherwise returns site-local stub for agents. */
 export const GET: APIRoute = async () => {
-  const domain = import.meta.env.AUTH0_DOMAIN;
+  const domain = runtimeEnv('AUTH0_DOMAIN');
   if (domain) {
     return Response.redirect(`https://${domain}/.well-known/openid-configuration`, 302);
   }

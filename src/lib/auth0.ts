@@ -1,4 +1,5 @@
 import { SignJWT, jwtVerify } from 'jose';
+import { runtimeEnv } from './env';
 
 export type SessionUser = {
   sub: string;
@@ -11,27 +12,27 @@ const SESSION_COOKIE = 'cybercon_session';
 const SESSION_MAX_AGE = 60 * 60 * 8;
 
 function getSecret() {
-  const secret = import.meta.env.SESSION_SECRET;
+  const secret = runtimeEnv('SESSION_SECRET');
   if (!secret) throw new Error('SESSION_SECRET is not configured');
   return new TextEncoder().encode(secret);
 }
 
 export function auth0Configured(): boolean {
   return Boolean(
-    import.meta.env.AUTH0_DOMAIN &&
-      import.meta.env.AUTH0_CLIENT_ID &&
-      import.meta.env.AUTH0_CLIENT_SECRET &&
-      import.meta.env.AUTH0_BASE_URL &&
-      import.meta.env.SESSION_SECRET,
+    runtimeEnv('AUTH0_DOMAIN') &&
+      runtimeEnv('AUTH0_CLIENT_ID') &&
+      runtimeEnv('AUTH0_CLIENT_SECRET') &&
+      runtimeEnv('AUTH0_BASE_URL') &&
+      runtimeEnv('SESSION_SECRET'),
   );
 }
 
 export function auth0Config() {
-  const domain = import.meta.env.AUTH0_DOMAIN;
-  const clientId = import.meta.env.AUTH0_CLIENT_ID;
-  const clientSecret = import.meta.env.AUTH0_CLIENT_SECRET;
-  const baseUrl = import.meta.env.AUTH0_BASE_URL;
-  const audience = import.meta.env.AUTH0_AUDIENCE;
+  const domain = runtimeEnv('AUTH0_DOMAIN');
+  const clientId = runtimeEnv('AUTH0_CLIENT_ID');
+  const clientSecret = runtimeEnv('AUTH0_CLIENT_SECRET');
+  const baseUrl = runtimeEnv('AUTH0_BASE_URL');
+  const audience = runtimeEnv('AUTH0_AUDIENCE');
 
   if (!domain || !clientId || !clientSecret || !baseUrl) {
     throw new Error('Auth0 environment variables are not fully configured');

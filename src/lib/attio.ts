@@ -1,3 +1,5 @@
+import { runtimeEnv } from './env';
+
 const ATTIO_API = 'https://api.attio.com/v2';
 
 const FREE_EMAIL_DOMAINS = new Set([
@@ -32,8 +34,7 @@ interface AttioRecord {
 }
 
 function attioKey(): string | undefined {
-  const key = import.meta.env.ATTIO_API_KEY;
-  return typeof key === 'string' && key.trim() ? key.trim() : undefined;
+  return runtimeEnv('ATTIO_API_KEY');
 }
 
 export function attioConfigured(): boolean {
@@ -150,10 +151,10 @@ async function upsertPerson(
 }
 
 async function addPersonToProspectsList(personRecordId: string): Promise<void> {
-  const listId = import.meta.env.ATTIO_PROSPECTS_LIST_ID;
-  if (typeof listId !== 'string' || !listId.trim()) return;
+  const listId = runtimeEnv('ATTIO_PROSPECTS_LIST_ID');
+  if (!listId) return;
 
-  const res = await attioFetch(`/lists/${encodeURIComponent(listId.trim())}/entries`, {
+  const res = await attioFetch(`/lists/${encodeURIComponent(listId)}/entries`, {
     method: 'PUT',
     body: JSON.stringify({
       data: {
