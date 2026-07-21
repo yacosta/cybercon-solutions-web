@@ -1,0 +1,229 @@
+# Legacy WordPress / MSP-template URLs → current Astro pages (301).
+# Applied by Cloudflare Workers static assets. Keep specific rules before splats.
+# See: https://developers.cloudflare.com/workers/static-assets/redirects/
+
+# --- Priority survivors called out in SEO audit ---
+/remote-workforce /services/cloud/ 301
+/remote-workforce/ /services/cloud/ 301
+/hybrid-remote-workforce /services/cloud/ 301
+/hybrid-remote-workforce/ /services/cloud/ 301
+/modern-workplace /services/cloud/ 301
+/modern-workplace/ /services/cloud/ 301
+/threat-intelligence /services/cybersecurity/ 301
+/threat-intelligence/ /services/cybersecurity/ 301
+
+# --- Managed IT ---
+/managed-it-services /services/managed-it/ 301
+/managed-it-services/ /services/managed-it/ 301
+/managed-it-services/* /services/managed-it/ 301
+/managed-it-solutions /services/managed-it/ 301
+/managed-it-solutions/ /services/managed-it/ 301
+/managed-services /services/managed-it/ 301
+/managed-services/ /services/managed-it/ 301
+/hardware-and-software-procurement /services/managed-it/ 301
+/hardware-and-software-procurement/ /services/managed-it/ 301
+
+# --- Cybersecurity ---
+/managed-cybersecurity /services/cybersecurity/ 301
+/managed-cybersecurity/ /services/cybersecurity/ 301
+/cybersecurity-as-a-service /services/cybersecurity/ 301
+/cybersecurity-as-a-service/ /services/cybersecurity/ 301
+/managed-detection-response /services/cybersecurity/ 301
+/managed-detection-response/ /services/cybersecurity/ 301
+/managed-network-security /services/cybersecurity/ 301
+/managed-network-security/ /services/cybersecurity/ 301
+/managed-network-security/* /services/cybersecurity/ 301
+/managed-security /services/cybersecurity/ 301
+/managed-security/ /services/cybersecurity/ 301
+/managed-security/* /services/cybersecurity/ 301
+/endpoint-security /services/cybersecurity/ 301
+/endpoint-security/ /services/cybersecurity/ 301
+/data-security /services/cybersecurity/ 301
+/data-security/ /services/cybersecurity/ 301
+/web-security /services/cybersecurity/ 301
+/web-security/ /services/cybersecurity/ 301
+/employee-awareness-training /services/cybersecurity/ 301
+/employee-awareness-training/ /services/cybersecurity/ 301
+/identity-and-access-management /services/cybersecurity/ 301
+/identity-and-access-management/ /services/cybersecurity/ 301
+/security-architecture-infrastructure /services/cybersecurity/ 301
+/security-architecture-infrastructure/ /services/cybersecurity/ 301
+/security-operations-control-incident-response /services/cybersecurity/ 301
+/security-operations-control-incident-response/ /services/cybersecurity/ 301
+/security-operations-incident-response /services/cybersecurity/ 301
+/security-operations-incident-response/ /services/cybersecurity/ 301
+
+# --- Cloud ---
+/cloud-services /services/cloud/ 301
+/cloud-services/ /services/cloud/ 301
+/cloud-services/* /services/cloud/ 301
+/cloud-migration-management /services/cloud/ 301
+/cloud-migration-management/ /services/cloud/ 301
+/cloud-readiness-assessment /services/cloud/ 301
+/cloud-readiness-assessment/ /services/cloud/ 301
+
+# --- Consulting / vCIO ---
+/consulting-services /services/it-consulting/ 301
+/consulting-services/ /services/it-consulting/ 301
+/advisory-and-professional-services /services/it-consulting/ 301
+/advisory-and-professional-services/ /services/it-consulting/ 301
+/virtual-cio-services /services/it-consulting/ 301
+/virtual-cio-services/ /services/it-consulting/ 301
+/technology-assessment-services /services/it-consulting/ 301
+/technology-assessment-services/ /services/it-consulting/ 301
+/network-assessment /services/it-consulting/ 301
+/network-assessment/ /services/it-consulting/ 301
+/network-assessment/* /services/it-consulting/ 301
+/wireless-assessment /services/it-consulting/ 301
+/wireless-assessment/ /services/it-consulting/ 301
+/network-design-implementation /services/it-consulting/ 301
+/network-design-implementation/ /services/it-consulting/ 301
+
+# --- Backup / DR ---
+/managed-backups-disaster-recovery /services/backup-disaster-recovery/ 301
+/managed-backups-disaster-recovery/ /services/backup-disaster-recovery/ 301
+
+# --- Cabling / phone ---
+/low-voltage-cabling /services/cabling-communications/ 301
+/low-voltage-cabling/ /services/cabling-communications/ 301
+/low-voltage-cabling/* /services/cabling-communications/ 301
+/managed-phone-services /services/cabling-communications/ 301
+/managed-phone-services/ /services/cabling-communications/ 301
+/phone-systems /services/cabling-communications/ 301
+/phone-systems/ /services/cabling-communications/ 301
+
+# --- Web / creative (legacy agency pages) ---
+/website-as-a-service /services/web-design-development/ 301
+/website-as-a-service/ /services/web-design-development/ 301
+/creative /services/web-design-development/ 301
+/creative/ /services/web-design-development/ 301
+/full-service-advertising-agency /services/web-design-development/ 301
+/full-service-advertising-agency/ /services/web-design-development/ 301
+/full-service-advertising-agency/* /services/web-design-development/ 301
+/home/web-design-development /services/web-design-development/ 301
+/home/web-design-development/ /services/web-design-development/ 301
+/home/brand-identity /services/web-design-development/ 301
+/home/brand-identity/ /services/web-design-development/ 301
+/home/digital-marketing /services/web-design-development/ 301
+/home/digital-marketing/ /services/web-design-development/ 301
+/services/brand-identity /services/web-design-development/ 301
+/services/brand-identity/ /services/web-design-development/ 301
+/services/cms-maintenance /services/web-design-development/ 301
+/services/cms-maintenance/ /services/web-design-development/ 301
+/services/digital-marketing /services/web-design-development/ 301
+/services/digital-marketing/ /services/web-design-development/ 301
+/web-development /services/web-design-development/ 301
+/web-development/ /services/web-design-development/ 301
+/web-development/* /services/web-design-development/ 301
+
+# --- Generic /services hub (exact only; do not splat — live service pages live under /services/) ---
+/services /#services 301
+/services/ /#services 301
+
+# --- Contact / company chrome → home + assessment ---
+/contact-us /#assessment 301
+/contact-us/ /#assessment 301
+/contact /#assessment 301
+/contact/ /#assessment 301
+/company / 301
+/company/ / 301
+/meet-the-team / 301
+/meet-the-team/ / 301
+/career / 301
+/career/ / 301
+/careers / 301
+/careers/ / 301
+/jobs-cybercon-solutions / 301
+/jobs-cybercon-solutions/ / 301
+/faq / 301
+/faq/ / 301
+/home/faq / 301
+/home/faq/ / 301
+/home/about-us / 301
+/home/about-us/ / 301
+/about-us / 301
+/about-us/ / 301
+/industry-solutions / 301
+/industry-solutions/ / 301
+/education-k-12 / 301
+/education-k-12/ / 301
+
+# --- Legal ---
+/privacy-policy-terms-of-service-and-third-party-links /privacy/ 301
+/privacy-policy-terms-of-service-and-third-party-links/ /privacy/ 301
+/home/privacy-policy /privacy/ 301
+/home/privacy-policy/ /privacy/ 301
+/cookie-use /privacy/ 301
+/cookie-use/ /privacy/ 301
+/terms-of-service-2 /privacy/ 301
+/terms-of-service-2/ /privacy/ 301
+/terms-of-service-agreement /privacy/ 301
+/terms-of-service-agreement/ /privacy/ 301
+
+# --- Blog / news / case studies / misc legacy content → home ---
+/blog / 301
+/blog/ / 301
+/blog/* / 301
+/latest-news / 301
+/latest-news/ / 301
+/latest-rants-raves / 301
+/latest-rants-raves/ / 301
+/news-post / 301
+/news-post/ / 301
+/hello-world / 301
+/hello-world/ / 301
+/category/* / 301
+/tag/* / 301
+/author/* / 301
+/2015/* / 301
+/2016/* / 301
+/2018/* / 301
+/2019/* / 301
+/2020/* / 301
+/2021/* / 301
+/home/404-error / 301
+/home/404-error/ / 301
+
+# Case-study / portfolio leftovers from the old template site
+/bank-costa-rica / 301
+/bank-costa-rica/ / 301
+/boutique-cigar-brand / 301
+/boutique-cigar-brand/ / 301
+/brewery-costa-rica / 301
+/brewery-costa-rica/ / 301
+/instyleevents / 301
+/instyleevents/ / 301
+/international-luxury-coffee-boutique / 301
+/international-luxury-coffee-boutique/ / 301
+/law-firm-usa-costa-rica / 301
+/law-firm-usa-costa-rica/ / 301
+/national-health-club-chain / 301
+/national-health-club-chain/ / 301
+/network-operations-center-noc-usa-korea / 301
+/network-operations-center-noc-usa-korea/ / 301
+
+# Vendor CVE / news boilerplate posts (no modern equivalent)
+/apple-releases-security-updates-for-multiple-products / 301
+/apple-releases-security-updates-for-multiple-products/ / 301
+/cisco-ip-phone-6800-7800-7900-and-8800-series-web-ui-vulnerabilities / 301
+/cisco-ip-phone-6800-7800-7900-and-8800-series-web-ui-vulnerabilities/ / 301
+/cisco-telepresence-collaboration-endpoint-and-roomos-software-h-323-denial-of-service-vulnerability / 301
+/cisco-telepresence-collaboration-endpoint-and-roomos-software-h-323-denial-of-service-vulnerability/ / 301
+/cisco-umbrella-virtual-appliance-static-ssh-host-key-vulnerability / 301
+/cisco-umbrella-virtual-appliance-static-ssh-host-key-vulnerability/ / 301
+/cisco-virtualized-infrastructure-manager-privilege-escalation-vulnerability / 301
+/cisco-virtualized-infrastructure-manager-privilege-escalation-vulnerability/ / 301
+/cve-2021-29256-vulnerability-how-cybercon-solutions-can-strengthen-your-cybersecurity / 301
+/cve-2021-29256-vulnerability-how-cybercon-solutions-can-strengthen-your-cybersecurity/ / 301
+/drupal-releases-security-updates / 301
+/drupal-releases-security-updates/ / 301
+/google-releases-security-updates-for-chrome / 301
+/google-releases-security-updates-for-chrome/ / 301
+/google-releases-security-updates-for-chrome-2 / 301
+/google-releases-security-updates-for-chrome-2/ / 301
+/mozilla-releases-security-updates-for-firefox-and-firefox-esr / 301
+/mozilla-releases-security-updates-for-firefox-and-firefox-esr/ / 301
+/strengthening-cybersecurity-defenses-a-call-to-action-and-the-role-of-cybercon-solutions / 301
+/strengthening-cybersecurity-defenses-a-call-to-action-and-the-role-of-cybercon-solutions/ / 301
+/vmware-releases-security-updates-for-cloud-director / 301
+/vmware-releases-security-updates-for-cloud-director/ / 301
