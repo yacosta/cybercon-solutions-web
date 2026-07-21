@@ -79,9 +79,11 @@ Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **
 
 ### Environment variables (Workers → Settings → Variables and Secrets)
 
+Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets). The app reads them at runtime via `cloudflare:workers`.
+
 | Variable | Required | Notes |
 |----------|----------|--------|
-| `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key |
+| `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key (also set as a **Build** var if you want it baked into prerendered HTML) |
 | `TURNSTILE_SECRET_KEY` | Yes (prod forms) | Turnstile secret |
 | `WEB3FORMS_ACCESS_KEY` | Optional | Email alert for assessment submissions |
 | `ATTIO_API_KEY` | Recommended | Upserts form submitters to Attio as People/Companies (prospects) |
@@ -95,6 +97,8 @@ Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **
 | `SESSION_SECRET` | For client area | Long random string (Secret) |
 
 Optional build variable: `NODE_VERSION=22`.
+
+**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` when that secret is set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM.
 
 Auth0 application callback URL: `https://cybercon-solutions.com/client/callback`  
 Logout return: `https://cybercon-solutions.com/client/`
