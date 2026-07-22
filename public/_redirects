@@ -15,7 +15,6 @@
 # --- Managed IT ---
 /managed-it-services /services/managed-it/ 301
 /managed-it-services/ /services/managed-it/ 301
-/managed-it-services/* /services/managed-it/ 301
 /managed-it-solutions /services/managed-it/ 301
 /managed-it-solutions/ /services/managed-it/ 301
 /managed-services /services/managed-it/ 301
@@ -32,10 +31,8 @@
 /managed-detection-response/ /services/cybersecurity/ 301
 /managed-network-security /services/cybersecurity/ 301
 /managed-network-security/ /services/cybersecurity/ 301
-/managed-network-security/* /services/cybersecurity/ 301
 /managed-security /services/cybersecurity/ 301
 /managed-security/ /services/cybersecurity/ 301
-/managed-security/* /services/cybersecurity/ 301
 /endpoint-security /services/cybersecurity/ 301
 /endpoint-security/ /services/cybersecurity/ 301
 /data-security /services/cybersecurity/ 301
@@ -56,7 +53,6 @@
 # --- Cloud ---
 /cloud-services /services/cloud/ 301
 /cloud-services/ /services/cloud/ 301
-/cloud-services/* /services/cloud/ 301
 /cloud-migration-management /services/cloud/ 301
 /cloud-migration-management/ /services/cloud/ 301
 /cloud-readiness-assessment /services/cloud/ 301
@@ -73,7 +69,6 @@
 /technology-assessment-services/ /services/it-consulting/ 301
 /network-assessment /services/it-consulting/ 301
 /network-assessment/ /services/it-consulting/ 301
-/network-assessment/* /services/it-consulting/ 301
 /wireless-assessment /services/it-consulting/ 301
 /wireless-assessment/ /services/it-consulting/ 301
 /network-design-implementation /services/it-consulting/ 301
@@ -86,7 +81,6 @@
 # --- Cabling / phone ---
 /low-voltage-cabling /services/cabling-communications/ 301
 /low-voltage-cabling/ /services/cabling-communications/ 301
-/low-voltage-cabling/* /services/cabling-communications/ 301
 /managed-phone-services /services/cabling-communications/ 301
 /managed-phone-services/ /services/cabling-communications/ 301
 /phone-systems /services/cabling-communications/ 301
@@ -99,7 +93,6 @@
 /creative/ /services/web-design-development/ 301
 /full-service-advertising-agency /services/web-design-development/ 301
 /full-service-advertising-agency/ /services/web-design-development/ 301
-/full-service-advertising-agency/* /services/web-design-development/ 301
 /home/web-design-development /services/web-design-development/ 301
 /home/web-design-development/ /services/web-design-development/ 301
 /home/brand-identity /services/web-design-development/ 301
@@ -114,7 +107,6 @@
 /services/digital-marketing/ /services/web-design-development/ 301
 /web-development /services/web-design-development/ 301
 /web-development/ /services/web-design-development/ 301
-/web-development/* /services/web-design-development/ 301
 
 # --- Generic /services hub (exact only; do not splat — live service pages live under /services/) ---
 /services /#services 301
@@ -163,7 +155,6 @@
 # --- Blog / news / case studies / misc legacy content → home ---
 /blog / 301
 /blog/ / 301
-/blog/* / 301
 /latest-news / 301
 /latest-news/ / 301
 /latest-rants-raves / 301
@@ -172,15 +163,6 @@
 /news-post/ / 301
 /hello-world / 301
 /hello-world/ / 301
-/category/* / 301
-/tag/* / 301
-/author/* / 301
-/2015/* / 301
-/2016/* / 301
-/2018/* / 301
-/2019/* / 301
-/2020/* / 301
-/2021/* / 301
 /home/404-error / 301
 /home/404-error/ / 301
 
@@ -227,3 +209,25 @@
 /strengthening-cybersecurity-defenses-a-call-to-action-and-the-role-of-cybercon-solutions/ / 301
 /vmware-releases-security-updates-for-cloud-director / 301
 /vmware-releases-security-updates-for-cloud-director/ / 301
+
+# --- Dynamic (splat) rules ---
+# Must stay LAST: once the parser sees a splat, every later rule counts
+# against the 100 dynamic-rule limit (workers-shared parseRedirects).
+/managed-it-services/* /services/managed-it/ 301
+/managed-network-security/* /services/cybersecurity/ 301
+/managed-security/* /services/cybersecurity/ 301
+/cloud-services/* /services/cloud/ 301
+/network-assessment/* /services/it-consulting/ 301
+/low-voltage-cabling/* /services/cabling-communications/ 301
+/full-service-advertising-agency/* /services/web-design-development/ 301
+/web-development/* /services/web-design-development/ 301
+/blog/* / 301
+/category/* / 301
+/tag/* / 301
+/author/* / 301
+/2015/* / 301
+/2016/* / 301
+/2018/* / 301
+/2019/* / 301
+/2020/* / 301
+/2021/* / 301
