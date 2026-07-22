@@ -26,7 +26,6 @@ One partner for all of your technology with predictable per-user pricing:
 | Privacy | https://cybercon-solutions.com/privacy/ |
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
 | Search | https://cybercon-solutions.com/search/ |
-| Client login | https://cybercon-solutions.com/client/ |
 | Assessment API | POST https://cybercon-solutions.com/api/assessment |
 
 ## Contact

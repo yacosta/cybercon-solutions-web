@@ -5,7 +5,6 @@ export const en = {
       'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline.',
   },
   nav: {
-    client: 'Client area',
     search: 'Search',
     searchOpen: 'Open search',
     searchClose: 'Close search',
