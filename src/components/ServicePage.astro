@@ -25,6 +25,8 @@ const title = details.metaTitle[locale];
 const description = details.metaDescription[locale];
 const assessmentHref = `${homePath}#assessment`;
 const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean);
+const visual = details.visual;
+const [overviewLead, ...overviewRest] = overviewParagraphs;
 ---
 
 <BaseLayout
@@ -40,6 +42,15 @@ const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean
   <Fragment slot="head">
     <script type="application/ld+json" set:html={jsonLdScript(serviceJsonLd(service, locale))} />
     <script type="application/ld+json" set:html={jsonLdScript(faqPageJsonLd(details.faqs, locale))} />
+    {visual && (
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        imagesrcset={`${visual.srcWebpSm ?? visual.srcWebp} 768w, ${visual.srcWebp ?? visual.src} 1024w`}
+        imagesizes="(max-width: 720px) 88vw, 280px"
+      />
+    )}
   </Fragment>
 
   <Header slot="header" locale={locale} t={t} variant="light" />
@@ -55,13 +66,47 @@ const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean
       <p>{details.audience[locale]}</p>
     </section>
 
-    <section class="block" aria-labelledby="overview-title">
+    <section class={`block${visual ? ' block--with-visual' : ''}`} aria-labelledby="overview-title">
       <h2 id="overview-title" class="visually-hidden">
         {locale === 'es' ? 'Descripción' : 'Overview'}
       </h2>
-      {overviewParagraphs.map((paragraph) => (
-        <p>{paragraph}</p>
-      ))}
+      {visual ? (
+        <div class="overview-flow">
+          <figure class="service-visual">
+            <div class="service-visual__frame">
+              <picture>
+                {visual.srcWebp && (
+                  <source
+                    type="image/webp"
+                    srcset={[
+                      visual.srcWebpSm ? `${visual.srcWebpSm} 768w` : null,
+                      `${visual.srcWebp} ${visual.width}w`,
+                    ]
+                      .filter(Boolean)
+                      .join(', ')}
+                    sizes="(max-width: 720px) min(88vw, 420px), 280px"
+                  />
+                )}
+                <img
+                  src={visual.src}
+                  alt={visual.alt[locale]}
+                  width={visual.width}
+                  height={visual.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+            </div>
+            <figcaption>{visual.caption[locale]}</figcaption>
+          </figure>
+          {overviewLead && <p class="overview-lead">{overviewLead}</p>}
+          {overviewRest.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      ) : (
+        overviewParagraphs.map((paragraph) => <p>{paragraph}</p>)
+      )}
     </section>
 
     <section class="block" aria-labelledby="included-title">
@@ -154,6 +199,111 @@ const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean
 
   .block li + li {
     margin-top: 0.55rem;
+  }
+
+  .block--with-visual {
+    margin-bottom: 2.5rem;
+  }
+
+  .overview-flow {
+    display: flow-root;
+  }
+
+  .service-visual {
+    margin: 0 0 1.35rem;
+    max-width: min(100%, 22rem);
+  }
+
+  .service-visual__frame {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background:
+      radial-gradient(120% 80% at 12% 8%, rgba(255, 255, 255, 0.55), transparent 55%),
+      linear-gradient(160deg, #e8eef4 0%, #d5dde6 48%, #c5d0db 100%);
+    transform: rotate(-1.25deg);
+    transition: transform 0.45s ease;
+  }
+
+  .service-visual__frame::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--coral);
+    z-index: 1;
+  }
+
+  .service-visual__frame::after {
+    content: '';
+    position: absolute;
+    inset: 0.65rem;
+    border: 1px solid rgba(15, 44, 76, 0.08);
+    border-radius: calc(var(--radius-md) - 4px);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .service-visual img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    object-position: center 28%;
+    animation: visual-rise 0.7s ease both;
+  }
+
+  .service-visual figcaption {
+    margin-top: 0.85rem;
+    padding-left: 0.15rem;
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1.45;
+    color: var(--navy);
+    animation: visual-rise 0.7s ease 0.12s both;
+  }
+
+  .service-visual:hover .service-visual__frame {
+    transform: rotate(0deg) translateY(-2px);
+  }
+
+  @keyframes visual-rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.65rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 720px) {
+    .service-visual {
+      float: right;
+      width: min(42%, 17.5rem);
+      margin: 0.15rem 0 1.25rem 1.5rem;
+      shape-outside: margin-box;
+    }
+
+    .overview-lead {
+      margin-top: 0.15rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .service-visual img,
+    .service-visual figcaption {
+      animation: none;
+    }
+
+    .service-visual__frame,
+    .service-visual:hover .service-visual__frame {
+      transition: none;
+      transform: none;
+    }
   }
 
   .process {
