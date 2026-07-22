@@ -1,5 +1,15 @@
 export type LocaleText = { en: string; es: string };
 
+export type ServiceVisual = {
+  src: string;
+  srcWebp?: string;
+  srcWebpSm?: string;
+  width: number;
+  height: number;
+  alt: LocaleText;
+  caption: LocaleText;
+};
+
 export type ServiceDetails = {
   metaTitle: LocaleText;
   metaDescription: LocaleText;
@@ -7,6 +17,8 @@ export type ServiceDetails = {
   overview: LocaleText;
   process: { title: LocaleText; body: LocaleText }[];
   faqs: { question: LocaleText; answer: LocaleText }[];
+  /** Optional editorial image shown inline with the overview. */
+  visual?: ServiceVisual;
 };
 
 export const serviceDetails: Record<string, ServiceDetails> = {
@@ -757,6 +769,21 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     audience: {
       en: 'Businesses that need a credible web presence or a focused custom application, with hosting and support included. Aimed at South Florida organizations that care about accessibility, brand consistency, and secure operations. Choose this when your current site undersells the quality of your real-world service delivery. We also plan analytics consent and basic SEO foundations so the new site can be found and measured after launch without bolting tools on later.',
       es: 'Empresas que necesitan presencia web creíble o una aplicación a medida enfocada, con hosting y soporte incluidos. Orientado a organizaciones del sur de Florida que cuidan accesibilidad, marca y operación segura. Elige esto cuando tu sitio actual vende por debajo de la calidad de tu servicio en la vida real. También planificamos consentimiento de analítica y bases SEO básicas para que el sitio nuevo se pueda encontrar y medir tras el lanzamiento sin improvisar herramientas después.',
+    },
+    visual: {
+      src: '/images/services/web-design-wireframe.jpg',
+      srcWebp: '/images/services/web-design-wireframe.webp',
+      srcWebpSm: '/images/services/web-design-wireframe-768.webp',
+      width: 1024,
+      height: 1536,
+      alt: {
+        en: 'Close-up of a designer’s hand sketching a website wireframe on paper with a pen',
+        es: 'Primer plano de la mano de un diseñador dibujando un wireframe de sitio web en papel con un bolígrafo',
+      },
+      caption: {
+        en: 'Structure first — we wireframe the experience before a single pixel ships.',
+        es: 'Primero la estructura: dibujamos la experiencia antes de publicar un solo píxel.',
+      },
     },
     overview: {
       en: 'We design and build accessible, on-brand sites and custom applications, then host them securely with ongoing support. UX work focuses on clarity: visitors should understand what you offer and how to contact you without friction.\n\nAfter launch we stay available for updates and security hygiene. Projects commonly support Cooper City and Davie businesses that want a durable site, not a one-off brochure that ages poorly.\n\nA website should answer the questions a careful buyer already has: who you are, where you serve, how to reach a human, and why trust you. We build for that clarity, then keep hosting and support in the loop so security updates and content changes do not stall. Custom applications get the same treatment: scoped features, accessible interfaces, and an operations plan after launch. For South Florida companies in Cooper City and Davie, the win is a durable digital front door that matches how you sell and support customers in person.',
