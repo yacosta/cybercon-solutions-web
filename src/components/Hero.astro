@@ -76,6 +76,15 @@ const assessmentHref = '#assessment';
       video.remove();
       return;
     }
+    // Skip ~1MB WebM on narrow viewports / Save-Data — poster is the LCP image.
+    const narrow = window.matchMedia('(max-width: 768px)').matches;
+    const connection = /** @type {{ saveData?: boolean } | undefined } */ (
+      'connection' in navigator ? navigator.connection : undefined
+    );
+    if (narrow || connection?.saveData) {
+      video.remove();
+      return;
+    }
     const source = video.querySelector('source[data-src]');
     if (source instanceof HTMLSourceElement && source.dataset.src) {
       source.src = source.dataset.src;

@@ -11,6 +11,8 @@
 
 - Poster is preloaded and paints first (LCP).
 - Video loads after `window.load` so it does not compete with critical rendering.
+- On viewports ≤768px (and Save-Data), the video is not fetched — poster only.
+- Served with a long `Cache-Control` TTL via `public/_headers`.
 - `muted` + `playsinline` + `loop` + `autoplay` (via script).
 - `aria-hidden="true"` on decorative media; screen-reader description in `.sr-only`.
 - `prefers-reduced-motion: reduce` hides the video and keeps the poster.
