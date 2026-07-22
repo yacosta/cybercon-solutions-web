@@ -4,14 +4,12 @@ import type { Messages } from '../i18n';
 interface Props {
   locale: 'en' | 'es';
   t: Messages;
-  posterSrc?: string;
   videoSrc?: string;
 }
 
 const {
   locale,
   t,
-  posterSrc = '/videos/hero-poster.jpg',
   videoSrc = '/videos/hero-server-racks.webm',
 } = Astro.props;
 
@@ -21,6 +19,17 @@ const videoLabel =
     : 'Decorative video: network engineer walking through server racks and working on a server';
 
 const assessmentHref = '#assessment';
+
+/** Responsive LCP poster — AVIF/WebP + width variants beat the old 86KiB PNG-as-JPG. */
+const posterJpg = '/videos/hero-poster.jpg';
+const posterWebp = '/videos/hero-poster.webp';
+const posterAvifSrcset =
+  '/videos/hero-poster-768.avif 768w, /videos/hero-poster-960.avif 960w, /videos/hero-poster.avif 1280w';
+const posterWebpSrcset =
+  '/videos/hero-poster-768.webp 768w, /videos/hero-poster-960.webp 960w, /videos/hero-poster.webp 1280w';
+const posterJpgSrcset =
+  '/videos/hero-poster-768.jpg 768w, /videos/hero-poster-960.jpg 960w, /videos/hero-poster.jpg 1280w';
+const posterSizes = '100vw';
 ---
 
 <section
@@ -29,22 +38,28 @@ const assessmentHref = '#assessment';
   aria-describedby="hero-lede"
 >
   <div class="hero-media">
-    <img
-      class="hero-poster"
-      src={posterSrc}
-      alt={videoLabel}
-      width="1280"
-      height="800"
-      fetchpriority="high"
-      decoding="async"
-    />
+    <picture>
+      <source type="image/avif" srcset={posterAvifSrcset} sizes={posterSizes} />
+      <source type="image/webp" srcset={posterWebpSrcset} sizes={posterSizes} />
+      <img
+        class="hero-poster"
+        src={posterJpg}
+        srcset={posterJpgSrcset}
+        sizes={posterSizes}
+        alt={videoLabel}
+        width="1280"
+        height="800"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
     <video
       class="hero-video"
       muted
       loop
       playsinline
       preload="none"
-      poster={posterSrc}
+      poster={posterWebp}
       tabindex="-1"
       aria-label={videoLabel}
     >
