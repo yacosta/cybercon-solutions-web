@@ -1,44 +1,40 @@
 # Cybercon Solutions
 
-> Managed IT, cybersecurity, cloud, and AI for South Florida businesses.
-> We catch issues early and treat security as the baseline.
+> Managed IT, cybersecurity, cloud, and AI for South Florida businesses. We catch issues early and treat security as the baseline.
+
+Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida. Contact: info@cybercon-solutions.com · 973-573-0007. Legal mailing address: 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139. Request any HTML page with `Accept: text/markdown` for a Markdown variant.
 
 ## Site
 
-- Homepage: https://cybercon-solutions.com/
-- Spanish: https://cybercon-solutions.com/es/
-- Privacy: https://cybercon-solutions.com/privacy/
-- Search: https://cybercon-solutions.com/search/
-- Client area: https://cybercon-solutions.com/client/
+- [Homepage](https://cybercon-solutions.com/): English homepage and free assessment
+- [Spanish homepage](https://cybercon-solutions.com/es/): Sitio en español
+- [Privacy Policy](https://cybercon-solutions.com/privacy/): Privacy and data practices
+- [Search](https://cybercon-solutions.com/search/): On-site Pagefind search
+- [Client area](https://cybercon-solutions.com/client/): Authenticated client portal (Auth0)
 
 ## Services
 
-- Managed IT Services
-- Cybersecurity & Compliance (HIPAA, SOC 2, PCI DSS, GLBA)
-- Cloud Services & Architecture (Microsoft 365, Google Workspace, Entra ID)
-- IT Consulting & Virtual CIO
-- Backup & Disaster Recovery
-- Structured Cabling & Communications
-- AI Consulting, Integration, and Conversational AI
-- Web Design & Development
-
-## Contact
-
-- Email: info@cybercon-solutions.com
-- Phone: 973-573-0007
-- Service area: Cooper City & Davie, Florida
-- Legal: Cybercon Solutions LLC, 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139
+- [Managed IT Services](https://cybercon-solutions.com/services/managed-it/): Help desk, monitoring, and onsite support
+- [Cybersecurity & Compliance](https://cybercon-solutions.com/services/cybersecurity/): EDR/XDR, SOC, HIPAA, SOC 2, PCI DSS, GLBA
+- [Cloud Services & Architecture](https://cybercon-solutions.com/services/cloud/): Microsoft 365, Google Workspace, Entra ID
+- [IT Consulting & Virtual CIO](https://cybercon-solutions.com/services/it-consulting/): Roadmaps, risk, budgets, QBRs
+- [Backup & Disaster Recovery](https://cybercon-solutions.com/services/backup-disaster-recovery/): Backups, replication, recovery validation
+- [Structured Cabling & Communications](https://cybercon-solutions.com/services/cabling-communications/): Fiber, VoIP, workplace AV
+- [AI Consulting & Strategy](https://cybercon-solutions.com/services/ai-consulting/): Practical AI roadmaps and ROI assessment
+- [AI Integration & Automation](https://cybercon-solutions.com/services/ai-integration/): Connect AI to ERP, CRM, and existing stack
+- [Conversational AI & Voice](https://cybercon-solutions.com/services/conversational-ai/): Chatbots and AI voice systems
+- [Web Design & Development](https://cybercon-solutions.com/services/web-design-development/): Accessible sites and custom apps
 
 ## Agent discovery
 
-- Full text map: https://cybercon-solutions.com/llms-full.txt
-- API catalog: https://cybercon-solutions.com/.well-known/api-catalog
-- Auth for agents: https://cybercon-solutions.com/auth.md
-- MCP server card: https://cybercon-solutions.com/.well-known/mcp/server-card.json
-- OpenAPI: https://cybercon-solutions.com/openapi.json
-- Sitemap: https://cybercon-solutions.com/sitemap-index.xml
-- Markdown: request any page with `Accept: text/markdown`
+- [Full text map](https://cybercon-solutions.com/llms-full.txt): Longer site summary for AI agents
+- [API catalog](https://cybercon-solutions.com/.well-known/api-catalog): Linkset of machine-readable endpoints
+- [Auth for agents](https://cybercon-solutions.com/auth.md): OAuth/Auth0 discovery guidance
+- [MCP server card](https://cybercon-solutions.com/.well-known/mcp/server-card.json): Model Context Protocol card
+- [OpenAPI](https://cybercon-solutions.com/openapi.json): Public HTTP API description
+- [Sitemap](https://cybercon-solutions.com/sitemap-index.xml): XML sitemap index
 
 ## Optional
 
-- DNS-AID: publish SVCB/HTTPS at `_index._agents.cybercon-solutions.com` pointing to this host (Cloudflare DNS)
+- [Spanish privacy](https://cybercon-solutions.com/es/privacy/): Política de privacidad en español
+- [Health check](https://cybercon-solutions.com/api/health): Simple API health endpoint
