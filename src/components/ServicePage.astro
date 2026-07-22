@@ -44,7 +44,7 @@ const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean
 
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <article class="service container" data-pagefind-body>
+  <article class="service container page" data-pagefind-body>
     <p class="eyebrow">{t.services.eyebrow}</p>
     <p class="num" aria-hidden="true">{service.id}</p>
     <h1>{service.title[locale]}</h1>
@@ -110,11 +110,6 @@ const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean
 </BaseLayout>
 
 <style>
-  .service {
-    /* Match homepage section gutters: shared `.container` + section vertical rhythm */
-    padding: clamp(3rem, 6vw, 5rem) 0;
-  }
-
   .num {
     font-family: var(--font-heading);
     font-size: 0.75rem;

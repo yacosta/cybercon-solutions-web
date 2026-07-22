@@ -117,8 +117,13 @@ p {
 }
 
 .container {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(var(--page-max), calc(100% - (2 * var(--page-gutter))));
   margin-inline: auto;
+}
+
+/* Standard vertical rhythm for standalone content pages */
+.page {
+  padding-block: var(--section-pad-y);
 }
 
 .eyebrow {

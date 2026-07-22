@@ -22,7 +22,7 @@ const error = Astro.url.searchParams.get('error');
 >
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <div class="client container">
+  <div class="client container page">
     <p class="eyebrow">{t.client.title}</p>
     <h1>{user ? t.client.welcome : t.client.dashboard}</h1>
     <p class="lede">{t.client.lede}</p>
@@ -59,10 +59,6 @@ const error = Astro.url.searchParams.get('error');
 </BaseLayout>
 
 <style>
-  .client {
-    padding: 3rem 0 4rem;
-  }
-
   .client h1 {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     margin: 0.35rem 0 0.75rem;

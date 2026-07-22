@@ -27,7 +27,7 @@ const path = localePath(locale, '/privacy/');
 >
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <article class="privacy container" data-pagefind-body>
+  <article class="privacy container page" data-pagefind-body>
     <header class="privacy-head">
       <p class="eyebrow">{locale === 'es' ? 'Legal' : 'Legal'}</p>
       <h1>{p.title}</h1>
@@ -91,7 +91,6 @@ const path = localePath(locale, '/privacy/');
 
 <style>
   .privacy {
-    padding: 2rem 0 4rem;
     color: var(--body-muted);
   }
 
@@ -113,12 +112,10 @@ const path = localePath(locale, '/privacy/');
   .lead {
     font-size: 1.05rem;
     color: var(--navy);
-    max-width: 42rem;
   }
 
   .privacy section {
     margin-top: 2rem;
-    max-width: 46rem;
   }
 
   .privacy h2 {

@@ -16,7 +16,7 @@ const featured = services.slice(0, 4);
 <BaseLayout title={en.title} description={en.description} locale="en" path="/404/" noindex>
 	<Header slot="header" locale="en" t={enMessages} variant="light" />
 
-	<section class="not-found container" data-pagefind-ignore>
+	<section class="not-found container page" data-pagefind-ignore>
 		<p class="eyebrow">{en.kicker}</p>
 		<div id="nf-en" class="nf-locale">
 			<h1>{en.heading}</h1>
@@ -96,10 +96,6 @@ const featured = services.slice(0, 4);
 </script>
 
 <style>
-	.not-found {
-		padding-block: clamp(3rem, 8vw, 5.5rem) 4rem;
-	}
-
 	.not-found h1 {
 		margin: 0 0 0.85rem;
 		max-width: 18ch;
