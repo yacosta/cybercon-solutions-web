@@ -17,7 +17,7 @@ const t = getMessages(locale);
 >
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <div class="search-page container">
+  <div class="search-page container page">
     <h1>{t.search.title}</h1>
     <p class="lede">{t.search.lede}</p>
     <div id="search" class="pagefind-ui"></div>
@@ -50,7 +50,6 @@ const t = getMessages(locale);
 
 <style>
   .search-page {
-    padding: 3rem 0 4rem;
     min-height: 50vh;
   }
 

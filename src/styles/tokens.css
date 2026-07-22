@@ -17,4 +17,10 @@
   --radius-sm: 9px;
   --radius-md: 11px;
   --shadow-focus: 0 0 0 3px rgba(242, 107, 94, 0.16);
+
+  /* Shared page layout — keep header, footer, and content edges aligned */
+  --page-max: 1120px;
+  --page-gutter: 1rem;
+  --page-inline: max(var(--page-gutter), calc((100% - var(--page-max)) / 2));
+  --section-pad-y: clamp(3rem, 6vw, 5rem);
 }
