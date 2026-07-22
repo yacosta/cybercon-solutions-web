@@ -76,17 +76,21 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
   .heart {
     color: var(--coral);
     display: inline-block;
+    font-size: 1.35em;
+    line-height: 1;
+    vertical-align: -0.05em;
     transform-origin: center;
-    animation: heart-pulse 1.5s alternate infinite ease-in;
+    /* Same idea as MediaNV’s footer heart: scale pulse, alternate forever */
+    animation: heart-pulse 1.5s ease-in infinite alternate;
   }
 
   @keyframes heart-pulse {
     0% {
-      transform: scale(0.75);
+      transform: scale(0.55);
     }
 
     100% {
-      transform: scale(1.1);
+      transform: scale(1);
     }
   }
 
