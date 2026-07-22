@@ -75,6 +75,25 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
 
   .heart {
     color: var(--coral);
+    display: inline-block;
+    transform-origin: center;
+    animation: heart-pulse 1.5s alternate infinite ease-in;
+  }
+
+  @keyframes heart-pulse {
+    0% {
+      transform: scale(0.75);
+    }
+
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heart {
+      animation: none;
+    }
   }
 
   .divider {
