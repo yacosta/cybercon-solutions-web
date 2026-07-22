@@ -7,7 +7,6 @@ export const es: Messages = {
       'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base.',
   },
   nav: {
-    client: 'Área de clientes',
     search: 'Buscar',
     searchOpen: 'Abrir búsqueda',
     searchClose: 'Cerrar búsqueda',
