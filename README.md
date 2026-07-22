@@ -184,5 +184,5 @@ src/
 public/
   robots.txt, llms.txt, auth.md, openapi.json, _headers, .assetsignore
   .well-known/  api-catalog, mcp, agent-skills, web-bot-auth JWKS
-  videos/       hero-server-racks.webm, hero-poster.jpg
+  videos/       hero-server-racks.webm, hero-poster.{avif,webp,jpg} (+ 768/960w)
 ```

@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
+import soraLatin700 from '@fontsource/sora/files/sora-latin-700-normal.woff2?url';
 import { getMessages, localePath } from '../i18n';
 import { absoluteUrl, site } from '../lib/site';
 import { breadcrumbJsonLd, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
@@ -94,13 +96,9 @@ const structuredData = [
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Fonts: Sora + Inter from Google Fonts with display=swap for CLS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Critical self-hosted fonts (latin body + display). -->
+    <link rel="preload" href={interLatin400} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={soraLatin700} as="font" type="font/woff2" crossorigin />
 
     {structuredData.map((data) => (
       <script type="application/ld+json" set:html={jsonLdScript(data)} />

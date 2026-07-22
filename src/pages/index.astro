@@ -13,7 +13,15 @@ const t = getMessages(locale);
 ---
 
 <BaseLayout locale={locale} path="/">
-  <link slot="head" rel="preload" as="image" href="/videos/hero-poster.jpg" fetchpriority="high" />
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    type="image/webp"
+    imagesrcset="/videos/hero-poster-768.webp 768w, /videos/hero-poster-960.webp 960w, /videos/hero-poster.webp 1280w"
+    imagesizes="100vw"
+    fetchpriority="high"
+  />
 
   <div slot="header" class="hero-shell">
     <Header locale={locale} t={t} variant="dark" />

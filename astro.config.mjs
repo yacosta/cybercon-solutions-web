@@ -36,6 +36,12 @@ export default defineConfig({
     }),
   ],
   prefetch: true,
+  // Component CSS chunks (Footer ~18KB, ServicesGrid ~5KB) exceed Vite's
+  // default 4KB inline limit and become separate render-blocking requests on
+  // mobile. Inlining keeps critical CSS in the HTML document.
+  build: {
+    inlineStylesheets: 'always',
+  },
   vite: {
     plugins: [tailwindcss()],
   },

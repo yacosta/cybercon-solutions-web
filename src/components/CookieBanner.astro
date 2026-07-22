@@ -71,13 +71,18 @@ const {
     if (!banner) return;
     previousFocus = document.activeElement;
     banner.hidden = false;
-    acceptBtn?.focus();
+    // Defer focus until after style/layout settle to avoid forced reflow on load.
+    requestAnimationFrame(() => {
+      acceptBtn?.focus({ preventScroll: true });
+    });
   }
 
   function hideBanner() {
     if (!banner) return;
     banner.hidden = true;
-    if (previousFocus instanceof HTMLElement) previousFocus.focus();
+    if (previousFocus instanceof HTMLElement) {
+      previousFocus.focus({ preventScroll: true });
+    }
   }
 
   function applyConsent(value) {
