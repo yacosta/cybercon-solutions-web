@@ -11,8 +11,11 @@ interface Props {
 const { locale, t, variant = 'dark' } = Astro.props;
 const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
-const enHref = locale === 'es' ? Astro.url.pathname.replace(/^\/es/, '') || '/' : Astro.url.pathname;
-const esHref = locale === 'es' ? Astro.url.pathname : Astro.url.pathname === '/' ? '/es/' : `/es${Astro.url.pathname}`;
+const blogHref = localePath(locale, '/blog/');
+const path = Astro.url.pathname;
+const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
+const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
+const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
 ---
 
 <header class:list={['site-header', variant]}>
@@ -65,6 +68,13 @@ const esHref = locale === 'es' ? Astro.url.pathname : Astro.url.pathname === '/'
     </div>
 
     <nav class="site-nav" aria-label={locale === 'es' ? 'Principal' : 'Primary'}>
+      <a
+        href={blogHref}
+        class:list={['nav-link', { active: onBlog }]}
+        aria-current={onBlog ? 'page' : undefined}
+      >
+        {t.blog.nav}
+      </a>
       <div class="lang" role="group" aria-label={locale === 'es' ? 'Idioma' : 'Language'}>
         <a
           href={enHref}
@@ -314,6 +324,14 @@ const esHref = locale === 'es' ? Astro.url.pathname : Astro.url.pathname === '/'
   }
 
   .lang a.active {
+    color: var(--coral);
+  }
+
+  .nav-link.active {
+    color: var(--coral);
+  }
+
+  .site-header.light .nav-link.active {
     color: var(--coral);
   }
 
