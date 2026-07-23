@@ -17,6 +17,8 @@ export const en = {
     home: 'Home',
     services: 'Services',
     servicesMenu: 'Services menu',
+    menu: 'Menu',
+    close: 'Close',
   },
   hero: {
     eyebrow: 'Cooper City & Davie, Florida',

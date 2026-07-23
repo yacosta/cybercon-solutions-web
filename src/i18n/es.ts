@@ -19,6 +19,8 @@ export const es: Messages = {
     home: 'Inicio',
     services: 'Servicios',
     servicesMenu: 'Menú de servicios',
+    menu: 'Menú',
+    close: 'Cerrar',
   },
   hero: {
     eyebrow: 'Cooper City y Davie, Florida',
