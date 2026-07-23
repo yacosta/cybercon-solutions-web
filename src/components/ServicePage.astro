@@ -4,6 +4,7 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 import type { Service } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
+import { buildServiceEditorial } from '../lib/service-editorial';
 import { getMessages, localePath } from '../i18n';
 import { faqPageJsonLd, jsonLdScript, serviceJsonLd } from '../lib/seo';
 
@@ -19,18 +20,18 @@ if (!details) {
   throw new Error(`Missing service details for slug: ${service.slug}`);
 }
 
+const copy = buildServiceEditorial(service, details, locale, t);
 const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
 const homePath = localePath(locale, '/');
-const title = details.metaTitle[locale];
-const description = details.metaDescription[locale];
 const assessmentHref = `${homePath}#assessment`;
-const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean);
+const servicesHref = `${homePath}#services-title`;
+const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 ---
 
 <BaseLayout
   locale={locale}
-  title={title}
-  description={description}
+  title={details.metaTitle[locale]}
+  description={details.metaDescription[locale]}
   path={path}
   breadcrumbs={[
     { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
@@ -44,193 +45,457 @@ const overviewParagraphs = details.overview[locale].split('\n\n').filter(Boolean
 
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <article class="service container page" data-pagefind-body>
-    <p class="eyebrow">{t.services.eyebrow}</p>
-    <p class="num" aria-hidden="true">{service.id}</p>
-    <h1>{service.title[locale]}</h1>
-    <p class="lede">{service.summary[locale]}</p>
-
-    <section class="block" aria-labelledby="audience-title">
-      <h2 id="audience-title">{t.servicePage.audienceTitle}</h2>
-      <p>{details.audience[locale]}</p>
+  <article class="wd" data-pagefind-body>
+    <section class="wd-hero container">
+      <h1 class="wd-hero-title">{copy.displayTitle}</h1>
+      <p class="wd-hero-lede">{copy.lede}</p>
+      <div class="wd-hero-actions">
+        <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+        <a class="wd-text-link" href={servicesHref}>{t.servicePage.back}</a>
+      </div>
+      <p class="wd-hero-note">{copy.replyNote}</p>
     </section>
 
-    <section class="block" aria-labelledby="overview-title">
-      <h2 id="overview-title" class="visually-hidden">
-        {locale === 'es' ? 'Descripción' : 'Overview'}
-      </h2>
-      {overviewParagraphs.map((paragraph) => (
-        <p>{paragraph}</p>
-      ))}
+    <hr class="wd-rule" />
+
+    <section class="wd-split container" aria-labelledby="wd-audience-title">
+      <div class="wd-split-lead">
+        <p class="wd-label">{copy.audience.label}</p>
+        <h2 id="wd-audience-title">{copy.audience.title}</h2>
+      </div>
+      <div class="wd-split-body">
+        {copy.audience.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
     </section>
 
-    <section class="block" aria-labelledby="included-title">
-      <h2 id="included-title">{t.servicePage.includedTitle}</h2>
-      <ul>
-        {service.items.map((item) => (
-          <li>{item[locale]}</li>
-        ))}
-      </ul>
-    </section>
+    <hr class="wd-rule" />
 
-    <section class="block" aria-labelledby="process-title">
-      <h2 id="process-title">{t.servicePage.processTitle}</h2>
-      <ol class="process">
-        {details.process.map((step) => (
-          <li>
-            <h3>{step.title[locale]}</h3>
-            <p>{step.body[locale]}</p>
+    <section class="wd-process container" aria-labelledby="wd-process-title">
+      <h2 id="wd-process-title" class="wd-label">{copy.process.label}</h2>
+      <ol class="wd-steps">
+        {copy.process.steps.map((step) => (
+          <li class="wd-step">
+            <div class="wd-step-index">
+              <span class="wd-step-mark" aria-hidden="true"></span>
+              <span class="wd-step-num">{step.number}</span>
+            </div>
+            <h3 class="wd-step-title">{step.title}</h3>
+            <p class="wd-step-body">{step.body}</p>
           </li>
         ))}
       </ol>
     </section>
 
-    <section class="block faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">{t.servicePage.faqTitle}</h2>
-      {details.faqs.map((faq) => (
-        <details>
-          <summary>{faq.question[locale]}</summary>
-          <p>{faq.answer[locale]}</p>
-        </details>
-      ))}
+    <hr class="wd-rule" />
+
+    <section class="wd-after container" aria-labelledby="wd-feature-title">
+      <div class="wd-after-copy">
+        <p class="wd-label">{copy.feature.label}</p>
+        <h2 id="wd-feature-title">{copy.feature.title}</h2>
+        {featureBodyParas.map((paragraph) => <p>{paragraph}</p>)}
+        {copy.included.length > 0 && (
+          <ul class="wd-included">
+            {copy.included.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <figure class="wd-after-media">
+        <picture>
+          <source
+            type="image/avif"
+            srcset="/videos/hero-poster-768.avif 768w, /videos/hero-poster-960.avif 960w, /videos/hero-poster.avif 1280w"
+            sizes="(max-width: 900px) 100vw, 40vw"
+          />
+          <source
+            type="image/webp"
+            srcset="/videos/hero-poster-768.webp 768w, /videos/hero-poster-960.webp 960w, /videos/hero-poster.webp 1280w"
+            sizes="(max-width: 900px) 100vw, 40vw"
+          />
+          <img
+            src="/videos/hero-poster.jpg"
+            srcset="/videos/hero-poster-768.jpg 768w, /videos/hero-poster-960.jpg 960w, /videos/hero-poster.jpg 1280w"
+            sizes="(max-width: 900px) 100vw, 40vw"
+            alt={copy.feature.imageAlt}
+            width="1280"
+            height="720"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+      </figure>
     </section>
 
-    <section class="cta" aria-labelledby="service-cta-title">
-      <h2 id="service-cta-title">{t.servicePage.ctaTitle}</h2>
-      <p>{t.servicePage.ctaBody}</p>
-      <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+    <section class="wd-faq container" aria-labelledby="wd-faq-title">
+      <h2 id="wd-faq-title" class="wd-label">{copy.faqLabel}</h2>
+      <dl class="wd-faq-list">
+        {copy.faqs.map((faq) => (
+          <div class="wd-faq-row">
+            <dt>{faq.question}</dt>
+            <dd>{faq.answer}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
 
-    <p class="back">
-      <a href={`${homePath}#services-title`}>{t.servicePage.back}</a>
-    </p>
+    <section class="wd-cta" aria-labelledby="wd-cta-title">
+      <div class="wd-cta-inner container">
+        <h2 id="wd-cta-title">{copy.cta.title}</h2>
+        <a class="wd-cta-btn" href={assessmentHref}>{copy.cta.button}</a>
+      </div>
+    </section>
   </article>
 
   <Footer slot="footer" locale={locale} t={t} />
 </BaseLayout>
 
+<style is:global>
+  body:has(.wd) {
+    background: #f3f3f3;
+  }
+
+  body:has(.wd) .site-header.light {
+    background: #f3f3f3;
+  }
+</style>
+
 <style>
-  .num {
+  .wd {
+    background: #f3f3f3;
+    color: var(--navy);
+  }
+
+  .wd :global(h1),
+  .wd :global(h2),
+  .wd :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .wd-label,
+  .wd :global(h2.wd-label) {
     font-family: var(--font-heading);
     font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--button-red);
+    margin: 0 0 1rem;
+  }
+
+  .wd-rule {
+    border: 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
+    margin: 0;
+  }
+
+  .wd-hero {
+    padding-block: clamp(2.75rem, 6vw, 4.5rem) clamp(2.5rem, 5vw, 3.75rem);
+  }
+
+  .wd-hero-title {
+    font-size: clamp(2.35rem, 6vw, 3.75rem);
+    line-height: 1.05;
+    max-width: 16ch;
+    margin: 0 0 1.25rem;
+  }
+
+  .wd-hero-lede {
+    max-width: 42rem;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    line-height: 1.55;
+    color: var(--navy);
+    margin: 0 0 1.75rem;
+  }
+
+  .wd-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.15rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .wd-text-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--button-red);
+    text-decoration: none;
+  }
+
+  .wd-text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .wd-hero-note {
+    margin: 0;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: var(--coral);
-    margin: 0.75rem 0 0.35rem;
-  }
-
-  .service h1 {
-    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
-    color: var(--navy);
-    margin-bottom: 0.85rem;
-  }
-
-  .lede {
+    text-transform: uppercase;
     color: var(--body-muted);
-    font-size: 1.0625rem;
-    margin-bottom: 1.75rem;
   }
 
-  .block {
-    margin: 0 0 2rem;
+  .wd-split {
+    display: grid;
+    gap: 1.75rem 3rem;
+    padding-block: clamp(2.5rem, 5vw, 3.75rem);
   }
 
-  .block h2 {
-    font-size: 1.25rem;
-    color: var(--navy);
-    margin: 0 0 0.75rem;
-  }
-
-  .block p {
-    color: var(--body-muted);
-    margin: 0 0 0.85rem;
-  }
-
-  .block ul {
+  .wd-split-lead h2 {
+    font-size: clamp(1.55rem, 3vw, 2.05rem);
+    line-height: 1.2;
     margin: 0;
-    padding-left: 1.15rem;
-    color: var(--navy);
+    max-width: 22ch;
   }
 
-  .block li + li {
-    margin-top: 0.55rem;
-  }
-
-  .process {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  .wd-split-body {
     display: grid;
     gap: 1rem;
+    align-content: start;
   }
 
-  .process h3 {
-    font-size: 1rem;
-    color: var(--navy);
-    margin: 0 0 0.35rem;
-  }
-
-  .process p {
+  .wd-split-body p {
     margin: 0;
-  }
-
-  .faq details {
-    border-top: 1px solid rgba(15, 44, 76, 0.12);
-    padding: 0.85rem 0;
-  }
-
-  .faq details:last-of-type {
-    border-bottom: 1px solid rgba(15, 44, 76, 0.12);
-  }
-
-  .faq summary {
-    cursor: pointer;
-    font-weight: 600;
     color: var(--navy);
+    font-size: 1.015rem;
+    line-height: 1.6;
   }
 
-  .faq details p {
-    margin: 0.65rem 0 0;
+  @media (min-width: 860px) {
+    .wd-split {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      align-items: start;
+    }
   }
 
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+  .wd-process {
+    padding-block: clamp(2.5rem, 5vw, 3.75rem);
+  }
+
+  .wd-steps {
+    list-style: none;
+    margin: 0;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 
-  .cta {
-    background: var(--cream);
-    border: 1px solid rgba(15, 44, 76, 0.1);
-    border-radius: var(--radius-md);
-    padding: 1.35rem 1.4rem;
+  .wd-step {
     display: grid;
-    gap: 0.65rem;
-    justify-items: start;
+    gap: 0.65rem 1.5rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
   }
 
-  .cta h2 {
-    font-size: 1.25rem;
+  .wd-step:last-child {
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .wd-step-index {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .wd-step-mark {
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--button-red);
+    flex-shrink: 0;
+  }
+
+  .wd-step-num {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
     color: var(--navy);
   }
 
-  .cta p {
+  .wd-step-title {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .wd-step-body {
     margin: 0;
     color: var(--body-muted);
+    font-size: 1.015rem;
+    line-height: 1.55;
+    max-width: 36rem;
   }
 
-  .back {
-    margin: 1.75rem 0 0;
+  @media (min-width: 860px) {
+    .wd-step {
+      grid-template-columns: 3.75rem minmax(11rem, 0.75fr) minmax(14rem, 1.25fr);
+      align-items: start;
+      column-gap: clamp(1.5rem, 4vw, 3rem);
+      padding-block: 1.85rem;
+    }
+
+    .wd-step-body {
+      justify-self: end;
+      text-align: left;
+      max-width: 30rem;
+    }
   }
 
-  .back a {
+  .wd-after {
+    display: grid;
+    gap: 1.75rem 3rem;
+    padding-block: clamp(2.5rem, 5vw, 3.75rem);
+    align-items: center;
+  }
+
+  .wd-after-copy h2 {
+    font-size: clamp(1.75rem, 3.4vw, 2.35rem);
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    max-width: 22ch;
+  }
+
+  .wd-after-copy p {
+    margin: 0 0 1rem;
+    font-size: 1.015rem;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 36rem;
+  }
+
+  .wd-after-copy p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .wd-included {
+    margin: 1.15rem 0 0;
+    padding-left: 1.15rem;
+    color: var(--navy);
+    font-size: 1.015rem;
+    line-height: 1.55;
+    max-width: 36rem;
+  }
+
+  .wd-included li + li {
+    margin-top: 0.45rem;
+  }
+
+  .wd-after-media {
+    margin: 0;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: #d8d8d8;
+  }
+
+  .wd-after-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: grayscale(1) brightness(1.2) contrast(1.05);
+  }
+
+  @media (min-width: 860px) {
+    .wd-after {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  .wd-faq {
+    padding-block: clamp(2.5rem, 5vw, 3.75rem) clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .wd-faq-list {
+    margin: 0;
+  }
+
+  .wd-faq-row {
+    display: grid;
+    gap: 0.65rem 2.5rem;
+    padding-block: 1.35rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.18);
+  }
+
+  .wd-faq-row:last-child {
+    border-bottom: 1px solid rgba(15, 44, 76, 0.18);
+  }
+
+  .wd-faq-row dt {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--navy);
+    line-height: 1.35;
+  }
+
+  .wd-faq-row dd {
+    margin: 0;
     color: var(--body-muted);
+    font-size: 1.015rem;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 860px) {
+    .wd-faq-row {
+      grid-template-columns: minmax(12rem, 0.9fr) minmax(14rem, 1.1fr);
+      align-items: start;
+      padding-block: 1.55rem;
+    }
+  }
+
+  .wd-cta {
+    background: var(--button-red);
+    color: var(--white);
+    padding-block: clamp(3rem, 7vw, 5rem);
+  }
+
+  .wd-cta-inner {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+    max-width: 40rem;
+  }
+
+  .wd-cta-inner h2 {
+    margin: 0;
+    color: var(--white);
+    font-size: clamp(1.85rem, 4vw, 2.65rem);
+    line-height: 1.15;
+    max-width: 16ch;
+  }
+
+  .wd-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.15rem;
+    border: 1.5px solid var(--white);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 700;
     font-size: 0.9375rem;
+    text-decoration: none;
+    transition: background 160ms ease, color 160ms ease;
+  }
+
+  .wd-cta-btn:hover {
+    background: var(--white);
+    color: var(--button-red);
+  }
+
+  .wd-cta-btn:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wd-cta-btn {
+      transition: none;
+    }
   }
 </style>
