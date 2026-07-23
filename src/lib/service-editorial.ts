@@ -22,7 +22,7 @@ export type EditorialCopy = {
     body: string;
     imageAlt: string;
     /** Visual treatment for the feature media */
-    mediaVariant: 'infra' | 'photo';
+    mediaVariant: 'infra' | 'photo' | 'cyber';
     image: {
       jpg: string;
       jpgSrcset: string;
@@ -204,6 +204,23 @@ export function buildServiceEditorial(
         '/images/managed-it-support-768.jpg 768w, /images/managed-it-support-960.jpg 960w, /images/managed-it-support.jpg 1280w',
       webpSrcset:
         '/images/managed-it-support-768.webp 768w, /images/managed-it-support-960.webp 960w, /images/managed-it-support.webp 1280w',
+      width: 1280,
+      height: 854,
+    };
+  }
+
+  if (service.slug === 'cybersecurity') {
+    feature.mediaVariant = 'cyber';
+    feature.imageAlt =
+      locale === 'es'
+        ? 'Profesional de ciberseguridad ante monitores con un candado digital y mapa de red global'
+        : 'Cybersecurity professional at monitors with a digital padlock and global network map';
+    feature.image = {
+      jpg: '/images/cybersecurity-lock.jpg',
+      jpgSrcset:
+        '/images/cybersecurity-lock-768.jpg 768w, /images/cybersecurity-lock-960.jpg 960w, /images/cybersecurity-lock.jpg 1280w',
+      webpSrcset:
+        '/images/cybersecurity-lock-768.webp 768w, /images/cybersecurity-lock-960.webp 960w, /images/cybersecurity-lock.webp 1280w',
       width: 1280,
       height: 854,
     };
