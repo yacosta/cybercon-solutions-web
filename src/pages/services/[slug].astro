@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import ServicePage from '../../components/ServicePage.astro';
+import WebDesignServicePage from '../../components/WebDesignServicePage.astro';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
@@ -11,6 +12,7 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+const Page = service.slug === 'web-design-development' ? WebDesignServicePage : ServicePage;
 ---
 
-<ServicePage locale="en" service={service} />
+<Page locale="en" service={service} />
