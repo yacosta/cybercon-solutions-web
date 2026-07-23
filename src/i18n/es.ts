@@ -62,7 +62,7 @@ export const es: Messages = {
     processTitle: 'Cómo trabajamos',
     faqTitle: 'Preguntas frecuentes',
     ctaTitle: '¿Quieres ver con claridad cómo está tu tecnología?',
-    ctaBody: 'Solicita una evaluación gratuita. Un ingeniero real responde en un día hábil.',
+    ctaBody: 'Una evaluación gratuita con próximos pasos claros.',
     cta: 'Solicita una evaluación gratuita',
   },
   blog: {

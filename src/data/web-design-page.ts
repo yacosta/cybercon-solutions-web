@@ -26,6 +26,7 @@ export type WebDesignPageCopy = {
   faqLabel: LocaleCopy;
   cta: {
     title: LocaleCopy;
+    body: LocaleCopy;
     button: LocaleCopy;
   };
 };
@@ -122,6 +123,10 @@ export const webDesignPage: WebDesignPageCopy = {
     title: {
       en: 'Want a clear picture of where your tech stands?',
       es: '¿Quieres ver con claridad cómo está tu tecnología?',
+    },
+    body: {
+      en: 'A free assessment with clear next steps.',
+      es: 'Una evaluación gratuita con próximos pasos claros.',
     },
     button: {
       en: 'Book a free assessment',

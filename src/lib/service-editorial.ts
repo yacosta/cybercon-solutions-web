@@ -34,7 +34,7 @@ export type EditorialCopy = {
   included: string[];
   faqs: Array<{ question: string; answer: string }>;
   faqLabel: string;
-  cta: { title: string; button: string };
+  cta: { title: string; body: string; button: string };
 };
 
 function sentences(text: string): string[] {
@@ -279,6 +279,7 @@ export function buildServiceEditorial(
       faqLabel: copy.faqLabel[locale],
       cta: {
         title: copy.cta.title[locale],
+        body: copy.cta.body[locale],
         button: copy.cta.button[locale],
       },
     };
@@ -332,6 +333,7 @@ export function buildServiceEditorial(
     faqLabel: t.servicePage.faqTitle,
     cta: {
       title: t.servicePage.ctaTitle,
+      body: t.servicePage.ctaBody,
       button: t.servicePage.cta,
     },
   };
