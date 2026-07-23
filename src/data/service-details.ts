@@ -764,24 +764,24 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     process: [
       {
-        title: { en: '1. Goals & structure', es: '1. Objetivos y estructura' },
+        title: { en: 'Goals & structure', es: 'Objetivos y estructura' },
         body: {
-          en: 'Clarify audience, offers, and IA so pages support real conversations and conversions.',
-          es: 'Aclaramos audiencia, ofertas e arquitectura de información para que las páginas apoyen conversaciones y conversiones reales.',
+          en: 'Clarify audience, offers, and information architecture so every page supports real conversations — and conversions.',
+          es: 'Aclaramos audiencia, ofertas y arquitectura de información para que cada página apoye conversaciones reales — y conversiones.',
         },
       },
       {
-        title: { en: '2. Design & build', es: '2. Diseñar y construir' },
+        title: { en: 'Design & build', es: 'Diseño y construcción' },
         body: {
-          en: 'Produce an accessible, on-brand experience and implement it with secure hosting in mind.',
-          es: 'Producimos una experiencia accesible y con tu marca, e implementamos pensando en hosting seguro.',
+          en: 'An accessible, on-brand experience, implemented with secure hosting in mind from the first commit.',
+          es: 'Una experiencia accesible y con tu marca, implementada pensando en hosting seguro desde el primer commit.',
         },
       },
       {
-        title: { en: '3. Launch & support', es: '3. Lanzar y dar soporte' },
+        title: { en: 'Launch & support', es: 'Lanzamiento y soporte' },
         body: {
-          en: 'Ship, monitor, and provide ongoing support so content and security stay current.',
-          es: 'Publicamos, monitoreamos y damos soporte continuo para que contenido y seguridad se mantengan al día.',
+          en: 'Ship, monitor, and stay available — content changes and security updates never stall.',
+          es: 'Publicamos, monitoreamos y seguimos disponibles — los cambios de contenido y las actualizaciones de seguridad no se estancan.',
         },
       },
     ],
@@ -792,8 +792,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Solo diseñan sitios de marketing?',
         },
         answer: {
-          en: 'No. We build accessible on-brand sites and custom applications with secure hosting and ongoing support.',
-          es: 'No. Construimos sitios accesibles con tu marca y aplicaciones a medida, con hosting seguro y soporte continuo.',
+          en: 'No. We build accessible, on-brand sites and custom applications, with secure hosting and ongoing support.',
+          es: 'No. Construimos sitios accesibles y con tu marca, y aplicaciones a medida, con hosting seguro y soporte continuo.',
         },
       },
       {
@@ -812,8 +812,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Dan soporte al sitio después del lanzamiento?',
         },
         answer: {
-          en: 'Yes. Ongoing support is part of the web design and development offering.',
-          es: 'Sí. El soporte continuo forma parte de la oferta de diseño y desarrollo web.',
+          en: 'Yes. Ongoing support is part of the offering.',
+          es: 'Sí. El soporte continuo forma parte de la oferta.',
         },
       },
       {
@@ -822,8 +822,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿También redactan el copy del sitio?',
         },
         answer: {
-          en: 'We help structure pages and clarify messaging. Final claims stay yours; we will not invent offers or credentials you did not approve.',
-          es: 'Ayudamos a estructurar páginas y aclarar el mensaje. Las afirmaciones finales son tuyas; no inventamos ofertas ni credenciales que no hayas aprobado.',
+          en: 'We help structure pages and clarify messaging. Final claims stay yours — we will not invent offers or credentials you did not approve.',
+          es: 'Ayudamos a estructurar páginas y aclarar el mensaje. Las afirmaciones finales son tuyas — no inventamos ofertas ni credenciales que no hayas aprobado.',
         },
       },
     ],
