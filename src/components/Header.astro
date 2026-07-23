@@ -13,7 +13,6 @@ const { locale, t, variant = 'dark' } = Astro.props;
 const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
-const assessmentHref = `${homeHref}#assessment`;
 const path = Astro.url.pathname;
 const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
@@ -155,8 +154,6 @@ const serviceLinks = services.map((service) => ({
           </a>
         </div>
 
-        <a class="nav-cta" href={assessmentHref}>{t.hero.cta}</a>
-
         <button
           type="button"
           class="menu-dot"
@@ -223,7 +220,6 @@ const serviceLinks = services.map((service) => ({
           ES
         </a>
       </div>
-      <a class="menu-panel-cta" href={assessmentHref}>{t.hero.cta}</a>
     </nav>
   </div>
 </header>
@@ -523,8 +519,7 @@ const serviceLinks = services.map((service) => ({
 
   .nav-link:focus-visible,
   .nav-dropdown-toggle:focus-visible,
-  .menu-dot:focus-visible,
-  .nav-cta:focus-visible {
+  .menu-dot:focus-visible {
     outline: 2px solid var(--coral);
     outline-offset: 3px;
     border-radius: 4px;
@@ -679,38 +674,6 @@ const serviceLinks = services.map((service) => ({
     color: var(--navy);
   }
 
-  .nav-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 0.65rem 1.1rem;
-    border-radius: 6px;
-    background: var(--navy);
-    color: var(--white);
-    font-family: var(--font-body);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background 0.15s;
-  }
-
-  .site-header.dark .nav-cta {
-    background: var(--white);
-    color: var(--navy);
-  }
-
-  .nav-cta:hover {
-    background: var(--button-red);
-    color: var(--white);
-  }
-
-  .site-header.dark .nav-cta:hover {
-    background: var(--coral);
-    color: var(--white);
-  }
-
   /* Logo-style coral dot menu control (mobile) */
   .menu-dot {
     display: none;
@@ -843,26 +806,6 @@ const serviceLinks = services.map((service) => ({
 
   .menu-panel-lang a.active {
     color: var(--coral);
-  }
-
-  .menu-panel-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0.5rem;
-    min-height: 44px;
-    padding: 0.75rem 1.1rem;
-    border-radius: 6px;
-    background: var(--white);
-    color: var(--navy);
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  .site-header.light .menu-panel-cta {
-    background: var(--navy);
-    color: var(--white);
   }
 
   .header-search {
@@ -1038,7 +981,6 @@ const serviceLinks = services.map((service) => ({
 
   @media (max-width: 960px) {
     .site-nav,
-    .nav-cta,
     .lang {
       display: none;
     }
