@@ -71,7 +71,7 @@ ${servicesMarkdown('en')}
 
 ## Contact
 
-info@cybercon-solutions.com · 973-573-0007 · Cooper City & Davie, Florida
+info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en el Sur de Florida | Cybercon"
@@ -100,7 +100,7 @@ ${servicesMarkdown('es')}
 
 ## Contacto
 
-info@cybercon-solutions.com · 973-573-0007 · Cooper City y Davie, Florida
+info@cybercon-solutions.com · (305) 320-5335 · Cooper City y Davie, Florida
 `,
   '/privacy/': privacyToMarkdown('en'),
   '/privacy': privacyToMarkdown('en'),
