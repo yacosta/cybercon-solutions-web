@@ -23,6 +23,8 @@ One partner for all of your technology with predictable per-user pricing:
 |------|-----|
 | Home (EN) | https://cybercon-solutions.com/ |
 | Home (ES) | https://cybercon-solutions.com/es/ |
+| Blog | https://cybercon-solutions.com/blog/ |
+| Enterprise AI Adoption and ROI | https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/ |
 | Privacy | https://cybercon-solutions.com/privacy/ |
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
 | Search | https://cybercon-solutions.com/search/ |

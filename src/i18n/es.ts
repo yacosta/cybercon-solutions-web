@@ -60,10 +60,28 @@ export const es: Messages = {
     ctaBody: 'Solicita una evaluación gratuita. Un ingeniero real responde en un día hábil.',
     cta: 'Solicita una evaluación gratuita',
   },
+  blog: {
+    nav: 'Blog',
+    eyebrow: 'Blog',
+    indexTitle: 'Blog | Cybercon Solutions',
+    indexDescription:
+      'Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida: ROI medible, gobernanza y disciplina operativa.',
+    indexHeading: 'Perspectivas para líderes de tecnología',
+    indexLede:
+      'Lo que decimos a ejecutivos y juntas: flujos que llegan a producción, gobernanza que acelera y métricas que aguantan la temporada de presupuestos.',
+    readMore: 'Leer el artículo',
+    allPosts: 'Todas las entradas',
+    englishBodyNote: 'Este artículo está publicado en inglés.',
+    ctaTitle: '¿Listo para pasar de pilotos de IA a producción?',
+    ctaBody:
+      'Solicita una evaluación gratuita. Mapeamos flujos, gobernanza y un plan de automatización medible — no otra demo.',
+    cta: 'Solicita una evaluación gratuita',
+  },
   footer: {
     area: 'Servicio en Cooper City y Davie, Florida',
     mailing: 'Dirección postal: Miami Beach, FL',
     copyright: 'Copyright 2026 CYBERCON SOLUTIONS. Todos los derechos reservados.',
+    blog: 'Blog',
     privacy: 'Privacidad y cookies',
     cookies: 'Configuración de cookies',
   },

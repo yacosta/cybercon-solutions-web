@@ -152,9 +152,8 @@
 /terms-of-service-agreement /privacy/ 301
 /terms-of-service-agreement/ /privacy/ 301
 
-# --- Blog / news / case studies / misc legacy content → home ---
-/blog / 301
-/blog/ / 301
+# --- News / case studies / misc legacy content → home ---
+# (Former /blog catch-alls removed — /blog/ is a live section now.)
 /latest-news / 301
 /latest-news/ / 301
 /latest-rants-raves / 301
@@ -221,7 +220,6 @@
 /low-voltage-cabling/* /services/cabling-communications/ 301
 /full-service-advertising-agency/* /services/web-design-development/ 301
 /web-development/* /services/web-design-development/ 301
-/blog/* / 301
 /category/* / 301
 /tag/* / 301
 /author/* / 301

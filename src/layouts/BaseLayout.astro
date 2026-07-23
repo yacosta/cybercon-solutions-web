@@ -15,6 +15,9 @@ interface Props {
   path?: string;
   noindex?: boolean;
   ogType?: 'website' | 'article';
+  /** Override default site OG image (path under public/). */
+  ogImagePath?: string;
+  ogImageAlt?: string;
   breadcrumbs?: { name: string; path: string }[];
 }
 
@@ -25,6 +28,8 @@ const {
   path = '/',
   noindex = false,
   ogType = 'website',
+  ogImagePath,
+  ogImageAlt: ogImageAltProp,
   breadcrumbs,
 } = Astro.props;
 
@@ -36,14 +41,16 @@ const normalizedPath = path.replace(/\/$/, '') || '/';
 const is404Page = normalizedPath === '/404' || normalizedPath === '/es/404';
 const enUrl = absoluteUrl(path.replace(/^\/es/, '') || '/');
 const esUrl = absoluteUrl(path.startsWith('/es') ? path : path === '/' ? '/es/' : `/es${path}`);
-const ogImage = absoluteUrl(site.ogImage);
-const ogImageAlt =
+const ogImage = absoluteUrl(ogImagePath ?? site.ogImage);
+const defaultOgImageAlt =
   locale === 'es'
     ? `${site.name}: Tecnología, resuelta. Detectamos problemas a tiempo, con la seguridad como base.`
     : `${site.name}: Technology, handled. We catch issues early, with security as the baseline.`;
-const twitterImageAlt =
-  locale === 'es' ? `Marca de ${site.name}` : `${site.name} brand lockup`;
+const ogImageAlt = ogImageAltProp ?? defaultOgImageAlt;
+const twitterImageAlt = ogImageAltProp ?? (locale === 'es' ? `Marca de ${site.name}` : `${site.name} brand lockup`);
 const htmlLang = locale === 'es' ? 'es' : 'en';
+const ogImageWidth = ogImagePath ? '1280' : '1200';
+const ogImageHeight = ogImagePath ? '854' : '630';
 
 const structuredData = [
   organizationJsonLd(locale),
@@ -90,8 +97,8 @@ const structuredData = [
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content={ogImageWidth} />
+    <meta property="og:image:height" content={ogImageHeight} />
     <meta property="og:image:alt" content={ogImageAlt} />
 
     <!-- Twitter -->

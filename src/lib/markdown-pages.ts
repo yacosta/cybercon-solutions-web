@@ -1,6 +1,7 @@
 import { privacyContent } from '../data/privacy';
 import { services } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
+import enterpriseAiAdoptionRoi from '../content/blog/enterprise-ai-adoption-roi.md?raw';
 
 function servicesMarkdown(locale: 'en' | 'es'): string {
   return services
@@ -13,6 +14,34 @@ function servicesMarkdown(locale: 'en' | 'es'): string {
     })
     .join('\n\n');
 }
+
+const blogIndexEn = `---
+title: "Blog | Cybercon Solutions"
+description: "Practical notes on enterprise AI, managed IT, and cybersecurity for South Florida leaders."
+---
+
+# Blog
+
+Insights for technology leaders: workflows that ship, governance that accelerates, and metrics that survive budget season.
+
+## Posts
+
+- [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
+`;
+
+const blogIndexEs = `---
+title: "Blog | Cybercon Solutions"
+description: "Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida."
+---
+
+# Blog
+
+Perspectivas para líderes de tecnología: flujos que llegan a producción, gobernanza que acelera y métricas que aguantan la temporada de presupuestos.
+
+## Entradas
+
+- [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/) (artículo en inglés)
+`;
 
 const pages: Record<string, string> = {
   '/': `---
@@ -109,6 +138,14 @@ title: "Buscar | Cybercon"
 
 Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del sitio (Pagefind).
 `,
+  '/blog/': blogIndexEn,
+  '/blog': blogIndexEn,
+  '/es/blog/': blogIndexEs,
+  '/es/blog': blogIndexEs,
+  '/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
+  '/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
+  '/es/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
+  '/es/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
 };
 
 function privacyToMarkdown(locale: 'en' | 'es'): string {
