@@ -1,0 +1,269 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { getMessages, localePath } from '../i18n';
+import {
+  bannerImage,
+  blogPath,
+  formatPostDate,
+  postDescription,
+  postTitle,
+} from '../lib/blog';
+import { articleJsonLd, jsonLdScript } from '../lib/seo';
+import { absoluteUrl } from '../lib/site';
+
+interface Props {
+  locale: 'en' | 'es';
+  post: CollectionEntry<'blog'>;
+}
+
+const { locale, post } = Astro.props;
+const t = getMessages(locale);
+const { Content } = await render(post);
+const title = postTitle(post, locale);
+const description = postDescription(post, locale);
+const path = blogPath(locale, post.id);
+const homePath = localePath(locale, '/');
+const blogIndexPath = blogPath(locale);
+const banner = bannerImage(post.data.banner);
+const bannerAlt = post.data.bannerAlt[locale];
+const published = formatPostDate(post.data.pubDate, locale);
+const assessmentHref = `${homePath}#assessment`;
+const ogImage = absoluteUrl(banner.jpg);
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${title} | Cybercon`}
+  description={description}
+  path={path}
+  ogType="article"
+  ogImagePath={banner.jpg}
+  ogImageAlt={bannerAlt}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
+    { name: t.blog.nav, path: blogIndexPath },
+    { name: title, path },
+  ]}
+>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={post.data.pubDate.toISOString()} />
+    {post.data.updatedDate && (
+      <meta property="article:modified_time" content={post.data.updatedDate.toISOString()} />
+    )}
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        articleJsonLd({
+          title,
+          description,
+          path,
+          image: ogImage,
+          datePublished: post.data.pubDate,
+          dateModified: post.data.updatedDate ?? post.data.pubDate,
+          locale,
+        }),
+      )}
+    />
+  </Fragment>
+
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="blog-post" data-pagefind-body>
+    <figure class="blog-banner">
+      <picture>
+        <source type="image/webp" srcset={banner.webpSrcset} sizes="100vw" />
+        <img
+          src={banner.jpg}
+          srcset={banner.jpgSrcset}
+          sizes="100vw"
+          alt={bannerAlt}
+          width={banner.width}
+          height={banner.height}
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
+    </figure>
+
+    <div class="blog-post-inner container">
+      <header class="blog-post-head">
+        <p class="eyebrow">{t.blog.eyebrow}</p>
+        <h1>{title}</h1>
+        <p class="blog-meta">
+          <time datetime={post.data.pubDate.toISOString()}>{published}</time>
+          <span aria-hidden="true">·</span>
+          <a href={blogIndexPath}>{t.blog.allPosts}</a>
+        </p>
+        {locale === 'es' && (
+          <p class="blog-lang-note">{t.blog.englishBodyNote}</p>
+        )}
+      </header>
+
+      <div class="blog-prose">
+        <Content />
+      </div>
+
+      <aside class="blog-cta" aria-labelledby="blog-cta-title">
+        <h2 id="blog-cta-title">{t.blog.ctaTitle}</h2>
+        <p>{t.blog.ctaBody}</p>
+        <a class="btn btn-primary" href={assessmentHref}>{t.blog.cta}</a>
+      </aside>
+    </div>
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style is:global>
+  body:has(.blog-post) {
+    background: var(--cream);
+  }
+
+  .blog-banner {
+    margin: 0;
+    width: 100%;
+    max-height: min(42vw, 420px);
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .blog-banner img {
+    display: block;
+    width: 100%;
+    height: min(42vw, 420px);
+    object-fit: cover;
+    object-position: center 35%;
+  }
+
+  .blog-post-inner {
+    padding-block: clamp(2rem, 4vw, 3.25rem) var(--section-pad-y);
+    max-width: 44rem;
+  }
+
+  .blog-post-head {
+    margin-bottom: 2rem;
+  }
+
+  .blog-post-head h1 {
+    margin: 0.4rem 0 0.75rem;
+    font-size: clamp(1.85rem, 3.4vw, 2.55rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: var(--navy);
+  }
+
+  .blog-meta {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--muted-blue);
+  }
+
+  .blog-meta a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .blog-meta a:hover {
+    color: var(--coral);
+  }
+
+  .blog-lang-note {
+    margin: 0.85rem 0 0;
+    font-size: 0.875rem;
+    color: var(--body-muted);
+    font-style: italic;
+  }
+
+  .blog-prose {
+    color: var(--body-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .blog-prose > *:first-child {
+    margin-top: 0;
+  }
+
+  .blog-prose h2 {
+    margin: 2.35rem 0 0.85rem;
+    font-size: 1.35rem;
+    line-height: 1.25;
+    color: var(--navy);
+  }
+
+  .blog-prose h3 {
+    margin: 1.5rem 0 0.5rem;
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .blog-prose p {
+    margin: 0 0 1.1rem;
+  }
+
+  .blog-prose strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .blog-prose em {
+    font-style: italic;
+  }
+
+  .blog-prose a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .blog-prose a:hover {
+    color: var(--coral);
+  }
+
+  .blog-prose ul,
+  .blog-prose ol {
+    margin: 0 0 1.15rem;
+    padding-left: 1.25rem;
+  }
+
+  .blog-prose li + li {
+    margin-top: 0.4rem;
+  }
+
+  .blog-prose hr {
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .blog-prose #sources {
+    scroll-margin-top: 5rem;
+  }
+
+  .blog-cta {
+    margin-top: 3rem;
+    padding: 1.5rem 1.35rem;
+    background: var(--white);
+    border: 1px solid rgba(15, 44, 76, 0.1);
+    border-radius: var(--radius-md);
+  }
+
+  .blog-cta h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--navy);
+  }
+
+  .blog-cta p {
+    margin: 0 0 1rem;
+    color: var(--body-muted);
+  }
+</style>

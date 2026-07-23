@@ -173,6 +173,45 @@ export function faqPageJsonLd(faqs: { question: LocaleText; answer: LocaleText }
   };
 }
 
+export function articleJsonLd(opts: {
+  title: string;
+  description: string;
+  path: string;
+  image: string;
+  datePublished: Date;
+  dateModified: Date;
+  locale: Locale;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: opts.title,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    image: opts.image,
+    datePublished: opts.datePublished.toISOString(),
+    dateModified: opts.dateModified.toISOString(),
+    inLanguage: opts.locale === 'es' ? 'es-US' : 'en-US',
+    author: {
+      '@type': 'Organization',
+      name: site.name,
+      url: site.url,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: site.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/cybercon-mark.svg'),
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl(opts.path),
+    },
+  };
+}
+
 export function jsonLdScript(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }

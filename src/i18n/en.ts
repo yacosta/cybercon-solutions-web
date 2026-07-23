@@ -58,10 +58,28 @@ export const en = {
     ctaBody: 'Book a free assessment. A real engineer replies within one business day.',
     cta: 'Book a free assessment',
   },
+  blog: {
+    nav: 'Blog',
+    eyebrow: 'Blog',
+    indexTitle: 'Blog | Cybercon Solutions',
+    indexDescription:
+      'Practical notes on enterprise AI, managed IT, and cybersecurity for South Florida leaders — measured ROI, governance, and operating discipline.',
+    indexHeading: 'Insights for technology leaders',
+    indexLede:
+      'What we tell executives and boards: workflows that ship, governance that accelerates, and metrics that survive budget season.',
+    readMore: 'Read the article',
+    allPosts: 'All posts',
+    englishBodyNote: 'This article is published in English.',
+    ctaTitle: 'Ready to turn AI pilots into production?',
+    ctaBody:
+      'Book a free assessment. We map workflows, governance, and a measured automation plan — not another demo.',
+    cta: 'Book a free assessment',
+  },
   footer: {
     area: 'Serving Cooper City & Davie, Florida',
     mailing: 'Mailing address: Miami Beach, FL',
     copyright: 'Copyright 2026 CYBERCON SOLUTIONS. All Rights Reserved.',
+    blog: 'Blog',
     privacy: 'Privacy & Cookies',
     cookies: 'Cookie settings',
   },

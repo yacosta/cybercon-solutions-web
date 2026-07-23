@@ -24,6 +24,8 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
       <span class="divider" aria-hidden="true">|</span>
       {t.footer.copyright}
       <span class="divider" aria-hidden="true">|</span>
+      <a href={localePath(locale, '/blog/')}>{t.footer.blog}</a>
+      <span class="divider" aria-hidden="true">|</span>
       <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
       <span class="divider" aria-hidden="true">|</span>
       <button type="button" class="cookie-reset" data-cookie-settings>
