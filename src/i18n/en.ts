@@ -14,6 +14,7 @@ export const en = {
     searchEmpty: 'No results for “{query}”.',
     searchUnavailable: 'Search isn’t available right now. Try again in a moment.',
     searchAllResults: 'View all results',
+    home: 'Home',
   },
   hero: {
     eyebrow: 'Cooper City & Davie, Florida',

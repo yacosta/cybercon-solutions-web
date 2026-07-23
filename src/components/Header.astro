@@ -13,6 +13,7 @@ const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
 const path = Astro.url.pathname;
+const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
@@ -68,6 +69,13 @@ const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
     </div>
 
     <nav class="site-nav" aria-label={locale === 'es' ? 'Principal' : 'Primary'}>
+      <a
+        href={homeHref}
+        class:list={['nav-link', { active: onHome }]}
+        aria-current={onHome ? 'page' : undefined}
+      >
+        {t.nav.home}
+      </a>
       <a
         href={blogHref}
         class:list={['nav-link', { active: onBlog }]}
