@@ -76,6 +76,121 @@ function buildAudience(audienceText: string, label: string): EditorialCopy['audi
   };
 }
 
+function responsiveImage(basename: string): EditorialCopy['feature']['image'] {
+  return {
+    jpg: `/images/${basename}.jpg`,
+    jpgSrcset: `/images/${basename}-768.jpg 768w, /images/${basename}-960.jpg 960w, /images/${basename}.jpg 1280w`,
+    webpSrcset: `/images/${basename}-768.webp 768w, /images/${basename}-960.webp 960w, /images/${basename}.webp 1280w`,
+    width: 1280,
+    height: 854,
+  };
+}
+
+type FeatureMediaConfig = {
+  mediaVariant: EditorialCopy['feature']['mediaVariant'];
+  basename: string;
+  imageAlt: { en: string; es: string };
+};
+
+/** Custom feature media by service slug (falls back to infra poster). */
+const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
+  'managed-it': {
+    mediaVariant: 'photo',
+    basename: 'managed-it-support',
+    imageAlt: {
+      en: 'IT support specialists collaborating at a help desk',
+      es: 'Especialistas de soporte de TI colaborando en un help desk',
+    },
+  },
+  cybersecurity: {
+    mediaVariant: 'cyber',
+    basename: 'cybersecurity-lock',
+    imageAlt: {
+      en: 'Cybersecurity professional at monitors with a digital padlock and global network map',
+      es: 'Profesional de ciberseguridad ante monitores con un candado digital y mapa de red global',
+    },
+  },
+  cloud: {
+    mediaVariant: 'photo',
+    basename: 'cloud-services',
+    imageAlt: {
+      en: 'Hands presenting a cloud upload network of connected digital services',
+      es: 'Manos presentando una red de servicios digitales conectados a la nube',
+    },
+  },
+  'it-consulting': {
+    mediaVariant: 'cyber',
+    basename: 'it-consulting-gears',
+    imageAlt: {
+      en: 'Hand sketching interconnected strategy gears labeled goals, vision, and growth',
+      es: 'Mano dibujando engranajes de estrategia interconectados con metas, visión y crecimiento',
+    },
+  },
+  'backup-disaster-recovery': {
+    mediaVariant: 'cyber',
+    basename: 'backup-day',
+    imageAlt: {
+      en: 'Hard drive circuit board beside wooden tiles spelling Backup Day',
+      es: 'Placa de disco duro junto a fichas de madera que dicen Backup Day',
+    },
+  },
+  'cabling-communications': {
+    mediaVariant: 'photo',
+    basename: 'cabling-network',
+    imageAlt: {
+      en: 'Dense blue and orange structured cabling on a network backplane',
+      es: 'Cableado estructurado azul y naranja en un panel de red',
+    },
+  },
+  'ai-consulting': {
+    mediaVariant: 'photo',
+    basename: 'ai-consulting-brain',
+    imageAlt: {
+      en: 'Hand on a tablet with an AI brain overlay connected to analytics icons',
+      es: 'Mano sobre una tablet con un cerebro de IA conectado a iconos de analítica',
+    },
+  },
+  'ai-integration': {
+    mediaVariant: 'photo',
+    basename: 'ai-integration-play',
+    imageAlt: {
+      en: 'Open hand with an AI play hologram surrounded by media production icons',
+      es: 'Mano abierta con un holograma de reproducción de IA rodeado de iconos de medios',
+    },
+  },
+  'conversational-ai': {
+    mediaVariant: 'photo',
+    basename: 'conversational-ai-mic',
+    imageAlt: {
+      en: 'Person touching a glowing AI microphone interface with audio waveforms',
+      es: 'Persona tocando una interfaz de micrófono de IA con formas de onda de audio',
+    },
+  },
+  'web-design-development': {
+    mediaVariant: 'photo',
+    basename: 'web-design-workspace',
+    imageAlt: {
+      en: 'Flat-lay web design workspace with sketchbook wireframes and a phone mockup',
+      es: 'Espacio de trabajo de diseño web con wireframes en un sketchbook y un mockup en el teléfono',
+    },
+  },
+};
+
+function applyFeatureMedia(
+  feature: EditorialCopy['feature'],
+  slug: string,
+  locale: 'en' | 'es',
+): EditorialCopy['feature'] {
+  const config = SERVICE_FEATURE_MEDIA[slug];
+  if (!config) return feature;
+  return {
+    ...feature,
+    mediaVariant: config.mediaVariant,
+    imageAlt: config.imageAlt[locale],
+    image: responsiveImage(config.basename),
+  };
+}
+
 function buildFeature(
   overviewText: string,
   label: string,
@@ -124,6 +239,7 @@ export function buildServiceEditorial(
 ): EditorialCopy {
   if (service.slug === 'web-design-development') {
     const copy = webDesignPage;
+    const media = SERVICE_FEATURE_MEDIA['web-design-development'];
     return {
       displayTitle: copy.displayTitle[locale],
       lede: copy.lede[locale],
@@ -145,17 +261,9 @@ export function buildServiceEditorial(
         label: copy.afterLaunch.label[locale],
         title: copy.afterLaunch.title[locale],
         body: copy.afterLaunch.body[locale],
-        imageAlt: copy.afterLaunch.imageAlt[locale],
-        mediaVariant: 'photo',
-        image: {
-          jpg: '/images/web-design-workspace.jpg',
-          jpgSrcset:
-            '/images/web-design-workspace-768.jpg 768w, /images/web-design-workspace-960.jpg 960w, /images/web-design-workspace.jpg 1280w',
-          webpSrcset:
-            '/images/web-design-workspace-768.webp 768w, /images/web-design-workspace-960.webp 960w, /images/web-design-workspace.webp 1280w',
-          width: 1280,
-          height: 854,
-        },
+        imageAlt: media.imageAlt[locale],
+        mediaVariant: media.mediaVariant,
+        image: responsiveImage(media.basename),
       },
       included: [],
       faqs: details.faqs.map((faq) => ({
@@ -170,10 +278,6 @@ export function buildServiceEditorial(
     };
   }
 
-  const imageAlt =
-    locale === 'es'
-      ? 'Sala de servidores fotografiada en blanco y negro'
-      : 'Server room photographed in black and white';
   const replyNote =
     locale === 'es'
       ? 'Un ingeniero real responde en un día hábil'
@@ -183,48 +287,22 @@ export function buildServiceEditorial(
 
   const audience = buildAudience(details.audience[locale], t.servicePage.audienceTitle);
   let featureOverview = details.overview[locale];
-  // When audience is a single sentence, support it with the first overview paragraph
-  // and keep the remaining overview for the feature band.
   if (audience.paragraphs.length === 0 && overviewParas.length > 0) {
     audience.paragraphs = [overviewParas[0]];
     featureOverview = overviewParas.slice(1).join('\n\n') || overviewParas[0];
   }
 
-  const feature = buildFeature(featureOverview, overviewLabel, imageAlt);
-
-  if (service.slug === 'managed-it') {
-    feature.mediaVariant = 'photo';
-    feature.imageAlt =
+  const feature = applyFeatureMedia(
+    buildFeature(
+      featureOverview,
+      overviewLabel,
       locale === 'es'
-        ? 'Especialistas de soporte de TI colaborando en un help desk'
-        : 'IT support specialists collaborating at a help desk';
-    feature.image = {
-      jpg: '/images/managed-it-support.jpg',
-      jpgSrcset:
-        '/images/managed-it-support-768.jpg 768w, /images/managed-it-support-960.jpg 960w, /images/managed-it-support.jpg 1280w',
-      webpSrcset:
-        '/images/managed-it-support-768.webp 768w, /images/managed-it-support-960.webp 960w, /images/managed-it-support.webp 1280w',
-      width: 1280,
-      height: 854,
-    };
-  }
-
-  if (service.slug === 'cybersecurity') {
-    feature.mediaVariant = 'cyber';
-    feature.imageAlt =
-      locale === 'es'
-        ? 'Profesional de ciberseguridad ante monitores con un candado digital y mapa de red global'
-        : 'Cybersecurity professional at monitors with a digital padlock and global network map';
-    feature.image = {
-      jpg: '/images/cybersecurity-lock.jpg',
-      jpgSrcset:
-        '/images/cybersecurity-lock-768.jpg 768w, /images/cybersecurity-lock-960.jpg 960w, /images/cybersecurity-lock.jpg 1280w',
-      webpSrcset:
-        '/images/cybersecurity-lock-768.webp 768w, /images/cybersecurity-lock-960.webp 960w, /images/cybersecurity-lock.webp 1280w',
-      width: 1280,
-      height: 854,
-    };
-  }
+        ? 'Sala de servidores fotografiada en blanco y negro'
+        : 'Server room photographed in black and white',
+    ),
+    service.slug,
+    locale,
+  );
 
   return {
     displayTitle: withPeriod(service.title[locale]),
