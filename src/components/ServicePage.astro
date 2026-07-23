@@ -440,13 +440,56 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
     transform: scale(1.08);
   }
 
+  /* Dark cybersecurity plate: cool vignette, coral corner, soft zoom */
+  .wd-after-media--cyber {
+    background: #0b1524;
+    isolation: isolate;
+  }
+
+  .wd-after-media--cyber::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(11, 21, 36, 0.45) 100%),
+      linear-gradient(180deg, rgba(15, 44, 76, 0.12) 0%, transparent 30%);
+  }
+
+  .wd-after-media--cyber::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    z-index: 2;
+    pointer-events: none;
+    border-top: 3px solid var(--button-red);
+    border-left: 3px solid var(--button-red);
+  }
+
+  .wd-after-media--cyber img {
+    filter: contrast(1.06) saturate(1.08);
+    transform: scale(1.05);
+    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    object-position: center 40%;
+  }
+
+  .wd-after-media--cyber:hover img {
+    transform: scale(1.1);
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .wd-after-media--photo img {
+    .wd-after-media--photo img,
+    .wd-after-media--cyber img {
       transition: none;
       transform: none;
     }
 
-    .wd-after-media--photo:hover img {
+    .wd-after-media--photo:hover img,
+    .wd-after-media--cyber:hover img {
       transform: none;
     }
   }
@@ -456,7 +499,8 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     }
 
-    .wd-after-media--photo {
+    .wd-after-media--photo,
+    .wd-after-media--cyber {
       justify-self: stretch;
     }
   }
