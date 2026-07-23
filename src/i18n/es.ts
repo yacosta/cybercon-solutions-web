@@ -16,6 +16,11 @@ export const es: Messages = {
     searchEmpty: 'Sin resultados para “{query}”.',
     searchUnavailable: 'La búsqueda no está disponible ahora. Inténtalo de nuevo en un momento.',
     searchAllResults: 'Ver todos los resultados',
+    home: 'Inicio',
+    services: 'Servicios',
+    servicesMenu: 'Menú de servicios',
+    menu: 'Menú',
+    close: 'Cerrar',
   },
   hero: {
     eyebrow: 'Cooper City y Davie, Florida',
