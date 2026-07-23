@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'TI y ciberseguridad en el Sur de Florida | Cybercon',
     description:
-      'Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base.',
+      'Evaluación gratuita de TI, ciberseguridad, nube e IA en Cooper City y Davie, FL. Detectamos problemas a tiempo; la seguridad es la base.',
   },
   nav: {
     search: 'Buscar',
@@ -89,7 +89,7 @@ export const es: Messages = {
     policy: 'Política de Privacidad y Cookies',
   },
   notFound: {
-    title: 'Página no encontrada | Cybercon Solutions',
+    title: 'Página no encontrada | Cybercon',
     description:
       'Esa página no existe. Explora servicios de TI administrada y ciberseguridad en el Sur de Florida, o solicita una evaluación gratuita.',
     kicker: '404',

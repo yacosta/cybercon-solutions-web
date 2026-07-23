@@ -78,7 +78,7 @@ info@cybercon-solutions.com · 973-573-0007 · Cooper City y Davie, Florida
   '/es/privacy/': privacyToMarkdown('es'),
   '/es/privacy': privacyToMarkdown('es'),
   '/search/': `---
-title: "Search | Cybercon Solutions"
+title: "Search | Cybercon"
 ---
 
 # Search
@@ -86,7 +86,7 @@ title: "Search | Cybercon Solutions"
 Find pages and services across cybercon-solutions.com using the on-site search powered by Pagefind.
 `,
   '/search': `---
-title: "Search | Cybercon Solutions"
+title: "Search | Cybercon"
 ---
 
 # Search
@@ -94,7 +94,7 @@ title: "Search | Cybercon Solutions"
 Find pages and services across cybercon-solutions.com using the on-site search powered by Pagefind.
 `,
   '/es/search/': `---
-title: "Buscar | Cybercon Solutions"
+title: "Buscar | Cybercon"
 ---
 
 # Buscar
@@ -102,7 +102,7 @@ title: "Buscar | Cybercon Solutions"
 Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del sitio (Pagefind).
 `,
   '/es/search': `---
-title: "Buscar | Cybercon Solutions"
+title: "Buscar | Cybercon"
 ---
 
 # Buscar

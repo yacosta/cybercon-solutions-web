@@ -11,9 +11,10 @@ const t = getMessages(locale);
 
 <BaseLayout
   locale={locale}
-  title={`${t.search.title} | Cybercon Solutions`}
+  title={`${t.search.title} | Cybercon`}
   description={t.search.lede}
   path="/search/"
+  noindex
 >
   <Header slot="header" locale={locale} t={t} variant="light" />
 

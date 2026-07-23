@@ -13,7 +13,7 @@ const es = esMessages.notFound;
 const featured = services.slice(0, 4);
 ---
 
-<BaseLayout title={en.title} description={en.description} locale="en" path="/404/" noindex>
+<BaseLayout title={en.title} description={en.description} locale="en" path="/404" noindex>
 	<Header slot="header" locale="en" t={enMessages} variant="light" />
 
 	<section class="not-found container page" data-pagefind-ignore>
@@ -47,7 +47,7 @@ const featured = services.slice(0, 4);
 				</div>
 			</div>
 		</div>
-		<div id="nf-es" class="nf-locale" data-doc-title={es.title} hidden>
+		<div id="nf-es" class="nf-locale" data-doc-title={es.title} data-doc-description={es.description} hidden>
 			<h1>{es.heading}</h1>
 			<p class="lede">{es.lede}</p>
 			<div class="nf-actions">
@@ -91,6 +91,10 @@ const featured = services.slice(0, 4);
 		if (isEs && show) {
 			document.documentElement.lang = 'es';
 			if (show.dataset.docTitle) document.title = show.dataset.docTitle;
+			if (show.dataset.docDescription) {
+				var meta = document.querySelector('meta[name="description"]');
+				if (meta) meta.setAttribute('content', show.dataset.docDescription);
+			}
 		}
 	})();
 </script>

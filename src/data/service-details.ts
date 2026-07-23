@@ -169,7 +169,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   cloud: {
     metaTitle: {
-      en: 'Cloud Services in South Florida | Cybercon Solutions',
+      en: 'Cloud Services in South Florida | Cybercon',
       es: 'Servicios de nube en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -243,7 +243,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'it-consulting': {
     metaTitle: {
-      en: 'IT Consulting in South Florida | Cybercon Solutions',
+      en: 'IT Consulting in South Florida | Cybercon',
       es: 'Consultoría de TI en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -327,7 +327,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'backup-disaster-recovery': {
     metaTitle: {
-      en: 'Backup & DR in South Florida | Cybercon Solutions',
+      en: 'Backup & DR in South Florida | Cybercon',
       es: 'Respaldo y DR en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -495,7 +495,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'ai-consulting': {
     metaTitle: {
-      en: 'AI Consulting in South Florida | Cybercon Solutions',
+      en: 'AI Consulting in South Florida | Cybercon',
       es: 'Consultoría de IA en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -579,7 +579,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'ai-integration': {
     metaTitle: {
-      en: 'AI Integration in South Florida | Cybercon Solutions',
+      en: 'AI Integration in South Florida | Cybercon',
       es: 'Integración de IA en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -667,7 +667,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'IA conversacional en el Sur de Florida | Cybercon',
     },
     metaDescription: {
-      en: 'Chatbots and AI voice systems for South Florida businesses that handle routine questions and keep humans on exceptions.',
+      en: 'Chatbots and AI voice systems for South Florida businesses: handle routine questions, escalate exceptions, and keep humans in the loop.',
       es: 'Chatbots y sistemas de voz con IA para empresas del sur de Florida que resuelven lo rutinario y dejan lo excepcional a personas.',
     },
     audience: {
@@ -747,7 +747,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'web-design-development': {
     metaTitle: {
-      en: 'Web Design in South Florida | Cybercon Solutions',
+      en: 'Web Design in South Florida | Cybercon',
       es: 'Diseño web en el Sur de Florida | Cybercon',
     },
     metaDescription: {

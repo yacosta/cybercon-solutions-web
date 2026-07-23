@@ -14,6 +14,10 @@
 User-agent: *
 Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
+Disallow: /search
+Disallow: /es/search
+Disallow: /client/
+Disallow: /api/
 
 # Explicit AI bot rules (agent-ready / isitagentready.com)
 User-agent: GPTBot

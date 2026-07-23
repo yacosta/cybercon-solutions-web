@@ -93,7 +93,7 @@ type FeatureMediaConfig = {
 };
 
 /** Custom feature media by service slug (falls back to infra poster). */
-const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
+export const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
   'managed-it': {
     mediaVariant: 'photo',
     basename: 'managed-it-support',
@@ -175,6 +175,12 @@ const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
     },
   },
 };
+
+/** Absolute site path to the full-size feature JPG for a service (for JSON-LD). */
+export function getServiceFeatureImagePath(slug: string): string | undefined {
+  const config = SERVICE_FEATURE_MEDIA[slug];
+  return config ? `/images/${config.basename}.jpg` : undefined;
+}
 
 function applyFeatureMedia(
   feature: EditorialCopy['feature'],

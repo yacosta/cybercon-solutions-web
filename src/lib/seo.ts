@@ -1,6 +1,7 @@
 import { services } from '../data/services';
 import type { LocaleText } from '../data/service-details';
 import { getServiceDetails } from '../data/service-details';
+import { getServiceFeatureImagePath } from './service-editorial';
 import { absoluteUrl, formatMailingAddress, site } from './site';
 
 type Locale = 'en' | 'es';
@@ -33,7 +34,24 @@ function areaServedPlaces() {
   ];
 }
 
-export function organizationJsonLd() {
+const orgCopy: Record<
+  Locale,
+  { description: string; catalogName: string; contactType: string }
+> = {
+  en: {
+    description: `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
+    catalogName: 'Managed IT Services',
+    contactType: 'sales',
+  },
+  es: {
+    description: `TI administrada proactiva para organizaciones en crecimiento, con la seguridad como base: gestión de endpoints y servidores, ciberseguridad, respaldo y recuperación ante desastres, y cumplimiento, a una tarifa mensual predecible. La dirección postal está en Miami Beach, Florida (${formatMailingAddress()}). Los servicios gestionados y en sitio se centran en Cooper City, Davie y el sur de Florida.`,
+    catalogName: 'Servicios de TI administrada',
+    contactType: 'sales',
+  },
+};
+
+export function organizationJsonLd(locale: Locale = 'en') {
+  const copy = orgCopy[locale];
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
@@ -48,8 +66,7 @@ export function organizationJsonLd() {
     telephone: site.phone,
     slogan: site.slogan,
     priceRange: '$$',
-    description:
-      `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
+    description: copy.description,
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
@@ -63,7 +80,7 @@ export function organizationJsonLd() {
     sameAs: [site.social.linkedin],
     contactPoint: {
       '@type': 'ContactPoint',
-      contactType: 'sales',
+      contactType: copy.contactType,
       email: site.email,
       telephone: site.phone,
       availableLanguage: ['English', 'Spanish'],
@@ -71,22 +88,27 @@ export function organizationJsonLd() {
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Managed IT Services',
-      itemListElement: services.map((service) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: service.title.en,
-          description: service.summary.en,
-          url: absoluteUrl(`/services/${service.slug}/`),
-          areaServed: areaServedPlaces(),
-        },
-      })),
+      name: copy.catalogName,
+      itemListElement: services.map((service) => {
+        const servicePath =
+          locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
+        return {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service.title[locale],
+            description: service.summary[locale],
+            url: absoluteUrl(servicePath),
+            areaServed: areaServedPlaces(),
+          },
+        };
+      }),
     },
   };
 }
 
 export function websiteJsonLd(locale: Locale) {
+  const searchPath = locale === 'es' ? '/es/search/' : '/search/';
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -99,7 +121,7 @@ export function websiteJsonLd(locale: Locale) {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${site.url}/search/?q={search_term_string}`,
+        urlTemplate: `${site.url}${searchPath}?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -122,12 +144,14 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
 export function serviceJsonLd(service: (typeof services)[number], locale: Locale) {
   const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
   const details = getServiceDetails(service.slug);
+  const imagePath = getServiceFeatureImagePath(service.slug);
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.title[locale],
     description: details?.metaDescription[locale] ?? service.summary[locale],
     url: absoluteUrl(path),
+    ...(imagePath ? { image: absoluteUrl(imagePath) } : {}),
     provider: { '@id': `${site.url}/#organization` },
     areaServed: areaServedPlaces(),
     serviceType: service.title[locale],
