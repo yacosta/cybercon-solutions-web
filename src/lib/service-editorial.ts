@@ -21,6 +21,15 @@ export type EditorialCopy = {
     title: string;
     body: string;
     imageAlt: string;
+    /** Visual treatment for the feature media */
+    mediaVariant: 'infra' | 'workspace';
+    image: {
+      jpg: string;
+      jpgSrcset: string;
+      webpSrcset: string;
+      width: number;
+      height: number;
+    };
   };
   included: string[];
   faqs: Array<{ question: string; answer: string }>;
@@ -72,18 +81,26 @@ function buildFeature(
   label: string,
   imageAlt: string,
 ): EditorialCopy['feature'] {
+  const infraImage = {
+    jpg: '/videos/hero-poster.jpg',
+    jpgSrcset: '/videos/hero-poster-768.jpg 768w, /videos/hero-poster-960.jpg 960w, /videos/hero-poster.jpg 1280w',
+    webpSrcset:
+      '/videos/hero-poster-768.webp 768w, /videos/hero-poster-960.webp 960w, /videos/hero-poster.webp 1280w',
+    width: 1280,
+    height: 720,
+  };
+
   const paras = paragraphs(overviewText);
   if (paras.length >= 2) {
     const titleSource = paras[paras.length - 1];
     const title = sentences(titleSource)[0] ?? titleSource;
     const bodyParas = paras.slice(0, -1);
-    // If the closing paragraph is long, keep a short title and use the rest as extra body.
     const titleSentences = sentences(titleSource);
     const body =
       titleSentences.length > 1
         ? [...bodyParas, titleSentences.slice(1).join(' ')].join('\n\n')
         : bodyParas.join('\n\n');
-    return { label, title, body, imageAlt };
+    return { label, title, body, imageAlt, mediaVariant: 'infra', image: infraImage };
   }
 
   const only = paras[0] ?? overviewText;
@@ -93,6 +110,8 @@ function buildFeature(
     title: bits[0] ?? only,
     body: bits.slice(1).join(' '),
     imageAlt,
+    mediaVariant: 'infra',
+    image: infraImage,
   };
 }
 
@@ -127,6 +146,16 @@ export function buildServiceEditorial(
         title: copy.afterLaunch.title[locale],
         body: copy.afterLaunch.body[locale],
         imageAlt: copy.afterLaunch.imageAlt[locale],
+        mediaVariant: 'workspace',
+        image: {
+          jpg: '/images/web-design-workspace.jpg',
+          jpgSrcset:
+            '/images/web-design-workspace-768.jpg 768w, /images/web-design-workspace-960.jpg 960w, /images/web-design-workspace.jpg 1280w',
+          webpSrcset:
+            '/images/web-design-workspace-768.webp 768w, /images/web-design-workspace-960.webp 960w, /images/web-design-workspace.webp 1280w',
+          width: 1280,
+          height: 854,
+        },
       },
       included: [],
       faqs: details.faqs.map((faq) => ({

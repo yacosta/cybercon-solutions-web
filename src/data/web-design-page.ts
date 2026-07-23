@@ -110,8 +110,8 @@ export const webDesignPage: WebDesignPageCopy = {
       es: 'Seguimos en el circuito para actualizaciones de contenido e higiene de seguridad, con hosting incluido — un sitio alineado con cómo vendes y das soporte en persona, no un folleto que envejece mal.',
     },
     imageAlt: {
-      en: 'Server room photographed in black and white',
-      es: 'Sala de servidores fotografiada en blanco y negro',
+      en: 'Flat-lay web design workspace with sketchbook wireframes and a phone mockup',
+      es: 'Espacio de trabajo de diseño web con wireframes en un sketchbook y un mockup en el teléfono',
     },
   },
   faqLabel: {
