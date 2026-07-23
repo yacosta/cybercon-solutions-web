@@ -1,6 +1,7 @@
 ---
 import Wordmark from './Wordmark.astro';
 import { localePath, type Messages } from '../i18n';
+import { services, servicePath } from '../data/services';
 
 interface Props {
   locale: string;
@@ -15,8 +16,14 @@ const blogHref = localePath(locale, '/blog/');
 const path = Astro.url.pathname;
 const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
+const onServices = path.includes('/services/');
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
+const serviceLinks = services.map((service) => ({
+  href: servicePath(locale, service.slug),
+  title: service.title[locale as 'en' | 'es'],
+  current: path.includes(`/services/${service.slug}`),
+}));
 ---
 
 <header class:list={['site-header', variant]}>
@@ -76,6 +83,45 @@ const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
       >
         {t.nav.home}
       </a>
+
+      <div class="nav-dropdown" data-nav-dropdown>
+        <button
+          type="button"
+          class:list={['nav-link', 'nav-dropdown-toggle', { active: onServices }]}
+          data-nav-dropdown-toggle
+          aria-expanded="false"
+          aria-controls="nav-services-menu"
+          aria-haspopup="true"
+        >
+          {t.nav.services}
+          <svg class="nav-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
+            ></path>
+          </svg>
+        </button>
+        <ul
+          id="nav-services-menu"
+          class="nav-dropdown-menu"
+          data-nav-dropdown-menu
+          aria-label={t.nav.servicesMenu}
+          hidden
+        >
+          {
+            serviceLinks.map((service) => (
+              <li>
+                <a
+                  href={service.href}
+                  aria-current={service.current ? 'page' : undefined}
+                  class:list={[{ active: service.current }]}
+                >
+                  {service.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
       <a
         href={blogHref}
         class:list={['nav-link', { active: onBlog }]}
@@ -248,6 +294,41 @@ const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
   }
 </script>
 
+<script>
+  const dropdown = document.querySelector('[data-nav-dropdown]');
+  const dropdownToggle = dropdown?.querySelector('[data-nav-dropdown-toggle]');
+  const dropdownMenu = dropdown?.querySelector('[data-nav-dropdown-menu]');
+
+  if (
+    dropdown instanceof HTMLElement &&
+    dropdownToggle instanceof HTMLButtonElement &&
+    dropdownMenu instanceof HTMLElement
+  ) {
+    const setDropdownOpen = (next) => {
+      dropdown.classList.toggle('is-open', next);
+      dropdownToggle.setAttribute('aria-expanded', String(next));
+      dropdownMenu.hidden = !next;
+    };
+
+    dropdownToggle.addEventListener('click', () => {
+      setDropdownOpen(dropdownMenu.hidden);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !dropdownMenu.hidden) {
+        setDropdownOpen(false);
+        dropdownToggle.focus();
+      }
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (dropdownMenu.hidden) return;
+      const target = event.target;
+      if (target instanceof Node && !dropdown.contains(target)) setDropdownOpen(false);
+    });
+  }
+</script>
+
 <style>
   .site-header {
     position: relative;
@@ -291,7 +372,8 @@ const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
     letter-spacing: 0.06em;
   }
 
-  .site-nav a {
+  .site-nav a,
+  .nav-dropdown-toggle {
     text-decoration: none;
     color: var(--secondary-dark);
     transition: color 0.15s;
@@ -301,24 +383,116 @@ const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
     padding: 0.25rem 0;
   }
 
-  .site-header.light .site-nav a {
+  .nav-dropdown-toggle {
+    background: none;
+    border: none;
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+    gap: 0.35rem;
+  }
+
+  .site-header.light .site-nav a,
+  .site-header.light .nav-dropdown-toggle {
     color: var(--body-muted);
   }
 
   .site-nav a:hover,
-  .site-nav a:focus-visible {
+  .site-nav a:focus-visible,
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown-toggle:focus-visible {
     color: var(--white);
   }
 
   .site-header.light .site-nav a:hover,
-  .site-header.light .site-nav a:focus-visible {
+  .site-header.light .site-nav a:focus-visible,
+  .site-header.light .nav-dropdown-toggle:hover,
+  .site-header.light .nav-dropdown-toggle:focus-visible {
     color: var(--navy);
   }
 
-  .site-nav a:focus-visible {
+  .site-nav a:focus-visible,
+  .nav-dropdown-toggle:focus-visible {
     outline: 2px solid var(--coral);
     outline-offset: 3px;
     border-radius: 4px;
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-caret {
+    display: block;
+    transition: transform 0.15s ease;
+  }
+
+  .nav-dropdown.is-open .nav-caret {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.55rem);
+    right: 0;
+    z-index: 40;
+    margin: 0;
+    padding: 0.4rem;
+    list-style: none;
+    min-width: min(20rem, 88vw);
+    max-height: min(70vh, 28rem);
+    overflow-y: auto;
+    background: rgba(15, 44, 76, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+  }
+
+  .site-header.light .nav-dropdown-menu {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: rgba(15, 44, 76, 0.12);
+    box-shadow: 0 18px 40px rgba(15, 44, 76, 0.16);
+  }
+
+  .nav-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    color: var(--secondary-dark);
+  }
+
+  .site-header.light .nav-dropdown-menu a {
+    color: var(--navy);
+  }
+
+  .nav-dropdown-menu a:hover,
+  .nav-dropdown-menu a:focus-visible,
+  .nav-dropdown-menu a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+  }
+
+  .site-header.light .nav-dropdown-menu a:hover,
+  .site-header.light .nav-dropdown-menu a:focus-visible,
+  .site-header.light .nav-dropdown-menu a.active {
+    background: rgba(15, 44, 76, 0.06);
+    color: var(--navy);
+  }
+
+  .site-header.light .nav-dropdown-menu a.active {
+    color: var(--coral);
+  }
+
+  .nav-dropdown-menu a.active {
+    color: var(--coral);
   }
 
   .lang {
@@ -331,14 +505,8 @@ const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
     color: rgba(140, 160, 180, 0.5);
   }
 
-  .lang a.active {
-    color: var(--coral);
-  }
-
-  .nav-link.active {
-    color: var(--coral);
-  }
-
+  .lang a.active,
+  .nav-link.active,
   .site-header.light .nav-link.active {
     color: var(--coral);
   }

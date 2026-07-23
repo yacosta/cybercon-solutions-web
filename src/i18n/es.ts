@@ -17,6 +17,8 @@ export const es: Messages = {
     searchUnavailable: 'La búsqueda no está disponible ahora. Inténtalo de nuevo en un momento.',
     searchAllResults: 'Ver todos los resultados',
     home: 'Inicio',
+    services: 'Servicios',
+    servicesMenu: 'Menú de servicios',
   },
   hero: {
     eyebrow: 'Cooper City y Davie, Florida',
