@@ -46,6 +46,22 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
   <Header slot="header" locale={locale} t={t} variant="light" />
 
   <article class="wd" data-pagefind-body>
+    <figure class="wd-banner">
+      <picture>
+        <source type="image/webp" srcset={copy.feature.image.webpSrcset} sizes="100vw" />
+        <img
+          src={copy.feature.image.jpg}
+          srcset={copy.feature.image.jpgSrcset}
+          sizes="100vw"
+          alt={copy.feature.imageAlt}
+          width={copy.feature.image.width}
+          height={copy.feature.image.height}
+          decoding="async"
+          fetchpriority="high"
+        />
+      </picture>
+    </figure>
+
     <section class="wd-hero container">
       <h1 class="wd-hero-title">{copy.displayTitle}</h1>
       <p class="wd-hero-lede">{copy.lede}</p>
@@ -89,37 +105,16 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
     <hr class="wd-rule" />
 
     <section class="wd-after container" aria-labelledby="wd-feature-title">
-      <div class="wd-after-copy">
-        <p class="wd-label">{copy.feature.label}</p>
-        <h2 id="wd-feature-title">{copy.feature.title}</h2>
-        {featureBodyParas.map((paragraph) => <p>{paragraph}</p>)}
-        {copy.included.length > 0 && (
-          <ul class="wd-included">
-            {copy.included.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <figure class:list={['wd-after-media', `wd-after-media--${copy.feature.mediaVariant}`]}>
-        <picture>
-          <source
-            type="image/webp"
-            srcset={copy.feature.image.webpSrcset}
-            sizes="(max-width: 900px) 100vw, 42vw"
-          />
-          <img
-            src={copy.feature.image.jpg}
-            srcset={copy.feature.image.jpgSrcset}
-            sizes="(max-width: 900px) 100vw, 42vw"
-            alt={copy.feature.imageAlt}
-            width={copy.feature.image.width}
-            height={copy.feature.image.height}
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
-      </figure>
+      <p class="wd-label">{copy.feature.label}</p>
+      <h2 id="wd-feature-title">{copy.feature.title}</h2>
+      {featureBodyParas.map((paragraph) => <p>{paragraph}</p>)}
+      {copy.included.length > 0 && (
+        <ul class="wd-included">
+          {copy.included.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      )}
     </section>
 
     <section class="wd-faq container" aria-labelledby="wd-faq-title">
@@ -152,6 +147,22 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 
   body:has(.wd) .site-header.light {
     background: #f3f3f3;
+  }
+
+  .wd-banner {
+    margin: 0;
+    width: 100%;
+    max-height: min(42vw, 420px);
+    overflow: hidden;
+    background: var(--navy);
+  }
+
+  .wd-banner img {
+    display: block;
+    width: 100%;
+    height: min(42vw, 420px);
+    object-fit: cover;
+    object-position: center 35%;
   }
 </style>
 
@@ -341,20 +352,17 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
   }
 
   .wd-after {
-    display: grid;
-    gap: 1.75rem 3rem;
     padding-block: clamp(2.5rem, 5vw, 3.75rem);
-    align-items: center;
   }
 
-  .wd-after-copy h2 {
+  .wd-after h2 {
     font-size: clamp(1.75rem, 3.4vw, 2.35rem);
     line-height: 1.15;
     margin: 0 0 1rem;
     max-width: 22ch;
   }
 
-  .wd-after-copy p {
+  .wd-after > p:not(.wd-label) {
     margin: 0 0 1rem;
     font-size: 1.015rem;
     line-height: 1.6;
@@ -362,7 +370,7 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
     max-width: 36rem;
   }
 
-  .wd-after-copy p:last-of-type {
+  .wd-after > p:not(.wd-label):last-of-type {
     margin-bottom: 0;
   }
 
@@ -377,132 +385,6 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 
   .wd-included li + li {
     margin-top: 0.45rem;
-  }
-
-  .wd-after-media {
-    margin: 0;
-    overflow: hidden;
-    aspect-ratio: 4 / 3;
-    background: #d8d8d8;
-    position: relative;
-  }
-
-  .wd-after-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  /* Default infra treatment: monochrome for other services */
-  .wd-after-media--infra img {
-    filter: grayscale(1) brightness(1.2) contrast(1.05);
-  }
-
-  /* Color photo treatment: soft lift, coral accent, gentle motion */
-  .wd-after-media--photo {
-    background: #e8e4df;
-    isolation: isolate;
-  }
-
-  .wd-after-media--photo::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      linear-gradient(135deg, rgba(15, 44, 76, 0.12) 0%, transparent 42%),
-      linear-gradient(0deg, rgba(15, 44, 76, 0.18) 0%, transparent 28%);
-  }
-
-  .wd-after-media--photo::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3.5rem;
-    height: 3.5rem;
-    z-index: 2;
-    pointer-events: none;
-    border-top: 3px solid var(--button-red);
-    border-left: 3px solid var(--button-red);
-  }
-
-  .wd-after-media--photo img {
-    filter: saturate(1.05) contrast(1.02);
-    transform: scale(1.04);
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .wd-after-media--photo:hover img {
-    transform: scale(1.08);
-  }
-
-  /* Dark cybersecurity plate: cool vignette, coral corner, soft zoom */
-  .wd-after-media--cyber {
-    background: #0b1524;
-    isolation: isolate;
-  }
-
-  .wd-after-media--cyber::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background:
-      radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(11, 21, 36, 0.45) 100%),
-      linear-gradient(180deg, rgba(15, 44, 76, 0.12) 0%, transparent 30%);
-  }
-
-  .wd-after-media--cyber::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3.5rem;
-    height: 3.5rem;
-    z-index: 2;
-    pointer-events: none;
-    border-top: 3px solid var(--button-red);
-    border-left: 3px solid var(--button-red);
-  }
-
-  .wd-after-media--cyber img {
-    filter: contrast(1.06) saturate(1.08);
-    transform: scale(1.05);
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-    object-position: center 40%;
-  }
-
-  .wd-after-media--cyber:hover img {
-    transform: scale(1.1);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .wd-after-media--photo img,
-    .wd-after-media--cyber img {
-      transition: none;
-      transform: none;
-    }
-
-    .wd-after-media--photo:hover img,
-    .wd-after-media--cyber:hover img {
-      transform: none;
-    }
-  }
-
-  @media (min-width: 860px) {
-    .wd-after {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    }
-
-    .wd-after-media--photo,
-    .wd-after-media--cyber {
-      justify-self: stretch;
-    }
   }
 
   .wd-faq {
