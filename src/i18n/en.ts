@@ -60,7 +60,7 @@ export const en = {
     processTitle: 'How we work',
     faqTitle: 'FAQ',
     ctaTitle: 'Want a clear picture of where your tech stands?',
-    ctaBody: 'Book a free assessment. A real engineer replies within one business day.',
+    ctaBody: 'A free assessment with clear next steps.',
     cta: 'Book a free assessment',
   },
   blog: {

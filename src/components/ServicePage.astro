@@ -130,9 +130,31 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
     </section>
 
     <section class="wd-cta" aria-labelledby="wd-cta-title">
-      <div class="wd-cta-inner container">
-        <h2 id="wd-cta-title">{copy.cta.title}</h2>
-        <a class="wd-cta-btn" href={assessmentHref}>{copy.cta.button}</a>
+      <div class="wd-cta-shell container">
+        <div class="wd-cta-copy">
+          <h2 id="wd-cta-title">{copy.cta.title}</h2>
+          <p class="wd-cta-lede">{copy.cta.body}</p>
+          <a class="wd-cta-btn" href={assessmentHref}>{copy.cta.button}</a>
+        </div>
+        <figure class="wd-cta-media" aria-hidden="true">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="/images/service-cta-desk-768.webp 768w, /images/service-cta-desk-960.webp 960w, /images/service-cta-desk.webp 1280w"
+              sizes="(max-width: 860px) 100vw, 48vw"
+            />
+            <img
+              src="/images/service-cta-desk.jpg"
+              srcset="/images/service-cta-desk-768.jpg 768w, /images/service-cta-desk-960.jpg 960w, /images/service-cta-desk.jpg 1280w"
+              sizes="(max-width: 860px) 100vw, 48vw"
+              alt=""
+              width="1280"
+              height="854"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </figure>
       </div>
     </section>
   </article>
@@ -430,48 +452,138 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
   }
 
   .wd-cta {
-    background: var(--button-red);
+    position: relative;
+    overflow: hidden;
     color: var(--white);
-    padding-block: clamp(3rem, 7vw, 5rem);
+    background:
+      radial-gradient(ellipse 70% 90% at 0% 0%, rgba(242, 107, 94, 0.55) 0%, transparent 58%),
+      radial-gradient(ellipse 50% 60% at 18% 35%, rgba(242, 107, 94, 0.18) 0%, transparent 55%),
+      linear-gradient(90deg, #0a1a2e 0%, #0f2c4c 48%, #0b1f35 100%);
+    isolation: isolate;
   }
 
-  .wd-cta-inner {
+  .wd-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background-image:
+      linear-gradient(rgba(148, 180, 220, 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 180, 220, 0.35) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(105deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.25) 42%, transparent 68%);
+  }
+
+  .wd-cta-shell {
+    position: relative;
+    z-index: 1;
     display: grid;
-    gap: 1.5rem;
-    justify-items: start;
-    max-width: 40rem;
+    gap: 1.75rem;
+    align-items: center;
+    padding-block: clamp(2.75rem, 6vw, 4.5rem);
   }
 
-  .wd-cta-inner h2 {
+  .wd-cta-copy {
+    display: grid;
+    gap: 1rem;
+    justify-items: start;
+    max-width: 34rem;
+  }
+
+  .wd-cta-copy h2 {
     margin: 0;
     color: var(--white);
     font-size: clamp(1.85rem, 4vw, 2.65rem);
-    line-height: 1.15;
+    line-height: 1.12;
     max-width: 16ch;
+  }
+
+  .wd-cta-lede {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 1.05rem;
+    line-height: 1.5;
+    max-width: 28ch;
   }
 
   .wd-cta-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1.15rem;
-    border: 1.5px solid var(--white);
-    color: var(--white);
+    margin-top: 0.35rem;
+    padding: 0.8rem 1.2rem;
+    border: 0;
+    border-radius: 4px;
+    background: var(--white);
+    color: var(--button-red);
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 0.9375rem;
     text-decoration: none;
-    transition: background 160ms ease, color 160ms ease;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
   }
 
   .wd-cta-btn:hover {
-    background: var(--white);
-    color: var(--button-red);
+    background: #fff5f3;
+    color: #d45548;
   }
 
   .wd-cta-btn:focus-visible {
     outline: 2px solid var(--white);
     outline-offset: 3px;
+  }
+
+  .wd-cta-media {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 14rem;
+    border-radius: 0;
+  }
+
+  .wd-cta-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 14rem;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .wd-cta-media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      #0a1a2e 0%,
+      rgba(10, 26, 46, 0.55) 28%,
+      transparent 58%
+    );
+  }
+
+  @media (min-width: 860px) {
+    .wd-cta-shell {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(1.5rem, 4vw, 3rem);
+      min-height: 22rem;
+    }
+
+    .wd-cta-media {
+      justify-self: stretch;
+      align-self: stretch;
+      min-height: 100%;
+    }
+
+    .wd-cta-media img {
+      position: absolute;
+      inset: 0;
+      min-height: 0;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
