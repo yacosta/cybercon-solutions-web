@@ -42,7 +42,7 @@ export function organizationJsonLd() {
     legalName: site.legalName,
     alternateName: 'CYBERCON',
     url: site.url,
-    logo: absoluteUrl('/favicon.svg'),
+    logo: absoluteUrl('/cybercon-mark.svg'),
     image: absoluteUrl(site.ogImage),
     email: site.email,
     telephone: site.phone,
