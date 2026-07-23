@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import { attioConfigured, createAssessmentProspect } from '../../lib/attio';
 import { runtimeEnv } from '../../lib/env';
 import { verifyTurnstile } from '../../lib/turnstile-verify';
 
@@ -45,16 +44,6 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const accessKey = runtimeEnv('WEB3FORMS_ACCESS_KEY');
   let delivered = false;
 
-  if (attioConfigured()) {
-    const prospectOk = await createAssessmentProspect({ name, company, email, locale });
-    if (!prospectOk) {
-      return Response.json({ error: 'CRM delivery failed' }, { status: 502 });
-    }
-    delivered = true;
-  } else {
-    console.warn('[assessment] ATTIO_API_KEY not configured — skipping CRM upsert');
-  }
-
   if (accessKey) {
     const formRes = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -70,14 +59,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       }),
     });
     if (!formRes.ok) {
-      // If Attio already stored the prospect, don't fail the user on email delivery.
-      if (!delivered) {
-        return Response.json({ error: 'Delivery failed' }, { status: 502 });
-      }
-      console.error('[assessment] web3forms failed after Attio success', formRes.status);
-    } else {
-      delivered = true;
+      return Response.json({ error: 'Delivery failed' }, { status: 502 });
     }
+    delivered = true;
+  } else {
+    console.warn('[assessment] WEB3FORMS_ACCESS_KEY not configured — skipping email delivery');
   }
 
   if (!delivered) {
