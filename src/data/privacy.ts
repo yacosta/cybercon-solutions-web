@@ -11,7 +11,7 @@ export const privacyContent = {
       'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have.',
     controllerHeading: 'Who is responsible for your data',
     controller:
-      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · 973-573-0007.',
+      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · (305) 320-5335.',
     sections: [
       {
         heading: '1. Information we collect',
@@ -103,7 +103,7 @@ export const privacyContent = {
       },
       {
         heading: '10. Contact us',
-        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · 973-573-0007 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States.',
+        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (305) 320-5335 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States.',
       },
     ],
   },
@@ -117,7 +117,7 @@ export const privacyContent = {
       'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes.',
     controllerHeading: 'Quién es responsable de tus datos',
     controller:
-      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · 973-573-0007.',
+      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · (305) 320-5335.',
     sections: [
       {
         heading: '1. Información que recopilamos',
@@ -209,7 +209,7 @@ export const privacyContent = {
       },
       {
         heading: '10. Contáctanos',
-        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · 973-573-0007 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos.',
+        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (305) 320-5335 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos.',
       },
     ],
   },
