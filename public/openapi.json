@@ -65,6 +65,33 @@
           "400": { "description": "Validation or Turnstile failure" }
         }
       }
+    },
+    "/api/site-check": {
+      "post": {
+        "summary": "Run a lite website health check",
+        "operationId": "postSiteCheck",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "domain": { "type": "string", "description": "Hostname to scan (protocol/www stripped)" },
+                  "sample": { "type": "boolean", "description": "Return illustrative sample report" },
+                  "turnstileToken": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Scan result (grade A–F, categories, finding, tech chips)" },
+          "400": { "description": "Validation or Turnstile failure" },
+          "429": { "description": "Visitor or global daily scan cap reached" },
+          "502": { "description": "Upstream webhook failure" }
+        }
+      }
     }
   }
 }
