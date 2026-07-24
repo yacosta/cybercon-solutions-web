@@ -1,7 +1,7 @@
 import { runtimeEnv } from '../env';
 
-const IP_DAILY_LIMIT = 3;
-const GLOBAL_DAILY_LIMIT = 50;
+const IP_DAILY_LIMIT = 2;
+const GLOBAL_DAILY_LIMIT = 25;
 
 function utcDayKey(): string {
   return new Date().toISOString().slice(0, 10);

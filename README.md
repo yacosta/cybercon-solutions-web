@@ -105,8 +105,8 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 | `SITE_CHECK_AI_MODEL` | Optional | Override default model for the chosen provider |
 | `BUILTWITH_API_KEY` | Optional | BuiltWith Free API — tech chips / verification |
 | `SITE_CHECK_WEBHOOK_URL` | Optional | If set, proxy scans to n8n (or similar) instead of the native Worker pipeline |
-| `SITE_CHECK_IP_DAILY_LIMIT` | Optional | Soft per-IP daily cap (default `3`) |
-| `SITE_CHECK_GLOBAL_DAILY_LIMIT` | Optional | Soft global daily cap (default `50`) |
+| `SITE_CHECK_IP_DAILY_LIMIT` | Optional | Soft per-IP daily cap (default `2`) |
+| `SITE_CHECK_GLOBAL_DAILY_LIMIT` | Optional | Soft global daily cap (default `25`) |
 
 Optional build variable: `NODE_VERSION=22`.
 
