@@ -146,18 +146,30 @@ Notion only exposes pages you explicitly share:
 
 **Recommended Cybercon starter setup**
 
-1. In Notion, create a database (e.g. **Website prospects**) with properties:
-   - **Name** (title)
-   - **Email** (email)
-   - **Company** (text)
-   - **Source** (text or URL) — e.g. `https://cybercon-solutions.com/assessment/`
-   - **Attio** (URL) — link back to the Person record
-2. Share that database with the Notion connector
-3. In Attio → **Workflows**, create:
-   - **Trigger:** Person created (or added to your Prospects list, if you use `ATTIO_PROSPECTS_LIST_ID`)
-   - **Filter (optional):** description/note contains `Website` / assessment source
-   - **Action:** **Create page in database** → map Name, Email, Company, Source, Attio URL
-4. Test: submit `/assessment/` once → Person appears in Attio → row appears in the Notion database
+Notion database **Website prospects** (live schema):
+
+| Property | Type |
+|----------|------|
+| **Name** | Title |
+| **Email** | Email |
+| **Company** | Text |
+| **Source URL** | URL |
+| **Attio URL** | URL |
+
+1. Open that database in Notion → **⋯ → Connections → Add connections** → add the Attio Notion connector (required or Attio cannot see it).
+2. In Attio → **Workflows** → **New workflow**:
+   - **Name:** `Website prospect → Notion`
+   - **Trigger:** **Record created** on **People** (or **List entry created** on your Prospects list if you use `ATTIO_PROSPECTS_LIST_ID`)
+   - **Optional filter:** Person **Description** contains `Website prospect` (matches copy from the site form upsert)
+   - **Action:** Notion → **Create page in database**
+     - **Database:** Website prospects
+     - **Title / Name:** Person name
+     - **Email:** Person email
+     - **Company:** linked Company name (or the company text from the record)
+     - **Source URL:** `https://cybercon-solutions.com/assessment/`
+     - **Attio URL:** Person record URL (Attio’s record link variable if available)
+   - **Save** and turn the workflow **On**
+3. Test: submit https://cybercon-solutions.com/assessment/ once → Person in Attio → new row in **Website prospects**
 
 Optional later: **Create page** under a “Won deals” parent when a deal stage changes; **Add content to page** for meeting notes.
 
