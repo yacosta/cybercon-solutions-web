@@ -87,8 +87,8 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 |----------|----------|--------|
 | `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key (also set as a **Build** var if you want it baked into prerendered HTML) |
 | `TURNSTILE_SECRET_KEY` | Yes (prod forms) | Turnstile secret |
-| `WEB3FORMS_ACCESS_KEY` | Optional | Email alert for assessment submissions |
-| `ATTIO_API_KEY` | Recommended | Upserts form submitters to Attio as People/Companies (prospects) |
+| `WEB3FORMS_ACCESS_KEY` | Optional | Email alert for assessment submissions (backup; Attio is primary) |
+| `ATTIO_API_KEY` | **Required for CRM** | Upserts form submitters to Attio as People/Companies (prospects) |
 | `ATTIO_PROSPECTS_LIST_ID` | Optional | Attio People list ID/slug to add each prospect into |
 | `PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 ID; loads only after Accept analytics |
 | `AUTH0_DOMAIN` | For client area | e.g. `your-tenant.auth0.com` |
@@ -101,6 +101,23 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 Optional build variable: `NODE_VERSION=22`.
 
 **Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"auth0": true` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
+
+### Connect Attio (assessment form → CRM)
+
+Website forms already call Attio when `ATTIO_API_KEY` is present. Production is live when `/api/health` shows `"attio": true`.
+
+1. In [Attio](https://app.attio.com/) → **Workspace settings → Developers → API keys**, create a key with:
+   - `record_permission:read-write`
+   - `object_configuration:read`
+   - `note:read-write`
+   - Optional (prospects list): `list_entry:read-write`, `list_configuration:read`
+2. Cloudflare dashboard → **Workers & Pages** → **`cybercon-solutions-web`** → **Settings → Variables and Secrets**:
+   - Add **`ATTIO_API_KEY`** as a **Secret** (paste the Attio key)
+   - Optional: **`ATTIO_PROSPECTS_LIST_ID`** (People list ID or slug)
+3. Confirm: `GET https://cybercon-solutions.com/api/health` → `"attio": true`
+4. Submit `/#assessment` once — a Person (+ Company, note) should appear in Attio within seconds
+
+Do **not** put the Attio key in GitHub. Only the Worker needs it.
 
 ### Auth0 client area (`/client/`)
 

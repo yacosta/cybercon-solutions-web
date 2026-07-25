@@ -45,14 +45,24 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const accessKey = runtimeEnv('WEB3FORMS_ACCESS_KEY');
   let delivered = false;
 
+  // Primary sink: Attio CRM (People + Companies + note). Requires ATTIO_API_KEY
+  // on the Cloudflare Worker (Settings → Variables and Secrets).
   if (attioConfigured()) {
-    const prospectOk = await createAssessmentProspect({ name, company, email, locale });
+    const prospectOk = await createAssessmentProspect({
+      name,
+      company,
+      email,
+      locale,
+      source: 'cybercon-solutions.com/#assessment',
+    });
     if (!prospectOk) {
       return Response.json({ error: 'CRM delivery failed' }, { status: 502 });
     }
     delivered = true;
   } else {
-    console.warn('[assessment] ATTIO_API_KEY not configured — skipping CRM upsert');
+    console.warn(
+      '[assessment] ATTIO_API_KEY not configured — skipping CRM upsert. Set it on the Worker and confirm GET /api/health → "attio": true',
+    );
   }
 
   if (accessKey) {
