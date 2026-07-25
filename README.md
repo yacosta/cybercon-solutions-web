@@ -119,6 +119,50 @@ Website forms already call Attio when `ATTIO_API_KEY` is present. Production is 
 
 Do **not** put the Attio key in GitHub. Only the Worker needs it.
 
+### Internal: Attio ↔ Notion (ops wiki, not the website)
+
+Keep **Attio** as the CRM of record for website leads. Connect **Notion** only for internal docs/ops (playbooks, prospect checklists, meeting notes). Do **not** send form posts from the website to Notion.
+
+Official help: [Attio Notion app](https://attio.com/help/apps/automations-apps/notion-app)
+
+**1. Install the Notion app in Attio** (workspace admin)
+
+1. Attio → workspace name → **Workspace settings → Apps**
+2. Open **Notion** → **Install**
+
+**2. Create a Notion connector + store the token in Attio**
+
+1. In the [Notion developer portal](https://www.notion.so/my-integrations) (or Attio’s linked “New connection” flow), create a connection with **Access token** auth
+2. Enable content capabilities: **Read**, **Insert**, **Update**, plus **Read user information**
+3. Mark it installable in your Notion workspace; copy the token
+4. Attio → **Workspace settings → Apps → Notion → Workspace connection → Connect** → paste the token
+
+**3. Share Notion pages with the connector**
+
+Notion only exposes pages you explicitly share:
+
+1. Open the parent page or database in Notion → **⋯ → Connections → Add connections**
+2. Add your Attio/Notion connector
+
+**Recommended Cybercon starter setup**
+
+1. In Notion, create a database (e.g. **Website prospects**) with properties:
+   - **Name** (title)
+   - **Email** (email)
+   - **Company** (text)
+   - **Source** (text or URL) — e.g. `https://cybercon-solutions.com/assessment/`
+   - **Attio** (URL) — link back to the Person record
+2. Share that database with the Notion connector
+3. In Attio → **Workflows**, create:
+   - **Trigger:** Person created (or added to your Prospects list, if you use `ATTIO_PROSPECTS_LIST_ID`)
+   - **Filter (optional):** description/note contains `Website` / assessment source
+   - **Action:** **Create page in database** → map Name, Email, Company, Source, Attio URL
+4. Test: submit `/assessment/` once → Person appears in Attio → row appears in the Notion database
+
+Optional later: **Create page** under a “Won deals” parent when a deal stage changes; **Add content to page** for meeting notes.
+
+No website or Cloudflare secrets are required for Attio ↔ Notion.
+
 ### Auth0 client area (`/client/`)
 
 The login UI and OAuth routes are already in the app. You only need an Auth0 Application + Worker secrets.
