@@ -113,6 +113,10 @@
 /services/ /#services 301
 
 # --- Contact / company chrome → home + assessment ---
+/assessment /#assessment 301
+/assessment/ /#assessment 301
+/es/assessment /es/#assessment 301
+/es/assessment/ /es/#assessment 301
 /contact-us /#assessment 301
 /contact-us/ /#assessment 301
 /contact /#assessment 301

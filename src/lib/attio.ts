@@ -27,6 +27,8 @@ export interface AssessmentProspect {
   company: string;
   email: string;
   locale?: string;
+  /** Form / funnel source label stored on the Attio note + person description. */
+  source?: string;
 }
 
 interface AttioRecord {
@@ -54,6 +56,10 @@ function emailDomain(email: string): string | null {
   return domain;
 }
 
+function prospectSource(prospect: AssessmentProspect): string {
+  return prospect.source?.trim() || 'cybercon-solutions.com assessment form';
+}
+
 async function attioFetch(path: string, init: RequestInit): Promise<Response> {
   const key = attioKey();
   if (!key) throw new Error('ATTIO_API_KEY is not configured');
@@ -78,7 +84,7 @@ async function upsertCompany(companyName: string, domain: string | null): Promis
           values: {
             domains: [{ domain }],
             name: [{ value: companyName }],
-            description: [{ value: 'Prospect from cybercon-solutions.com free assessment' }],
+            description: [{ value: 'Prospect from cybercon-solutions.com website form' }],
           },
         },
       }),
@@ -98,7 +104,7 @@ async function upsertCompany(companyName: string, domain: string | null): Promis
       data: {
         values: {
           name: [{ value: companyName }],
-          description: [{ value: 'Prospect from cybercon-solutions.com free assessment' }],
+          description: [{ value: 'Prospect from cybercon-solutions.com website form' }],
         },
       },
     }),
@@ -117,12 +123,14 @@ async function upsertPerson(
 ): Promise<string | null> {
   const name = splitName(prospect.name);
   const locale = prospect.locale === 'es' ? 'es' : 'en';
+  const source = prospectSource(prospect);
   const values: Record<string, unknown> = {
-    email_addresses: [prospect.email],
+    // Attio expects email objects (not bare strings) for assert/upsert.
+    email_addresses: [{ email_address: prospect.email }],
     name: [name],
     description: [
       {
-        value: `Website prospect — free assessment (${locale}). Company submitted: ${prospect.company}.`,
+        value: `Website prospect — ${source} (${locale}). Company submitted: ${prospect.company}.`,
       },
     ],
   };
@@ -175,20 +183,21 @@ async function createAssessmentNote(
   prospect: AssessmentProspect,
 ): Promise<void> {
   const locale = prospect.locale === 'es' ? 'es' : 'en';
+  const source = prospectSource(prospect);
   const res = await attioFetch('/notes', {
     method: 'POST',
     body: JSON.stringify({
       data: {
         parent_object: 'people',
         parent_record_id: personRecordId,
-        title: 'Website free assessment request',
+        title: 'Website form submission',
         format: 'plaintext',
         content: [
           `Name: ${prospect.name}`,
           `Company: ${prospect.company}`,
           `Email: ${prospect.email}`,
           `Locale: ${locale}`,
-          'Source: cybercon-solutions.com assessment form',
+          `Source: ${source}`,
         ].join('\n'),
       },
     }),
@@ -199,7 +208,10 @@ async function createAssessmentNote(
   }
 }
 
-/** Upsert the form submitter as an Attio person (prospect) linked to a company. */
+/**
+ * Upsert a website form submitter as an Attio Person (prospect) linked to a Company.
+ * Matching key: email_addresses (no duplicate People for the same email).
+ */
 export async function createAssessmentProspect(prospect: AssessmentProspect): Promise<boolean> {
   if (!attioConfigured()) return false;
 
