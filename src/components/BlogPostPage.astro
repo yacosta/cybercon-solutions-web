@@ -30,7 +30,7 @@ const blogIndexPath = blogPath(locale);
 const banner = bannerImage(post.data.banner);
 const bannerAlt = post.data.bannerAlt[locale];
 const published = formatPostDate(post.data.pubDate, locale);
-const assessmentHref = `${homePath}#assessment`;
+const assessmentHref = localePath(locale, '/assessment/');
 const ogImage = absoluteUrl(banner.jpg);
 ---
 

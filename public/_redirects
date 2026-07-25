@@ -112,15 +112,15 @@
 /services /#services 301
 /services/ /#services 301
 
-# --- Contact / company chrome → home + assessment ---
-/assessment /#assessment 301
-/assessment/ /#assessment 301
-/es/assessment /es/#assessment 301
-/es/assessment/ /es/#assessment 301
-/contact-us /#assessment 301
-/contact-us/ /#assessment 301
-/contact /#assessment 301
-/contact/ /#assessment 301
+# --- Contact / company chrome → assessment landing ---
+/contact-us /assessment/ 301
+/contact-us/ /assessment/ 301
+/contact /assessment/ 301
+/contact/ /assessment/ 301
+/es/contact /es/assessment/ 301
+/es/contact/ /es/assessment/ 301
+/es/contact-us /es/assessment/ 301
+/es/contact-us/ /es/assessment/ 301
 /company / 301
 /company/ / 301
 /meet-the-team / 301

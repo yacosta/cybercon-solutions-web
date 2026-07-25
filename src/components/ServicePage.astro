@@ -23,7 +23,7 @@ if (!details) {
 const copy = buildServiceEditorial(service, details, locale, t);
 const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
 const homePath = localePath(locale, '/');
-const assessmentHref = `${homePath}#assessment`;
+const assessmentHref = localePath(locale, '/assessment/');
 const servicesHref = `${homePath}#services-title`;
 const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 ---

@@ -1,5 +1,5 @@
 ---
-import type { Messages } from '../i18n';
+import { localePath, type Messages } from '../i18n';
 
 interface Props {
   locale: 'en' | 'es';
@@ -18,7 +18,7 @@ const videoLabel =
     ? 'Vídeo decorativo: ingeniero de redes trabajando entre racks de servidores'
     : 'Decorative video: network engineer walking through server racks and working on a server';
 
-const assessmentHref = '#assessment';
+const assessmentHref = localePath(locale, '/assessment/');
 
 /** Responsive LCP poster — AVIF/WebP + width variants beat the old 86KiB PNG-as-JPG. */
 const posterJpg = '/videos/hero-poster.jpg';
