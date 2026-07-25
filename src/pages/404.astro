@@ -23,8 +23,8 @@ const featured = services.slice(0, 4);
 			<p class="lede">{en.lede}</p>
 			<div class="nf-actions">
 				<a class="btn btn-primary" href="/">{en.home}</a>
-				<a class="btn btn-ghost" href="/#assessment">{en.assessment}</a>
-				<a class="btn btn-ghost" href="/search/">{en.search}</a>
+				<a class="btn btn-primary" href="/#assessment">{en.assessment}</a>
+				<a class="btn btn-primary" href="/search/">{en.search}</a>
 			</div>
 			<div class="nf-grid">
 				<div>
@@ -53,8 +53,8 @@ const featured = services.slice(0, 4);
 			<p class="lede">{es.lede}</p>
 			<div class="nf-actions">
 				<a class="btn btn-primary" href="/es/">{es.home}</a>
-				<a class="btn btn-ghost" href="/es/#assessment">{es.assessment}</a>
-				<a class="btn btn-ghost" href="/es/search/">{es.search}</a>
+				<a class="btn btn-primary" href="/es/#assessment">{es.assessment}</a>
+				<a class="btn btn-primary" href="/es/search/">{es.search}</a>
 			</div>
 			<div class="nf-grid">
 				<div>
@@ -102,10 +102,24 @@ const featured = services.slice(0, 4);
 </script>
 
 <style>
+	.not-found {
+		--nf-heading-size: clamp(2.1rem, 5vw, 3.2rem);
+	}
+
+	.not-found .eyebrow {
+		margin: 0 0 0.35rem;
+		font-size: calc(var(--nf-heading-size) * 2);
+		font-weight: 700;
+		letter-spacing: -0.04em;
+		line-height: 0.95;
+		text-transform: none;
+		color: var(--navy);
+	}
+
 	.not-found h1 {
 		margin: 0 0 0.85rem;
 		max-width: 18ch;
-		font-size: clamp(2.1rem, 5vw, 3.2rem);
+		font-size: var(--nf-heading-size);
 		line-height: 1.05;
 		letter-spacing: -0.04em;
 	}
@@ -122,6 +136,18 @@ const featured = services.slice(0, 4);
 		flex-wrap: wrap;
 		gap: 0.75rem;
 		margin-bottom: 2.5rem;
+	}
+
+	.not-found .nf-actions .btn {
+		background: var(--coral);
+		border-color: var(--coral);
+		color: var(--white);
+	}
+
+	.not-found .nf-actions .btn:hover {
+		background: color-mix(in srgb, var(--coral) 88%, #000);
+		border-color: color-mix(in srgb, var(--coral) 88%, #000);
+		color: var(--white);
 	}
 
 	.nf-grid {
