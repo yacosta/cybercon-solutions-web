@@ -23,12 +23,14 @@ One partner for all of your technology with predictable per-user pricing:
 |------|-----|
 | Home (EN) | https://cybercon-solutions.com/ |
 | Home (ES) | https://cybercon-solutions.com/es/ |
+| Free site check | https://cybercon-solutions.com/site-check/ |
 | Blog | https://cybercon-solutions.com/blog/ |
 | Enterprise AI Adoption and ROI | https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/ |
 | Privacy | https://cybercon-solutions.com/privacy/ |
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
 | Search | https://cybercon-solutions.com/search/ |
 | Assessment API | POST https://cybercon-solutions.com/api/assessment |
+| Site check API | POST https://cybercon-solutions.com/api/site-check |
 
 ## Contact
 

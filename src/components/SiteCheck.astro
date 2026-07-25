@@ -1,0 +1,992 @@
+---
+import { turnstileSiteKey } from '../lib/turnstile';
+import { localePath, type Messages } from '../i18n';
+import { site } from '../lib/site';
+
+interface Props {
+  locale: string;
+  t: Messages;
+  /** Compact embed (homepage) vs full page panel */
+  variant?: 'page' | 'embed';
+}
+
+const { locale, t, variant = 'page' } = Astro.props;
+const siteKey = turnstileSiteKey();
+const assessmentHref = localePath(locale, '/') + '#assessment';
+const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
+const copy = t.siteCheck;
+---
+
+<section
+  class:list={['site-check', variant]}
+  id="site-check"
+  data-site-check
+  aria-labelledby="site-check-title"
+>
+  <div class="container">
+    <p class="eyebrow">{copy.eyebrow}</p>
+    <h2 id="site-check-title">{copy.title}</h2>
+    <p class="lede">{copy.lede}</p>
+
+    <div class="panel" data-sc-panel>
+      <!-- Idle -->
+      <div class="view" data-view="idle">
+        <form class="sc-form" data-sc-form novalidate>
+          <div class="field">
+            <label for="sc-domain">{copy.domainLabel}</label>
+            <input
+              id="sc-domain"
+              name="domain"
+              type="text"
+              inputmode="url"
+              autocomplete="url"
+              spellcheck="false"
+              required
+              placeholder={copy.domainPlaceholder}
+              data-sc-domain
+            />
+          </div>
+
+          {siteKey && (
+            <div class="turnstile-wrap">
+              <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+            </div>
+          )}
+
+          <p class="form-error" data-sc-error hidden role="alert" aria-live="assertive"></p>
+
+          <button type="submit" class="btn btn-primary" data-sc-submit>{copy.submit}</button>
+          <p class="disclosure">{copy.disclosure}</p>
+          <button type="button" class="text-link" data-sc-sample>{copy.sampleLink}</button>
+        </form>
+      </div>
+
+      <!-- Scanning -->
+      <div class="view" data-view="scanning" hidden>
+        <div class="scan-anim" aria-hidden="true">
+          <div class="scan-ring"></div>
+          <div class="scan-bar"><span data-sc-progress></span></div>
+        </div>
+        <h3 class="scan-title">{copy.scanningTitle}</h3>
+        <p class="scan-status" data-sc-status aria-live="polite">{copy.statusMessages[0]}</p>
+        <p class="scan-hint">{copy.scanningHint}</p>
+      </div>
+
+      <!-- Results -->
+      <div class="view" data-view="results" hidden>
+        <p class="sample-banner" data-sc-sample-banner hidden>{copy.sampleBanner}</p>
+
+        <div class="grade-hero">
+          <div class="grade-letter" data-sc-grade aria-label={copy.gradeLabel}>—</div>
+          <div class="grade-copy">
+            <p class="site-name" data-sc-sitename></p>
+            <p class="summary" data-sc-summary></p>
+          </div>
+        </div>
+
+        <ul class="trust-badges" data-sc-trust></ul>
+
+        <div class="tech" data-sc-tech-wrap hidden>
+          <h3 class="subhead">{copy.techHeading}</h3>
+          <ul class="tech-chips" data-sc-tech></ul>
+        </div>
+
+        <div class="categories" data-sc-categories></div>
+
+        <div class="finding">
+          <h3 class="subhead">{copy.findingHeading}</h3>
+          <p data-sc-finding></p>
+        </div>
+
+        <div class="cta-block">
+          <p class="cta-lede">{copy.ctaLede}</p>
+          <p class="more" data-sc-more></p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href={phoneHref} data-sc-call>
+              {copy.callCta.replace('{phone}', site.phoneDisplay)}
+            </a>
+            <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
+          </div>
+          <button type="button" class="text-link" data-sc-reset>{copy.scanAnother}</button>
+        </div>
+      </div>
+
+      <!-- Limit -->
+      <div class="view" data-view="limit" hidden>
+        <h3 class="limit-title" data-sc-limit-title>{copy.limitTitle}</h3>
+        <p class="limit-body" data-sc-limit-body>{copy.limitBody}</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href={phoneHref}>
+            {copy.callCta.replace('{phone}', site.phoneDisplay)}
+          </a>
+          <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
+        </div>
+        <button type="button" class="text-link" data-sc-reset>{copy.scanAnother}</button>
+      </div>
+
+      <!-- Admin -->
+      <div class="view" data-view="admin" hidden>
+        <div class="admin-head">
+          <h3 class="subhead">{copy.adminTitle}</h3>
+          <div class="admin-actions">
+            <button type="button" class="text-link" data-sc-export>{copy.adminExport}</button>
+            <button type="button" class="text-link" data-sc-admin-close>{copy.adminClose}</button>
+          </div>
+        </div>
+        <p class="admin-hint">{copy.adminHint}</p>
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Site</th>
+                <th>Grade</th>
+                <th>When</th>
+              </tr>
+            </thead>
+            <tbody data-sc-admin-body></tbody>
+          </table>
+        </div>
+        <p class="admin-empty" data-sc-admin-empty hidden>{copy.adminEmpty}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{siteKey && (
+  <script is:inline>
+    if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+  </script>
+)}
+
+<script
+  define:vars={{
+    locale,
+    copy,
+    requireTurnstile: Boolean(siteKey),
+    phoneDisplay: site.phoneDisplay,
+    visitorLimit: 1,
+  }}
+>
+  const root = document.querySelector('[data-site-check]');
+  if (!(root instanceof HTMLElement)) {
+    // no-op
+  } else {
+    const LOG_KEY = 'cybercon-site-check-log-v1';
+    const VISITOR_KEY = 'cybercon-site-check-visitor-v1';
+    const GRADE_COLORS = {
+      A: '#1E9E6A',
+      B: '#5FAE4E',
+      C: '#D9A21B',
+      D: '#E06B2D',
+      F: '#D63B2F',
+      N: '#5B6B7C',
+    };
+
+    const views = {
+      idle: root.querySelector('[data-view="idle"]'),
+      scanning: root.querySelector('[data-view="scanning"]'),
+      results: root.querySelector('[data-view="results"]'),
+      limit: root.querySelector('[data-view="limit"]'),
+      admin: root.querySelector('[data-view="admin"]'),
+    };
+
+    const form = root.querySelector('[data-sc-form]');
+    const domainInput = root.querySelector('[data-sc-domain]');
+    const errorEl = root.querySelector('[data-sc-error]');
+    const statusEl = root.querySelector('[data-sc-status]');
+    const progressEl = root.querySelector('[data-sc-progress]');
+    const sampleBanner = root.querySelector('[data-sc-sample-banner]');
+
+    let statusTimer = null;
+    let progressTimer = null;
+    let statusIndex = 0;
+
+    function showView(name) {
+      for (const [key, el] of Object.entries(views)) {
+        if (!(el instanceof HTMLElement)) continue;
+        el.hidden = key !== name;
+      }
+    }
+
+    function setError(message) {
+      if (!(errorEl instanceof HTMLElement)) return;
+      if (!message) {
+        errorEl.hidden = true;
+        errorEl.textContent = '';
+        return;
+      }
+      errorEl.textContent = message;
+      errorEl.hidden = false;
+    }
+
+    function readLog() {
+      try {
+        const raw = localStorage.getItem(LOG_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function writeLog(entries) {
+      try {
+        localStorage.setItem(LOG_KEY, JSON.stringify(entries.slice(0, 500)));
+      } catch {
+        /* ignore quota */
+      }
+    }
+
+    function appendLog(result) {
+      if (result.sample) return;
+      const entries = readLog();
+      entries.unshift({
+        domain: result.domain,
+        site_name: result.site_name,
+        overall_grade: result.overall_grade,
+        timestamp: new Date().toISOString(),
+        tech_chips: result.tech_chips || [],
+      });
+      writeLog(entries);
+    }
+
+    function visitorState() {
+      try {
+        const raw = sessionStorage.getItem(VISITOR_KEY);
+        const parsed = raw ? JSON.parse(raw) : { count: 0, day: '' };
+        const day = new Date().toISOString().slice(0, 10);
+        if (parsed.day !== day) return { count: 0, day };
+        return { count: Number(parsed.count) || 0, day };
+      } catch {
+        return { count: 0, day: new Date().toISOString().slice(0, 10) };
+      }
+    }
+
+    function bumpVisitor() {
+      const state = visitorState();
+      state.count += 1;
+      try {
+        sessionStorage.setItem(VISITOR_KEY, JSON.stringify(state));
+      } catch {
+        /* ignore */
+      }
+    }
+
+    function startScanningUi() {
+      showView('scanning');
+      statusIndex = 0;
+      const messages = copy.statusMessages || [];
+      if (statusEl instanceof HTMLElement && messages[0]) statusEl.textContent = messages[0];
+      if (progressEl instanceof HTMLElement) progressEl.style.width = '8%';
+
+      let progress = 8;
+      clearInterval(statusTimer);
+      clearInterval(progressTimer);
+      statusTimer = setInterval(() => {
+        statusIndex = (statusIndex + 1) % Math.max(messages.length, 1);
+        if (statusEl instanceof HTMLElement && messages[statusIndex]) {
+          statusEl.textContent = messages[statusIndex];
+        }
+      }, 4500);
+      progressTimer = setInterval(() => {
+        progress = Math.min(92, progress + Math.random() * 7);
+        if (progressEl instanceof HTMLElement) progressEl.style.width = `${progress}%`;
+      }, 800);
+    }
+
+    function stopScanningUi() {
+      clearInterval(statusTimer);
+      clearInterval(progressTimer);
+      if (progressEl instanceof HTMLElement) progressEl.style.width = '100%';
+    }
+
+    function gradeColor(grade) {
+      return GRADE_COLORS[grade] || GRADE_COLORS.N;
+    }
+
+    function renderResults(result) {
+      stopScanningUi();
+      showView('results');
+
+      if (sampleBanner instanceof HTMLElement) {
+        sampleBanner.hidden = !result.sample;
+      }
+
+      const gradeEl = root.querySelector('[data-sc-grade]');
+      if (gradeEl instanceof HTMLElement) {
+        gradeEl.textContent = result.overall_grade || '—';
+        gradeEl.style.color = gradeColor(result.overall_grade);
+        gradeEl.style.borderColor = gradeColor(result.overall_grade);
+      }
+
+      const nameEl = root.querySelector('[data-sc-sitename]');
+      if (nameEl instanceof HTMLElement) {
+        nameEl.textContent = result.site_name || result.domain || '';
+      }
+
+      const summaryEl = root.querySelector('[data-sc-summary]');
+      if (summaryEl instanceof HTMLElement) {
+        summaryEl.textContent = result.one_line_summary || '';
+      }
+
+      const trust = root.querySelector('[data-sc-trust]');
+      if (trust instanceof HTMLElement) {
+        const badges = [];
+        if (result.live_checked) badges.push(copy.trustLive);
+        if (result.verified) badges.push(copy.trustBuiltWith);
+        trust.innerHTML = badges.map((b) => `<li><span aria-hidden="true">✓</span> ${escapeHtml(b)}</li>`).join('');
+      }
+
+      const techWrap = root.querySelector('[data-sc-tech-wrap]');
+      const techList = root.querySelector('[data-sc-tech]');
+      const chips = Array.isArray(result.tech_chips) ? result.tech_chips : [];
+      if (techWrap instanceof HTMLElement && techList instanceof HTMLElement) {
+        if (chips.length) {
+          techWrap.hidden = false;
+          techList.innerHTML = chips
+            .map((c) => `<li>${escapeHtml(String(c))}</li>`)
+            .join('');
+        } else {
+          techWrap.hidden = true;
+          techList.innerHTML = '';
+        }
+      }
+
+      const cats = root.querySelector('[data-sc-categories]');
+      if (cats instanceof HTMLElement) {
+        const list = Array.isArray(result.categories) ? result.categories : [];
+        cats.innerHTML = list
+          .map((cat) => {
+            const g = cat.grade === 'N' ? '—' : cat.grade;
+            const color = gradeColor(cat.grade);
+            return `<article class="cat">
+              <div class="cat-grade" style="color:${color}">${escapeHtml(g)}</div>
+              <div>
+                <h4>${escapeHtml(cat.name || '')}</h4>
+                <p>${escapeHtml(cat.note || '')}</p>
+              </div>
+            </article>`;
+          })
+          .join('');
+      }
+
+      const finding = root.querySelector('[data-sc-finding]');
+      if (finding instanceof HTMLElement) finding.textContent = result.top_finding || '';
+
+      const more = root.querySelector('[data-sc-more]');
+      if (more instanceof HTMLElement) {
+        const n = Number(result.additional_findings_count) || 3;
+        more.textContent = String(copy.moreItems).replace('{n}', String(n));
+      }
+
+      appendLog(result);
+    }
+
+    function renderLimit(reason) {
+      stopScanningUi();
+      showView('limit');
+      const title = root.querySelector('[data-sc-limit-title]');
+      const body = root.querySelector('[data-sc-limit-body]');
+      if (title instanceof HTMLElement) {
+        title.textContent = reason === 'global' ? copy.limitGlobalTitle : copy.limitTitle;
+      }
+      if (body instanceof HTMLElement) {
+        body.textContent = reason === 'global' ? copy.limitGlobalBody : copy.limitBody;
+      }
+    }
+
+    function renderAdmin() {
+      showView('admin');
+      const entries = readLog();
+      const body = root.querySelector('[data-sc-admin-body]');
+      const empty = root.querySelector('[data-sc-admin-empty]');
+      if (!(body instanceof HTMLElement) || !(empty instanceof HTMLElement)) return;
+      if (!entries.length) {
+        body.innerHTML = '';
+        empty.hidden = false;
+        return;
+      }
+      empty.hidden = true;
+      body.innerHTML = entries
+        .map((e) => {
+          const when = e.timestamp ? new Date(e.timestamp).toLocaleString() : '';
+          return `<tr>
+            <td><code>${escapeHtml(e.domain || '')}</code></td>
+            <td>${escapeHtml(e.site_name || '')}</td>
+            <td><strong style="color:${gradeColor(e.overall_grade)}">${escapeHtml(e.overall_grade || '')}</strong></td>
+            <td>${escapeHtml(when)}</td>
+          </tr>`;
+        })
+        .join('');
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function exportCsv() {
+      const entries = readLog();
+      const header = 'domain,site_name,overall_grade,timestamp,tech_chips';
+      const rows = entries.map((e) =>
+        [e.domain, e.site_name, e.overall_grade, e.timestamp, (e.tech_chips || []).join('|')]
+          .map((v) => `"${String(v ?? '').replace(/"/g, '""')}"`)
+          .join(','),
+      );
+      const blob = new Blob([[header, ...rows].join('\n')], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'cybercon-site-check-log.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    async function runScan(domain, sample) {
+      setError('');
+      const visitor = visitorState();
+      if (!sample && visitor.count >= visitorLimit) {
+        renderLimit('ip');
+        return;
+      }
+
+      startScanningUi();
+
+      let turnstileToken = '';
+      if (requireTurnstile && !sample) {
+        const turnstile = root.querySelector('[name="cf-turnstile-response"]');
+        turnstileToken = turnstile instanceof HTMLInputElement ? turnstile.value : '';
+        if (!turnstileToken) {
+          stopScanningUi();
+          showView('idle');
+          setError(copy.turnstileError);
+          return;
+        }
+      }
+
+      try {
+        const response = await fetch('/api/site-check', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', accept: 'application/json' },
+          body: JSON.stringify({
+            domain,
+            sample: Boolean(sample),
+            turnstileToken,
+            locale,
+          }),
+        });
+
+        if (response.status === 429) {
+          const payload = await response.json().catch(() => ({}));
+          renderLimit(payload.reason === 'global' ? 'global' : 'ip');
+          return;
+        }
+
+        if (!response.ok) {
+          const payload = await response.json().catch(() => ({}));
+          stopScanningUi();
+          showView('idle');
+          setError(payload.error === 'Enter a valid domain (e.g. example.com)' ? copy.errorDomain : copy.errorGeneric);
+          return;
+        }
+
+        const payload = await response.json();
+        if (!sample) bumpVisitor();
+        renderResults(payload.result);
+      } catch {
+        stopScanningUi();
+        showView('idle');
+        setError(copy.errorGeneric);
+      }
+    }
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!(domainInput instanceof HTMLInputElement)) return;
+      const value = domainInput.value.trim();
+      if (value.toLowerCase() === 'admin') {
+        renderAdmin();
+        return;
+      }
+      if (!value) {
+        setError(copy.errorDomain);
+        return;
+      }
+      runScan(value, false);
+    });
+
+    root.querySelector('[data-sc-sample]')?.addEventListener('click', () => {
+      runScan('sample', true);
+    });
+
+    root.querySelectorAll('[data-sc-reset]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        setError('');
+        showView('idle');
+        if (domainInput instanceof HTMLInputElement) {
+          domainInput.value = '';
+          domainInput.focus();
+        }
+      });
+    });
+
+    root.querySelector('[data-sc-export]')?.addEventListener('click', exportCsv);
+    root.querySelector('[data-sc-admin-close]')?.addEventListener('click', () => {
+      showView('idle');
+    });
+  }
+</script>
+
+<style>
+  .site-check {
+    --sc-paper: #f7f5f1;
+    --sc-slate: #5b6b7c;
+    --sc-deep: #0a1d33;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(242, 107, 94, 0.14), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 90% 30%, rgba(15, 44, 76, 0.35), transparent 50%),
+      linear-gradient(165deg, #0a1d33 0%, #061424 55%, #0f2c4c 100%);
+    color: var(--white);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .site-check.embed {
+    margin-top: 0;
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin: 0 0 0.75rem;
+  }
+
+  .site-check h2 {
+    font-size: clamp(1.85rem, 3.4vw, 2.6rem);
+    color: var(--white);
+    margin: 0 0 0.75rem;
+    max-width: 18ch;
+  }
+
+  .lede {
+    color: rgba(247, 245, 241, 0.78);
+    max-width: 38rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .panel {
+    background: var(--sc-paper);
+    color: var(--navy);
+    border-radius: 18px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    max-width: 720px;
+  }
+
+  .view[hidden] {
+    display: none;
+  }
+
+  .sc-form {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .field label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .field input {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid color-mix(in srgb, var(--border) 55%, transparent);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--navy);
+  }
+
+  .field input:focus-visible {
+    outline: none;
+    border-color: var(--coral);
+    box-shadow: var(--shadow-focus);
+  }
+
+  .form-error {
+    color: var(--button-red);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .disclosure {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--sc-slate);
+  }
+
+  .text-link {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--navy);
+    font: inherit;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 0;
+    justify-self: start;
+  }
+
+  .text-link:hover {
+    color: var(--coral);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.85rem 1.15rem;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--navy);
+    color: var(--navy);
+    background: transparent;
+  }
+
+  .btn-secondary:hover {
+    background: color-mix(in srgb, var(--navy) 6%, transparent);
+  }
+
+  .scan-anim {
+    margin-bottom: 1rem;
+  }
+
+  .scan-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid color-mix(in srgb, var(--coral) 25%, transparent);
+    border-top-color: var(--coral);
+    animation: sc-spin 0.9s linear infinite;
+    margin-bottom: 1rem;
+  }
+
+  .scan-bar {
+    height: 6px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--navy) 10%, transparent);
+    overflow: hidden;
+  }
+
+  .scan-bar span {
+    display: block;
+    height: 100%;
+    width: 8%;
+    background: linear-gradient(90deg, var(--coral), #ff8f7d);
+    border-radius: inherit;
+    transition: width 0.6s ease;
+  }
+
+  .scan-title {
+    font-size: 1.25rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .scan-status {
+    margin: 0;
+    color: var(--navy);
+    min-height: 1.5em;
+    animation: sc-fade 0.45s ease;
+  }
+
+  .scan-hint {
+    margin: 0.75rem 0 0;
+    color: var(--sc-slate);
+    font-size: 0.875rem;
+  }
+
+  .sample-banner {
+    margin: 0 0 1rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    background: color-mix(in srgb, #d9a21b 18%, white);
+    color: #7a5a0a;
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+
+  .grade-hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .grade-letter {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 14px;
+    border: 2.5px solid currentColor;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1;
+    animation: sc-pop 0.45s ease;
+  }
+
+  .site-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .summary {
+    margin: 0;
+    color: var(--sc-slate);
+  }
+
+  .trust-badges {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .trust-badges li {
+    font-size: 0.875rem;
+    color: var(--sc-slate);
+    display: flex;
+    gap: 0.4rem;
+    align-items: baseline;
+  }
+
+  .trust-badges span {
+    color: #1e9e6a;
+    font-weight: 700;
+  }
+
+  .subhead {
+    font-size: 0.95rem;
+    margin: 0 0 0.65rem;
+  }
+
+  .tech {
+    margin-bottom: 1.25rem;
+  }
+
+  .tech-chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .tech-chips li {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.55rem;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--navy) 7%, white);
+    color: var(--navy);
+  }
+
+  .categories {
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cat {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.75rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
+  }
+
+  .cat:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .cat-grade {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .cat h4 {
+    font-size: 0.95rem;
+    margin: 0 0 0.25rem;
+  }
+
+  .cat p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--sc-slate);
+  }
+
+  .finding {
+    background: color-mix(in srgb, var(--navy) 5%, white);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .finding p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .cta-block .cta-lede {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .cta-block .more {
+    color: var(--sc-slate);
+    margin: 0 0 0.85rem;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .limit-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.35rem;
+  }
+
+  .limit-body {
+    color: var(--sc-slate);
+    margin: 0 0 1.1rem;
+  }
+
+  .admin-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.35rem;
+  }
+
+  .admin-actions {
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .admin-hint {
+    font-size: 0.8125rem;
+    color: var(--sc-slate);
+    margin: 0 0 0.85rem;
+  }
+
+  .admin-table-wrap {
+    overflow-x: auto;
+  }
+
+  .admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    text-align: left;
+    padding: 0.45rem 0.35rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 35%, transparent);
+    vertical-align: top;
+  }
+
+  .admin-table code {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .admin-empty {
+    color: var(--sc-slate);
+    margin: 0.5rem 0 0;
+  }
+
+  @keyframes sc-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes sc-fade {
+    from {
+      opacity: 0.35;
+      transform: translateY(2px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes sc-pop {
+    from {
+      transform: scale(0.88);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scan-ring,
+    .scan-status,
+    .grade-letter {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .grade-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-row .btn,
+    .cta-row .btn-secondary {
+      width: 100%;
+    }
+  }
+</style>

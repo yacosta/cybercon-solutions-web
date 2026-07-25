@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { attioConfigured } from '../../lib/attio';
 import { auth0Configured } from '../../lib/auth0';
 import { runtimeEnv } from '../../lib/env';
+import { siteCheckAiStatus } from '../../lib/site-check';
 
 export const prerender = false;
 
@@ -15,6 +16,8 @@ export const GET: APIRoute = async () => {
     SESSION_SECRET: Boolean(runtimeEnv('SESSION_SECRET')),
   };
 
+  const ai = siteCheckAiStatus();
+
   return Response.json({
     ok: true,
     service: 'cybercon-solutions-web',
@@ -24,5 +27,13 @@ export const GET: APIRoute = async () => {
     web3forms: Boolean(runtimeEnv('WEB3FORMS_ACCESS_KEY')),
     auth0: auth0Configured(),
     auth0Vars,
+    siteCheck: {
+      aiProvider: ai.provider,
+      gemini: ai.gemini,
+      openai: ai.openai,
+      anthropic: ai.anthropic,
+      builtwith: Boolean(runtimeEnv('BUILTWITH_API_KEY')),
+      webhook: Boolean(runtimeEnv('SITE_CHECK_WEBHOOK_URL')),
+    },
   });
 };

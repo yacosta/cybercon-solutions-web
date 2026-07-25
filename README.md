@@ -13,6 +13,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 ## Features
 
 - EN / ES homepage with full-bleed hero video (server racks), assessment form + Turnstile
+- Free lite website check (`/site-check/`, homepage embed) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
 - Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner (`cybercon-consent-v1`)
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`)
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
@@ -97,6 +98,15 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 | `AUTH0_BASE_URL` | For client area | `https://cybercon-solutions.com` |
 | `AUTH0_AUDIENCE` | Optional | |
 | `SESSION_SECRET` | For client area | Long random string (Secret) |
+| `ANTHROPIC_API_KEY` | For AI site check | One of Gemini / OpenAI / Anthropic (Secret). Auto-picks Gemini → OpenAI → Anthropic |
+| `GEMINI_API_KEY` | Preferred for site check | Google AI Studio key — Gemini Flash + Search grounding (recommended) |
+| `OPENAI_API_KEY` | Alt for site check | OpenAI key — Responses API + web_search, else chat JSON |
+| `SITE_CHECK_AI_PROVIDER` | Optional | Force `gemini` \| `openai` \| `anthropic` |
+| `SITE_CHECK_AI_MODEL` | Optional | Override default model for the chosen provider |
+| `BUILTWITH_API_KEY` | Optional | BuiltWith Free API — tech chips / verification |
+| `SITE_CHECK_WEBHOOK_URL` | Optional | If set, proxy scans to n8n (or similar) instead of the native Worker pipeline |
+| `SITE_CHECK_IP_DAILY_LIMIT` | Optional | Soft per-IP daily cap (default `2`) |
+| `SITE_CHECK_GLOBAL_DAILY_LIMIT` | Optional | Soft global daily cap (default `25`) |
 
 Optional build variable: `NODE_VERSION=22`.
 
@@ -194,10 +204,10 @@ Expect passes for content-site checks:
 
 ```
 src/
-  components/   Hero, AssessmentForm, CookieBanner, PrivacyPage, …
+  components/   Hero, AssessmentForm, SiteCheck, CookieBanner, PrivacyPage, …
   layouts/      BaseLayout (SEO + ADA + WebMCP)
-  pages/        /, /es/, /privacy/, /client/, /api/, /search/
-  lib/          auth0, turnstile, seo, markdown-pages
+  pages/        /, /es/, /site-check/, /privacy/, /client/, /api/, /search/
+  lib/          auth0, turnstile, seo, markdown-pages, site-check/
 public/
   robots.txt, llms.txt, auth.md, openapi.json, _headers, .assetsignore
   .well-known/  api-catalog, mcp, agent-skills, web-bot-auth JWKS
