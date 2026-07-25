@@ -53,7 +53,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       company,
       email,
       locale,
-      source: 'https://cybercon-solutions.com/#assessment',
+      source: 'https://cybercon-solutions.com/assessment/',
     });
     if (!prospectOk) {
       return Response.json({ error: 'CRM delivery failed' }, { status: 502 });

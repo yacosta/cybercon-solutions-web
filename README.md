@@ -115,7 +115,7 @@ Website forms already call Attio when `ATTIO_API_KEY` is present. Production is 
    - Add **`ATTIO_API_KEY`** as a **Secret** (paste the Attio key)
    - Optional: **`ATTIO_PROSPECTS_LIST_ID`** (People list ID or slug)
 3. Confirm: `GET https://cybercon-solutions.com/api/health` → `"attio": true`
-4. Submit `/#assessment` once — a Person (+ Company, note) should appear in Attio within seconds
+4. Submit `/assessment/` once — a Person (+ Company, note) should appear in Attio within seconds
 
 Do **not** put the Attio key in GitHub. Only the Worker needs it.
 
