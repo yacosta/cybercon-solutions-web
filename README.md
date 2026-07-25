@@ -166,6 +166,15 @@ Notion database **Website prospects** (target schema):
 | Source URL | *(fill next — see below)* |
 | Email | *(add property in Notion first — see below)* |
 
+**If the Person is in Attio but not in Notion**
+
+1. Attio → that workflow → **Runs**: did it fire? Any red error?
+2. Notion → **Website prospects** → **⋯ → Connections** → confirm the Attio Notion connector is added.
+3. **Upsert caveat (most common):** the website uses Attio’s email upsert. A **repeat email updates** an existing Person and does **not** fire **Record created**.  
+   - Quick test: submit `/assessment/` with a **brand-new email**.  
+   - Or change the trigger to also catch updates, e.g. **Record updated** on People (filter: Description contains `Website prospect`), or **Attribute value changed** on Description.
+4. Manually: open the Person in Attio → run the workflow once (if the UI offers **Run** / **Test**) to backfill Notion for that record.
+
 **Finish Email + Source URL**
 
 1. **Email:** In Notion → Website prospects → add property **Email** (type Email). Re-open the Attio workflow action so it reloads the schema, then map **Email** → Person’s email address.
@@ -173,7 +182,7 @@ Notion database **Website prospects** (target schema):
    `https://cybercon-solutions.com/assessment/`  
    (do not map from a Person attribute — website source is not a standard Attio People field).
 3. You do **not** need `ATTIO_PROSPECTS_LIST_ID` or a custom Source attribute for this; a static Source URL is enough for assessment leads.
-4. Test: submit https://cybercon-solutions.com/assessment/ once → new row in **Website prospects** with Name, Company, Attio URL, Email, and Source URL.
+4. Test: submit https://cybercon-solutions.com/assessment/ with a **new email** → new row in **Website prospects**.
 
 Optional later: **Create page** under a “Won deals” parent when a deal stage changes; **Add content to page** for meeting notes.
 
