@@ -146,30 +146,34 @@ Notion only exposes pages you explicitly share:
 
 **Recommended Cybercon starter setup**
 
-Notion database **Website prospects** (live schema):
+Notion database **Website prospects** (target schema):
 
-| Property | Type |
-|----------|------|
-| **Name** | Title |
-| **Email** | Email |
-| **Company** | Text |
-| **Source URL** | URL |
-| **Attio URL** | URL |
+| Property | Type | Notes |
+|----------|------|--------|
+| **Name** | Title | Mapped from Person full name |
+| **Email** | Email | Add in Notion if missing, then map Person email |
+| **Company** | Text | Mapped from linked Company name |
+| **Source URL** | URL | Set as a **static** value in the workflow (not a Person field) |
+| **Attio URL** | URL | Mapped from Person Attio URL |
 
-1. Open that database in Notion → **⋯ → Connections → Add connections** → add the Attio Notion connector (required or Attio cannot see it).
-2. In Attio → **Workflows** → **New workflow**:
-   - **Name:** `Website prospect → Notion`
-   - **Trigger:** **Record created** on **People** (or **List entry created** on your Prospects list if you use `ATTIO_PROSPECTS_LIST_ID`)
-   - **Optional filter:** Person **Description** contains `Website prospect` (matches copy from the site form upsert)
-   - **Action:** Notion → **Create page in database**
-     - **Database:** Website prospects
-     - **Title / Name:** Person name
-     - **Email:** Person email
-     - **Company:** linked Company name (or the company text from the record)
-     - **Source URL:** `https://cybercon-solutions.com/assessment/`
-     - **Attio URL:** Person record URL (Attio’s record link variable if available)
-   - **Save** and turn the workflow **On**
-3. Test: submit https://cybercon-solutions.com/assessment/ once → Person in Attio → new row in **Website prospects**
+**Live workflow (Attio → Notion)** — `Website prospect → Notion` is **On**:
+
+| Notion field | Mapping |
+|--------------|---------|
+| Title (Name) | Person full name |
+| Company | Linked Company → Name |
+| Attio URL | Person Attio URL |
+| Source URL | *(fill next — see below)* |
+| Email | *(add property in Notion first — see below)* |
+
+**Finish Email + Source URL**
+
+1. **Email:** In Notion → Website prospects → add property **Email** (type Email). Re-open the Attio workflow action so it reloads the schema, then map **Email** → Person’s email address.
+2. **Source URL:** Edit the same Notion action → set **Source URL** to the literal  
+   `https://cybercon-solutions.com/assessment/`  
+   (do not map from a Person attribute — website source is not a standard Attio People field).
+3. You do **not** need `ATTIO_PROSPECTS_LIST_ID` or a custom Source attribute for this; a static Source URL is enough for assessment leads.
+4. Test: submit https://cybercon-solutions.com/assessment/ once → new row in **Website prospects** with Name, Company, Attio URL, Email, and Source URL.
 
 Optional later: **Create page** under a “Won deals” parent when a deal stage changes; **Add content to page** for meeting notes.
 
