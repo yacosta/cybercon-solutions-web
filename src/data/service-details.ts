@@ -90,6 +90,16 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: 'Sí. Damos soporte de TI in situ en nuestra zona del sur de Florida, incluidos Cooper City y Davie, para hardware, red, despliegues y mudanzas de oficina.',
         },
       },
+      {
+        question: {
+          en: 'Can I see a sample quarterly business review?',
+          es: '¿Puedo ver una revisión trimestral de muestra?',
+        },
+        answer: {
+          en: 'Yes. Download our anonymized sample QBR (PDF) with real decision outcomes — approved, deferred, and declined items included: https://cybercon-solutions.com/downloads/cybercon-sample-qbr-anonymized.pdf',
+          es: 'Sí. Descarga nuestra QBR de muestra anonimizada (PDF) con decisiones reales — aprobadas, aplazadas y rechazadas: https://cybercon-solutions.com/downloads/cybercon-sample-qbr-anonymized.pdf',
+        },
+      },
     ],
   },
 
