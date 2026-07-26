@@ -22,7 +22,6 @@ const assessmentHref = localePath(locale, '/assessment/');
 
 /** Responsive LCP poster — AVIF/WebP + width variants beat the old 86KiB PNG-as-JPG. */
 const posterJpg = '/videos/hero-poster.jpg';
-const posterWebp = '/videos/hero-poster.webp';
 const posterAvifSrcset =
   '/videos/hero-poster-768.avif 768w, /videos/hero-poster-960.avif 960w, /videos/hero-poster.avif 1280w';
 const posterWebpSrcset =
@@ -38,6 +37,11 @@ const posterSizes = '100vw';
   aria-describedby="hero-lede"
 >
   <div class="hero-media">
+    {/*
+      LCP surface is this prioritized <img> only. Do not set video[poster] —
+      a poster paints above the image and Lighthouse treats that (unprioritized)
+      request as LCP. Keep the video transparent until playback starts.
+    */}
     <picture>
       <source type="image/avif" srcset={posterAvifSrcset} sizes={posterSizes} />
       <source type="image/webp" srcset={posterWebpSrcset} sizes={posterSizes} />
@@ -50,7 +54,8 @@ const posterSizes = '100vw';
         width="1280"
         height="800"
         fetchpriority="high"
-        decoding="async"
+        loading="eager"
+        decoding="sync"
       />
     </picture>
     <video
@@ -59,7 +64,6 @@ const posterSizes = '100vw';
       loop
       playsinline
       preload="none"
-      poster={posterWebp}
       tabindex="-1"
       aria-label={videoLabel}
     >
@@ -105,9 +109,14 @@ const posterSizes = '100vw';
       source.src = source.dataset.src;
       source.removeAttribute('data-src');
       video.load();
-      video.play().catch(() => {
-        /* Autoplay blocked — poster remains visible */
-      });
+      video
+        .play()
+        .then(() => {
+          video.classList.add('is-playing');
+        })
+        .catch(() => {
+          /* Autoplay blocked — prioritized poster image stays visible */
+        });
     }
   }
 
@@ -145,6 +154,15 @@ const posterSizes = '100vw';
     object-fit: cover;
     object-position: center;
     aspect-ratio: 1280 / 800;
+  }
+
+  .hero-video {
+    opacity: 0;
+    transition: opacity 0.45s ease;
+  }
+
+  .hero-video.is-playing {
+    opacity: 1;
   }
 
   .hero-overlay {
