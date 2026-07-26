@@ -94,6 +94,27 @@ export const es: Messages = {
       'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.',
     learnMore: 'Saber más',
   },
+  engagement: {
+    eyebrow: 'Cómo funciona un engagement',
+    title: 'Tres fases. Sin sorpresas a mitad de camino.',
+    steps: [
+      {
+        number: '01',
+        title: 'Descubrimiento',
+        body: 'Definimos el alcance contigo: qué falla, qué crece y las restricciones que importan — para que el plan refleje cómo opera tu negocio de verdad.',
+      },
+      {
+        number: '02',
+        title: 'Estrategia',
+        body: 'Recibes un panorama claro de prioridades, riesgos, plazos y siguientes pasos. Nada arranca hasta que apruebas el alcance y el enfoque.',
+      },
+      {
+        number: '03',
+        title: 'Ejecución',
+        body: 'Lo llevamos adelante y no desaparecemos. Entregamos el trabajo, te informamos con la cadencia que necesitas y respondemos hasta el cierre y después.',
+      },
+    ],
+  },
   servicePage: {
     back: 'Todos los servicios',
     audienceTitle: 'Para quién es',

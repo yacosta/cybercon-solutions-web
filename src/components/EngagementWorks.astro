@@ -1,0 +1,154 @@
+---
+import type { Messages } from '../i18n';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+const e = t.engagement;
+---
+
+<section class="engagement" aria-labelledby="engagement-title" data-pagefind-body>
+  <div class="container">
+    <header class="engagement-head">
+      <p class="eyebrow engagement-reveal">{e.eyebrow}</p>
+      <h2 id="engagement-title" class="engagement-reveal engagement-reveal-delay-1">{e.title}</h2>
+    </header>
+
+    <ol class="engagement-steps">
+      {
+        e.steps.map((step, index) => (
+          <li
+            class:list={[
+              'engagement-step',
+              'engagement-reveal',
+              `engagement-reveal-delay-${Math.min(index + 2, 4)}`,
+            ]}
+          >
+            <span class="engagement-num" aria-hidden="true">{step.number}</span>
+            <h3 class="engagement-step-title">{step.title}</h3>
+            <p class="engagement-step-body">{step.body}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .engagement {
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(242, 107, 94, 0.07), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 95% 100%, rgba(15, 44, 76, 0.05), transparent 50%),
+      var(--cream);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .engagement-head {
+    max-width: 36rem;
+    margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .engagement h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0;
+    color: var(--navy);
+  }
+
+  .engagement-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .engagement-step {
+    display: grid;
+    gap: 0.55rem;
+    padding-block: 1.5rem;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .engagement-num {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    color: var(--coral);
+  }
+
+  .engagement-step-title {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    line-height: 1.15;
+    color: var(--navy);
+  }
+
+  .engagement-step-body {
+    margin: 0;
+    max-width: 36rem;
+    color: var(--body-muted);
+    font-size: 1.015rem;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 860px) {
+    .engagement-steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: none;
+      gap: 0;
+      column-gap: clamp(1.5rem, 3.5vw, 2.75rem);
+    }
+
+    .engagement-step {
+      border-bottom: none;
+      border-top: 1px solid rgba(15, 44, 76, 0.14);
+      padding-block: 1.75rem 0;
+      align-content: start;
+    }
+
+    .engagement-step-body {
+      max-width: none;
+    }
+  }
+
+  .engagement-reveal {
+    opacity: 0;
+    transform: translateY(1rem);
+    animation: engagement-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .engagement-reveal-delay-1 {
+    animation-delay: 0.08s;
+  }
+
+  .engagement-reveal-delay-2 {
+    animation-delay: 0.16s;
+  }
+
+  .engagement-reveal-delay-3 {
+    animation-delay: 0.24s;
+  }
+
+  .engagement-reveal-delay-4 {
+    animation-delay: 0.32s;
+  }
+
+  @keyframes engagement-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .engagement-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
