@@ -67,14 +67,20 @@ const {
     window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value } }));
   }
 
-  function showBanner() {
+  function focusAccept() {
+    // Double-rAF after paint so focus doesn't force layout during style/font work.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        acceptBtn?.focus({ preventScroll: true });
+      });
+    });
+  }
+
+  function showBanner({ moveFocus = true } = {}) {
     if (!banner) return;
     previousFocus = document.activeElement;
     banner.hidden = false;
-    // Defer focus until after style/layout settle to avoid forced reflow on load.
-    requestAnimationFrame(() => {
-      acceptBtn?.focus({ preventScroll: true });
-    });
+    if (moveFocus) focusAccept();
   }
 
   function hideBanner() {
@@ -90,8 +96,20 @@ const {
     hideBanner();
   }
 
+  // Defer first paint of the banner until after window load so LCP/fonts settle
+  // (avoids Lighthouse "forced reflow" from focus during critical path).
   if (banner && !getConsent()) {
-    showBanner();
+    const reveal = () => showBanner({ moveFocus: true });
+    if (document.readyState === 'complete') {
+      // Idle if available so we don't compete with late critical work.
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(reveal, { timeout: 1500 });
+      } else {
+        setTimeout(reveal, 0);
+      }
+    } else {
+      window.addEventListener('load', reveal, { once: true });
+    }
   } else if (getConsent() === 'accept') {
     window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value: 'accept' } }));
   }
@@ -122,7 +140,8 @@ const {
   });
 
   window.addEventListener('cybercon:cookie-settings', () => {
-    showBanner();
+    // User-initiated: show immediately and move focus into the dialog.
+    showBanner({ moveFocus: true });
   });
 </script>
 

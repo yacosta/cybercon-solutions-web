@@ -74,14 +74,20 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
 - Keep `hreflang` / canonical patterns used by `BaseLayout` intact when adding routes.
 
-## Cache lifetimes (Zaraz)
+## Cache lifetimes (Zaraz + Insights)
 
 - Worker/static assets: use `public/_headers` (e.g. `/videos/*` is already long-lived).
 - **Zaraz** (`/cdn-cgi/zaraz/s.js`) is Cloudflare-injected, not a Worker asset — `_headers` cannot set its TTL.
 - Zone ID `41a145bf2688a227f9e321a31055fe19` (`cybercon-solutions.com`) is wired into deploy + `scripts/ensure-zaraz-cache-header.mjs`.
-- Deploy upserts a Response Header Transform so browsers get `Cache-Control: public, max-age=604800` on that path. API token needs **Transform Rules → Edit**; otherwise create the same rule in the dashboard (README → “Zaraz s.js browser cache”).
-- Do not try to “fix” Zaraz caching by vendoring or proxying `s.js` in the Astro app.
-- As of the initial fix, the zone had **zero** Response Header Transform rules — the deploy step / dashboard rule is what creates the first one.
+- Keep a Response Header Transform so browsers get `Cache-Control: public, max-age=604800` on Zaraz `s.js` (dashboard or `npm run cf:zaraz-cache`; token needs Transform Rules Edit).
+- **Cloudflare Web Analytics** `static.cloudflareinsights.com/beacon.min.js` is also edge-injected; its ~1d TTL is controlled by Cloudflare, not this repo. Don’t chase it in app code — disable Web Analytics in the CF dashboard if the remaining ~5–11 KiB audit noise matters more than the beacon.
+- Do not vendor/proxy Zaraz or Insights scripts in the Astro app.
+
+## Forced reflow (cookie banner)
+
+- Do **not** call `.focus()` synchronously after revealing UI during the critical path (invalidates layout → Lighthouse “Forced reflow”).
+- Cookie banner (`CookieBanner.astro`): wait for `window` `load` (or idle) before first reveal; use double-`requestAnimationFrame` before `focus({ preventScroll: true })`.
+- User-initiated opens (`cybercon:cookie-settings`) may focus immediately after reveal.
 
 ## Checklist before finishing UI/perf/SEO work
 
@@ -92,6 +98,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
 - [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
+- [ ] Cookie banner does not focus during critical-path load (defer + double-rAF)
 - [ ] `npm run build` passes (primary validation gate)
 
 ## Related files
@@ -104,3 +111,4 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |
+| Cookie banner / forced reflow | `src/components/CookieBanner.astro` |
