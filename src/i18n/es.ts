@@ -28,10 +28,9 @@ export const es: Messages = {
     description:
       'Habla con Cybercon sobre TI administrada, ciberseguridad, nube e IA en el Sur de Florida. Un ingeniero real responde en un día hábil.',
     eyebrow: 'Cybercon Solutions',
-    headingBefore: 'Habla con',
-    headingBrand: 'Cybercon Solutions',
+    heading: '¡Trabajemos juntos!',
     lede:
-      'Cuéntanos qué está fallando, qué está creciendo o qué quieres aclarar. Respondemos en un día hábil — sin tecnicismos y sin compromiso.',
+      'Te ayudamos a ser aún mejor en lo que haces. Cuéntanos qué está fallando, qué está creciendo o qué quieres aclarar. Respondemos en un día hábil — sin compromiso.',
     formTitle: 'Empieza con una consulta gratuita',
     name: 'Nombre',
     email: 'Correo',

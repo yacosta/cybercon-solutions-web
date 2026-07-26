@@ -37,11 +37,7 @@ const path = localePath(locale, '/contact/');
     <div class="container contact-grid">
       <div class="contact-copy">
         <p class="eyebrow contact-reveal">{c.eyebrow}</p>
-        <h1 id="contact-title" class="contact-reveal contact-reveal-delay-1">
-          {c.headingBefore}
-          {' '}
-          <span class="brand-nowrap">{c.headingBrand}</span>.
-        </h1>
+        <h1 id="contact-title" class="contact-reveal contact-reveal-delay-1">{c.heading}</h1>
         <p class="lede contact-reveal contact-reveal-delay-2">{c.lede}</p>
         <p class="contact-inline contact-reveal contact-reveal-delay-3">
           <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
@@ -217,22 +213,19 @@ const path = localePath(locale, '/contact/');
 
   .contact-copy h1 {
     margin: 0 0 1.15rem;
-    font-size: clamp(2.1rem, 4.2vw, 3.25rem);
-    line-height: 1.08;
+    font-size: clamp(2.5rem, 5.5vw, 3.85rem);
+    line-height: 1.05;
     letter-spacing: -0.04em;
     color: var(--navy);
-    max-width: 18rem;
-  }
-
-  .brand-nowrap {
-    white-space: nowrap;
+    max-width: 12ch;
   }
 
   .contact-copy .lede {
     margin: 0 0 1.35rem;
-    max-width: 32rem;
+    max-width: 34rem;
     color: var(--body-muted);
     font-size: 1.0625rem;
+    font-weight: 400;
     line-height: 1.7;
   }
 
@@ -438,7 +431,7 @@ const path = localePath(locale, '/contact/');
 
     .contact-copy h1 {
       max-width: none;
-      font-size: clamp(1.85rem, 7.5vw, 2.6rem);
+      font-size: clamp(2.15rem, 9vw, 3rem);
     }
 
     .form-actions {
