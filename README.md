@@ -73,17 +73,19 @@ Add these **GitHub repository secrets** (Settings → Secrets and variables → 
 | Secret | Notes |
 |--------|--------|
 | `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. For the Zaraz cache-header step, also add **Zone → Transform Rules → Edit** (and **Account → Account Rulesets → Read**). |
-| `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID |
-| `CLOUDFLARE_ZONE_ID` | Optional. Zone ID for `cybercon-solutions.com`. When set, deploy runs `npm run cf:zaraz-cache` to attach a browser `Cache-Control` on `/cdn-cgi/zaraz/s.js` (Lighthouse “efficient cache lifetimes”). |
+| `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID (`61ffaf16829b400974986c7576f6165d`) |
+
+Zone ID for `cybercon-solutions.com` is `41a145bf2688a227f9e321a31055fe19` (wired into `deploy.yml` for the Zaraz cache step; not a secret).
 
 #### Zaraz `s.js` browser cache (Lighthouse)
 
-`/cdn-cgi/zaraz/s.js` is injected by Cloudflare Zaraz — it is **not** covered by `public/_headers`. To clear the “Use efficient cache lifetimes” finding (~10 KiB):
+`/cdn-cgi/zaraz/s.js` is injected by Cloudflare Zaraz — it is **not** covered by `public/_headers`. Deploy runs `npm run cf:zaraz-cache` to upsert a Response Header Transform (`Cache-Control: public, max-age=604800`).
 
-1. **Dashboard (one-time):** Rules → Overview → Create rule → **Modify response header**
-   - When: `(starts_with(http.request.uri.path, "/cdn-cgi/zaraz/s.js"))`
-   - Then: Set static → `Cache-Control` = `public, max-age=604800` (7 days)
-2. **Or API / CI:** set `CLOUDFLARE_ZONE_ID` (+ token with Transform Rules Edit) and run `npm run cf:zaraz-cache` (also attempted on deploy).
+If that step fails (token missing Transform Rules Edit), create the rule once in the dashboard:
+
+1. Rules → Overview → Create rule → **Modify response header**
+2. When: `(starts_with(http.request.uri.path, "/cdn-cgi/zaraz/s.js"))`
+3. Then: Set static → `Cache-Control` = `public, max-age=604800` (7 days)
 
 Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
 

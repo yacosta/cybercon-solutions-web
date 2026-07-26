@@ -10,10 +10,13 @@
  * Required env:
  *   CLOUDFLARE_API_TOKEN  — needs Zone Transform Rules Edit (+ Account Rulesets Read)
  *   CLOUDFLARE_ZONE_ID    — zone id for cybercon-solutions.com
+ *                           (default: 41a145bf2688a227f9e321a31055fe19)
  *
  * Usage:
  *   npm run cf:zaraz-cache
  */
+
+const DEFAULT_ZONE_ID = '41a145bf2688a227f9e321a31055fe19';
 
 const RULE_REF = 'zaraz_sjs_browser_cache_control';
 const RULE_DESCRIPTION = 'Browser Cache-Control for Zaraz s.js (Lighthouse cache lifetimes)';
@@ -25,15 +28,15 @@ const PHASE = 'http_response_headers_transform';
 const API = 'https://api.cloudflare.com/client/v4';
 
 const token = process.env.CLOUDFLARE_API_TOKEN;
-const zoneId = process.env.CLOUDFLARE_ZONE_ID;
+const zoneId = process.env.CLOUDFLARE_ZONE_ID || DEFAULT_ZONE_ID;
 
-if (!token || !zoneId) {
+if (!token) {
   console.error(
     [
-      'Missing CLOUDFLARE_API_TOKEN and/or CLOUDFLARE_ZONE_ID.',
+      'Missing CLOUDFLARE_API_TOKEN.',
       '',
-      'Dashboard alternative:',
-      '  Rules → Overview → Create rule → Response Header Modification',
+      'Dashboard alternative (zone has no Response Header Transform yet):',
+      '  Rules → Overview → Create rule → Modify response header',
       `  When: ${RULE_EXPRESSION}`,
       `  Then: Set static → header name Cache-Control → ${CACHE_CONTROL}`,
       '',
