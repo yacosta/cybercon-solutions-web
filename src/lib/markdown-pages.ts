@@ -141,6 +141,17 @@ One partner for all of your technology. We manage everything below proactively, 
 
 ${servicesMarkdown('en')}
 
+## Industries
+
+Where industry knowledge meets IT that holds up. Cooper City, Davie, and South Florida organizations with real compliance, uptime, and client-trust pressure.
+
+- **Healthcare & clinics** — HIPAA-aware environments for practices and care teams that need secure access, reliable systems, and clear incident handling.
+- **Legal & professional services** — Confidentiality-first IT for firms that bill for time — fast support, secure remote access, and tools that stay out of the way.
+- **Financial services & insurance** — Controls and monitoring that match client trust and audit expectations, without slowing day-to-day operations.
+- **Education & nonprofits** — Practical IT for schools, foundations, churches, and community orgs — predictable cost, strong security, and staff who are not “the IT person.”
+- **Construction & real estate** — Field-ready access, job-site coordination, and office systems that keep projects moving when crews and vendors are everywhere.
+- **Distribution, retail & manufacturing** — Uptime for warehouses, storefronts, and light industrial ops in Davie and nearby — inventory, connectivity, and recovery that work.
+
 ## How an engagement works
 
 Three phases. No surprises mid-project.
@@ -177,6 +188,17 @@ Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-
 Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.
 
 ${servicesMarkdown('es')}
+
+## Industrias
+
+Donde el conocimiento del sector se encuentra con TI que resiste. Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente.
+
+- **Salud y clínicas** — Entornos conscientes de HIPAA para prácticas y equipos de atención que necesitan acceso seguro, sistemas fiables y respuesta clara ante incidentes.
+- **Legal y servicios profesionales** — TI centrada en la confidencialidad para firmas que facturan por tiempo: soporte rápido, acceso remoto seguro y herramientas que no estorban.
+- **Servicios financieros y seguros** — Controles y monitoreo a la altura de la confianza del cliente y las auditorías, sin frenar el día a día.
+- **Educación y organizaciones sin fines de lucro** — TI práctica para escuelas, fundaciones, iglesias y organizaciones comunitarias: costo predecible, seguridad fuerte y personal que no es “el de TI”.
+- **Construcción e inmobiliario** — Acceso listo para campo, coordinación en obra y sistemas de oficina que mantienen los proyectos en marcha.
+- **Distribución, retail y manufactura** — Disponibilidad para almacenes, tiendas e industria ligera en Davie y alrededores.
 
 ## Cómo funciona un engagement
 

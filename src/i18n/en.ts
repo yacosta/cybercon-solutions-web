@@ -117,6 +117,38 @@ export const en = {
       },
     ],
   },
+  industries: {
+    eyebrow: 'Industries',
+    title: 'Where industry knowledge meets IT that holds up.',
+    lede:
+      'Cooper City, Davie, and South Florida organizations with real compliance, uptime, and client-trust pressure — not generic IT for every logo the same way.',
+    items: [
+      {
+        title: 'Healthcare & clinics',
+        body: 'HIPAA-aware environments for practices and care teams that need secure access, reliable systems, and clear incident handling.',
+      },
+      {
+        title: 'Legal & professional services',
+        body: 'Confidentiality-first IT for firms that bill for time — fast support, secure remote access, and tools that stay out of the way.',
+      },
+      {
+        title: 'Financial services & insurance',
+        body: 'Controls and monitoring that match client trust and audit expectations, without slowing day-to-day operations.',
+      },
+      {
+        title: 'Education & nonprofits',
+        body: 'Practical IT for schools, foundations, churches, and community orgs — predictable cost, strong security, and staff who are not “the IT person.”',
+      },
+      {
+        title: 'Construction & real estate',
+        body: 'Field-ready access, job-site coordination, and office systems that keep projects moving when crews and vendors are everywhere.',
+      },
+      {
+        title: 'Distribution, retail & manufacturing',
+        body: 'Uptime for warehouses, storefronts, and light industrial ops in Davie and nearby — inventory, connectivity, and recovery that work.',
+      },
+    ],
+  },
   servicePage: {
     back: 'All services',
     audienceTitle: 'Who it’s for',

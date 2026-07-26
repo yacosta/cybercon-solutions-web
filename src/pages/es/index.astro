@@ -7,6 +7,7 @@ import Hero from '../../components/Hero.astro';
 import AssessmentForm from '../../components/AssessmentForm.astro';
 import ServicesGrid from '../../components/ServicesGrid.astro';
 import EngagementWorks from '../../components/EngagementWorks.astro';
+import IndustriesSection from '../../components/IndustriesSection.astro';
 import { getMessages } from '../../i18n';
 
 const locale = 'es' as const;
@@ -37,6 +38,8 @@ const t = getMessages(locale);
     lede={t.services.lede}
     learnMore={t.services.learnMore}
   />
+
+  <IndustriesSection t={t} />
 
   <EngagementWorks t={t} />
 

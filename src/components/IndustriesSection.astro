@@ -1,0 +1,163 @@
+---
+import type { Messages } from '../i18n';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+const i = t.industries;
+---
+
+<section class="industries" id="industries" aria-labelledby="industries-title" data-pagefind-body>
+  <div class="container">
+    <header class="industries-head">
+      <p class="eyebrow industries-reveal">{i.eyebrow}</p>
+      <h2 id="industries-title" class="industries-reveal industries-reveal-delay-1">{i.title}</h2>
+      <p class="industries-lede industries-reveal industries-reveal-delay-2">{i.lede}</p>
+    </header>
+
+    <ul class="industries-grid">
+      {
+        i.items.map((item, index) => (
+          <li
+            class:list={[
+              'industry',
+              'industries-reveal',
+              `industries-reveal-delay-${Math.min(index + 3, 6)}`,
+            ]}
+          >
+            <h3 class="industry-title">{item.title}</h3>
+            <p class="industry-body">{item.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .industries {
+    background: var(--white);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .industries-head {
+    max-width: 40rem;
+    margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .industries h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0.75rem;
+    color: var(--navy);
+  }
+
+  .industries-lede {
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 1.015rem;
+    line-height: 1.6;
+  }
+
+  .industries-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .industry {
+    display: grid;
+    gap: 0.5rem;
+    padding-block: 1.35rem;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .industry-title {
+    margin: 0;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    line-height: 1.2;
+    color: var(--navy);
+  }
+
+  .industry-body {
+    margin: 0;
+    max-width: 34rem;
+    color: var(--body-muted);
+    font-size: 0.975rem;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 720px) {
+    .industries-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: clamp(1.75rem, 4vw, 3rem);
+      border-top: none;
+    }
+
+    .industry {
+      border-top: 1px solid rgba(15, 44, 76, 0.14);
+      border-bottom: none;
+      padding-block: 1.5rem 0;
+      align-content: start;
+    }
+
+    .industry-body {
+      max-width: none;
+    }
+  }
+
+  @media (min-width: 980px) {
+    .industries-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .industries-reveal {
+    opacity: 0;
+    transform: translateY(0.85rem);
+    animation: industries-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .industries-reveal-delay-1 {
+    animation-delay: 0.06s;
+  }
+
+  .industries-reveal-delay-2 {
+    animation-delay: 0.12s;
+  }
+
+  .industries-reveal-delay-3 {
+    animation-delay: 0.18s;
+  }
+
+  .industries-reveal-delay-4 {
+    animation-delay: 0.24s;
+  }
+
+  .industries-reveal-delay-5 {
+    animation-delay: 0.3s;
+  }
+
+  .industries-reveal-delay-6 {
+    animation-delay: 0.36s;
+  }
+
+  @keyframes industries-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .industries-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
