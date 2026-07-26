@@ -112,15 +112,12 @@
 /services /#services 301
 /services/ /#services 301
 
-# --- Contact / company chrome → assessment landing ---
-/contact-us /assessment/ 301
-/contact-us/ /assessment/ 301
-/contact /assessment/ 301
-/contact/ /assessment/ 301
-/es/contact /es/assessment/ 301
-/es/contact/ /es/assessment/ 301
-/es/contact-us /es/assessment/ 301
-/es/contact-us/ /es/assessment/ 301
+# --- Legacy contact URLs → live Contact page ---
+# (/contact/ and /es/contact/ are real pages now — do not redirect them.)
+/contact-us /contact/ 301
+/contact-us/ /contact/ 301
+/es/contact-us /es/contact/ 301
+/es/contact-us/ /es/contact/ 301
 /company / 301
 /company/ / 301
 /meet-the-team / 301
