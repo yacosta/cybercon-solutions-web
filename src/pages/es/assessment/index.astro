@@ -18,13 +18,7 @@ const t = getMessages(locale);
 >
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <AssessmentForm locale={locale} t={t} />
+  <AssessmentForm locale={locale} t={t} layout="split" />
 
   <Footer slot="footer" locale={locale} t={t} />
 </BaseLayout>
-
-<style>
-  :global(.capture) {
-    min-height: 60vh;
-  }
-</style>
