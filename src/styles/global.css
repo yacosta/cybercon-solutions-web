@@ -11,6 +11,12 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/utilities.css' layer(utilities);
 
+/*
+ * This site owns `.container` for page gutters. Tailwind's built-in container
+ * utility also emits breakpoint max-widths that fight our layout — exclude it.
+ */
+@source not inline("container");
+
 /* Self-hosted fonts (latin + latin-ext only; avoids Google Fonts CSS). */
 @import '@fontsource/inter/latin-400.css';
 @import '@fontsource/inter/latin-ext-400.css';
@@ -117,15 +123,16 @@ p {
 }
 
 /*
- * Default page gutters — same inline margins as header/footer.
- * Use .container for every content column so pages share one edge.
+ * Default page gutters — same content edges as header/footer.
+ * Header uses padding-inline: var(--page-inline); this width formula lands on
+ * the same left/right edge without relying on padding (avoids nested double gutters).
  */
 .container {
   box-sizing: border-box;
-  width: 100%;
+  width: min(var(--page-max), calc(100% - (2 * var(--page-gutter))));
   max-width: none;
-  margin-inline: 0;
-  padding-inline: var(--page-inline);
+  margin-inline: auto;
+  padding-inline: 0;
 }
 
 /* Standard vertical rhythm for standalone content pages */
