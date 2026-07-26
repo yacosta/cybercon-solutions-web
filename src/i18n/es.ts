@@ -19,6 +19,7 @@ export const es: Messages = {
     home: 'Inicio',
     services: 'Servicios',
     servicesMenu: 'Menú de servicios',
+    industries: 'Industrias',
     contact: 'Contacto',
     menu: 'Menú',
     close: 'Cerrar',
