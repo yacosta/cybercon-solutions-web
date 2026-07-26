@@ -1,83 +1,144 @@
 ---
 import { turnstileSiteKey } from '../lib/turnstile';
 import { localePath, type Messages } from '../i18n';
+import { site } from '../lib/site';
 
 interface Props {
   locale: string;
   t: Messages;
+  /** `inline` = homepage strip; `split` = Nicepage-style assessment landing. */
+  layout?: 'inline' | 'split';
 }
 
-const { locale, t } = Astro.props;
+const { locale, t, layout = 'inline' } = Astro.props;
 const siteKey = turnstileSiteKey();
 const privacyHref = localePath(locale, '/privacy/');
+const isSplit = layout === 'split';
 ---
 
-<section class="capture" id="assessment" aria-labelledby="assessment-title">
-  <div class="container">
-    <h2 id="assessment-title">{t.form.title}</h2>
-    <p class="lede">{t.form.lede}</p>
+<section
+  class:list={['capture', { 'capture-split': isSplit }]}
+  id="assessment"
+  aria-labelledby="assessment-title"
+  data-pagefind-body={isSplit ? true : undefined}
+>
+  {isSplit && <div class="capture-atmosphere" aria-hidden="true" />}
 
-    <form id="assessment-form" class="form" novalidate>
-      <div class="field">
-        <label for="full-name">{t.form.name}</label>
-        <input
-          id="full-name"
-          name="name"
-          type="text"
-          required
-          autocomplete="name"
-          placeholder={t.form.namePlaceholder}
-        />
-      </div>
-      <div class="field">
-        <label for="company-name">{t.form.company}</label>
-        <input
-          id="company-name"
-          name="company"
-          type="text"
-          required
-          autocomplete="organization"
-          placeholder={t.form.companyPlaceholder}
-        />
-      </div>
-      <div class="field">
-        <label for="work-email">{t.form.email}</label>
-        <input
-          id="work-email"
-          name="email"
-          type="email"
-          required
-          autocomplete="email"
-          placeholder={t.form.emailPlaceholder}
-        />
-      </div>
-
-      {siteKey && (
-        <div class="turnstile-wrap">
-          <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+  <div class:list={['container', { 'capture-grid': isSplit }]}>
+    {
+      isSplit ? (
+        <div class="capture-copy">
+          <p class="eyebrow capture-reveal">{t.form.eyebrow}</p>
+          <h1 id="assessment-title" class="capture-reveal capture-reveal-delay-1">
+            {t.form.title}
+          </h1>
+          <p class="lede capture-reveal capture-reveal-delay-2">{t.form.lede}</p>
+          <p class="capture-inline capture-reveal capture-reveal-delay-3">
+            <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+            <span aria-hidden="true">·</span>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
         </div>
-      )}
+      ) : (
+        <>
+          <h2 id="assessment-title">{t.form.title}</h2>
+          <p class="lede">{t.form.lede}</p>
+        </>
+      )
+    }
 
-      <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
-      <button type="submit" class="btn btn-primary">{t.form.submit}</button>
-      <p class="micro">
-        {t.form.microcopy}
-        {' '}
-        <a href={privacyHref}>{t.cookies.policy}</a>.
-      </p>
-    </form>
+    <div class:list={{ 'capture-card': isSplit, 'capture-reveal': isSplit, 'capture-reveal-delay-2': isSplit }}>
+      {isSplit && <h2 class="card-title">{t.form.cardTitle}</h2>}
 
-    <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
-      <div class="check" aria-hidden="true">✓</div>
-      <h2>{t.form.thanksTitle}</h2>
-      <p>{t.form.thanksBody}</p>
+      <form id="assessment-form" class:list={['form', { 'form-split': isSplit }]} novalidate>
+        <div class="field">
+          <label for="full-name">{t.form.name}</label>
+          <input
+            id="full-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            placeholder={t.form.namePlaceholder}
+          />
+        </div>
+        <div class="field">
+          <label for="company-name">{t.form.company}</label>
+          <input
+            id="company-name"
+            name="company"
+            type="text"
+            required
+            autocomplete="organization"
+            placeholder={t.form.companyPlaceholder}
+          />
+        </div>
+        <div class="field">
+          <label for="work-email">{t.form.email}</label>
+          <input
+            id="work-email"
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            placeholder={t.form.emailPlaceholder}
+          />
+        </div>
+
+        {
+          isSplit && (
+            <label class="agree">
+              <input id="assessment-agree" name="agree" type="checkbox" required />
+              <span>
+                {t.form.agreePrefix}
+                {' '}
+                <a href={privacyHref}>{t.form.agreeLink}</a>
+                {t.form.agreeSuffix}
+              </span>
+            </label>
+          )
+        }
+
+        {
+          siteKey && (
+            <div class="turnstile-wrap">
+              <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+            </div>
+          )
+        }
+
+        <p class="form-error" id="form-error" hidden role="alert" aria-live="assertive"></p>
+
+        {
+          isSplit ? (
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">{t.form.submit}</button>
+            </div>
+          ) : (
+            <>
+              <button type="submit" class="btn btn-primary">{t.form.submit}</button>
+              <p class="micro">
+                {t.form.microcopy}
+                {' '}
+                <a href={privacyHref}>{t.cookies.policy}</a>.
+              </p>
+            </>
+          )
+        }
+      </form>
+
+      <div id="assessment-thanks" class="thanks" hidden role="status" aria-live="polite" tabindex="-1">
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>{t.form.thanksTitle}</h2>
+        <p>{t.form.thanksBody}</p>
+      </div>
     </div>
   </div>
 </section>
 
 {siteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
 
-<script define:vars={{ locale, messages: t.form, requireTurnstile: Boolean(siteKey) }}>
+<script define:vars={{ locale, messages: t.form, requireTurnstile: Boolean(siteKey), requireAgree: isSplit }}>
   const form = document.getElementById('assessment-form');
   const thanks = document.getElementById('assessment-thanks');
   const errorEl = document.getElementById('form-error');
@@ -88,6 +149,16 @@ const privacyHref = localePath(locale, '/privacy/');
 
     errorEl.hidden = true;
     const data = new FormData(form);
+
+    if (requireAgree) {
+      const agree = form.querySelector('#assessment-agree');
+      if (agree instanceof HTMLInputElement && !agree.checked) {
+        errorEl.textContent = messages.agreeError;
+        errorEl.hidden = false;
+        return;
+      }
+    }
+
     const turnstile = form.querySelector('[name="cf-turnstile-response"]');
     const turnstileToken = turnstile instanceof HTMLInputElement ? turnstile.value : '';
 
@@ -131,55 +202,55 @@ const privacyHref = localePath(locale, '/privacy/');
     padding: var(--section-pad-y) 0;
   }
 
-  .capture h2 {
+  .capture:not(.capture-split) h2 {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
     margin-bottom: 0.5rem;
   }
 
-  .lede {
+  .capture:not(.capture-split) .lede {
     color: var(--body-muted);
     font-size: 1rem;
     max-width: 40rem;
     margin-bottom: 1.75rem;
   }
 
-  .form:not([hidden]),
-  .thanks:not([hidden]) {
+  .form:not(.form-split):not([hidden]),
+  .capture:not(.capture-split) .thanks:not([hidden]) {
     max-width: none;
     width: 100%;
   }
 
-  .form:not([hidden]) {
+  .form:not(.form-split):not([hidden]) {
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: end;
   }
 
-  .form .field {
+  .form:not(.form-split) .field {
     min-width: 0;
   }
 
-  .turnstile-wrap {
+  .form:not(.form-split) .turnstile-wrap {
     grid-column: 1 / -1;
     min-height: 1.5rem;
   }
 
-  .form-error {
+  .form:not(.form-split) .form-error {
     grid-column: 1 / -1;
     color: var(--button-red);
     font-size: 0.875rem;
     margin: 0;
   }
 
-  .form .btn-primary {
+  .form:not(.form-split) .btn-primary {
     grid-column: 3;
     justify-self: stretch;
     width: 100%;
     min-width: 0;
   }
 
-  .micro {
+  .form:not(.form-split) .micro {
     grid-column: 3;
     font-size: 0.8125rem;
     color: var(--body-muted);
@@ -215,13 +286,241 @@ const privacyHref = localePath(locale, '/privacy/');
     font-weight: 700;
   }
 
+  /* --- Nicepage-style split layout (assessment landing) --- */
+  .capture-split {
+    position: relative;
+    isolation: isolate;
+    min-height: calc(100vh - 7.5rem);
+    display: flex;
+    align-items: center;
+    padding: clamp(3rem, 7vw, 5.5rem) 0;
+    overflow: hidden;
+  }
+
+  .capture-atmosphere {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 60% 55% at 8% 30%, rgba(242, 107, 94, 0.14), transparent 58%),
+      radial-gradient(ellipse 50% 60% at 92% 75%, rgba(15, 44, 76, 0.07), transparent 62%),
+      linear-gradient(160deg, #fcfaf8 0%, var(--cream) 45%, #eef3f7 100%);
+  }
+
+  .capture-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .capture-copy .eyebrow {
+    margin: 0 0 1rem;
+    color: var(--coral);
+  }
+
+  .capture-copy h1 {
+    margin: 0 0 1.15rem;
+    font-size: clamp(2.2rem, 4.6vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--navy);
+    max-width: 12ch;
+  }
+
+  .capture-copy .lede {
+    margin: 0 0 1.35rem;
+    max-width: 32rem;
+    color: var(--body-muted);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .capture-inline {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 0.75rem;
+    align-items: center;
+    font-size: 0.95rem;
+    color: var(--muted-blue);
+  }
+
+  .capture-inline a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .capture-inline a:hover {
+    color: var(--coral);
+  }
+
+  .capture-card {
+    background: var(--white);
+    border-radius: 1.875rem;
+    padding: clamp(1.75rem, 3.5vw, 2.5rem);
+    border: 1px solid rgba(15, 44, 76, 0.06);
+    box-shadow:
+      0 1px 0 rgba(15, 44, 76, 0.03),
+      0 22px 48px rgba(15, 44, 76, 0.09);
+  }
+
+  .card-title {
+    margin: 0 0 1.35rem;
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+    line-height: 1.25;
+    color: var(--navy);
+  }
+
+  .form-split:not([hidden]) {
+    display: grid;
+    gap: 1.05rem;
+    grid-template-columns: 1fr;
+  }
+
+  .form-split .field input {
+    width: 100%;
+    border: 2px solid rgba(15, 44, 76, 0.08);
+    border-radius: 0.65rem;
+    background: #eef1f4;
+    color: var(--navy);
+    font: inherit;
+    padding: 0.9rem 1rem;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      background 0.15s ease;
+  }
+
+  .form-split .field input::placeholder {
+    color: var(--placeholder);
+  }
+
+  .form-split .field input:focus {
+    outline: none;
+    border-color: var(--coral);
+    background: var(--white);
+    box-shadow: var(--shadow-focus);
+  }
+
+  .agree {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    font-size: 0.875rem;
+    color: var(--body-muted);
+    line-height: 1.45;
+  }
+
+  .agree input {
+    margin-top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--coral);
+    flex-shrink: 0;
+  }
+
+  .agree a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .agree a:hover {
+    color: var(--coral);
+  }
+
+  .form-split .turnstile-wrap {
+    min-height: 1.5rem;
+  }
+
+  .form-split .form-error {
+    margin: 0;
+    color: var(--button-red);
+    font-size: 0.875rem;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .form-actions .btn-primary {
+    min-width: 11.5rem;
+  }
+
+  .capture-card .thanks:not([hidden]) {
+    max-width: none;
+  }
+
+  .capture-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: capture-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .capture-reveal-delay-1 {
+    animation-delay: 0.08s;
+  }
+
+  .capture-reveal-delay-2 {
+    animation-delay: 0.16s;
+  }
+
+  .capture-reveal-delay-3 {
+    animation-delay: 0.24s;
+  }
+
+  @keyframes capture-rise {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .capture-reveal {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .capture-split {
+      display: block;
+      min-height: 0;
+      padding-block: 2.25rem 3rem;
+    }
+
+    .capture-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    .capture-copy h1 {
+      max-width: none;
+      font-size: clamp(2.1rem, 9vw, 2.8rem);
+    }
+
+    .form-actions {
+      justify-content: stretch;
+    }
+
+    .form-actions .btn-primary {
+      width: 100%;
+    }
+  }
+
   @media (max-width: 800px) {
-    .form:not([hidden]) {
+    .form:not(.form-split):not([hidden]) {
       grid-template-columns: 1fr;
     }
 
-    .form .btn-primary,
-    .micro {
+    .form:not(.form-split) .btn-primary,
+    .form:not(.form-split) .micro {
       grid-column: 1;
     }
   }
