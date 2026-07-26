@@ -1,3 +1,11 @@
+## Web quality standards
+
+For UI, SEO, Core Web Vitals (LCP), color contrast, and accessibility work, follow the project skill:
+
+`.cursor/skills/web-quality-standards/SKILL.md`
+
+(Also enforced via `.cursor/rules/web-quality-standards.mdc`.)
+
 ## Development
 
 When starting the dev server, use background mode:

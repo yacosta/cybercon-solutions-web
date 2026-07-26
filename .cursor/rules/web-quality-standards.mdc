@@ -1,0 +1,16 @@
+---
+description: Always apply Cybercon web quality standards (LCP, SEO links, contrast, a11y)
+alwaysApply: true
+---
+
+# Web quality standards
+
+When editing pages, components, styles, tokens, hero/media, or anything affecting Lighthouse, SEO, or accessibility, read and follow the project skill:
+
+`.cursor/skills/web-quality-standards/SKILL.md`
+
+Non-negotiables (details in the skill):
+
+- Keep brand coral at `#c0392b` (or deeper) so text/eyebrows pass WCAG AA on cream and white — never restore `#f26b5e` for those uses.
+- No bare repeated “Learn more” / “Saber más” link text; include the destination topic in the anchor.
+- Homepage LCP must be the prioritized hero `<img>` (`fetchpriority="high"`, not lazy). Do not use `video[poster]` over that image. Preload the same format `<picture>` selects (AVIF today).
