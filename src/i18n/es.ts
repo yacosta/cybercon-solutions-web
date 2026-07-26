@@ -125,32 +125,14 @@ export const es: Messages = {
     title: 'Donde el conocimiento del sector se encuentra con TI que resiste.',
     lede:
       'Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente — no TI genérica para todos igual.',
-    items: [
-      {
-        title: 'Salud y clínicas',
-        body: 'Entornos conscientes de HIPAA para prácticas y equipos de atención que necesitan acceso seguro, sistemas fiables y respuesta clara ante incidentes.',
-      },
-      {
-        title: 'Legal y servicios profesionales',
-        body: 'TI centrada en la confidencialidad para firmas que facturan por tiempo: soporte rápido, acceso remoto seguro y herramientas que no estorban.',
-      },
-      {
-        title: 'Servicios financieros y seguros',
-        body: 'Controles y monitoreo a la altura de la confianza del cliente y las auditorías, sin frenar el día a día.',
-      },
-      {
-        title: 'Educación y organizaciones sin fines de lucro',
-        body: 'TI práctica para escuelas, fundaciones, iglesias y organizaciones comunitarias: costo predecible, seguridad fuerte y personal que no es “el de TI”.',
-      },
-      {
-        title: 'Construcción e inmobiliario',
-        body: 'Acceso listo para campo, coordinación en obra y sistemas de oficina que mantienen los proyectos en marcha con equipos y proveedores en todas partes.',
-      },
-      {
-        title: 'Distribución, retail y manufactura',
-        body: 'Disponibilidad para almacenes, tiendas e industria ligera en Davie y alrededores: inventario, conectividad y recuperación que funcionan.',
-      },
-    ],
+    learnMore: 'Saber más',
+    allIndustries: 'Todas las industrias',
+    overviewTitle: 'Hecho para cómo opera este sector de verdad',
+    indexTitle: 'Industrias que atendemos | Cybercon Solutions',
+    indexDescription:
+      'TI administrada y ciberseguridad para salud, legal, finanzas, educación, sin fines de lucro, construcción, retail y manufactura en el Sur de Florida.',
+    indexHeading: 'Industrias que atendemos',
+    industriesMenu: 'Menú de industrias',
   },
   servicePage: {
     back: 'Todos los servicios',

@@ -1,11 +1,49 @@
 import { privacyContent } from '../data/privacy';
 import { services } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
+import { industries } from '../data/industries';
 import enterpriseAiAdoptionRoi from '../content/blog/enterprise-ai-adoption-roi.md?raw';
 import fractionalCioFirst90Days from '../content/blog/fractional-cio-first-90-days.md?raw';
 import managedItReportsLikeCio from '../content/blog/managed-it-reports-like-cio.md?raw';
 import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rollout.md?raw';
 import { formatMailingAddress, site } from './site';
+
+function industriesMarkdown(locale: 'en' | 'es'): string {
+  return industries
+    .map((industry) => {
+      const url = `https://cybercon-solutions.com${locale === 'es' ? '/es' : ''}/industries/${industry.slug}/`;
+      return `- [${industry.title[locale]}](${url}): ${industry.summary[locale]}`;
+    })
+    .join('\n');
+}
+
+function industryPageMarkdown(slug: string, locale: 'en' | 'es'): string | null {
+  const industry = industries.find((item) => item.slug === slug);
+  if (!industry) return null;
+  const help = industry.help
+    .map((item) => `### ${item.title[locale]}\n\n${item.body[locale]}`)
+    .join('\n\n');
+  const challenges = industry.challenges.map((item) => `- ${item[locale]}`).join('\n');
+  return `---
+title: "${industry.metaTitle[locale]}"
+description: "${industry.metaDescription[locale]}"
+---
+
+# ${industry.title[locale]}
+
+${industry.lede[locale]}
+
+${industry.overview[locale]}
+
+## ${industry.challengesLabel[locale]}
+
+${challenges}
+
+## ${industry.helpLabel[locale]}
+
+${help}
+`;
+}
 
 function servicesMarkdown(locale: 'en' | 'es'): string {
   return services
@@ -143,14 +181,9 @@ ${servicesMarkdown('en')}
 
 ## Industries
 
-Where industry knowledge meets IT that holds up. Cooper City, Davie, and South Florida organizations with real compliance, uptime, and client-trust pressure.
+Where industry knowledge meets IT that holds up. See https://cybercon-solutions.com/industries/
 
-- **Healthcare & clinics** — HIPAA-aware environments for practices and care teams that need secure access, reliable systems, and clear incident handling.
-- **Legal & professional services** — Confidentiality-first IT for firms that bill for time — fast support, secure remote access, and tools that stay out of the way.
-- **Financial services & insurance** — Controls and monitoring that match client trust and audit expectations, without slowing day-to-day operations.
-- **Education & nonprofits** — Practical IT for schools, foundations, churches, and community orgs — predictable cost, strong security, and staff who are not “the IT person.”
-- **Construction & real estate** — Field-ready access, job-site coordination, and office systems that keep projects moving when crews and vendors are everywhere.
-- **Distribution, retail & manufacturing** — Uptime for warehouses, storefronts, and light industrial ops in Davie and nearby — inventory, connectivity, and recovery that work.
+${industriesMarkdown('en')}
 
 ## How an engagement works
 
@@ -191,14 +224,9 @@ ${servicesMarkdown('es')}
 
 ## Industrias
 
-Donde el conocimiento del sector se encuentra con TI que resiste. Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente.
+Donde el conocimiento del sector se encuentra con TI que resiste. Ver https://cybercon-solutions.com/es/industries/
 
-- **Salud y clínicas** — Entornos conscientes de HIPAA para prácticas y equipos de atención que necesitan acceso seguro, sistemas fiables y respuesta clara ante incidentes.
-- **Legal y servicios profesionales** — TI centrada en la confidencialidad para firmas que facturan por tiempo: soporte rápido, acceso remoto seguro y herramientas que no estorban.
-- **Servicios financieros y seguros** — Controles y monitoreo a la altura de la confianza del cliente y las auditorías, sin frenar el día a día.
-- **Educación y organizaciones sin fines de lucro** — TI práctica para escuelas, fundaciones, iglesias y organizaciones comunitarias: costo predecible, seguridad fuerte y personal que no es “el de TI”.
-- **Construcción e inmobiliario** — Acceso listo para campo, coordinación en obra y sistemas de oficina que mantienen los proyectos en marcha.
-- **Distribución, retail y manufactura** — Disponibilidad para almacenes, tiendas e industria ligera en Davie y alrededores.
+${industriesMarkdown('es')}
 
 ## Cómo funciona un engagement
 
@@ -276,7 +304,64 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
+  '/industries/': `---
+title: "Industries We Serve | Cybercon Solutions"
+description: "Managed IT and cybersecurity for healthcare, legal, financial, education, nonprofits, construction, retail, and manufacturing in South Florida."
+---
+
+# Industries we serve
+
+Where industry knowledge meets IT that holds up.
+
+${industriesMarkdown('en')}
+`,
+  '/industries': `---
+title: "Industries We Serve | Cybercon Solutions"
+description: "Managed IT and cybersecurity for healthcare, legal, financial, education, nonprofits, construction, retail, and manufacturing in South Florida."
+---
+
+# Industries we serve
+
+Where industry knowledge meets IT that holds up.
+
+${industriesMarkdown('en')}
+`,
+  '/es/industries/': `---
+title: "Industrias que atendemos | Cybercon Solutions"
+description: "TI administrada y ciberseguridad para salud, legal, finanzas, educación, sin fines de lucro, construcción, retail y manufactura en el Sur de Florida."
+---
+
+# Industrias que atendemos
+
+Donde el conocimiento del sector se encuentra con TI que resiste.
+
+${industriesMarkdown('es')}
+`,
+  '/es/industries': `---
+title: "Industrias que atendemos | Cybercon Solutions"
+description: "TI administrada y ciberseguridad para salud, legal, finanzas, educación, sin fines de lucro, construcción, retail y manufactura en el Sur de Florida."
+---
+
+# Industrias que atendemos
+
+Donde el conocimiento del sector se encuentra con TI que resiste.
+
+${industriesMarkdown('es')}
+`,
 };
+
+for (const industry of industries) {
+  const en = industryPageMarkdown(industry.slug, 'en');
+  const es = industryPageMarkdown(industry.slug, 'es');
+  if (en) {
+    pages[`/industries/${industry.slug}/`] = en;
+    pages[`/industries/${industry.slug}`] = en;
+  }
+  if (es) {
+    pages[`/es/industries/${industry.slug}/`] = es;
+    pages[`/es/industries/${industry.slug}`] = es;
+  }
+}
 
 function privacyToMarkdown(locale: 'en' | 'es'): string {
   const p = privacyContent[locale];

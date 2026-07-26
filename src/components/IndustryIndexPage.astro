@@ -1,0 +1,160 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { industries, industryPath } from '../data/industries';
+import { getMessages, localePath } from '../i18n';
+import { jsonLdScript, webPageJsonLd } from '../lib/seo';
+
+interface Props {
+  locale: 'en' | 'es';
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const path = industryPath(locale);
+const homePath = localePath(locale, '/');
+const assessmentHref = localePath(locale, '/assessment/');
+---
+
+<BaseLayout
+  locale={locale}
+  title={t.industries.indexTitle}
+  description={t.industries.indexDescription}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
+    { name: t.nav.industries, path },
+  ]}
+>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        webPageJsonLd({
+          name: t.industries.indexTitle,
+          description: t.industries.indexDescription,
+          path,
+          locale,
+        }),
+      )}
+    />
+  </Fragment>
+
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <section class="industries-index container page" data-pagefind-body>
+    <header class="industries-index-head">
+      <p class="eyebrow">{t.industries.eyebrow}</p>
+      <h1>{t.industries.indexHeading}</h1>
+      <p class="lede">{t.industries.lede}</p>
+    </header>
+
+    <ul class="industries-index-list">
+      {
+        industries.map((industry) => (
+          <li>
+            <a class="industry-row" href={industryPath(locale, industry.slug)}>
+              <h2>{industry.title[locale]}</h2>
+              <p>{industry.summary[locale]}</p>
+              <span class="more">{t.industries.learnMore}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="industries-index-cta">
+      <h2>{t.servicePage.ctaTitle}</h2>
+      <p>{t.servicePage.ctaBody}</p>
+      <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+    </div>
+  </section>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .industries-index {
+    padding-block: clamp(2.5rem, 6vw, 4rem) var(--section-pad-y);
+  }
+
+  .industries-index-head {
+    max-width: 40rem;
+    margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .industries-index h1 {
+    margin: 0.5rem 0 0.75rem;
+    font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+    color: var(--navy);
+  }
+
+  .industries-index .lede {
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .industries-index-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .industry-row {
+    display: grid;
+    gap: 0.45rem;
+    padding-block: 1.35rem;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .industry-row h2 {
+    margin: 0;
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    color: var(--navy);
+  }
+
+  .industry-row p {
+    margin: 0;
+    max-width: 40rem;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .industry-row .more {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--button-red);
+  }
+
+  .industry-row:hover h2,
+  .industry-row:focus-visible h2 {
+    color: var(--button-red);
+  }
+
+  .industries-index-cta {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius-md);
+  }
+
+  .industries-index-cta h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  }
+
+  .industries-index-cta p {
+    margin: 0 0 1.25rem;
+    color: var(--secondary-dark);
+    max-width: 32rem;
+  }
+</style>
