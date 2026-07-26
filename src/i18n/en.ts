@@ -92,6 +92,27 @@ export const en = {
       'We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.',
     learnMore: 'Learn more',
   },
+  engagement: {
+    eyebrow: 'How an engagement works',
+    title: 'Three phases. No surprises mid-project.',
+    steps: [
+      {
+        number: '01',
+        title: 'Discovery',
+        body: 'We scope your environment with you: what’s broken, what’s growing, and the constraints that matter — so the plan reflects how your business actually runs.',
+      },
+      {
+        number: '02',
+        title: 'Strategy',
+        body: 'You get a clear picture of priorities, risks, timeline, and next steps. Nothing kicks off until you’ve approved the scope and the approach.',
+      },
+      {
+        number: '03',
+        title: 'Execution',
+        body: 'We run it, and we don’t disappear. We deliver the work, keep you informed on a cadence that fits, and stay accountable through sign-off and beyond.',
+      },
+    ],
+  },
   servicePage: {
     back: 'All services',
     audienceTitle: 'Who it’s for',

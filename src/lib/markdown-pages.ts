@@ -69,6 +69,14 @@ One partner for all of your technology. We manage everything below proactively, 
 
 ${servicesMarkdown('en')}
 
+## How an engagement works
+
+Three phases. No surprises mid-project.
+
+1. **Discovery** — We scope your environment with you: what’s broken, what’s growing, and the constraints that matter — so the plan reflects how your business actually runs.
+2. **Strategy** — You get a clear picture of priorities, risks, timeline, and next steps. Nothing kicks off until you’ve approved the scope and the approach.
+3. **Execution** — We run it, and we don’t disappear. We deliver the work, keep you informed on a cadence that fits, and stay accountable through sign-off and beyond.
+
 ## Contact
 
 info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
@@ -97,6 +105,14 @@ Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-
 Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.
 
 ${servicesMarkdown('es')}
+
+## Cómo funciona un engagement
+
+Tres fases. Sin sorpresas a mitad de camino.
+
+1. **Descubrimiento** — Definimos el alcance contigo: qué falla, qué crece y las restricciones que importan — para que el plan refleje cómo opera tu negocio de verdad.
+2. **Estrategia** — Recibes un panorama claro de prioridades, riesgos, plazos y siguientes pasos. Nada arranca hasta que apruebas el alcance y el enfoque.
+3. **Ejecución** — Lo llevamos adelante y no desaparecemos. Entregamos el trabajo, te informamos con la cadencia que necesitas y respondemos hasta el cierre y después.
 
 ## Contacto
 

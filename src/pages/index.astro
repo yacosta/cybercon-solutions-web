@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 import Hero from '../components/Hero.astro';
 import AssessmentForm from '../components/AssessmentForm.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
+import EngagementWorks from '../components/EngagementWorks.astro';
 import { getMessages } from '../i18n';
 
 const locale = 'en' as const;
@@ -36,6 +37,8 @@ const t = getMessages(locale);
     lede={t.services.lede}
     learnMore={t.services.learnMore}
   />
+
+  <EngagementWorks t={t} />
 
   <AssessmentForm locale={locale} t={t} />
 

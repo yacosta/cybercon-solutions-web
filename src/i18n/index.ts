@@ -2,6 +2,8 @@ import type { Messages } from './en';
 import { en } from './en';
 import { es } from './es';
 
+export type { Messages };
+
 const catalogs: Record<string, Messages> = { en, es };
 
 export function getMessages(locale: string): Messages {
