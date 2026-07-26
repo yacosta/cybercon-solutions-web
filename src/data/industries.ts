@@ -556,7 +556,7 @@ export function getIndustry(slug: string): Industry | undefined {
   return industries.find((industry) => industry.slug === slug);
 }
 
-export function industryPath(locale: string, slug?: string): string {
+export function industryPath(locale: string, slug: string): string {
   const base = locale === 'es' ? '/es/industries' : '/industries';
-  return slug ? `${base}/${slug}/` : `${base}/`;
+  return `${base}/${slug}/`;
 }

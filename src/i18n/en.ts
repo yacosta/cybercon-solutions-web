@@ -126,10 +126,6 @@ export const en = {
     learnMore: 'Learn more',
     allIndustries: 'All industries',
     overviewTitle: 'Built for how this industry actually runs',
-    indexTitle: 'Industries We Serve | Cybercon Solutions',
-    indexDescription:
-      'Managed IT and cybersecurity for healthcare, legal, financial, education, nonprofits, construction, retail, and manufacturing in South Florida.',
-    indexHeading: 'Industries we serve',
     industriesMenu: 'Industries menu',
   },
   servicePage: {

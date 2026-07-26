@@ -181,7 +181,7 @@ ${servicesMarkdown('en')}
 
 ## Industries
 
-Where industry knowledge meets IT that holds up. See https://cybercon-solutions.com/industries/
+Where industry knowledge meets IT that holds up. See https://cybercon-solutions.com/#industries
 
 ${industriesMarkdown('en')}
 
@@ -224,7 +224,7 @@ ${servicesMarkdown('es')}
 
 ## Industrias
 
-Donde el conocimiento del sector se encuentra con TI que resiste. Ver https://cybercon-solutions.com/es/industries/
+Donde el conocimiento del sector se encuentra con TI que resiste. Ver https://cybercon-solutions.com/es/#industries
 
 ${industriesMarkdown('es')}
 
@@ -304,50 +304,6 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
-  '/industries/': `---
-title: "Industries We Serve | Cybercon Solutions"
-description: "Managed IT and cybersecurity for healthcare, legal, financial, education, nonprofits, construction, retail, and manufacturing in South Florida."
----
-
-# Industries we serve
-
-Where industry knowledge meets IT that holds up.
-
-${industriesMarkdown('en')}
-`,
-  '/industries': `---
-title: "Industries We Serve | Cybercon Solutions"
-description: "Managed IT and cybersecurity for healthcare, legal, financial, education, nonprofits, construction, retail, and manufacturing in South Florida."
----
-
-# Industries we serve
-
-Where industry knowledge meets IT that holds up.
-
-${industriesMarkdown('en')}
-`,
-  '/es/industries/': `---
-title: "Industrias que atendemos | Cybercon Solutions"
-description: "TI administrada y ciberseguridad para salud, legal, finanzas, educación, sin fines de lucro, construcción, retail y manufactura en el Sur de Florida."
----
-
-# Industrias que atendemos
-
-Donde el conocimiento del sector se encuentra con TI que resiste.
-
-${industriesMarkdown('es')}
-`,
-  '/es/industries': `---
-title: "Industrias que atendemos | Cybercon Solutions"
-description: "TI administrada y ciberseguridad para salud, legal, finanzas, educación, sin fines de lucro, construcción, retail y manufactura en el Sur de Florida."
----
-
-# Industrias que atendemos
-
-Donde el conocimiento del sector se encuentra con TI que resiste.
-
-${industriesMarkdown('es')}
-`,
 };
 
 for (const industry of industries) {

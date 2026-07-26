@@ -112,6 +112,12 @@
 /services /#services 301
 /services/ /#services 301
 
+# --- Industries hub removed (homepage section + per-industry pages) ---
+/industries /#industries 301
+/industries/ /#industries 301
+/es/industries /es/#industries 301
+/es/industries/ /es/#industries 301
+
 # --- Legacy contact URLs → live Contact page ---
 # (/contact/ and /es/contact/ are real pages now — do not redirect them.)
 /contact-us /contact/ 301

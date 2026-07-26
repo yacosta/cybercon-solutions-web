@@ -16,7 +16,7 @@ const { locale, industry } = Astro.props;
 const t = getMessages(locale);
 const path = industryPath(locale, industry.slug);
 const homePath = localePath(locale, '/');
-const industriesIndex = industryPath(locale);
+const industriesHref = `${homePath}#industries`;
 const assessmentHref = localePath(locale, '/assessment/');
 const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
 ---
@@ -28,7 +28,6 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
   path={path}
   breadcrumbs={[
     { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
-    { name: t.nav.industries, path: industriesIndex },
     { name: industry.title[locale], path },
   ]}
 >
@@ -71,7 +70,7 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
       <p class="lede">{industry.lede[locale]}</p>
       <div class="industry-actions">
         <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-        <a class="text-link" href={industriesIndex}>{t.industries.allIndustries}</a>
+        <a class="text-link" href={industriesHref}>{t.industries.allIndustries}</a>
       </div>
     </header>
 

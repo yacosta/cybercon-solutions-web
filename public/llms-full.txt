@@ -35,7 +35,6 @@ One partner for all of your technology with predictable per-user pricing:
 | Search | https://cybercon-solutions.com/search/ |
 | Contact | https://cybercon-solutions.com/contact/ |
 | Contact (ES) | https://cybercon-solutions.com/es/contact/ |
-| Industries | https://cybercon-solutions.com/industries/ |
 | Healthcare & clinics | https://cybercon-solutions.com/industries/healthcare-clinics/ |
 | Legal & professional services | https://cybercon-solutions.com/industries/legal-professional-services/ |
 | Financial services & insurance | https://cybercon-solutions.com/industries/financial-services-insurance/ |

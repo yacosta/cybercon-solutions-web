@@ -128,10 +128,6 @@ export const es: Messages = {
     learnMore: 'Saber más',
     allIndustries: 'Todas las industrias',
     overviewTitle: 'Hecho para cómo opera este sector de verdad',
-    indexTitle: 'Industrias que atendemos | Cybercon Solutions',
-    indexDescription:
-      'TI administrada y ciberseguridad para salud, legal, finanzas, educación, sin fines de lucro, construcción, retail y manufactura en el Sur de Florida.',
-    indexHeading: 'Industrias que atendemos',
     industriesMenu: 'Menú de industrias',
   },
   servicePage: {
