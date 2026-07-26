@@ -1,5 +1,5 @@
 ---
-description: Always apply Cybercon web quality standards (LCP, SEO links, contrast, a11y)
+description: Always apply Cybercon web quality standards (LCP, SEO links, contrast, a11y, cache)
 alwaysApply: true
 ---
 
@@ -9,8 +9,11 @@ When editing pages, components, styles, tokens, hero/media, or anything affectin
 
 `.cursor/skills/web-quality-standards/SKILL.md`
 
+**Keep the skill current:** when fixing a new audit/quality finding, update that skill (and this short list if it is a non-negotiable) in the same PR.
+
 Non-negotiables (details in the skill):
 
 - Keep brand coral at `#c0392b` (or deeper) so text/eyebrows pass WCAG AA on cream and white — never restore `#f26b5e` for those uses.
 - No bare repeated “Learn more” / “Saber más” link text; include the destination topic in the anchor.
 - Homepage LCP must be the prioritized hero `<img>` (`fetchpriority="high"`, not lazy). Do not use `video[poster]` over that image. Preload the same format `<picture>` selects (AVIF today).
+- Zaraz `/cdn-cgi/zaraz/s.js` needs a browser `Cache-Control` via a Cloudflare Response Header Transform (not `public/_headers`). See README / `npm run cf:zaraz-cache`.

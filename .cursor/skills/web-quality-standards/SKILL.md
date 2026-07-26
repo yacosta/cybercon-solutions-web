@@ -2,19 +2,33 @@
 name: web-quality-standards
 description: >-
   Enforce Cybercon Solutions web quality standards for Core Web Vitals (especially
-  LCP), SEO link text, color contrast, and accessibility when editing pages,
-  layouts, components, tokens, or marketing UI. Use for Lighthouse, PageSpeed,
-  SEO audits, a11y reviews, hero media, and brand color changes.
+  LCP), SEO link text, color contrast, cache lifetimes (Zaraz), and accessibility
+  when editing pages, layouts, components, tokens, or marketing UI. Use for
+  Lighthouse, PageSpeed, SEO audits, a11y reviews, hero media, and brand color
+  changes. After fixing a new audit finding, update this skill so the rule sticks.
 paths:
   - "src/**/*.{astro,css,ts,tsx}"
   - "public/**/*"
   - ".cursor/skills/web-quality-standards/**"
+  - ".cursor/rules/web-quality-standards.mdc"
 ---
 
 # Cybercon web quality standards
 
 Read this skill before shipping UI, SEO, performance, or brand-token changes.
 These rules come from production audit fixes — follow them on every related change.
+
+## Maintaining this skill (required)
+
+When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, or brand-quality finding:
+
+1. **Codify it here** in the matching section (or add a section) with the concrete rule, the wrong pattern to avoid, and the file paths involved.
+2. **Update the checklist** below with a one-line verification item.
+3. **Update Related files** if new scripts/configs are involved.
+4. **Mirror non-negotiables** in `.cursor/rules/web-quality-standards.mdc` (keep that file short).
+5. If the fix needs dashboard/CI setup (not app code), document the durable procedure in `README.md` and link it from this skill — same pattern as Zaraz cache.
+
+Do this in the **same PR** as the fix whenever practical. Do not leave tribal knowledge only in the PR description.
 
 ## Color contrast (brand coral)
 
@@ -60,6 +74,13 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
 - Keep `hreflang` / canonical patterns used by `BaseLayout` intact when adding routes.
 
+## Cache lifetimes (Zaraz)
+
+- Worker/static assets: use `public/_headers` (e.g. `/videos/*` is already long-lived).
+- **Zaraz** (`/cdn-cgi/zaraz/s.js`) is Cloudflare-injected, not a Worker asset — `_headers` cannot set its TTL.
+- Keep a Response Header Transform Rule (or run `npm run cf:zaraz-cache`) so browsers get `Cache-Control: public, max-age=604800` on that path. See README → “Zaraz s.js browser cache”.
+- Do not try to “fix” Zaraz caching by vendoring or proxying `s.js` in the Astro app.
+
 ## Checklist before finishing UI/perf/SEO work
 
 - [ ] No generic repeated link labels (“Learn more”) without topic names
@@ -68,6 +89,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
+- [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
 - [ ] `npm run build` passes (primary validation gate)
 
 ## Related files
@@ -79,3 +101,4 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 | Hero preload | `src/pages/index.astro`, `src/pages/es/index.astro` |
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
+| Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |

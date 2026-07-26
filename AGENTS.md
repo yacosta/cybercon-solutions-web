@@ -1,10 +1,12 @@
 ## Web quality standards
 
-For UI, SEO, Core Web Vitals (LCP), color contrast, and accessibility work, follow the project skill:
+For UI, SEO, Core Web Vitals (LCP), color contrast, cache lifetimes, and accessibility work, follow the project skill:
 
 `.cursor/skills/web-quality-standards/SKILL.md`
 
 (Also enforced via `.cursor/rules/web-quality-standards.mdc`.)
+
+When fixing a new Lighthouse/SEO/a11y/brand audit finding, update that skill in the same PR so the rule sticks for future agents.
 
 ## Development
 
@@ -42,3 +44,4 @@ Consult these guides before working on related tasks:
 - Styling: Tailwind CSS v4 is wired via the `@tailwindcss/vite` plugin (`astro.config.mjs` → `vite.plugins`) and imported in `src/styles/global.css`. Preflight (Tailwind's reset) is intentionally excluded — `global.css` imports only `tailwindcss/theme.css` + `tailwindcss/utilities.css` — because the site ships its own hand-authored reset/design and full Preflight would collapse heading sizes. Utilities live in `@layer utilities`, while the site's base/component CSS is unlayered, so unlayered site rules win over utility classes on the same element/property (e.g. a `bg-*` utility on `<body>` loses to the existing `body` background). This is fine for styling new markup; to override an existing global rule, edit that rule or use `!` (e.g. `bg-white!`).
 - Tailwind dev gotcha: the dev server scans source files for used classes at startup. If you add a brand-new file using utilities that don't appear anywhere else, restart `astro dev` so the new utilities are generated (production `astro build` always regenerates from scratch).
 - CI/CD: `.github/workflows/ci.yml` (build + `wrangler deploy --dry-run`, no secrets) runs on PRs/branch pushes; `.github/workflows/deploy.yml` deploys to Cloudflare Workers on pushes to `main` using the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` GitHub secrets. `wrangler deploy --dry-run` needs a prior `npm run build` (it reads the Astro-generated `dist/server/wrangler.json`) and is the way to validate the Worker bundle locally without Cloudflare credentials.
+- Zaraz cache lifetimes: `/cdn-cgi/zaraz/s.js` is not a Worker asset. Use a Cloudflare Response Header Transform (`Cache-Control: public, max-age=604800`) or `npm run cf:zaraz-cache` with `CLOUDFLARE_ZONE_ID` + Transform Rules Edit on the API token. Dashboard steps are in README.
