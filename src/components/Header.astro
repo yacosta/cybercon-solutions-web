@@ -2,6 +2,7 @@
 import Wordmark from './Wordmark.astro';
 import { localePath, type Messages } from '../i18n';
 import { services, servicePath } from '../data/services';
+import { industries, industryPath } from '../data/industries';
 
 interface Props {
   locale: string;
@@ -14,7 +15,7 @@ const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
 const contactHref = localePath(locale, '/contact/');
-const industriesHref = `${homeHref}#industries`;
+const industriesHref = industryPath(locale);
 const path = Astro.url.pathname;
 const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
@@ -24,13 +25,18 @@ const onContact =
   path === '/es/contact' ||
   path.startsWith('/es/contact/');
 const onServices = path.includes('/services/');
-const onIndustries = Astro.url.hash === '#industries' || (onHome && Astro.url.hash === 'industries');
+const onIndustries = path.includes('/industries');
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
 const serviceLinks = services.map((service) => ({
   href: servicePath(locale, service.slug),
   title: service.title[locale as 'en' | 'es'],
   current: path.includes(`/services/${service.slug}`),
+}));
+const industryLinks = industries.map((industry) => ({
+  href: industryPath(locale, industry.slug),
+  title: industry.title[locale as 'en' | 'es'],
+  current: path.includes(`/industries/${industry.slug}`),
 }));
 ---
 
@@ -84,14 +90,49 @@ const serviceLinks = services.map((service) => ({
           </ul>
         </div>
 
-        <a
-          href={industriesHref}
-          class:list={['nav-link', { active: onIndustries }]}
-          aria-current={onIndustries ? 'page' : undefined}
-        >
-          <span class="nav-dot" aria-hidden="true"></span>
-          <span>{t.nav.industries}</span>
-        </a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button
+            type="button"
+            class:list={['nav-link', 'nav-dropdown-toggle', { active: onIndustries }]}
+            data-nav-dropdown-toggle
+            aria-expanded="false"
+            aria-controls="nav-industries-menu"
+            aria-haspopup="true"
+          >
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span>{t.nav.industries}</span>
+          </button>
+          <ul
+            id="nav-industries-menu"
+            class="nav-dropdown-menu"
+            data-nav-dropdown-menu
+            aria-label={t.industries.industriesMenu}
+            hidden
+          >
+            <li>
+              <a
+                href={industriesHref}
+                class:list={[{ active: path === industriesHref || path === industriesHref.slice(0, -1) }]}
+                aria-current={path === industriesHref || path === industriesHref.slice(0, -1) ? 'page' : undefined}
+              >
+                {t.industries.allIndustries}
+              </a>
+            </li>
+            {
+              industryLinks.map((industry) => (
+                <li>
+                  <a
+                    href={industry.href}
+                    class:list={[{ active: industry.current }]}
+                    aria-current={industry.current ? 'page' : undefined}
+                  >
+                    {industry.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
 
         <a
           href={blogHref}
@@ -217,14 +258,27 @@ const serviceLinks = services.map((service) => ({
           </a>
         ))
       }
+      <p class="menu-panel-label">{t.nav.industries}</p>
       <a
         href={industriesHref}
-        class:list={['menu-panel-link', { active: onIndustries }]}
-        aria-current={onIndustries ? 'page' : undefined}
+        class:list={['menu-panel-link', 'is-service', { active: path === industriesHref || path === industriesHref.slice(0, -1) }]}
+        aria-current={path === industriesHref || path === industriesHref.slice(0, -1) ? 'page' : undefined}
       >
         <span class="nav-dot" aria-hidden="true"></span>
-        <span>{t.nav.industries}</span>
+        <span>{t.industries.allIndustries}</span>
       </a>
+      {
+        industryLinks.map((industry) => (
+          <a
+            href={industry.href}
+            class:list={['menu-panel-link', 'is-service', { active: industry.current }]}
+            aria-current={industry.current ? 'page' : undefined}
+          >
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span>{industry.title}</span>
+          </a>
+        ))
+      }
       <a
         href={blogHref}
         class:list={['menu-panel-link', { active: onBlog }]}
