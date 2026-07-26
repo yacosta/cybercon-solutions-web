@@ -116,9 +116,16 @@ p {
   }
 }
 
+/*
+ * Default page gutters — same inline margins as header/footer.
+ * Use .container for every content column so pages share one edge.
+ */
 .container {
-  width: min(var(--page-max), calc(100% - (2 * var(--page-gutter))));
-  margin-inline: auto;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--page-inline);
 }
 
 /* Standard vertical rhythm for standalone content pages */

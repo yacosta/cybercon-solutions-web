@@ -64,8 +64,8 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
 
   <Header slot="header" locale={locale} t={t} variant="light" />
 
-  <article class="industry-page" data-pagefind-body>
-    <section class="industry-hero container">
+  <article class="industry-page container page" data-pagefind-body>
+    <header class="industry-hero">
       <p class="eyebrow">{t.nav.industries}</p>
       <h1>{industry.title[locale]}</h1>
       <p class="lede">{industry.lede[locale]}</p>
@@ -73,21 +73,21 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
         <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
         <a class="text-link" href={industriesIndex}>{t.industries.allIndustries}</a>
       </div>
-    </section>
+    </header>
 
-    <section class="industry-block container" aria-labelledby="industry-overview">
+    <section class="industry-block" aria-labelledby="industry-overview">
       <h2 id="industry-overview">{t.industries.overviewTitle}</h2>
       {overviewParas.map((paragraph) => <p>{paragraph}</p>)}
     </section>
 
-    <section class="industry-block container" aria-labelledby="industry-challenges">
+    <section class="industry-block" aria-labelledby="industry-challenges">
       <h2 id="industry-challenges">{industry.challengesLabel[locale]}</h2>
       <ul class="challenge-list">
         {industry.challenges.map((item) => <li>{item[locale]}</li>)}
       </ul>
     </section>
 
-    <section class="industry-block container" aria-labelledby="industry-help">
+    <section class="industry-block" aria-labelledby="industry-help">
       <h2 id="industry-help">{industry.helpLabel[locale]}</h2>
       <ul class="help-list">
         {
@@ -103,7 +103,7 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
 
     {
       industry.faqs.length > 0 && (
-        <section class="industry-block container" aria-labelledby="industry-faq">
+        <section class="industry-block" aria-labelledby="industry-faq">
           <h2 id="industry-faq">{t.servicePage.faqTitle}</h2>
           <dl class="faq-list">
             {industry.faqs.map((faq) => (
@@ -117,7 +117,7 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
       )
     }
 
-    <section class="industry-cta container" aria-labelledby="industry-cta-title">
+    <section class="industry-cta" aria-labelledby="industry-cta-title">
       <h2 id="industry-cta-title">{t.servicePage.ctaTitle}</h2>
       <p>{t.servicePage.ctaBody}</p>
       <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
@@ -128,12 +128,8 @@ const overviewParas = industry.overview[locale].split(/\n\n+/).filter(Boolean);
 </BaseLayout>
 
 <style>
-  .industry-page {
-    padding-bottom: var(--section-pad-y);
-  }
-
   .industry-hero {
-    padding-block: clamp(2.5rem, 6vw, 4rem) 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .industry-hero h1 {
