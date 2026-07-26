@@ -25,6 +25,20 @@
       ]
     },
     {
+      "anchor": "https://cybercon-solutions.com/api/contact",
+      "service-desc": [
+        {
+          "href": "https://cybercon-solutions.com/openapi.json#/paths/~1api~1contact",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://cybercon-solutions.com/api/health"
+        }
+      ]
+    },
+    {
       "anchor": "https://cybercon-solutions.com/api/health",
       "service-desc": [
         {

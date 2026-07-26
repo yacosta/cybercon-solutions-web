@@ -18,7 +18,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Information you give us',
-            body: 'When you submit the assessment request form, we collect the full name, company name, and work email you provide. We use these only to respond to your request and to contact you about the services you asked about.',
+            body: 'When you submit the assessment or contact form, we collect the full name, work email, and (when provided) company name and message. We use these only to respond to your request and to contact you about the services you asked about.',
           },
           {
             sub: 'Information collected automatically',
@@ -76,7 +76,7 @@ export const privacyContent = {
         heading: '5. Sharing & service providers',
         body: 'We do not sell or rent your personal information. We share it only with service providers who process it on our behalf:',
         list: [
-          'Attio — our CRM; stores your assessment request as a contact/company prospect so we can follow up.',
+          'Attio — our CRM; stores your assessment or contact request as a contact/company prospect so we can follow up.',
           'Web3Forms (or equivalent form delivery) — may deliver your form submission to us by email.',
           'Cloudflare — website hosting (Cloudflare Pages), bot protection (Turnstile), and CDN.',
           'Auth0 — authentication for the client area.',
@@ -124,7 +124,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Información que nos das',
-            body: 'Cuando envías el formulario de evaluación, recopilamos el nombre completo, el nombre de la empresa y el correo de trabajo que indiques. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
+            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
           },
           {
             sub: 'Información recopilada automáticamente',
@@ -182,7 +182,7 @@ export const privacyContent = {
         heading: '5. Cesión y proveedores',
         body: 'No vendemos ni alquilamos tu información personal. Solo la compartimos con proveedores que la procesan en nuestro nombre:',
         list: [
-          'Attio — nuestro CRM; guarda tu solicitud de evaluación como prospecto (contacto/empresa) para el seguimiento.',
+          'Attio — nuestro CRM; guarda tu solicitud de evaluación o de contacto como prospecto (contacto/empresa) para el seguimiento.',
           'Web3Forms (o equivalente) — puede entregar tu envío de formulario por correo.',
           'Cloudflare — alojamiento (Cloudflare Pages), protección antibots (Turnstile) y CDN.',
           'Auth0 — autenticación del área de clientes.',

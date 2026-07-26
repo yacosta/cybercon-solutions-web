@@ -65,6 +65,35 @@
           "400": { "description": "Validation or Turnstile failure" }
         }
       }
+    },
+    "/api/contact": {
+      "post": {
+        "summary": "Submit contact form message",
+        "operationId": "postContact",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email", "message"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "company": { "type": "string" },
+                  "email": { "type": "string", "format": "email" },
+                  "message": { "type": "string" },
+                  "locale": { "type": "string", "enum": ["en", "es"] },
+                  "turnstileToken": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Accepted" },
+          "400": { "description": "Validation or Turnstile failure" }
+        }
+      }
     }
   }
 }

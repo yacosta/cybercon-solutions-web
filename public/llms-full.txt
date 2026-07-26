@@ -28,11 +28,13 @@ One partner for all of your technology with predictable per-user pricing:
 | Privacy | https://cybercon-solutions.com/privacy/ |
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
 | Search | https://cybercon-solutions.com/search/ |
+| Contact | https://cybercon-solutions.com/contact/ |
 | Assessment API | POST https://cybercon-solutions.com/api/assessment |
+| Contact API | POST https://cybercon-solutions.com/api/contact |
 
 ## Contact
 
-info@cybercon-solutions.com · (305) 320-5335
+https://cybercon-solutions.com/contact/ · info@cybercon-solutions.com · (305) 320-5335
 
 ## Markdown negotiation
 

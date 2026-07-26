@@ -29,6 +29,8 @@ export interface AssessmentProspect {
   locale?: string;
   /** Form / funnel source label stored on the Attio note + person description. */
   source?: string;
+  /** Optional free-text message from the contact form. */
+  message?: string;
 }
 
 interface AttioRecord {
@@ -198,6 +200,7 @@ async function createAssessmentNote(
           `Email: ${prospect.email}`,
           `Locale: ${locale}`,
           `Source: ${source}`,
+          ...(prospect.message?.trim() ? [`Message:\n${prospect.message.trim()}`] : []),
         ].join('\n'),
       },
     }),
