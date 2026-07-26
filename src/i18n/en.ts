@@ -26,7 +26,7 @@ export const en = {
     description:
       'Talk with Cybercon about managed IT, cybersecurity, cloud, and AI in South Florida. A real engineer replies within one business day.',
     eyebrow: 'Cybercon Solutions',
-    heading: 'Talk with Cybercon.',
+    heading: 'Talk with Cybercon Solutions.',
     lede:
       'Tell us what is broken, what is growing, or what you want clarified. We reply within one business day — plain English, no obligation.',
     formTitle: 'Get started with a free consultation',
