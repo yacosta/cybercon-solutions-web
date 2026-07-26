@@ -1,5 +1,5 @@
 ---
-description: Always apply Cybercon web quality standards (LCP, SEO links, contrast, a11y)
+description: Always apply Cybercon web quality standards (LCP, SEO links, contrast, a11y, cache)
 alwaysApply: true
 ---
 
@@ -8,6 +8,8 @@ alwaysApply: true
 When editing pages, components, styles, tokens, hero/media, or anything affecting Lighthouse, SEO, or accessibility, read and follow the project skill:
 
 `.cursor/skills/web-quality-standards/SKILL.md`
+
+**Keep the skill current:** when fixing a new audit/quality finding, update that skill (and this short list if it is a non-negotiable) in the same PR.
 
 Non-negotiables (details in the skill):
 

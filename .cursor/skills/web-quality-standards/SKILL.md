@@ -2,19 +2,33 @@
 name: web-quality-standards
 description: >-
   Enforce Cybercon Solutions web quality standards for Core Web Vitals (especially
-  LCP), SEO link text, color contrast, and accessibility when editing pages,
-  layouts, components, tokens, or marketing UI. Use for Lighthouse, PageSpeed,
-  SEO audits, a11y reviews, hero media, and brand color changes.
+  LCP), SEO link text, color contrast, cache lifetimes (Zaraz), and accessibility
+  when editing pages, layouts, components, tokens, or marketing UI. Use for
+  Lighthouse, PageSpeed, SEO audits, a11y reviews, hero media, and brand color
+  changes. After fixing a new audit finding, update this skill so the rule sticks.
 paths:
   - "src/**/*.{astro,css,ts,tsx}"
   - "public/**/*"
   - ".cursor/skills/web-quality-standards/**"
+  - ".cursor/rules/web-quality-standards.mdc"
 ---
 
 # Cybercon web quality standards
 
 Read this skill before shipping UI, SEO, performance, or brand-token changes.
 These rules come from production audit fixes — follow them on every related change.
+
+## Maintaining this skill (required)
+
+When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, or brand-quality finding:
+
+1. **Codify it here** in the matching section (or add a section) with the concrete rule, the wrong pattern to avoid, and the file paths involved.
+2. **Update the checklist** below with a one-line verification item.
+3. **Update Related files** if new scripts/configs are involved.
+4. **Mirror non-negotiables** in `.cursor/rules/web-quality-standards.mdc` (keep that file short).
+5. If the fix needs dashboard/CI setup (not app code), document the durable procedure in `README.md` and link it from this skill — same pattern as Zaraz cache.
+
+Do this in the **same PR** as the fix whenever practical. Do not leave tribal knowledge only in the PR description.
 
 ## Color contrast (brand coral)
 

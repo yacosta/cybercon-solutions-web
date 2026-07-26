@@ -1,10 +1,12 @@
 ## Web quality standards
 
-For UI, SEO, Core Web Vitals (LCP), color contrast, and accessibility work, follow the project skill:
+For UI, SEO, Core Web Vitals (LCP), color contrast, cache lifetimes, and accessibility work, follow the project skill:
 
 `.cursor/skills/web-quality-standards/SKILL.md`
 
 (Also enforced via `.cursor/rules/web-quality-standards.mdc`.)
+
+When fixing a new Lighthouse/SEO/a11y/brand audit finding, update that skill in the same PR so the rule sticks for future agents.
 
 ## Development
 
