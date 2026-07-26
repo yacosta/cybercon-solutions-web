@@ -60,6 +60,13 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
 - Keep `hreflang` / canonical patterns used by `BaseLayout` intact when adding routes.
 
+## Cache lifetimes (Zaraz)
+
+- Worker/static assets: use `public/_headers` (e.g. `/videos/*` is already long-lived).
+- **Zaraz** (`/cdn-cgi/zaraz/s.js`) is Cloudflare-injected, not a Worker asset — `_headers` cannot set its TTL.
+- Keep a Response Header Transform Rule (or run `npm run cf:zaraz-cache`) so browsers get `Cache-Control: public, max-age=604800` on that path. See README → “Zaraz s.js browser cache”.
+- Do not try to “fix” Zaraz caching by vendoring or proxying `s.js` in the Astro app.
+
 ## Checklist before finishing UI/perf/SEO work
 
 - [ ] No generic repeated link labels (“Learn more”) without topic names
@@ -68,6 +75,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
+- [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
 - [ ] `npm run build` passes (primary validation gate)
 
 ## Related files
@@ -79,3 +87,4 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 | Hero preload | `src/pages/index.astro`, `src/pages/es/index.astro` |
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
+| Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |

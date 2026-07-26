@@ -14,3 +14,4 @@ Non-negotiables (details in the skill):
 - Keep brand coral at `#c0392b` (or deeper) so text/eyebrows pass WCAG AA on cream and white — never restore `#f26b5e` for those uses.
 - No bare repeated “Learn more” / “Saber más” link text; include the destination topic in the anchor.
 - Homepage LCP must be the prioritized hero `<img>` (`fetchpriority="high"`, not lazy). Do not use `video[poster]` over that image. Preload the same format `<picture>` selects (AVIF today).
+- Zaraz `/cdn-cgi/zaraz/s.js` needs a browser `Cache-Control` via a Cloudflare Response Header Transform (not `public/_headers`). See README / `npm run cf:zaraz-cache`.
