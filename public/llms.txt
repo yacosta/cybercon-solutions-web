@@ -8,6 +8,8 @@ Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida.
 
 - [Homepage](https://cybercon-solutions.com/): English homepage and free assessment
 - [Spanish homepage](https://cybercon-solutions.com/es/): Sitio en español
+- [Free IT assessment](https://cybercon-solutions.com/assessment/): Dedicated assessment landing and form
+- [Spanish assessment](https://cybercon-solutions.com/es/assessment/): Evaluación de TI gratuita
 - [Blog](https://cybercon-solutions.com/blog/): Enterprise AI, IT, and cybersecurity insights
 - [Contact](https://cybercon-solutions.com/contact/): Contact form, phone, and mailing details
 - [Privacy Policy](https://cybercon-solutions.com/privacy/): Privacy and data practices

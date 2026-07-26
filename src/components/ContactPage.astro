@@ -8,7 +8,8 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 import { getMessages, localePath } from '../i18n';
 import { turnstileSiteKey } from '../lib/turnstile';
-import { site } from '../lib/site';
+import { formatMailingAddress, site } from '../lib/site';
+import { contactPageJsonLd, jsonLdScript } from '../lib/seo';
 
 interface Props {
   locale: 'en' | 'es';
@@ -20,14 +21,28 @@ const c = t.contact;
 const siteKey = turnstileSiteKey();
 const privacyHref = localePath(locale, '/privacy/');
 const path = localePath(locale, '/contact/');
+const homePath = localePath(locale, '/');
+const mailingAddress = formatMailingAddress();
 ---
 
 <BaseLayout
   locale={locale}
-  title={`${c.title} | Cybercon`}
+  title={c.metaTitle}
   description={c.description}
   path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
+    { name: c.title, path },
+  ]}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={jsonLdScript(contactPageJsonLd({
+      name: c.metaTitle,
+      description: c.description,
+      path,
+      locale,
+    }))} />
+  </Fragment>
   <Header slot="header" locale={locale} t={t} variant="light" />
 
   <!-- contact-layout-v2: nicepage two-column -->
@@ -43,6 +58,11 @@ const path = localePath(locale, '/contact/');
           <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
           <span aria-hidden="true">·</span>
           <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
+        <p class="contact-local contact-reveal contact-reveal-delay-3">
+          <span>{c.areaLabel}: {site.serviceAreaFocus}</span>
+          <span aria-hidden="true">·</span>
+          <span>{c.mailingLabel}: {mailingAddress}</span>
         </p>
       </div>
 
@@ -247,6 +267,18 @@ const path = localePath(locale, '/contact/');
 
   .contact-inline a:hover {
     color: var(--coral);
+  }
+
+  .contact-local {
+    margin: 0.85rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.75rem;
+    align-items: baseline;
+    max-width: 34rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--muted-blue);
   }
 
   .contact-card {

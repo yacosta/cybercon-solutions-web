@@ -4,18 +4,40 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import AssessmentForm from '../../components/AssessmentForm.astro';
-import { getMessages } from '../../i18n';
+import { getMessages, localePath } from '../../i18n';
+import { jsonLdScript, webPageJsonLd } from '../../lib/seo';
 
 const locale = 'en' as const;
 const t = getMessages(locale);
+const path = '/assessment/';
+const homePath = localePath(locale, '/');
+const pageTitle = t.form.metaTitle;
+const pageDescription = t.form.metaDescription;
 ---
 
 <BaseLayout
   locale={locale}
-  title={`${t.form.title} | Cybercon`}
-  description={t.form.lede}
-  path="/assessment/"
+  title={pageTitle}
+  description={pageDescription}
+  path={path}
+  breadcrumbs={[
+    { name: 'Home', path: homePath },
+    { name: 'Assessment', path },
+  ]}
 >
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        webPageJsonLd({
+          name: pageTitle,
+          description: pageDescription,
+          path,
+          locale,
+        }),
+      )}
+    />
+  </Fragment>
   <Header slot="header" locale={locale} t={t} variant="light" />
 
   <AssessmentForm locale={locale} t={t} layout="split" />

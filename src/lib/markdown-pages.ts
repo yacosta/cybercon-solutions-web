@@ -2,6 +2,10 @@ import { privacyContent } from '../data/privacy';
 import { services } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
 import enterpriseAiAdoptionRoi from '../content/blog/enterprise-ai-adoption-roi.md?raw';
+import fractionalCioFirst90Days from '../content/blog/fractional-cio-first-90-days.md?raw';
+import managedItReportsLikeCio from '../content/blog/managed-it-reports-like-cio.md?raw';
+import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rollout.md?raw';
+import { formatMailingAddress, site } from './site';
 
 function servicesMarkdown(locale: 'en' | 'es'): string {
   return services
@@ -27,6 +31,9 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 ## Posts
 
 - [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
+- [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/blog/fractional-cio-first-90-days/)
+- [Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT](https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/)
+- [Managed IT That Reports Like a CIO](https://cybercon-solutions.com/blog/managed-it-reports-like-cio/)
 `;
 
 const blogIndexEs = `---
@@ -41,6 +48,71 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 ## Entradas
 
 - [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/) (artículo en inglés)
+- [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/) (artículo en inglés)
+- [Zero Trust Without the Buzzwords](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/) (artículo en inglés)
+- [Managed IT That Reports Like a CIO](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/) (artículo en inglés)
+`;
+
+const contactEn = `---
+title: "Contact Cybercon Solutions | South Florida IT"
+description: "Contact Cybercon Solutions for managed IT, cybersecurity, cloud, and AI in Cooper City, Davie, and South Florida. A real engineer replies within one business day."
+---
+
+# Contact Cybercon Solutions
+
+Let's work together. Tell us what is broken, what is growing, or what you want clarified. We reply within one business day — no obligation.
+
+- Phone: ${site.phoneDisplay}
+- Email: ${site.email}
+- Service area: ${site.serviceAreaFocus}
+- Mailing address: ${formatMailingAddress()}
+
+Submit the contact form at https://cybercon-solutions.com/contact/ (protected by Cloudflare Turnstile), or book a free assessment at https://cybercon-solutions.com/assessment/.
+`;
+
+const contactEs = `---
+title: "Contacto Cybercon Solutions | TI Sur de Florida"
+description: "Contacta a Cybercon Solutions para TI administrada, ciberseguridad, nube e IA en Cooper City, Davie y el Sur de Florida. Un ingeniero real responde en un día hábil."
+---
+
+# Contacto Cybercon Solutions
+
+Trabajemos juntos. Cuéntanos qué está fallando, qué está creciendo o qué quieres aclarar. Respondemos en un día hábil — sin compromiso.
+
+- Teléfono: ${site.phoneDisplay}
+- Correo: ${site.email}
+- Zona de servicio: Cooper City, Davie y el sur de Florida
+- Dirección postal: ${formatMailingAddress()}
+
+Envía el formulario en https://cybercon-solutions.com/es/contact/ (protegido con Cloudflare Turnstile), o solicita una evaluación en https://cybercon-solutions.com/es/assessment/.
+`;
+
+const assessmentEn = `---
+title: "Free IT Assessment | Cybercon Solutions"
+description: "Book a free IT assessment with Cybercon Solutions. South Florida managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day. No obligation."
+---
+
+# Free IT Assessment
+
+Book a free assessment. Plain English, no obligation. You get a clear picture of where your technology stands.
+
+Submit name, company, and work email via https://cybercon-solutions.com/assessment/ (protected by Cloudflare Turnstile). A real engineer replies within one business day.
+
+Prefer a general inquiry? Use https://cybercon-solutions.com/contact/.
+`;
+
+const assessmentEs = `---
+title: "Evaluación de TI gratuita | Cybercon Solutions"
+description: "Agenda una evaluación de TI gratuita con Cybercon Solutions. TI administrada, ciberseguridad y CIO fraccional en el Sur de Florida — siguientes pasos claros en un día hábil. Sin compromiso."
+---
+
+# Evaluación de TI gratuita
+
+Solicita una evaluación gratuita. Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.
+
+Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/assessment/ (protegido con Cloudflare Turnstile). Un ingeniero real responde en un día hábil.
+
+¿Prefieres una consulta general? Usa https://cybercon-solutions.com/es/contact/.
 `;
 
 const pages: Record<string, string> = {
@@ -106,6 +178,14 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City y Davie, Florida
   '/privacy': privacyToMarkdown('en'),
   '/es/privacy/': privacyToMarkdown('es'),
   '/es/privacy': privacyToMarkdown('es'),
+  '/contact/': contactEn,
+  '/contact': contactEn,
+  '/es/contact/': contactEs,
+  '/es/contact': contactEs,
+  '/assessment/': assessmentEn,
+  '/assessment': assessmentEn,
+  '/es/assessment/': assessmentEs,
+  '/es/assessment': assessmentEs,
   '/search/': `---
 title: "Search | Cybercon"
 ---
@@ -146,6 +226,18 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
   '/es/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
   '/es/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
+  '/blog/fractional-cio-first-90-days/': fractionalCioFirst90Days,
+  '/blog/fractional-cio-first-90-days': fractionalCioFirst90Days,
+  '/es/blog/fractional-cio-first-90-days/': fractionalCioFirst90Days,
+  '/es/blog/fractional-cio-first-90-days': fractionalCioFirst90Days,
+  '/blog/zero-trust-mid-market-rollout/': zeroTrustMidMarketRollout,
+  '/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRollout,
+  '/es/blog/zero-trust-mid-market-rollout/': zeroTrustMidMarketRollout,
+  '/es/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRollout,
+  '/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
+  '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
+  '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
+  '/es/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
 };
 
 function privacyToMarkdown(locale: 'en' | 'es'): string {

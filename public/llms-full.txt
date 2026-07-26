@@ -25,10 +25,16 @@ One partner for all of your technology with predictable per-user pricing:
 | Home (ES) | https://cybercon-solutions.com/es/ |
 | Blog | https://cybercon-solutions.com/blog/ |
 | Enterprise AI Adoption and ROI | https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/ |
+| Fractional CIO First 90 Days | https://cybercon-solutions.com/blog/fractional-cio-first-90-days/ |
+| Zero Trust Mid-Market Rollout | https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/ |
+| Managed IT Reports Like a CIO | https://cybercon-solutions.com/blog/managed-it-reports-like-cio/ |
+| Free IT assessment | https://cybercon-solutions.com/assessment/ |
+| Free IT assessment (ES) | https://cybercon-solutions.com/es/assessment/ |
 | Privacy | https://cybercon-solutions.com/privacy/ |
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
 | Search | https://cybercon-solutions.com/search/ |
 | Contact | https://cybercon-solutions.com/contact/ |
+| Contact (ES) | https://cybercon-solutions.com/es/contact/ |
 | Assessment API | POST https://cybercon-solutions.com/api/assessment |
 | Contact API | POST https://cybercon-solutions.com/api/contact |
 

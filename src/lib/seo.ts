@@ -83,6 +83,7 @@ export function organizationJsonLd(locale: Locale = 'en') {
       contactType: copy.contactType,
       email: site.email,
       telephone: site.phone,
+      url: absoluteUrl('/contact/'),
       availableLanguage: ['English', 'Spanish'],
       areaServed: site.serviceAreaFocus,
     },
@@ -138,6 +139,45 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function contactPageJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  locale: Locale;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${absoluteUrl(opts.path)}#webpage`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    inLanguage: opts.locale === 'es' ? 'es-US' : 'en-US',
+    isPartOf: { '@id': `${site.url}/#website` },
+    about: { '@id': `${site.url}/#organization` },
+    mainEntity: { '@id': `${site.url}/#organization` },
+  };
+}
+
+export function webPageJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  locale: Locale;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${absoluteUrl(opts.path)}#webpage`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    inLanguage: opts.locale === 'es' ? 'es-US' : 'en-US',
+    isPartOf: { '@id': `${site.url}/#website` },
+    about: { '@id': `${site.url}/#organization` },
   };
 }
 

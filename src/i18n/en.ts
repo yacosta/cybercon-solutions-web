@@ -23,8 +23,9 @@ export const en = {
   },
   contact: {
     title: 'Contact',
+    metaTitle: 'Contact Cybercon Solutions | South Florida IT',
     description:
-      'Talk with Cybercon about managed IT, cybersecurity, cloud, and AI in South Florida. A real engineer replies within one business day.',
+      'Contact Cybercon Solutions for managed IT, cybersecurity, cloud, and AI in Cooper City, Davie, and South Florida. A real engineer replies within one business day.',
     eyebrow: 'Cybercon Solutions',
     heading: "Let's work together!",
     lede:
@@ -64,6 +65,9 @@ export const en = {
   form: {
     eyebrow: 'Cybercon Solutions',
     title: 'Book a free assessment.',
+    metaTitle: 'Free IT Assessment | Cybercon Solutions',
+    metaDescription:
+      'Book a free IT assessment with Cybercon Solutions. South Florida managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day. No obligation.',
     cardTitle: 'Get started with a free assessment',
     lede: 'Plain English, no obligation. You get a clear picture of where your technology stands.',
     name: 'Name',
