@@ -13,9 +13,15 @@ const { locale, t, variant = 'dark' } = Astro.props;
 const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
+const contactHref = localePath(locale, '/contact/');
 const path = Astro.url.pathname;
 const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
+const onContact =
+  path === '/contact' ||
+  path.startsWith('/contact/') ||
+  path === '/es/contact' ||
+  path.startsWith('/es/contact/');
 const onServices = path.includes('/services/');
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
@@ -83,6 +89,15 @@ const serviceLinks = services.map((service) => ({
         >
           <span class="nav-dot" aria-hidden="true"></span>
           <span>{t.blog.nav}</span>
+        </a>
+
+        <a
+          href={contactHref}
+          class:list={['nav-link', { active: onContact }]}
+          aria-current={onContact ? 'page' : undefined}
+        >
+          <span class="nav-dot" aria-hidden="true"></span>
+          <span>{t.nav.contact}</span>
         </a>
       </nav>
 
@@ -198,6 +213,14 @@ const serviceLinks = services.map((service) => ({
       >
         <span class="nav-dot" aria-hidden="true"></span>
         <span>{t.blog.nav}</span>
+      </a>
+      <a
+        href={contactHref}
+        class:list={['menu-panel-link', { active: onContact }]}
+        aria-current={onContact ? 'page' : undefined}
+      >
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>{t.nav.contact}</span>
       </a>
       <div class="menu-panel-lang" role="group" aria-label={locale === 'es' ? 'Idioma' : 'Language'}>
         <a
