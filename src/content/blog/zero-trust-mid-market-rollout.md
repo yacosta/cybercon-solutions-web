@@ -12,15 +12,15 @@ bannerAlt:
 
 Zero Trust has a marketing problem.
 
-Vendors turned a useful idea into a product aisle. Suddenly every firewall, VPN replacement, endpoint agent, and dashboard claims to be "Zero Trust." Boards hear the phrase in every cyber briefing. Mid-market IT teams hear it and reasonably ask: *Do we need a three-year transformation program, or can we just stop getting compromised through stolen passwords?*
+Vendors turned a useful idea into a product aisle. Suddenly every firewall, VPN replacement, endpoint agent, and dashboard claims to be "Zero Trust." Mid-market IT teams hear it and reasonably ask: *Do we need a three-year transformation program, or can we just stop getting compromised through stolen passwords?*
 
 That second question is the right one.
 
-Zero Trust, stripped of the brochure language, is not a product you buy. It is a set of operating habits: **never assume a user, device, or network location is safe just because it got inside the perimeter once.** Verify identity. Check device health. Limit what each account can reach. Log enough to notice when something looks wrong. Improve the controls over time.
+Zero Trust, stripped of the brochure language, is not a product you buy. It is a set of operating habits: **never assume a user, device, or network location is safe just because it got inside the perimeter once.** Verify identity. Check device health. Limit what each account can reach. Log enough to notice when something looks wrong.
 
 If you run mid-market IT — a growing company, a multi-site operator, a nonprofit with real compliance obligations — you do not need a federal-agency reference architecture on day one. You need a rollout you can staff, fund, and finish in phases without breaking the business.
 
-This is that rollout. It is the version Cybercon uses when we help South Florida and mid-market teams harden identity, endpoints, and access without pretending they have a 40-person security department. It comes from years of CIO/CISO work in regulated environments where "trust the office network" stopped being a strategy a long time ago.
+This is that rollout: the version Cybercon uses when we help South Florida and mid-market teams harden identity, endpoints, and access without pretending they have a 40-person security department. It comes from years of CIO/CISO work in regulated environments where "trust the office network" stopped being a strategy a long time ago.
 
 ## What Zero Trust actually means in plain English
 
@@ -43,7 +43,7 @@ Two failure modes show up constantly.
 
 **Failure mode two: paralysis.** The team reads an enterprise framework, sees a hundred controls, and decides they cannot start until budget, headcount, and a perfect asset inventory exist. Meanwhile, remote access still accepts password-only logins.
 
-IBM's *Cost of a Data Breach Report 2025* puts the average U.S. breach at $10.22 million, with healthcare still the costliest sector [[1]](#sources). Mid-market companies rarely see that exact number in their own P&L — but ransomware downtime, customer questionnaire failures, cyber insurance exclusions, and regulatory attention are already expensive enough. Waiting for a perfect program is not prudence. It is delay with better stationery.
+IBM's *Cost of a Data Breach Report 2025* puts the average U.S. breach at $10.22 million, with healthcare still the costliest sector [[1]](#sources). Mid-market companies may never see that exact figure — but ransomware downtime, failed customer questionnaires, and insurance exclusions are expensive enough. Waiting for a perfect program is not prudence. It is delay with better stationery.
 
 The practical path sits between those extremes: **sequence the controls that remove the most risk first**, prove they work, then expand.
 
@@ -73,9 +73,9 @@ If you only do one phase well, do this one.
 
 **Inventory and tighten service accounts / API keys.** Rotate anything ancient. Remove unused ones. Document owners. Modern breaches often start with a forgotten token that never expired.
 
-**Fix joiner-mover-leaver.** New hire access should be intentional. Role changes should revoke what is no longer needed. Terminations should remove access the same day — including VPN, SaaS, and shared drives. If your offboarding checklist is tribal knowledge, write it down and test it with the next departure.
+**Fix joiner-mover-leaver.** New hire access should be intentional. Role changes should revoke what is no longer needed. Terminations should remove access the same day — including VPN, SaaS, and shared drives. If offboarding is tribal knowledge, write it down and test it on the next departure.
 
-By the end of phase 1, a stolen password should not be enough to waltz into email, remote access, and admin tools. That alone is more Zero Trust than half the branded programs we audit.
+By the end of phase 1, a stolen password should not be enough to reach email, remote access, and admin tools. That alone is more Zero Trust than half the branded programs we audit.
 
 ## Phase 2: Device trust and endpoint reality (weeks 4–10)
 
@@ -91,9 +91,7 @@ You do not need every laptop enrolled in a military-grade posture system on day 
 
 For many mid-market shops, the win is boring: **managed devices for staff who touch sensitive systems, EDR everywhere those devices live, and conditional access that blocks risky sign-ins from unknown or unhealthy endpoints.**
 
-Bring-your-own-device is a business choice, not a moral failing — but it needs a boundary. Personal phones checking email may be acceptable with app protection policies. Personal laptops remoting into finance systems usually are not. Write the rule. Enforce it with controls, not memos.
-
-If you already pay for Microsoft 365 or Google Workspace security features you never turned on, start there before buying another logo. Unused licenses are not a control.
+Bring-your-own-device is a business choice, not a moral failing — but it needs a boundary. Personal phones checking email may be fine with app protection. Personal laptops remoting into finance usually are not. Write the rule. Enforce it with controls, not memos. And if you already pay for Microsoft 365 or Google Workspace security features you never turned on, start there before buying another logo.
 
 ## Phase 3: Least privilege and network segmentation that fits your size (weeks 8–16)
 
@@ -172,19 +170,15 @@ Five honest metrics beat a maturity rainbow chart.
 
 Zero Trust fails when leadership asks for exceptions faster than IT can grant secure access. If every executive VIP path bypasses MFA, you do not have Zero Trust. You have a dress code with a private entrance.
 
-This is where fractional CIO / vCIO discipline helps: someone has to say no with a business reason, offer a safer alternative, and keep score when exceptions accumulate. Security that only applies to everyone else is theater with better lighting.
-
-Train people in the same plain language. "We verify sign-ins and limit access so a stolen password doesn't become a company outage" works better than a lunch-and-learn titled *Embracing the Zero Trust Paradigm.*
+Someone has to say no with a business reason, offer a safer alternative, and keep score when exceptions accumulate — often a CIO, CISO, or fractional vCIO. Security that only applies to everyone else is theater with better lighting. Train people in the same plain language: "We verify sign-ins and limit access so a stolen password doesn't become a company outage" beats any lunch-and-learn titled *Embracing the Zero Trust Paradigm.*
 
 ## Start where attackers already start
 
 Attackers do not need your future-state architecture diagram. They need one phishable identity, one flat path to backups, or one forgotten remote access account.
 
-So start there.
+So start there. Prove identity. Prefer healthy devices. Narrow access. Watch the critical paths. Document enough that insurers, customers, and auditors see a real program — not a sticker on a firewall.
 
-Prove identity. Prefer healthy devices. Narrow access. Watch the critical paths. Document enough that insurers, customers, and auditors see a real program — not a sticker on a firewall.
-
-That is Zero Trust without the buzzwords: a practical mid-market rollout you can fund in phases, run with a small team or a trusted partner, and explain to leadership in one page.
+That is Zero Trust without the buzzwords: a mid-market rollout you can fund in phases, run with a small team or a trusted partner, and explain to leadership in one page.
 
 If you want help turning this into a sequenced plan for your stack — identity, endpoints, monitoring, and compliance mapping without the enterprise bloat — that is the work Cybercon Solutions does in cybersecurity and IT leadership engagements: risk and control review first, then protect, monitor, and tighten what actually matters.
 
