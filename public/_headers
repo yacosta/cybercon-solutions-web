@@ -23,3 +23,9 @@
 
 /openapi.json
   Content-Type: application/vnd.oai.openapi+json; charset=utf-8
+
+# Force download for lead-magnet / sample documents
+/downloads/*
+  Content-Type: application/pdf
+  Content-Disposition: attachment
+  Cache-Control: public, max-age=86400

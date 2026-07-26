@@ -4,6 +4,7 @@ description: 'Most MSP reports are ticket charts nobody reads. Here is how manag
 titleEs: 'TI administrada que reporta como un CIO: SLAs, KPIs y revisiones trimestrales que importan'
 descriptionEs: 'La mayoría de los reportes de MSP son gráficos de tickets que nadie lee. Así debe reportar la TI administrada como un CIO: SLAs con significado, KPIs ligados al negocio y QBRs que impulsan decisiones.'
 pubDate: 2026-07-26
+updatedDate: 2026-07-26
 banner: managed-it-support
 bannerAlt:
   en: 'IT support professional assisting a colleague at a workstation in a modern office'
@@ -114,7 +115,9 @@ Timebox it. Sixty minutes is plenty when the packet went out 48 hours ahead and 
 
 Whether you work with Cybercon or evaluate another provider, use this as a filter.
 
-**Ask for a sample QBR with real (anonymized) decisions.** If they only show dashboard screenshots, keep interviewing.
+**Ask for a sample QBR with real (anonymized) decisions.** If they only show dashboard screenshots, keep interviewing. Here is ours — a full anonymized packet with SLA/KPI trends, incident briefs, ranked risks, and five in-meeting decisions (approved, deferred, and declined):
+
+**[Download sample QBR (PDF)](/downloads/cybercon-sample-qbr-anonymized.pdf)** — Harborline Services Group (fictionalized composite), Q2 2026 review.
 
 **Ask how priorities are defined.** If "urgent" is user-selected with no business rules, your SLA is already soft.
 
