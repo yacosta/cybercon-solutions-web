@@ -38,8 +38,11 @@ const i = t.industries;
 
 <style>
   .industries {
-    background: var(--white);
+    background:
+      linear-gradient(180deg, rgba(15, 44, 76, 0.04), transparent 42%),
+      var(--cream);
     padding: var(--section-pad-y) 0;
+    scroll-margin-top: 5rem;
   }
 
   .industries-head {
@@ -116,48 +119,44 @@ const i = t.industries;
     }
   }
 
-  .industries-reveal {
-    opacity: 0;
-    transform: translateY(0.85rem);
-    animation: industries-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
-
-  .industries-reveal-delay-1 {
-    animation-delay: 0.06s;
-  }
-
-  .industries-reveal-delay-2 {
-    animation-delay: 0.12s;
-  }
-
-  .industries-reveal-delay-3 {
-    animation-delay: 0.18s;
-  }
-
-  .industries-reveal-delay-4 {
-    animation-delay: 0.24s;
-  }
-
-  .industries-reveal-delay-5 {
-    animation-delay: 0.3s;
-  }
-
-  .industries-reveal-delay-6 {
-    animation-delay: 0.36s;
-  }
-
-  @keyframes industries-rise {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: no-preference) {
     .industries-reveal {
-      opacity: 1;
-      transform: none;
-      animation: none;
+      animation: industries-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .industries-reveal-delay-1 {
+      animation-delay: 0.06s;
+    }
+
+    .industries-reveal-delay-2 {
+      animation-delay: 0.12s;
+    }
+
+    .industries-reveal-delay-3 {
+      animation-delay: 0.18s;
+    }
+
+    .industries-reveal-delay-4 {
+      animation-delay: 0.24s;
+    }
+
+    .industries-reveal-delay-5 {
+      animation-delay: 0.3s;
+    }
+
+    .industries-reveal-delay-6 {
+      animation-delay: 0.36s;
+    }
+
+    @keyframes industries-rise {
+      from {
+        opacity: 0;
+        transform: translateY(0.85rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   }
 </style>

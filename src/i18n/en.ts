@@ -17,6 +17,7 @@ export const en = {
     home: 'Home',
     services: 'Services',
     servicesMenu: 'Services menu',
+    industries: 'Industries',
     contact: 'Contact',
     menu: 'Menu',
     close: 'Close',

@@ -14,6 +14,7 @@ const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
 const contactHref = localePath(locale, '/contact/');
+const industriesHref = `${homeHref}#industries`;
 const path = Astro.url.pathname;
 const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
@@ -23,6 +24,7 @@ const onContact =
   path === '/es/contact' ||
   path.startsWith('/es/contact/');
 const onServices = path.includes('/services/');
+const onIndustries = Astro.url.hash === '#industries' || (onHome && Astro.url.hash === 'industries');
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
 const serviceLinks = services.map((service) => ({
@@ -81,6 +83,15 @@ const serviceLinks = services.map((service) => ({
             }
           </ul>
         </div>
+
+        <a
+          href={industriesHref}
+          class:list={['nav-link', { active: onIndustries }]}
+          aria-current={onIndustries ? 'page' : undefined}
+        >
+          <span class="nav-dot" aria-hidden="true"></span>
+          <span>{t.nav.industries}</span>
+        </a>
 
         <a
           href={blogHref}
@@ -206,6 +217,14 @@ const serviceLinks = services.map((service) => ({
           </a>
         ))
       }
+      <a
+        href={industriesHref}
+        class:list={['menu-panel-link', { active: onIndustries }]}
+        aria-current={onIndustries ? 'page' : undefined}
+      >
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>{t.nav.industries}</span>
+      </a>
       <a
         href={blogHref}
         class:list={['menu-panel-link', { active: onBlog }]}
