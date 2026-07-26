@@ -25,8 +25,9 @@ export const es: Messages = {
   },
   contact: {
     title: 'Contacto',
+    metaTitle: 'Contacto Cybercon Solutions | TI Sur de Florida',
     description:
-      'Habla con Cybercon sobre TI administrada, ciberseguridad, nube e IA en el Sur de Florida. Un ingeniero real responde en un día hábil.',
+      'Contacta a Cybercon Solutions para TI administrada, ciberseguridad, nube e IA en Cooper City, Davie y el Sur de Florida. Un ingeniero real responde en un día hábil.',
     eyebrow: 'Cybercon Solutions',
     heading: '¡Trabajemos juntos!',
     lede:
@@ -66,6 +67,9 @@ export const es: Messages = {
   form: {
     eyebrow: 'Cybercon Solutions',
     title: 'Solicita una evaluación gratuita.',
+    metaTitle: 'Evaluación de TI gratuita | Cybercon Solutions',
+    metaDescription:
+      'Agenda una evaluación de TI gratuita con Cybercon Solutions. TI administrada, ciberseguridad y CIO fraccional en el Sur de Florida — siguientes pasos claros en un día hábil. Sin compromiso.',
     cardTitle: 'Empieza con una evaluación gratuita',
     lede: 'Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.',
     name: 'Nombre',
