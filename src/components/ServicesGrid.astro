@@ -6,10 +6,10 @@ interface Props {
   eyebrow: string;
   title: string;
   lede: string;
-  learnMore: string;
+  learnMoreAbout: string;
 }
 
-const { locale, eyebrow, title, lede, learnMore } = Astro.props;
+const { locale, eyebrow, title, lede, learnMoreAbout } = Astro.props;
 ---
 
 <section class="services" aria-labelledby="services-title">
@@ -29,7 +29,9 @@ const { locale, eyebrow, title, lede, learnMore } = Astro.props;
               <li>{item[locale]}</li>
             ))}
           </ul>
-          <a class="more" href={servicePath(locale, service.slug)}>{learnMore}</a>
+          <a class="more" href={servicePath(locale, service.slug)}>
+            {learnMoreAbout.replace('{name}', service.title[locale])}
+          </a>
         </article>
       ))}
     </div>

@@ -97,7 +97,7 @@ export const es: Messages = {
     title: 'Un solo aliado para toda tu tecnología.',
     lede:
       'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.',
-    learnMore: 'Saber más',
+    learnMoreAbout: 'Saber más sobre {name}',
   },
   engagement: {
     eyebrow: 'Cómo funciona un engagement',
@@ -125,7 +125,7 @@ export const es: Messages = {
     title: 'Donde el conocimiento del sector se encuentra con TI que resiste.',
     lede:
       'Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente — no TI genérica para todos igual.',
-    learnMore: 'Saber más',
+    learnMoreAbout: 'Saber más sobre {name}',
     allIndustries: 'Todas las industrias',
     overviewTitle: 'Hecho para cómo opera este sector de verdad',
     industriesMenu: 'Menú de industrias',
