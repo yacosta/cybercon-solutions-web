@@ -33,7 +33,9 @@ const i = t.industries;
               <a href={industryPath(locale, industry.slug)}>{industry.title[locale]}</a>
             </h3>
             <p class="industry-body">{industry.summary[locale]}</p>
-            <a class="industry-more" href={industryPath(locale, industry.slug)}>{i.learnMore}</a>
+            <a class="industry-more" href={industryPath(locale, industry.slug)}>
+              {i.learnMoreAbout.replace('{name}', industry.title[locale])}
+            </a>
           </li>
         ))
       }

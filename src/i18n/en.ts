@@ -95,7 +95,7 @@ export const en = {
     title: 'One partner for all of your technology.',
     lede:
       'We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.',
-    learnMore: 'Learn more',
+    learnMoreAbout: 'Learn more about {name}',
   },
   engagement: {
     eyebrow: 'How an engagement works',
@@ -123,7 +123,7 @@ export const en = {
     title: 'Where industry knowledge meets IT that holds up.',
     lede:
       'Cooper City, Davie, and South Florida organizations with real compliance, uptime, and client-trust pressure — not generic IT for every logo the same way.',
-    learnMore: 'Learn more',
+    learnMoreAbout: 'Learn more about {name}',
     allIndustries: 'All industries',
     overviewTitle: 'Built for how this industry actually runs',
     industriesMenu: 'Industries menu',
