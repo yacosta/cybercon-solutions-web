@@ -1,8 +1,8 @@
 export const en = {
   meta: {
-    title: 'Managed IT & Cybersecurity in South Florida | Cybercon',
+    title: 'Managed IT & Cybersecurity in Cooper City & Davie | Cybercon',
     description:
-      'Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline.',
+      'Predictable per-user IT for South Florida businesses — no break/fix surprises. 24/7 help desk, monitoring, and SOC-backed security. Free site check or assessment.',
   },
   nav: {
     search: 'Search',
@@ -57,26 +57,30 @@ export const en = {
   },
   hero: {
     eyebrow: 'Cooper City & Davie, Florida',
-    title: 'Your IT department, without the overhead.',
+    title: 'Technology, handled.',
     lede:
-      'Managed IT, cybersecurity, cloud, and AI. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.',
+      'Your IT department — without the overhead, the surprise invoices, or the 2 a.m. scramble. Predictable per-user pricing, 24/7 help desk, monitoring, and SOC-backed escalation when your team needs backup.',
     status: 'Serving South Florida businesses',
-    cta: 'Book a free assessment',
+    cta: 'See what your IT actually costs',
+    ctaSecondary: 'Run the free site check',
   },
   form: {
     eyebrow: 'Cybercon Solutions',
-    title: 'Book a free assessment.',
-    metaTitle: 'Free IT Assessment | Cybercon Solutions',
+    title: 'See what your IT actually costs.',
+    metaTitle: 'Free IT Cost & Risk Assessment | Cybercon Solutions',
     metaDescription:
-      'Book a free IT assessment with Cybercon Solutions. South Florida managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day. No obligation.',
-    cardTitle: 'Get started with a free assessment',
-    lede: 'Plain English, no obligation. You get a clear picture of where your technology stands.',
+      'Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day.',
+    cardTitle: 'Book a free cost-and-risk assessment',
+    lede: 'Plain English. No obligation. A clear picture of spend, gaps, and which risks are funded.',
     name: 'Name',
     company: 'Company',
     email: 'Email',
-    submit: 'Submit your request',
+    submit: 'Book my free assessment',
     microcopy:
       'A real engineer replies within one business day. We never share your details.',
+    siteCheckLede:
+      'Prefer a fast technical read first? Start with the free site check, then book the assessment for the deeper pass.',
+    siteCheckCta: 'Run the free site check',
     thanksTitle: 'Thanks, we received your request.',
     thanksBody:
       "We'll be in touch within one business day. No sales pressure, just a clear next step.",
@@ -92,10 +96,10 @@ export const en = {
   },
   services: {
     eyebrow: 'What we handle',
-    title: 'One partner for all of your technology.',
+    title: 'One partner for the stack. One bill you can plan around.',
     lede:
-      'We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.',
-    learnMoreAbout: 'Learn more about {name}',
+      'Proactive managed IT with per-user pricing — no break/fix surprises. We take routine patching, monitoring, and helpdesk noise off your plate so your people execute strategy — and we stay the escalation tier when things get loud.',
+    learnMoreAbout: '{name}: what’s included',
   },
   engagement: {
     eyebrow: 'How an engagement works',
@@ -104,26 +108,26 @@ export const en = {
       {
         number: '01',
         title: 'Discovery',
-        body: 'We scope your environment with you: what’s broken, what’s growing, and the constraints that matter — so the plan reflects how your business actually runs.',
+        body: 'What’s broken, what’s growing, and the budget and risk constraints that matter. You leave with priorities, gaps, and what to retire vs. fund — not a slide deck of buzzwords.',
       },
       {
         number: '02',
         title: 'Strategy',
-        body: 'You get a clear picture of priorities, risks, timeline, and next steps. Nothing kicks off until you’ve approved the scope and the approach.',
+        body: 'Priorities, risks, timeline, and next steps. Nothing starts until you’ve approved the scope and the approach.',
       },
       {
         number: '03',
         title: 'Execution',
-        body: 'We run it, and we don’t disappear. We deliver the work, keep you informed on a cadence that fits, and stay accountable through sign-off and beyond.',
+        body: 'We run it, report on a cadence you choose, and stay accountable through sign-off and beyond. We don’t disappear after kickoff.',
       },
     ],
   },
   industries: {
     eyebrow: 'Industries',
-    title: 'Where industry knowledge meets IT that holds up.',
+    title: 'IT that matches how your industry actually runs.',
     lede:
-      'Cooper City, Davie, and South Florida organizations with real compliance, uptime, and client-trust pressure — not generic IT for every logo the same way.',
-    learnMoreAbout: 'Learn more about {name}',
+      'Cooper City, Davie, and South Florida orgs under real compliance, uptime, and client-trust pressure — not the same stack for every logo. Same playbook, different controls: mapped to how your people work.',
+    learnMoreAbout: 'IT built for {name}',
     allIndustries: 'All industries',
     overviewTitle: 'Built for how this industry actually runs',
     industriesMenu: 'Industries menu',
@@ -134,9 +138,9 @@ export const en = {
     includedTitle: 'What’s included',
     processTitle: 'How we work',
     faqTitle: 'FAQ',
-    ctaTitle: 'Want a clear picture of where your tech stands?',
-    ctaBody: 'A free assessment with clear next steps.',
-    cta: 'Book a free assessment',
+    ctaTitle: 'Want a clear picture of what your IT costs — and which risks are funded?',
+    ctaBody: 'A free assessment with clear next steps. Prefer a fast technical read first? Run the free site check.',
+    cta: 'See what your IT actually costs',
   },
   blog: {
     nav: 'Blog',

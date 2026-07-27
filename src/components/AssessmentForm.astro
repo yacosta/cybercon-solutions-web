@@ -13,6 +13,7 @@ interface Props {
 const { locale, t, layout = 'inline' } = Astro.props;
 const siteKey = turnstileSiteKey();
 const privacyHref = localePath(locale, '/privacy/');
+const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
 const isSplit = layout === 'split';
 ---
 
@@ -43,6 +44,10 @@ const isSplit = layout === 'split';
         <>
           <h2 id="assessment-title">{t.form.title}</h2>
           <p class="lede">{t.form.lede}</p>
+          <p class="site-check-prompt">
+            {t.form.siteCheckLede}{' '}
+            <a href={siteCheckHref}>{t.form.siteCheckCta}</a>
+          </p>
         </>
       )
     }
@@ -211,7 +216,22 @@ const isSplit = layout === 'split';
     color: var(--body-muted);
     font-size: 1rem;
     max-width: 40rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .site-check-prompt {
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+    max-width: 40rem;
+    margin: 0 0 1.75rem;
+    line-height: 1.55;
+  }
+
+  .site-check-prompt a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
   }
 
   .form:not(.form-split):not([hidden]),

@@ -42,7 +42,7 @@ Do this in the **same PR** as the fix whenever practical. Do not leave tribal kn
 ## Descriptive link text (SEO + a11y)
 
 - Never ship bare “Learn more” / “Saber más” / “Click here” / “Read more” as the sole link text when multiple links share that label.
-- Use topic-specific copy via i18n templates, e.g. `learnMoreAbout: 'Learn more about {name}'` / `'Saber más sobre {name}'`.
+- Use topic-specific copy via i18n templates, e.g. services `learnMoreAbout: '{name}: what’s included'` / industries `'IT built for {name}'` (ES equivalents in `es.ts`). Never bare “Learn more” / “Saber más”.
 - Homepage services + industries cards: see `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/en.ts`, `src/i18n/es.ts`.
 - Visible anchor text must include the destination topic (crawlers use text content; do not rely on `aria-label` alone for SEO).
 
