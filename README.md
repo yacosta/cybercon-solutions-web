@@ -13,7 +13,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 ## Features
 
 - EN / ES homepage with full-bleed hero video (server racks), assessment form + Turnstile
-- Free lite website check (`/site-check/`, homepage embed) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
+- Free lite website check on Web Design & Development (`/services/web-design-development/#site-check`, short URL `/site-check/` redirects) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
 - Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner (`cybercon-consent-v1`)
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`)
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
@@ -218,7 +218,7 @@ Expect passes for content-site checks:
 src/
   components/   Hero, AssessmentForm, SiteCheck, CookieBanner, PrivacyPage, …
   layouts/      BaseLayout (SEO + ADA + WebMCP)
-  pages/        /, /es/, /site-check/, /privacy/, /client/, /api/, /search/
+  pages/        /, /es/, /services/, /privacy/, /client/, /api/, /search/
   lib/          auth0, turnstile, seo, markdown-pages, site-check/
 public/
   robots.txt, llms.txt, auth.md, openapi.json, _headers, .assetsignore

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
+import SiteCheck from './SiteCheck.astro';
 import type { Service } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
 import { buildServiceEditorial } from '../lib/service-editorial';
@@ -26,6 +27,7 @@ const homePath = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
 const servicesHref = `${homePath}#services-title`;
 const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
+const showSiteCheck = service.slug === 'web-design-development';
 ---
 
 <BaseLayout
@@ -67,7 +69,11 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
       <p class="wd-hero-lede">{copy.lede}</p>
       <div class="wd-hero-actions">
         <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-        <a class="wd-text-link" href={servicesHref}>{t.servicePage.back}</a>
+        {showSiteCheck ? (
+          <a class="wd-text-link" href="#site-check">{t.siteCheck.submit}</a>
+        ) : (
+          <a class="wd-text-link" href={servicesHref}>{t.servicePage.back}</a>
+        )}
       </div>
       <p class="wd-hero-note">{copy.replyNote}</p>
     </section>
@@ -102,7 +108,9 @@ const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
       </ol>
     </section>
 
-    <hr class="wd-rule" />
+    {showSiteCheck && <SiteCheck locale={locale} t={t} variant="embed" />}
+
+    {!showSiteCheck && <hr class="wd-rule" />}
 
     <section class="wd-after container" aria-labelledby="wd-feature-title">
       <header class="wd-after-head">

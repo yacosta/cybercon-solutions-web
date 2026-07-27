@@ -8,7 +8,6 @@ import AssessmentForm from '../components/AssessmentForm.astro';
 import ServicesGrid from '../components/ServicesGrid.astro';
 import EngagementWorks from '../components/EngagementWorks.astro';
 import IndustriesSection from '../components/IndustriesSection.astro';
-import SiteCheck from '../components/SiteCheck.astro';
 import { getMessages } from '../i18n';
 
 const locale = 'en' as const;
@@ -43,8 +42,6 @@ const t = getMessages(locale);
   />
 
   <EngagementWorks t={t} />
-
-  <SiteCheck locale={locale} t={t} variant="embed" />
 
   <AssessmentForm locale={locale} t={t} />
 

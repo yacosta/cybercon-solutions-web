@@ -184,7 +184,7 @@ export const es: Messages = {
     nav: 'Revisión del sitio',
     metaTitle: 'Revisión lite gratuita del sitio | Cybercon Solutions',
     metaDescription:
-      'Una revisión superficial gratuita de ~60 segundos — un hallazgo claro, luego una evaluación más profunda. Cooper City y Davie, FL.',
+      'Una revisión superficial gratuita de ~60 segundos — un hallazgo claro, luego una evaluación más profunda. Parte de Diseño y desarrollo web para Cooper City y Davie, FL.',
     eyebrow: 'Revisión lite gratuita · ~60 segundos',
     title: 'Una mirada rápida a tu sitio web.',
     lede: 'Introduce tu dominio. Miramos el sitio desde afuera, compartimos un hallazgo real y dejamos lo profundo para una llamada corta — donde también podemos hablar de correcciones.',

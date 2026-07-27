@@ -28,7 +28,9 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
       <span class="divider" aria-hidden="true">|</span>
       <a href={localePath(locale, '/contact/')}>{t.footer.contact}</a>
       <span class="divider" aria-hidden="true">|</span>
-      <a href={localePath(locale, '/site-check/')}>{t.footer.siteCheck}</a>
+      <a href={`${localePath(locale, '/services/web-design-development/')}#site-check`}>
+        {t.footer.siteCheck}
+      </a>
       <span class="divider" aria-hidden="true">|</span>
       <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
       <span class="divider" aria-hidden="true">|</span>

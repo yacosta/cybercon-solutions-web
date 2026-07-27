@@ -182,7 +182,7 @@ export const en = {
     nav: 'Site check',
     metaTitle: 'Free Lite Website Check | Cybercon Solutions',
     metaDescription:
-      'A free 60-second surface check of your website — one clear finding, then book a deeper assessment. Cooper City & Davie, FL.',
+      'A free 60-second surface check of your website — one clear finding, then book a deeper assessment. Part of our Web Design & Development service for Cooper City & Davie, FL.',
     eyebrow: 'Free lite check · ~60 seconds',
     title: 'A quick look at your website.',
     lede: 'Enter your domain. We skim the live site from the outside, share one real finding, and leave the deeper work for a short call — where we can also talk about fixes.',
