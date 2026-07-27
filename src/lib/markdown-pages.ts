@@ -97,89 +97,87 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 const contactEn = `---
 title: "Contact Cybercon Solutions | South Florida IT"
-description: "Contact Cybercon Solutions for managed IT, cybersecurity, cloud, and AI in Cooper City, Davie, and South Florida. A real engineer replies within one business day."
+description: "Tell Cybercon what’s broken, what it’s costing you, or where your team needs backup. Cooper City, Davie, and South Florida. A real engineer replies within one business day."
 ---
 
 # Contact Cybercon Solutions
 
-Let's work together. Tell us what is broken, what is growing, or what you want clarified. We reply within one business day — no obligation.
+Tell us what’s broken — or what it’s costing you. Unpredictable IT spend, surprise invoices, or a team buried in routine tickets — we absorb the noise so you can run the business. A real engineer replies within one business day. No obligation.
 
 - Phone: ${site.phoneDisplay}
 - Email: ${site.email}
 - Service area: ${site.serviceAreaFocus}
 - Mailing address: ${formatMailingAddress()}
 
-Submit the contact form at https://cybercon-solutions.com/contact/ (protected by Cloudflare Turnstile), or book a free assessment at https://cybercon-solutions.com/assessment/.
+Send a message at https://cybercon-solutions.com/contact/ (protected by Cloudflare Turnstile), book a cost-and-risk assessment at https://cybercon-solutions.com/assessment/, or run the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check.
 `;
 
 const contactEs = `---
 title: "Contacto Cybercon Solutions | TI Sur de Florida"
-description: "Contacta a Cybercon Solutions para TI administrada, ciberseguridad, nube e IA en Cooper City, Davie y el Sur de Florida. Un ingeniero real responde en un día hábil."
+description: "Cuéntale a Cybercon qué falla, cuánto te está costando o dónde tu equipo necesita refuerzo. Cooper City, Davie y el Sur de Florida. Un ingeniero real responde en un día hábil."
 ---
 
 # Contacto Cybercon Solutions
 
-Trabajemos juntos. Cuéntanos qué está fallando, qué está creciendo o qué quieres aclarar. Respondemos en un día hábil — sin compromiso.
+Cuéntanos qué falla — o cuánto te está costando. Gasto de TI impredecible, facturas sorpresa o un equipo enterrado en tickets rutinarios — absorbemos el ruido para que tú operes el negocio. Un ingeniero real responde en un día hábil. Sin compromiso.
 
 - Teléfono: ${site.phoneDisplay}
 - Correo: ${site.email}
 - Zona de servicio: Cooper City, Davie y el sur de Florida
 - Dirección postal: ${formatMailingAddress()}
 
-Envía el formulario en https://cybercon-solutions.com/es/contact/ (protegido con Cloudflare Turnstile), o solicita una evaluación en https://cybercon-solutions.com/es/assessment/.
+Envía un mensaje en https://cybercon-solutions.com/es/contact/ (protegido con Cloudflare Turnstile), agenda una evaluación en https://cybercon-solutions.com/es/assessment/, o haz la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check.
 `;
 
 const assessmentEn = `---
-title: "Free IT Assessment | Cybercon Solutions"
-description: "Book a free IT assessment with Cybercon Solutions. South Florida managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day. No obligation."
+title: "Free IT Cost & Risk Assessment | Cybercon Solutions"
+description: "Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day."
 ---
 
-# Free IT Assessment
+# Free IT Cost & Risk Assessment
 
-Book a free assessment. Plain English, no obligation. You get a clear picture of where your technology stands.
+See what your IT actually costs. Plain English. No obligation. A clear picture of spend, gaps, and which risks are funded.
 
 Submit name, company, and work email via https://cybercon-solutions.com/assessment/ (protected by Cloudflare Turnstile). A real engineer replies within one business day.
 
-Prefer a general inquiry? Use https://cybercon-solutions.com/contact/.
+Prefer a fast technical read first? Run the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check. General inquiry? Use https://cybercon-solutions.com/contact/.
 `;
 
 const assessmentEs = `---
-title: "Evaluación de TI gratuita | Cybercon Solutions"
-description: "Agenda una evaluación de TI gratuita con Cybercon Solutions. TI administrada, ciberseguridad y CIO fraccional en el Sur de Florida — siguientes pasos claros en un día hábil. Sin compromiso."
+title: "Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions"
+description: "Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — siguientes pasos claros en un día hábil."
 ---
 
-# Evaluación de TI gratuita
+# Evaluación gratuita de costo y riesgo de TI
 
-Solicita una evaluación gratuita. Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.
+Mira lo que realmente cuesta tu TI. Sin tecnicismos. Sin compromiso. Una lectura clara del gasto, las brechas y qué riesgos están cubiertos.
 
 Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/assessment/ (protegido con Cloudflare Turnstile). Un ingeniero real responde en un día hábil.
 
-¿Prefieres una consulta general? Usa https://cybercon-solutions.com/es/contact/.
+¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check. ¿Consulta general? Usa https://cybercon-solutions.com/es/contact/.
 `;
 
 const pages: Record<string, string> = {
   '/': `---
-title: "Managed IT & Cybersecurity in South Florida | Cybercon"
-description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline."
+title: "Managed IT & Cybersecurity in Cooper City & Davie | Cybercon"
+description: "Predictable per-user IT for South Florida businesses — no break/fix surprises. 24/7 help desk, monitoring, and SOC-backed security. Free site check or assessment."
 ---
 
 # Cybercon Solutions
 
-Your IT department, without the overhead.
+Technology, handled.
 
-Managed IT, cybersecurity, cloud, and AI. We catch problems early, and we treat security as the baseline. Tell us where to start and a real engineer will follow up within one business day.
+Your IT department — without the overhead, the surprise invoices, or the 2 a.m. scramble. Predictable per-user pricing, 24/7 help desk, monitoring, and SOC-backed escalation when your team needs backup.
 
-**We catch issues early and treat security as the baseline.**
+## See what your IT actually costs
 
-## Book a free assessment
-
-Plain English, no obligation. You get a clear picture of where your technology stands.
+Plain English. No obligation. A clear picture of spend, gaps, and which risks are funded. Prefer a fast technical read first? Run the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check.
 
 Submit name, company, and work email via the form on https://cybercon-solutions.com/ (protected by Cloudflare Turnstile).
 
 ## What we handle
 
-One partner for all of your technology. We manage everything below proactively, with predictable per-user pricing. No break/fix surprises, and no jargon.
+One partner for the stack. One bill you can plan around. Proactive managed IT with per-user pricing — no break/fix surprises. We take routine patching, monitoring, and helpdesk noise off your plate so your people execute strategy.
 
 ${servicesMarkdown('en')}
 

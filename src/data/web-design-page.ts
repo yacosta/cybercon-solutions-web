@@ -121,16 +121,16 @@ export const webDesignPage: WebDesignPageCopy = {
   },
   cta: {
     title: {
-      en: 'Want a clear picture of where your tech stands?',
-      es: '¿Quieres ver con claridad cómo está tu tecnología?',
+      en: 'Want a clear picture of what your IT costs — and which risks are funded?',
+      es: '¿Quieres ver con claridad lo que cuesta tu TI — y qué riesgos están cubiertos?',
     },
     body: {
-      en: 'A free assessment with clear next steps.',
-      es: 'Una evaluación gratuita con próximos pasos claros.',
+      en: 'A free assessment with clear next steps. Prefer a fast technical read first? Run the free site check.',
+      es: 'Una evaluación gratuita con próximos pasos claros. ¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio.',
     },
     button: {
-      en: 'Book a free assessment',
-      es: 'Solicita una evaluación gratuita',
+      en: 'See what your IT actually costs',
+      es: 'Mira lo que realmente cuesta tu TI',
     },
   },
 };
