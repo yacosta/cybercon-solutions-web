@@ -1,7 +1,7 @@
 import { Resend } from 'resend';
 import { runtimeEnv } from './env';
 
-const DEFAULT_FROM = 'Cybercon Solutions <onboarding@resend.dev>';
+const DEFAULT_FROM = 'Cybercon Solutions <alerts@cybercon-solutions.com>';
 const DEFAULT_TO = 'yacosta@cybercon-solutions.com';
 const PLACEHOLDER_API_KEY = 're_xxxxxxxxx';
 

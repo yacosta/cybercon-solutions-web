@@ -126,7 +126,7 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 | `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key (also set as a **Build** var if you want it baked into prerendered HTML) |
 | `TURNSTILE_SECRET_KEY` | Yes (prod forms) | Turnstile secret |
 | `RESEND_API_KEY` | Optional | Email alert via [Resend](https://resend.com) (preferred; Attio is primary CRM). Replace `re_xxxxxxxxx` with your real key |
-| `RESEND_FROM` | Optional | From address (default `Cybercon Solutions <onboarding@resend.dev>`) |
+| `RESEND_FROM` | Optional | From address (default `Cybercon Solutions <alerts@cybercon-solutions.com>` after DNS verify) |
 | `RESEND_TO` | Optional | Inbox for form alerts (default `yacosta@cybercon-solutions.com`) |
 | `WEB3FORMS_ACCESS_KEY` | Optional | Fallback email alert if Resend is unset |
 | `ATTIO_API_KEY` | **Required for CRM** | Upserts form submitters to Attio as People/Companies (prospects) |
@@ -162,14 +162,11 @@ When `RESEND_API_KEY` is set, assessment / contact / site-check submissions also
 4. Production: Cloudflare → **Workers** → **`cybercon-solutions-web`** → **Settings → Variables and Secrets** → add **`RESEND_API_KEY`** as a **Secret**
 5. Confirm: `GET /api/health` → `"resend": true`
 
-Until you verify a custom domain in Resend, the default from address `onboarding@resend.dev` works for testing.
-
 #### Resend DNS (Cloudflare zone `cybercon-solutions.com`)
 
-DNS is managed in Cloudflare (nameservers `abby` / `sid`). Add the domain in [Resend → Domains](https://resend.com/domains), then either:
+DNS is managed in Cloudflare (nameservers `abby` / `sid`). Domain status in Resend should be **Verified**.
 
-- **Automatic:** click **Sign in to Cloudflare** (Domain Connect), or
-- **Manual:** add these three records under Cloudflare → **DNS → Records** (Proxy status **DNS only** / grey cloud):
+Required records (Proxy **DNS only** / grey cloud):
 
 | Type | Name | Content / Mail server | Priority |
 |------|------|------------------------|----------|
@@ -179,10 +176,7 @@ DNS is managed in Cloudflare (nameservers `abby` / `sid`). Add the domain in [Re
 
 In Cloudflare, use short names (`send`, `resend._domainkey`) — omit `.cybercon-solutions.com`.
 
-Then in Resend click **Verify DNS Records**. After status is **Verified**:
-
-1. Set Worker / `.env` `RESEND_FROM` to a from-address on that domain, e.g. `Cybercon Solutions <alerts@cybercon-solutions.com>`
-2. Keep `RESEND_TO=yacosta@cybercon-solutions.com` (or your inbox)
+Default from address after verify: `Cybercon Solutions <alerts@cybercon-solutions.com>` (override with `RESEND_FROM`). Optional: set `RESEND_TO` (default `yacosta@cybercon-solutions.com`).
 
 **Do not** enable Resend **Receiving** on the root domain — ProtonMail already owns root MX (`mail.protonmail.ch`). Receiving would need a separate subdomain (e.g. `inbound.cybercon-solutions.com`).
 
