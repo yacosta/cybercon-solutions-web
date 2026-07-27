@@ -107,6 +107,10 @@
 /services/digital-marketing/ /services/web-design-development/ 301
 /web-development /services/web-design-development/ 301
 /web-development/ /services/web-design-development/ 301
+/site-check /services/web-design-development/ 301
+/site-check/ /services/web-design-development/ 301
+/es/site-check /es/services/web-design-development/ 301
+/es/site-check/ /es/services/web-design-development/ 301
 
 # --- Generic /services hub (exact only; do not splat — live service pages live under /services/) ---
 /services /#services 301
