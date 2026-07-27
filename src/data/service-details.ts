@@ -836,6 +836,16 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: 'Ayudamos a estructurar páginas y aclarar el mensaje. Las afirmaciones finales son tuyas — no inventamos ofertas ni credenciales que no hayas aprobado.',
         },
       },
+      {
+        question: {
+          en: 'Can I see a sample deep website assessment?',
+          es: '¿Puedo ver una evaluación web profunda de ejemplo?',
+        },
+        answer: {
+          en: 'Yes. Download our anonymized sample deep website assessment (PDF) — SEO, speed, privacy, cookies, accessibility, security, and privacy-law coverage: https://cybercon-solutions.com/downloads/cybercon-sample-website-assessment.pdf',
+          es: 'Sí. Descarga nuestra evaluación web profunda de ejemplo anonimizada (PDF) — SEO, velocidad, privacidad, cookies, accesibilidad, seguridad y cobertura de leyes de privacidad: https://cybercon-solutions.com/downloads/cybercon-sample-website-assessment.pdf',
+        },
+      },
     ],
   },
 };

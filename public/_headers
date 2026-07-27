@@ -29,3 +29,13 @@
   Content-Type: application/pdf
   Content-Disposition: attachment
   Cache-Control: public, max-age=86400
+
+/downloads/cybercon-sample-website-assessment.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment; filename="cybercon-sample-website-assessment.pdf"
+  Cache-Control: public, max-age=86400
+
+/downloads/cybercon-sample-qbr-anonymized.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment; filename="cybercon-sample-qbr-anonymized.pdf"
+  Cache-Control: public, max-age=86400
