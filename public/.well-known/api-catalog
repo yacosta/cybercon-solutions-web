@@ -39,6 +39,30 @@
       ]
     },
     {
+      "anchor": "https://cybercon-solutions.com/api/site-check",
+      "service-desc": [
+        {
+          "href": "https://cybercon-solutions.com/openapi.json#/paths/~1api~1site-check",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://cybercon-solutions.com/services/web-design-development/#site-check",
+          "type": "text/html"
+        },
+        {
+          "href": "https://cybercon-solutions.com/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://cybercon-solutions.com/api/health"
+        }
+      ]
+    },
+    {
       "anchor": "https://cybercon-solutions.com/api/health",
       "service-desc": [
         {
