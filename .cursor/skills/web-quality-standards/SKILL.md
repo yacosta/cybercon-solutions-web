@@ -84,6 +84,18 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Do not try to “fix” Zaraz caching by vendoring or proxying `s.js` in the Astro app.
 - As of the initial fix, the zone had **zero** Response Header Transform rules — the deploy step / dashboard rule is what creates the first one.
 
+## Cookie consent / ePrivacy (prior consent)
+
+Non-essential cookies and trackers must not run until the visitor opts in (ePrivacy / GDPR).
+
+- Banner: `src/components/CookieBanner.astro` — visible on first visit; **Accept analytics** / **Reject non-essential**; footer **Cookie settings** reopens it.
+- Preference: first-party cookie `cybercon_consent` + `localStorage` `cybercon-consent-v1` (`accept` \| `decline`). Keys in `src/lib/consent.ts`.
+- Google Consent Mode v2 defaults to denied in `BaseLayout` `<head>` before any tags; `Analytics.astro` loads gtag.js only after `accept`.
+- Do not add marketing/analytics scripts that fire before `cybercon:consent` with `value: 'accept'`.
+- If using Cloudflare Zaraz tools: enable Zaraz Consent Management in the dashboard, assign tools to an Analytics purpose, and keep the site banner as UI (it syncs via `zaraz.consent.setAll`). Unassigned Zaraz tools skip consent — always assign them.
+- Policy copy: `src/data/privacy.ts` must stay aligned with the banner behavior.
+- When fixing a new Cookiebot / GDPR / ePrivacy audit finding, update this section in the same PR.
+
 ## Checklist before finishing UI/perf/SEO work
 
 - [ ] No generic repeated link labels (“Learn more”) without topic names
@@ -94,6 +106,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - [ ] EN and ES copy/templates updated together when user-facing strings change
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
+- [ ] Non-essential analytics/trackers still gated behind prior consent (banner + Consent Mode defaults denied)
 - [ ] `npm run build` passes (primary validation gate)
 
 ## Related files
@@ -107,3 +120,4 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 | Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |
+| Cookie consent / ePrivacy | `CookieBanner.astro`, `Analytics.astro`, `BaseLayout.astro`, `src/lib/consent.ts`, `src/data/privacy.ts` |

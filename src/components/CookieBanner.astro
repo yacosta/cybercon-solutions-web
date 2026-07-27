@@ -1,8 +1,15 @@
 ---
 /**
- * Cookie consent banner — ADA dialog, localStorage persistence, analytics gate.
- * Storage key: cybercon-consent-v1 ("accept" | "decline")
+ * Cookie consent banner — ADA dialog, prior consent for non-essential tools.
+ * Persists to localStorage + first-party cookie (cybercon_consent).
+ * Gates analytics / Zaraz optional purposes until the visitor accepts.
  */
+import {
+  CONSENT_COOKIE_NAME,
+  CONSENT_MAX_AGE_SEC,
+  CONSENT_STORAGE_KEY,
+} from '../lib/consent';
+
 interface Props {
   locale: 'en' | 'es';
   title: string;
@@ -31,7 +38,7 @@ const {
   aria-modal="true"
   aria-labelledby="cookie-title"
   aria-describedby="cookie-desc"
-  hidden
+  data-consent-banner
 >
   <div class="cookie-copy">
     <strong id="cookie-title">{title}</strong>
@@ -51,79 +58,170 @@ const {
   </div>
 </div>
 
-<script define:vars={{ locale }}>
-  const KEY = 'cybercon-consent-v1';
-  const banner = document.getElementById('cookie-banner');
-  const acceptBtn = document.getElementById('cookie-accept');
-  const declineBtn = document.getElementById('cookie-decline');
-  let previousFocus = null;
+{/*
+  Synchronous: hide immediately when a choice already exists (avoids banner flash),
+  otherwise leave visible so prior consent is required before non-essential tools.
+*/}
+<script
+  is:inline
+  define:vars={{
+    STORAGE_KEY: CONSENT_STORAGE_KEY,
+    COOKIE_NAME: CONSENT_COOKIE_NAME,
+    MAX_AGE: CONSENT_MAX_AGE_SEC,
+  }}
+>
+  (function () {
+    var banner = document.getElementById('cookie-banner');
+    var acceptBtn = document.getElementById('cookie-accept');
+    var declineBtn = document.getElementById('cookie-decline');
+    var previousFocus = null;
 
-  function getConsent() {
-    return localStorage.getItem(KEY);
-  }
+    function readCookieConsent() {
+      var match = document.cookie.match(
+        new RegExp('(?:^|;\\s*)' + COOKIE_NAME + '=(accept|decline)(?:;|$)')
+      );
+      return match ? match[1] : null;
+    }
 
-  function setConsent(value) {
-    localStorage.setItem(KEY, value);
-    window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value } }));
-  }
+    function getConsent() {
+      try {
+        var stored = localStorage.getItem(STORAGE_KEY);
+        if (stored === 'accept' || stored === 'decline') return stored;
+      } catch (e) {}
+      return readCookieConsent();
+    }
 
-  function showBanner() {
-    if (!banner) return;
-    previousFocus = document.activeElement;
-    banner.hidden = false;
-    // Defer focus until after style/layout settle to avoid forced reflow on load.
-    requestAnimationFrame(() => {
-      acceptBtn?.focus({ preventScroll: true });
+    function writeConsentCookie(value) {
+      document.cookie =
+        COOKIE_NAME +
+        '=' +
+        value +
+        '; Max-Age=' +
+        MAX_AGE +
+        '; Path=/; SameSite=Lax';
+    }
+
+    function syncZaraz(value) {
+      function apply() {
+        var consent = window.zaraz && window.zaraz.consent;
+        if (!consent || !consent.APIReady) return false;
+        try {
+          if (typeof consent.setAll === 'function') {
+            consent.setAll(value === 'accept');
+          }
+          if (value === 'accept' && typeof consent.sendQueuedEvents === 'function') {
+            consent.sendQueuedEvents();
+          }
+          // Prefer our branded banner over Zaraz's default modal when both exist.
+          consent.modal = false;
+        } catch (e) {}
+        return true;
+      }
+      if (!apply()) {
+        document.addEventListener('zarazConsentAPIReady', apply, { once: true });
+      }
+    }
+
+    function updateGtagConsent(value) {
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('consent', 'update', {
+        analytics_storage: value === 'accept' ? 'granted' : 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      });
+    }
+
+    function setConsent(value) {
+      try {
+        localStorage.setItem(STORAGE_KEY, value);
+      } catch (e) {}
+      writeConsentCookie(value);
+      document.documentElement.dataset.consent = value;
+      updateGtagConsent(value);
+      syncZaraz(value);
+      window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value: value } }));
+    }
+
+    function showBanner() {
+      if (!banner) return;
+      previousFocus = document.activeElement;
+      banner.hidden = false;
+      banner.setAttribute('data-open', '');
+      requestAnimationFrame(function () {
+        if (acceptBtn) acceptBtn.focus({ preventScroll: true });
+      });
+    }
+
+    function hideBanner() {
+      if (!banner) return;
+      banner.hidden = true;
+      banner.removeAttribute('data-open');
+      if (previousFocus && previousFocus instanceof HTMLElement) {
+        previousFocus.focus({ preventScroll: true });
+      }
+    }
+
+    function applyConsent(value) {
+      setConsent(value);
+      hideBanner();
+    }
+
+    var existing = getConsent();
+    if (existing === 'accept' || existing === 'decline') {
+      // Returning visitor: restore preference without showing the banner.
+      document.documentElement.dataset.consent = existing;
+      writeConsentCookie(existing);
+      try {
+        localStorage.setItem(STORAGE_KEY, existing);
+      } catch (e) {}
+      updateGtagConsent(existing);
+      syncZaraz(existing);
+      if (banner) banner.hidden = true;
+      if (existing === 'accept') {
+        window.dispatchEvent(
+          new CustomEvent('cybercon:consent', { detail: { value: 'accept' } })
+        );
+      }
+    } else if (banner) {
+      // First visit: banner stays visible; non-essential tools must wait.
+      banner.hidden = false;
+    }
+
+    if (banner) {
+      banner.addEventListener('click', function (event) {
+        var target = event.target;
+        if (!(target instanceof HTMLButtonElement)) return;
+        var value = target.getAttribute('data-consent');
+        if (value === 'accept' || value === 'decline') applyConsent(value);
+      });
+
+      banner.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !banner.hidden) {
+          // Escape = reject non-essential (same as Decline) — affirmative refuse.
+          applyConsent('decline');
+        }
+        if (event.key !== 'Tab' || banner.hidden) return;
+        var focusable = [acceptBtn, declineBtn, document.getElementById('cookie-policy-link')].filter(
+          Boolean
+        );
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+    }
+
+    window.addEventListener('cybercon:cookie-settings', function () {
+      showBanner();
     });
-  }
-
-  function hideBanner() {
-    if (!banner) return;
-    banner.hidden = true;
-    if (previousFocus instanceof HTMLElement) {
-      previousFocus.focus({ preventScroll: true });
-    }
-  }
-
-  function applyConsent(value) {
-    setConsent(value);
-    hideBanner();
-  }
-
-  if (banner && !getConsent()) {
-    showBanner();
-  } else if (getConsent() === 'accept') {
-    window.dispatchEvent(new CustomEvent('cybercon:consent', { detail: { value: 'accept' } }));
-  }
-
-  banner?.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof HTMLButtonElement)) return;
-    const value = target.dataset.consent;
-    if (value === 'accept' || value === 'decline') applyConsent(value);
-  });
-
-  banner?.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !banner.hidden) {
-      applyConsent('decline');
-    }
-    if (event.key !== 'Tab' || banner.hidden) return;
-    const focusable = [acceptBtn, declineBtn, document.getElementById('cookie-policy-link')].filter(Boolean);
-    if (!focusable.length) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  });
-
-  window.addEventListener('cybercon:cookie-settings', () => {
-    showBanner();
-  });
+  })();
 </script>
 
 <style>
