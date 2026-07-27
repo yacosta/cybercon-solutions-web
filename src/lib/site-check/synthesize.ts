@@ -5,8 +5,8 @@ import { buildPrompt, extractJsonObject, normalizeResult } from './prompt';
 export type AiProvider = 'gemini' | 'openai' | 'anthropic';
 
 const DEFAULT_MODELS: Record<AiProvider, string> = {
-  // Fast + cheap; Google Search grounding fits tier-3 visibility checks well.
-  gemini: 'gemini-2.5-flash',
+  // Flash Lite: cheap + available to new Gemini API keys. Override with SITE_CHECK_AI_MODEL.
+  gemini: 'gemini-3.5-flash-lite',
   openai: 'gpt-4o-mini',
   anthropic: 'claude-haiku-4-5-20251001',
 };
@@ -92,7 +92,8 @@ async function synthesizeGemini(
       tools: [{ google_search: {} }],
       generationConfig: {
         temperature: 0.2,
-        maxOutputTokens: 1000,
+        // Headroom for models that spend tokens on internal "thinking".
+        maxOutputTokens: 4096,
         responseMimeType: 'application/json',
       },
     }),
@@ -102,8 +103,8 @@ async function synthesizeGemini(
   if (!res.ok) {
     const errText = await res.text();
     console.error('[site-check] gemini error', res.status, errText.slice(0, 500));
-    // Retry without search grounding if the tool is rejected.
-    if (res.status === 400) {
+    // Retry without search grounding if the tool/model rejects the request.
+    if (res.status === 400 || res.status === 404) {
       return synthesizeGeminiPlain(domain, live, builtWith, apiKey, model, locale);
     }
     return null;
@@ -116,7 +117,11 @@ async function synthesizeGemini(
     .map((p) => p.text)
     .filter(Boolean)
     .join('\n');
-  if (!text) return null;
+  // Search grounding sometimes returns an empty candidate set — fall back to plain.
+  if (!text) {
+    console.warn('[site-check] gemini search returned no text; retrying without grounding');
+    return synthesizeGeminiPlain(domain, live, builtWith, apiKey, model, locale);
+  }
   return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
 }
 
@@ -137,7 +142,7 @@ async function synthesizeGeminiPlain(
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
       generationConfig: {
         temperature: 0.2,
-        maxOutputTokens: 1000,
+        maxOutputTokens: 4096,
         responseMimeType: 'application/json',
       },
     }),
