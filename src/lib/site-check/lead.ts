@@ -1,5 +1,6 @@
 import { attioConfigured, createAssessmentProspect } from '../attio';
 import { runtimeEnv } from '../env';
+import { formNotificationHtml, resendConfigured, sendResendEmail } from '../resend';
 import type { SiteCheckResult } from './types';
 
 function nameFromEmail(email: string): string {
@@ -35,26 +36,46 @@ export async function captureSiteCheckLead(
 
   console.log('[site-check]', JSON.stringify(payload));
 
-  const accessKey = runtimeEnv('WEB3FORMS_ACCESS_KEY');
-  if (accessKey) {
+  if (resendConfigured()) {
     try {
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: accessKey,
-          subject: `Site check — ${result.domain} (grade ${result.overall_grade})`,
-          from_name: 'Cybercon Solutions Website',
-          email,
-          domain: result.domain,
-          site_name: result.site_name,
-          overall_grade: result.overall_grade,
-          tech_chips: result.tech_chips.join(', '),
-          one_line_summary: result.one_line_summary,
+      const ok = await sendResendEmail({
+        subject: `Site check — ${result.domain} (grade ${result.overall_grade})`,
+        replyTo: email,
+        html: formNotificationHtml({
+          Email: email,
+          Domain: result.domain,
+          'Site name': result.site_name,
+          Grade: result.overall_grade,
+          Tech: result.tech_chips.join(', '),
+          Summary: result.one_line_summary,
         }),
       });
+      if (!ok) console.error('[site-check] resend failed');
     } catch (err) {
-      console.error('[site-check] web3forms failed', err);
+      console.error('[site-check] resend failed', err);
+    }
+  } else {
+    const accessKey = runtimeEnv('WEB3FORMS_ACCESS_KEY');
+    if (accessKey) {
+      try {
+        await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: accessKey,
+            subject: `Site check — ${result.domain} (grade ${result.overall_grade})`,
+            from_name: 'Cybercon Solutions Website',
+            email,
+            domain: result.domain,
+            site_name: result.site_name,
+            overall_grade: result.overall_grade,
+            tech_chips: result.tech_chips.join(', '),
+            one_line_summary: result.one_line_summary,
+          }),
+        });
+      } catch (err) {
+        console.error('[site-check] web3forms failed', err);
+      }
     }
   }
 

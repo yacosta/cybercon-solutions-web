@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { attioConfigured, createAssessmentProspect } from '../../lib/attio';
 import { runtimeEnv } from '../../lib/env';
+import { formNotificationHtml, resendConfigured, sendResendEmail } from '../../lib/resend';
 import { verifyTurnstile } from '../../lib/turnstile-verify';
 
 export const prerender = false;
@@ -71,7 +72,28 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     );
   }
 
-  if (accessKey) {
+  // Optional email alert: prefer Resend, fall back to Web3Forms.
+  if (resendConfigured()) {
+    const emailOk = await sendResendEmail({
+      subject: `Contact — ${companyLabel}`,
+      replyTo: email,
+      html: formNotificationHtml({
+        Name: name,
+        Company: companyLabel,
+        Email: email,
+        Message: message,
+        Locale: locale,
+        Source: 'https://cybercon-solutions.com/contact/',
+      }),
+    });
+    if (emailOk) {
+      delivered = true;
+    } else if (!delivered) {
+      return Response.json({ error: 'Delivery failed' }, { status: 502 });
+    } else {
+      console.error('[contact] resend failed after Attio success');
+    }
+  } else if (accessKey) {
     const formRes = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { 'content-type': 'application/json', accept: 'application/json' },

@@ -113,7 +113,7 @@ If that step fails (token missing Transform Rules Edit), create the rule once in
 2. When: `(starts_with(http.request.uri.path, "/cdn-cgi/zaraz/s.js"))`
 3. Then: Set static → `Cache-Control` = `public, max-age=604800` (7 days)
 
-Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
+Runtime variables/secrets (Turnstile, Resend, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
 
 ### Environment variables (Workers → Settings → Variables and Secrets)
 
@@ -125,7 +125,10 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 |----------|----------|--------|
 | `PUBLIC_TURNSTILE_SITE_KEY` | Yes (prod forms) | Cloudflare Turnstile site key (also set as a **Build** var if you want it baked into prerendered HTML) |
 | `TURNSTILE_SECRET_KEY` | Yes (prod forms) | Turnstile secret |
-| `WEB3FORMS_ACCESS_KEY` | Optional | Email alert for assessment submissions (backup; Attio is primary) |
+| `RESEND_API_KEY` | Optional | Email alert via [Resend](https://resend.com) (preferred; Attio is primary CRM). Replace `re_xxxxxxxxx` with your real key |
+| `RESEND_FROM` | Optional | From address (default `Cybercon Solutions <onboarding@resend.dev>`) |
+| `RESEND_TO` | Optional | Inbox for form alerts (default `yacosta@cybercon-solutions.com`) |
+| `WEB3FORMS_ACCESS_KEY` | Optional | Fallback email alert if Resend is unset |
 | `ATTIO_API_KEY` | **Required for CRM** | Upserts form submitters to Attio as People/Companies (prospects) |
 | `ATTIO_PROSPECTS_LIST_ID` | Optional | Attio People list ID/slug to add each prospect into |
 | `PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 ID; loads only after Accept analytics |
@@ -147,7 +150,19 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 
 Optional build variable: `NODE_VERSION=22`.
 
-**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"auth0": true` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
+**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"resend": true` / `"auth0": true` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
+
+### Connect Resend (optional form email alerts)
+
+When `RESEND_API_KEY` is set, assessment / contact / site-check submissions also send an email alert (Attio remains the primary CRM sink).
+
+1. Create an API key at [resend.com/api-keys](https://resend.com/api-keys)
+2. Replace the placeholder `re_xxxxxxxxx` — never commit a real key
+3. Local: put `RESEND_API_KEY=re_...` in `.env` (copied from `.env.example`)
+4. Production: Cloudflare → **Workers** → **`cybercon-solutions-web`** → **Settings → Variables and Secrets** → add **`RESEND_API_KEY`** as a **Secret**
+5. Confirm: `GET /api/health` → `"resend": true`
+
+Until you verify a custom domain in Resend, the default from address `onboarding@resend.dev` works for testing.
 
 ### Connect Attio (assessment form → CRM)
 

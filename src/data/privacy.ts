@@ -77,7 +77,7 @@ export const privacyContent = {
         body: 'We do not sell or rent your personal information. We share it only with service providers who process it on our behalf:',
         list: [
           'Attio — our CRM; stores your assessment or contact request as a contact/company prospect so we can follow up.',
-          'Web3Forms (or equivalent form delivery) — may deliver your form submission to us by email.',
+          'Resend (or Web3Forms) — may deliver your form submission to us by email.',
           'Cloudflare — website hosting (Cloudflare Pages), bot protection (Turnstile), and CDN.',
           'Auth0 — authentication for the client area.',
           'Google — analytics, only if you consent.',
@@ -183,7 +183,7 @@ export const privacyContent = {
         body: 'No vendemos ni alquilamos tu información personal. Solo la compartimos con proveedores que la procesan en nuestro nombre:',
         list: [
           'Attio — nuestro CRM; guarda tu solicitud de evaluación o de contacto como prospecto (contacto/empresa) para el seguimiento.',
-          'Web3Forms (o equivalente) — puede entregar tu envío de formulario por correo.',
+          'Resend (o Web3Forms) — puede entregar tu envío de formulario por correo.',
           'Cloudflare — alojamiento (Cloudflare Pages), protección antibots (Turnstile) y CDN.',
           'Auth0 — autenticación del área de clientes.',
           'Google — analítica, solo si consientes.',

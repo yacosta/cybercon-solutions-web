@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { attioConfigured } from '../../lib/attio';
 import { auth0Configured } from '../../lib/auth0';
 import { runtimeEnv } from '../../lib/env';
+import { resendConfigured } from '../../lib/resend';
 import { siteCheckAiStatus } from '../../lib/site-check';
 
 export const prerender = false;
@@ -24,6 +25,7 @@ export const GET: APIRoute = async () => {
     time: new Date().toISOString(),
     attio: attioConfigured(),
     turnstile: Boolean(runtimeEnv('TURNSTILE_SECRET_KEY')),
+    resend: resendConfigured(),
     web3forms: Boolean(runtimeEnv('WEB3FORMS_ACCESS_KEY')),
     auth0: auth0Configured(),
     auth0Vars,
