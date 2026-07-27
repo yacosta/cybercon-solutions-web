@@ -159,12 +159,12 @@ Expected score rows: SEO, Speed, Privacy policy, Cookie consent, Accessibility (
 
 Generator: `scripts/website-assessment/generate-assessment-pdf.py` (fpdf2), same family as the sample QBR PDF.
 
-- Cover: navy band `#0f2c4c`, coral rule `#c0392b`, “CYBERCON SOLUTIONS” + “Website Deep Assessment”
+- Cover: Cybercon Solutions logo lockup (`public/cybercon-solutions-logo-email-2x.png` or `public/cybercon-solutions-logo.png`) on a white strip, then navy band `#0f2c4c`, coral rule `#c0392b`, and “Website Deep Assessment”
 - Body: navy headings, muted meta, cream-striped scorecard, severity tags on fixes
 - Footer: page numbers + cybercon-solutions.com + “Technology, handled.”
 - Disclaimer: not a legal opinion or certification
 
-After rendering, spot-check the first page reads as Cybercon (brand test), not a generic audit template.
+After rendering, spot-check the first page shows the Cybercon logo (brand test), not a generic audit template with text-only branding.
 
 ---
 

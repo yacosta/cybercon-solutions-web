@@ -36,6 +36,22 @@ CREAM = (247, 244, 241)  # #f7f4f1
 LIGHT = (247, 249, 251)
 WHITE = (255, 255, 255)
 
+# Horizontal lockup (dark wordmark + coral mark) — for light backgrounds only.
+REPO_ROOT = Path(__file__).resolve().parents[2]
+LOGO_CANDIDATES = (
+    REPO_ROOT / "public" / "cybercon-solutions-logo-email-2x.png",
+    REPO_ROOT / "public" / "brand" / "cybercon-solutions-logo-email-2x.png",
+    REPO_ROOT / "public" / "cybercon-solutions-logo.png",
+    REPO_ROOT / "public" / "brand" / "cybercon-solutions-logo.png",
+)
+
+
+def _logo_path() -> Path | None:
+    for path in LOGO_CANDIDATES:
+        if path.is_file():
+            return path
+    return None
+
 GRADE_FILL = {
     "A": (46, 125, 90),
     "B": (56, 112, 92),
@@ -90,16 +106,24 @@ class AssessmentPdf(FPDF):
     def header(self):
         if self.page_no() == 1:
             return
+        logo = _logo_path()
+        y0 = self.get_y()
+        text_x = self.l_margin
+        if logo is not None:
+            # Compact lockup in running headers (dark logo on white page).
+            self.image(str(logo), x=self.l_margin, y=y0, h=6)
+            text_x = self.l_margin + 32
+        self.set_xy(text_x, y0 + 0.5)
         self.set_font("Helvetica", "", 8)
         self.set_text_color(*MUTED)
         conf = "Confidential  |  " if self.meta.get("confidential", True) else ""
         self.cell(
             0,
             6,
-            f"Cybercon Solutions  |  Website deep assessment  |  {conf}{self.client_label}",
+            f"Website deep assessment  |  {conf}{self.client_label}",
             align="L",
         )
-        self.ln(8)
+        self.set_y(y0 + 8)
         self.set_draw_color(*RULE)
         self.line(self.l_margin, self.get_y(), self.w - self.r_margin, self.get_y())
         self.ln(4)
@@ -157,33 +181,42 @@ class AssessmentPdf(FPDF):
 
 def draw_cover(pdf: AssessmentPdf, data: dict):
     meta = data["meta"]
+    # Light strip for the full-color lockup (logo is dark-on-light).
+    pdf.set_fill_color(*WHITE)
+    pdf.rect(0, 0, 216, 28, "F")
+    logo = _logo_path()
+    if logo is not None:
+        # ~1520x320 lockup → keep ~18mm tall, width scales (~85mm).
+        pdf.image(str(logo), x=18, y=5, h=18)
+    else:
+        pdf.set_xy(18, 10)
+        pdf.set_font("Helvetica", "B", 14)
+        pdf.set_text_color(*NAVY)
+        pdf.cell(0, 8, "CYBERCON SOLUTIONS")
+
     pdf.set_fill_color(*NAVY)
-    pdf.rect(0, 0, 216, 58, "F")
+    pdf.rect(0, 28, 216, 42, "F")
     pdf.set_fill_color(*CORAL)
-    pdf.rect(0, 58, 216, 3, "F")
+    pdf.rect(0, 70, 216, 3, "F")
 
-    pdf.set_xy(18, 14)
-    pdf.set_font("Helvetica", "B", 11)
-    pdf.set_text_color(*WHITE)
-    pdf.cell(0, 6, "CYBERCON SOLUTIONS")
-
-    pdf.set_xy(18, 24)
+    pdf.set_xy(18, 34)
     pdf.set_font("Helvetica", "B", 18)
+    pdf.set_text_color(*WHITE)
     pdf.cell(0, 8, "Website Deep Assessment")
 
-    pdf.set_xy(18, 36)
+    pdf.set_xy(18, 46)
     pdf.set_font("Helvetica", "", 11)
     client = _safe(meta.get("clientName") or meta.get("domain"))
     domain = _safe(meta.get("domain") or "")
     date = _safe(meta.get("assessmentDate") or "")
     pdf.cell(0, 6, f"{client}  |  {domain}  |  {date}")
 
-    pdf.set_xy(18, 44)
+    pdf.set_xy(18, 56)
     pdf.set_font("Helvetica", "", 9)
     pdf.set_text_color(220, 226, 232)
     pdf.cell(0, 5, "Prepared for the customer  |  Evidence-based review  |  Not a certification")
 
-    pdf.set_y(72)
+    pdf.set_y(82)
     pdf.set_x(pdf.l_margin)
     pdf.set_font("Helvetica", "", 9)
     pdf.set_text_color(*MUTED)
