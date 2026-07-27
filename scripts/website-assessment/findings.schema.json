@@ -72,6 +72,16 @@
         }
       }
     },
-    "nextStep": { "type": "string" }
+    "nextStep": { "type": "string" },
+    "totalScore": {
+      "type": "object",
+      "description": "Optional override. If omitted, the PDF generator averages A–F area grades (N excluded).",
+      "properties": {
+        "grade": { "type": "string", "description": "A–F or N" },
+        "average": { "type": "number", "description": "0–4.0 scale average" },
+        "scoredAreas": { "type": "integer" },
+        "totalAreas": { "type": "integer" }
+      }
+    }
   }
 }

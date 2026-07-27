@@ -153,6 +153,8 @@ Optional: also keep a short chat summary for the internal engineer; the PDF is t
 
 Expected score rows: SEO, Speed, Privacy policy, Cookie consent, Accessibility (WCAG), Security, GDPR, CCPA, ADA / Section 508.
 
+**Total Site Score:** the PDF generator averages A–F area grades on a 4.0 scale (A=4 … F=0). Grades of **N** are excluded. Optional JSON override: `totalScore: { "grade": "C", "average": 2.1 }`. The PDF ends with a **Score key** so customers understand A–F and N.
+
 ---
 
 ## PDF branding (do not freestyle)
@@ -161,6 +163,7 @@ Generator: `scripts/website-assessment/generate-assessment-pdf.py` (fpdf2), same
 
 - Cover: Cybercon Solutions logo lockup (`public/cybercon-solutions-logo-email-2x.png` or `public/cybercon-solutions-logo.png`) on a white strip, then navy band `#0f2c4c`, coral rule `#c0392b`, and “Website Deep Assessment”
 - Body: navy headings, muted meta, cream-striped scorecard, severity tags on fixes
+- Closing: **Total Site Score** band (letter + 4.0 average) plus a **Score key** (A–F / N meanings)
 - Footer: page numbers + cybercon-solutions.com + “Technology, handled.”
 - Disclaimer: not a legal opinion or certification
 
