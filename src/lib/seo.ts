@@ -39,12 +39,12 @@ const orgCopy: Record<
   { description: string; catalogName: string; contactType: string }
 > = {
   en: {
-    description: `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
+    description: `Cybercon Solutions provides managed IT, cybersecurity, cloud, and AI for businesses in Cooper City, Davie, and South Florida. We run your IT department without the overhead: network security, technology consulting, backup and recovery, and hands-on support—with security as the baseline. We catch problems early so you stay protected and compliant. Book a free assessment. Mailing address: Miami Beach, Florida (${formatMailingAddress()}). Onsite focus: ${site.serviceAreaFocus}.`,
     catalogName: 'Managed IT Services',
     contactType: 'sales',
   },
   es: {
-    description: `TI administrada proactiva para organizaciones en crecimiento, con la seguridad como base: gestión de endpoints y servidores, ciberseguridad, respaldo y recuperación ante desastres, y cumplimiento, a una tarifa mensual predecible. La dirección postal está en Miami Beach, Florida (${formatMailingAddress()}). Los servicios gestionados y en sitio se centran en Cooper City, Davie y el sur de Florida.`,
+    description: `Cybercon Solutions ofrece TI administrada, ciberseguridad, nube e IA para empresas en Cooper City, Davie y el Sur de Florida. Tu departamento de TI sin la sobrecarga: seguridad de red, consultoría tecnológica, respaldo y recuperación, y soporte práctico—con la seguridad como base. Detectamos problemas a tiempo para que sigas protegido y en cumplimiento. Solicita una evaluación gratuita. Dirección postal: Miami Beach, Florida (${formatMailingAddress()}). Enfoque en sitio: Cooper City, Davie y el sur de Florida.`,
     catalogName: 'Servicios de TI administrada',
     contactType: 'sales',
   },

@@ -160,7 +160,7 @@ Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/
 const pages: Record<string, string> = {
   '/': `---
 title: "Managed IT & Cybersecurity in South Florida | Cybercon"
-description: "Free assessment for managed IT, cybersecurity, cloud, and AI in Cooper City & Davie, Florida. We catch issues early and treat security as the baseline."
+description: "Managed IT, cybersecurity, cloud & AI for Cooper City, Davie & South Florida. Security-first IT that catches issues early. Book a free assessment."
 ---
 
 # Cybercon Solutions
@@ -203,7 +203,7 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en el Sur de Florida | Cybercon"
-description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base."
+description: "TI administrada, ciberseguridad, nube e IA en Cooper City, Davie y Sur de Florida. Seguridad como base; detectamos problemas a tiempo. Evaluación gratuita."
 ---
 
 # Cybercon Solutions
