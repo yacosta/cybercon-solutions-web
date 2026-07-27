@@ -8,6 +8,12 @@ For UI, SEO, Core Web Vitals (LCP), color contrast, cache lifetimes, and accessi
 
 When fixing a new Lighthouse/SEO/a11y/brand audit finding, update that skill in the same PR so the rule sticks for future agents.
 
+For a **full deep website assessment** (SEO, speed, privacy policy, cookie consent, WCAG accessibility, security, GDPR, CCPA, ADA/Section 508) — distinct from the lite `#site-check` teaser — follow:
+
+`.cursor/skills/website-deep-assessment/SKILL.md`
+
+(Public agent-facing summary: `public/.well-known/agent-skills/cybercon-website-assessment/SKILL.md`.)
+
 ## Development
 
 When starting the dev server, use background mode:

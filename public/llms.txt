@@ -46,6 +46,8 @@ Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida.
 - [MCP server card](https://cybercon-solutions.com/.well-known/mcp/server-card.json): Model Context Protocol card
 - [OpenAPI](https://cybercon-solutions.com/openapi.json): Public HTTP API description
 - [Sitemap](https://cybercon-solutions.com/sitemap-index.xml): XML sitemap index
+- [Agent skills](https://cybercon-solutions.com/.well-known/agent-skills/index.json): Service summary, free assessment booking, and deep website assessment
+- [Website deep assessment skill](https://cybercon-solutions.com/.well-known/agent-skills/cybercon-website-assessment/SKILL.md): SEO, speed, privacy, cookies, accessibility, security, GDPR, CCPA, ADA/Section 508
 
 ## Optional
 
