@@ -3,9 +3,16 @@ import { runtimeEnv } from './env';
 
 const DEFAULT_FROM = 'Cybercon Solutions <onboarding@resend.dev>';
 const DEFAULT_TO = 'yacosta@cybercon-solutions.com';
+const PLACEHOLDER_API_KEY = 're_xxxxxxxxx';
+
+function resendApiKey(): string | undefined {
+  const apiKey = runtimeEnv('RESEND_API_KEY');
+  if (!apiKey || apiKey === PLACEHOLDER_API_KEY) return undefined;
+  return apiKey;
+}
 
 export function resendConfigured(): boolean {
-  return Boolean(runtimeEnv('RESEND_API_KEY'));
+  return Boolean(resendApiKey());
 }
 
 /**
@@ -18,13 +25,13 @@ export async function sendResendEmail(options: {
   html: string;
   replyTo?: string;
 }): Promise<boolean> {
-  const apiKey = runtimeEnv('RESEND_API_KEY');
-  if (!apiKey) return false;
-
-  if (apiKey === 're_xxxxxxxxx') {
-    console.warn(
-      '[resend] RESEND_API_KEY is still the placeholder re_xxxxxxxxx — replace it with your real API key from https://resend.com/api-keys',
-    );
+  const apiKey = resendApiKey();
+  if (!apiKey) {
+    if (runtimeEnv('RESEND_API_KEY') === PLACEHOLDER_API_KEY) {
+      console.warn(
+        '[resend] RESEND_API_KEY is still the placeholder re_xxxxxxxxx — replace it with your real API key from https://resend.com/api-keys',
+      );
+    }
     return false;
   }
 
