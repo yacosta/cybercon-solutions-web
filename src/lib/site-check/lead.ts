@@ -1,25 +1,25 @@
-import { attioConfigured } from '../attio';
+import { attioConfigured, createAssessmentProspect } from '../attio';
 import { runtimeEnv } from '../env';
 import type { SiteCheckResult } from './types';
 
-const ATTIO_API = 'https://api.attio.com/v2';
-
-async function attioFetch(path: string, init: RequestInit): Promise<Response> {
-  const key = runtimeEnv('ATTIO_API_KEY');
-  if (!key) throw new Error('ATTIO_API_KEY is not configured');
-  return fetch(`${ATTIO_API}${path}`, {
-    ...init,
-    headers: {
-      authorization: `Bearer ${key}`,
-      accept: 'application/json',
-      'content-type': 'application/json',
-      ...(init.headers ?? {}),
-    },
-  });
+function nameFromEmail(email: string): string {
+  const local = email.split('@')[0]?.trim() || 'Visitor';
+  const cleaned = local.replace(/[._+-]+/g, ' ').replace(/\d+/g, ' ').trim();
+  if (!cleaned) return 'Website visitor';
+  return cleaned
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
 }
 
-/** Log every scan as a lead (Attio company + note when configured; always console). */
-export async function captureSiteCheckLead(result: SiteCheckResult, clientIp?: string): Promise<void> {
+/** Log every scan as a lead (Attio Person + Company + note when configured; always console). */
+export async function captureSiteCheckLead(
+  result: SiteCheckResult,
+  options: { email: string; locale?: string; clientIp?: string },
+): Promise<void> {
+  const email = options.email.trim().toLowerCase();
+  const locale = options.locale === 'es' ? 'es' : 'en';
   const payload = {
     domain: result.domain,
     site_name: result.site_name,
@@ -28,8 +28,9 @@ export async function captureSiteCheckLead(result: SiteCheckResult, clientIp?: s
     verified: result.verified,
     tech_chips: result.tech_chips,
     additional_findings_count: result.additional_findings_count,
+    email,
     timestamp: new Date().toISOString(),
-    clientIp: clientIp || null,
+    clientIp: options.clientIp || null,
   };
 
   console.log('[site-check]', JSON.stringify(payload));
@@ -44,6 +45,7 @@ export async function captureSiteCheckLead(result: SiteCheckResult, clientIp?: s
           access_key: accessKey,
           subject: `Site check — ${result.domain} (grade ${result.overall_grade})`,
           from_name: 'Cybercon Solutions Website',
+          email,
           domain: result.domain,
           site_name: result.site_name,
           overall_grade: result.overall_grade,
@@ -59,57 +61,25 @@ export async function captureSiteCheckLead(result: SiteCheckResult, clientIp?: s
   if (!attioConfigured()) return;
 
   try {
-    const companyRes = await attioFetch('/objects/companies/records?matching_attribute=domains', {
-      method: 'PUT',
-      body: JSON.stringify({
-        data: {
-          values: {
-            domains: [{ domain: result.domain }],
-            name: [{ value: result.site_name || result.domain }],
-            description: [
-              {
-                value: `Site-check prospect — grade ${result.overall_grade}. Tech: ${result.tech_chips.join(', ') || 'n/a'}.`,
-              },
-            ],
-          },
-        },
-      }),
+    const ok = await createAssessmentProspect({
+      name: nameFromEmail(email),
+      company: result.site_name || result.domain,
+      email,
+      locale,
+      companyDomain: result.domain,
+      source: 'cybercon-solutions.com/services/web-design-development/#site-check',
+      message: [
+        `Lite website check grade: ${result.overall_grade}`,
+        `Summary: ${result.one_line_summary}`,
+        `Top finding: ${result.top_finding}`,
+        `Tech: ${result.tech_chips.join(', ') || 'n/a'}`,
+        `Live checked: ${result.live_checked}`,
+        `BuiltWith verified: ${result.verified}`,
+      ].join('\n'),
     });
 
-    if (!companyRes.ok) {
-      console.error('[site-check] attio company upsert failed', companyRes.status, await companyRes.text());
-      return;
-    }
-
-    const companyJson = (await companyRes.json()) as { data?: { id?: { record_id?: string } } };
-    const companyId = companyJson.data?.id?.record_id;
-    if (!companyId) return;
-
-    const noteRes = await attioFetch('/notes', {
-      method: 'POST',
-      body: JSON.stringify({
-        data: {
-          parent_object: 'companies',
-          parent_record_id: companyId,
-          title: `Website health check — grade ${result.overall_grade}`,
-          format: 'plaintext',
-          content: [
-            `Domain: ${result.domain}`,
-            `Site: ${result.site_name}`,
-            `Grade: ${result.overall_grade}`,
-            `Summary: ${result.one_line_summary}`,
-            `Top finding: ${result.top_finding}`,
-            `Tech: ${result.tech_chips.join(', ') || 'n/a'}`,
-            `Live checked: ${result.live_checked}`,
-            `BuiltWith verified: ${result.verified}`,
-            'Source: cybercon-solutions.com/site-check',
-          ].join('\n'),
-        },
-      }),
-    });
-
-    if (!noteRes.ok) {
-      console.error('[site-check] attio note failed', noteRes.status, await noteRes.text());
+    if (!ok) {
+      console.error('[site-check] attio prospect upsert returned false');
     }
   } catch (err) {
     console.error('[site-check] attio lead capture failed', err);

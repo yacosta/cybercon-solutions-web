@@ -19,9 +19,18 @@ function normalizeLocale(value?: string): 'en' | 'es' {
   return value === 'es' ? 'es' : 'en';
 }
 
+function normalizeEmail(value?: string): string {
+  return (value ?? '').trim().toLowerCase();
+}
+
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   let body: {
     domain?: string;
+    email?: string;
     sample?: boolean;
     turnstileToken?: string;
     locale?: string;
@@ -53,6 +62,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return Response.json({ error: 'Enter a valid domain (e.g. example.com)' }, { status: 400 });
   }
 
+  const email = normalizeEmail(body.email);
+  if (!email || !isValidEmail(email)) {
+    return Response.json({ error: 'Enter a valid work email' }, { status: 400 });
+  }
+
   const limits = await checkRateLimits(clientAddress || 'unknown');
   if (!limits.allowed) {
     return Response.json(
@@ -75,7 +89,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       const proxied = await fetch(webhook, {
         method: 'POST',
         headers: { 'content-type': 'application/json', accept: 'application/json' },
-        body: JSON.stringify({ domain, clientIp: clientAddress, locale }),
+        body: JSON.stringify({ domain, email, clientIp: clientAddress, locale }),
         signal: AbortSignal.timeout(55000),
       });
 
@@ -112,7 +126,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   // Lead capture before returning results (success criteria #2).
-  await captureSiteCheckLead(result, clientAddress);
+  await captureSiteCheckLead(result, { email, locale, clientIp: clientAddress });
   await incrementRateLimits(clientAddress || 'unknown');
 
   return Response.json({ ok: true, result });

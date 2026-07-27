@@ -107,6 +107,7 @@
                 "type": "object",
                 "properties": {
                   "domain": { "type": "string", "description": "Hostname to scan (protocol/www stripped)" },
+                  "email": { "type": "string", "format": "email", "description": "Work email for lead follow-up" },
                   "sample": { "type": "boolean", "description": "Return illustrative sample report" },
                   "locale": { "type": "string", "enum": ["en", "es"] },
                   "turnstileToken": { "type": "string" }

@@ -31,6 +31,8 @@ export interface AssessmentProspect {
   source?: string;
   /** Optional free-text message from the contact form. */
   message?: string;
+  /** Prefer this domain for Company match (e.g. scanned site), over the email domain. */
+  companyDomain?: string;
 }
 
 interface AttioRecord {
@@ -218,7 +220,7 @@ async function createAssessmentNote(
 export async function createAssessmentProspect(prospect: AssessmentProspect): Promise<boolean> {
   if (!attioConfigured()) return false;
 
-  const domain = emailDomain(prospect.email);
+  const domain = prospect.companyDomain?.trim().toLowerCase() || emailDomain(prospect.email);
   const companyRecordId = await upsertCompany(prospect.company, domain);
   const personRecordId = await upsertPerson(prospect, companyRecordId);
 
