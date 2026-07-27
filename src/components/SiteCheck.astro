@@ -12,9 +12,10 @@ interface Props {
 
 const { locale, t, variant = 'page' } = Astro.props;
 const siteKey = turnstileSiteKey();
-const assessmentHref = localePath(locale, '/') + '#assessment';
+const assessmentHref = localePath(locale, '/assessment/');
 const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
 const copy = t.siteCheck;
+const TitleTag = variant === 'page' ? 'h1' : 'h2';
 ---
 
 <section
@@ -25,7 +26,7 @@ const copy = t.siteCheck;
 >
   <div class="container">
     <p class="eyebrow">{copy.eyebrow}</p>
-    <h2 id="site-check-title">{copy.title}</h2>
+    <TitleTag id="site-check-title">{copy.title}</TitleTag>
     <p class="lede">{copy.lede}</p>
 
     <div class="panel" data-sc-panel>
@@ -553,7 +554,7 @@ const copy = t.siteCheck;
     --sc-slate: #5b6b7c;
     --sc-deep: #0a1d33;
     background:
-      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(242, 107, 94, 0.14), transparent 55%),
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(192, 57, 43, 0.16), transparent 55%),
       radial-gradient(ellipse 70% 50% at 90% 30%, rgba(15, 44, 76, 0.35), transparent 50%),
       linear-gradient(165deg, #0a1d33 0%, #061424 55%, #0f2c4c 100%);
     color: var(--white);
@@ -574,6 +575,7 @@ const copy = t.siteCheck;
     margin: 0 0 0.75rem;
   }
 
+  .site-check h1,
   .site-check h2 {
     font-size: clamp(1.85rem, 3.4vw, 2.6rem);
     color: var(--white);

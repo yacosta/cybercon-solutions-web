@@ -25,7 +25,7 @@ const t = getMessages(locale);
   <p class="back-home">
     <a href={localePath(locale, '/')}>{t.nav.home}</a>
     {' · '}
-    <a href={localePath(locale, '/') + '#assessment'}>{t.form.submit}</a>
+    <a href={localePath(locale, '/assessment/')}>{t.siteCheck.bookCta}</a>
   </p>
   <Footer slot="footer" locale={locale} t={t} />
 </BaseLayout>

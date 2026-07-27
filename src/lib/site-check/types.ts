@@ -66,3 +66,16 @@ export const CATEGORY_NAMES = [
   'Trust & credibility',
   'Search visibility',
 ] as const;
+
+export const CATEGORY_NAMES_ES = [
+  'Señales de seguridad',
+  'Señales de rendimiento',
+  'Confianza y credibilidad',
+  'Visibilidad en búsqueda',
+] as const;
+
+export type SiteCheckLocale = 'en' | 'es';
+
+export function categoryNamesFor(locale: SiteCheckLocale = 'en'): readonly string[] {
+  return locale === 'es' ? CATEGORY_NAMES_ES : CATEGORY_NAMES;
+}

@@ -1,5 +1,5 @@
 import { runtimeEnv } from '../env';
-import type { BuiltWithEvidence, LiveEvidence, SiteCheckResult } from './types';
+import type { BuiltWithEvidence, LiveEvidence, SiteCheckLocale, SiteCheckResult } from './types';
 import { buildPrompt, extractJsonObject, normalizeResult } from './prompt';
 
 export type AiProvider = 'gemini' | 'openai' | 'anthropic';
@@ -46,19 +46,25 @@ function modelFor(provider: AiProvider): string {
   return runtimeEnv('SITE_CHECK_AI_MODEL') || DEFAULT_MODELS[provider];
 }
 
+function normalizeLocale(locale?: string): SiteCheckLocale {
+  return locale === 'es' ? 'es' : 'en';
+}
+
 /** Tier-3 synthesis via Gemini, OpenAI, or Anthropic (whichever is configured). */
 export async function synthesizeWithAi(
   domain: string,
   live: LiveEvidence,
   builtWith: BuiltWithEvidence,
+  locale?: string,
 ): Promise<SiteCheckResult | null> {
   const provider = configuredProvider();
   if (!provider) return null;
+  const loc = normalizeLocale(locale);
 
   try {
-    if (provider === 'gemini') return await synthesizeGemini(domain, live, builtWith);
-    if (provider === 'openai') return await synthesizeOpenAI(domain, live, builtWith);
-    return await synthesizeAnthropic(domain, live, builtWith);
+    if (provider === 'gemini') return await synthesizeGemini(domain, live, builtWith, loc);
+    if (provider === 'openai') return await synthesizeOpenAI(domain, live, builtWith, loc);
+    return await synthesizeAnthropic(domain, live, builtWith, loc);
   } catch (err) {
     console.error(`[site-check] ${provider} synthesis failed`, err);
     return null;
@@ -69,12 +75,13 @@ async function synthesizeGemini(
   domain: string,
   live: LiveEvidence,
   builtWith: BuiltWithEvidence,
+  locale: SiteCheckLocale,
 ): Promise<SiteCheckResult | null> {
   const apiKey = runtimeEnv('GEMINI_API_KEY');
   if (!apiKey) return null;
 
   const model = modelFor('gemini');
-  const prompt = buildPrompt(domain, live, builtWith, { allowSearch: true });
+  const prompt = buildPrompt(domain, live, builtWith, { allowSearch: true, locale });
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
 
   const res = await fetch(url, {
@@ -97,7 +104,7 @@ async function synthesizeGemini(
     console.error('[site-check] gemini error', res.status, errText.slice(0, 500));
     // Retry without search grounding if the tool is rejected.
     if (res.status === 400) {
-      return synthesizeGeminiPlain(domain, live, builtWith, apiKey, model);
+      return synthesizeGeminiPlain(domain, live, builtWith, apiKey, model, locale);
     }
     return null;
   }
@@ -110,7 +117,7 @@ async function synthesizeGemini(
     .filter(Boolean)
     .join('\n');
   if (!text) return null;
-  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips);
+  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
 }
 
 async function synthesizeGeminiPlain(
@@ -119,8 +126,9 @@ async function synthesizeGeminiPlain(
   builtWith: BuiltWithEvidence,
   apiKey: string,
   model: string,
+  locale: SiteCheckLocale,
 ): Promise<SiteCheckResult | null> {
-  const prompt = buildPrompt(domain, live, builtWith, { allowSearch: false });
+  const prompt = buildPrompt(domain, live, builtWith, { allowSearch: false, locale });
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(apiKey)}`;
   const res = await fetch(url, {
     method: 'POST',
@@ -147,19 +155,20 @@ async function synthesizeGeminiPlain(
     .filter(Boolean)
     .join('\n');
   if (!text) return null;
-  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips);
+  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
 }
 
 async function synthesizeOpenAI(
   domain: string,
   live: LiveEvidence,
   builtWith: BuiltWithEvidence,
+  locale: SiteCheckLocale,
 ): Promise<SiteCheckResult | null> {
   const apiKey = runtimeEnv('OPENAI_API_KEY');
   if (!apiKey) return null;
 
   const model = modelFor('openai');
-  const prompt = buildPrompt(domain, live, builtWith, { allowSearch: true });
+  const prompt = buildPrompt(domain, live, builtWith, { allowSearch: true, locale });
 
   // Prefer Responses API with web_search; fall back to chat completions.
   const responsesRes = await fetch('https://api.openai.com/v1/responses', {
@@ -192,7 +201,7 @@ async function synthesizeOpenAI(
         .join('\n');
     }
     if (text) {
-      return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips);
+      return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
     }
   } else {
     const errText = await responsesRes.text();
@@ -215,7 +224,10 @@ async function synthesizeOpenAI(
           role: 'system',
           content: 'Return only valid JSON for the website health check schema.',
         },
-        { role: 'user', content: buildPrompt(domain, live, builtWith, { allowSearch: false }) },
+        {
+          role: 'user',
+          content: buildPrompt(domain, live, builtWith, { allowSearch: false, locale }),
+        },
       ],
     }),
     signal: AbortSignal.timeout(45000),
@@ -231,13 +243,14 @@ async function synthesizeOpenAI(
   };
   const text = chatJson.choices?.[0]?.message?.content;
   if (!text) return null;
-  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips);
+  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
 }
 
 async function synthesizeAnthropic(
   domain: string,
   live: LiveEvidence,
   builtWith: BuiltWithEvidence,
+  locale: SiteCheckLocale,
 ): Promise<SiteCheckResult | null> {
   const apiKey = runtimeEnv('ANTHROPIC_API_KEY');
   if (!apiKey) return null;
@@ -253,7 +266,9 @@ async function synthesizeAnthropic(
         max_uses: 2,
       },
     ],
-    messages: [{ role: 'user', content: buildPrompt(domain, live, builtWith, { allowSearch: true }) }],
+    messages: [
+      { role: 'user', content: buildPrompt(domain, live, builtWith, { allowSearch: true, locale }) },
+    ],
   };
 
   const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -271,7 +286,7 @@ async function synthesizeAnthropic(
     const errText = await res.text();
     console.error('[site-check] anthropic error', res.status, errText.slice(0, 500));
     if (res.status === 400 && /web_search|tool/i.test(errText)) {
-      return synthesizeAnthropicPlain(domain, live, builtWith, apiKey, model);
+      return synthesizeAnthropicPlain(domain, live, builtWith, apiKey, model, locale);
     }
     return null;
   }
@@ -282,7 +297,7 @@ async function synthesizeAnthropic(
     .map((c) => c.text)
     .join('\n');
   if (!text) return null;
-  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips);
+  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
 }
 
 async function synthesizeAnthropicPlain(
@@ -291,6 +306,7 @@ async function synthesizeAnthropicPlain(
   builtWith: BuiltWithEvidence,
   apiKey: string,
   model: string,
+  locale: SiteCheckLocale,
 ): Promise<SiteCheckResult | null> {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -303,7 +319,10 @@ async function synthesizeAnthropicPlain(
       model,
       max_tokens: 1000,
       messages: [
-        { role: 'user', content: buildPrompt(domain, live, builtWith, { allowSearch: false }) },
+        {
+          role: 'user',
+          content: buildPrompt(domain, live, builtWith, { allowSearch: false, locale }),
+        },
       ],
     }),
     signal: AbortSignal.timeout(45000),
@@ -318,5 +337,5 @@ async function synthesizeAnthropicPlain(
     .map((c) => c.text)
     .join('\n');
   if (!text) return null;
-  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips);
+  return normalizeResult(extractJsonObject(text), domain, live, builtWith.tech_chips, locale);
 }

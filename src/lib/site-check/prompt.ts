@@ -1,5 +1,5 @@
-import type { BuiltWithEvidence, LiveEvidence, SiteCheckResult } from './types';
-import { CATEGORY_NAMES } from './types';
+import type { BuiltWithEvidence, LiveEvidence, SiteCheckLocale, SiteCheckResult } from './types';
+import { categoryNamesFor } from './types';
 
 export const ACCURACY_RULES = `
 ACCURACY RULES (non-negotiable):
@@ -22,7 +22,13 @@ PRODUCT INTENT (lead-gen teaser — not a full audit):
 - Do not recommend DIY fix steps. Point toward a short conversation for the full picture and remediation options.
 `.trim();
 
-export const SCHEMA_HINT = `
+function schemaHint(locale: SiteCheckLocale): string {
+  const cats = categoryNamesFor(locale);
+  const language =
+    locale === 'es'
+      ? 'Write ALL user-facing strings (one_line_summary, category notes, top_finding, site_name if invented) in Spanish (es-US / Latin American). Keep JSON keys in English. Keep letter grades as A/B/C/D/F/N.'
+      : 'Write user-facing strings in English.';
+  return `
 Return ONLY valid JSON (no markdown fences) matching:
 {
   "site_name": "string",
@@ -30,29 +36,32 @@ Return ONLY valid JSON (no markdown fences) matching:
   "overall_grade": "A"|"B"|"C"|"D"|"F",
   "one_line_summary": "one calm sentence: lite surface peek, not a full assessment",
   "categories": [
-    {"name": "Security signals", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "one short observed note"},
-    {"name": "Performance signals", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "..."},
-    {"name": "Trust & credibility", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "..."},
-    {"name": "Search visibility", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "..."}
+    {"name": "${cats[0]}", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "one short observed note"},
+    {"name": "${cats[1]}", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "..."},
+    {"name": "${cats[2]}", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "..."},
+    {"name": "${cats[3]}", "grade": "A"|"B"|"C"|"D"|"F"|"N", "note": "..."}
   ],
   "top_finding": "1-2 sentences, one issue only, non-technical, invites a deeper pass — no DIY checklist",
   "additional_findings_count": 3|4|5
 }
+${language}
 Voice: sage — calm, knowledgeable, specific. Tagline context: "Technology, handled." Never fear-monger.
 `.trim();
+}
 
 export function buildPrompt(
   domain: string,
   live: LiveEvidence,
   builtWith: BuiltWithEvidence,
-  options?: { allowSearch?: boolean },
+  options?: { allowSearch?: boolean; locale?: SiteCheckLocale },
 ): string {
   const allowSearch = options?.allowSearch !== false;
+  const locale = options?.locale === 'es' ? 'es' : 'en';
   return [
     `You are scoring a free ~60-second LITE website teaser check for ${domain} (Cybercon Solutions lead-gen widget).`,
     FUNNEL_RULES,
     ACCURACY_RULES,
-    SCHEMA_HINT,
+    schemaHint(locale),
     '',
     '=== TIER-1 LIVE EVIDENCE (facts — authoritative; skim only) ===',
     JSON.stringify(
@@ -105,22 +114,27 @@ export function normalizeResult(
   domain: string,
   live: LiveEvidence,
   techChips: string[],
+  locale: SiteCheckLocale = 'en',
 ): SiteCheckResult {
   const obj = (raw && typeof raw === 'object' ? raw : {}) as Record<string, unknown>;
   const categoriesRaw = Array.isArray(obj.categories) ? obj.categories : [];
+  const names = categoryNamesFor(locale);
+  const fallbackNote =
+    locale === 'es'
+      ? 'No hay suficiente evidencia superficial para calificar esto en una revisión lite.'
+      : 'Not enough surface evidence to grade this from a lite scan.';
+  const fallbackSummary =
+    locale === 'es'
+      ? 'Una revisión superficial rápida del sitio en vivo.'
+      : 'A quick surface review of the live site.';
+  const fallbackFinding =
+    locale === 'es'
+      ? 'Revisamos la página de inicio en vivo; una evaluación completa profundizaría en configuración y monitoreo.'
+      : 'We reviewed the live homepage; a full assessment would dig into configuration and monitoring next.';
 
-  const categories = CATEGORY_NAMES.map((name, i) => {
-    const found =
-      categoriesRaw.find(
-        (c) =>
-          c &&
-          typeof c === 'object' &&
-          typeof (c as { name?: unknown }).name === 'string' &&
-          String((c as { name: string }).name)
-            .toLowerCase()
-            .includes(name.split(' ')[0]!.toLowerCase()),
-      ) ?? categoriesRaw[i];
-
+  const categories = names.map((name, i) => {
+    // Prefer index order; AI may return EN or ES category labels.
+    const found = categoriesRaw[i];
     const entry = (found && typeof found === 'object' ? found : {}) as Record<string, unknown>;
     return {
       name,
@@ -128,7 +142,7 @@ export function normalizeResult(
       note:
         typeof entry.note === 'string' && entry.note.trim()
           ? entry.note.trim().slice(0, 280)
-          : 'Not enough surface evidence to grade this from a lite scan.',
+          : fallbackNote,
     };
   });
 
@@ -145,12 +159,12 @@ export function normalizeResult(
     one_line_summary:
       typeof obj.one_line_summary === 'string' && obj.one_line_summary.trim()
         ? obj.one_line_summary.trim().slice(0, 220)
-        : 'A quick surface review of the live site.',
+        : fallbackSummary,
     categories,
     top_finding:
       typeof obj.top_finding === 'string' && obj.top_finding.trim()
         ? obj.top_finding.trim().slice(0, 400)
-        : 'We reviewed the live homepage; a full assessment would dig into configuration and monitoring next.',
+        : fallbackFinding,
     additional_findings_count:
       Number.isFinite(additional) && additional >= 3 && additional <= 5 ? Math.round(additional) : 4,
     tech_chips: techChips,

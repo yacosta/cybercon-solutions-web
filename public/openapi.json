@@ -108,6 +108,7 @@
                 "properties": {
                   "domain": { "type": "string", "description": "Hostname to scan (protocol/www stripped)" },
                   "sample": { "type": "boolean", "description": "Return illustrative sample report" },
+                  "locale": { "type": "string", "enum": ["en", "es"] },
                   "turnstileToken": { "type": "string" }
                 }
               }

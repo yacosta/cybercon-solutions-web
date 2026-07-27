@@ -5,21 +5,26 @@ import {
   checkRateLimits,
   fetchBuiltWith,
   fetchLiveEvidence,
+  getSampleResult,
   heuristicResult,
   incrementRateLimits,
   normalizeDomain,
-  SAMPLE_RESULT,
   synthesizeWithAi,
 } from '../../lib/site-check';
 import { verifyTurnstile } from '../../lib/turnstile-verify';
 
 export const prerender = false;
 
+function normalizeLocale(value?: string): 'en' | 'es' {
+  return value === 'es' ? 'es' : 'en';
+}
+
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   let body: {
     domain?: string;
     sample?: boolean;
     turnstileToken?: string;
+    locale?: string;
   };
 
   try {
@@ -28,8 +33,10 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return Response.json({ error: 'Invalid JSON' }, { status: 400 });
   }
 
+  const locale = normalizeLocale(body.locale);
+
   if (body.sample === true) {
-    return Response.json({ ok: true, result: SAMPLE_RESULT });
+    return Response.json({ ok: true, result: getSampleResult(locale) });
   }
 
   const secret = runtimeEnv('TURNSTILE_SECRET_KEY');
@@ -68,7 +75,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       const proxied = await fetch(webhook, {
         method: 'POST',
         headers: { 'content-type': 'application/json', accept: 'application/json' },
-        body: JSON.stringify({ domain, clientIp: clientAddress }),
+        body: JSON.stringify({ domain, clientIp: clientAddress, locale }),
         signal: AbortSignal.timeout(55000),
       });
 
@@ -99,9 +106,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   // Native Worker pipeline: live fetch + BuiltWith + AI synthesis (heuristic fallback).
   const [live, builtWith] = await Promise.all([fetchLiveEvidence(domain), fetchBuiltWith(domain)]);
 
-  let result = await synthesizeWithAi(domain, live, builtWith);
+  let result = await synthesizeWithAi(domain, live, builtWith, locale);
   if (!result) {
-    result = heuristicResult(domain, live, builtWith);
+    result = heuristicResult(domain, live, builtWith, locale);
   }
 
   // Lead capture before returning results (success criteria #2).
