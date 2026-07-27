@@ -3,9 +3,13 @@ import { services } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
 import { industries } from '../data/industries';
 import enterpriseAiAdoptionRoi from '../content/blog/enterprise-ai-adoption-roi.md?raw';
+import enterpriseAiAdoptionRoiEs from '../content/blog/es/enterprise-ai-adoption-roi.md?raw';
 import fractionalCioFirst90Days from '../content/blog/fractional-cio-first-90-days.md?raw';
+import fractionalCioFirst90DaysEs from '../content/blog/es/fractional-cio-first-90-days.md?raw';
 import managedItReportsLikeCio from '../content/blog/managed-it-reports-like-cio.md?raw';
+import managedItReportsLikeCioEs from '../content/blog/es/managed-it-reports-like-cio.md?raw';
 import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rollout.md?raw';
+import zeroTrustMidMarketRolloutEs from '../content/blog/es/zero-trust-mid-market-rollout.md?raw';
 import { formatMailingAddress, site } from './site';
 
 function industriesMarkdown(locale: 'en' | 'es'): string {
@@ -85,10 +89,10 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
-- [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/) (artículo en inglés)
-- [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/) (artículo en inglés)
-- [Zero Trust Without the Buzzwords](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/) (artículo en inglés)
-- [Managed IT That Reports Like a CIO](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/) (artículo en inglés)
+- [Adopción de IA empresarial y ROI: lo que realmente funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
+- [La agenda del CIO fraccionario: los primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
+- [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)
+- [TI administrada que reporta como un CIO: SLAs, KPIs y revisiones trimestrales que importan](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/)
 `;
 
 const contactEn = `---
@@ -290,20 +294,20 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/es/blog': blogIndexEs,
   '/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
   '/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
-  '/es/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
-  '/es/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
+  '/es/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoiEs,
+  '/es/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoiEs,
   '/blog/fractional-cio-first-90-days/': fractionalCioFirst90Days,
   '/blog/fractional-cio-first-90-days': fractionalCioFirst90Days,
-  '/es/blog/fractional-cio-first-90-days/': fractionalCioFirst90Days,
-  '/es/blog/fractional-cio-first-90-days': fractionalCioFirst90Days,
+  '/es/blog/fractional-cio-first-90-days/': fractionalCioFirst90DaysEs,
+  '/es/blog/fractional-cio-first-90-days': fractionalCioFirst90DaysEs,
   '/blog/zero-trust-mid-market-rollout/': zeroTrustMidMarketRollout,
   '/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRollout,
-  '/es/blog/zero-trust-mid-market-rollout/': zeroTrustMidMarketRollout,
-  '/es/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRollout,
+  '/es/blog/zero-trust-mid-market-rollout/': zeroTrustMidMarketRolloutEs,
+  '/es/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRolloutEs,
   '/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
   '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
-  '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
-  '/es/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
+  '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCioEs,
+  '/es/blog/managed-it-reports-like-cio': managedItReportsLikeCioEs,
 };
 
 for (const industry of industries) {

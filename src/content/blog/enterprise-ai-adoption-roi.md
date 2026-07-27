@@ -1,8 +1,6 @@
 ---
 title: 'Enterprise AI Adoption and ROI: What Actually Works'
 description: 'Most enterprise AI pilots deliver no P&L impact. Here is the board-ready playbook — workflows, governance, training, and metrics — from 25+ years of regulated-industry technology leadership.'
-titleEs: 'Adopción de IA empresarial y ROI: lo que realmente funciona'
-descriptionEs: 'La mayoría de los pilotos de IA empresarial no generan impacto en P&L. El playbook listo para la junta: flujos de trabajo, gobernanza, capacitación y métricas — con 25+ años de liderazgo tecnológico en industrias reguladas.'
 pubDate: 2026-07-23
 banner: ai-consulting-brain
 bannerAlt:

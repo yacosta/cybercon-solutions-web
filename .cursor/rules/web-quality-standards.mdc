@@ -17,3 +17,4 @@ Non-negotiables (details in the skill):
 - No bare repeated “Learn more” / “Saber más” link text; include the destination topic in the anchor.
 - Homepage LCP must be the prioritized hero `<img>` (`fetchpriority="high"`, not lazy). Do not use `video[poster]` over that image. Preload the same format `<picture>` selects (AVIF today).
 - Zaraz `/cdn-cgi/zaraz/s.js` needs a browser `Cache-Control` via a Cloudflare Response Header Transform (not `public/_headers`). Zone `41a145bf2688a227f9e321a31055fe19` is in deploy; see README / `npm run cf:zaraz-cache`.
+- Blog posts ship full EN + ES bodies (`src/content/blog/<slug>.md` and `src/content/blog/es/<slug>.md`) — never English-only content under `/es/blog/`.

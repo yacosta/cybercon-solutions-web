@@ -149,7 +149,6 @@ export const en = {
       'What we tell executives and boards: workflows that ship, governance that accelerates, and metrics that survive budget season.',
     readMore: 'Read the article',
     allPosts: 'All posts',
-    englishBodyNote: 'This article is published in English.',
     ctaTitle: 'Ready to turn AI pilots into production?',
     ctaBody:
       'Book a free assessment. We map workflows, governance, and a measured automation plan — not another demo.',

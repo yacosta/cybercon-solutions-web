@@ -6,6 +6,7 @@ import { getMessages, localePath } from '../i18n';
 import {
   bannerImage,
   blogPath,
+  blogSlug,
   formatPostDate,
   getPublishedPosts,
   postDescription,
@@ -18,7 +19,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getMessages(locale);
-const posts = await getPublishedPosts();
+const posts = await getPublishedPosts(locale);
 const path = blogPath(locale);
 const homePath = localePath(locale, '/');
 ---
@@ -44,9 +45,9 @@ const homePath = localePath(locale, '/');
 
     <ul class="blog-list">
       {posts.map((post) => {
-        const title = postTitle(post, locale);
-        const description = postDescription(post, locale);
-        const href = blogPath(locale, post.id);
+        const title = postTitle(post);
+        const description = postDescription(post);
+        const href = blogPath(locale, blogSlug(post));
         const banner = bannerImage(post.data.banner);
         const date = formatPostDate(post.data.pubDate, locale);
         return (
