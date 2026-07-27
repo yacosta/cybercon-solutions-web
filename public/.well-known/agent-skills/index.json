@@ -9,11 +9,6 @@
       "name": "cybercon-assessment",
       "description": "How to help a visitor request a free technology assessment from Cybercon Solutions.",
       "path": "/.well-known/agent-skills/cybercon-assessment/SKILL.md"
-    },
-    {
-      "name": "cybercon-website-assessment",
-      "description": "Full deep website assessment covering SEO, speed, privacy policy, cookie consent, accessibility, security, GDPR, CCPA, and ADA/Section 508.",
-      "path": "/.well-known/agent-skills/cybercon-website-assessment/SKILL.md"
     }
   ]
 }

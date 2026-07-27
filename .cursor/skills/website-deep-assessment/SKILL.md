@@ -1,238 +1,174 @@
 ---
 name: website-deep-assessment
 description: >-
-  Run a full deep website assessment for Cybercon Solutions (or a prospect site):
-  SEO, speed/Core Web Vitals, privacy policy, cookie consent, accessibility
-  (WCAG / ADA / Section 508), security (TLS and safe data collection), GDPR, and
-  CCPA. Use after the lite site-check teaser, when preparing a free assessment
-  follow-up, or when reviewing web design & development work. Prefer evidence
-  over guesses; mark N/unknown when the surface does not support a claim.
+  Run a full deep website assessment in Cursor only (not a public agent skill)
+  and produce a Cybercon Solutions–branded PDF for the customer. Covers SEO,
+  speed/Core Web Vitals, privacy policy, cookie consent, accessibility
+  (WCAG / ADA / Section 508), security, GDPR, and CCPA. Use after the lite
+  site-check teaser, for free-assessment follow-up, or before remediation.
+  Prefer evidence over guesses; mark N when the surface does not support a claim.
 paths:
-  - "src/**/*.{astro,css,ts,tsx,md}"
-  - "public/**/*"
   - ".cursor/skills/website-deep-assessment/**"
-  - "public/.well-known/agent-skills/cybercon-website-assessment/**"
+  - "scripts/website-assessment/**"
 ---
 
-# Website deep assessment
+# Website deep assessment (Cursor → branded PDF)
 
-This is Cybercon’s **full** website review — not the lite `#site-check` teaser.
-Use it to produce a calm, evidence-based pass that a business owner can act on,
-and that an engineer can turn into a remediation plan.
+**Run this skill only inside Cursor.** Do not publish it under
+`public/.well-known/agent-skills/`. The customer deliverable is a
+**Cybercon Solutions–branded PDF**, not a markdown dump in chat.
 
-**Lite vs deep**
+This is the **full** website review — not the lite `#site-check` teaser.
 
-| | Lite site check | Deep assessment |
+| | Lite site check | Deep assessment (this skill) |
 |---|---|---|
-| Where | `/services/web-design-development/#site-check` | Free assessment call + engineer follow-up |
+| Where | `/services/web-design-development/#site-check` | Cursor only |
 | Depth | ~60s surface peek, one finding | Multi-area review with prioritized fixes |
-| Output | Curiosity + CTA | Written findings, grades/notes, next steps |
+| Output | Curiosity + CTA | **Branded PDF** for the customer |
 
-Entry points for humans: https://cybercon-solutions.com/assessment/ · https://cybercon-solutions.com/services/web-design-development/
-
-## How to run this skill
-
-1. **Scope the site** — primary hostname, locales (EN/ES), key templates (home, contact, privacy, service pages).
-2. **Collect evidence** — live HTML/headers, Lighthouse/PageSpeed (mobile + desktop), sitemap/robots, privacy/cookie UX, form flows.
-3. **Score each area below** — use letter grades only when evidence supports them; otherwise **N** (not assessable yet) with what a deeper pass needs.
-4. **Prioritize** — top 3–7 fixes by business risk (trust, legal exposure, conversions, security), not vanity metrics.
-5. **Deliver** — plain-language summary + evidence bullets + recommended next steps (Cybercon can implement via Web Design & Development / assessment).
-6. **Do not invent** — never claim absence of CDN/WAF/analytics from missing page markup alone; check headers/DNS. Never invent compliance certification.
-
-Tone: sage, specific, zero fear-mongering. Tagline context: “Technology, handled.”
+Tone: sage, specific, zero fear-mongering. Tagline: “Technology, handled.”
+Brand coral for accents/text that must pass AA: `#c0392b` (never restore `#f26b5e` for those uses).
 
 ---
 
-## 1. SEO
+## Workflow (required)
 
-**Goal:** The site can be found for the right queries and answers buyer questions.
+1. **Scope** — primary hostname, locales (EN/ES), key templates (home, contact, privacy, service pages). Confirm client display name for the cover.
+2. **Collect evidence** — live HTML/headers, Lighthouse/PageSpeed (mobile + desktop), sitemap/robots, privacy/cookie UX, form flows. Do not invent CDN/WAF/analytics from missing markup alone.
+3. **Score each area** — letter grades A–F only with evidence; otherwise **N** plus what a deeper pass needs.
+4. **Prioritize** — top 3–7 fixes by business risk (trust, legal exposure, conversions, security).
+5. **Write findings JSON** — follow `scripts/website-assessment/findings.schema.json`. Start from `scripts/website-assessment/example-findings.json`. Save under `tmp/` (gitignored) or another non-committed path, e.g. `tmp/assessment-<domain>-findings.json`.
+6. **Render the branded PDF**:
 
-Check:
-
-- Unique `<title>` and meta description per important URL (locale-aware EN/ES).
-- One logical `h1`; sensible heading order.
-- Canonical + `hreflang` when multiple locales exist.
-- XML sitemap and `robots.txt` allow indexing of marketing pages; block only what should be private (`/client/`, APIs, etc.).
-- Descriptive internal link text (no bare “Learn more” / “Saber más” clusters).
-- Meaningful image `alt` where informative; empty `alt=""` only when decorative.
-- Structured data where relevant (Organization, Service, FAQ, BreadcrumbList) — valid, not spammy.
-- Soft 404s / thin pages / duplicate titles.
-
-Evidence sources: live HTML, `llms.txt` / sitemap, Search Console if available, crawler pass.
-
----
-
-## 2. Speed (performance / Core Web Vitals)
-
-**Goal:** Fast, stable loads on real mobile networks — especially LCP, INP, CLS.
-
-Check:
-
-- **LCP** — prioritized hero/main image (`fetchpriority="high"`, not lazy); preload matches the format `<picture>` selects; avoid competing `video[poster]` over the LCP image.
-- Render-blocking CSS/JS; defer non-critical scripts.
-- Image weight and responsive `srcset` / modern formats (AVIF/WebP where appropriate).
-- Font loading strategy (no large layout shifts; reasonable subsets).
-- Cache lifetimes for static assets; third-party script cost (analytics only after consent).
-- Field or lab CWV: LCP, INP, CLS on mobile + desktop.
-
-Evidence sources: Lighthouse / PageSpeed Insights, DevTools Performance/Network, Cybercon web-quality-standards skill for this codebase.
-
----
-
-## 3. Privacy Policy
-
-**Goal:** Visitors can see what data is collected and how it is used.
-
-Check:
-
-- Discoverable privacy page (footer + form flows).
-- Explains categories of data (forms, analytics, cookies, CRM), purposes, retention, and contact for privacy requests.
-- Matches **actual** tools in use (Turnstile, Attio, Web3Forms, GA, Zaraz, etc.) — no stale vendor lists.
-- Locale coverage when the site is bilingual (EN + ES policies or clear language handling).
-- Last-updated clarity where practical.
-
-Evidence sources: `/privacy/` (and `/es/privacy/`), form disclosures, cookie banner copy.
-
----
-
-## 4. Cookie consent
-
-**Goal:** Clear prior choice to allow or block non-essential tracking.
-
-Check:
-
-- Banner or equivalent on first visit; Accept / Reject (or equivalent) for non-essential cookies.
-- Non-essential scripts (e.g. Google Analytics) **do not load** until accept.
-- Preference persisted (cookie / localStorage) and reopenable (e.g. footer “Cookie settings”).
-- Aligns with Consent Mode / Zaraz consent if those tools are present.
-- Reject path still allows essential site use (forms with Turnstile, session for client area, consent storage).
-
-Evidence sources: first-load network log before consent, banner UX, privacy policy cross-check.
-
----
-
-## 5. Accessibility (WCAG)
-
-**Goal:** People with disabilities can perceive, operate, and understand the site (WCAG 2.2 AA as the working bar).
-
-Check:
-
-- Keyboard access to all interactive controls; visible `:focus-visible`.
-- Skip link to main content; `<main id="main-content">` landmark.
-- Color contrast ≥ 4.5:1 for normal text (including eyebrows/accents on cream/white).
-- Form labels, errors (`role="alert"` / `aria-live` where needed), and name/role/value for controls.
-- Target size and spacing for primary actions where practical.
-- Motion: respect `prefers-reduced-motion` for decorative video/animation.
-- `target="_blank"` links disclose new window/tab in the accessible name.
-
-Evidence sources: keyboard pass, axe/Lighthouse a11y, manual screen-reader spot checks on critical flows.
-
----
-
-## 6. Security
-
-**Goal:** Transport is encrypted; data collection is intentional and protected.
-
-Check:
-
-- HTTPS everywhere; HSTS when appropriate; no mixed content.
-- TLS configuration not obviously broken (expired cert, wrong host).
-- Forms POST to trusted endpoints; CSRF/bot protection where applicable (e.g. Turnstile).
-- Security headers as observed (CSP, `X-Frame-Options` / `frame-ancestors`, `Referrer-Policy`, etc.) — grade presence honestly; do not invent CDN/WAF absence from HTML alone.
-- No secrets in client HTML/JS; admin or debug surfaces not public.
-- Dependency/hosting hygiene notes for remediation plans (patching, least privilege) when in scope.
-
-Evidence sources: response headers, certificate view, form network calls, public repo/config review when assessing Cybercon’s own site.
-
----
-
-## 7. GDPR (EU data protection)
-
-**Goal:** Lawful, transparent processing for people in the EU/EEA when the site reaches them.
-
-Check (proportionate to whether the business targets or monitors EU users):
-
-- Lawful basis story for analytics/marketing cookies (consent) vs necessary processing.
-- Privacy notice covers international transfers / processors if relevant.
-- Path for access/deletion requests (email or form) is real and monitored.
-- No pre-ticked marketing consent; cookie consent is granular enough for non-essential tools.
-- Data minimization on forms (only fields you need).
-
-Note: This skill does **not** certify GDPR compliance. Flag gaps and recommend counsel for legal determinations.
-
----
-
-## 8. CCPA / CPRA (California)
-
-**Goal:** California consumers can understand collection and exercise privacy rights.
-
-Check (when the business is in scope or sells/shares personal information in relevant ways):
-
-- Privacy policy discloses categories collected and purposes in plain language.
-- “Do Not Sell or Share” / opt-out mechanism if selling/sharing applies — or a clear statement that the business does not sell.
-- Request methods for know/delete/correct are usable.
-- Analytics/ads configuration matches the public claims.
-
-Note: Not a legal opinion. Document observed UX and policy text; escalate legal calls.
-
----
-
-## 9. ADA / Section 508
-
-**Goal:** Digital experiences meet accessibility expectations for public-facing and government-related contexts.
-
-Check:
-
-- Map WCAG findings to ADA Title II/III risk language for public accommodations **without** claiming courtroom outcomes.
-- For government / public-sector prospects: align remediation language with **Section 508** / WCAG-based standards (see https://www.section508.gov/).
-- Prioritize barriers that block tasks (forms, navigation, media captions, document alternatives).
-
-Evidence sources: same as Accessibility, plus client’s regulatory context from the discovery call.
-
----
-
-## Deliverable template
-
-```markdown
-# Website deep assessment — {domain}
-Date: {ISO date}
-Assessor: {name}
-
-## Executive summary
-{3–6 sentences: overall posture, biggest risks, recommended next step}
-
-## Scores
-| Area | Grade (A–F or N) | One-line note |
-|------|------------------|---------------|
-| SEO | | |
-| Speed | | |
-| Privacy policy | | |
-| Cookie consent | | |
-| Accessibility (WCAG) | | |
-| Security | | |
-| GDPR | | |
-| CCPA | | |
-| ADA / Section 508 | | |
-
-## Priority fixes
-1. …
-2. …
-3. …
-
-## Evidence & details
-### SEO
-…
-### Speed
-…
-(etc.)
-
-## Recommended next step
-Book / continue Cybercon free assessment · Web Design & Development remediation plan
+```bash
+pip install fpdf2   # once per environment
+npm run assessment:pdf -- \
+  --findings tmp/assessment-<domain>-findings.json \
+  --out tmp/Cybercon-Website-Assessment-<Domain>.pdf
 ```
 
-## Related Cybercon surfaces
+7. **Share with the customer** — attach/send the PDF. Keep findings JSON internal unless they ask for raw data.
+8. **Do not invent** — never invent compliance certification or courtroom outcomes.
+
+Optional: also keep a short chat summary for the internal engineer; the PDF is the external artifact.
+
+---
+
+## Areas to assess
+
+### 1. SEO
+
+- Unique `<title>` and meta description per important URL (locale-aware).
+- One logical `h1`; sensible heading order; canonical + `hreflang` when multi-locale.
+- XML sitemap + `robots.txt`; descriptive link text (no bare “Learn more” / “Saber más”).
+- Meaningful `alt`; structured data only when valid and relevant.
+- Soft 404s / thin / duplicate titles.
+
+### 2. Speed (Core Web Vitals)
+
+- LCP image prioritized (`fetchpriority="high"`, not lazy); preload matches `<picture>` format.
+- Avoid competing `video[poster]` over the LCP image.
+- Render-blocking CSS/JS; image weight/`srcset`/modern formats; font loading; cache; third-party cost after consent.
+- Lab or field LCP, INP, CLS (mobile + desktop).
+
+### 3. Privacy policy
+
+- Linked, findable, current contact for privacy requests.
+- Describes collection, processors, retention, cookies/ads, rights requests.
+- Forms point to the notice; marketing claims match practice.
+
+### 4. Cookie consent
+
+- Non-essential tags (analytics/ads) wait for consent; reject as easy as accept.
+- Banner readable and keyboard-accessible; preference storage behaves correctly.
+- Essential vs non-essential categories explained in plain language.
+
+### 5. Accessibility (WCAG 2.2 AA mindset)
+
+- Skip link → `#main-content`; landmarks; focus visible; name matches visible text (WCAG 2.5.3).
+- `target="_blank"` → `rel="noopener noreferrer"` + new-window hint in the accessible name.
+- Contrast (brand coral `#c0392b` on cream/white for text/eyebrows); forms labeled; errors clear.
+- No keyboard traps; captions/alternatives for media where relevant.
+
+### 6. Security (public site + data collection)
+
+- HTTPS everywhere; HSTS when appropriate; mixed content absent.
+- Sensible security headers where feasible (CSP staged carefully).
+- Forms: CSRF/bot protection as applicable; no secrets in client HTML; least data collected.
+- Admin/login surfaces not casually exposed; dependency/XSS red flags on marketing pages.
+
+### 7. GDPR (when EU residents are in scope)
+
+- Lawful basis / purpose clarity; processors and transfers described.
+- Consent quality for non-essential processing; easy withdrawal.
+- If not in scope, score **N** and say what would be needed — do not fake compliance.
+
+### 8. CCPA / California privacy
+
+- Notice at collection; Do Not Sell/Share or equivalent when required by their ad stack.
+- Consumer request method; service-provider vs sharing language matches tags in use.
+- If no CA personal information / no sale-share, document that evidence — do not overclaim.
+
+### 9. ADA / Section 508
+
+- Map WCAG barriers to ADA risk language for public accommodations **without** courtroom claims.
+- Government / public-sector: align remediation language with Section 508 / WCAG-based standards.
+- Prioritize task-blocking issues (forms, nav, captions, document alternatives).
+
+---
+
+## Findings JSON (minimum)
+
+```json
+{
+  "meta": {
+    "domain": "client.com",
+    "clientName": "Client Name",
+    "url": "https://client.com",
+    "assessmentDate": "2026-07-27",
+    "assessor": "Cybercon Solutions",
+    "locales": ["en"],
+    "confidential": true
+  },
+  "executiveSummary": "…",
+  "scores": [{ "area": "SEO", "grade": "B", "note": "…" }],
+  "priorityFixes": [{ "title": "…", "severity": "high", "detail": "…" }],
+  "sections": [{
+    "id": "seo",
+    "title": "SEO",
+    "grade": "B",
+    "summary": "…",
+    "findings": [{
+      "severity": "medium",
+      "title": "…",
+      "evidence": "…",
+      "recommendation": "…"
+    }]
+  }],
+  "nextStep": "…"
+}
+```
+
+Expected score rows: SEO, Speed, Privacy policy, Cookie consent, Accessibility (WCAG), Security, GDPR, CCPA, ADA / Section 508.
+
+---
+
+## PDF branding (do not freestyle)
+
+Generator: `scripts/website-assessment/generate-assessment-pdf.py` (fpdf2), same family as the sample QBR PDF.
+
+- Cover: navy band `#0f2c4c`, coral rule `#c0392b`, “CYBERCON SOLUTIONS” + “Website Deep Assessment”
+- Body: navy headings, muted meta, cream-striped scorecard, severity tags on fixes
+- Footer: page numbers + cybercon-solutions.com + “Technology, handled.”
+- Disclaimer: not a legal opinion or certification
+
+After rendering, spot-check the first page reads as Cybercon (brand test), not a generic audit template.
+
+---
+
+## Related surfaces
 
 - Lite teaser: `/services/web-design-development/#site-check` → `POST /api/site-check`
 - Free assessment booking: `/assessment/` → `POST /api/assessment`
-- Public agent skill (short): `/.well-known/agent-skills/cybercon-website-assessment/SKILL.md`
-- Internal web quality rules for *this* repo: `.cursor/skills/web-quality-standards/SKILL.md`
+- This repo’s web quality rules: `.cursor/skills/web-quality-standards/SKILL.md`
+- Public well-known skills stay limited to services + assessment booking — **not** this deep review
