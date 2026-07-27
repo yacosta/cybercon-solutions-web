@@ -164,6 +164,36 @@ When `RESEND_API_KEY` is set, assessment / contact / site-check submissions also
 
 Until you verify a custom domain in Resend, the default from address `onboarding@resend.dev` works for testing.
 
+#### Resend DNS (Cloudflare zone `cybercon-solutions.com`)
+
+DNS is managed in Cloudflare (nameservers `abby` / `sid`). Add the domain in [Resend → Domains](https://resend.com/domains), then either:
+
+- **Automatic:** click **Sign in to Cloudflare** (Domain Connect), or
+- **Manual:** add these three records under Cloudflare → **DNS → Records** (Proxy status **DNS only** / grey cloud):
+
+| Type | Name | Content / Mail server | Priority |
+|------|------|------------------------|----------|
+| `MX` | `send` | value from Resend (e.g. `feedback-smtp.us-east-1.amazonses.com`) | `10` |
+| `TXT` | `send` | value from Resend (e.g. `v=spf1 include:amazonses.com ~all`) | — |
+| `TXT` | `resend._domainkey` | full DKIM `p=…` value from Resend | — |
+
+In Cloudflare, use short names (`send`, `resend._domainkey`) — omit `.cybercon-solutions.com`.
+
+Then in Resend click **Verify DNS Records**. After status is **Verified**:
+
+1. Set Worker / `.env` `RESEND_FROM` to a from-address on that domain, e.g. `Cybercon Solutions <alerts@cybercon-solutions.com>`
+2. Keep `RESEND_TO=yacosta@cybercon-solutions.com` (or your inbox)
+
+**Do not** enable Resend **Receiving** on the root domain — ProtonMail already owns root MX (`mail.protonmail.ch`). Receiving would need a separate subdomain (e.g. `inbound.cybercon-solutions.com`).
+
+Check public DNS anytime:
+
+```bash
+dig +short MX send.cybercon-solutions.com
+dig +short TXT send.cybercon-solutions.com
+dig +short TXT resend._domainkey.cybercon-solutions.com
+```
+
 ### Connect Attio (assessment form → CRM)
 
 Website forms already call Attio when `ATTIO_API_KEY` is present. Production is live when `/api/health` shows `"attio": true`.
