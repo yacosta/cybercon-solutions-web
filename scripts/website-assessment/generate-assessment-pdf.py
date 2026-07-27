@@ -36,6 +36,22 @@ CREAM = (247, 244, 241)  # #f7f4f1
 LIGHT = (247, 249, 251)
 WHITE = (255, 255, 255)
 
+# Horizontal lockup (dark wordmark + coral mark) — for light backgrounds only.
+REPO_ROOT = Path(__file__).resolve().parents[2]
+LOGO_CANDIDATES = (
+    REPO_ROOT / "public" / "cybercon-solutions-logo-email-2x.png",
+    REPO_ROOT / "public" / "brand" / "cybercon-solutions-logo-email-2x.png",
+    REPO_ROOT / "public" / "cybercon-solutions-logo.png",
+    REPO_ROOT / "public" / "brand" / "cybercon-solutions-logo.png",
+)
+
+
+def _logo_path() -> Path | None:
+    for path in LOGO_CANDIDATES:
+        if path.is_file():
+            return path
+    return None
+
 GRADE_FILL = {
     "A": (46, 125, 90),
     "B": (56, 112, 92),
@@ -51,6 +67,85 @@ SEVERITY_LABEL = {
     "low": "LOW",
     "info": "INFO",
 }
+
+# Letter grades → 4.0 scale. N is excluded from the average (insufficient evidence).
+GRADE_POINTS = {
+    "A": 4.0,
+    "B": 3.0,
+    "C": 2.0,
+    "D": 1.0,
+    "F": 0.0,
+}
+
+GRADE_KEY = [
+    ("A", "4.0", "Strong - minor polish only"),
+    ("B", "3.0", "Solid - a few clear improvements"),
+    ("C", "2.0", "Mixed - fix priority gaps soon"),
+    ("D", "1.0", "Weak - material risk or trust gaps"),
+    ("F", "0.0", "Failing - urgent remediation"),
+    ("N", "-", "Not scored - insufficient evidence this pass"),
+]
+
+
+def _normalize_grade(raw: object) -> str:
+    g = str(raw or "").strip().upper()[:1]
+    if g in GRADE_POINTS or g == "N":
+        return g
+    return "N"
+
+
+def compute_total_score(data: dict) -> dict:
+    """Average scored areas (A–F) into a Total Site Score; N rows are skipped."""
+    override = data.get("totalScore")
+    if isinstance(override, dict) and override.get("grade"):
+        grade = _normalize_grade(override.get("grade"))
+        scored = int(override.get("scoredAreas") or 0)
+        total = int(override.get("totalAreas") or scored)
+        avg = override.get("average")
+        if avg is None and grade in GRADE_POINTS:
+            avg = GRADE_POINTS[grade]
+        return {
+            "grade": grade,
+            "average": float(avg) if avg is not None else None,
+            "scoredAreas": scored,
+            "totalAreas": total,
+            "source": "override",
+        }
+
+    rows = data.get("scores") or []
+    points: list[float] = []
+    for row in rows:
+        g = _normalize_grade(row.get("grade"))
+        if g in GRADE_POINTS:
+            points.append(GRADE_POINTS[g])
+    total_areas = len(rows)
+    scored = len(points)
+    if scored == 0:
+        return {
+            "grade": "N",
+            "average": None,
+            "scoredAreas": 0,
+            "totalAreas": total_areas,
+            "source": "computed",
+        }
+    avg = sum(points) / scored
+    if avg >= 3.5:
+        letter = "A"
+    elif avg >= 2.5:
+        letter = "B"
+    elif avg >= 1.5:
+        letter = "C"
+    elif avg >= 0.5:
+        letter = "D"
+    else:
+        letter = "F"
+    return {
+        "grade": letter,
+        "average": round(avg, 2),
+        "scoredAreas": scored,
+        "totalAreas": total_areas,
+        "source": "computed",
+    }
 
 
 def _safe(text: object) -> str:
@@ -90,16 +185,24 @@ class AssessmentPdf(FPDF):
     def header(self):
         if self.page_no() == 1:
             return
+        logo = _logo_path()
+        y0 = self.get_y()
+        text_x = self.l_margin
+        if logo is not None:
+            # Compact lockup in running headers (dark logo on white page).
+            self.image(str(logo), x=self.l_margin, y=y0, h=6)
+            text_x = self.l_margin + 32
+        self.set_xy(text_x, y0 + 0.5)
         self.set_font("Helvetica", "", 8)
         self.set_text_color(*MUTED)
         conf = "Confidential  |  " if self.meta.get("confidential", True) else ""
         self.cell(
             0,
             6,
-            f"Cybercon Solutions  |  Website deep assessment  |  {conf}{self.client_label}",
+            f"Website deep assessment  |  {conf}{self.client_label}",
             align="L",
         )
-        self.ln(8)
+        self.set_y(y0 + 8)
         self.set_draw_color(*RULE)
         self.line(self.l_margin, self.get_y(), self.w - self.r_margin, self.get_y())
         self.ln(4)
@@ -157,33 +260,42 @@ class AssessmentPdf(FPDF):
 
 def draw_cover(pdf: AssessmentPdf, data: dict):
     meta = data["meta"]
+    # Light strip for the full-color lockup (logo is dark-on-light).
+    pdf.set_fill_color(*WHITE)
+    pdf.rect(0, 0, 216, 28, "F")
+    logo = _logo_path()
+    if logo is not None:
+        # ~1520x320 lockup → keep ~18mm tall, width scales (~85mm).
+        pdf.image(str(logo), x=18, y=5, h=18)
+    else:
+        pdf.set_xy(18, 10)
+        pdf.set_font("Helvetica", "B", 14)
+        pdf.set_text_color(*NAVY)
+        pdf.cell(0, 8, "CYBERCON SOLUTIONS")
+
     pdf.set_fill_color(*NAVY)
-    pdf.rect(0, 0, 216, 58, "F")
+    pdf.rect(0, 28, 216, 42, "F")
     pdf.set_fill_color(*CORAL)
-    pdf.rect(0, 58, 216, 3, "F")
+    pdf.rect(0, 70, 216, 3, "F")
 
-    pdf.set_xy(18, 14)
-    pdf.set_font("Helvetica", "B", 11)
-    pdf.set_text_color(*WHITE)
-    pdf.cell(0, 6, "CYBERCON SOLUTIONS")
-
-    pdf.set_xy(18, 24)
+    pdf.set_xy(18, 34)
     pdf.set_font("Helvetica", "B", 18)
+    pdf.set_text_color(*WHITE)
     pdf.cell(0, 8, "Website Deep Assessment")
 
-    pdf.set_xy(18, 36)
+    pdf.set_xy(18, 46)
     pdf.set_font("Helvetica", "", 11)
     client = _safe(meta.get("clientName") or meta.get("domain"))
     domain = _safe(meta.get("domain") or "")
     date = _safe(meta.get("assessmentDate") or "")
     pdf.cell(0, 6, f"{client}  |  {domain}  |  {date}")
 
-    pdf.set_xy(18, 44)
+    pdf.set_xy(18, 56)
     pdf.set_font("Helvetica", "", 9)
     pdf.set_text_color(220, 226, 232)
     pdf.cell(0, 5, "Prepared for the customer  |  Evidence-based review  |  Not a certification")
 
-    pdf.set_y(72)
+    pdf.set_y(82)
     pdf.set_x(pdf.l_margin)
     pdf.set_font("Helvetica", "", 9)
     pdf.set_text_color(*MUTED)
@@ -216,7 +328,8 @@ def draw_scores(pdf: AssessmentPdf, data: dict):
         0,
         4.5,
         "Grades A-F reflect evidence gathered in this pass. N = not assessable yet "
-        "(missing surface, market scope, or measurement).",
+        "(missing surface, market scope, or measurement). See Total Site Score and "
+        "Score key at the end of this report.",
         new_x="LMARGIN",
         new_y="NEXT",
     )
@@ -346,9 +459,124 @@ def draw_sections(pdf: AssessmentPdf, data: dict):
             pdf.ln(1.5)
 
 
+def draw_total_score(pdf: AssessmentPdf, data: dict):
+    """Closing Total Site Score + grade key (bottom of report)."""
+    total = compute_total_score(data)
+    pdf.ensure_space(72)
+    pdf.h2("5. Total Site Score")
+
+    grade = total["grade"]
+    avg = total.get("average")
+    scored = total.get("scoredAreas") or 0
+    areas = total.get("totalAreas") or 0
+    gfill = GRADE_FILL.get(grade, MUTED)
+
+    # Score band
+    band_h = 28
+    y0 = pdf.get_y()
+    pdf.set_fill_color(*NAVY)
+    pdf.rect(pdf.l_margin, y0, pdf.w - pdf.l_margin - pdf.r_margin, band_h, "F")
+    pdf.set_xy(pdf.l_margin + 4, y0 + 4)
+    pdf.set_font("Helvetica", "", 9)
+    pdf.set_text_color(220, 226, 232)
+    pdf.cell(0, 5, "TOTAL SITE SCORE")
+    pdf.set_xy(pdf.l_margin + 4, y0 + 11)
+    pdf.set_font("Helvetica", "B", 22)
+    pdf.set_text_color(*WHITE)
+    label = grade
+    if avg is not None and grade != "N":
+        label = f"{grade}   ({avg:.2f} / 4.0)"
+    pdf.cell(90, 10, label)
+
+    # Grade badge on the right of the band
+    badge_w = 18
+    badge_x = pdf.w - pdf.r_margin - badge_w - 6
+    pdf.set_fill_color(*gfill)
+    pdf.rect(badge_x, y0 + 5, badge_w, badge_w, "F")
+    pdf.set_xy(badge_x, y0 + 8)
+    pdf.set_font("Helvetica", "B", 16)
+    pdf.set_text_color(*WHITE)
+    pdf.cell(badge_w, 12, grade, align="C")
+
+    pdf.set_y(y0 + band_h + 3)
+    pdf.set_font("Helvetica", "", 9)
+    pdf.set_text_color(*MUTED)
+    if grade == "N" or scored == 0:
+        pdf.multi_cell(
+            0,
+            4.5,
+            "Not enough scored areas to compute a Total Site Score this pass.",
+            new_x="LMARGIN",
+            new_y="NEXT",
+        )
+    else:
+        skipped = max(0, areas - scored)
+        skip_note = (
+            f" {skipped} area(s) graded N were excluded from the average."
+            if skipped
+            else ""
+        )
+        pdf.multi_cell(
+            0,
+            4.5,
+            f"Average of {scored} scored area(s) on a 4.0 scale "
+            f"(A=4, B=3, C=2, D=1, F=0).{skip_note}",
+            new_x="LMARGIN",
+            new_y="NEXT",
+        )
+    pdf.ln(2)
+
+    # Key
+    pdf.set_font("Helvetica", "B", 10)
+    pdf.set_text_color(*NAVY)
+    pdf.multi_cell(0, 5.5, "Score key", new_x="LMARGIN", new_y="NEXT")
+    pdf.set_font("Helvetica", "", 8.5)
+    pdf.set_text_color(*MUTED)
+    pdf.multi_cell(
+        0,
+        4.2,
+        "Each area receives a letter grade. The Total Site Score is the average of "
+        "A-F grades only. N means we could not score that area yet.",
+        new_x="LMARGIN",
+        new_y="NEXT",
+    )
+    pdf.ln(1.5)
+
+    col_g = 12
+    col_p = 14
+    col_m = pdf.w - pdf.l_margin - pdf.r_margin - col_g - col_p - 4
+    pdf.set_fill_color(*NAVY)
+    pdf.set_text_color(*WHITE)
+    pdf.set_font("Helvetica", "B", 8.5)
+    pdf.set_x(pdf.l_margin)
+    pdf.cell(col_g, 6, " Grade", fill=True)
+    pdf.cell(col_p, 6, "Points", fill=True, align="C")
+    pdf.cell(col_m, 6, " Meaning", fill=True, new_x="LMARGIN", new_y="NEXT")
+
+    for i, (g, pts, meaning) in enumerate(GRADE_KEY):
+        fill = CREAM if i % 2 == 0 else WHITE
+        pdf.set_fill_color(*fill)
+        y = pdf.get_y()
+        pdf.rect(pdf.l_margin, y, col_g + col_p + col_m, 7, "F")
+        badge = GRADE_FILL.get(g, MUTED)
+        pdf.set_fill_color(*badge)
+        pdf.set_xy(pdf.l_margin + 1.5, y + 1)
+        pdf.set_font("Helvetica", "B", 8.5)
+        pdf.set_text_color(*WHITE)
+        pdf.cell(col_g - 3, 5, g, fill=True, align="C")
+        pdf.set_xy(pdf.l_margin + col_g, y + 1)
+        pdf.set_font("Helvetica", "", 8.5)
+        pdf.set_text_color(*BODY)
+        pdf.cell(col_p, 5, pts, align="C")
+        pdf.set_xy(pdf.l_margin + col_g + col_p, y + 1)
+        pdf.cell(col_m, 5, f" {meaning}")
+        pdf.set_y(y + 7)
+    pdf.ln(3)
+
+
 def draw_next(pdf: AssessmentPdf, data: dict):
     pdf.ensure_space(50)
-    pdf.h2("5. Recommended next step")
+    pdf.h2("6. Recommended next step")
     next_step = data.get("nextStep") or (
         "Book a Cybercon free assessment follow-up to sequence remediation under "
         "Web Design & Development: https://cybercon-solutions.com/assessment/"
@@ -382,7 +610,8 @@ def draw_next(pdf: AssessmentPdf, data: dict):
         "Disclaimer: This assessment summarizes observations from available public surfaces "
         "and agreed test methods at the time of review. It is not a legal opinion, "
         "compliance certification, or guarantee of courtroom or regulator outcomes. "
-        "Grades marked N mean evidence was insufficient to score.",
+        "Grades marked N mean evidence was insufficient to score. The Total Site Score "
+        "averages A-F area grades only.",
         new_x="LMARGIN",
         new_y="NEXT",
     )
@@ -404,6 +633,7 @@ def build(data: dict, out: Path) -> Path:
     draw_scores(pdf, data)
     draw_priorities(pdf, data)
     draw_sections(pdf, data)
+    draw_total_score(pdf, data)
     draw_next(pdf, data)
 
     out.parent.mkdir(parents=True, exist_ok=True)
