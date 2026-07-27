@@ -200,27 +200,25 @@ Three phases. No surprises mid-project.
 info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
 `,
   '/es/': `---
-title: "TI y ciberseguridad en el Sur de Florida | Cybercon"
-description: "Evaluación gratuita de TI administrada, ciberseguridad, nube e IA en Cooper City y Davie, Florida. Detectamos problemas a tiempo y tratamos la seguridad como la base."
+title: "TI y ciberseguridad en Cooper City y Davie | Cybercon"
+description: "TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por averías. Mesa de ayuda 24/7, monitoreo y seguridad con respaldo SOC. Revisión gratuita del sitio o evaluación."
 ---
 
 # Cybercon Solutions
 
-Tu departamento de TI, sin la sobrecarga.
+Technology, handled.
 
-TI administrada, ciberseguridad, nube e IA. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.
+Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.
 
-**Detectamos problemas a tiempo y tratamos la seguridad como la base.**
+## Mira lo que realmente cuesta tu TI
 
-## Solicita una evaluación gratuita
-
-Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.
+Sin tecnicismos. Sin compromiso. Una lectura clara del gasto, las brechas y qué riesgos están cubiertos. ¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check.
 
 Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-solutions.com/es/ (protegido con Cloudflare Turnstile).
 
 ## Lo que gestionamos
 
-Un solo aliado para toda tu tecnología. Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.
+Un solo aliado para el stack. Una factura que puedes planificar. TI administrada proactiva con precio por usuario — sin sorpresas por averías. Quitamos el parcheo rutinario, el monitoreo y el ruido del helpdesk de tu plato para que tu gente ejecute estrategia.
 
 ${servicesMarkdown('es')}
 
