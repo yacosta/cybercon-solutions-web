@@ -57,13 +57,6 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
           <button type="submit" class="btn btn-primary" data-sc-continue>{copy.continue}</button>
           <p class="disclosure">{copy.disclosure}</p>
           <button type="button" class="text-link" data-sc-sample>{copy.sampleLink}</button>
-          <a
-            class="text-link sample-pdf"
-            href="/downloads/cybercon-sample-website-assessment.pdf"
-            download="cybercon-sample-website-assessment.pdf"
-          >
-            {copy.samplePdfLink}
-          </a>
         </form>
       </div>
 
@@ -149,13 +142,6 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
             </a>
             <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
           </div>
-          <a
-            class="text-link sample-pdf"
-            href="/downloads/cybercon-sample-website-assessment.pdf"
-            download="cybercon-sample-website-assessment.pdf"
-          >
-            {copy.samplePdfLink}
-          </a>
           <button type="button" class="text-link" data-sc-reset>{copy.scanAnother}</button>
         </div>
       </div>
@@ -846,17 +832,6 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
 
   .text-link:hover {
     color: var(--coral);
-  }
-
-  a.sample-pdf {
-    display: block;
-    margin-top: 0.35rem;
-    max-width: 36rem;
-    line-height: 1.35;
-  }
-
-  .cta-block a.sample-pdf {
-    margin-top: 0.75rem;
   }
 
   .btn-secondary {

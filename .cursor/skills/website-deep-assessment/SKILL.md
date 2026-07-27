@@ -47,13 +47,10 @@ npm run assessment:pdf -- \
   --out tmp/Cybercon-Website-Assessment-<Domain>.pdf
 ```
 
-7. **Share with the customer** — attach/send the PDF. Keep findings JSON internal unless they ask for raw data.
+7. **Deliver from Cursor** — write the PDF under `tmp/` (gitignored) or the run’s artifacts folder so it can be **downloaded from Cursor**. Do **not** publish deep assessment PDFs under `public/downloads/` or link them from the website. Keep findings JSON internal unless the customer asks for raw data.
 8. **Do not invent** — never invent compliance certification or courtroom outcomes.
 
-**Public sample (downloadable):** regenerate the anonymized lead-magnet PDF with
-`npm run assessment:pdf:sample` → `/downloads/cybercon-sample-website-assessment.pdf`
-(`Content-Disposition: attachment` via `public/_headers`). Linked from the site-check
-widget and the Web Design FAQ. Customer engagement PDFs stay off the public site.
+The public site keeps only the lite `#site-check` teaser. Full assessment PDFs are a Cursor → customer share path only.
 
 Optional: also keep a short chat summary for the internal engineer; the PDF is the external artifact.
 

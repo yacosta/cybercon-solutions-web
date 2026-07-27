@@ -196,9 +196,7 @@ export const en = {
     backToDomain: 'Change domain',
     submit: 'Check my site',
     disclosure: 'Your email and scanned domain are recorded so we can follow up.',
-    sampleLink: 'See a sample lite report',
-    samplePdfLink:
-      'Download sample deep website assessment (PDF) — starts a download',
+    sampleLink: 'See a sample report',
     sampleBanner: 'Illustrative sample — a lite teaser, not a full assessment.',
     scanningTitle: 'Running a lite surface check…',
     scanningHint: 'This is a quick peek — not a full audit.',

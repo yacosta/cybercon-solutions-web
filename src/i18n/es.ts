@@ -198,9 +198,7 @@ export const es: Messages = {
     backToDomain: 'Cambiar dominio',
     submit: 'Revisar mi sitio',
     disclosure: 'Tu correo y el dominio revisado se registran para poder dar seguimiento.',
-    sampleLink: 'Ver un informe lite de ejemplo',
-    samplePdfLink:
-      'Descargar evaluación web profunda de ejemplo (PDF) — inicia una descarga',
+    sampleLink: 'Ver un informe de ejemplo',
     sampleBanner: 'Ejemplo ilustrativo — un avance lite, no una evaluación completa.',
     scanningTitle: 'Ejecutando una revisión lite…',
     scanningHint: 'Es un vistazo rápido — no una auditoría completa.',
