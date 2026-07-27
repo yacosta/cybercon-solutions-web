@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'TI y ciberseguridad en el Sur de Florida | Cybercon',
     description:
-      'Evaluación gratuita de TI, ciberseguridad, nube e IA en Cooper City y Davie, FL. Detectamos problemas a tiempo; la seguridad es la base.',
+      'Tu departamento de TI en Cooper City, Davie y Sur de Florida: TI administrada, ciberseguridad, nube e IA. Detectamos problemas a tiempo. Evaluación gratuita.',
   },
   nav: {
     search: 'Buscar',

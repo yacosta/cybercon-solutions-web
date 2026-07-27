@@ -39,12 +39,12 @@ const orgCopy: Record<
   { description: string; catalogName: string; contactType: string }
 > = {
   en: {
-    description: `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
+    description: `We run managed IT, cybersecurity, cloud, and AI for organizations in ${site.serviceAreaFocus}. Your IT department, without the overhead: monitoring, patching, backups, and support when remote is not enough — with security treated as the baseline, not an add-on. We catch problems early. A real engineer follows up within one business day. Free assessment, no obligation. Mailing address in Miami Beach, Florida (${formatMailingAddress()}).`,
     catalogName: 'Managed IT Services',
     contactType: 'sales',
   },
   es: {
-    description: `TI administrada proactiva para organizaciones en crecimiento, con la seguridad como base: gestión de endpoints y servidores, ciberseguridad, respaldo y recuperación ante desastres, y cumplimiento, a una tarifa mensual predecible. La dirección postal está en Miami Beach, Florida (${formatMailingAddress()}). Los servicios gestionados y en sitio se centran en Cooper City, Davie y el sur de Florida.`,
+    description: `Gestionamos TI administrada, ciberseguridad, nube e IA para organizaciones en Cooper City, Davie y el área amplia del Sur de Florida. Tu departamento de TI, sin la sobrecarga: monitoreo, parches, respaldos y soporte cuando lo remoto no alcanza — con la seguridad como base, no como extra. Detectamos problemas a tiempo. Un ingeniero real responde en un día hábil. Evaluación gratuita, sin compromiso. Dirección postal en Miami Beach, Florida (${formatMailingAddress()}).`,
     catalogName: 'Servicios de TI administrada',
     contactType: 'sales',
   },
