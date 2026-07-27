@@ -25,11 +25,15 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
   aria-labelledby="site-check-title"
 >
   <div class="container">
-    <p class="eyebrow">{copy.eyebrow}</p>
-    <TitleTag id="site-check-title">{copy.title}</TitleTag>
-    <p class="lede">{copy.lede}</p>
+    <div class="sc-layout">
+      <div class="sc-copy">
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <TitleTag id="site-check-title">{copy.title}</TitleTag>
+        <p class="lede">{copy.lede}</p>
+      </div>
 
-    <div class="panel" data-sc-panel>
+      <div class="sc-widget">
+        <div class="panel" data-sc-panel>
       <!-- Idle -->
       <div class="view" data-view="idle">
         <form class="sc-form" data-sc-form novalidate>
@@ -149,6 +153,8 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
           </table>
         </div>
         <p class="admin-empty" data-sc-admin-empty hidden>{copy.adminEmpty}</p>
+      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -565,6 +571,49 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
     margin-top: 0;
   }
 
+  .sc-layout {
+    display: grid;
+    gap: clamp(1.75rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .sc-copy {
+    max-width: 34rem;
+  }
+
+  .sc-widget {
+    min-width: 0;
+  }
+
+  @media (min-width: 900px) {
+    .sc-layout {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: start;
+    }
+
+    .sc-copy {
+      max-width: none;
+      padding-right: 0.5rem;
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .site-check h1,
+    .site-check h2 {
+      max-width: 14ch;
+    }
+
+    .lede {
+      max-width: 34ch;
+      margin-bottom: 0;
+    }
+
+    .panel {
+      max-width: none;
+    }
+  }
+
   .eyebrow {
     font-family: var(--font-heading);
     font-size: 0.8125rem;
@@ -586,7 +635,8 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
   .lede {
     color: rgba(247, 245, 241, 0.78);
     max-width: 38rem;
-    margin: 0 0 1.75rem;
+    margin: 0 0 0;
+    line-height: 1.55;
   }
 
   .panel {
@@ -596,6 +646,7 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
     padding: clamp(1.25rem, 3vw, 2rem);
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
     max-width: 720px;
+    width: 100%;
   }
 
   .view[hidden] {
