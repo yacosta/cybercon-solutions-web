@@ -6,9 +6,9 @@ export const privacyContent = {
     metaDescription:
       'How Cybercon Solutions collects, uses, and protects your information. Cookie categories, analytics consent, Turnstile, CCPA rights, and contact details.',
     title: 'Privacy & Cookie Policy',
-    lastUpdated: 'Last updated: July 20, 2026',
+    lastUpdated: 'Last updated: July 27, 2026',
     intro:
-      'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have.',
+      'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have. Non-essential cookies and similar trackers are not set or loaded until you give prior consent (or you may reject them and continue browsing).',
     controllerHeading: 'Who is responsible for your data',
     controller:
       'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · (305) 320-5335.',
@@ -28,7 +28,7 @@ export const privacyContent = {
       },
       {
         heading: '2. Cookies & similar technologies',
-        body: 'We use only strictly necessary cookies by default. Analytics cookies are set only after you accept them in the consent banner. You can change or withdraw your choice at any time using the “Cookie settings” link in the footer.',
+        body: 'Under the ePrivacy Directive and GDPR, we do not set or load non-essential cookies or trackers until you give prior consent via the banner. Strictly necessary cookies run by default so the site and security features work. Analytics cookies and optional Zaraz tools (if configured) load only after you choose “Accept analytics.” Choosing “Reject non-essential” keeps analytics off. You can change or withdraw your choice at any time using “Cookie settings” in the footer.',
         table: {
           headers: ['Name / provider', 'Purpose', 'Category'],
           rows: [
@@ -38,8 +38,8 @@ export const privacyContent = {
               'Strictly necessary',
             ],
             [
-              'Consent preference (local storage: cybercon-consent-v1)',
-              'Remembers whether you accepted or declined analytics so we don’t ask again.',
+              'Consent preference (cookie: cybercon_consent; local storage: cybercon-consent-v1)',
+              'Remembers whether you accepted or rejected non-essential analytics so we don’t ask again. Stored for up to one year.',
               'Strictly necessary',
             ],
             [
@@ -49,7 +49,7 @@ export const privacyContent = {
             ],
             [
               'Google Analytics (_ga, _ga_*) — Google LLC',
-              'Measures site traffic and usage. Loaded only after you accept analytics.',
+              'Measures site traffic and usage. Loaded only after you accept analytics. Google Consent Mode defaults remain denied until then.',
               'Analytics (optional)',
             ],
           ],
@@ -67,9 +67,9 @@ export const privacyContent = {
       {
         heading: '4. Legal bases (for EEA/UK visitors)',
         list: [
-          'Consent — for analytics cookies and related processing. You may withdraw consent at any time.',
+          'Consent — for analytics cookies, similar tracking technologies, and related processing. Consent is collected before those tools run; you may withdraw it at any time via Cookie settings.',
           'Steps taken at your request / legitimate interests — to respond to your inquiry and provide the information you asked for.',
-          'Legitimate interests — to protect our website and services from abuse.',
+          'Legitimate interests — to protect our website and services from abuse (including strictly necessary security checks such as Turnstile on forms).',
         ],
       },
       {
@@ -112,9 +112,9 @@ export const privacyContent = {
     metaDescription:
       'Cómo Cybercon Solutions recopila, usa y protege tu información. Categorías de cookies, consentimiento de analítica, Turnstile, derechos CCPA y contacto.',
     title: 'Política de Privacidad y Cookies',
-    lastUpdated: 'Última actualización: 20 de julio de 2026',
+    lastUpdated: 'Última actualización: 27 de julio de 2026',
     intro:
-      'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes.',
+      'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes. Las cookies no esenciales y rastreadores similares no se establecen ni se cargan hasta que des tu consentimiento previo (o puedes rechazarlas y seguir navegando).',
     controllerHeading: 'Quién es responsable de tus datos',
     controller:
       'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · (305) 320-5335.',
@@ -134,7 +134,7 @@ export const privacyContent = {
       },
       {
         heading: '2. Cookies y tecnologías similares',
-        body: 'Por defecto usamos solo cookies estrictamente necesarias. Las cookies de analítica se establecen solo después de que las aceptes en el banner de consentimiento. Puedes cambiar o retirar tu elección en cualquier momento con el enlace “Configuración de cookies” del pie de página.',
+        body: 'Según la Directiva ePrivacy y el RGPD, no establecemos ni cargamos cookies o rastreadores no esenciales hasta que des tu consentimiento previo en el banner. Las cookies estrictamente necesarias funcionan por defecto para que el sitio y la seguridad operen. Las cookies de analítica y las herramientas opcionales de Zaraz (si están configuradas) se cargan solo si eliges “Aceptar analítica”. “Rechazar no esenciales” mantiene la analítica desactivada. Puedes cambiar o retirar tu elección en cualquier momento con “Configuración de cookies” en el pie de página.',
         table: {
           headers: ['Nombre / proveedor', 'Finalidad', 'Categoría'],
           rows: [
@@ -144,8 +144,8 @@ export const privacyContent = {
               'Estrictamente necesarias',
             ],
             [
-              'Preferencia de consentimiento (almacenamiento local: cybercon-consent-v1)',
-              'Recuerda si aceptaste o rechazaste la analítica para no volver a preguntar.',
+              'Preferencia de consentimiento (cookie: cybercon_consent; almacenamiento local: cybercon-consent-v1)',
+              'Recuerda si aceptaste o rechazaste la analítica no esencial para no volver a preguntar. Se conserva hasta un año.',
               'Estrictamente necesarias',
             ],
             [
@@ -155,7 +155,7 @@ export const privacyContent = {
             ],
             [
               'Google Analytics (_ga, _ga_*) — Google LLC',
-              'Mide el tráfico y el uso del sitio. Se carga solo si aceptas la analítica.',
+              'Mide el tráfico y el uso del sitio. Se carga solo si aceptas la analítica. El modo de consentimiento de Google permanece denegado hasta entonces.',
               'Analítica (opcional)',
             ],
           ],
@@ -173,9 +173,9 @@ export const privacyContent = {
       {
         heading: '4. Bases legales (visitantes del EEE/Reino Unido)',
         list: [
-          'Consentimiento — para cookies de analítica y el tratamiento relacionado. Puedes retirar el consentimiento en cualquier momento.',
+          'Consentimiento — para cookies de analítica, tecnologías de seguimiento similares y el tratamiento relacionado. El consentimiento se recoge antes de que esas herramientas se ejecuten; puedes retirarlo en cualquier momento con Configuración de cookies.',
           'Pasos a tu solicitud / intereses legítimos — para responder a tu consulta y darte la información pedida.',
-          'Intereses legítimos — para proteger nuestro sitio y servicios del abuso.',
+          'Intereses legítimos — para proteger nuestro sitio y servicios del abuso (incluidas comprobaciones de seguridad estrictamente necesarias como Turnstile en formularios).',
         ],
       },
       {

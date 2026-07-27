@@ -13,15 +13,40 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 ## Features
 
 - EN / ES homepage with full-bleed hero video (server racks), assessment form + Turnstile
+<<<<<<< HEAD
 - Free lite website check on Web Design & Development (`/services/web-design-development/#site-check`, short URL `/site-check/` redirects) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
 - Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner (`cybercon-consent-v1`)
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`)
+=======
+- Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner with prior opt-in for non-essential cookies (`cybercon_consent` / `cybercon-consent-v1`)
+- Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`) with Google Consent Mode v2 defaults denied
+>>>>>>> origin/main
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
 - ADA: skip link, landmarks, labels, focus styles, reduced-motion hero fallback
 - Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, Markdown negotiation (`Accept: text/markdown`), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
 - Pagefind site search
 - Auth0-protected `/client/` area
 
+### Cookie consent & ePrivacy (prior consent)
+
+Non-essential cookies and trackers (Google Analytics; optional Zaraz tools) must not run until the visitor accepts them in the banner. Rejecting non-essential cookies leaves only strictly necessary ones (consent preference, Turnstile on forms, client-area session).
+
+| Piece | Behavior |
+|-------|----------|
+| Banner | Visible on first visit; Accept analytics / Reject non-essential; reopen via footer **Cookie settings** |
+| Storage | First-party cookie `cybercon_consent` + `localStorage` key `cybercon-consent-v1` (`accept` \| `decline`) |
+| Google Consent Mode | Defaults `analytics_storage` / ads to `denied` in `<head>`; gtag.js loads only after accept |
+| Zaraz | If Zaraz Consent Management is enabled in the dashboard, the banner syncs via `zaraz.consent.setAll()` |
+
+**Cloudflare Zaraz Consent Management (dashboard):** when you load tools through Zaraz, enable CMP so tools wait for consent:
+
+1. Cloudflare dashboard → **Zaraz** → **Consent** for zone `cybercon-solutions.com`
+2. Turn on **Enable Consent Management**
+3. Add a purpose (e.g. “Analytics”) and assign GA / other non-essential tools to it
+4. Prefer **hiding Zaraz’s default modal** (or leave it off) — this site’s banner is the UI; it calls the Zaraz Consent API when present
+5. Re-check purpose assignment whenever you add a new Zaraz tool (unassigned tools skip consent by default)
+
+Do **not** load third-party marketing/analytics scripts outside this consent gate.
 ## Hosting: Cloudflare Workers (Workers & Pages)
 
 **Do not create a legacy Pages project.** Astro 7 + `@astrojs/cloudflare` deploys as a **Worker with static assets** (SSR for forms, Turnstile, Auth0 `/client/`). Use the shared **Workers & Pages** area, but create/connect a **Worker** named `cybercon-solutions-web`.
