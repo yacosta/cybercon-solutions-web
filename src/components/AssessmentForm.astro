@@ -34,6 +34,10 @@ const isSplit = layout === 'split';
             {t.form.title}
           </h1>
           <p class="lede capture-reveal capture-reveal-delay-2">{t.form.lede}</p>
+          <p class="site-check-prompt capture-reveal capture-reveal-delay-2">
+            {t.form.siteCheckLede}{' '}
+            <a href={siteCheckHref}>{t.form.siteCheckCta}</a>
+          </p>
           <p class="capture-inline capture-reveal capture-reveal-delay-3">
             <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
             <span aria-hidden="true">·</span>

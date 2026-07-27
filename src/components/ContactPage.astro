@@ -20,6 +20,8 @@ const t = getMessages(locale);
 const c = t.contact;
 const siteKey = turnstileSiteKey();
 const privacyHref = localePath(locale, '/privacy/');
+const assessmentHref = localePath(locale, '/assessment/');
+const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
 const path = localePath(locale, '/contact/');
 const homePath = localePath(locale, '/');
 const mailingAddress = formatMailingAddress();
@@ -54,6 +56,11 @@ const mailingAddress = formatMailingAddress();
         <p class="eyebrow contact-reveal">{c.eyebrow}</p>
         <h1 id="contact-title" class="contact-reveal contact-reveal-delay-1">{c.heading}</h1>
         <p class="lede contact-reveal contact-reveal-delay-2">{c.lede}</p>
+        <div class="contact-actions contact-reveal contact-reveal-delay-2">
+          <a class="btn btn-primary" href={assessmentHref}>{c.assessmentCta}</a>
+          <a class="contact-text-link" href={siteCheckHref}>{c.siteCheckCta}</a>
+        </div>
+        <p class="site-check-hint contact-reveal contact-reveal-delay-3">{c.siteCheckLede}</p>
         <p class="contact-inline contact-reveal contact-reveal-delay-3">
           <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
           <span aria-hidden="true">·</span>
@@ -245,20 +252,48 @@ const mailingAddress = formatMailingAddress();
 
   .contact-copy h1 {
     margin: 0 0 1.15rem;
-    font-size: clamp(2.5rem, 5.5vw, 3.85rem);
+    font-size: clamp(2.25rem, 5vw, 3.35rem);
     line-height: 1.05;
     letter-spacing: -0.04em;
     color: var(--navy);
-    max-width: 12ch;
+    max-width: 18ch;
   }
 
   .contact-copy .lede {
-    margin: 0 0 1.35rem;
+    margin: 0 0 1.25rem;
     max-width: 34rem;
     color: var(--body-muted);
     font-size: 1.0625rem;
     font-weight: 400;
     line-height: 1.7;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem 1.25rem;
+    margin: 0 0 0.65rem;
+  }
+
+  .contact-text-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--button-red);
+    text-decoration: none;
+  }
+
+  .contact-text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .site-check-hint {
+    margin: 0 0 1.25rem;
+    max-width: 34rem;
+    font-size: 0.9rem;
+    color: var(--muted-blue);
   }
 
   .contact-inline {
