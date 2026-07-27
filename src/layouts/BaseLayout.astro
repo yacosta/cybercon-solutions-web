@@ -7,6 +7,7 @@ import { absoluteUrl, site } from '../lib/site';
 import { breadcrumbJsonLd, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
+import { CONSENT_COOKIE_NAME, CONSENT_STORAGE_KEY } from '../lib/consent';
 
 interface Props {
   locale?: 'en' | 'es';
@@ -125,6 +126,54 @@ const structuredData = [
       <script type="application/ld+json" set:html={jsonLdScript(data)} />
     ))}
 
+    {/*
+      Google Consent Mode v2 defaults: deny non-essential storage before any tags.
+      Analytics.astro only loads gtag.js after explicit accept.
+    */}
+    <script
+      is:inline
+      define:vars={{ STORAGE_KEY: CONSENT_STORAGE_KEY, COOKIE_NAME: CONSENT_COOKIE_NAME }}
+    >
+      (function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'granted',
+          personalization_storage: 'denied',
+          security_storage: 'granted',
+          wait_for_update: 500,
+        });
+        var choice = null;
+        try {
+          choice = localStorage.getItem(STORAGE_KEY);
+        } catch (e) {}
+        if (choice !== 'accept' && choice !== 'decline') {
+          var match = document.cookie.match(
+            new RegExp('(?:^|;\\s*)' + COOKIE_NAME + '=(accept|decline)(?:;|$)')
+          );
+          if (match) choice = match[1];
+        }
+        if (choice === 'accept' || choice === 'decline') {
+          document.documentElement.dataset.consent = choice;
+          if (choice === 'accept') {
+            gtag('consent', 'update', { analytics_storage: 'granted' });
+          }
+        }
+      })();
+    </script>
+    <style is:inline>
+      /* Hide banner before paint when a prior choice exists (re-open via data-open). */
+      html[data-consent] #cookie-banner:not([data-open]) {
+        display: none !important;
+      }
+    </style>
     <Analytics />
     <slot name="head" />
     <script is:inline>

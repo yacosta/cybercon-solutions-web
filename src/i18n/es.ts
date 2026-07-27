@@ -181,9 +181,9 @@ export const es: Messages = {
   },
   cookies: {
     title: 'Cookies y privacidad',
-    body: 'Usamos solo cookies estrictamente necesarias para operar este sitio. Con tu consentimiento también usamos analítica para entender el tráfico.',
+    body: 'Usamos cookies estrictamente necesarias para operar este sitio. Las cookies de analítica opcionales y rastreadores similares permanecen desactivados hasta que aceptes. Puedes rechazar las no esenciales y seguir usando el sitio.',
     accept: 'Aceptar analítica',
-    decline: 'Rechazar',
+    decline: 'Rechazar no esenciales',
     policy: 'Política de Privacidad y Cookies',
   },
   notFound: {

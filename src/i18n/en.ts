@@ -179,9 +179,9 @@ export const en = {
   },
   cookies: {
     title: 'Cookies & privacy',
-    body: 'We use only strictly necessary cookies to run this site. With your consent we also use analytics to understand site traffic.',
+    body: 'We use strictly necessary cookies to run this site. Optional analytics cookies and similar trackers are off until you accept. You can reject non-essential cookies and still use the site.',
     accept: 'Accept analytics',
-    decline: 'Decline',
+    decline: 'Reject non-essential',
     policy: 'Privacy & Cookie Policy',
   },
   notFound: {
