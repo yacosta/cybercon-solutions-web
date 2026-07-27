@@ -1,8 +1,6 @@
 ---
 title: 'Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT'
 description: 'A no-jargon Zero Trust rollout for mid-market IT: identity first, device health, least privilege, and monitoring you can actually staff — without buying an enterprise program you cannot run.'
-titleEs: 'Zero Trust sin jerga: un despliegue práctico para TI de mercado medio'
-descriptionEs: 'Un despliegue de Zero Trust sin jerga para TI de mercado medio: primero identidad, salud del dispositivo, menor privilegio y monitoreo que sí puedes operar — sin comprar un programa empresarial que no puedes ejecutar.'
 pubDate: 2026-07-26
 banner: cybersecurity-lock
 bannerAlt:

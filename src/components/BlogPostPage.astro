@@ -7,6 +7,7 @@ import { getMessages, localePath } from '../i18n';
 import {
   bannerImage,
   blogPath,
+  blogSlug,
   formatPostDate,
   postDescription,
   postTitle,
@@ -22,9 +23,9 @@ interface Props {
 const { locale, post } = Astro.props;
 const t = getMessages(locale);
 const { Content } = await render(post);
-const title = postTitle(post, locale);
-const description = postDescription(post, locale);
-const path = blogPath(locale, post.id);
+const title = postTitle(post);
+const description = postDescription(post);
+const path = blogPath(locale, blogSlug(post));
 const homePath = localePath(locale, '/');
 const blogIndexPath = blogPath(locale);
 const banner = bannerImage(post.data.banner);
@@ -97,9 +98,6 @@ const ogImage = absoluteUrl(banner.jpg);
           <span aria-hidden="true">·</span>
           <a href={blogIndexPath}>{t.blog.allPosts}</a>
         </p>
-        {locale === 'es' && (
-          <p class="blog-lang-note">{t.blog.englishBodyNote}</p>
-        )}
       </header>
 
       <div class="blog-prose">
@@ -172,13 +170,6 @@ const ogImage = absoluteUrl(banner.jpg);
 
   .blog-meta a:hover {
     color: var(--coral);
-  }
-
-  .blog-lang-note {
-    margin: 0.85rem 0 0;
-    font-size: 0.875rem;
-    color: var(--body-muted);
-    font-style: italic;
   }
 
   .blog-prose {

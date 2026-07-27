@@ -151,7 +151,6 @@ export const es: Messages = {
       'Lo que decimos a ejecutivos y juntas: flujos que llegan a producción, gobernanza que acelera y métricas que aguantan la temporada de presupuestos.',
     readMore: 'Leer el artículo',
     allPosts: 'Todas las entradas',
-    englishBodyNote: 'Este artículo está publicado en inglés.',
     ctaTitle: '¿Listo para pasar de pilotos de IA a producción?',
     ctaBody:
       'Solicita una evaluación gratuita. Mapeamos flujos, gobernanza y un plan de automatización medible — no otra demo.',

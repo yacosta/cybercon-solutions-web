@@ -1,6 +1,21 @@
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 
 export type BlogPost = CollectionEntry<'blog'>;
+export type BlogLocale = 'en' | 'es';
+
+/** Content id without locale prefix (`es/...` → slug). */
+export function blogSlug(post: BlogPost | string): string {
+  const id = typeof post === 'string' ? post : post.id;
+  return id.replace(/^es\//, '');
+}
+
+export function postLocale(post: BlogPost): BlogLocale {
+  return post.id.startsWith('es/') ? 'es' : 'en';
+}
+
+export function blogEntryId(slug: string, locale: BlogLocale): string {
+  return locale === 'es' ? `es/${slug}` : slug;
+}
 
 export function blogPath(locale: string, slug?: string): string {
   const base = slug ? `/blog/${slug}/` : '/blog/';
@@ -18,19 +33,29 @@ export function bannerImage(basename: string) {
   };
 }
 
-export async function getPublishedPosts(): Promise<BlogPost[]> {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+export async function getPublishedPosts(locale: BlogLocale = 'en'): Promise<BlogPost[]> {
+  const posts = await getCollection(
+    'blog',
+    (entry) => !entry.data.draft && postLocale(entry) === locale,
+  );
   return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 
-export function postTitle(post: BlogPost, locale: string): string {
-  return locale === 'es' && post.data.titleEs ? post.data.titleEs : post.data.title;
+export async function getPublishedPost(
+  slug: string,
+  locale: BlogLocale,
+): Promise<BlogPost | undefined> {
+  const entry = await getEntry('blog', blogEntryId(slug, locale));
+  if (!entry || entry.data.draft) return undefined;
+  return entry;
 }
 
-export function postDescription(post: BlogPost, locale: string): string {
-  return locale === 'es' && post.data.descriptionEs
-    ? post.data.descriptionEs
-    : post.data.description;
+export function postTitle(post: BlogPost): string {
+  return post.data.title;
+}
+
+export function postDescription(post: BlogPost): string {
+  return post.data.description;
 }
 
 export function formatPostDate(date: Date, locale: string): string {

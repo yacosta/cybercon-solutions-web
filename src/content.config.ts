@@ -14,9 +14,6 @@ const blog = defineCollection({
       en: z.string(),
       es: z.string(),
     }),
-    /** Optional Spanish title/description for listing + meta; body stays English. */
-    titleEs: z.string().optional(),
-    descriptionEs: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

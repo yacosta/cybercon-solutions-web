@@ -73,6 +73,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Unique, descriptive titles and meta descriptions per locale.
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
 - Keep `hreflang` / canonical patterns used by `BaseLayout` intact when adding routes.
+- **Blog posts are fully bilingual.** English lives in `src/content/blog/<slug>.md`; Spanish in `src/content/blog/es/<slug>.md` (same slug, full translated body — not title-only). Wire both in `src/lib/markdown-pages.ts`. Do not ship `/es/blog/...` with an English body or an “artículo en inglés” note.
 
 ## Cache lifetimes (Zaraz)
 
@@ -91,6 +92,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
+- [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
 - [ ] `npm run build` passes (primary validation gate)
 
@@ -102,5 +104,6 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 | Hero LCP | `src/components/Hero.astro` |
 | Hero preload | `src/pages/index.astro`, `src/pages/es/index.astro` |
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
+| Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |
