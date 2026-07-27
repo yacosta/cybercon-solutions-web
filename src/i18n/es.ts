@@ -2,9 +2,9 @@ import type { Messages } from './en';
 
 export const es: Messages = {
   meta: {
-    title: 'TI y ciberseguridad en el Sur de Florida | Cybercon',
+    title: 'TI y ciberseguridad en Cooper City y Davie | Cybercon',
     description:
-      'Evaluación gratuita de TI, ciberseguridad, nube e IA en Cooper City y Davie, FL. Detectamos problemas a tiempo; la seguridad es la base.',
+      'TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por averías. Mesa de ayuda 24/7, monitoreo y seguridad con respaldo SOC. Revisión gratuita del sitio o evaluación.',
   },
   nav: {
     search: 'Buscar',
@@ -59,26 +59,30 @@ export const es: Messages = {
   },
   hero: {
     eyebrow: 'Cooper City y Davie, Florida',
-    title: 'Tu departamento de TI, sin la sobrecarga.',
+    title: 'Technology, handled.',
     lede:
-      'TI administrada, ciberseguridad, nube e IA. Detectamos los problemas a tiempo y tratamos la seguridad como la base. Dinos por dónde empezar y un ingeniero real te responde en un día hábil.',
+      'Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.',
     status: 'Atendemos a empresas del sur de Florida',
-    cta: 'Solicita una evaluación gratuita',
+    cta: 'Mira lo que realmente cuesta tu TI',
+    ctaSecondary: 'Haz la revisión gratuita del sitio',
   },
   form: {
     eyebrow: 'Cybercon Solutions',
-    title: 'Solicita una evaluación gratuita.',
-    metaTitle: 'Evaluación de TI gratuita | Cybercon Solutions',
+    title: 'Mira lo que realmente cuesta tu TI.',
+    metaTitle: 'Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions',
     metaDescription:
-      'Agenda una evaluación de TI gratuita con Cybercon Solutions. TI administrada, ciberseguridad y CIO fraccional en el Sur de Florida — siguientes pasos claros en un día hábil. Sin compromiso.',
-    cardTitle: 'Empieza con una evaluación gratuita',
-    lede: 'Sin tecnicismos y sin compromiso. Te damos una lectura clara del estado de tu tecnología.',
+      'Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — siguientes pasos claros en un día hábil.',
+    cardTitle: 'Agenda una evaluación gratuita de costo y riesgo',
+    lede: 'Sin tecnicismos. Sin compromiso. Una lectura clara del gasto, las brechas y qué riesgos están cubiertos.',
     name: 'Nombre',
     company: 'Empresa',
     email: 'Correo',
-    submit: 'Enviar solicitud',
+    submit: 'Agendar mi evaluación gratuita',
     microcopy:
       'Un ingeniero real responde en un día hábil. Nunca compartimos tus datos.',
+    siteCheckLede:
+      '¿Prefieres primero una lectura técnica rápida? Empieza con la revisión gratuita del sitio y luego agenda la evaluación para el pase más profundo.',
+    siteCheckCta: 'Haz la revisión gratuita del sitio',
     thanksTitle: 'Gracias, recibimos tu solicitud.',
     thanksBody:
       'Te contactaremos en un día hábil. Sin presión de ventas: solo el siguiente paso, con claridad.',
@@ -94,10 +98,10 @@ export const es: Messages = {
   },
   services: {
     eyebrow: 'Lo que gestionamos',
-    title: 'Un solo aliado para toda tu tecnología.',
+    title: 'Un solo aliado para el stack. Una factura que puedes planificar.',
     lede:
-      'Gestionamos todo lo siguiente de forma proactiva, con un precio predecible por usuario. Sin sorpresas por averías y sin tecnicismos.',
-    learnMoreAbout: 'Saber más sobre {name}',
+      'TI administrada proactiva con precio por usuario — sin sorpresas por averías. Quitamos el parcheo rutinario, el monitoreo y el ruido del helpdesk de tu plato para que tu gente ejecute estrategia — y somos el nivel de escalación cuando las cosas se ponen fuertes.',
+    learnMoreAbout: '{name}: qué incluye',
   },
   engagement: {
     eyebrow: 'Cómo funciona un engagement',
@@ -106,26 +110,26 @@ export const es: Messages = {
       {
         number: '01',
         title: 'Descubrimiento',
-        body: 'Definimos el alcance contigo: qué falla, qué crece y las restricciones que importan — para que el plan refleje cómo opera tu negocio de verdad.',
+        body: 'Qué falla, qué crece y las restricciones de presupuesto y riesgo que importan. Sales con prioridades, brechas y qué retirar vs. financiar — no un deck de palabras de moda.',
       },
       {
         number: '02',
         title: 'Estrategia',
-        body: 'Recibes un panorama claro de prioridades, riesgos, plazos y siguientes pasos. Nada arranca hasta que apruebas el alcance y el enfoque.',
+        body: 'Prioridades, riesgos, plazos y siguientes pasos. Nada arranca hasta que apruebas el alcance y el enfoque.',
       },
       {
         number: '03',
         title: 'Ejecución',
-        body: 'Lo llevamos adelante y no desaparecemos. Entregamos el trabajo, te informamos con la cadencia que necesitas y respondemos hasta el cierre y después.',
+        body: 'Lo llevamos adelante, reportamos con la cadencia que elijas y respondemos hasta el cierre y después. No desaparecemos tras el kickoff.',
       },
     ],
   },
   industries: {
     eyebrow: 'Industrias',
-    title: 'Donde el conocimiento del sector se encuentra con TI que resiste.',
+    title: 'TI que encaja con cómo opera tu sector de verdad.',
     lede:
-      'Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente — no TI genérica para todos igual.',
-    learnMoreAbout: 'Saber más sobre {name}',
+      'Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente — no el mismo stack para cada logo. Mismo playbook, controles distintos: mapeados a cómo trabaja tu gente.',
+    learnMoreAbout: 'TI hecha para {name}',
     allIndustries: 'Todas las industrias',
     overviewTitle: 'Hecho para cómo opera este sector de verdad',
     industriesMenu: 'Menú de industrias',
@@ -136,9 +140,9 @@ export const es: Messages = {
     includedTitle: 'Qué incluye',
     processTitle: 'Cómo trabajamos',
     faqTitle: 'Preguntas frecuentes',
-    ctaTitle: '¿Quieres ver con claridad cómo está tu tecnología?',
-    ctaBody: 'Una evaluación gratuita con próximos pasos claros.',
-    cta: 'Solicita una evaluación gratuita',
+    ctaTitle: '¿Quieres ver con claridad lo que cuesta tu TI — y qué riesgos están cubiertos?',
+    ctaBody: 'Una evaluación gratuita con próximos pasos claros. ¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio.',
+    cta: 'Mira lo que realmente cuesta tu TI',
   },
   blog: {
     nav: 'Blog',
