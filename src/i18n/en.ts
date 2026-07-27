@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'Managed IT & Cybersecurity in South Florida | Cybercon',
     description:
-      'Managed IT, cybersecurity, cloud & AI for Cooper City, Davie & South Florida. Security-first IT that catches issues early. Book a free assessment.',
+      'Your IT department for Cooper City, Davie & South Florida—managed IT, cybersecurity, cloud, and AI. We catch problems early. Free assessment.',
   },
   nav: {
     search: 'Search',
