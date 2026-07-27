@@ -25,6 +25,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.1.2",
     "jose": "^6.2.3",
+    "resend": "^6.18.0",
     "tailwindcss": "^4.3.3",
     "wrangler": "^4.112.0"
   },
