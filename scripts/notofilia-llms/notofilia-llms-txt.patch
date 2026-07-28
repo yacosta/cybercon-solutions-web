@@ -1,0 +1,216 @@
+From 95cec99f7f24c2cb6da9ae360505d57b5216cb9e Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Tue, 28 Jul 2026 10:31:18 +0000
+Subject: [PATCH] Add llms.txt and llms-full.txt for agent discovery
+
+Publish curated and full site maps for LLMs, wire them into homepage
+Link headers and the API catalog, and document them in agent-discovery.
+---
+ docs/agent-discovery.md        |  2 +
+ public/.well-known/api-catalog |  4 ++
+ public/_headers                | 14 ++++++-
+ public/llms-full.txt           | 74 ++++++++++++++++++++++++++++++++++
+ public/llms.txt                | 48 ++++++++++++++++++++++
+ 5 files changed, 140 insertions(+), 2 deletions(-)
+ create mode 100644 public/llms-full.txt
+ create mode 100644 public/llms.txt
+
+diff --git a/docs/agent-discovery.md b/docs/agent-discovery.md
+index a488fc4..2b280e3 100644
+--- a/docs/agent-discovery.md
++++ b/docs/agent-discovery.md
+@@ -9,6 +9,8 @@ This site publishes the machine-readable surfaces scanned by
+ | OAuth AS metadata (RFC 8414) | `/.well-known/oauth-authorization-server` |
+ | OIDC discovery | `/.well-known/openid-configuration` |
+ | OAuth Protected Resource (RFC 9728) | `/.well-known/oauth-protected-resource` |
++| llms.txt (curated site map) | `/llms.txt` |
++| llms-full.txt (longer agent summary) | `/llms-full.txt` |
+ | Auth.md | `/auth.md` |
+ | MCP Server Card | `/.well-known/mcp/server-card.json` (and `/.well-known/mcp.json`) |
+ | Web Bot Auth JWKS directory | `/.well-known/http-message-signatures-directory` |
+diff --git a/public/.well-known/api-catalog b/public/.well-known/api-catalog
+index 23d2070..c37eb29 100644
+--- a/public/.well-known/api-catalog
++++ b/public/.well-known/api-catalog
+@@ -9,6 +9,10 @@
+         }
+       ],
+       "service-doc": [
++        {
++          "href": "https://www.notofilia.com/llms.txt",
++          "type": "text/plain"
++        },
+         {
+           "href": "https://www.notofilia.com/auth.md",
+           "type": "text/markdown"
+diff --git a/public/_headers b/public/_headers
+index 01fd0ff..7174d2e 100644
+--- a/public/_headers
++++ b/public/_headers
+@@ -1,10 +1,10 @@
+ # Cloudflare Pages custom response headers.
+ # Link headers for agent/machine discovery on the homepage (RFC 8288 / RFC 9727 §3).
+ /
+-  Link: </.well-known/api-catalog>; rel="api-catalog", </glosario-numismatico.dc.html>; rel="service-doc", </sitemap.xml>; rel="describedby", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"
++  Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="service-doc"; type="text/plain", </glosario-numismatico.dc.html>; rel="service-doc", </sitemap.xml>; rel="describedby", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"
+ 
+ /index.html
+-  Link: </.well-known/api-catalog>; rel="api-catalog", </glosario-numismatico.dc.html>; rel="service-doc", </sitemap.xml>; rel="describedby", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"
++  Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="service-doc"; type="text/plain", </glosario-numismatico.dc.html>; rel="service-doc", </sitemap.xml>; rel="describedby", </.well-known/oauth-protected-resource>; rel="oauth-protected-resource"
+ 
+ /.well-known/api-catalog
+   Content-Type: application/linkset+json; charset=utf-8
+@@ -56,6 +56,16 @@
+   Access-Control-Allow-Origin: *
+   Cache-Control: public, max-age=3600
+ 
++/llms.txt
++  Content-Type: text/plain; charset=utf-8
++  Access-Control-Allow-Origin: *
++  Cache-Control: public, max-age=3600
++
++/llms-full.txt
++  Content-Type: text/plain; charset=utf-8
++  Access-Control-Allow-Origin: *
++  Cache-Control: public, max-age=3600
++
+ /openapi.json
+   Content-Type: application/vnd.oai.openapi+json; charset=utf-8
+   Access-Control-Allow-Origin: *
+diff --git a/public/llms-full.txt b/public/llms-full.txt
+new file mode 100644
+index 0000000..c478e04
+--- /dev/null
++++ b/public/llms-full.txt
+@@ -0,0 +1,74 @@
++# Notofilia — resumen completo para agentes de IA
++
++Notofilia es un catálogo digital y colección virtual de billetes y monedas históricas (numismática y notafilia), en español. Publica fichas de catálogo, glosario bilingüe, noticias y guías para coleccionistas. Sitio canónico: https://www.notofilia.com
++
++Alcance aproximado del catálogo (según sitemap): ~125 billetes, ~7 monedas, ~34 países, ~155+ páginas indexadas. Cobertura fuerte en Colombia (incl. banca libre), moneda colonial española, Reserva Federal / Tesoro de EE. UU., Puerto Rico, Ecuador y billetes de polímero del mundo.
++
++## Qué encontrarás
++
++1. Fichas de catálogo con contexto histórico, imágenes y metadatos SEO
++2. Secciones por emisor / región bajo `/coleccion/`
++3. Blog de guías (empezar a coleccionar, falsos, series especiales, historia monetaria)
++4. Noticias de emisiones, hallazgos y valor de colección
++5. Glosario de más de 90 términos (ES/EN)
++6. APIs y MCP para búsqueda programática del catálogo
++
++## URLs clave
++
++| Página | URL |
++|------|-----|
++| Inicio | https://www.notofilia.com/ |
++| Colección (índice) | https://www.notofilia.com/coleccion/ |
++| Reserva Federal | https://www.notofilia.com/coleccion/reserva-federal/ |
++| Departamento del Tesoro de EE. UU. | https://www.notofilia.com/coleccion/departamento-del-tesoro-de-ee-uu/ |
++| Moneda colonial | https://www.notofilia.com/coleccion/moneda-colonial/ |
++| Moneda colonial española | https://www.notofilia.com/coleccion/moneda-colonial-espanola/ |
++| Colombia | https://www.notofilia.com/coleccion/colombia/ |
++| Colombia — Banca libre | https://www.notofilia.com/coleccion/colombia/banca-libre/ |
++| Puerto Rico | https://www.notofilia.com/coleccion/puerto-rico/ |
++| Ecuador | https://www.notofilia.com/coleccion/ecuador/ |
++| Polímero mundial | https://www.notofilia.com/coleccion/polimero-mundial/ |
++| Emisiones promocionales | https://www.notofilia.com/coleccion/emisiones-promocionales/ |
++| Pop art | https://www.notofilia.com/coleccion/pop-art/ |
++| Noticias | https://www.notofilia.com/noticias/ |
++| Blog | https://www.notofilia.com/blog/ |
++| Cómo empezar una colección de billetes | https://www.notofilia.com/blog/como-empezar-coleccion-billetes/ |
++| Cómo identificar billetes falsos | https://www.notofilia.com/blog/como-identificar-billetes-falsos/ |
++| Diferencia entre numismática y notafilia | https://www.notofilia.com/blog/diferencia-numismatica-notafilia/ |
++| Números de serie especiales | https://www.notofilia.com/blog/numeros-serie-especiales-billetes/ |
++| Orígenes de la banca comercial en Colombia | https://www.notofilia.com/blog/origenes-banca-comercial-colombia-banca-libre/ |
++| Orígenes de la banca comercial en Puerto Rico | https://www.notofilia.com/blog/origenes-banca-comercial-puerto-rico/ |
++| Personajes en billetes de Colombia | https://www.notofilia.com/blog/personajes-billetes-colombia/ |
++| Tres imprentas y el pie de imprenta colombiano | https://www.notofilia.com/blog/tres-imprentas-misterio-pie-imprenta-billetes-colombianos/ |
++| Glosario | https://www.notofilia.com/glosario/ |
++| Contacto | https://www.notofilia.com/contacto/ |
++| Privacidad y cookies | https://www.notofilia.com/politica-privacidad-cookies/ |
++| Perfil J.S.G. Boggs | https://www.notofilia.com/j-s-g-boggs/ |
++| Catálogo API | GET https://www.notofilia.com/api/catalog |
++| Health API | GET https://www.notofilia.com/api/health |
++| MCP | https://www.notofilia.com/mcp |
++
++## Noticias (índice)
++
++Listado en https://www.notofilia.com/noticias/. Cada noticia vive en `/noticias/<slug>/`.
++
++## Contacto
++
++https://www.notofilia.com/contacto/
++
++Redes: Facebook @NOTOFILIA · X @notofilia · Instagram @notofilia2026 · LinkedIn company/notofilia
++
++## Negociación Markdown
++
++Envía `Accept: text/markdown` para recibir versiones Markdown de páginas HTML (`Content-Type: text/markdown`, `Vary: Accept`).
++
++## Descubrimiento para agentes
++
++- Mapa curado: https://www.notofilia.com/llms.txt
++- API catalog: https://www.notofilia.com/.well-known/api-catalog
++- Auth para agentes: https://www.notofilia.com/auth.md
++- MCP server card: https://www.notofilia.com/.well-known/mcp/server-card.json
++- OpenAPI: https://www.notofilia.com/openapi.json
++- Agent index: https://www.notofilia.com/.well-known/agent-index.json
++- Sitemap: https://www.notofilia.com/sitemap_index.xml
++- Índice de catálogo JSON: https://www.notofilia.com/data/catalog-index.json
+diff --git a/public/llms.txt b/public/llms.txt
+new file mode 100644
+index 0000000..471b976
+--- /dev/null
++++ b/public/llms.txt
+@@ -0,0 +1,48 @@
++# Notofilia
++
++> Catálogo digital y colección virtual de billetes y monedas históricas (numismática y notafilia) en español. Digital catalog of historical banknotes and coins.
++
++Notofilia publica fichas de catálogo, guías y noticias para coleccionistas. Idioma principal: español (con toggle EN en la portada). Sitio: https://www.notofilia.com · Contacto: https://www.notofilia.com/contacto/
++
++Pide cualquier página HTML con `Accept: text/markdown` para recibir una variante Markdown.
++
++## Sitio
++
++- [Inicio](https://www.notofilia.com/): Portada — colección, noticias y blog
++- [Colección](https://www.notofilia.com/coleccion/): Índice del catálogo de billetes y monedas
++- [Noticias](https://www.notofilia.com/noticias/): Emisiones, hallazgos y valor de colección
++- [Blog](https://www.notofilia.com/blog/): Guías prácticas de numismática y notafilia
++- [Glosario](https://www.notofilia.com/glosario/): Más de 90 términos (ES/EN)
++- [Contacto](https://www.notofilia.com/contacto/): Formulario de contacto
++- [Privacidad y cookies](https://www.notofilia.com/politica-privacidad-cookies/): Política de privacidad
++- [Perfil J.S.G. Boggs](https://www.notofilia.com/j-s-g-boggs/): Artista y billetes de arte
++
++## Colección (secciones)
++
++- [Reserva Federal](https://www.notofilia.com/coleccion/reserva-federal/)
++- [Departamento del Tesoro de EE. UU.](https://www.notofilia.com/coleccion/departamento-del-tesoro-de-ee-uu/)
++- [Moneda colonial](https://www.notofilia.com/coleccion/moneda-colonial/)
++- [Moneda colonial española](https://www.notofilia.com/coleccion/moneda-colonial-espanola/)
++- [Colombia](https://www.notofilia.com/coleccion/colombia/)
++- [Colombia — Banca libre](https://www.notofilia.com/coleccion/colombia/banca-libre/)
++- [Puerto Rico](https://www.notofilia.com/coleccion/puerto-rico/)
++- [Ecuador](https://www.notofilia.com/coleccion/ecuador/)
++- [Polímero mundial](https://www.notofilia.com/coleccion/polimero-mundial/)
++- [Emisiones promocionales](https://www.notofilia.com/coleccion/emisiones-promocionales/)
++- [Pop art](https://www.notofilia.com/coleccion/pop-art/)
++
++## Descubrimiento para agentes
++
++- [Mapa completo](https://www.notofilia.com/llms-full.txt): Resumen ampliado para agentes de IA
++- [API catalog](https://www.notofilia.com/.well-known/api-catalog): Linkset de endpoints
++- [Auth para agentes](https://www.notofilia.com/auth.md): Registro OAuth / agentic auth
++- [MCP server card](https://www.notofilia.com/.well-known/mcp/server-card.json): Model Context Protocol
++- [OpenAPI](https://www.notofilia.com/openapi.json): Descripción de la API HTTP pública
++- [Índice de agentes](https://www.notofilia.com/.well-known/agent-index.json): DNS-AID HTTP index
++- [Sitemap](https://www.notofilia.com/sitemap_index.xml): Índice de sitemaps XML
++
++## APIs opcionales
++
++- [Health](https://www.notofilia.com/api/health): Estado del servicio
++- [Catálogo](https://www.notofilia.com/api/catalog): Búsqueda/listado del catálogo (`?q=` · `?limit=`)
++- [MCP](https://www.notofilia.com/mcp): Endpoint Streamable HTTP de MCP
+-- 
+2.43.0
+

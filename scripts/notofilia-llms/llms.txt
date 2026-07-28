@@ -1,0 +1,48 @@
+# Notofilia
+
+> Catálogo digital y colección virtual de billetes y monedas históricas (numismática y notafilia) en español. Digital catalog of historical banknotes and coins.
+
+Notofilia publica fichas de catálogo, guías y noticias para coleccionistas. Idioma principal: español (con toggle EN en la portada). Sitio: https://www.notofilia.com · Contacto: https://www.notofilia.com/contacto/
+
+Pide cualquier página HTML con `Accept: text/markdown` para recibir una variante Markdown.
+
+## Sitio
+
+- [Inicio](https://www.notofilia.com/): Portada — colección, noticias y blog
+- [Colección](https://www.notofilia.com/coleccion/): Índice del catálogo de billetes y monedas
+- [Noticias](https://www.notofilia.com/noticias/): Emisiones, hallazgos y valor de colección
+- [Blog](https://www.notofilia.com/blog/): Guías prácticas de numismática y notafilia
+- [Glosario](https://www.notofilia.com/glosario/): Más de 90 términos (ES/EN)
+- [Contacto](https://www.notofilia.com/contacto/): Formulario de contacto
+- [Privacidad y cookies](https://www.notofilia.com/politica-privacidad-cookies/): Política de privacidad
+- [Perfil J.S.G. Boggs](https://www.notofilia.com/j-s-g-boggs/): Artista y billetes de arte
+
+## Colección (secciones)
+
+- [Reserva Federal](https://www.notofilia.com/coleccion/reserva-federal/)
+- [Departamento del Tesoro de EE. UU.](https://www.notofilia.com/coleccion/departamento-del-tesoro-de-ee-uu/)
+- [Moneda colonial](https://www.notofilia.com/coleccion/moneda-colonial/)
+- [Moneda colonial española](https://www.notofilia.com/coleccion/moneda-colonial-espanola/)
+- [Colombia](https://www.notofilia.com/coleccion/colombia/)
+- [Colombia — Banca libre](https://www.notofilia.com/coleccion/colombia/banca-libre/)
+- [Puerto Rico](https://www.notofilia.com/coleccion/puerto-rico/)
+- [Ecuador](https://www.notofilia.com/coleccion/ecuador/)
+- [Polímero mundial](https://www.notofilia.com/coleccion/polimero-mundial/)
+- [Emisiones promocionales](https://www.notofilia.com/coleccion/emisiones-promocionales/)
+- [Pop art](https://www.notofilia.com/coleccion/pop-art/)
+
+## Descubrimiento para agentes
+
+- [Mapa completo](https://www.notofilia.com/llms-full.txt): Resumen ampliado para agentes de IA
+- [API catalog](https://www.notofilia.com/.well-known/api-catalog): Linkset de endpoints
+- [Auth para agentes](https://www.notofilia.com/auth.md): Registro OAuth / agentic auth
+- [MCP server card](https://www.notofilia.com/.well-known/mcp/server-card.json): Model Context Protocol
+- [OpenAPI](https://www.notofilia.com/openapi.json): Descripción de la API HTTP pública
+- [Índice de agentes](https://www.notofilia.com/.well-known/agent-index.json): DNS-AID HTTP index
+- [Sitemap](https://www.notofilia.com/sitemap_index.xml): Índice de sitemaps XML
+
+## APIs opcionales
+
+- [Health](https://www.notofilia.com/api/health): Estado del servicio
+- [Catálogo](https://www.notofilia.com/api/catalog): Búsqueda/listado del catálogo (`?q=` · `?limit=`)
+- [MCP](https://www.notofilia.com/mcp): Endpoint Streamable HTTP de MCP
