@@ -1,0 +1,74 @@
+# Notofilia — resumen completo para agentes de IA
+
+Notofilia es un catálogo digital y colección virtual de billetes y monedas históricas (numismática y notafilia), en español. Publica fichas de catálogo, glosario bilingüe, noticias y guías para coleccionistas. Sitio canónico: https://www.notofilia.com
+
+Alcance aproximado del catálogo (según sitemap): ~125 billetes, ~7 monedas, ~34 países, ~155+ páginas indexadas. Cobertura fuerte en Colombia (incl. banca libre), moneda colonial española, Reserva Federal / Tesoro de EE. UU., Puerto Rico, Ecuador y billetes de polímero del mundo.
+
+## Qué encontrarás
+
+1. Fichas de catálogo con contexto histórico, imágenes y metadatos SEO
+2. Secciones por emisor / región bajo `/coleccion/`
+3. Blog de guías (empezar a coleccionar, falsos, series especiales, historia monetaria)
+4. Noticias de emisiones, hallazgos y valor de colección
+5. Glosario de más de 90 términos (ES/EN)
+6. APIs y MCP para búsqueda programática del catálogo
+
+## URLs clave
+
+| Página | URL |
+|------|-----|
+| Inicio | https://www.notofilia.com/ |
+| Colección (índice) | https://www.notofilia.com/coleccion/ |
+| Reserva Federal | https://www.notofilia.com/coleccion/reserva-federal/ |
+| Departamento del Tesoro de EE. UU. | https://www.notofilia.com/coleccion/departamento-del-tesoro-de-ee-uu/ |
+| Moneda colonial | https://www.notofilia.com/coleccion/moneda-colonial/ |
+| Moneda colonial española | https://www.notofilia.com/coleccion/moneda-colonial-espanola/ |
+| Colombia | https://www.notofilia.com/coleccion/colombia/ |
+| Colombia — Banca libre | https://www.notofilia.com/coleccion/colombia/banca-libre/ |
+| Puerto Rico | https://www.notofilia.com/coleccion/puerto-rico/ |
+| Ecuador | https://www.notofilia.com/coleccion/ecuador/ |
+| Polímero mundial | https://www.notofilia.com/coleccion/polimero-mundial/ |
+| Emisiones promocionales | https://www.notofilia.com/coleccion/emisiones-promocionales/ |
+| Pop art | https://www.notofilia.com/coleccion/pop-art/ |
+| Noticias | https://www.notofilia.com/noticias/ |
+| Blog | https://www.notofilia.com/blog/ |
+| Cómo empezar una colección de billetes | https://www.notofilia.com/blog/como-empezar-coleccion-billetes/ |
+| Cómo identificar billetes falsos | https://www.notofilia.com/blog/como-identificar-billetes-falsos/ |
+| Diferencia entre numismática y notafilia | https://www.notofilia.com/blog/diferencia-numismatica-notafilia/ |
+| Números de serie especiales | https://www.notofilia.com/blog/numeros-serie-especiales-billetes/ |
+| Orígenes de la banca comercial en Colombia | https://www.notofilia.com/blog/origenes-banca-comercial-colombia-banca-libre/ |
+| Orígenes de la banca comercial en Puerto Rico | https://www.notofilia.com/blog/origenes-banca-comercial-puerto-rico/ |
+| Personajes en billetes de Colombia | https://www.notofilia.com/blog/personajes-billetes-colombia/ |
+| Tres imprentas y el pie de imprenta colombiano | https://www.notofilia.com/blog/tres-imprentas-misterio-pie-imprenta-billetes-colombianos/ |
+| Glosario | https://www.notofilia.com/glosario/ |
+| Contacto | https://www.notofilia.com/contacto/ |
+| Privacidad y cookies | https://www.notofilia.com/politica-privacidad-cookies/ |
+| Perfil J.S.G. Boggs | https://www.notofilia.com/j-s-g-boggs/ |
+| Catálogo API | GET https://www.notofilia.com/api/catalog |
+| Health API | GET https://www.notofilia.com/api/health |
+| MCP | https://www.notofilia.com/mcp |
+
+## Noticias (índice)
+
+Listado en https://www.notofilia.com/noticias/. Cada noticia vive en `/noticias/<slug>/`.
+
+## Contacto
+
+https://www.notofilia.com/contacto/
+
+Redes: Facebook @NOTOFILIA · X @notofilia · Instagram @notofilia2026 · LinkedIn company/notofilia
+
+## Negociación Markdown
+
+Envía `Accept: text/markdown` para recibir versiones Markdown de páginas HTML (`Content-Type: text/markdown`, `Vary: Accept`).
+
+## Descubrimiento para agentes
+
+- Mapa curado: https://www.notofilia.com/llms.txt
+- API catalog: https://www.notofilia.com/.well-known/api-catalog
+- Auth para agentes: https://www.notofilia.com/auth.md
+- MCP server card: https://www.notofilia.com/.well-known/mcp/server-card.json
+- OpenAPI: https://www.notofilia.com/openapi.json
+- Agent index: https://www.notofilia.com/.well-known/agent-index.json
+- Sitemap: https://www.notofilia.com/sitemap_index.xml
+- Índice de catálogo JSON: https://www.notofilia.com/data/catalog-index.json
