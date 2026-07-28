@@ -72,31 +72,15 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
       </picture>
     </figure>
 
-    {showBreachCheck ? (
-      <section class="wd-hero wd-hero-split container" aria-labelledby="wd-hero-title">
-        <div class="wd-hero-main">
-          <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
-          <p class="wd-hero-lede">{copy.lede}</p>
-          <div class="wd-hero-actions">
-            <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-          </div>
-          <p class="wd-hero-note">{copy.replyNote}</p>
-        </div>
-        <div class="wd-hero-aside">
-          <BreachCheck locale={locale} t={t} variant="hero" />
-        </div>
-      </section>
-    ) : (
-      <section class="wd-hero container">
-        <h1 class="wd-hero-title">{copy.displayTitle}</h1>
-        <p class="wd-hero-lede">{copy.lede}</p>
-        <div class="wd-hero-actions">
-          <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-          <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
-        </div>
-        <p class="wd-hero-note">{copy.replyNote}</p>
-      </section>
-    )}
+    <section class="wd-hero container">
+      <h1 class="wd-hero-title">{copy.displayTitle}</h1>
+      <p class="wd-hero-lede">{copy.lede}</p>
+      <div class="wd-hero-actions">
+        <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+        <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+      </div>
+      <p class="wd-hero-note">{copy.replyNote}</p>
+    </section>
 
     <hr class="wd-rule" />
 
@@ -129,8 +113,9 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     </section>
 
     {showSiteCheck && <SiteCheck locale={locale} t={t} variant="embed" />}
+    {showBreachCheck && <BreachCheck locale={locale} t={t} variant="embed" />}
 
-    {!showSiteCheck && <hr class="wd-rule" />}
+    {!showSiteCheck && !showBreachCheck && <hr class="wd-rule" />}
 
     <section class="wd-after container" aria-labelledby="wd-feature-title">
       <header class="wd-after-head">
@@ -259,34 +244,11 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     padding-block: clamp(2.75rem, 6vw, 4.5rem) clamp(2.5rem, 5vw, 3.75rem);
   }
 
-  .wd-hero-split {
-    display: grid;
-    gap: clamp(1.75rem, 4vw, 2.75rem);
-    align-items: start;
-  }
-
-  @media (min-width: 960px) {
-    .wd-hero-split {
-      grid-template-columns: minmax(0, 1fr) minmax(18rem, 26rem);
-      gap: clamp(2rem, 4vw, 3.5rem);
-      align-items: center;
-    }
-
-    .wd-hero-aside {
-      position: sticky;
-      top: 1.25rem;
-    }
-  }
-
   .wd-hero-title {
     font-size: clamp(2.35rem, 6vw, 3.75rem);
     line-height: 1.05;
     max-width: 16ch;
     margin: 0 0 1.25rem;
-  }
-
-  .wd-hero-split .wd-hero-title {
-    max-width: 14ch;
   }
 
   .wd-hero-lede {
@@ -295,10 +257,6 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     line-height: 1.55;
     color: var(--navy);
     margin: 0 0 1.75rem;
-  }
-
-  .wd-hero-split .wd-hero-lede {
-    max-width: 36rem;
   }
 
   .wd-hero-actions {
