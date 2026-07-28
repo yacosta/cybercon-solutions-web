@@ -292,7 +292,7 @@ export const es: Messages = {
     policy: 'Política de Privacidad y Cookies',
   },
   chat: {
-    launcher: 'Preguntar a Cybercon',
+    launcher: 'Pregúntale a Cybercon',
     eyebrow: 'Asistente Cybercon',
     title: '¿Preguntas sobre nuestros servicios de TI?',
     close: 'Cerrar chat',
