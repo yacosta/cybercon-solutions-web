@@ -23,9 +23,10 @@ One partner for all of your technology with predictable per-user pricing:
 |------|-----|
 | Home (EN) | https://cybercon-solutions.com/ |
 | Home (ES) | https://cybercon-solutions.com/es/ |
-| Free site check | https://cybercon-solutions.com/site-check/ |
-| Free breach check | https://cybercon-solutions.com/breach-check/ |
+| Free site check | https://cybercon-solutions.com/services/web-design-development/#site-check |
+| Free breach check | https://cybercon-solutions.com/services/cybersecurity/#breach-check |
 | Blog | https://cybercon-solutions.com/blog/ |
+| Blog (ES) | https://cybercon-solutions.com/es/blog/ |
 | Enterprise AI Adoption and ROI | https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/ |
 | Fractional CIO First 90 Days | https://cybercon-solutions.com/blog/fractional-cio-first-90-days/ |
 | Zero Trust Mid-Market Rollout | https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/ |
@@ -37,6 +38,16 @@ One partner for all of your technology with predictable per-user pricing:
 | Search | https://cybercon-solutions.com/search/ |
 | Contact | https://cybercon-solutions.com/contact/ |
 | Contact (ES) | https://cybercon-solutions.com/es/contact/ |
+| Managed IT Services | https://cybercon-solutions.com/services/managed-it/ |
+| Cybersecurity & Compliance | https://cybercon-solutions.com/services/cybersecurity/ |
+| Cloud Services & Architecture | https://cybercon-solutions.com/services/cloud/ |
+| IT Consulting & Virtual CIO | https://cybercon-solutions.com/services/it-consulting/ |
+| Backup & Disaster Recovery | https://cybercon-solutions.com/services/backup-disaster-recovery/ |
+| Structured Cabling & Communications | https://cybercon-solutions.com/services/cabling-communications/ |
+| AI Consulting & Strategy | https://cybercon-solutions.com/services/ai-consulting/ |
+| AI Integration & Automation | https://cybercon-solutions.com/services/ai-integration/ |
+| Conversational AI & Voice | https://cybercon-solutions.com/services/conversational-ai/ |
+| Web Design & Development | https://cybercon-solutions.com/services/web-design-development/ |
 | Healthcare & clinics | https://cybercon-solutions.com/industries/healthcare-clinics/ |
 | Legal & professional services | https://cybercon-solutions.com/industries/legal-professional-services/ |
 | Financial services & insurance | https://cybercon-solutions.com/industries/financial-services-insurance/ |
@@ -47,11 +58,23 @@ One partner for all of your technology with predictable per-user pricing:
 | Contact API | POST https://cybercon-solutions.com/api/contact |
 | Site check API | POST https://cybercon-solutions.com/api/site-check |
 | Breach check API | POST https://cybercon-solutions.com/api/breach-check |
+| Health check API | GET https://cybercon-solutions.com/api/health |
 
 ## Contact
 
 https://cybercon-solutions.com/contact/ · info@cybercon-solutions.com · (305) 320-5335
 
+Legal mailing address: 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139.
+
 ## Markdown negotiation
 
 Send `Accept: text/markdown` to receive Markdown versions of HTML pages (`Content-Type: text/markdown`, `Vary: Accept`).
+
+## Agent discovery
+
+- Curated map: https://cybercon-solutions.com/llms.txt
+- API catalog: https://cybercon-solutions.com/.well-known/api-catalog
+- Auth for agents: https://cybercon-solutions.com/auth.md
+- MCP server card: https://cybercon-solutions.com/.well-known/mcp/server-card.json
+- OpenAPI: https://cybercon-solutions.com/openapi.json
+- Sitemap: https://cybercon-solutions.com/sitemap-index.xml
