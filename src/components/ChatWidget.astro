@@ -37,6 +37,9 @@ const hrefs = {
 };
 
 const initial = catalogs[locale];
+const avatarSrc = '/images/cora-avatar-160.webp';
+const avatarSrcJpg = '/images/cora-avatar-160.jpg';
+const avatarSrc2x = '/images/cora-avatar.webp';
 ---
 
 <div
@@ -54,14 +57,11 @@ const initial = catalogs[locale];
     aria-controls="cybercon-chat-panel"
     aria-expanded="false"
   >
-    <span class="chat-launcher-icon" aria-hidden="true">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-        <path
-          d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6A2.5 2.5 0 0 1 16.5 15H11l-3.8 3.2c-.55.46-1.2.08-1.2-.63V15A2.5 2.5 0 0 1 5 12.5v-6Z"
-          stroke="currentColor"
-          stroke-width="1.75"
-          stroke-linejoin="round"></path>
-      </svg>
+    <span class="chat-launcher-avatar" aria-hidden="true">
+      <picture>
+        <source type="image/webp" srcset={`${avatarSrc} 1x, ${avatarSrc2x} 2x`} />
+        <img src={avatarSrcJpg} alt="" width="40" height="40" decoding="async" />
+      </picture>
     </span>
     <span class="chat-launcher-label" data-chat-launcher-label>{initial.launcher}</span>
   </button>
@@ -76,9 +76,24 @@ const initial = catalogs[locale];
     hidden
   >
     <header class="chat-header">
-      <div>
-        <p class="chat-eyebrow" data-chat-eyebrow>{initial.eyebrow}</p>
-        <h2 id="cybercon-chat-title" class="chat-title" data-chat-title>{initial.title}</h2>
+      <div class="chat-identity">
+        <div class="chat-avatar" aria-hidden="true">
+          <picture>
+            <source type="image/webp" srcset={`${avatarSrc} 1x, ${avatarSrc2x} 2x`} />
+            <img
+              src={avatarSrcJpg}
+              alt=""
+              width="48"
+              height="48"
+              decoding="async"
+              data-chat-avatar-img
+            />
+          </picture>
+        </div>
+        <div>
+          <h2 id="cybercon-chat-title" class="chat-title" data-chat-title>{initial.name}</h2>
+          <p class="chat-role" data-chat-role>{initial.role}</p>
+        </div>
       </div>
       <div class="chat-header-actions">
         <div class="chat-lang" role="group" aria-label="Language">
@@ -147,6 +162,8 @@ const initial = catalogs[locale];
     siteKey,
     phoneHref,
     phoneDisplay,
+    avatarSrc,
+    avatarSrcJpg,
   }}
 >
   (function () {
@@ -176,8 +193,8 @@ const initial = catalogs[locale];
     var sendBtn = root.querySelector('[data-chat-send]');
     var turnstileWrap = root.querySelector('[data-chat-turnstile]');
     var launcherLabel = root.querySelector('[data-chat-launcher-label]');
-    var eyebrowEl = root.querySelector('[data-chat-eyebrow]');
     var titleEl = root.querySelector('[data-chat-title]');
+    var roleEl = root.querySelector('[data-chat-role]');
     var inputLabelEl = root.querySelector('[data-chat-input-label]');
     var footnoteText = root.querySelector('[data-chat-footnote-text]');
     var assessmentLink = root.querySelector('[data-chat-assessment-link]');
@@ -201,8 +218,8 @@ const initial = catalogs[locale];
       links = hrefs[chatLocale] || hrefs.en;
       root.setAttribute('data-locale', chatLocale);
       if (launcherLabel) launcherLabel.textContent = copy.launcher;
-      if (eyebrowEl) eyebrowEl.textContent = copy.eyebrow;
-      if (titleEl) titleEl.textContent = copy.title;
+      if (titleEl) titleEl.textContent = copy.name;
+      if (roleEl) roleEl.textContent = copy.role;
       if (closeBtn) closeBtn.setAttribute('aria-label', copy.close);
       if (input) input.setAttribute('placeholder', copy.placeholder);
       if (inputLabelEl) inputLabelEl.textContent = copy.inputLabel;
@@ -298,13 +315,25 @@ const initial = catalogs[locale];
       var opts = options || {};
       var row = document.createElement('div');
       row.className = 'chat-row chat-row-' + role;
+      if (role === 'assistant') {
+        var avatar = document.createElement('div');
+        avatar.className = 'chat-msg-avatar';
+        avatar.setAttribute('aria-hidden', 'true');
+        var img = document.createElement('img');
+        img.src = avatarSrcJpg;
+        img.alt = '';
+        img.width = 28;
+        img.height = 28;
+        img.decoding = 'async';
+        avatar.appendChild(img);
+        row.appendChild(avatar);
+      }
       var bubble = document.createElement('div');
       bubble.className = 'chat-bubble' + (role === 'assistant' ? ' chat-bubble-answer' : '');
       bubble.textContent = text;
       row.appendChild(bubble);
       messagesEl.appendChild(row);
       if (opts.reveal) {
-        // Wait a frame so layout includes the new bubble + any CTAs rendered next.
         window.requestAnimationFrame(function () {
           window.requestAnimationFrame(function () {
             revealAnswer(row);
@@ -415,7 +444,11 @@ const initial = catalogs[locale];
 
       var typing = document.createElement('div');
       typing.className = 'chat-row chat-row-assistant';
-      typing.innerHTML = '<div class="chat-bubble chat-typing" aria-hidden="true"><span></span><span></span><span></span></div>';
+      typing.innerHTML =
+        '<div class="chat-msg-avatar" aria-hidden="true"><img src="' +
+        avatarSrcJpg +
+        '" alt="" width="28" height="28" decoding="async" /></div>' +
+        '<div class="chat-bubble chat-typing" aria-hidden="true"><span></span><span></span><span></span></div>';
       if (messagesEl) {
         messagesEl.appendChild(typing);
         messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -580,13 +613,21 @@ const initial = catalogs[locale];
     box-shadow: var(--shadow-focus), 0 12px 28px rgba(15, 44, 76, 0.28);
   }
 
-  .chat-launcher-icon {
-    display: grid;
-    place-items: center;
-    width: 2rem;
-    height: 2rem;
+  .chat-launcher-avatar {
+    width: 2.15rem;
+    height: 2.15rem;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .chat-launcher-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .chat-panel {
@@ -613,6 +654,30 @@ const initial = catalogs[locale];
     align-items: start;
     justify-content: space-between;
     gap: 0.75rem;
+  }
+
+  .chat-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+  }
+
+  .chat-avatar {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid rgba(192, 57, 43, 0.22);
+    box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.08);
+  }
+
+  .chat-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .chat-header-actions {
@@ -666,6 +731,13 @@ const initial = catalogs[locale];
     line-height: 1.25;
   }
 
+  .chat-role {
+    margin: 0.15rem 0 0;
+    font-size: 0.75rem;
+    color: var(--body-muted);
+    line-height: 1.3;
+  }
+
   .chat-close {
     border: 0;
     background: transparent;
@@ -698,14 +770,32 @@ const initial = catalogs[locale];
 
   .chat-row {
     display: flex;
+    align-items: flex-end;
+    gap: 0.45rem;
   }
 
   .chat-row-user {
     justify-content: flex-end;
   }
 
+  .chat-msg-avatar {
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 999px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .chat-msg-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   .chat-bubble {
-    max-width: 92%;
+    max-width: 84%;
     padding: 0.7rem 0.85rem;
     border-radius: 0.9rem;
     font-size: 0.92rem;

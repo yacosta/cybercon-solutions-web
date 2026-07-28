@@ -292,22 +292,24 @@ export const es: Messages = {
     policy: 'Política de Privacidad y Cookies',
   },
   chat: {
-    launcher: 'Pregúntale a Cybercon',
-    eyebrow: 'Asistente Cybercon',
-    title: '¿Preguntas sobre nuestros servicios de TI?',
+    launcher: 'Pregúntale a Cora',
+    name: 'Cora',
+    role: 'Guía con IA de Cybercon',
+    eyebrow: 'Guía con IA de Cybercon',
+    title: 'Cora',
     close: 'Cerrar chat',
     welcome:
-      'Hola — puedo responder lo básico sobre Cybercon (servicios, cobertura en el sur de Florida y cómo empezar). Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
+      'Hola, soy Cora — la guía con IA de Cybercon. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
     suggestions: [
       '¿Qué hace Cybercon?',
       '¿Dónde atienden?',
       '¿Cómo funciona el precio?',
       '¿Qué es la evaluación gratuita?',
     ],
-    placeholder: 'Pregunta por servicios, cobertura o siguientes pasos…',
+    placeholder: 'Pregúntale a Cora por servicios, cobertura o siguientes pasos…',
     inputLabel: 'Tu mensaje',
     send: 'Enviar',
-    footnote: 'Solo lo básico — no es soporte de tickets en vivo.',
+    footnote: 'Cora es una guía con IA — no es soporte de tickets en vivo.',
     assessmentLink: 'Reservar evaluación gratuita',
     askEmail:
       '¿Quieres seguimiento humano? Comparte un correo de trabajo aquí, o reserva la evaluación gratuita y un ingeniero responde en un día hábil.',
@@ -316,6 +318,7 @@ export const es: Messages = {
     ctaSiteCheck: 'Revisión gratuita del sitio',
     ctaContact: 'Contactar',
     ctaCall: 'Llamar',
+    avatarAlt: 'Retrato de Cora, guía con IA de Cybercon',
   },
   notFound: {
     title: 'Página no encontrada | Cybercon',
