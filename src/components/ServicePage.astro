@@ -72,15 +72,31 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
       </picture>
     </figure>
 
-    <section class="wd-hero container">
-      <h1 class="wd-hero-title">{copy.displayTitle}</h1>
-      <p class="wd-hero-lede">{copy.lede}</p>
-      <div class="wd-hero-actions">
-        <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-        <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
-      </div>
-      <p class="wd-hero-note">{copy.replyNote}</p>
-    </section>
+    {showBreachCheck ? (
+      <section class="wd-hero wd-hero-cta-split container" aria-labelledby="wd-hero-title">
+        <div class="wd-hero-copy">
+          <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
+          <p class="wd-hero-lede">{copy.lede}</p>
+        </div>
+        <div class="wd-hero-cta-col">
+          <div class="wd-hero-actions">
+            <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+            <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+          </div>
+          <p class="wd-hero-note">{copy.replyNote}</p>
+        </div>
+      </section>
+    ) : (
+      <section class="wd-hero container">
+        <h1 class="wd-hero-title">{copy.displayTitle}</h1>
+        <p class="wd-hero-lede">{copy.lede}</p>
+        <div class="wd-hero-actions">
+          <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+          <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+        </div>
+        <p class="wd-hero-note">{copy.replyNote}</p>
+      </section>
+    )}
 
     <hr class="wd-rule" />
 
@@ -244,6 +260,30 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     padding-block: clamp(2.75rem, 6vw, 4.5rem) clamp(2.5rem, 5vw, 3.75rem);
   }
 
+  .wd-hero-cta-split {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: end;
+  }
+
+  @media (min-width: 860px) {
+    .wd-hero-cta-split {
+      grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 0.85fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+      align-items: end;
+    }
+
+    .wd-hero-cta-col {
+      justify-self: end;
+      text-align: right;
+      max-width: 22rem;
+    }
+
+    .wd-hero-cta-col .wd-hero-actions {
+      justify-content: flex-end;
+    }
+  }
+
   .wd-hero-title {
     font-size: clamp(2.35rem, 6vw, 3.75rem);
     line-height: 1.05;
@@ -259,12 +299,20 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     margin: 0 0 1.75rem;
   }
 
+  .wd-hero-cta-split .wd-hero-lede {
+    margin-bottom: 0;
+  }
+
   .wd-hero-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 1.15rem 1.5rem;
     margin-bottom: 1rem;
+  }
+
+  .wd-hero-cta-col .wd-hero-actions {
+    margin-bottom: 0.85rem;
   }
 
   .wd-text-link {
