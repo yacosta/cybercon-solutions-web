@@ -174,6 +174,16 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: 'No. Diseñamos controles para organizaciones en crecimiento del sur de Florida que necesitan seguridad sólida sin teatro empresarial.',
         },
       },
+      {
+        question: {
+          en: 'Can I check if a work email has been in a breach?',
+          es: '¿Puedo revisar si un correo de trabajo ha estado en una filtración?',
+        },
+        answer: {
+          en: 'Yes. Use the free lite breach check on this page (powered by Have I Been Pwned). It is a quick exposure snapshot — not a full investigation — and we can follow up with MFA, identity, and monitoring next steps.',
+          es: 'Sí. Usa la revisión lite gratuita de filtraciones en esta página (con Have I Been Pwned). Es un panorama rápido de exposición — no una investigación completa — y podemos continuar con MFA, identidad y monitoreo.',
+        },
+      },
     ],
   },
 

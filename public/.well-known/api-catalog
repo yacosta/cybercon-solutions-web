@@ -63,6 +63,30 @@
       ]
     },
     {
+      "anchor": "https://cybercon-solutions.com/api/breach-check",
+      "service-desc": [
+        {
+          "href": "https://cybercon-solutions.com/openapi.json#/paths/~1api~1breach-check",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://cybercon-solutions.com/services/cybersecurity/#breach-check",
+          "type": "text/html"
+        },
+        {
+          "href": "https://cybercon-solutions.com/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://cybercon-solutions.com/api/health"
+        }
+      ]
+    },
+    {
       "anchor": "https://cybercon-solutions.com/api/health",
       "service-desc": [
         {

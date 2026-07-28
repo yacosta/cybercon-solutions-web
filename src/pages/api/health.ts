@@ -35,5 +35,8 @@ export const GET: APIRoute = async () => {
       builtwith: Boolean(runtimeEnv('BUILTWITH_API_KEY')),
       webhook: Boolean(runtimeEnv('SITE_CHECK_WEBHOOK_URL')),
     },
+    breachCheck: {
+      hibp: Boolean(runtimeEnv('HIBP_API_KEY')),
+    },
   });
 };

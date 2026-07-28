@@ -111,6 +111,10 @@
 /site-check/ /services/web-design-development/ 301
 /es/site-check /es/services/web-design-development/ 301
 /es/site-check/ /es/services/web-design-development/ 301
+/breach-check /services/cybersecurity/ 301
+/breach-check/ /services/cybersecurity/ 301
+/es/breach-check /es/services/cybersecurity/ 301
+/es/breach-check/ /es/services/cybersecurity/ 301
 
 # --- Generic /services hub (exact only; do not splat — live service pages live under /services/) ---
 /services /#services 301
