@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import SiteCheck from './SiteCheck.astro';
+import BreachCheck from './BreachCheck.astro';
 import type { Service } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
 import { buildServiceEditorial } from '../lib/service-editorial';
@@ -28,7 +29,13 @@ const assessmentHref = localePath(locale, '/assessment/');
 const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
 const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 const showSiteCheck = service.slug === 'web-design-development';
-const siteCheckCtaHref = showSiteCheck ? '#site-check' : siteCheckHref;
+const showBreachCheck = service.slug === 'cybersecurity';
+const secondaryCtaHref = showBreachCheck
+  ? '#breach-check'
+  : showSiteCheck
+    ? '#site-check'
+    : siteCheckHref;
+const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servicePage.ctaSecondary;
 ---
 
 <BaseLayout
@@ -70,7 +77,7 @@ const siteCheckCtaHref = showSiteCheck ? '#site-check' : siteCheckHref;
       <p class="wd-hero-lede">{copy.lede}</p>
       <div class="wd-hero-actions">
         <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-        <a class="wd-text-link" href={siteCheckCtaHref}>{t.servicePage.ctaSecondary}</a>
+        <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
       </div>
       <p class="wd-hero-note">{copy.replyNote}</p>
     </section>
@@ -106,8 +113,9 @@ const siteCheckCtaHref = showSiteCheck ? '#site-check' : siteCheckHref;
     </section>
 
     {showSiteCheck && <SiteCheck locale={locale} t={t} variant="embed" />}
+    {showBreachCheck && <BreachCheck locale={locale} t={t} variant="embed" />}
 
-    {!showSiteCheck && <hr class="wd-rule" />}
+    {!showSiteCheck && !showBreachCheck && <hr class="wd-rule" />}
 
     <section class="wd-after container" aria-labelledby="wd-feature-title">
       <header class="wd-after-head">
@@ -145,7 +153,7 @@ const siteCheckCtaHref = showSiteCheck ? '#site-check' : siteCheckHref;
           <p class="wd-cta-lede">{copy.cta.body}</p>
           <div class="wd-cta-actions">
             <a class="wd-cta-btn" href={assessmentHref}>{copy.cta.button}</a>
-            <a class="wd-cta-secondary" href={siteCheckCtaHref}>{t.servicePage.ctaSecondary}</a>
+            <a class="wd-cta-secondary" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
           </div>
         </div>
       </div>

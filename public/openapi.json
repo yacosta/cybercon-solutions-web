@@ -123,6 +123,35 @@
           "502": { "description": "Upstream webhook failure" }
         }
       }
+    },
+    "/api/breach-check": {
+      "post": {
+        "summary": "Run a lite Have I Been Pwned breach check",
+        "operationId": "postBreachCheck",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string", "format": "email", "description": "Work email to look up in HIBP" },
+                  "sample": { "type": "boolean", "description": "Return illustrative sample report" },
+                  "locale": { "type": "string", "enum": ["en", "es"] },
+                  "turnstileToken": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Breach snapshot (status, count, breaches, finding)" },
+          "400": { "description": "Validation or Turnstile failure" },
+          "429": { "description": "Visitor, global, or HIBP rate limit" },
+          "502": { "description": "HIBP upstream failure" },
+          "503": { "description": "HIBP_API_KEY not configured" }
+        }
+      }
     }
   }
 }

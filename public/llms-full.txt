@@ -24,6 +24,7 @@ One partner for all of your technology with predictable per-user pricing:
 | Home (EN) | https://cybercon-solutions.com/ |
 | Home (ES) | https://cybercon-solutions.com/es/ |
 | Free site check | https://cybercon-solutions.com/site-check/ |
+| Free breach check | https://cybercon-solutions.com/breach-check/ |
 | Blog | https://cybercon-solutions.com/blog/ |
 | Enterprise AI Adoption and ROI | https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/ |
 | Fractional CIO First 90 Days | https://cybercon-solutions.com/blog/fractional-cio-first-90-days/ |
@@ -45,6 +46,7 @@ One partner for all of your technology with predictable per-user pricing:
 | Assessment API | POST https://cybercon-solutions.com/api/assessment |
 | Contact API | POST https://cybercon-solutions.com/api/contact |
 | Site check API | POST https://cybercon-solutions.com/api/site-check |
+| Breach check API | POST https://cybercon-solutions.com/api/breach-check |
 
 ## Contact
 

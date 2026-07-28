@@ -6,7 +6,7 @@ export const privacyContent = {
     metaDescription:
       'How Cybercon Solutions collects, uses, and protects your information. Cookie categories, analytics consent, Turnstile, CCPA rights, and contact details.',
     title: 'Privacy & Cookie Policy',
-    lastUpdated: 'Last updated: July 27, 2026',
+    lastUpdated: 'Last updated: July 28, 2026',
     intro:
       'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have. Non-essential cookies and similar trackers are not set or loaded until you give prior consent (or you may reject them and continue browsing).',
     controllerHeading: 'Who is responsible for your data',
@@ -18,7 +18,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Information you give us',
-            body: 'When you submit the assessment or contact form, we collect the full name, work email, and (when provided) company name and message. We use these only to respond to your request and to contact you about the services you asked about.',
+            body: 'When you submit the assessment or contact form, we collect the full name, work email, and (when provided) company name and message. When you use the free breach check on the Cybersecurity page, we collect the work email you enter so we can look up known breaches and follow up. We use these only to respond to your request and to contact you about the services you asked about.',
           },
           {
             sub: 'Information collected automatically',
@@ -76,8 +76,9 @@ export const privacyContent = {
         heading: '5. Sharing & service providers',
         body: 'We do not sell or rent your personal information. We share it only with service providers who process it on our behalf:',
         list: [
-          'Attio — our CRM; stores your assessment or contact request as a contact/company prospect so we can follow up.',
+          'Attio — our CRM; stores your assessment, contact, site-check, or breach-check request as a contact/company prospect so we can follow up.',
           'Web3Forms (or equivalent form delivery) — may deliver your form submission to us by email.',
+          'Have I Been Pwned — when you use the free breach check, we send the email address you enter to Have I Been Pwned’s API to look up known data breaches. We do not send passwords.',
           'Cloudflare — website hosting (Cloudflare Pages), bot protection (Turnstile), and CDN.',
           'Auth0 — authentication for the client area.',
           'Google — analytics, only if you consent.',
@@ -112,7 +113,7 @@ export const privacyContent = {
     metaDescription:
       'Cómo Cybercon Solutions recopila, usa y protege tu información. Categorías de cookies, consentimiento de analítica, Turnstile, derechos CCPA y contacto.',
     title: 'Política de Privacidad y Cookies',
-    lastUpdated: 'Última actualización: 27 de julio de 2026',
+    lastUpdated: 'Última actualización: 28 de julio de 2026',
     intro:
       'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes. Las cookies no esenciales y rastreadores similares no se establecen ni se cargan hasta que des tu consentimiento previo (o puedes rechazarlas y seguir navegando).',
     controllerHeading: 'Quién es responsable de tus datos',
@@ -124,7 +125,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Información que nos das',
-            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
+            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Cuando usas la revisión gratuita de filtraciones en la página de Ciberseguridad, recopilamos el correo de trabajo que introduces para consultar filtraciones conocidas y dar seguimiento. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
           },
           {
             sub: 'Información recopilada automáticamente',
@@ -182,8 +183,9 @@ export const privacyContent = {
         heading: '5. Cesión y proveedores',
         body: 'No vendemos ni alquilamos tu información personal. Solo la compartimos con proveedores que la procesan en nuestro nombre:',
         list: [
-          'Attio — nuestro CRM; guarda tu solicitud de evaluación o de contacto como prospecto (contacto/empresa) para el seguimiento.',
+          'Attio — nuestro CRM; guarda tu solicitud de evaluación, contacto, revisión de sitio o de filtraciones como prospecto (contacto/empresa) para el seguimiento.',
           'Web3Forms (o equivalente) — puede entregar tu envío de formulario por correo.',
+          'Have I Been Pwned — cuando usas la revisión gratuita de filtraciones, enviamos el correo que introduces a la API de Have I Been Pwned para consultar filtraciones conocidas. No enviamos contraseñas.',
           'Cloudflare — alojamiento (Cloudflare Pages), protección antibots (Turnstile) y CDN.',
           'Auth0 — autenticación del área de clientes.',
           'Google — analítica, solo si consientes.',

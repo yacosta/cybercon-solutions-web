@@ -35,7 +35,8 @@ Consult these guides before working on related tasks:
 
 - Node 22 is required (`.node-version`, `engines.node >=22.12`). Package manager is npm (`package-lock.json`).
 - Copy `.env.example` to `.env` for local dev (`.env` is gitignored). All third-party keys (Turnstile, Web3Forms, Auth0) are optional locally — the app degrades gracefully without them.
-- The dev server (`astro dev --background`, port 4321) serves everything needed to test the site: EN/ES homepages, `/privacy/`, `/api/health`, and the assessment form.
+- The dev server (`astro dev --background`, port 4321) serves everything needed to test the site: EN/ES homepages, `/privacy/`, `/api/health`, the assessment form, `#site-check`, and `#breach-check`.
+- Breach check (`/api/breach-check`, Cybersecurity page): needs `HIBP_API_KEY` for live Have I Been Pwned lookups; sample reports work without it. Health: `"breachCheck": { "hibp": true }`.
 - Assessment form (`/api/assessment`, core lead-capture flow) works with no keys: when `TURNSTILE_SECRET_KEY` is unset the Turnstile widget/verification is skipped, and when `WEB3FORMS_ACCESS_KEY` is unset the submission is logged to the dev server console (`[assessment] {...}`) and returns `{ok:true}`. To see logs use `astro dev logs`.
 - Attio CRM is the primary form sink (`src/lib/attio.ts`): when `ATTIO_API_KEY` is set, assessment submissions upsert a Person (match on email) + Company, attach a note, and optionally add the person to `ATTIO_PROSPECTS_LIST_ID`. Web3Forms is an optional email alert after Attio. Production readiness: `GET /api/health` → `"attio": true` (set the Secret on Worker `cybercon-solutions-web`, not in GitHub).
 - There are no lint or test scripts. `astro check` is not wired up (it would prompt to install `@astrojs/check`, which is not a project dependency), so build is the main validation gate.

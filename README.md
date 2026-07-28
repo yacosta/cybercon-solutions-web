@@ -13,14 +13,10 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 ## Features
 
 - EN / ES homepage with full-bleed hero video (server racks), assessment form + Turnstile
-<<<<<<< HEAD
 - Free lite website check on Web Design & Development (`/services/web-design-development/#site-check`, short URL `/site-check/` redirects) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
-- Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner (`cybercon-consent-v1`)
-- Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`)
-=======
+- Free lite breach check on Cybersecurity (`/services/cybersecurity/#breach-check`, short URL `/breach-check/` redirects) → `/api/breach-check` — Have I Been Pwned email exposure snapshot + assessment CTA; Attio lead capture
 - Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner with prior opt-in for non-essential cookies (`cybercon_consent` / `cybercon-consent-v1`)
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`) with Google Consent Mode v2 defaults denied
->>>>>>> origin/main
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
 - ADA: skip link, landmarks, labels, focus styles, reduced-motion hero fallback
 - Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, Markdown negotiation (`Accept: text/markdown`), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
@@ -144,10 +140,13 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 | `SITE_CHECK_WEBHOOK_URL` | Optional | If set, proxy scans to n8n (or similar) instead of the native Worker pipeline |
 | `SITE_CHECK_IP_DAILY_LIMIT` | Optional | Soft per-IP daily cap (default `2`) |
 | `SITE_CHECK_GLOBAL_DAILY_LIMIT` | Optional | Soft global daily cap (default `25`) |
+| `HIBP_API_KEY` | For breach check | Have I Been Pwned API v3 key (Secret) — https://haveibeenpwned.com/API/Key |
+| `BREACH_CHECK_IP_DAILY_LIMIT` | Optional | Soft per-IP daily cap (default `2`) |
+| `BREACH_CHECK_GLOBAL_DAILY_LIMIT` | Optional | Soft global daily cap (default `25`) |
 
 Optional build variable: `NODE_VERSION=22`.
 
-**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"auth0": true` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
+**Verify bindings:** `GET https://cybercon-solutions.com/api/health` should return `"attio": true` (and `"turnstile": true` / `"auth0": true` / `siteCheck.builtwith` / `breachCheck.hibp` when those secrets are set). If those flags are `false`, the Worker does not have the secret yet — form submits will still return `{ ok: true }` but skip CRM, and `/client/` will not start Auth0 login.
 
 ### Connect Attio (assessment form → CRM)
 

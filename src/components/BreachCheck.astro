@@ -1,0 +1,717 @@
+---
+import { turnstileSiteKey } from '../lib/turnstile';
+import { localePath, type Messages } from '../i18n';
+import { site } from '../lib/site';
+
+interface Props {
+  locale: string;
+  t: Messages;
+  variant?: 'page' | 'embed';
+}
+
+const { locale, t, variant = 'page' } = Astro.props;
+const siteKey = turnstileSiteKey();
+const assessmentHref = localePath(locale, '/assessment/');
+const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
+const copy = t.breachCheck;
+const TitleTag = variant === 'page' ? 'h1' : 'h2';
+---
+
+<section
+  class:list={['breach-check', variant]}
+  id="breach-check"
+  data-breach-check
+  aria-labelledby="breach-check-title"
+>
+  <div class="container">
+    <div class="bc-layout">
+      <div class="bc-copy">
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <TitleTag id="breach-check-title">{copy.title}</TitleTag>
+        <p class="lede">{copy.lede}</p>
+      </div>
+
+      <div class="bc-widget">
+        <div class="panel" data-bc-panel>
+          <div class="view" data-view="idle">
+            <form class="bc-form" data-bc-form novalidate>
+              <div class="field">
+                <label for="bc-email">{copy.emailLabel}</label>
+                <input
+                  id="bc-email"
+                  name="email"
+                  type="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  required
+                  placeholder={copy.emailPlaceholder}
+                  data-bc-email
+                />
+              </div>
+
+              {siteKey && (
+                <div class="turnstile-wrap">
+                  <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+                </div>
+              )}
+
+              <p class="form-error" data-bc-error hidden role="alert" aria-live="assertive"></p>
+
+              <button type="submit" class="btn btn-primary" data-bc-submit>{copy.submit}</button>
+              <p class="disclosure">{copy.disclosure}</p>
+              <button type="button" class="text-link" data-bc-sample>{copy.sampleLink}</button>
+            </form>
+          </div>
+
+          <div class="view" data-view="scanning" hidden>
+            <div class="scan-anim" aria-hidden="true">
+              <div class="scan-ring"></div>
+              <div class="scan-bar"><span data-bc-progress></span></div>
+            </div>
+            <h3 class="scan-title">{copy.scanningTitle}</h3>
+            <p class="scan-status" data-bc-status aria-live="polite">{copy.statusMessages[0]}</p>
+            <p class="scan-hint">{copy.scanningHint}</p>
+          </div>
+
+          <div class="view" data-view="results" hidden>
+            <p class="sample-banner" data-bc-sample-banner hidden>{copy.sampleBanner}</p>
+
+            <div class="status-hero" data-bc-status-hero>
+              <div class="status-badge" data-bc-status-badge>—</div>
+              <div class="status-copy">
+                <p class="email-masked" data-bc-email-masked></p>
+                <p class="summary" data-bc-summary></p>
+              </div>
+            </div>
+
+            <ul class="trust-badges" data-bc-trust></ul>
+
+            <div class="breaches" data-bc-breaches-wrap hidden>
+              <h3 class="subhead">{copy.breachesHeading}</h3>
+              <ul class="breach-list" data-bc-breaches></ul>
+              <p class="more" data-bc-more hidden></p>
+            </div>
+
+            <div class="finding">
+              <h3 class="subhead">{copy.findingHeading}</h3>
+              <p data-bc-finding></p>
+            </div>
+
+            <div class="cta-block">
+              <p class="cta-lede">{copy.ctaLede}</p>
+              <div class="cta-row">
+                <a class="btn btn-primary" href={phoneHref} data-bc-call>
+                  {copy.callCta.replace('{phone}', site.phoneDisplay)}
+                </a>
+                <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
+              </div>
+              <button type="button" class="text-link" data-bc-reset>{copy.checkAnother}</button>
+            </div>
+          </div>
+
+          <div class="view" data-view="limit" hidden>
+            <h3 class="limit-title" data-bc-limit-title>{copy.limitTitle}</h3>
+            <p class="limit-body" data-bc-limit-body>{copy.limitBody}</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href={phoneHref}>
+                {copy.callCta.replace('{phone}', site.phoneDisplay)}
+              </a>
+              <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
+            </div>
+            <button type="button" class="text-link" data-bc-reset>{copy.checkAnother}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{siteKey && (
+  <script is:inline>
+    if (!document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]')) {
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+  </script>
+)}
+
+<script
+  define:vars={{
+    locale,
+    copy,
+    requireTurnstile: Boolean(siteKey),
+  }}
+>
+  const root = document.querySelector('[data-breach-check]');
+  if (root instanceof HTMLElement) {
+    const VISITOR_KEY = 'cybercon-breach-check-visitor-v1';
+    const visitorLimit = 1;
+
+    function showView(name) {
+      root.querySelectorAll('[data-view]').forEach((el) => {
+        if (el instanceof HTMLElement) el.hidden = el.getAttribute('data-view') !== name;
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function readVisitor() {
+      try {
+        const raw = sessionStorage.getItem(VISITOR_KEY);
+        if (!raw) return { day: '', count: 0 };
+        return JSON.parse(raw);
+      } catch {
+        return { day: '', count: 0 };
+      }
+    }
+
+    function bumpVisitor() {
+      const day = new Date().toISOString().slice(0, 10);
+      const cur = readVisitor();
+      const count = cur.day === day ? cur.count + 1 : 1;
+      sessionStorage.setItem(VISITOR_KEY, JSON.stringify({ day, count }));
+    }
+
+    function visitorBlocked() {
+      const day = new Date().toISOString().slice(0, 10);
+      const cur = readVisitor();
+      return cur.day === day && cur.count >= visitorLimit;
+    }
+
+    function getTurnstileToken() {
+      if (!requireTurnstile) return '';
+      const input = root.querySelector('input[name="cf-turnstile-response"]');
+      return input instanceof HTMLInputElement ? input.value.trim() : '';
+    }
+
+    function setError(message) {
+      const el = root.querySelector('[data-bc-error]');
+      if (!(el instanceof HTMLElement)) return;
+      if (!message) {
+        el.hidden = true;
+        el.textContent = '';
+        return;
+      }
+      el.hidden = false;
+      el.textContent = message;
+    }
+
+    function renderResults(result) {
+      const banner = root.querySelector('[data-bc-sample-banner]');
+      if (banner instanceof HTMLElement) banner.hidden = !result.sample;
+
+      const badge = root.querySelector('[data-bc-status-badge]');
+      const hero = root.querySelector('[data-bc-status-hero]');
+      if (badge instanceof HTMLElement) {
+        badge.textContent = result.status_label || result.status || '—';
+        badge.dataset.status = result.status || '';
+      }
+      if (hero instanceof HTMLElement) {
+        hero.dataset.status = result.status || '';
+      }
+
+      const masked = root.querySelector('[data-bc-email-masked]');
+      if (masked) masked.textContent = result.email_masked || '';
+
+      const summary = root.querySelector('[data-bc-summary]');
+      if (summary) summary.textContent = result.one_line_summary || '';
+
+      const trust = root.querySelector('[data-bc-trust]');
+      if (trust instanceof HTMLElement) {
+        trust.innerHTML = result.hibp_checked
+          ? `<li><span aria-hidden="true">✓</span> ${escapeHtml(copy.trustHibp)}</li>`
+          : '';
+      }
+
+      const wrap = root.querySelector('[data-bc-breaches-wrap]');
+      const list = root.querySelector('[data-bc-breaches]');
+      const more = root.querySelector('[data-bc-more]');
+      const breaches = Array.isArray(result.breaches) ? result.breaches : [];
+      if (wrap instanceof HTMLElement && list instanceof HTMLElement) {
+        if (breaches.length === 0) {
+          wrap.hidden = true;
+          list.innerHTML = '';
+        } else {
+          wrap.hidden = false;
+          list.innerHTML = breaches
+            .map((b) => {
+              const date = b.breachDate ? escapeHtml(b.breachDate) : '';
+              const classes = (b.dataClasses || []).slice(0, 4).map(escapeHtml).join(', ');
+              return `<li>
+                <strong>${escapeHtml(b.title || b.name)}</strong>
+                ${date ? `<span class="breach-date">${date}</span>` : ''}
+                ${classes ? `<span class="breach-classes">${classes}</span>` : ''}
+              </li>`;
+            })
+            .join('');
+        }
+      }
+      if (more instanceof HTMLElement) {
+        const n = Number(result.additional_breach_count) || 0;
+        if (n > 0) {
+          more.hidden = false;
+          more.textContent = copy.moreBreaches.replace('{n}', String(n));
+        } else {
+          more.hidden = true;
+          more.textContent = '';
+        }
+      }
+
+      const finding = root.querySelector('[data-bc-finding]');
+      if (finding) finding.textContent = result.top_finding || '';
+    }
+
+    async function runCheck(email, sample) {
+      setError('');
+      if (!sample && visitorBlocked()) {
+        const title = root.querySelector('[data-bc-limit-title]');
+        const body = root.querySelector('[data-bc-limit-body]');
+        if (title) title.textContent = copy.limitTitle;
+        if (body) body.textContent = copy.limitBody;
+        showView('limit');
+        return;
+      }
+
+      showView('scanning');
+      const progress = root.querySelector('[data-bc-progress]');
+      const statusEl = root.querySelector('[data-bc-status]');
+      let step = 0;
+      const timer = window.setInterval(() => {
+        step = (step + 1) % copy.statusMessages.length;
+        if (statusEl) statusEl.textContent = copy.statusMessages[step];
+        if (progress instanceof HTMLElement) {
+          progress.style.width = `${Math.min(92, 18 + step * 18)}%`;
+        }
+      }, 700);
+
+      try {
+        if (requireTurnstile && !sample) {
+          const token = getTurnstileToken();
+          if (!token) {
+            showView('idle');
+            setError(copy.turnstileError);
+            return;
+          }
+        }
+
+        const response = await fetch('/api/breach-check', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json', accept: 'application/json' },
+          body: JSON.stringify({
+            email: sample ? undefined : email,
+            sample: Boolean(sample),
+            turnstileToken: sample ? undefined : getTurnstileToken(),
+            locale,
+          }),
+        });
+
+        const json = await response.json().catch(() => ({}));
+
+        if (response.status === 429 || json.error === 'limit_reached') {
+          const title = root.querySelector('[data-bc-limit-title]');
+          const body = root.querySelector('[data-bc-limit-body]');
+          if (title) {
+            title.textContent =
+              json.reason === 'global' ? copy.limitGlobalTitle : copy.limitTitle;
+          }
+          if (body) {
+            body.textContent =
+              json.message ||
+              (json.reason === 'global' ? copy.limitGlobalBody : copy.limitBody);
+          }
+          showView('limit');
+          return;
+        }
+
+        if (!response.ok || !json.result) {
+          showView('idle');
+          setError(json.message || json.error || copy.errorGeneric);
+          return;
+        }
+
+        if (!sample) bumpVisitor();
+        renderResults(json.result);
+        showView('results');
+      } catch {
+        showView('idle');
+        setError(copy.errorGeneric);
+      } finally {
+        window.clearInterval(timer);
+        if (progress instanceof HTMLElement) progress.style.width = '100%';
+      }
+    }
+
+    root.querySelector('[data-bc-form]')?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const input = root.querySelector('[data-bc-email]');
+      const email = input instanceof HTMLInputElement ? input.value.trim() : '';
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setError(copy.errorEmail);
+        return;
+      }
+      runCheck(email, false);
+    });
+
+    root.querySelector('[data-bc-sample]')?.addEventListener('click', () => {
+      runCheck('', true);
+    });
+
+    root.querySelectorAll('[data-bc-reset]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        setError('');
+        showView('idle');
+      });
+    });
+  }
+</script>
+
+<style>
+  .breach-check {
+    --bc-paper: #f7f5f1;
+    --bc-slate: #5b6b7c;
+    background:
+      radial-gradient(ellipse 80% 60% at 12% 0%, rgba(192, 57, 43, 0.18), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 88% 35%, rgba(15, 44, 76, 0.4), transparent 52%),
+      linear-gradient(165deg, #0a1d33 0%, #061424 55%, #0f2c4c 100%);
+    color: var(--white);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .breach-check.embed {
+    margin-top: 0;
+  }
+
+  .bc-layout {
+    display: grid;
+    gap: clamp(1.75rem, 4vw, 3rem);
+    align-items: start;
+  }
+
+  .bc-copy {
+    max-width: 34rem;
+  }
+
+  .bc-widget {
+    min-width: 0;
+  }
+
+  @media (min-width: 900px) {
+    .bc-layout {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: clamp(2rem, 4vw, 3.5rem);
+    }
+
+    .bc-copy {
+      max-width: none;
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .breach-check h1,
+    .breach-check h2 {
+      max-width: 14ch;
+    }
+
+    .lede {
+      max-width: 34ch;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--coral);
+    margin: 0 0 0.75rem;
+  }
+
+  .breach-check h1,
+  .breach-check h2 {
+    font-size: clamp(1.85rem, 3.4vw, 2.6rem);
+    color: var(--white);
+    margin: 0 0 0.75rem;
+    max-width: 18ch;
+  }
+
+  .lede {
+    color: rgba(247, 245, 241, 0.78);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .panel {
+    background: var(--bc-paper);
+    color: var(--navy);
+    border-radius: 18px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    width: 100%;
+  }
+
+  .view[hidden] {
+    display: none;
+  }
+
+  .bc-form {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .field label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .field input {
+    width: 100%;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1.5px solid color-mix(in srgb, var(--border) 55%, transparent);
+    border-radius: var(--radius-md);
+    background: #fff;
+    color: var(--navy);
+  }
+
+  .field input:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  .disclosure {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--bc-slate);
+  }
+
+  .form-error {
+    margin: 0;
+    color: var(--coral);
+    font-size: 0.9rem;
+  }
+
+  .text-link {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--navy);
+    font: inherit;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    padding: 0;
+    justify-self: start;
+  }
+
+  .text-link:hover {
+    color: var(--coral);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .turnstile-wrap {
+    min-height: 65px;
+  }
+
+  .scan-anim {
+    margin-bottom: 1rem;
+  }
+
+  .scan-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid color-mix(in srgb, var(--navy) 18%, transparent);
+    border-top-color: var(--coral);
+    animation: bc-spin 0.9s linear infinite;
+    margin-bottom: 0.75rem;
+  }
+
+  @keyframes bc-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .scan-bar {
+    height: 4px;
+    background: color-mix(in srgb, var(--navy) 12%, transparent);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .scan-bar span {
+    display: block;
+    height: 100%;
+    width: 12%;
+    background: var(--coral);
+    transition: width 0.4s ease;
+  }
+
+  .scan-title,
+  .limit-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+  }
+
+  .scan-status,
+  .scan-hint,
+  .limit-body {
+    color: var(--bc-slate);
+    margin: 0 0 0.5rem;
+  }
+
+  .sample-banner {
+    margin: 0 0 1rem;
+    padding: 0.55rem 0.75rem;
+    background: color-mix(in srgb, var(--coral) 12%, #fff);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--navy);
+  }
+
+  .status-hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    margin-bottom: 1rem;
+  }
+
+  .status-badge {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    background: var(--navy);
+    color: #fff;
+    max-width: 9rem;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .status-badge[data-status='clear'] {
+    background: #2e7d5a;
+  }
+
+  .status-badge[data-status='exposed'] {
+    background: #b47828;
+  }
+
+  .status-badge[data-status='elevated'] {
+    background: var(--coral);
+  }
+
+  .email-masked {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .summary {
+    margin: 0;
+    color: var(--bc-slate);
+    line-height: 1.45;
+  }
+
+  .trust-badges {
+    list-style: none;
+    margin: 0 0 1.1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .trust-badges li {
+    font-size: 0.85rem;
+    color: var(--bc-slate);
+  }
+
+  .trust-badges span {
+    color: #2e7d5a;
+    margin-right: 0.35rem;
+  }
+
+  .subhead {
+    margin: 0 0 0.55rem;
+    font-size: 1rem;
+  }
+
+  .breach-list {
+    list-style: none;
+    margin: 0 0 0.75rem;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .breach-list li {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.7rem 0.8rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  }
+
+  .breach-date,
+  .breach-classes {
+    font-size: 0.8125rem;
+    color: var(--bc-slate);
+  }
+
+  .more {
+    font-size: 0.875rem;
+    color: var(--bc-slate);
+    margin: 0 0 1rem;
+  }
+
+  .finding {
+    margin: 0 0 1.25rem;
+  }
+
+  .finding p {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .cta-lede {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-row .btn {
+    text-decoration: none;
+  }
+</style>
