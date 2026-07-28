@@ -181,6 +181,33 @@ export function webPageJsonLd(opts: {
   };
 }
 
+/** Privacy & cookie policy page — distinct type so crawlers don't treat it as a thin generic WebPage. */
+export function privacyPolicyJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  locale: Locale;
+  dateModified: string;
+}) {
+  const enPath = '/privacy/';
+  const esPath = '/es/privacy/';
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['WebPage', 'PrivacyPolicy'],
+    '@id': `${absoluteUrl(opts.path)}#webpage`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    inLanguage: opts.locale === 'es' ? 'es-US' : 'en-US',
+    dateModified: opts.dateModified,
+    isPartOf: { '@id': `${site.url}/#website` },
+    about: { '@id': `${site.url}/#organization` },
+    publisher: { '@id': `${site.url}/#organization` },
+    mainEntityOfPage: absoluteUrl(opts.path),
+    significantLink: absoluteUrl(opts.locale === 'es' ? enPath : esPath),
+  };
+}
+
 export function serviceJsonLd(service: (typeof services)[number], locale: Locale) {
   const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
   const details = getServiceDetails(service.slug);

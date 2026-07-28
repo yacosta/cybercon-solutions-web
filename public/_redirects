@@ -156,16 +156,30 @@
 /education-k-12/ / 301
 
 # --- Legal ---
+# Permanent trailing-slash for privacy (overrides Workers assets 307 html_handling).
+# GSC validation failed on /es/privacy/ (Jul 2026) when slash variants / temp redirects split signals.
+/privacy /privacy/ 301
+/es/privacy /es/privacy/ 301
 /privacy-policy-terms-of-service-and-third-party-links /privacy/ 301
 /privacy-policy-terms-of-service-and-third-party-links/ /privacy/ 301
+/es/privacy-policy-terms-of-service-and-third-party-links /es/privacy/ 301
+/es/privacy-policy-terms-of-service-and-third-party-links/ /es/privacy/ 301
 /home/privacy-policy /privacy/ 301
 /home/privacy-policy/ /privacy/ 301
+/es/home/privacy-policy /es/privacy/ 301
+/es/home/privacy-policy/ /es/privacy/ 301
 /cookie-use /privacy/ 301
 /cookie-use/ /privacy/ 301
+/es/cookie-use /es/privacy/ 301
+/es/cookie-use/ /es/privacy/ 301
 /terms-of-service-2 /privacy/ 301
 /terms-of-service-2/ /privacy/ 301
 /terms-of-service-agreement /privacy/ 301
 /terms-of-service-agreement/ /privacy/ 301
+/privacidad /es/privacy/ 301
+/privacidad/ /es/privacy/ 301
+/es/privacidad /es/privacy/ 301
+/es/privacidad/ /es/privacy/ 301
 
 # --- News / case studies / misc legacy content → home ---
 # (Former /blog catch-alls removed — /blog/ is a live section now.)

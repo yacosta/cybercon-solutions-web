@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getMessages, localePath } from '../i18n';
 import { privacyContent, type PrivacyLocale } from '../data/privacy';
+import { jsonLdScript, privacyPolicyJsonLd } from '../lib/seo';
 
 interface Props {
   locale: PrivacyLocale;
@@ -25,11 +26,25 @@ const path = localePath(locale, '/privacy/');
     { name: p.title, path },
   ]}
 >
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        privacyPolicyJsonLd({
+          name: p.metaTitle,
+          description: p.metaDescription,
+          path,
+          locale,
+          dateModified: p.dateModified,
+        }),
+      )}
+    />
+  </Fragment>
   <Header slot="header" locale={locale} t={t} variant="light" />
 
   <article class="privacy container page" data-pagefind-body>
     <header class="privacy-head">
-      <p class="eyebrow">{locale === 'es' ? 'Legal' : 'Legal'}</p>
+      <p class="eyebrow">{p.eyebrow}</p>
       <h1>{p.title}</h1>
       <p class="updated">{p.lastUpdated}</p>
     </header>
