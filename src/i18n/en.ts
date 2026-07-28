@@ -293,8 +293,8 @@ export const en = {
     /** `{name}` is replaced with the session AI guide (Sophia, Luci, Gabriella, or Angel). */
     launcher: 'Ask {name}',
     name: '{name}',
-    role: 'Cybercon AI guide',
-    eyebrow: 'Cybercon AI guide',
+    role: 'Support Agent',
+    eyebrow: 'Support Agent',
     title: '{name}',
     close: 'Close chat',
     welcome:
