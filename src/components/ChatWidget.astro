@@ -304,9 +304,13 @@ const agents = CHAT_AGENTS;
     root.hidden = false;
 
     function welcome() {
-      appendAssistant(withName(copy.welcome), defaultCtas());
-      // Keep greeting + chips readable together from the top of the scroll body.
-      if (scrollEl) scrollEl.scrollTop = 0;
+      // Chips only on open — CTA links after the first reply so the panel isn’t wall-to-wall buttons.
+      appendAssistant(withName(copy.welcome), []);
+      window.requestAnimationFrame(function () {
+        window.requestAnimationFrame(function () {
+          if (scrollEl) scrollEl.scrollTop = 0;
+        });
+      });
     }
 
     function setOpen(open) {
@@ -677,17 +681,17 @@ const agents = CHAT_AGENTS;
   }
 
   .chat-panel {
-    width: min(24.5rem, calc(100vw - 2rem));
-    max-height: min(34rem, calc(100vh - 6rem));
+    width: min(26rem, calc(100vw - 2rem));
+    max-height: min(38rem, calc(100vh - 5rem));
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto auto;
-    gap: 1rem;
+    gap: 1.1rem;
     background: var(--white);
     color: var(--navy);
     border: 1px solid rgba(15, 44, 76, 0.1);
     border-radius: 1.15rem;
     box-shadow: 0 18px 48px rgba(15, 44, 76, 0.22);
-    padding: 0.95rem 0.95rem 0.8rem;
+    padding: 1.05rem 1.05rem 0.9rem;
     overflow: hidden;
   }
 
@@ -710,8 +714,8 @@ const agents = CHAT_AGENTS;
   }
 
   .chat-avatar {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 999px;
     overflow: hidden;
     flex-shrink: 0;
@@ -812,9 +816,9 @@ const agents = CHAT_AGENTS;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.15rem;
     padding-right: 0.15rem;
-    padding-bottom: 0.35rem;
+    padding-bottom: 0.5rem;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -824,7 +828,7 @@ const agents = CHAT_AGENTS;
     gap: 0.65rem;
     align-content: start;
     min-height: 0;
-    padding-bottom: 0;
+    padding-bottom: 0.15rem;
   }
 
   .chat-row {
@@ -930,8 +934,9 @@ const agents = CHAT_AGENTS;
   }
 
   .chat-suggestions {
-    margin-top: 0;
-    padding-top: 0.15rem;
+    margin-top: 0.15rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.08);
   }
 
   .chat-suggestions[hidden],
@@ -1032,6 +1037,22 @@ const agents = CHAT_AGENTS;
     .chat-row-assistant.is-new-answer .chat-bubble-answer {
       transition: none;
       animation: none;
+    }
+  }
+
+  @media (min-width: 481px) {
+    .chat-scroll {
+      gap: 1.35rem;
+      padding-bottom: 0.75rem;
+    }
+
+    .chat-suggestions {
+      padding-top: 1rem;
+    }
+
+    .chat-bubble {
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
   }
 
