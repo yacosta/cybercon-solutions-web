@@ -1,6 +1,7 @@
 import { runtimeEnv } from '../env';
 import { siteCheckAiStatus, type AiProvider } from '../site-check';
 import { buildKnowledgePack, matchFaq } from './knowledge';
+import { getChatAgent } from './agents';
 
 export type ChatRole = 'user' | 'assistant';
 
@@ -70,21 +71,24 @@ export function extractEmail(...parts: Array<string | undefined>): string | null
   return match ? match[0].toLowerCase() : null;
 }
 
-function systemPrompt(locale: 'en' | 'es'): string {
+function systemPrompt(locale: 'en' | 'es', agentId?: string | null): string {
+  const agent = getChatAgent(agentId);
   const knowledge = buildKnowledgePack(locale);
   if (locale === 'es') {
-    return `Eres Sophia, la guía con IA del sitio web de Cybercon Solutions. Habla en primera persona como Sophia: cálida, clara y profesional.
+    const humanAsk = agent.gender === 'm' ? 'si eres humano' : 'si eres humana';
+    const liveRole = agent.gender === 'm' ? 'ingeniero en vivo' : 'ingeniera en vivo';
+    return `Eres ${agent.name}, guía con IA del sitio web de Cybercon Solutions. Habla en primera persona como ${agent.name}: cálido/a, claro/a y profesional.
 Responde en español, de forma breve (2–4 frases).
 Nunca inventes precios, certificaciones ni clientes.
 Si el visitante quiere precios, una propuesta o ayuda con TI, invita a la evaluación gratuita o a llamar.
 Si preguntan algo fuera de alcance, dilo y ofrece evaluación o contacto.
-Deja claro con naturalidad que eres una guía con IA cuando pregunten si eres humana; no digas que eres ingeniera en vivo.
+Deja claro con naturalidad que eres una guía con IA cuando pregunten ${humanAsk}; no digas que eres ${liveRole}.
 
 Conocimiento permitido:
 ${knowledge}`;
   }
 
-  return `You are Sophia, the AI guide for the Cybercon Solutions website. Speak in the first person as Sophia: warm, clear, and professional.
+  return `You are ${agent.name}, the AI guide for the Cybercon Solutions website. Speak in the first person as ${agent.name}: warm, clear, and professional.
 Reply in English, briefly (2–4 sentences).
 Never invent prices, certifications, or customers.
 If the visitor wants pricing, a proposal, or IT help, invite the free assessment or a phone call.
@@ -163,7 +167,11 @@ export function resolveCtas(locale: 'en' | 'es', ids: ChatCtaId[]): ChatCta[] {
   return ids.map((id) => ({ id, label: labels[id], href: hrefs[id] }));
 }
 
-async function replyWithGemini(locale: 'en' | 'es', messages: ChatMessage[]): Promise<string | null> {
+async function replyWithGemini(
+  locale: 'en' | 'es',
+  messages: ChatMessage[],
+  agentId?: string | null,
+): Promise<string | null> {
   const apiKey = runtimeEnv('GEMINI_API_KEY');
   if (!apiKey) return null;
   const model = modelFor('gemini');
@@ -178,7 +186,7 @@ async function replyWithGemini(locale: 'en' | 'es', messages: ChatMessage[]): Pr
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
-      systemInstruction: { parts: [{ text: systemPrompt(locale) }] },
+      systemInstruction: { parts: [{ text: systemPrompt(locale, agentId) }] },
       contents,
       generationConfig: {
         temperature: 0.35,
@@ -200,7 +208,11 @@ async function replyWithGemini(locale: 'en' | 'es', messages: ChatMessage[]): Pr
   return text || null;
 }
 
-async function replyWithOpenAI(locale: 'en' | 'es', messages: ChatMessage[]): Promise<string | null> {
+async function replyWithOpenAI(
+  locale: 'en' | 'es',
+  messages: ChatMessage[],
+  agentId?: string | null,
+): Promise<string | null> {
   const apiKey = runtimeEnv('OPENAI_API_KEY');
   if (!apiKey) return null;
   const model = modelFor('openai');
@@ -215,7 +227,7 @@ async function replyWithOpenAI(locale: 'en' | 'es', messages: ChatMessage[]): Pr
       model,
       temperature: 0.35,
       max_tokens: 400,
-      messages: [{ role: 'system', content: systemPrompt(locale) }, ...messages],
+      messages: [{ role: 'system', content: systemPrompt(locale, agentId) }, ...messages],
     }),
     signal: AbortSignal.timeout(20000),
   });
@@ -229,7 +241,11 @@ async function replyWithOpenAI(locale: 'en' | 'es', messages: ChatMessage[]): Pr
   return json.choices?.[0]?.message?.content?.trim() || null;
 }
 
-async function replyWithAnthropic(locale: 'en' | 'es', messages: ChatMessage[]): Promise<string | null> {
+async function replyWithAnthropic(
+  locale: 'en' | 'es',
+  messages: ChatMessage[],
+  agentId?: string | null,
+): Promise<string | null> {
   const apiKey = runtimeEnv('ANTHROPIC_API_KEY');
   if (!apiKey) return null;
   const model = modelFor('anthropic');
@@ -245,7 +261,7 @@ async function replyWithAnthropic(locale: 'en' | 'es', messages: ChatMessage[]):
       model,
       max_tokens: 400,
       temperature: 0.35,
-      system: systemPrompt(locale),
+      system: systemPrompt(locale, agentId),
       messages: messages.map((m) => ({
         role: m.role === 'assistant' ? 'assistant' : 'user',
         content: m.content,
@@ -267,14 +283,15 @@ async function replyWithAnthropic(locale: 'en' | 'es', messages: ChatMessage[]):
 export async function generateChatReply(
   locale: 'en' | 'es',
   messages: ChatMessage[],
+  agentId?: string | null,
 ): Promise<{ reply: string; ctas: ChatCta[]; provider: AiProvider | 'faq' }> {
   const lastUser = [...messages].reverse().find((m) => m.role === 'user')?.content ?? '';
   const provider = configuredProvider();
 
   let reply: string | null = null;
-  if (provider === 'gemini') reply = await replyWithGemini(locale, messages);
-  else if (provider === 'openai') reply = await replyWithOpenAI(locale, messages);
-  else if (provider === 'anthropic') reply = await replyWithAnthropic(locale, messages);
+  if (provider === 'gemini') reply = await replyWithGemini(locale, messages, agentId);
+  else if (provider === 'openai') reply = await replyWithOpenAI(locale, messages, agentId);
+  else if (provider === 'anthropic') reply = await replyWithAnthropic(locale, messages, agentId);
 
   if (reply) {
     return {

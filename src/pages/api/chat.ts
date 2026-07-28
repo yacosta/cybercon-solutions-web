@@ -5,6 +5,7 @@ import {
   extractEmail,
   generateChatReply,
   incrementChatRateLimits,
+  normalizeChatAgentId,
   normalizeChatLocale,
   sanitizeMessages,
   shouldAskEmail,
@@ -18,6 +19,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   let body: {
     messages?: unknown;
     locale?: string;
+    agentId?: string;
     email?: string;
     name?: string;
     turnstileToken?: string;
@@ -30,6 +32,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   const locale = normalizeChatLocale(body.locale);
+  const agentId = normalizeChatAgentId(body.agentId);
   const messages = sanitizeMessages(body.messages);
   if (messages.length === 0 || messages[messages.length - 1]?.role !== 'user') {
     return Response.json({ error: 'Send at least one user message' }, { status: 400 });
@@ -82,7 +85,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     extractEmail(body.email) ||
     extractEmail(...messages.map((m) => m.content));
 
-  const result = await generateChatReply(locale, messages);
+  const result = await generateChatReply(locale, messages, agentId);
   await incrementChatRateLimits(clientAddress || 'unknown');
 
   let leadCaptured = false;

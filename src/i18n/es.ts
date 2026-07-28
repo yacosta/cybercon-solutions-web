@@ -292,24 +292,25 @@ export const es: Messages = {
     policy: 'Política de Privacidad y Cookies',
   },
   chat: {
-    launcher: 'Pregúntale a Sophia',
-    name: 'Sophia',
+    /** `{name}` se reemplaza con la guía IA de la sesión (Sophia, Luci, Gabriella o Angel). */
+    launcher: 'Pregúntale a {name}',
+    name: '{name}',
     role: 'Guía con IA de Cybercon',
     eyebrow: 'Guía con IA de Cybercon',
-    title: 'Sophia',
+    title: '{name}',
     close: 'Cerrar chat',
     welcome:
-      'Hola, soy Sophia — la guía con IA de Cybercon. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
+      'Hola, soy {name} — guía con IA de Cybercon. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
     suggestions: [
       '¿Qué hace Cybercon?',
       '¿Dónde atienden?',
       '¿Cómo funciona el precio?',
       '¿Qué es la evaluación gratuita?',
     ],
-    placeholder: 'Pregúntale a Sophia por servicios, cobertura o siguientes pasos…',
+    placeholder: 'Pregúntale a {name} por servicios, cobertura o siguientes pasos…',
     inputLabel: 'Tu mensaje',
     send: 'Enviar',
-    footnote: 'Sophia es una guía con IA — no es soporte de tickets en vivo.',
+    footnote: '{name} es guía con IA — no es soporte de tickets en vivo.',
     assessmentLink: 'Reservar evaluación gratuita',
     askEmail:
       '¿Quieres seguimiento humano? Comparte un correo de trabajo aquí, o reserva la evaluación gratuita y un ingeniero responde en un día hábil.',
@@ -318,7 +319,7 @@ export const es: Messages = {
     ctaSiteCheck: 'Revisión gratuita del sitio',
     ctaContact: 'Contactar',
     ctaCall: 'Llamar',
-    avatarAlt: 'Retrato de Sophia, guía con IA de Cybercon',
+    avatarAlt: 'Retrato de {name}, guía con IA de Cybercon',
   },
   notFound: {
     title: 'Página no encontrada | Cybercon',

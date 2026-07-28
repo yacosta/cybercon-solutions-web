@@ -14,3 +14,11 @@ export {
   type ChatCta,
   type ChatMessage,
 } from './reply';
+export {
+  CHAT_AGENTS,
+  getChatAgent,
+  normalizeChatAgentId,
+  pickRandomChatAgent,
+  type ChatAgent,
+  type ChatAgentId,
+} from './agents';

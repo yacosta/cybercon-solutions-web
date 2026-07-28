@@ -290,24 +290,25 @@ export const en = {
     policy: 'Privacy & Cookie Policy',
   },
   chat: {
-    launcher: 'Ask Sophia',
-    name: 'Sophia',
+    /** `{name}` is replaced with the session AI guide (Sophia, Luci, Gabriella, or Angel). */
+    launcher: 'Ask {name}',
+    name: '{name}',
     role: 'Cybercon AI guide',
     eyebrow: 'Cybercon AI guide',
-    title: 'Sophia',
+    title: '{name}',
     close: 'Close chat',
     welcome:
-      "Hi, I’m Sophia — Cybercon’s AI guide. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.",
+      "Hi, I’m {name} — Cybercon’s AI guide. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.",
     suggestions: [
       'What does Cybercon do?',
       'Where do you serve?',
       'How does pricing work?',
       'What’s the free assessment?',
     ],
-    placeholder: 'Ask Sophia about services, coverage, or next steps…',
+    placeholder: 'Ask {name} about services, coverage, or next steps…',
     inputLabel: 'Your message',
     send: 'Send',
-    footnote: 'Sophia is an AI guide — not live ticket support.',
+    footnote: '{name} is an AI guide — not live ticket support.',
     assessmentLink: 'Book a free assessment',
     askEmail:
       'Want a human follow-up? Share a work email here, or book the free assessment and an engineer will reply within one business day.',
@@ -316,7 +317,7 @@ export const en = {
     ctaSiteCheck: 'Run free site check',
     ctaContact: 'Contact us',
     ctaCall: 'Call us',
-    avatarAlt: 'Portrait of Sophia, Cybercon AI guide',
+    avatarAlt: 'Portrait of {name}, Cybercon AI guide',
   },
   notFound: {
     title: 'Page not found | Cybercon',
