@@ -247,16 +247,73 @@ const initial = catalogs[locale];
       }
     }
 
-    function appendBubble(role, text) {
+    function prefersReducedMotion() {
+      return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function smoothScrollMessages(targetTop, durationMs) {
       if (!messagesEl) return;
+      var start = messagesEl.scrollTop;
+      var change = targetTop - start;
+      if (Math.abs(change) < 2) {
+        messagesEl.scrollTop = targetTop;
+        return;
+      }
+      if (prefersReducedMotion()) {
+        messagesEl.scrollTop = targetTop;
+        return;
+      }
+      var duration = durationMs || 700;
+      var startTime = null;
+      function easeInOut(t) {
+        return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      }
+      function step(now) {
+        if (startTime === null) startTime = now;
+        var progress = Math.min(1, (now - startTime) / duration);
+        messagesEl.scrollTop = start + change * easeInOut(progress);
+        if (progress < 1) window.requestAnimationFrame(step);
+      }
+      window.requestAnimationFrame(step);
+    }
+
+    function revealAnswer(row) {
+      if (!row || !messagesEl) return;
+      row.classList.add('is-new-answer');
+      var answerTop = Math.max(0, row.offsetTop - 10);
+      var answerBottom =
+        row.offsetTop +
+        row.offsetHeight +
+        (ctasEl && !ctasEl.hidden ? ctasEl.offsetHeight + 8 : 8);
+      var maxScroll = Math.max(0, messagesEl.scrollHeight - messagesEl.clientHeight);
+      var desired = Math.min(maxScroll, Math.max(answerTop, answerBottom - messagesEl.clientHeight));
+      smoothScrollMessages(desired, 850);
+      window.setTimeout(function () {
+        row.classList.remove('is-new-answer');
+      }, 2200);
+    }
+
+    function appendBubble(role, text, options) {
+      if (!messagesEl) return null;
+      var opts = options || {};
       var row = document.createElement('div');
       row.className = 'chat-row chat-row-' + role;
       var bubble = document.createElement('div');
-      bubble.className = 'chat-bubble';
+      bubble.className = 'chat-bubble' + (role === 'assistant' ? ' chat-bubble-answer' : '');
       bubble.textContent = text;
       row.appendChild(bubble);
       messagesEl.appendChild(row);
-      messagesEl.scrollTop = messagesEl.scrollHeight;
+      if (opts.reveal) {
+        // Wait a frame so layout includes the new bubble + any CTAs rendered next.
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            revealAnswer(row);
+          });
+        });
+      } else {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+      return row;
     }
 
     function renderCtas(ctas) {
@@ -280,9 +337,20 @@ const initial = catalogs[locale];
       });
     }
 
-    function appendAssistant(text, ctas) {
-      appendBubble('assistant', text);
+    function appendAssistant(text, ctas, options) {
+      var opts = options || {};
+      var row = appendBubble('assistant', text, { reveal: false });
       renderCtas(ctas || []);
+      if (opts.reveal && row) {
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            revealAnswer(row);
+          });
+        });
+      } else if (messagesEl) {
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+      }
+      return row;
     }
 
     function maybeShowTurnstile(userTurns) {
@@ -367,28 +435,36 @@ const initial = catalogs[locale];
         if (typing.parentNode) typing.parentNode.removeChild(typing);
 
         if (!res.ok || !data.reply) {
-          appendAssistant(copy.error, [
-            { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
-            { id: 'call', label: copy.ctaCall, href: phoneHref },
-          ]);
+          appendAssistant(
+            copy.error,
+            [
+              { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
+              { id: 'call', label: copy.ctaCall, href: phoneHref },
+            ],
+            { reveal: true },
+          );
           return;
         }
 
         messages.push({ role: 'assistant', content: data.reply });
-        appendAssistant(data.reply, data.ctas || []);
+        appendAssistant(data.reply, data.ctas || [], { reveal: true });
 
         if (data.askEmail && !emailCaptured && !askedEmail) {
           askedEmail = true;
-          appendAssistant(copy.askEmail, [
-            { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
-          ]);
+          appendAssistant(
+            copy.askEmail,
+            [{ id: 'assessment', label: copy.ctaAssessment, href: links.assessment }],
+            { reveal: true },
+          );
         }
         if (data.leadCaptured) emailCaptured = true;
       } catch (err) {
         if (typing.parentNode) typing.parentNode.removeChild(typing);
-        appendAssistant(copy.error, [
-          { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
-        ]);
+        appendAssistant(
+          copy.error,
+          [{ id: 'assessment', label: copy.ctaAssessment, href: links.assessment }],
+          { reveal: true },
+        );
       } finally {
         setBusy(false);
         if (input) input.focus();
@@ -643,10 +719,38 @@ const initial = catalogs[locale];
     border-bottom-left-radius: 0.35rem;
   }
 
+  .chat-row-assistant .chat-bubble-answer {
+    background: linear-gradient(180deg, #fff8f4 0%, #f7efe9 100%);
+    border: 1px solid rgba(192, 57, 43, 0.18);
+    box-shadow: inset 3px 0 0 var(--coral);
+  }
+
+  .chat-row-assistant.is-new-answer .chat-bubble-answer {
+    animation: chat-answer-glow 1.8s ease;
+  }
+
   .chat-row-user .chat-bubble {
     background: var(--navy);
     color: var(--white);
     border-bottom-right-radius: 0.35rem;
+  }
+
+  @keyframes chat-answer-glow {
+    0% {
+      background: #ffe8e0;
+      border-color: rgba(192, 57, 43, 0.45);
+      box-shadow: inset 3px 0 0 var(--coral), 0 0 0 0 rgba(192, 57, 43, 0.28);
+    }
+    55% {
+      background: linear-gradient(180deg, #fff3ec 0%, #f7efe9 100%);
+      border-color: rgba(192, 57, 43, 0.28);
+      box-shadow: inset 3px 0 0 var(--coral), 0 0 0 4px rgba(192, 57, 43, 0.12);
+    }
+    100% {
+      background: linear-gradient(180deg, #fff8f4 0%, #f7efe9 100%);
+      border-color: rgba(192, 57, 43, 0.18);
+      box-shadow: inset 3px 0 0 var(--coral);
+    }
   }
 
   .chat-typing {
@@ -786,7 +890,8 @@ const initial = catalogs[locale];
 
   @media (prefers-reduced-motion: reduce) {
     .chat-root,
-    .chat-typing span {
+    .chat-typing span,
+    .chat-row-assistant.is-new-answer .chat-bubble-answer {
       transition: none;
       animation: none;
     }
