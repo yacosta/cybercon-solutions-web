@@ -46,3 +46,5 @@ Pide cualquier página HTML con `Accept: text/markdown` para recibir una variant
 - [Health](https://www.notofilia.com/api/health): Estado del servicio
 - [Catálogo](https://www.notofilia.com/api/catalog): Búsqueda/listado del catálogo (`?q=` · `?limit=`)
 - [MCP](https://www.notofilia.com/mcp): Endpoint Streamable HTTP de MCP
+
+# trigger: 2026-07-28T10:40:36Z
