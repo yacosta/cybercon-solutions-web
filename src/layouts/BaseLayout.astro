@@ -7,6 +7,7 @@ import { absoluteUrl, site } from '../lib/site';
 import { breadcrumbJsonLd, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import { CONSENT_COOKIE_NAME, CONSENT_STORAGE_KEY } from '../lib/consent';
 
 interface Props {
@@ -266,5 +267,7 @@ const structuredData = [
       policyLabel={t.cookies.policy}
       policyHref={localePath(locale, '/privacy/')}
     />
+
+    <ChatWidget locale={locale} />
   </body>
 </html>

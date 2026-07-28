@@ -15,6 +15,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 - EN / ES homepage with full-bleed hero video (server racks), assessment form + Turnstile
 - Free lite website check on Web Design & Development (`/services/web-design-development/#site-check`, short URL `/site-check/` redirects) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
 - Free lite breach check on Cybersecurity (`/services/cybersecurity/#breach-check`, short URL `/breach-check/` redirects) → `/api/breach-check` — Have I Been Pwned email exposure snapshot + assessment CTA; Attio lead capture
+- Lead-assist chat widget sitewide → `/api/chat` — EN/ES with in-widget language toggle; answers basics about Cybercon from allowlisted knowledge (Gemini/OpenAI/Anthropic or FAQ fallback), CTA chips to assessment / site check / contact, optional Attio lead when a work email appears
 - Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner with prior opt-in for non-essential cookies (`cybercon_consent` / `cybercon-consent-v1`)
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`) with Google Consent Mode v2 defaults denied
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
