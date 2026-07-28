@@ -300,7 +300,7 @@ export const es: Messages = {
     title: '{name}',
     close: 'Cerrar chat',
     welcome:
-      'Hola, soy {name} — guía con IA de Cybercon. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
+      'Hola, soy {name} — Agente de soporte. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
     suggestions: [
       '¿Qué hace Cybercon?',
       '¿Dónde atienden?',
