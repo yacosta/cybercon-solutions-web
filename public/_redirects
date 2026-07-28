@@ -2,6 +2,17 @@
 # Applied by Cloudflare Workers static assets. Keep specific rules before splats.
 # See: https://developers.cloudflare.com/workers/static-assets/redirects/
 
+# --- .html legacy URLs (GSC "Page with redirect", Jul 2026) ---
+# Workers html_handling issues *temporary* 307 for /page.html → /page/. Override with
+# permanent 301 so Google consolidates to the trailing-slash canonical.
+# Specific index.html rules first — splat would otherwise send /index.html → /index/.
+/index.html / 301
+/es/index.html /es/ 301
+/privacy.html /privacy/ 301
+/es/privacy.html /es/privacy/ 301
+/*.html /:splat/ 301
+/es/*.html /es/:splat/ 301
+
 # --- Priority survivors called out in SEO audit ---
 /remote-workforce /services/cloud/ 301
 /remote-workforce/ /services/cloud/ 301
