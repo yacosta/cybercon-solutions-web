@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { attioConfigured } from '../../lib/attio';
 import { auth0Configured } from '../../lib/auth0';
+import { chatAiStatus } from '../../lib/chat';
 import { runtimeEnv } from '../../lib/env';
 import { siteCheckAiStatus } from '../../lib/site-check';
 
@@ -17,6 +18,7 @@ export const GET: APIRoute = async () => {
   };
 
   const ai = siteCheckAiStatus();
+  const chatAi = chatAiStatus();
 
   return Response.json({
     ok: true,
@@ -37,6 +39,12 @@ export const GET: APIRoute = async () => {
     },
     breachCheck: {
       hibp: Boolean(runtimeEnv('HIBP_API_KEY')),
+    },
+    chat: {
+      aiProvider: chatAi.provider,
+      gemini: chatAi.gemini,
+      openai: chatAi.openai,
+      anthropic: chatAi.anthropic,
     },
   });
 };

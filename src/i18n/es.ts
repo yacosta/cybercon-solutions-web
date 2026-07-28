@@ -291,6 +291,32 @@ export const es: Messages = {
     decline: 'Rechazar no esenciales',
     policy: 'Política de Privacidad y Cookies',
   },
+  chat: {
+    launcher: 'Preguntar a Cybercon',
+    eyebrow: 'Asistente Cybercon',
+    title: '¿Preguntas sobre nuestros servicios de TI?',
+    close: 'Cerrar chat',
+    welcome:
+      'Hola — puedo responder lo básico sobre Cybercon (servicios, cobertura en el sur de Florida y cómo empezar). Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
+    suggestions: [
+      '¿Qué hace Cybercon?',
+      '¿Dónde atienden?',
+      '¿Cómo funciona el precio?',
+      '¿Qué es la evaluación gratuita?',
+    ],
+    placeholder: 'Pregunta por servicios, cobertura o siguientes pasos…',
+    inputLabel: 'Tu mensaje',
+    send: 'Enviar',
+    footnote: 'Solo lo básico — no es soporte de tickets en vivo.',
+    assessmentLink: 'Reservar evaluación gratuita',
+    askEmail:
+      '¿Quieres seguimiento humano? Comparte un correo de trabajo aquí, o reserva la evaluación gratuita y un ingeniero responde en un día hábil.',
+    error: 'Algo salió mal. Inténtalo de nuevo o reserva la evaluación gratuita.',
+    ctaAssessment: 'Reservar evaluación gratuita',
+    ctaSiteCheck: 'Revisión gratuita del sitio',
+    ctaContact: 'Contactar',
+    ctaCall: 'Llamar',
+  },
   notFound: {
     title: 'Página no encontrada | Cybercon',
     description:

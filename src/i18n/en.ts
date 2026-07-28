@@ -289,6 +289,32 @@ export const en = {
     decline: 'Reject non-essential',
     policy: 'Privacy & Cookie Policy',
   },
+  chat: {
+    launcher: 'Ask Cybercon',
+    eyebrow: 'Cybercon assistant',
+    title: 'Questions about our IT services?',
+    close: 'Close chat',
+    welcome:
+      'Hi — I can answer basics about Cybercon (services, South Florida coverage, and how to get started). For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.',
+    suggestions: [
+      'What does Cybercon do?',
+      'Where do you serve?',
+      'How does pricing work?',
+      'What’s the free assessment?',
+    ],
+    placeholder: 'Ask about services, coverage, or next steps…',
+    inputLabel: 'Your message',
+    send: 'Send',
+    footnote: 'Basics only — not live ticket support.',
+    assessmentLink: 'Book a free assessment',
+    askEmail:
+      'Want a human follow-up? Share a work email here, or book the free assessment and an engineer will reply within one business day.',
+    error: 'Something went wrong. Try again, or book the free assessment.',
+    ctaAssessment: 'Book free assessment',
+    ctaSiteCheck: 'Run free site check',
+    ctaContact: 'Contact us',
+    ctaCall: 'Call us',
+  },
   notFound: {
     title: 'Page not found | Cybercon',
     description:

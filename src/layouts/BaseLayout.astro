@@ -7,6 +7,7 @@ import { absoluteUrl, site } from '../lib/site';
 import { breadcrumbJsonLd, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
+import ChatWidget from '../components/ChatWidget.astro';
 import { CONSENT_COOKIE_NAME, CONSENT_STORAGE_KEY } from '../lib/consent';
 
 interface Props {
@@ -20,6 +21,8 @@ interface Props {
   ogImagePath?: string;
   ogImageAlt?: string;
   breadcrumbs?: { name: string; path: string }[];
+  /** Lead-assist chat launcher (off on client portal). */
+  showChat?: boolean;
 }
 
 const {
@@ -32,6 +35,7 @@ const {
   ogImagePath,
   ogImageAlt: ogImageAltProp,
   breadcrumbs,
+  showChat = true,
 } = Astro.props;
 
 const t = getMessages(locale);
@@ -266,5 +270,7 @@ const structuredData = [
       policyLabel={t.cookies.policy}
       policyHref={localePath(locale, '/privacy/')}
     />
+
+    {showChat && <ChatWidget locale={locale} t={t} />}
   </body>
 </html>
