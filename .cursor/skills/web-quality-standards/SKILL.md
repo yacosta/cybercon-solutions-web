@@ -74,6 +74,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
 - Keep `hreflang` / canonical patterns used by `BaseLayout` intact when adding routes.
 - **Trailing slashes are canonical.** `trailingSlash: 'always'` + Workers `html_handling: 'force-trailing-slash'`. For high-value URLs (especially `/privacy/` and `/es/privacy/`), add explicit `301` rules in `public/_redirects` so non-slash variants are permanent (assets html_handling alone issues **307**, which can fail GSC “Validate fix” / split indexing).
+- **Legacy `.html` URLs must 301, not 307.** `force-trailing-slash` maps `/page.html` → `/page/` with a temporary 307. Keep the `/index.html`, `/es/index.html`, `/privacy.html`, `/es/privacy.html`, and `/*.html` → `/:splat/` **301** rules at the top of `public/_redirects` (specific `index.html` rules before the splat). GSC “Page with redirect” for `.html` / `www` / `http` variants is **expected exclusion** once redirects are permanent — do not try to make those URLs return 200; validate only that they are clean **301** chains to the HTTPS apex trailing-slash canonical.
 - **Sitemap hreflang must include `x-default`** (pointing at the EN URL). `@astrojs/sitemap` i18n omits it — keep the `serialize` hook in `astro.config.mjs` that appends `x-default` from the `en-US` alternate.
 - **Privacy pages** (`/privacy/`, `/es/privacy/`): ship `PrivacyPolicy` JSON-LD via `privacyPolicyJsonLd` in `PrivacyPage.astro`, keep EN/ES bodies aligned in `src/data/privacy.ts`, and keep both URLs in the sitemap (never `noindex` them).
 - **Blog posts are fully bilingual.** English lives in `src/content/blog/<slug>.md`; Spanish in `src/content/blog/es/<slug>.md` (same slug, full translated body — not title-only). Wire both in `src/lib/markdown-pages.ts`. Do not ship `/es/blog/...` with an English body or an “artículo en inglés” note.
@@ -110,6 +111,7 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`
+- [ ] Legacy `.html` URLs (`/index.html`, `/privacy.html`, `/es/…`) 301 (not 307) to trailing-slash canonicals
 - [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
 - [ ] Non-essential analytics/trackers still gated behind prior consent (banner + Consent Mode defaults denied)
 - [ ] `npm run build` passes (primary validation gate)
