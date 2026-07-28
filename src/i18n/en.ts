@@ -290,22 +290,24 @@ export const en = {
     policy: 'Privacy & Cookie Policy',
   },
   chat: {
-    launcher: 'Ask Cybercon',
-    eyebrow: 'Cybercon assistant',
-    title: 'Questions about our IT services?',
+    launcher: 'Ask Cora',
+    name: 'Cora',
+    role: 'Cybercon AI guide',
+    eyebrow: 'Cybercon AI guide',
+    title: 'Cora',
     close: 'Close chat',
     welcome:
-      'Hi — I can answer basics about Cybercon (services, South Florida coverage, and how to get started). For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.',
+      "Hi, I’m Cora — Cybercon’s AI guide. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.",
     suggestions: [
       'What does Cybercon do?',
       'Where do you serve?',
       'How does pricing work?',
       'What’s the free assessment?',
     ],
-    placeholder: 'Ask about services, coverage, or next steps…',
+    placeholder: 'Ask Cora about services, coverage, or next steps…',
     inputLabel: 'Your message',
     send: 'Send',
-    footnote: 'Basics only — not live ticket support.',
+    footnote: 'Cora is an AI guide — not live ticket support.',
     assessmentLink: 'Book a free assessment',
     askEmail:
       'Want a human follow-up? Share a work email here, or book the free assessment and an engineer will reply within one business day.',
@@ -314,6 +316,7 @@ export const en = {
     ctaSiteCheck: 'Run free site check',
     ctaContact: 'Contact us',
     ctaCall: 'Call us',
+    avatarAlt: 'Portrait of Cora, Cybercon AI guide',
   },
   notFound: {
     title: 'Page not found | Cybercon',
