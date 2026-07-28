@@ -804,12 +804,15 @@ const agents = CHAT_AGENTS;
 
   .chat-messages {
     overflow: auto;
+    overflow-x: hidden;
     display: grid;
     gap: 0.65rem;
     align-content: start;
-    min-height: 10rem;
+    /* min-height:0 so the 1fr grid row can shrink without spilling over chips */
+    min-height: 0;
     padding-right: 0.15rem;
     padding-bottom: 1.35rem;
+    -webkit-overflow-scrolling: touch;
   }
 
   .chat-row {
@@ -1033,9 +1036,46 @@ const agents = CHAT_AGENTS;
       text-overflow: ellipsis;
     }
 
+    .chat-launcher-avatar {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+
     .chat-panel {
       width: min(100vw - 1.5rem, 24.5rem);
-      max-height: min(70vh, 32rem);
+      max-height: min(78vh, 36rem);
+      /* Flex avoids grid-track overflow painting over suggestion chips on mobile */
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .chat-header {
+      flex: 0 0 auto;
+    }
+
+    .chat-avatar {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    .chat-messages {
+      flex: 1 1 auto;
+      min-height: 7.5rem;
+      max-height: 42%;
+      padding-bottom: 1.5rem;
+    }
+
+    .chat-suggestions {
+      flex: 0 0 auto;
+      margin-top: 0;
+      padding-top: 0.85rem;
+    }
+
+    .chat-ctas,
+    .chat-form,
+    .chat-footnote {
+      flex: 0 0 auto;
     }
   }
 </style>
