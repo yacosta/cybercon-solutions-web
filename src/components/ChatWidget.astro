@@ -1,20 +1,42 @@
 ---
-import { localePath, type Messages } from '../i18n';
+import { en } from '../i18n/en';
+import { es } from '../i18n/es';
 import { turnstileSiteKey } from '../lib/turnstile';
 import { site } from '../lib/site';
 
 interface Props {
+  /** Page locale — initial chat language (visitor can switch EN/ES in the widget). */
   locale: 'en' | 'es';
-  t: Messages;
 }
 
-const { locale, t } = Astro.props;
-const copy = t.chat;
+const { locale } = Astro.props;
 const siteKey = turnstileSiteKey();
-const assessmentHref = localePath(locale, '/assessment/');
-const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
-const contactHref = localePath(locale, '/contact/');
 const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
+const phoneDisplay = site.phoneDisplay;
+
+const catalogs = {
+  en: en.chat,
+  es: es.chat,
+};
+
+const hrefs = {
+  en: {
+    assessment: '/assessment/',
+    siteCheck: '/services/web-design-development/#site-check',
+    breachCheck: '/services/cybersecurity/#breach-check',
+    contact: '/contact/',
+    call: phoneHref,
+  },
+  es: {
+    assessment: '/es/assessment/',
+    siteCheck: '/es/services/web-design-development/#site-check',
+    breachCheck: '/es/services/cybersecurity/#breach-check',
+    contact: '/es/contact/',
+    call: phoneHref,
+  },
+};
+
+const initial = catalogs[locale];
 ---
 
 <div
@@ -41,7 +63,7 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
           stroke-linejoin="round"></path>
       </svg>
     </span>
-    <span class="chat-launcher-label">{copy.launcher}</span>
+    <span class="chat-launcher-label" data-chat-launcher-label>{initial.launcher}</span>
   </button>
 
   <div
@@ -55,19 +77,29 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
   >
     <header class="chat-header">
       <div>
-        <p class="chat-eyebrow">{copy.eyebrow}</p>
-        <h2 id="cybercon-chat-title" class="chat-title">{copy.title}</h2>
+        <p class="chat-eyebrow" data-chat-eyebrow>{initial.eyebrow}</p>
+        <h2 id="cybercon-chat-title" class="chat-title" data-chat-title>{initial.title}</h2>
       </div>
-      <button type="button" class="chat-close" data-chat-close aria-label={copy.close}>
-        <span aria-hidden="true">×</span>
-      </button>
+      <div class="chat-header-actions">
+        <div class="chat-lang" role="group" aria-label="Language">
+          <button type="button" class="chat-lang-btn" data-chat-lang="en" aria-pressed={locale === 'en' ? 'true' : 'false'}>
+            EN
+          </button>
+          <button type="button" class="chat-lang-btn" data-chat-lang="es" aria-pressed={locale === 'es' ? 'true' : 'false'}>
+            ES
+          </button>
+        </div>
+        <button type="button" class="chat-close" data-chat-close aria-label={initial.close}>
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
     </header>
 
     <div class="chat-messages" data-chat-messages aria-live="polite"></div>
 
     <div class="chat-suggestions" data-chat-suggestions>
       {
-        copy.suggestions.map((label, index) => (
+        initial.suggestions.map((label, index) => (
           <button type="button" class="chat-chip" data-chat-suggestion data-index={index}>
             {label}
           </button>
@@ -78,13 +110,13 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
     <div class="chat-ctas" data-chat-ctas hidden></div>
 
     <form class="chat-form" data-chat-form>
-      <label class="visually-hidden" for="cybercon-chat-input">{copy.inputLabel}</label>
+      <label class="visually-hidden" for="cybercon-chat-input" data-chat-input-label>{initial.inputLabel}</label>
       <textarea
         id="cybercon-chat-input"
         name="message"
         rows="1"
         data-chat-input
-        placeholder={copy.placeholder}
+        placeholder={initial.placeholder}
         maxlength="800"
         required
       ></textarea>
@@ -93,15 +125,15 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
           <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light" data-size="flexible"></div>
         </div>
       )}
-      <button type="submit" class="chat-send btn btn-primary" data-chat-send>{copy.send}</button>
+      <button type="submit" class="chat-send btn btn-primary" data-chat-send>{initial.send}</button>
     </form>
 
-    <p class="chat-footnote">
-      {copy.footnote}
+    <p class="chat-footnote" data-chat-footnote>
+      <span data-chat-footnote-text>{initial.footnote}</span>
       {' '}
-      <a href={assessmentHref}>{copy.assessmentLink}</a>
+      <a data-chat-assessment-link href={hrefs[locale].assessment}>{initial.assessmentLink}</a>
       {' · '}
-      <a href={`tel:${site.phone.replace(/\+/g, '')}`}>{site.phoneDisplay}</a>
+      <a href={phoneHref}>{phoneDisplay}</a>
     </p>
   </div>
 </div>
@@ -109,24 +141,29 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
 <script
   is:inline
   define:vars={{
-    locale,
-    copy,
-    assessmentHref,
-    siteCheckHref,
-    contactHref,
-    phoneHref,
+    pageLocale: locale,
+    catalogs,
+    hrefs,
     siteKey,
+    phoneHref,
+    phoneDisplay,
   }}
 >
   (function () {
     var root = document.querySelector('[data-chat-root]');
     if (!root) return;
 
-    // Skip on client portal / very small print contexts later if needed.
-    var path = window.location.pathname || '';
-    if (path.indexOf('/client') === 0 || path.indexOf('/es/client') === 0) return;
-
     root.hidden = false;
+
+    var STORAGE_KEY = 'cybercon_chat_locale';
+    var chatLocale = pageLocale;
+    try {
+      var saved = sessionStorage.getItem(STORAGE_KEY);
+      if (saved === 'en' || saved === 'es') chatLocale = saved;
+    } catch (e) {}
+
+    var copy = catalogs[chatLocale] || catalogs.en;
+    var links = hrefs[chatLocale] || hrefs.en;
 
     var openBtn = root.querySelector('[data-chat-open]');
     var closeBtn = root.querySelector('[data-chat-close]');
@@ -138,6 +175,12 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
     var input = root.querySelector('[data-chat-input]');
     var sendBtn = root.querySelector('[data-chat-send]');
     var turnstileWrap = root.querySelector('[data-chat-turnstile]');
+    var launcherLabel = root.querySelector('[data-chat-launcher-label]');
+    var eyebrowEl = root.querySelector('[data-chat-eyebrow]');
+    var titleEl = root.querySelector('[data-chat-title]');
+    var inputLabelEl = root.querySelector('[data-chat-input-label]');
+    var footnoteText = root.querySelector('[data-chat-footnote-text]');
+    var assessmentLink = root.querySelector('[data-chat-assessment-link]');
 
     var messages = [];
     var busy = false;
@@ -145,12 +188,47 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
     var emailCaptured = false;
     var askedEmail = false;
 
+    function defaultCtas() {
+      return [
+        { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
+        { id: 'site-check', label: copy.ctaSiteCheck, href: links.siteCheck },
+        { id: 'contact', label: copy.ctaContact, href: links.contact },
+      ];
+    }
+
+    function applyChrome() {
+      copy = catalogs[chatLocale] || catalogs.en;
+      links = hrefs[chatLocale] || hrefs.en;
+      root.setAttribute('data-locale', chatLocale);
+      if (launcherLabel) launcherLabel.textContent = copy.launcher;
+      if (eyebrowEl) eyebrowEl.textContent = copy.eyebrow;
+      if (titleEl) titleEl.textContent = copy.title;
+      if (closeBtn) closeBtn.setAttribute('aria-label', copy.close);
+      if (input) input.setAttribute('placeholder', copy.placeholder);
+      if (inputLabelEl) inputLabelEl.textContent = copy.inputLabel;
+      if (sendBtn) sendBtn.textContent = copy.send;
+      if (footnoteText) footnoteText.textContent = copy.footnote;
+      if (assessmentLink) {
+        assessmentLink.textContent = copy.assessmentLink;
+        assessmentLink.setAttribute('href', links.assessment);
+      }
+      root.querySelectorAll('[data-chat-lang]').forEach(function (btn) {
+        var lang = btn.getAttribute('data-chat-lang');
+        btn.setAttribute('aria-pressed', lang === chatLocale ? 'true' : 'false');
+        btn.classList.toggle('is-active', lang === chatLocale);
+      });
+      if (suggestionsEl && !suggestionsEl.hidden) {
+        var chips = suggestionsEl.querySelectorAll('[data-chat-suggestion]');
+        chips.forEach(function (chip, index) {
+          if (copy.suggestions && copy.suggestions[index]) {
+            chip.textContent = copy.suggestions[index];
+          }
+        });
+      }
+    }
+
     function welcome() {
-      appendAssistant(copy.welcome, [
-        { id: 'assessment', label: copy.ctaAssessment, href: assessmentHref },
-        { id: 'site-check', label: copy.ctaSiteCheck, href: siteCheckHref },
-        { id: 'contact', label: copy.ctaContact, href: contactHref },
-      ]);
+      appendAssistant(copy.welcome, defaultCtas());
     }
 
     function setOpen(open) {
@@ -194,11 +272,9 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
         a.className = 'chat-cta';
         a.href = cta.href;
         a.textContent = cta.label;
-        if (cta.href.indexOf('http') === 0 || cta.href.indexOf('tel:') === 0) {
-          if (cta.href.indexOf('http') === 0) {
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-          }
+        if (cta.href.indexOf('http') === 0) {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
         }
         ctasEl.appendChild(a);
       });
@@ -234,6 +310,30 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
       if (input) input.disabled = next;
     }
 
+    function switchLocale(next) {
+      if (next !== 'en' && next !== 'es') return;
+      if (next === chatLocale) return;
+      chatLocale = next;
+      try {
+        sessionStorage.setItem(STORAGE_KEY, chatLocale);
+      } catch (e) {}
+      applyChrome();
+      // Reset thread so language stays consistent for the visitor.
+      messages = [];
+      openedOnce = false;
+      askedEmail = false;
+      if (messagesEl) messagesEl.innerHTML = '';
+      if (ctasEl) {
+        ctasEl.innerHTML = '';
+        ctasEl.hidden = true;
+      }
+      if (suggestionsEl) suggestionsEl.hidden = false;
+      if (root.classList.contains('is-open')) {
+        openedOnce = true;
+        welcome();
+      }
+    }
+
     async function sendMessage(text) {
       var trimmed = (text || '').trim();
       if (!trimmed || busy) return;
@@ -258,7 +358,7 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
           method: 'POST',
           headers: { 'content-type': 'application/json', accept: 'application/json' },
           body: JSON.stringify({
-            locale: locale,
+            locale: chatLocale,
             messages: messages,
             turnstileToken: turnstileToken(),
           }),
@@ -268,7 +368,7 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
 
         if (!res.ok || !data.reply) {
           appendAssistant(copy.error, [
-            { id: 'assessment', label: copy.ctaAssessment, href: assessmentHref },
+            { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
             { id: 'call', label: copy.ctaCall, href: phoneHref },
           ]);
           return;
@@ -280,20 +380,22 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
         if (data.askEmail && !emailCaptured && !askedEmail) {
           askedEmail = true;
           appendAssistant(copy.askEmail, [
-            { id: 'assessment', label: copy.ctaAssessment, href: assessmentHref },
+            { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
           ]);
         }
         if (data.leadCaptured) emailCaptured = true;
       } catch (err) {
         if (typing.parentNode) typing.parentNode.removeChild(typing);
         appendAssistant(copy.error, [
-          { id: 'assessment', label: copy.ctaAssessment, href: assessmentHref },
+          { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
         ]);
       } finally {
         setBusy(false);
         if (input) input.focus();
       }
     }
+
+    applyChrome();
 
     if (openBtn) {
       openBtn.addEventListener('click', function () {
@@ -312,6 +414,12 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
         setOpen(false);
         if (openBtn) openBtn.focus();
       }
+    });
+
+    root.querySelectorAll('[data-chat-lang]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        switchLocale(btn.getAttribute('data-chat-lang'));
+      });
     });
 
     root.querySelectorAll('[data-chat-suggestion]').forEach(function (btn) {
@@ -339,7 +447,6 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
       });
     }
 
-    // Reveal launcher after a short delay so it doesn’t compete with the hero CTA.
     window.setTimeout(function () {
       root.classList.add('is-ready');
     }, 1200);
@@ -430,6 +537,41 @@ const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
     align-items: start;
     justify-content: space-between;
     gap: 0.75rem;
+  }
+
+  .chat-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .chat-lang {
+    display: inline-flex;
+    border: 1px solid rgba(15, 44, 76, 0.14);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .chat-lang-btn {
+    border: 0;
+    background: transparent;
+    color: var(--body-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.28rem 0.45rem;
+    cursor: pointer;
+  }
+
+  .chat-lang-btn.is-active,
+  .chat-lang-btn[aria-pressed='true'] {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .chat-lang-btn:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
   }
 
   .chat-eyebrow {

@@ -21,8 +21,6 @@ interface Props {
   ogImagePath?: string;
   ogImageAlt?: string;
   breadcrumbs?: { name: string; path: string }[];
-  /** Lead-assist chat launcher (off on client portal). */
-  showChat?: boolean;
 }
 
 const {
@@ -35,7 +33,6 @@ const {
   ogImagePath,
   ogImageAlt: ogImageAltProp,
   breadcrumbs,
-  showChat = true,
 } = Astro.props;
 
 const t = getMessages(locale);
@@ -271,6 +268,6 @@ const structuredData = [
       policyHref={localePath(locale, '/privacy/')}
     />
 
-    {showChat && <ChatWidget locale={locale} t={t} />}
+    <ChatWidget locale={locale} />
   </body>
 </html>
