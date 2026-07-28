@@ -3,6 +3,7 @@ import { en } from '../i18n/en';
 import { es } from '../i18n/es';
 import { turnstileSiteKey } from '../lib/turnstile';
 import { site } from '../lib/site';
+import { CHAT_AGENTS, getChatAgent } from '../lib/chat/agents';
 
 interface Props {
   /** Page locale — initial chat language (visitor can switch EN/ES in the widget). */
@@ -37,9 +38,9 @@ const hrefs = {
 };
 
 const initial = catalogs[locale];
-const avatarSrc = '/images/cora-avatar-160.webp';
-const avatarSrcJpg = '/images/cora-avatar-160.jpg';
-const avatarSrc2x = '/images/cora-avatar.webp';
+/** SSR placeholder — client picks a random guide before unhiding the widget. */
+const defaultAgent = getChatAgent('sophia');
+const agents = CHAT_AGENTS;
 ---
 
 <div
@@ -59,11 +60,22 @@ const avatarSrc2x = '/images/cora-avatar.webp';
   >
     <span class="chat-launcher-avatar" aria-hidden="true">
       <picture>
-        <source type="image/webp" srcset={`${avatarSrc} 1x, ${avatarSrc2x} 2x`} />
-        <img src={avatarSrcJpg} alt="" width="40" height="40" decoding="async" />
+        <source
+          data-chat-avatar-webp
+          type="image/webp"
+          srcset={`${defaultAgent.avatar160Webp} 1x, ${defaultAgent.avatar320Webp} 2x`}
+        />
+        <img
+          data-chat-avatar-img
+          src={defaultAgent.avatar160Jpg}
+          alt=""
+          width="40"
+          height="40"
+          decoding="async"
+        />
       </picture>
     </span>
-    <span class="chat-launcher-label" data-chat-launcher-label>{initial.launcher}</span>
+    <span class="chat-launcher-label" data-chat-launcher-label>{initial.launcher.replaceAll('{name}', defaultAgent.name)}</span>
   </button>
 
   <div
@@ -79,19 +91,23 @@ const avatarSrc2x = '/images/cora-avatar.webp';
       <div class="chat-identity">
         <div class="chat-avatar" aria-hidden="true">
           <picture>
-            <source type="image/webp" srcset={`${avatarSrc} 1x, ${avatarSrc2x} 2x`} />
+            <source
+              data-chat-avatar-webp
+              type="image/webp"
+              srcset={`${defaultAgent.avatar160Webp} 1x, ${defaultAgent.avatar320Webp} 2x`}
+            />
             <img
-              src={avatarSrcJpg}
+              data-chat-avatar-img
+              src={defaultAgent.avatar160Jpg}
               alt=""
               width="48"
               height="48"
               decoding="async"
-              data-chat-avatar-img
             />
           </picture>
         </div>
         <div>
-          <h2 id="cybercon-chat-title" class="chat-title" data-chat-title>{initial.name}</h2>
+          <h2 id="cybercon-chat-title" class="chat-title" data-chat-title>{defaultAgent.name}</h2>
           <p class="chat-role" data-chat-role>{initial.role}</p>
         </div>
       </div>
@@ -131,7 +147,7 @@ const avatarSrc2x = '/images/cora-avatar.webp';
         name="message"
         rows="1"
         data-chat-input
-        placeholder={initial.placeholder}
+        placeholder={initial.placeholder.replaceAll('{name}', defaultAgent.name)}
         maxlength="800"
         required
       ></textarea>
@@ -144,7 +160,7 @@ const avatarSrc2x = '/images/cora-avatar.webp';
     </form>
 
     <p class="chat-footnote" data-chat-footnote>
-      <span data-chat-footnote-text>{initial.footnote}</span>
+      <span data-chat-footnote-text>{initial.footnote.replaceAll('{name}', defaultAgent.name)}</span>
       {' '}
       <a data-chat-assessment-link href={hrefs[locale].assessment}>{initial.assessmentLink}</a>
       {' · '}
@@ -162,22 +178,47 @@ const avatarSrc2x = '/images/cora-avatar.webp';
     siteKey,
     phoneHref,
     phoneDisplay,
-    avatarSrc,
-    avatarSrcJpg,
+    agents,
   }}
 >
   (function () {
     var root = document.querySelector('[data-chat-root]');
     if (!root) return;
 
-    root.hidden = false;
-
     var STORAGE_KEY = 'cybercon_chat_locale';
+    var AGENT_KEY = 'cybercon_chat_agent';
     var chatLocale = pageLocale;
     try {
       var saved = sessionStorage.getItem(STORAGE_KEY);
       if (saved === 'en' || saved === 'es') chatLocale = saved;
     } catch (e) {}
+
+    function agentById(id) {
+      for (var i = 0; i < agents.length; i++) {
+        if (agents[i].id === id) return agents[i];
+      }
+      return agents[0];
+    }
+
+    function pickAgent() {
+      var savedId = null;
+      try {
+        savedId = sessionStorage.getItem(AGENT_KEY);
+      } catch (e) {}
+      var found = savedId ? agentById(savedId) : null;
+      if (found && savedId === found.id) return found;
+      var next = agents[Math.floor(Math.random() * agents.length)];
+      try {
+        sessionStorage.setItem(AGENT_KEY, next.id);
+      } catch (e) {}
+      return next;
+    }
+
+    var agent = pickAgent();
+
+    function withName(template) {
+      return String(template || '').split('{name}').join(agent.name);
+    }
 
     var copy = catalogs[chatLocale] || catalogs.en;
     var links = hrefs[chatLocale] || hrefs.en;
@@ -205,6 +246,16 @@ const avatarSrc2x = '/images/cora-avatar.webp';
     var emailCaptured = false;
     var askedEmail = false;
 
+    function applyAvatars() {
+      var srcset = agent.avatar160Webp + ' 1x, ' + agent.avatar320Webp + ' 2x';
+      root.querySelectorAll('[data-chat-avatar-webp]').forEach(function (el) {
+        el.setAttribute('srcset', srcset);
+      });
+      root.querySelectorAll('[data-chat-avatar-img]').forEach(function (el) {
+        el.setAttribute('src', agent.avatar160Jpg);
+      });
+    }
+
     function defaultCtas() {
       return [
         { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
@@ -217,18 +268,20 @@ const avatarSrc2x = '/images/cora-avatar.webp';
       copy = catalogs[chatLocale] || catalogs.en;
       links = hrefs[chatLocale] || hrefs.en;
       root.setAttribute('data-locale', chatLocale);
-      if (launcherLabel) launcherLabel.textContent = copy.launcher;
-      if (titleEl) titleEl.textContent = copy.name;
+      root.setAttribute('data-agent', agent.id);
+      if (launcherLabel) launcherLabel.textContent = withName(copy.launcher);
+      if (titleEl) titleEl.textContent = withName(copy.name);
       if (roleEl) roleEl.textContent = copy.role;
       if (closeBtn) closeBtn.setAttribute('aria-label', copy.close);
-      if (input) input.setAttribute('placeholder', copy.placeholder);
+      if (input) input.setAttribute('placeholder', withName(copy.placeholder));
       if (inputLabelEl) inputLabelEl.textContent = copy.inputLabel;
       if (sendBtn) sendBtn.textContent = copy.send;
-      if (footnoteText) footnoteText.textContent = copy.footnote;
+      if (footnoteText) footnoteText.textContent = withName(copy.footnote);
       if (assessmentLink) {
         assessmentLink.textContent = copy.assessmentLink;
         assessmentLink.setAttribute('href', links.assessment);
       }
+      applyAvatars();
       root.querySelectorAll('[data-chat-lang]').forEach(function (btn) {
         var lang = btn.getAttribute('data-chat-lang');
         btn.setAttribute('aria-pressed', lang === chatLocale ? 'true' : 'false');
@@ -244,8 +297,11 @@ const avatarSrc2x = '/images/cora-avatar.webp';
       }
     }
 
+    applyChrome();
+    root.hidden = false;
+
     function welcome() {
-      appendAssistant(copy.welcome, defaultCtas());
+      appendAssistant(withName(copy.welcome), defaultCtas());
     }
 
     function setOpen(open) {
@@ -315,19 +371,6 @@ const avatarSrc2x = '/images/cora-avatar.webp';
       var opts = options || {};
       var row = document.createElement('div');
       row.className = 'chat-row chat-row-' + role;
-      if (role === 'assistant') {
-        var avatar = document.createElement('div');
-        avatar.className = 'chat-msg-avatar';
-        avatar.setAttribute('aria-hidden', 'true');
-        var img = document.createElement('img');
-        img.src = avatarSrcJpg;
-        img.alt = '';
-        img.width = 28;
-        img.height = 28;
-        img.decoding = 'async';
-        avatar.appendChild(img);
-        row.appendChild(avatar);
-      }
       var bubble = document.createElement('div');
       bubble.className = 'chat-bubble' + (role === 'assistant' ? ' chat-bubble-answer' : '');
       bubble.textContent = text;
@@ -445,9 +488,6 @@ const avatarSrc2x = '/images/cora-avatar.webp';
       var typing = document.createElement('div');
       typing.className = 'chat-row chat-row-assistant';
       typing.innerHTML =
-        '<div class="chat-msg-avatar" aria-hidden="true"><img src="' +
-        avatarSrcJpg +
-        '" alt="" width="28" height="28" decoding="async" /></div>' +
         '<div class="chat-bubble chat-typing" aria-hidden="true"><span></span><span></span><span></span></div>';
       if (messagesEl) {
         messagesEl.appendChild(typing);
@@ -460,6 +500,7 @@ const avatarSrc2x = '/images/cora-avatar.webp';
           headers: { 'content-type': 'application/json', accept: 'application/json' },
           body: JSON.stringify({
             locale: chatLocale,
+            agentId: agent.id,
             messages: messages,
             turnstileToken: turnstileToken(),
           }),
@@ -778,24 +819,8 @@ const avatarSrc2x = '/images/cora-avatar.webp';
     justify-content: flex-end;
   }
 
-  .chat-msg-avatar {
-    width: 1.75rem;
-    height: 1.75rem;
-    border-radius: 999px;
-    overflow: hidden;
-    flex-shrink: 0;
-    border: 1px solid rgba(15, 44, 76, 0.12);
-  }
-
-  .chat-msg-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
   .chat-bubble {
-    max-width: 84%;
+    max-width: 92%;
     padding: 0.7rem 0.85rem;
     border-radius: 0.9rem;
     font-size: 0.92rem;
@@ -988,17 +1013,16 @@ const avatarSrc2x = '/images/cora-avatar.webp';
   }
 
   @media (max-width: 480px) {
-    .chat-launcher-label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
+    .chat-launcher {
+      padding: 0.65rem 0.9rem 0.65rem 0.7rem;
+      font-size: 0.85rem;
+      max-width: calc(100vw - 2rem);
     }
 
-    .chat-launcher {
-      padding: 0.85rem;
-      border-radius: 999px;
+    .chat-launcher-label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .chat-panel {
