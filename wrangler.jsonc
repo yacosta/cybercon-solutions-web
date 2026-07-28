@@ -10,6 +10,9 @@
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist",
+		// Align with Astro trailingSlash: 'always' and sitemap/canonical URLs.
+		// Non-slash HTML requests still 307 here; privacy (and peers) get 301 via public/_redirects.
+		"html_handling": "force-trailing-slash",
 		// Serve prerendered 404.html for unknown static routes.
 		"not_found_handling": "404-page"
 	},
