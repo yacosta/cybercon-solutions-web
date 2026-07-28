@@ -73,8 +73,8 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     </figure>
 
     <section class="wd-hero wd-hero-cta-split container" aria-labelledby="wd-hero-title">
+      <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
       <div class="wd-hero-copy">
-        <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
         <p class="wd-hero-lede">{copy.lede}</p>
       </div>
       <div class="wd-hero-cta-col">
@@ -250,14 +250,27 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
 
   .wd-hero-cta-split {
     display: grid;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    gap: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.5rem, 3vw, 2.5rem);
     align-items: end;
+  }
+
+  .wd-hero-cta-split .wd-hero-title {
+    grid-column: 1 / -1;
+    max-width: none;
+    margin: 0;
+    font-size: clamp(1.65rem, 4.2vw, 3.75rem);
+  }
+
+  @media (min-width: 480px) {
+    .wd-hero-cta-split .wd-hero-title {
+      white-space: nowrap;
+    }
   }
 
   @media (min-width: 860px) {
     .wd-hero-cta-split {
       grid-template-columns: minmax(0, 1.35fr) minmax(14rem, 0.85fr);
-      gap: clamp(2rem, 4vw, 3.5rem);
+      column-gap: clamp(2rem, 4vw, 3.5rem);
       align-items: end;
     }
 
