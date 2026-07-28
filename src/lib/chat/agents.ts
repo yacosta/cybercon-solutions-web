@@ -26,7 +26,8 @@ export const CHAT_AGENTS: readonly ChatAgent[] = [
     id: 'luci',
     name: 'Luci',
     gender: 'f',
-    avatar160Jpg: '/images/luci-avatar-160.jpg',
+    // Exact user upload (also mirrored as luci-avatar.jpg)
+    avatar160Jpg: '/images/luci-source.jpg',
     avatar160Webp: '/images/luci-avatar-160.webp',
     avatar320Webp: '/images/luci-avatar.webp',
   },
@@ -34,7 +35,8 @@ export const CHAT_AGENTS: readonly ChatAgent[] = [
     id: 'gabriella',
     name: 'Gabriella',
     gender: 'f',
-    avatar160Jpg: '/images/gabriella-avatar-160.jpg',
+    // Exact user upload (also mirrored as gabriella-avatar.jpg)
+    avatar160Jpg: '/images/gabriella-source.jpg',
     avatar160Webp: '/images/gabriella-avatar-160.webp',
     avatar320Webp: '/images/gabriella-avatar.webp',
   },
