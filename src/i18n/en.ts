@@ -298,7 +298,7 @@ export const en = {
     title: '{name}',
     close: 'Close chat',
     welcome:
-      "Hi, I’m {name} — Cybercon’s AI guide. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.",
+      "Hi, I’m {name} — Support Agent. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.",
     suggestions: [
       'What does Cybercon do?',
       'Where do you serve?',
