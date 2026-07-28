@@ -72,31 +72,19 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
       </picture>
     </figure>
 
-    {showBreachCheck ? (
-      <section class="wd-hero wd-hero-cta-split container" aria-labelledby="wd-hero-title">
-        <div class="wd-hero-copy">
-          <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
-          <p class="wd-hero-lede">{copy.lede}</p>
-        </div>
-        <div class="wd-hero-cta-col">
-          <div class="wd-hero-actions">
-            <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
-            <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
-          </div>
-          <p class="wd-hero-note">{copy.replyNote}</p>
-        </div>
-      </section>
-    ) : (
-      <section class="wd-hero container">
-        <h1 class="wd-hero-title">{copy.displayTitle}</h1>
+    <section class="wd-hero wd-hero-cta-split container" aria-labelledby="wd-hero-title">
+      <div class="wd-hero-copy">
+        <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
         <p class="wd-hero-lede">{copy.lede}</p>
+      </div>
+      <div class="wd-hero-cta-col">
         <div class="wd-hero-actions">
           <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
           <a class="wd-text-link" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
         </div>
         <p class="wd-hero-note">{copy.replyNote}</p>
-      </section>
-    )}
+      </div>
+    </section>
 
     <hr class="wd-rule" />
 
