@@ -37,9 +37,9 @@ const hrefs = {
 };
 
 const initial = catalogs[locale];
-const avatarSrc = '/images/cora-avatar-160.webp';
-const avatarSrcJpg = '/images/cora-avatar-160.jpg';
-const avatarSrc2x = '/images/cora-avatar.webp';
+const avatarSrc = '/images/sophia-avatar-160.webp';
+const avatarSrcJpg = '/images/sophia-avatar-160.jpg';
+const avatarSrc2x = '/images/sophia-avatar.webp';
 ---
 
 <div
@@ -988,17 +988,16 @@ const avatarSrc2x = '/images/cora-avatar.webp';
   }
 
   @media (max-width: 480px) {
-    .chat-launcher-label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
+    .chat-launcher {
+      padding: 0.65rem 0.9rem 0.65rem 0.7rem;
+      font-size: 0.85rem;
+      max-width: calc(100vw - 2rem);
     }
 
-    .chat-launcher {
-      padding: 0.85rem;
-      border-radius: 999px;
+    .chat-launcher-label {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .chat-panel {
