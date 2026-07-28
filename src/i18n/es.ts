@@ -295,8 +295,8 @@ export const es: Messages = {
     /** `{name}` se reemplaza con la guía IA de la sesión (Sophia, Luci, Gabriella o Angel). */
     launcher: 'Pregúntale a {name}',
     name: '{name}',
-    role: 'Guía con IA de Cybercon',
-    eyebrow: 'Guía con IA de Cybercon',
+    role: 'Tu Concierge de Cybercon Solutions',
+    eyebrow: 'Tu Concierge de Cybercon Solutions',
     title: '{name}',
     close: 'Cerrar chat',
     welcome:
