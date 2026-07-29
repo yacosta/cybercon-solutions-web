@@ -106,7 +106,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   cybersecurity: {
     metaTitle: {
       en: 'Cybersecurity & Compliance in South Florida | Cybercon',
-      es: 'Ciberseguridad en el Sur de Florida | Cybercon',
+      es: 'Ciberseguridad y cumplimiento | Sur de Florida | Cybercon',
     },
     metaDescription: {
       en: 'Endpoint protection, 24/7 SOC monitoring, and compliance support for HIPAA, SOC 2, PCI DSS, and GLBA for South Florida businesses.',
@@ -193,8 +193,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Seguridad de IA en el Sur de Florida | Cybercon Solutions',
     },
     metaDescription: {
-      en: 'Secure responsible AI use for Cooper City, Davie, and South Florida businesses. Governance, data-leakage controls, unified workspace protection, and a free AI security readiness check.',
-      es: 'IA responsable y segura para empresas en Cooper City, Davie y el sur de Florida. Gobernanza, control de filtraciones, protección unificada del espacio de trabajo y una revisión gratuita de preparación en seguridad de IA.',
+      en: 'Secure AI for South Florida businesses: governance, data-leakage controls, workspace protection, and a free AI security readiness check.',
+      es: 'IA segura para empresas del sur de Florida: gobernanza, control de filtraciones, protección del espacio de trabajo y revisión gratuita de preparación.',
     },
     audience: {
       en: 'South Florida organizations adopting copilots, chatbots, and browser AI that need governance and leakage controls without hiring a full security department — especially Cooper City and Davie teams handling customer, patient, or financial data.',
@@ -373,7 +373,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'Roadmapping, risk assessments, budget guidance, and quarterly business reviews oriented to your goals.',
-          es: 'Hoja de ruta, evaluaciones de riesgo, orientación presupuestaria y revisiones trimestrales orientadas a tus objetivos.',
+          es: 'Plan estratégico, evaluaciones de riesgo, orientación presupuestaria y revisiones trimestrales orientadas a tus objetivos.',
         },
       },
       {
@@ -412,7 +412,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   'backup-disaster-recovery': {
     metaTitle: {
       en: 'Backup & DR in South Florida | Cybercon',
-      es: 'Copia de seguridad y DR en el Sur de Florida | Cybercon',
+      es: 'Copia de seguridad y recuperación | Florida | Cybercon',
     },
     metaDescription: {
       en: 'Automated backups, off-site replication, and recovery validation for South Florida businesses so an outage does not become a crisis.',
@@ -584,7 +584,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Practical AI roadmaps and honest ROI assessment for South Florida businesses. Start where value is high and risk is low.',
-      es: 'Planes estratégicos de IA prácticas y evaluación honesta de ROI para empresas del sur de Florida. Empieza donde hay más valor y menos riesgo.',
+      es: 'Planes estratégicos de IA prácticos y evaluación honesta de ROI para empresas del sur de Florida. Empieza donde hay más valor y menos riesgo.',
     },
     audience: {
       en: 'Leaders curious about AI but wary of hype. Built for South Florida organizations that want a clear roadmap and an honest ROI read before buying tools. Use this when leadership wants a decision memo before committing budget.',
@@ -592,7 +592,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We build practical AI roadmaps and run readiness and ROI assessments that say where AI fits and where it does not. Work starts with highest-value, lower-risk opportunities so early projects teach your team without putting core operations at stake.\n\nAdvice stays grounded in your stack, data quality, and capacity. Serving Cooper City, Davie, and greater South Florida, we keep recommendations implementable by the people who will own them.',
-      es: 'Construimos planes estratégicos de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack tecnológico, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
+      es: 'Construimos planes estratégicos de IA prácticos y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack tecnológico, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
     },
     process: [
       {
@@ -603,7 +603,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
       },
       {
-        title: { en: '2. Roadmap', es: '2. Hoja de ruta' },
+        title: { en: '2. Roadmap', es: '2. Plan estratégico' },
         body: {
           en: 'Sequence adoption starting with highest-value opportunities and clear success measures.',
           es: 'Secuenciar la adopción empezando por las oportunidades de mayor valor y medidas de éxito claras.',

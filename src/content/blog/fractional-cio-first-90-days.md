@@ -1,6 +1,6 @@
 ---
 title: 'The Fractional CIO Agenda: First 90 Days'
-description: 'A practical first-90-days playbook for fractional and virtual CIO engagements — stabilize risk, map spend, ship one visible win, and leave leadership with a roadmap they can fund.'
+description: 'A practical first-90-days playbook for fractional and virtual CIO work: stabilize risk, map spend, ship one win, and leave a fundable roadmap.'
 pubDate: 2026-07-26
 banner: it-consulting-gears
 bannerAlt:

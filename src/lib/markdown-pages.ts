@@ -131,7 +131,7 @@ Envía un mensaje en https://cybercon-solutions.com/es/contact/ (protegido con C
 
 const assessmentEn = `---
 title: "Free IT Cost & Risk Assessment | Cybercon Solutions"
-description: "Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — follow-up within one business day."
+description: "Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, fractional CIO — reply in one business day."
 ---
 
 # Free IT Cost & Risk Assessment
@@ -145,7 +145,7 @@ Prefer a fast technical skim first? Start with the free site check at https://cy
 
 const assessmentEs = `---
 title: "Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions"
-description: "Evaluación gratuita para empresas del Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil."
+description: "Evaluación gratuita en el Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — en un día hábil."
 ---
 
 # Evaluación gratuita de costo y riesgo de TI
@@ -160,7 +160,7 @@ Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/
 const pages: Record<string, string> = {
   '/': `---
 title: "Managed IT & Cybersecurity in Cooper City & Davie | Cybercon"
-description: "Predictable per-user IT for South Florida businesses — no break/fix surprises. 24/7 help desk, monitoring, and SOC-backed security. Free site check or assessment."
+description: "Predictable per-user IT for South Florida — no break/fix surprises. 24/7 help desk, monitoring, SOC-backed security. Free site check or assessment."
 ---
 
 # Cybercon Solutions
@@ -201,7 +201,7 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en Cooper City y Davie | Cybercon"
-description: "TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por fallas. Mesa de ayuda 24/7, monitoreo y seguridad con soporte del SOC. Revisión gratuita del sitio o evaluación."
+description: "TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y soporte del SOC. Revisión del sitio o evaluación."
 ---
 
 # Cybercon Solutions

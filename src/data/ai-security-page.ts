@@ -109,8 +109,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     es: 'Seguridad de IA en el Sur de Florida | Cybercon Solutions',
   },
   metaDescription: {
-    en: 'Secure responsible AI use for Cooper City, Davie, and South Florida businesses. Governance, data-leakage controls, unified workspace protection, and a free AI security readiness check.',
-    es: 'IA responsable y segura para empresas en Cooper City, Davie y el sur de Florida. Gobernanza, control de filtraciones, protección unificada del espacio de trabajo y una revisión gratuita de preparación en seguridad de IA.',
+    en: 'Secure AI for South Florida businesses: governance, data-leakage controls, workspace protection, and a free AI security readiness check.',
+    es: 'IA segura para empresas del sur de Florida: gobernanza, control de filtraciones, protección del espacio de trabajo y revisión gratuita de preparación.',
   },
   breadcrumb: {
     en: 'AI Security',

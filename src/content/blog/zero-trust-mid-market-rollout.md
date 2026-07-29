@@ -1,6 +1,6 @@
 ---
-title: 'Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT'
-description: 'A no-jargon Zero Trust rollout for mid-market IT: identity first, device health, least privilege, and monitoring you can actually staff — without buying an enterprise program you cannot run.'
+title: 'Zero Trust for Mid-Market IT: A Practical Rollout'
+description: 'Practical Zero Trust for mid-market IT: identity first, device health, least privilege, and monitoring you can staff — without an unrunnable enterprise program.'
 pubDate: 2026-07-26
 banner: cybersecurity-lock
 bannerAlt:
