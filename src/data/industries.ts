@@ -37,7 +37,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Cooper City and Davie practices run on shared charts, imaging, billing, and remote access — all under HIPAA expectations. We treat security as the baseline: monitoring, patching, backups, and identity done in a way your staff can actually live with. When something breaks, an engineer answers — not a ticket that sits until Monday.',
-      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, respaldos e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero — no un ticket que espera hasta el lunes.',
+      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, copias de seguridad e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero — no un ticket que espera hasta el lunes.',
     },
     challengesLabel: { en: 'What clinics feel every week', es: 'Lo que las clínicas sienten cada semana' },
     challenges: [
@@ -55,7 +55,7 @@ export const industries: Industry[] = [
       },
       {
         en: 'Backups that exist on paper but have never been restored.',
-        es: 'Respaldos que existen en el papel pero nunca se han restaurado.',
+        es: 'Copias de seguridad que existen en el papel pero nunca se han restaurado.',
       },
     ],
     helpLabel: { en: 'How we help healthcare teams', es: 'Cómo ayudamos a equipos de salud' },
@@ -78,7 +78,7 @@ export const industries: Industry[] = [
         title: { en: 'Recovery you can trust', es: 'Recuperación en la que puedes confiar' },
         body: {
           en: 'Backups and restore tests so an outage or ransomware event does not erase a day of care.',
-          es: 'Respaldos y pruebas de restauración para que una caída o ransomware no borre un día de atención.',
+          es: 'Copias de seguridad y pruebas de restauración para que una caída o ransomware no borre un día de atención.',
         },
       },
     ],
@@ -100,7 +100,7 @@ export const industries: Industry[] = [
         },
         answer: {
           en: 'We implement and operate the technical controls clinics rely on — access control, encryption in transit where applicable, monitoring, and backup — and we document what we manage.',
-          es: 'Implementamos y operamos los controles técnicos en los que las clínicas se apoyan — control de acceso, cifrado en tránsito cuando aplica, monitoreo y respaldo — y documentamos lo que gestionamos.',
+          es: 'Implementamos y operamos los controles técnicos en los que las clínicas se apoyan — control de acceso, cifrado en tránsito cuando aplica, monitoreo y copia de seguridad — y documentamos lo que gestionamos.',
         },
       },
     ],
@@ -215,7 +215,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Financial and insurance teams handle money, PII, and regulated workflows. Downtime and weak controls are not abstract risks — they are client and exam problems. Cybercon runs proactive IT and security for South Florida firms that need monitoring, identity, backup, and documentation that stay ready when auditors or customers ask hard questions.',
-      es: 'Los equipos financieros y de seguros manejan dinero, PII y flujos regulados. La caída y los controles débiles no son riesgos abstractos — son problemas de cliente y de examen. Cybercon opera TI y seguridad proactiva para firmas del Sur de Florida que necesitan monitoreo, identidad, respaldo y documentación listos cuando auditores o clientes hacen preguntas difíciles.',
+      es: 'Los equipos financieros y de seguros manejan dinero, PII y flujos regulados. La caída y los controles débiles no son riesgos abstractos — son problemas de cliente y de examen. Cybercon opera TI y seguridad proactiva para firmas del Sur de Florida que necesitan monitoreo, identidad, copia de seguridad y documentación listos cuando auditores o clientes hacen preguntas difíciles.',
     },
     challengesLabel: { en: 'What we hear from finance teams', es: 'Lo que escuchamos de equipos financieros' },
     challenges: [
@@ -256,7 +256,7 @@ export const industries: Industry[] = [
         title: { en: 'Recovery and continuity', es: 'Recuperación y continuidad' },
         body: {
           en: 'Backups, off-site copies, and restore validation so an outage does not become a client event.',
-          es: 'Respaldos, copias fuera del sitio y validación de restauración para que una caída no se convierta en un evento de cliente.',
+          es: 'Copias de seguridad, réplicas fuera del sitio y validación de restauración para que una caída no se convierta en un evento de cliente.',
         },
       },
     ],
@@ -338,7 +338,7 @@ export const industries: Industry[] = [
         title: { en: 'Security that small teams can run', es: 'Seguridad que equipos pequeños pueden operar' },
         body: {
           en: 'MFA, backups, patching, and email security that fit small teams — not a binder of controls nobody runs.',
-          es: 'MFA, respaldos, parches y seguridad de correo que encajan en equipos pequeños — no una carpeta de controles que nadie ejecuta.',
+          es: 'MFA, copias de seguridad, parches y seguridad de correo que encajan en equipos pequeños — no una carpeta de controles que nadie ejecuta.',
         },
       },
       {
@@ -520,7 +520,7 @@ export const industries: Industry[] = [
         },
       },
       {
-        title: { en: 'Backup and recovery that match ops', es: 'Respaldo y recuperación a la medida' },
+        title: { en: 'Backup and recovery that match ops', es: 'Copia de seguridad y recuperación a la medida' },
         body: {
           en: 'Restore targets tied to how long you can run without the system — tested, not assumed.',
           es: 'Objetivos de restauración ligados a cuánto puedes operar sin el sistema — probados, no asumidos.',

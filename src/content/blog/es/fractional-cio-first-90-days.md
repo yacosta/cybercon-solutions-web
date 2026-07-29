@@ -10,7 +10,7 @@ bannerAlt:
 
 La mayoría de las empresas que contratan un CIO fraccionario ya saben que algo anda mal. Solo que no pueden nombrarlo con claridad.
 
-Los tickets se acumulan. Las renovaciones se cuelan en el calendario. Llega una cotización de un proveedor que nadie se siente capacitado para cuestionar. Alguien pregunta si los backups realmente restauran, y la sala se queda en silencio. El negocio crece — o al menos sobrevive — pero las decisiones de tecnología siguen llegando como emergencias en lugar de elecciones.
+Los tickets se acumulan. Las renovaciones se cuelan en el calendario. Llega una cotización de un proveedor que nadie se siente capacitado para cuestionar. Alguien pregunta si las copias de seguridad realmente restauran, y la sala se queda en silencio. El negocio crece — o al menos sobrevive — pero las decisiones de tecnología siguen llegando como emergencias en lugar de elecciones.
 
 Ese es el trabajo. No “transformar” nada en la primera semana. No reescribir el stack tecnológico por deporte. El trabajo en los primeros 90 días es más callado y más útil: averiguar qué está realmente roto, qué solo es molesto y qué le va a doler a la empresa si nadie lo toca este trimestre.
 
@@ -30,14 +30,14 @@ Si eres dueño y estás evaluando un vCIO, usa esta agenda como filtro. Si la pe
 
 El primer mes no es un viaje de compras. Es un ejercicio para encontrar la verdad.
 
-Empezamos con un briefing del estado actual deliberadamente aburrido: sistemas, proveedores, contratos, identidad, backups, controles de seguridad, aplicaciones mayores y las personas que los mantienen vivos. No un cuestionario tirado a un portal. Conversaciones. Screen shares. Revisión de facturas. Un recorrido de cómo un nuevo empleado obtiene acceso el día uno, y cómo se le quita cuando alguien se va.
+Empezamos con un briefing del estado actual deliberadamente aburrido: sistemas, proveedores, contratos, identidad, copias de seguridad, controles de seguridad, aplicaciones mayores y las personas que los mantienen vivos. No un cuestionario tirado a un portal. Conversaciones. Screen shares. Revisión de facturas. Un recorrido de cómo un nuevo empleado obtiene acceso el día uno, y cómo se le quita cuando alguien se va.
 
 Vas a oír historias conflictivas. Finanzas cree que el CRM está bien. Ventas cree que está roto. Operaciones tiene una hoja de cálculo que es el verdadero sistema de registro. TI — si hay una persona de TI — se ahoga en resets de contraseña y tickets de impresora mientras le preguntan por qué “no somos más innovadores”. Tu trabajo es sostener esas contradicciones sin apresurarte a una narrativa que favorezca a la persona más ruidosa de la sala.
 
 En el mes uno respondemos cinco preguntas:
 
 1. **¿Qué no puede fallar este trimestre?** Sistemas de ingresos, sistemas clínicos, nómina, correo, identidad. Nómbralos.
-2. **¿Dónde está el riesgo de concentración?** Un admin con todas las contraseñas. Un proveedor sin plan de salida. Un job de backup que nadie ha restaurado en dieciocho meses.
+2. **¿Dónde está el riesgo de concentración?** Un admin con todas las contraseñas. Un proveedor sin plan de salida. Un trabajo de respaldo que nadie ha restaurado en dieciocho meses.
 3. **¿Qué estamos gastando de verdad?** Licencias, fees de MSP, circuitos, sprawl de SaaS, herramientas sombra en tarjetas personales.
 4. **¿Qué obligaciones de cumplimiento o de clientes ya existen?** HIPAA, FERPA, cuestionarios contractuales de seguridad, requisitos de ciberseguro — escríbelos antes de que una renovación fuerce el tema.
 5. **¿Quién toma las decisiones de tecnología hoy, y cómo?** Si la respuesta es “quien reenvió el último correo”, *eso* es el hallazgo.
@@ -54,7 +54,7 @@ Esta es temporada de planes estratégicos y presupuesto — secuenciada, con opi
 
 Normalmente ordenamos el trabajo en cuatro cubetas:
 
-**Detén la hemorragia.** Controles e higiene que eliminan exposición inaceptable. Vacíos de MFA. Acceso privilegiado sin logging. Backups que nunca se han probado restaurando. Estos no son “proyectos” opcionales. Son el precio de seguir en el negocio.
+**Detén la hemorragia.** Controles e higiene que eliminan exposición inaceptable. Vacíos de MFA. Acceso privilegiado sin logging. Copias de seguridad que nunca se han probado restaurando. Estos no son “proyectos” opcionales. Son el precio de seguir en el negocio.
 
 **Compra tiempo.** Retira o renegocia los contratos que están gravando en silencio a la empresa. Sabe qué pagas, qué usas y de qué puedes salir. Conectividad, UCaaS, impresión, asientos SaaS sin usar — las líneas aburridas son donde suele esconderse el dinero.
 
@@ -102,7 +102,7 @@ Mantén el readout de 90 días lo bastante apretado para un dueño ocupado o un 
 
 - **Postura de riesgo:** vacíos críticos cerradas, ítems abiertos con dueños y fechas
 - **Claridad de gasto:** qué pagamos, qué usamos, renovaciones dentro de 180 días
-- **Salud operativa:** tendencias de tickets, incidentes mayores, prueba de backup/restore
+- **Salud operativa:** tendencias de tickets, incidentes mayores, prueba de copia de seguridad / restauración
 - **Estado del plan estratégico:** financiado ahora / siguiente / después, con una victoria enviada señalada
 - **Decisiones necesarias:** las dos o tres llamadas que solo el negocio puede hacer
 
@@ -112,7 +112,7 @@ Si la IA o la automatización ya están en juego — y en la mayoría de las org
 
 En un proyecto fuerte, el día 90 no se siente como un discurso de graduación. Se siente como que la empresa por fin puede tomar decisiones de tecnología a propósito.
 
-El liderazgo puede nombrar los sistemas que no deben fallar. Finanzas tiene un calendario de renovaciones en lugar de facturas sorpresa. Alguien ha demostrado que los backups restauran, no solo que corren. Hay un plan escrito para los próximos dos a cuatro trimestres con costos y secuencia. Hay un ritmo de reuniones acordado. Hay una mejora completada a la que la gente puede señalar sin entrecerrar los ojos.
+El liderazgo puede nombrar los sistemas que no deben fallar. Finanzas tiene un calendario de renovaciones en lugar de facturas sorpresa. Alguien ha demostrado que las copias de seguridad restauran, no solo que corren. Hay un plan escrito para los próximos dos a cuatro trimestres con costos y secuencia. Hay un ritmo de reuniones acordado. Hay una mejora completada a la que la gente puede señalar sin entrecerrar los ojos.
 
 Y — esto importa más de lo que admiten los consultores — el equipo interno o el MSP está menos confundido sobre las prioridades. El trabajo de CIO fraccionario que desmoraliza a las personas más cercanas al trabajo es un fracaso, aunque las diapositivas se vean afiladas. Intégralos al mapa temprano. Da crédito a su conocimiento. Usa tu altitud para quitar obstáculos que ellos no podían escalar solos.
 

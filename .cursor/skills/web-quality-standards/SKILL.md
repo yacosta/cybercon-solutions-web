@@ -49,7 +49,9 @@ When writing or editing homepage, service, industry, assessment/contact, chat, o
    - `roadmap` → **plan estratégico** (not `hoja de ruta` / calqued *roadmap*).
    - `scorecard` → **cuadro de mando** (default corporate metrics); **tablero de control** when stressing visual monitoring; **matriz de indicadores** when it is strictly a KPI/metrics list.
    - `guardrails` → **pautas de control** (operational boundaries); **lineamientos de cumplimiento** (governance / ethics / legal); **parámetros de seguridad** (risk management or AI safety limits). Not *barandillas*.
-   - Security: active threat → **incidente de seguridad**; gaps → **vacío(s)** (never `brecha` for gaps); HIBP/data leak → **filtración**; prefer **respaldo(s)** over bare `backup`.
+   - Security: active threat → **incidente de seguridad**; gaps → **vacío(s)** (never `brecha` for gaps); HIBP/data leak → **filtración**.
+   - `backup` (data files / IT): **copia de seguridad** (standard professional); **respaldo** as corporate shorthand (e.g. *hacer un respaldo*, *trabajos de respaldo*). Never leave English *backup* in ES.
+   - `backup` (business / ops): contingency plan → **plan de contingencia**; secondary vendor → **proveedor de respaldo**; standby hardware/generators → **sistema de reserva** / **sistema alterno**. Do not use data-backup wording for staffing (“needs backup” → **refuerzo**) or “SOC-backed” (**con soporte del SOC**, not *con respaldo SOC*).
    - Keep EN + ES in sync when strings change.
 
 ## Color contrast (brand coral)

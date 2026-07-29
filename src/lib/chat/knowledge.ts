@@ -85,7 +85,7 @@ export const FAQ: FaqEntry[] = [
       /quiénes? son/i,
     ],
     en: `Cybercon Solutions is a South Florida managed IT and cybersecurity partner focused on Cooper City, Davie, and nearby businesses. We run proactive IT with predictable per-user pricing — help desk, monitoring, security, cloud, backup, and more — so you’re not stuck in break/fix surprises.`,
-    es: `Cybercon Solutions es un proveedor de TI administrada y ciberseguridad en el sur de Florida, enfocado en Cooper City, Davie y alrededores. Operamos TI de forma proactiva con precio predecible por usuario — mesa de ayuda, monitoreo, seguridad, nube, respaldos y más — para que no quedes atrapado en sorpresas por fallas.`,
+    es: `Cybercon Solutions es un proveedor de TI administrada y ciberseguridad en el sur de Florida, enfocado en Cooper City, Davie y alrededores. Operamos TI de forma proactiva con precio predecible por usuario — mesa de ayuda, monitoreo, seguridad, nube, copias de seguridad y más — para que no quedes atrapado en sorpresas por fallas.`,
     ctas: ['assessment', 'contact'],
   },
   {

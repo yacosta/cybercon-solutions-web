@@ -52,7 +52,7 @@ Antes de las herramientas, escribe un inventario de una página de las joyas de 
 - Correo e identidad (casi siempre)
 - Finanzas / ERP / nómina
 - Sistemas de registro de la industria (EHR, gestión de casos, CRM, sistemas de manufactura)
-- Infraestructura de backups (los atacantes van ahí a propósito)
+- Infraestructura de copias de seguridad (los atacantes van ahí a propósito)
 - Rutas de acceso remoto al entorno
 
 También nombra los caminos de personas: ejecutivos, finanzas, admins de TI, proveedores con acceso permanente. Zero Trust se aplica de forma desigual a propósito. Protege las llaves del edificio con más fuerza que el estante de folletos del lobby.
@@ -95,11 +95,11 @@ Bring-your-own-device es una decisión de negocio, no una falla moral — pero n
 
 Aquí es donde los diagramas empresariales intimidan a los equipos de mercado medio hasta que no hacen nada. Reduce la ambición.
 
-**Menor privilegio para personas.** Revisa quién tiene global admin, exportación de buzones, VPN full-tunnel a todo, RDP a servidores y acceso a consolas de backup. Recorta privilegios permanentes. Usa elevación just-in-time donde tu stack tecnológico lo soporte. Si todavía no puedes hacer JIT, al menos deja de otorgar admin permanente "porque es más fácil."
+**Menor privilegio para personas.** Revisa quién tiene global admin, exportación de buzones, VPN full-tunnel a todo, RDP a servidores y acceso a consolas de respaldo. Recorta privilegios permanentes. Usa elevación just-in-time donde tu stack tecnológico lo soporte. Si todavía no puedes hacer JIT, al menos deja de otorgar admin permanente "porque es más fácil."
 
 **Menor privilegio para sistemas.** Las redes planas donde cada workstation puede hablar con cada servidor son el parque favorito del ransomware. No necesitas microsegmentación en 400 aplicaciones para mejorar esto. Empieza con cortes gruesos:
 
-- Las workstations de usuarios no deberían llegar libremente a controladores de dominio, servidores de backup y sistemas industriales o clínicos.
+- Las workstations de usuarios no deberían llegar libremente a controladores de dominio, servidores de copia de seguridad y sistemas industriales o clínicos.
 - El Wi-Fi de invitados no debería compartir vecindario con finanzas.
 - El acceso remoto de proveedores debería aterrizar en una zona limitada, no en "VPN completo como un empleado."
 
@@ -118,7 +118,7 @@ Visibilidad mínima útil:
 - Logs de identidad (MFA fallido, impossible travel, nuevas reglas de inbox, cambios de rol admin)
 - Alertas de endpoint que alguien reconoce, no solo almacena
 - Sesiones de acceso remoto privilegiado
-- Fallas de jobs de backup y eventos de borrado inesperado
+- Fallas de trabajos de respaldo y eventos de borrado inesperado
 - Acciones críticas de admin en SaaS
 
 Luego escribe un checklist corto de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a counsel o a un proveedor forense. Practícalo una vez. Los planes en papel que nunca se han tabletopeado fallan con cortesía bajo presión.
@@ -139,10 +139,10 @@ Si quieres algo que puedas poner frente a un dueño o comité de junta el próxi
 - Vacíos de cobertura EDR cerrados en dispositivos administrados
 - Requisitos de acceso condicional / dispositivo para apps sensibles
 - Limpieza de cuentas compartidas y obsoletas
-- Ruta de admin de backups endurecida; una prueba de restore documentada
+- Ruta de admin de respaldos endurecida; una prueba de restore documentada
 
 **Días 61–90**
-- Segmentación gruesa de red o acceso para backups y servidores críticos
+- Segmentación gruesa de red o acceso para copias de seguridad y servidores críticos
 - Acceso de proveedores revisado y reducido
 - Ruta de alertamiento definida para eventos críticos de identidad + endpoint
 - Estado Zero Trust de una página para liderazgo: hecho / en progreso / diferido con fechas
@@ -159,7 +159,7 @@ También rechaza métricas de vanidad. "Porcentaje de Zero Trust adoptado" no si
 - Porcentaje de endpoints con EDR sano y reportando
 - Número de admins globales/de dominio permanentes (baja la tendencia)
 - Tiempo para revocar acceso después de una terminación
-- Si los backups son inmutables o están protegidos de otra forma, y si los restores se prueban
+- Si las copias de seguridad son inmutables o están protegidos de otra forma, y si los restores se prueban
 - Tiempo medio para reconocer alertas críticas de identidad/endpoint
 
 Cinco métricas honestas superan a un gráfico arcoíris de madurez.
@@ -172,7 +172,7 @@ Alguien tiene que decir no con una razón de negocio, ofrecer una alternativa m�
 
 ## Empieza donde los atacantes ya empiezan
 
-Los atacantes no necesitan tu diagrama de arquitectura future-state. Necesitan una identidad susceptible de phishing, un camino plano hacia los backups o una cuenta olvidada de acceso remoto.
+Los atacantes no necesitan tu diagrama de arquitectura future-state. Necesitan una identidad susceptible de phishing, un camino plano hacia las copias de seguridad o una cuenta olvidada de acceso remoto.
 
 Así que empieza ahí. Demuestra identidad. Prefiere dispositivos sanos. Reduce acceso. Observa las rutas críticas. Documenta lo suficiente para que aseguradoras, clientes y auditores vean un programa real — no una calcomanía en un firewall.
 

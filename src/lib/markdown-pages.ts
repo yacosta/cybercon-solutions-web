@@ -201,14 +201,14 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en Cooper City y Davie | Cybercon"
-description: "TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por fallas. Mesa de ayuda 24/7, monitoreo y seguridad con respaldo SOC. Revisión gratuita del sitio o evaluación."
+description: "TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por fallas. Mesa de ayuda 24/7, monitoreo y seguridad con soporte del SOC. Revisión gratuita del sitio o evaluación."
 ---
 
 # Cybercon Solutions
 
 Tecnología, resuelta.
 
-Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.
+Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con soporte del SOC cuando tu equipo necesita refuerzo.
 
 ## Mira lo que realmente cuesta tu TI
 

@@ -33,7 +33,7 @@ El reporting estilo CIO se organiza alrededor de outcomes que el dueño o la jun
 
 - ¿La gente puede hacer su trabajo sin fricción?
 - ¿Estamos previniendo outages, o solo reaccionando bien después de ellas?
-- ¿Los controles de seguridad y backup son reales, o asumidos?
+- ¿Los controles de seguridad y de copia de seguridad son reales, o asumidos?
 - ¿El gasto es predecible, y está alineado al riesgo?
 - ¿Qué decisiones necesitamos del liderazgo este trimestre?
 
@@ -72,7 +72,7 @@ Mantén el set de KPIs lo bastante pequeño para que un operador ocupado todaví
 ### Seguridad y continuidad
 - **Vacíos de cobertura EDR/antivirus** (dispositivos faltantes o no saludables)
 - **Cobertura MFA** en correo y acceso remoto
-- **Tasa de éxito de backups** y **última prueba de restore exitosa** (fecha, sistema, resultado)
+- **Tasa de éxito de respaldos** y **última prueba de restore exitosa** (fecha, sistema, resultado)
 - **Reconocimientos de alertas críticas** — no solo alertas generadas
 
 ### Acceso y ciclo de vida
@@ -87,7 +87,7 @@ Mantén el set de KPIs lo bastante pequeño para que un operador ocupado todaví
 
 Fíjate en lo que falta: gráficos de vanidad sobre puntajes promedio de satisfacción con cinco respuestas, o "utilización de técnicos" que existe para justificar headcount internamente. Esos pueden ser herramientas operativas. No son KPIs de CIO.
 
-Una regla más: **empareja cada métrica roja con una próxima acción.** "Fallas de backup al 12%" sin "esta semana estamos reemplazando el agente que falla en el servidor de contabilidad, dueño: ___" es solo entrega de ansiedad.
+Una regla más: **empareja cada métrica roja con una próxima acción.** "Fallas de respaldo al 12%" sin "esta semana estamos reemplazando el agente que falla en el servidor de contabilidad, dueño: ___" es solo entrega de ansiedad.
 
 ## La revisión trimestral de negocio que se gana la reunión
 
@@ -101,7 +101,7 @@ Un QBR que importa normalmente tiene cinco secciones — y rara vez necesita má
 
 **2. Desempeño operativo contra SLAs/KPIs.** Tendencias de al menos dos trimestres previos cuando sea posible. Un mes verde prueba poco. Los patrones prueban más.
 
-**3. Riesgo y resiliencia.** La lista honesta: prueba de restore de backup, vacíos de identidad, hardware envejecido que fallará con ruido, concentración de proveedores, requisitos de ciberseguro. Ordena por impacto de negocio, no por lo divertido que sería el proyecto.
+**3. Riesgo y resiliencia.** La lista honesta: prueba de restauración de copia de seguridad, vacíos de identidad, hardware envejecido que fallará con ruido, concentración de proveedores, requisitos de ciberseguro. Ordena por impacto de negocio, no por lo divertido que sería el proyecto.
 
 **4. Roadmap y pedidos de presupuesto.** Financiado ahora, siguiente, después. Bandas de costo. Qué pasa si el liderazgo difiere. Aquí es donde la TI administrada debería conectarse con pensamiento de vCIO — aunque las horas de estrategia sean más ligeras que las de break-fix.
 
@@ -125,7 +125,7 @@ Ya sea que trabajes con Cybercon o evalúes a otro proveedor, usa esto como filt
 
 **Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es busywork caro. Los proveedores estilo CIO rastrean temas y los eliminan.
 
-**Pide evidencia de pruebas de restore, no checks verdes de jobs de backup.** Los backups que nunca se han restaurado son una historia que te cuentas a ti mismo.
+**Pide evidencia de pruebas de restore, no checks verdes de trabajos de respaldo.** Las copias de seguridad que nunca se han restaurado son una historia que te cuentas a ti mismo.
 
 Estas preguntas no son adversariales. Son la forma de distinguir un servicio administrado proactivo de una relación break/fix educada con una cuota mensual.
 
@@ -135,7 +135,7 @@ No necesitas un binder de centro de comando. Necesitas un ritmo.
 
 **Semanal (ops):** triage de tickets, excepciones de parches, revisión de P1/P2 abiertos. Esto se queda con los leads de TI y el MSP. El liderazgo no lo necesita salvo que algo esté en llamas.
 
-**Mensual (gestión):** snapshot de KPIs de una página — incidentes, trabajo envejecido, vacíos de cobertura de seguridad, estado de backups, riesgos notables. Quince minutos para un dueño; más tiempo solo si hay rojo.
+**Mensual (gestión):** snapshot de KPIs de una página — incidentes, trabajo envejecido, vacíos de cobertura de seguridad, estado de las copias de seguridad, riesgos notables. Quince minutos para un dueño; más tiempo solo si hay rojo.
 
 **Trimestral (liderazgo):** el QBR de decisión de arriba. Trae a finanzas cuando el gasto o las renovaciones sean materiales. Trae a operaciones cuando los temas de downtime estén golpeando el piso.
 

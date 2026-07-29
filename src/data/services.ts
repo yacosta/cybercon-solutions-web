@@ -166,15 +166,15 @@ export const services: Service[] = [
   {
     id: '09',
     slug: 'backup-disaster-recovery',
-    title: { en: 'Backup & Disaster Recovery', es: 'Respaldo y Recuperación ante Desastres' },
+    title: { en: 'Backup & Disaster Recovery', es: 'Copia de seguridad y recuperación ante desastres' },
     summary: {
       en: 'Automated backups, off-site replication, and recovery validation so an outage does not become a crisis.',
-      es: 'Respaldos automatizados, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
+      es: 'Copias de seguridad automatizadas, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
     },
     items: [
       {
         en: 'Data Protection: automated backups, off-site replication, and recovery validation.',
-        es: 'Protección de datos: respaldos automatizados, replicación externa y validación de recuperación.',
+        es: 'Protección de datos: copias de seguridad automatizadas, replicación externa y validación de recuperación.',
       },
     ],
   },

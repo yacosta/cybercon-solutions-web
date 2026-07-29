@@ -412,40 +412,40 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   'backup-disaster-recovery': {
     metaTitle: {
       en: 'Backup & DR in South Florida | Cybercon',
-      es: 'Respaldo y DR en el Sur de Florida | Cybercon',
+      es: 'Copia de seguridad y DR en el Sur de Florida | Cybercon',
     },
     metaDescription: {
       en: 'Automated backups, off-site replication, and recovery validation for South Florida businesses so an outage does not become a crisis.',
-      es: 'Respaldos automatizados, replicación externa y validación de recuperación para empresas del sur de Florida, para que una caída no sea una crisis.',
+      es: 'Copias de seguridad automatizadas, replicación externa y validación de recuperación para empresas del sur de Florida, para que una caída no sea una crisis.',
     },
     audience: {
       en: 'Organizations that cannot afford prolonged downtime or silent backup failures. Fits South Florida offices that need proven recovery, not just a backup checkbox. If you are unsure whether last night’s backup would restore payroll or patient files today, that uncertainty is the problem we solve.',
-      es: 'Organizaciones que no pueden permitirse caídas largas o respaldos que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo una casilla de respaldo. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
+      es: 'Organizaciones que no pueden permitirse caídas largas o copias de seguridad que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo una casilla de respaldo. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
     },
     overview: {
       en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed.\n\nDisaster recovery planning focuses on clear recovery points and realistic timelines. When something fails, the goal is a controlled restore, not improvisation under pressure.',
-      es: 'Implementamos respaldos automatizados, replicación externa y validación de recuperación para saber que las restauraciones funcionan antes de necesitarlas. La protección cubre los sistemas que mantienen la operación en Cooper City y Davie, con monitoreo para que los fallos no pasen desapercibidos.\n\nLa planificación ante desastres se centra en puntos de recuperación claros y plazos realistas. Cuando algo falla, la meta es una restauración controlada, no improvisar bajo presión.',
+      es: 'Implementamos copias de seguridad automatizadas, replicación externa y validación de recuperación para saber que las restauraciones funcionan antes de necesitarlas. La protección cubre los sistemas que mantienen la operación en Cooper City y Davie, con monitoreo para que los fallos no pasen desapercibidos.\n\nLa planificación ante desastres se centra en puntos de recuperación claros y plazos realistas. Cuando algo falla, la meta es una restauración controlada, no improvisar bajo presión.',
     },
     process: [
       {
         title: { en: '1. Protect what matters', es: '1. Proteger lo importante' },
         body: {
           en: 'Identify critical systems and data, then configure automated backups with off-site replication.',
-          es: 'Identificamos sistemas y datos críticos y configuramos respaldos automatizados con replicación externa.',
+          es: 'Identificamos sistemas y datos críticos y configuramos copias de seguridad automatizadas con replicación externa.',
         },
       },
       {
         title: { en: '2. Validate restores', es: '2. Validar restauraciones' },
         body: {
           en: 'Test recovery so backup jobs are proven, not assumed. Fix gaps before an incident.',
-          es: 'Probamos la recuperación para que los trabajos de respaldo estén demostrados, no supuestos. Corregimos huecos antes de un incidente.',
+          es: 'Probamos la recuperación para que los trabajos de respaldo estén demostrados, no supuestos. Corregimos vacíos antes de un incidente.',
         },
       },
       {
         title: { en: '3. Monitor & refine', es: '3. Monitorear y afinar' },
         body: {
           en: 'Watch backup health and adjust retention or scope as your environment changes.',
-          es: 'Vigilamos la salud de los respaldos y ajustamos retención o alcance cuando cambia el entorno.',
+          es: 'Vigilamos la salud de las copias de seguridad y ajustamos retención o alcance cuando cambia el entorno.',
         },
       },
     ],
@@ -453,7 +453,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       {
         question: {
           en: 'Do you only configure backups, or also test them?',
-          es: '¿Solo configuran respaldos o también los prueban?',
+          es: '¿Solo configuran copias de seguridad o también las prueban?',
         },
         answer: {
           en: 'We include recovery validation so restores are tested, not just scheduled.',
@@ -467,7 +467,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'Yes. Data protection includes automated backups, off-site replication, and recovery validation.',
-          es: 'Sí. La protección de datos incluye respaldos automatizados, replicación externa y validación de recuperación.',
+          es: 'Sí. La protección de datos incluye copias de seguridad automatizadas, replicación externa y validación de recuperación.',
         },
       },
       {
