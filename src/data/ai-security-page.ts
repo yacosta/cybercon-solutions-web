@@ -346,7 +346,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       },
       {
         id: 'mdr',
-        name: { en: 'Agentic MDR', es: 'MDR agentico' },
+        name: { en: 'Agentic MDR', es: 'MDR agéntico' },
         summary: {
           en: 'Correlate signals, prioritize, and respond — with humans in the loop.',
           es: 'Correlacionar señales, priorizar y responder — con humanos en el circuito.',

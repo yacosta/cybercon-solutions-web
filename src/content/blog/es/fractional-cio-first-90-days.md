@@ -14,13 +14,13 @@ Los tickets se acumulan. Las renovaciones se cuelan en el calendario. Llega una 
 
 Ese es el trabajo. No “transformar” nada en la primera semana. No reescribir el stack tecnológico por deporte. El trabajo en los primeros 90 días es más callado y más útil: averiguar qué está realmente roto, qué solo es molesto y qué le va a doler a la empresa si nadie lo toca este trimestre.
 
-Esta es la agenda que usamos cuando Cybercon entra en un engagement de CIO virtual (vCIO). Viene de más de 25 años de trabajo como CIO, CTO y CIO/CISO en salud, educación y operaciones orientadas a la misión — lugares donde una mala decisión tecnológica no solo desperdicia dinero. Puede poner en riesgo datos de pacientes, registros de estudiantes o la confianza de los donantes. La secuencia de abajo es lo que pondríamos en un pizarrón con un dueño, un CFO y quienquiera que “posea TI” sobre el papel.
+Esta es la agenda que usamos cuando Cybercon entra en un proyecto de CIO virtual (vCIO). Viene de más de 25 años de trabajo como CIO, CTO y CIO/CISO en salud, educación y operaciones orientadas a la misión — lugares donde una mala decisión tecnológica no solo desperdicia dinero. Puede poner en riesgo datos de pacientes, registros de estudiantes o la confianza de los donantes. La secuencia de abajo es lo que pondríamos en un pizarrón con un dueño, un CFO y quienquiera que “posea TI” sobre el papel.
 
 Sin un deck de evaluación de 80 diapositivas que muere en un drive compartido. Noventa días. Fases claras. Entregables que una junta pueda entender.
 
 ## Por qué los primeros 90 días importan más que el título
 
-El trabajo de CIO fraccionario falla de formas predecibles. A veces el engagement se vende como estrategia y de inmediato colapsa en triage de helpdesk. A veces es lo contrario: roadmaps hermosos, cero tracción operativa y un equipo de liderazgo que todavía no puede decir si las reglas del firewall tienen sentido. A veces todos esperan el output de un CIO de tiempo completo a una fracción de las horas, y luego se frustran cuando los milagros no llegan los martes.
+El trabajo de CIO fraccionario falla de formas predecibles. A veces el proyecto se vende como estrategia y de inmediato colapsa en triage de mesa de ayuda. A veces es lo contrario: roadmaps hermosos, cero tracción operativa y un equipo de liderazgo que todavía no puede decir si las reglas del firewall tienen sentido. A veces todos esperan el output de un CIO de tiempo completo a una fracción de las horas, y luego se frustran cuando los milagros no llegan los martes.
 
 Unos primeros 90 días limpios previenen los tres. Fijan el contrato de trabajo: crear claridad para decidir, reducir riesgo no gestionado y dejar atrás un ritmo operativo que el negocio pueda mantener. Todo lo demás es secundario hasta que existan esos tres.
 
@@ -48,7 +48,7 @@ Para el día 30, el liderazgo debería tener un brief en lenguaje claro: qué fu
 
 ## Días 31–60: Convierte hallazgos en un plan financiable
 
-El mes dos es donde muchos engagements se vuelven vagos. No dejes que pase.
+El mes dos es donde muchos proyectos se vuelven vagos. No dejes que pase.
 
 Esta es temporada de roadmap y presupuesto — secuenciada, con opinión y dimensionada para que finanzas pueda discutirla. No una wish list de cada herramienta moderna del mercado. Un conjunto corto de iniciativas ordenadas por riesgo, costo de demora y payoff de negocio.
 
@@ -110,7 +110,7 @@ Si la IA o la automatización ya están en juego — y en la mayoría de las org
 
 ## Cómo se ve lo “bueno” el día 90
 
-En un engagement fuerte, el día 90 no se siente como un discurso de graduación. Se siente como que la empresa por fin puede tomar decisiones de tecnología a propósito.
+En un proyecto fuerte, el día 90 no se siente como un discurso de graduación. Se siente como que la empresa por fin puede tomar decisiones de tecnología a propósito.
 
 El liderazgo puede nombrar los sistemas que no deben fallar. Finanzas tiene un calendario de renovaciones en lugar de facturas sorpresa. Alguien ha demostrado que los backups restauran, no solo que corren. Hay un plan escrito para los próximos dos a cuatro trimestres con costos y secuencia. Hay un ritmo de reuniones acordado. Hay una mejora completada a la que la gente puede señalar sin entrecerrar los ojos.
 

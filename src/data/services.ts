@@ -76,7 +76,7 @@ export const services: Service[] = [
       },
       {
         en: 'Unified Workspace Security: identity, email, endpoints, awareness, and agentic MDR.',
-        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concientización y MDR agentico.',
+        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concientización y MDR agéntico.',
       },
     ],
   },

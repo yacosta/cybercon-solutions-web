@@ -178,7 +178,7 @@ Así que empieza ahí. Demuestra identidad. Prefiere dispositivos sanos. Reduce 
 
 Eso es Zero Trust sin jerga: un despliegue de mercado medio que puedes financiar por fases, operar con un equipo pequeño o un proveedor de confianza y explicar al liderazgo en una página.
 
-Si quieres ayuda para convertir esto en un plan secuenciado para tu stack tecnológico — identidad, endpoints, monitoreo y mapeo de cumplimiento sin la hinchazón empresarial — ese es el trabajo que Cybercon Solutions hace en engagements de ciberseguridad y liderazgo de TI: primero revisión de riesgos y controles, luego proteger, monitorear y ajustar lo que de verdad importa.
+Si quieres ayuda para convertir esto en un plan secuenciado para tu stack tecnológico — identidad, endpoints, monitoreo y mapeo de cumplimiento sin la hinchazón empresarial — ese es el trabajo que Cybercon Solutions hace en proyectos de ciberseguridad y liderazgo de TI: primero revisión de riesgos y controles, luego proteger, monitorear y ajustar lo que de verdad importa.
 
 ## Fuentes
 

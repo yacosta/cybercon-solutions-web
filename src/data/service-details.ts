@@ -420,7 +420,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Organizations that cannot afford prolonged downtime or silent backup failures. Fits South Florida offices that need proven recovery, not just a backup checkbox. If you are unsure whether last night’s backup would restore payroll or patient files today, that uncertainty is the problem we solve.',
-      es: 'Organizaciones que no pueden permitirse caídas largas o respaldos que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo una casilla de backup. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
+      es: 'Organizaciones que no pueden permitirse caídas largas o respaldos que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo una casilla de respaldo. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
     },
     overview: {
       en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed.\n\nDisaster recovery planning focuses on clear recovery points and realistic timelines. When something fails, the goal is a controlled restore, not improvisation under pressure.',
@@ -651,11 +651,11 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       {
         question: {
           en: 'How long does an AI roadmap engagement take?',
-          es: '¿Cuánto dura un engagement de hoja de ruta de IA?',
+          es: '¿Cuánto dura un proyecto de hoja de ruta de IA?',
         },
         answer: {
           en: 'Most readiness and roadmap work fits in a short engagement measured in weeks, not months, so leadership can decide quickly whether to fund pilots.',
-          es: 'La mayor parte del trabajo de preparación y hoja de ruta cabe en un engagement corto medido en semanas, no meses, para que la dirección decida rápido si financiar pilotos.',
+          es: 'La mayor parte del trabajo de preparación y hoja de ruta cabe en un proyecto corto medido en semanas, no meses, para que la dirección decida rápido si financiar pilotos.',
         },
       },
     ],
@@ -676,7 +676,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We connect AI tools to your ERP, CRM, and existing stack, then automate repetitive work with monitoring and ongoing tuning. Integration focuses on reliable handoffs between systems, clear failure modes, and human review where it matters.\n\nProjects stay scoped. We prefer durable automations your staff can trust over fragile demos. Delivery supports Cooper City, Davie, and greater South Florida operations with remote build work and onsite coordination when needed.',
-      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack tecnológico actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en handoffs fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demos frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación en sitio cuando hace falta.',
+      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack tecnológico actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en traspasos fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demostraciones frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación en sitio cuando hace falta.',
     },
     process: [
       {
@@ -760,7 +760,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We implement chatbots and AI voice systems that answer routine questions and escalate exceptions to people. The design goal is fewer repetitive tickets, faster answers for common issues, and clearer handoffs when a human should take over.\n\nContent and escalation rules stay under your control. We serve Cooper City, Davie, and greater South Florida organizations that need conversational AI aligned with real support workflows.',
-      es: 'Implementamos chatbots y sistemas de voz con IA que responden lo rutinario y escalan excepciones a personas. El objetivo es menos tickets repetitivos, respuestas más rápidas a lo común y handoffs claros cuando debe intervenir un humano.\n\nEl contenido y las reglas de escalado siguen bajo tu control. Atendemos organizaciones de Cooper City, Davie y el sur de Florida que necesitan IA conversacional alineada con flujos de soporte reales.',
+      es: 'Implementamos chatbots y sistemas de voz con IA que responden lo rutinario y escalan excepciones a personas. El objetivo es menos tickets repetitivos, respuestas más rápidas a lo común y traspasos claros cuando debe intervenir un humano.\n\nEl contenido y las reglas de escalado siguen bajo tu control. Atendemos organizaciones de Cooper City, Davie y el sur de Florida que necesitan IA conversacional alineada con flujos de soporte reales.',
     },
     process: [
       {
