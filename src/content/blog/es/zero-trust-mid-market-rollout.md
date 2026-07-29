@@ -37,7 +37,7 @@ Fíjate en lo que no está en la lista: un requisito de sacar Active Directory e
 
 Aparecen dos modos de fallo constantemente.
 
-**Modo de fallo uno: teatro.** El liderazgo compra una "suite Zero Trust", enciende un subconjunto de funciones, nunca limpia identidad y declara victoria en un deck. Seis meses después, las cuentas de servicio todavía tienen derechos permanentes de Domain Admin, los teléfonos personales siguen sincronizando correo corporativo sin controles y nadie ha probado qué pasa cuando una cuenta cae en phishing.
+**Modo de fallo uno: programas de checkbox.** El liderazgo compra una "suite Zero Trust", enciende un subconjunto de funciones, nunca limpia identidad y declara victoria en un deck. Seis meses después, las cuentas de servicio todavía tienen derechos permanentes de Domain Admin, los teléfonos personales siguen sincronizando correo corporativo sin controles y nadie ha probado qué pasa cuando una cuenta cae en phishing.
 
 **Modo de fallo dos: parálisis.** El equipo lee un framework empresarial, ve cien controles y decide que no puede empezar hasta que existan presupuesto, headcount y un inventario perfecto de activos. Mientras tanto, el acceso remoto todavía acepta inicios de sesión solo con contraseña.
 
@@ -168,7 +168,7 @@ Cinco métricas honestas superan a un gráfico arcoíris de madurez.
 
 Zero Trust falla cuando el liderazgo pide excepciones más rápido de lo que TI puede otorgar acceso seguro. Si cada ruta VIP ejecutiva se salta MFA, no tienes Zero Trust. Tienes un código de vestimenta con entrada privada.
 
-Alguien tiene que decir no con una razón de negocio, ofrecer una alternativa más segura y llevar la cuenta cuando las excepciones se acumulan — a menudo un CIO, CISO o vCIO fraccionario. La seguridad que solo aplica a todos los demás es teatro con mejor iluminación. Capacita a las personas en el mismo lenguaje claro: "Verificamos inicios de sesión y limitamos acceso para que una contraseña robada no se convierta en una caída de la empresa" supera cualquier lunch-and-learn titulado *Adoptando el paradigma Zero Trust.*
+Alguien tiene que decir no con una razón de negocio, ofrecer una alternativa más segura y llevar la cuenta cuando las excepciones se acumulan — a menudo un CIO, CISO o vCIO fraccionario. La seguridad que solo aplica a todos los demás es política en el papel. Capacita a las personas en el mismo lenguaje claro: "Verificamos inicios de sesión y limitamos acceso para que una contraseña robada no se convierta en una caída de la empresa" supera cualquier lunch-and-learn titulado *Adoptando el paradigma Zero Trust.*
 
 ## Empieza donde los atacantes ya empiezan
 

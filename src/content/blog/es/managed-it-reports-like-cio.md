@@ -13,7 +13,7 @@ La mayoría de los reportes de TI administrada están escritos para el proveedor
 
 Conoces el tipo. Llega un PDF el día antes de la llamada trimestral. La primera página es un logo. La segunda es un gráfico circular de categorías de tickets. La tercera celebra que el 94% de los tickets cumplió el SLA — sin explicar si esos tickets importaban, si las mismas cinco personas abrieron la mitad o si la outage que dejó a contabilidad fuera de línea toda una mañana siquiera aparece en los números. Todos asienten. Nadie cambia una línea del presupuesto. Tres meses después, ocurre la misma reunión con otro tono de azul en el gráfico.
 
-Eso es reporte como teatro.
+Eso es reporte como actuación, no como gestión.
 
 La TI administrada que reporta como un CIO hace algo distinto. Trata la factura mensual como una relación de servicio que tiene que ganarse la confianza con evidencia: **niveles de servicio que calzan con cómo el negocio realmente opera, KPIs que conectan el trabajo tecnológico con riesgo y productividad, y revisiones trimestrales de negocio que fuerzan decisiones — no turismo de diapositivas.**
 
@@ -180,7 +180,7 @@ Si estás evaluando un cambio, trae tus dos últimos paquetes trimestrales a la 
 
 Cybercon Solutions opera TI administrada para negocios del Sur de Florida con help desk en vivo 24/7, monitoreo y parches proactivos, soporte onsite cuando remoto no basta y empaque predecible por usuario — y lo reportamos como lo haría un CIO: SLAs ligados al impacto de negocio, KPIs que exponen riesgo y fricción, y revisiones trimestrales que terminan en decisiones.
 
-Si esa es la relación que quieres con la tecnología — accountable, legible y felizmente libre de gráficos de vanidad inútiles — empieza con una evaluación gratuita. Un ingeniero real dará seguimiento dentro de un día hábil con una lectura en lenguaje claro de dónde estás parado.
+Si esa es la relación que quieres con la tecnología — accountable, legible y felizmente libre de gráficos de vanidad inútiles — empieza con una evaluación gratuita. Te contactaremos en un día hábil con un resumen de dónde estás.
 
 ---
 

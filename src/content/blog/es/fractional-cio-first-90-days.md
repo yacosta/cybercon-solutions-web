@@ -16,7 +16,7 @@ Ese es el trabajo. No “transformar” nada en la primera semana. No reescribir
 
 Esta es la agenda que usamos cuando Cybercon entra en un engagement de CIO virtual (vCIO). Viene de más de 25 años de trabajo como CIO, CTO y CIO/CISO en salud, educación y operaciones orientadas a la misión — lugares donde una mala decisión tecnológica no solo desperdicia dinero. Puede poner en riesgo datos de pacientes, registros de estudiantes o la confianza de los donantes. La secuencia de abajo es lo que pondríamos en un pizarrón con un dueño, un CFO y quienquiera que “posea TI” sobre el papel.
 
-Sin teatro. Sin un deck de evaluación de 80 diapositivas que muere en un drive compartido. Noventa días. Fases claras. Entregables que una junta pueda entender.
+Sin un deck de evaluación de 80 diapositivas que muere en un drive compartido. Noventa días. Fases claras. Entregables que una junta pueda entender.
 
 ## Por qué los primeros 90 días importan más que el título
 
@@ -116,7 +116,7 @@ El liderazgo puede nombrar los sistemas que no deben fallar. Finanzas tiene un c
 
 Y — esto importa más de lo que admiten los consultores — el equipo interno o el MSP está menos confundido sobre las prioridades. El trabajo de CIO fraccionario que desmoraliza a las personas más cercanas al trabajo es un fracaso, aunque las diapositivas se vean afiladas. Intégralos al mapa temprano. Da crédito a su conocimiento. Usa tu altitud para quitar obstáculos que ellos no podían escalar solos.
 
-Esa es la diferencia entre teatro de advisory y apoyo real de liderazgo.
+Esa es la diferencia entre asesoría que parece ocupada y apoyo real de liderazgo.
 
 ## Para quién es este modelo (y para quién no)
 
