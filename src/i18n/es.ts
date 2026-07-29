@@ -76,7 +76,7 @@ export const es: Messages = {
     metaDescription:
       'Evaluación gratuita para empresas del Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil.',
     cardTitle: 'Agenda una evaluación gratuita de costo y riesgo',
-    lede: 'Sin recorrido de jerga. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.',
+    lede: 'Sin rodeos. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.',
     name: 'Nombre',
     company: 'Empresa',
     email: 'Correo',
@@ -88,7 +88,7 @@ export const es: Messages = {
     siteCheckCta: 'Haz la revisión gratuita del sitio',
     thanksTitle: 'Gracias, recibimos tu solicitud.',
     thanksBody:
-      'Te contactaremos en un día hábil — sin presión de ventas, solo qué haríamos a continuación.',
+      'Listo. Te contactaremos en un día hábil — sin presión de ventas, solo el siguiente paso.',
     namePlaceholder: 'Escribe tu nombre',
     companyPlaceholder: 'Escribe tu empresa',
     emailPlaceholder: 'Escribe un correo válido',

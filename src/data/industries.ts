@@ -122,7 +122,7 @@ export const industries: Industry[] = [
     },
     lede: {
       en: 'Billable hours do not wait on a frozen laptop. We keep confidential work protected and systems responsive so your team stays on client work.',
-      es: 'Las horas facturables no esperan a un portátil congelado. Protegemos el trabajo confidencial y mantenemos los sistemas responsivos para que el equipo se centre en el cliente.',
+      es: 'Las horas facturables no esperan a un computador congelado. Protegemos el trabajo confidencial y mantenemos los sistemas responsivos para que el equipo se centre en el cliente.',
     },
     overview: {
       en: 'Law firms and professional practices live on documents, email, and deadlines. Privilege and client trust leave little room for loose access or slow recovery. We run managed IT and security for South Florida firms that need confidentiality without friction — secure remote work, fast support, and clear ownership when something breaks mid-matter.',
@@ -136,7 +136,7 @@ export const industries: Industry[] = [
       },
       {
         en: 'Document systems that feel fragile when a laptop dies the day before a filing.',
-        es: 'Sistemas de documentos frágiles cuando un portátil muere el día antes de una presentación.',
+        es: 'Sistemas de documentos frágiles cuando un computador muere el día antes de una presentación.',
       },
       {
         en: 'Phishing aimed at wire instructions and client funds.',
@@ -393,13 +393,13 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Construction and real estate teams split time between trailers, sites, showings, and the office. Files, bids, drawings, and CRM tools have to work on cellular, Wi-Fi, and laptops that take a beating. We support South Florida builders, trades, brokers, and property teams with reliable access, endpoint protection, and support that understands dust, deadlines, and distributed crews.',
-      es: 'Los equipos de construcción e inmobiliario dividen el tiempo entre trailers, obras, visitas y la oficina. Archivos, cotizaciones, planos y CRM tienen que funcionar con celular, Wi-Fi y portátiles que sufren. Apoyamos a constructores, oficios, brokers y equipos de propiedades en el Sur de Florida con acceso fiable, protección de endpoints y soporte que entiende polvo, plazos y cuadrillas distribuidas.',
+      es: 'Los equipos de construcción e inmobiliario dividen el tiempo entre trailers, obras, visitas y la oficina. Archivos, cotizaciones, planos y CRM tienen que funcionar con celular, Wi-Fi y computadores portátiles que sufren. Apoyamos a constructores, oficios, brokers y equipos de propiedades en el Sur de Florida con acceso fiable, protección de endpoints y soporte que entiende polvo, plazos y cuadrillas distribuidas.',
     },
     challengesLabel: { en: 'Field + office friction', es: 'Fricción campo + oficina' },
     challenges: [
       {
         en: 'Project files scattered across USB drives, personal Dropbox, and someone’s truck laptop.',
-        es: 'Archivos de proyecto repartidos en USB, Dropbox personal y el portátil de la camioneta de alguien.',
+        es: 'Archivos de proyecto repartidos en USB, Dropbox personal y el computador de la camioneta de alguien.',
       },
       {
         en: 'Phishing against AP and wire payments on large draws.',
@@ -427,7 +427,7 @@ export const industries: Industry[] = [
         title: { en: 'Field-ready devices', es: 'Dispositivos listos para campo' },
         body: {
           en: 'Laptops and mobiles managed with patching, encryption, and remote wipe when a device walks off a site.',
-          es: 'Portátiles y móviles gestionados con parches, cifrado y borrado remoto cuando un dispositivo se pierde en obra.',
+          es: 'Portátiles y celulares gestionados con parches, cifrado y borrado remoto cuando un dispositivo se pierde en obra.',
         },
       },
       {

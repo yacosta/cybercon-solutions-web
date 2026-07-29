@@ -150,7 +150,7 @@ description: "Evaluación gratuita para empresas del Sur de Florida: gasto, vac�
 
 # Evaluación gratuita de costo y riesgo de TI
 
-Mira lo que realmente cuesta tu TI. Sin recorrido de jerga. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.
+Mira lo que realmente cuesta tu TI. Sin rodeos. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.
 
 Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/assessment/ (protegido con Cloudflare Turnstile). Un ingeniero de nuestro equipo responde en un día hábil. Nunca compartimos tus datos.
 
@@ -212,7 +212,7 @@ Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera
 
 ## Mira lo que realmente cuesta tu TI
 
-Sin recorrido de jerga. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto. ¿Prefieres primero un vistazo técnico rápido? Empieza con la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check y luego agenda la evaluación para el pase más profundo.
+Sin rodeos. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto. ¿Prefieres primero un vistazo técnico rápido? Empieza con la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check y luego agenda la evaluación para el pase más profundo.
 
 Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-solutions.com/es/ (protegido con Cloudflare Turnstile).
 

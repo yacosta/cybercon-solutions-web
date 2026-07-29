@@ -53,7 +53,7 @@ Un SLA útil es más estrecho y más difícil de manipular.
 
 **Publica excepciones antes de que se vuelvan discusiones.** Mantenimiento planificado, outages de SaaS de terceros, hardware propiedad del cliente fuera de soporte — escribe cómo se manejan. La ambigüedad es cómo muere la confianza después de un incidente.
 
-**Mide lo que realmente cubres con personal.** Un live phone desk 24/7 es una promesa distinta a email-only después de las 6 p.m. Si el contrato dice respuesta telefónica en vivo, el reporte debería mostrar desempeño fuera de horario, no enterrarlo dentro de un promedio combinado que se ve bien porque los tickets diurnos dominan la matemática.
+**Mide lo que realmente cubres con personal.** Una mesa de ayuda telefónica 24/7 es una promesa distinta a solo correo después de las 6 p.m. Si el contrato dice respuesta telefónica en vivo, el reporte debería mostrar desempeño fuera de horario, no enterrarlo dentro de un promedio combinado que se ve bien porque los tickets diurnos dominan la matemática.
 
 **Incluye la realidad onsite para negocios locales.** Para operadores de Cooper City, Davie y el área amplia del Sur de Florida, algunas fallas no se pueden arreglar remoto. Un SLA que ignora viajes y ventanas onsite es un documento escrito para una hoja de cálculo, no para un warehouse o el piso de una clínica.
 
@@ -93,7 +93,7 @@ Una regla más: **empareja cada métrica roja con una próxima acción.** "Falla
 
 Un QBR no es un reporte mensual más largo. Es un foro de decisión.
 
-Si tu revisión trimestral se puede enviar por email como PDF sin conversación, cancela la reunión y ahórrale a todos el impuesto de calendario. Si requiere una conversación, estructúrala para que el liderazgo salga con compromisos.
+Si tu revisión trimestral se puede enviar por correo como PDF sin conversación, cancela la reunión y ahórrale a todos el impuesto de calendario. Si requiere una conversación, estructúrala para que el liderazgo salga con compromisos.
 
 Un QBR que importa normalmente tiene cinco secciones — y rara vez necesita más.
 
