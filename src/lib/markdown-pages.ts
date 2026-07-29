@@ -206,7 +206,7 @@ description: "TI predecible por usuario para empresas del Sur de Florida — sin
 
 # Cybercon Solutions
 
-Technology, handled.
+Tecnología, resuelta.
 
 Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.
 

@@ -10,7 +10,7 @@ export function buildKnowledgePack(locale: 'en' | 'es'): string {
   if (locale === 'es') {
     return `Sobre Cybercon Solutions
 - Nombre: ${site.name} (${site.legalName})
-- Eslogan: Technology, handled.
+- Eslogan: Tecnología, resuelta.
 - Área de servicio: ${site.serviceAreaFocus}
 - Dirección postal: ${formatMailingAddress()}
 - Teléfono: ${site.phoneDisplay} (${site.phone})

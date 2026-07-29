@@ -62,7 +62,7 @@ export const es: Messages = {
   },
   hero: {
     eyebrow: 'Cooper City y Davie, Florida',
-    title: 'Technology, handled.',
+    title: 'Tecnología, resuelta.',
     lede:
       'Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.',
     status: 'Atendemos empresas del sur de Florida',
