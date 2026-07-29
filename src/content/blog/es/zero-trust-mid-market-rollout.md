@@ -37,9 +37,9 @@ Fíjate en lo que no está en la lista: un requisito de sacar Active Directory e
 
 Aparecen dos modos de fallo constantemente.
 
-**Modo de fallo uno: programas de checkbox.** El liderazgo compra una "suite Zero Trust", enciende un subconjunto de funciones, nunca limpia identidad y declara victoria en un deck. Seis meses después, las cuentas de servicio todavía tienen derechos permanentes de Domain Admin, los teléfonos personales siguen sincronizando correo corporativo sin controles y nadie ha probado qué pasa cuando una cuenta cae en phishing.
+**Modo de fallo uno: programas de mero cumplimiento.** El liderazgo compra una "suite Zero Trust", enciende un subconjunto de funciones, nunca limpia identidad y declara victoria en una presentación. Seis meses después, las cuentas de servicio todavía tienen derechos permanentes de Domain Admin, los teléfonos personales siguen sincronizando correo corporativo sin controles y nadie ha probado qué pasa cuando una cuenta cae en phishing.
 
-**Modo de fallo dos: parálisis.** El equipo lee un framework empresarial, ve cien controles y decide que no puede empezar hasta que existan presupuesto, headcount y un inventario perfecto de activos. Mientras tanto, el acceso remoto todavía acepta inicios de sesión solo con contraseña.
+**Modo de fallo dos: parálisis.** El equipo lee un framework empresarial, ve cien controles y decide que no puede empezar hasta que existan presupuesto, planta de personal y un inventario perfecto de activos. Mientras tanto, el acceso remoto todavía acepta inicios de sesión solo con contraseña.
 
 El *Cost of a Data Breach Report 2025* de IBM pone la filtración promedio en EE. UU. en 10,22 millones de dólares, con salud todavía como el sector más costoso [[1]](#sources). Puede que las empresas de mercado medio nunca vean esa cifra exacta — pero el downtime por ransomware, los cuestionarios de clientes fallidos y las exclusiones de seguros son lo bastante caros. Esperar un programa perfecto no es prudencia. Es demora con mejor papelería.
 
@@ -121,7 +121,7 @@ Visibilidad mínima útil:
 - Fallas de trabajos de respaldo y eventos de borrado inesperado
 - Acciones críticas de admin en SaaS
 
-Luego escribe un checklist corto de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a counsel o a un proveedor forense. Practícalo una vez. Los planes en papel que nunca se han tabletopeado fallan con cortesía bajo presión.
+Luego escribe un checklist corto de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a un asesor jurídico o a un proveedor forense. Practícalo una vez. Los planes en papel que nunca se han probado con un ejercicio de simulación de mesa fallan con cortesía bajo presión.
 
 Los frameworks de cumplimiento (HIPAA, SOC 2, PCI DSS, GLBA) se mapean limpiamente a esta fase si documentas qué recopilas y por qué. Auditores y ciberaseguradoras piden evidencia de control, no poesía sobre modelos de madurez Zero Trust.
 
@@ -133,7 +133,7 @@ Si quieres algo que puedas poner frente a un dueño o comité de junta el próxi
 - Lista de joyas de la corona e inventario de acceso remoto
 - Aplicación de MFA en correo, VPN/ZTNA y portales admin
 - Separación de cuentas privilegiadas para TI
-- Prueba del checklist de offboarding en la próxima salida (o un tabletop si no hay ninguna)
+- Prueba del checklist de offboarding en la próxima salida (o un simulacro de escritorio si no hay ninguna)
 
 **Días 31–60**
 - Vacíos de cobertura EDR cerrados en dispositivos administrados
@@ -151,7 +151,7 @@ Eso es un despliegue. No un slogan.
 
 ## Qué deberías negarte a comprar (por ahora)
 
-Sé escéptico de cualquier cosa que te exija "completar tu journey de Zero Trust" antes de producir un control. Prefiere compras que cierren un vacío nombrado: MFA resistente al phishing para admins, EDR donde solo tienes antivirus básico, detección administrada si nadie mira logs durante la noche, ZTNA para una VPN frágil que otorga toda la red.
+Sé escéptico de cualquier cosa que te exija "completar tu recorrido de Zero Trust" antes de producir un control. Prefiere compras que cierren un vacío nombrado: MFA resistente al phishing para admins, EDR donde solo tienes antivirus básico, detección administrada si nadie mira logs durante la noche, ZTNA para una VPN frágil que otorga toda la red.
 
 También rechaza métricas de vanidad. "Porcentaje de Zero Trust adoptado" no significa nada si todavía existe administración remota solo con contraseña. Mide:
 

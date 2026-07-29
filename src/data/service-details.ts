@@ -171,7 +171,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'No. We design controls for growing South Florida organizations that need strong security without an enterprise-sized program or headcount.',
-          es: 'No. Diseñamos controles para organizaciones en crecimiento del sur de Florida que necesitan seguridad sólida sin un programa ni una plantilla de tamaño empresarial.',
+          es: 'No. Diseñamos controles para organizaciones en crecimiento del sur de Florida que necesitan seguridad sólida sin un programa ni una planta de personal de tamaño empresarial.',
         },
       },
       {
@@ -420,7 +420,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Organizations that cannot afford prolonged downtime or silent backup failures. Fits South Florida offices that need proven recovery, not just a backup checkbox. If you are unsure whether last night’s backup would restore payroll or patient files today, that uncertainty is the problem we solve.',
-      es: 'Organizaciones que no pueden permitirse caídas largas o copias de seguridad que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo una casilla de respaldo. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
+      es: 'Organizaciones que no pueden permitirse caídas largas o copias de seguridad que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo un ejercicio de mero cumplimiento. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
     },
     overview: {
       en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed.\n\nDisaster recovery planning focuses on clear recovery points and realistic timelines. When something fails, the goal is a controlled restore, not improvisation under pressure.',
@@ -756,7 +756,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Support and front-office teams buried in repetitive questions. Fits South Florida businesses that want chat or voice AI without abandoning human help for hard cases. Especially helpful when call volume or chat volume is growing faster than headcount. When volume spikes seasonally, conversational AI absorbs the predictable layer so your South Florida staff is not drowning in the same ten questions. Clear ownership of answers and escalations keeps the experience consistent across seasons.',
-      es: 'Equipos de soporte y recepción saturados de preguntas repetitivas. Encaja en empresas del sur de Florida que quieren chat o voz con IA sin abandonar la ayuda humana en casos difíciles. Especialmente útil cuando el volumen de llamadas o chat crece más rápido que la plantilla. Cuando el volumen sube por temporada, la IA conversacional absorbe la capa predecible para que tu personal del sur de Florida no se ahogue con las mismas diez preguntas. Una propiedad clara de respuestas y escalados mantiene la experiencia consistente entre temporadas.',
+      es: 'Equipos de soporte y recepción saturados de preguntas repetitivas. Encaja en empresas del sur de Florida que quieren chat o voz con IA sin abandonar la ayuda humana en casos difíciles. Especialmente útil cuando el volumen de llamadas o chat crece más rápido que la planta de personal. Cuando el volumen sube por temporada, la IA conversacional absorbe la capa predecible para que tu personal del sur de Florida no se ahogue con las mismas diez preguntas. Una propiedad clara de respuestas y escalados mantiene la experiencia consistente entre temporadas.',
     },
     overview: {
       en: 'We implement chatbots and AI voice systems that answer routine questions and escalate exceptions to people. The design goal is fewer repetitive tickets, faster answers for common issues, and clearer handoffs when a human should take over.\n\nContent and escalation rules stay under your control. We serve Cooper City, Davie, and greater South Florida organizations that need conversational AI aligned with real support workflows.',

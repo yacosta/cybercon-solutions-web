@@ -329,7 +329,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         detail: {
           en: 'People adopt tools that make work faster. We teach what is safe to share with AI, how to report shadow AI, and how deepfake or prompt-injection tricks show up in day-to-day roles.',
-          es: 'La gente adopta lo que acelera el trabajo. Enseñamos qué es seguro compartir con IA, cómo reportar IA en la sombra y cómo aparecen deepfakes o inyecciones de prompts en el día a día.',
+          es: 'La gente adopta lo que acelera el trabajo. Enseñamos qué es seguro compartir con IA, cómo reportar el uso no autorizado de herramientas de IA ("IA en la sombra") y cómo aparecen deepfakes o inyecciones de *prompts* en el día a día.',
         },
       },
       {
@@ -442,7 +442,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         id: 'shadow',
         prompt: {
           en: 'How visible is “shadow AI” (personal ChatGPT, browser extensions, unapproved copilots) in your organization?',
-          es: '¿Qué tan visible es la “IA en la sombra” (ChatGPT personal, extensiones, copilots no aprobados) en tu organización?',
+          es: '¿Qué tan visible es el uso no autorizado de herramientas de IA — “IA en la sombra” (ChatGPT personal, extensiones, copilots no aprobados) — en tu organización?',
         },
         options: [
           { id: 'tracked', label: { en: 'We inventory and review AI tools', es: 'Inventariamos y revisamos herramientas de IA' }, score: 2 },

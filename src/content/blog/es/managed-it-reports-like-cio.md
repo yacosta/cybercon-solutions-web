@@ -37,7 +37,7 @@ El reporting estilo CIO se organiza alrededor de outcomes que el dueño o la jun
 - ¿El gasto es predecible, y está alineado al riesgo?
 - ¿Qué decisiones necesitamos del liderazgo este trimestre?
 
-Si tu MSP no puede responder eso sin abrir cinco portales, no tienes un proveedor tecnológico. Tienes una tienda break/fix con retainer.
+Si tu MSP no puede responder eso sin abrir cinco portales, no tienes un proveedor tecnológico. Tienes una tienda break/fix con un contrato de honorarios mensuales por disponibilidad.
 
 ## SLAs que significan algo (y los que no)
 
@@ -47,7 +47,7 @@ Un SLA débil suena impresionante y mide lo incorrecto: "Respondemos a todos los
 
 Un SLA útil es más estrecho y más difícil de manipular.
 
-**Define prioridades en lenguaje de negocio.** Prioridad 1 no es "el usuario seleccionó urgente." Es: no puede correr nómina, la clínica no puede acceder a registros, los scanners del warehouse están caídos, el correo está fuera de línea para todos, un incidente de seguridad está activo. Prioridad 3 es el mapeo de impresora de un solo usuario. Si tu modelo de prioridad no coincide con ingresos y seguridad, reescríbelo antes de discutir minutos.
+**Define prioridades en lenguaje de negocio.** Prioridad 1 no es "el usuario seleccionó urgente." Es: no puede correr nómina, la clínica no puede acceder a registros, los escáneres de la bodega están caídos, el correo está fuera de línea para todos, un incidente de seguridad está activo. Prioridad 3 es el mapeo de impresora de un solo usuario. Si tu modelo de prioridad no coincide con ingresos y seguridad, reescríbelo antes de discutir minutos.
 
 **Separa respuesta de restauración.** El tiempo de respuesta importa. El tiempo de restauración importa más para los incidentes que detienen el trabajo. Reporta ambos. No celebres ninguno si la "restauración" fue un workaround temporal que todavía necesita un arreglo real.
 
@@ -55,7 +55,7 @@ Un SLA útil es más estrecho y más difícil de manipular.
 
 **Mide lo que realmente cubres con personal.** Una mesa de ayuda telefónica 24/7 es una promesa distinta a solo correo después de las 6 p.m. Si el contrato dice respuesta telefónica en vivo, el reporte debería mostrar desempeño fuera de horario, no enterrarlo dentro de un promedio combinado que se ve bien porque los tickets diurnos dominan la matemática.
 
-**Incluye la realidad onsite para negocios locales.** Para operadores de Cooper City, Davie y el área amplia del Sur de Florida, algunas fallas no se pueden arreglar remoto. Un SLA que ignora viajes y ventanas onsite es un documento escrito para una hoja de cálculo, no para un warehouse o el piso de una clínica.
+**Incluye la realidad onsite para negocios locales.** Para operadores de Cooper City, Davie y el área amplia del Sur de Florida, algunas fallas no se pueden arreglar remoto. Un SLA que ignora viajes y ventanas onsite es un documento escrito para una hoja de cálculo, no para una bodega o el piso de una clínica.
 
 Los buenos SLAs son incómodos de escribir porque crean accountability. Esa incomodidad es el punto.
 
@@ -82,10 +82,10 @@ Mantén el set de KPIs lo bastante pequeño para que un operador ocupado todaví
 
 ### Claridad comercial
 - **Usuarios/dispositivos bajo administración** versus facturados
-- **Proyectos fuera del retainer** completados o en cola
+- **Proyectos fuera del contrato de asesoría permanente** completados o en cola
 - **Renovaciones dentro de 90–180 días** que necesitan una decisión de negocio
 
-Fíjate en lo que falta: gráficos de vanidad sobre puntajes promedio de satisfacción con cinco respuestas, o "utilización de técnicos" que existe para justificar headcount internamente. Esos pueden ser herramientas operativas. No son KPIs de CIO.
+Fíjate en lo que falta: gráficos de vanidad sobre puntajes promedio de satisfacción con cinco respuestas, o "utilización de técnicos" que existe para justificar la planta de personal internamente. Esos pueden ser herramientas operativas. No son KPIs de CIO.
 
 Una regla más: **empareja cada métrica roja con una próxima acción.** "Fallas de respaldo al 12%" sin "esta semana estamos reemplazando el agente que falla en el servidor de contabilidad, dueño: ___" es solo entrega de ansiedad.
 
@@ -123,7 +123,7 @@ Ya sea que trabajes con Cybercon o evalúes a otro proveedor, usa esto como filt
 
 **Pregunta qué *no* está en el acuerdo administrado.** Proyectos, onsite fuera de horario, monitoreo avanzado de seguridad, desarrollo de aplicaciones — la ambigüedad aquí se convierte en fricción de facturas después. El empaque predecible por usuario ayuda, pero solo si los límites de alcance son explícitos.
 
-**Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es busywork caro. Los proveedores estilo CIO rastrean temas y los eliminan.
+**Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es trabajo de relleno caro. Los proveedores estilo CIO rastrean temas y los eliminan.
 
 **Pide evidencia de pruebas de restore, no checks verdes de trabajos de respaldo.** Las copias de seguridad que nunca se han restaurado son una historia que te cuentas a ti mismo.
 
@@ -174,7 +174,7 @@ Eso es TI administrada como función operativa. No una fábrica de tickets con l
 
 ## Empieza con el reporte que quisieras haber tenido el trimestre pasado
 
-Si el reporting de tu proveedor actual no puede sostener una conversación estilo junta, no esperes al aniversario del contrato para levantar el tema. Pide un one-pager mensual rediseñado y una agenda de QBR con espacios de decisión. Observa si la conversación se vuelve más afilada en un ciclo.
+Si el reporting de tu proveedor actual no puede sostener una conversación estilo junta, no esperes al aniversario del contrato para levantar el tema. Pide un resumen ejecutivo mensual de una página, rediseñado, y una agenda de QBR con espacios de decisión. Observa si la conversación se vuelve más afilada en un ciclo.
 
 Si estás evaluando un cambio, trae tus dos últimos paquetes trimestrales a la evaluación y pide al nuevo equipo que muestre cómo los reescribiría. La respuesta te dice más que una matriz de funciones.
 

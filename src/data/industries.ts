@@ -304,7 +304,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Education and nonprofit teams in Cooper City and Davie often stretch a small staff across fundraising, programs, and “also IT.” Budgets are real constraints. We provide managed IT and cybersecurity with clear per-user pricing, sensible security defaults, and patient support — so volunteers and staff can stay on the mission instead of chasing printers and phishing emails.',
-      es: 'Los equipos educativos y sin fines de lucro en Cooper City y Davie suelen estirar un personal pequeño entre recaudación, programas y “también TI”. Los presupuestos son reales. Ofrecemos TI administrada y ciberseguridad con precio claro por usuario, seguridad sensata y soporte paciente — para que voluntarios y personal se queden en la misión en vez de perseguir impresoras y phishing.',
+      es: 'Los equipos educativos y sin fines de lucro en Cooper City y Davie suelen estirar un personal pequeño entre recaudación, programas y “también TI”. Los presupuestos son reales. Ofrecemos TI administrada y ciberseguridad con precio claro por usuario, configuración de seguridad sensata por defecto y soporte paciente — para que voluntarios y personal se queden en la misión en vez de perseguir impresoras y phishing.',
     },
     challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Vacíos comunes en escuelas y nonprofit' },
     challenges: [
@@ -466,7 +466,7 @@ export const industries: Industry[] = [
     title: { en: 'Distribution, retail & manufacturing', es: 'Distribución, retail y manufactura' },
     summary: {
       en: 'Uptime for warehouses, storefronts, and light industrial ops in Davie and nearby — inventory, connectivity, and recovery that work.',
-      es: 'Disponibilidad para almacenes, tiendas e industria ligera en Davie y alrededores: inventario, conectividad y recuperación que funcionan.',
+      es: 'Disponibilidad para bodegas, tiendas e industria ligera en Davie y alrededores: inventario, conectividad y recuperación que funcionan.',
     },
     metaTitle: {
       en: 'IT for Distribution, Retail & Manufacturing | Cybercon',
@@ -474,7 +474,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT for South Florida warehouses, retailers, and light manufacturing — uptime, inventory systems, and recovery that keep product moving.',
-      es: 'TI administrada para almacenes, retail e industria ligera en el Sur de Florida — disponibilidad, sistemas de inventario y recuperación que mantienen el producto en movimiento.',
+      es: 'TI administrada para bodegas, retail e industria ligera en el Sur de Florida — disponibilidad, sistemas de inventario y recuperación que mantienen el producto en movimiento.',
     },
     lede: {
       en: 'When scanners, POS, or the ERP stop, the floor stops. We keep distribution and retail technology running so product keeps moving.',
@@ -482,7 +482,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Davie and greater South Florida host warehouses, light manufacturing, and retail operations that live on scanners, POS, ERP, and internet links. Minutes of downtime show up in labor and lost sales. Cybercon provides proactive managed IT, network reliability, and recovery planning for operators who need the floor online — not a lecture about the cloud.',
-      es: 'Davie y el Sur de Florida albergan almacenes, industria ligera y retail que viven de escáneres, POS, ERP y enlaces de internet. Minutos de caída se ven en mano de obra y ventas perdidas. Cybercon ofrece TI administrada proactiva, fiabilidad de red y planificación de recuperación para operadores que necesitan el piso en línea — no una charla sobre la nube.',
+      es: 'Davie y el Sur de Florida albergan bodegas, industria ligera y retail que viven de escáneres, POS, ERP y enlaces de internet. Minutos de caída se ven en mano de obra y ventas perdidas. Cybercon ofrece TI administrada proactiva, fiabilidad de red y planificación de recuperación para operadores que necesitan el piso en línea — no una charla sobre la nube.',
     },
     challengesLabel: { en: 'What stops the floor', es: 'Lo que detiene el piso' },
     challenges: [
@@ -496,7 +496,7 @@ export const industries: Industry[] = [
       },
       {
         en: 'Shift changes that create shared-login chaos and audit gaps.',
-        es: 'Cambios de turno que crean caos de logins compartidos y huecos de auditoría.',
+        es: 'Cambios de turno que crean caos de logins compartidos y vacíos de auditoría.',
       },
       {
         en: 'Ransomware risk against operations that cannot afford a multi-day rebuild.',
@@ -516,7 +516,7 @@ export const industries: Industry[] = [
         title: { en: 'Network resilience', es: 'Resiliencia de red' },
         body: {
           en: 'Circuit design, failover options, and vendor coordination so a single ISP outage does not close the warehouse.',
-          es: 'Diseño de circuitos, opciones de failover y coordinación de proveedores para que una caída de ISP no cierre el almacén.',
+          es: 'Diseño de circuitos, opciones de failover y coordinación de proveedores para que una caída de ISP no cierre la bodega.',
         },
       },
       {

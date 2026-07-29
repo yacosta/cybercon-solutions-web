@@ -16,7 +16,7 @@ Ese es el trabajo. No “transformar” nada en la primera semana. No reescribir
 
 Esta es la agenda que usamos cuando Cybercon entra en un proyecto de CIO virtual (vCIO). Viene de más de 25 años de trabajo como CIO, CTO y CIO/CISO en salud, educación y operaciones orientadas a la misión — lugares donde una mala decisión tecnológica no solo desperdicia dinero. Puede poner en riesgo datos de pacientes, registros de estudiantes o la confianza de los donantes. La secuencia de abajo es lo que pondríamos en un pizarrón con un dueño, un CFO y quienquiera que “posea TI” sobre el papel.
 
-Sin un deck de evaluación de 80 diapositivas que muere en un drive compartido. Noventa días. Fases claras. Entregables que una junta pueda entender.
+Sin una presentación de evaluación de 80 diapositivas que muere en un drive compartido. Noventa días. Fases claras. Entregables que una junta pueda entender.
 
 ## Por qué los primeros 90 días importan más que el título
 
@@ -86,7 +86,7 @@ Los mejores resultados a 90 días se ven casi poco espectaculares desde fuera: m
 
 Una lista corta de trampas en las que nos negamos a caer — y te recomendamos negarte también.
 
-**No reemplaces el stack tecnológico porque no está de moda.** Los sistemas legacy pueden ser feos y aun así servir al propósito. Reemplázalos cuando el riesgo, el costo o la capacidad fuerzan el tema — no cuando un keynote de conferencia inquietó a alguien.
+**No reemplaces el stack tecnológico porque no está de moda.** Los sistemas heredados pueden ser feos y aun así servir al propósito. Reemplázalos cuando el riesgo, el costo o la capacidad fuerzan el tema — no cuando una conferencia magistral inquietó a alguien.
 
 **No confundas presencia con progreso.** Asistir a cada reunión no es una estrategia. Protege horas de trabajo profundo para el mapa, el modelo de presupuesto y la victoria que tiene que llegar.
 

@@ -52,6 +52,23 @@ When writing or editing homepage, service, industry, assessment/contact, chat, o
    - Security: active threat → **incidente de seguridad**; gaps → **vacío(s)** (never `brecha` for gaps); HIBP/data leak → **filtración**.
    - `backup` (data files / IT): **copia de seguridad** (standard professional); **respaldo** as corporate shorthand (e.g. *hacer un respaldo*, *trabajos de respaldo*). Never leave English *backup* in ES.
    - `backup` (business / ops): contingency plan → **plan de contingencia**; secondary vendor → **proveedor de respaldo**; standby hardware/generators → **sistema de reserva** / **sistema alterno**. Do not use data-backup wording for staffing (“needs backup” → **refuerzo**) or “SOC-backed” (**con soporte del SOC**, not *con respaldo SOC*).
+   - `headcount` → **planta de personal** / **número de colaboradores**; budget contexts → **aprobación de planta** / **cupos de contratación**.
+   - `prompting` → **diseño de prompts** / **formulación de instrucciones (*prompts*)**; formal docs → **redacción de instrucciones para modelos de IA**. Italicize or quote *prompt* on first use.
+   - `defaults` → **valores predeterminados** / **configuración por defecto**.
+   - `deck` → **presentación** (de diapositivas); not calqued *deck*.
+   - `checkbox` (UI) → **casilla de verificación**; figurative “checkbox exercise” → **ejercicio de mero cumplimiento** / **cumplir por cumplir**.
+   - `P&L` → **estado de resultados** or Colombian corporate **P&G** (pérdidas y ganancias); “own the P&L” → **tener la responsabilidad del P&G**.
+   - `shadow AI` → **IA en la sombra**; in risk reports prefer the explanatory form: **uso no autorizado de herramientas de IA por fuera del control de TI**.
+   - `moonshot` → **apuesta ambiciosa** / **iniciativa de alto riesgo y alto impacto**.
+   - `legacy` (tech) → **sistemas heredados** (also *infraestructura legada*); reputation → **legado**.
+   - `keynote` → **conferencia magistral** / **ponencia principal**.
+   - `retainer` → **anticipo de honorarios** / **contrato de honorarios mensuales por disponibilidad**; ongoing advisory → **contrato de asesoría permanente**.
+   - `busywork` → **trabajo de relleno** / **tareas operativas sin valor agregado**.
+   - `one-pager` → **resumen ejecutivo de una página** / **documento de una página**.
+   - `warehouse` → **bodega** (prefer over *almacén* in Co); data warehouse → **bodega de datos**.
+   - `journey` / customer journey → **recorrido** / **recorrido del cliente** (prefer over *viaje del cliente*).
+   - `counsel` → **asesor jurídico** / **abogado asesor**; General Counsel → **director jurídico** / **vicepresidente jurídico**.
+   - `tabletop` / *tabletopeado* → **ejercicio de simulación de mesa** / **simulacro de escritorio** (never the Spanglish verb).
    - Keep EN + ES in sync when strings change.
 
 ## Color contrast (brand coral)
