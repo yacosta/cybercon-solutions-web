@@ -481,7 +481,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
           es: 'Si mañana un empleado filtrara datos sensibles a una herramienta de IA pública, ¿tienes un plan de respuesta?',
         },
         options: [
-          { id: 'ready', label: { en: 'Yes — playbook and owners defined', es: 'Sí — playbook y responsables definidos' }, score: 2 },
+          { id: 'ready', label: { en: 'Yes — playbook and owners defined', es: 'Sí — libro de tácticas y responsables definidos' }, score: 2 },
           { id: 'partial', label: { en: 'We would improvise from general IR', es: 'Improvisaríamos desde IR general' }, score: 1 },
           { id: 'none', label: { en: 'No AI-specific plan', es: 'Sin plan específico para IA' }, score: 0 },
         ],
@@ -580,7 +580,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         answer: {
           en: 'No. Growing South Florida businesses often face more risk because AI tools are adopted informally — without governance, inventory, or incident playbooks.',
-          es: 'No. Las empresas en crecimiento del sur de Florida suelen enfrentar más riesgo porque las herramientas de IA se adoptan de forma informal — sin gobernanza, inventario ni playbooks de incidentes.',
+          es: 'No. Las empresas en crecimiento del sur de Florida suelen enfrentar más riesgo porque las herramientas de IA se adoptan de forma informal — sin gobernanza, inventario ni libros de tácticas de incidentes.',
         },
       },
       {

@@ -357,7 +357,7 @@ export const industries: Industry[] = [
         },
         answer: {
           en: 'Yes. Many of our education and nonprofit clients are small teams. We size the engagement to your staff count and risk, not a Fortune-500 playbook.',
-          es: 'Sí. Muchos de nuestros clientes educativos y sin fines de lucro son equipos pequeños. Dimensionamos el acompañamiento a tu personal y riesgo, no a un manual Fortune 500.',
+          es: 'Sí. Muchos de nuestros clientes educativos y sin fines de lucro son equipos pequeños. Dimensionamos el acompañamiento a tu personal y riesgo, no a un libro de tácticas Fortune 500.',
         },
       },
       {

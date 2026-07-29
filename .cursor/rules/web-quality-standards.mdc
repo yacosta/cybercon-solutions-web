@@ -20,4 +20,4 @@ Non-negotiables (details in the skill):
 - Blog posts ship full EN + ES bodies (`src/content/blog/<slug>.md` and `src/content/blog/es/<slug>.md`) — never English-only content under `/es/blog/`.
 - Non-essential cookies/trackers (analytics) require prior consent — do not load them before Accept; keep Consent Mode defaults denied.
 - Canonical URLs use trailing slashes; `/privacy`, `/es/privacy`, and legacy `.html` URLs must 301 (not 307) to the slashed forms. Sitemap hreflang must include `x-default`.
-- Marketing copy: industry-page specificity is the voice model — no service-overview SEO-echo third paragraphs; no “theater/teatro / slide deck / not another demo” denial stack; engineer-reply trust line once per surface. ES user-facing copy is Colombian Spanish.
+- Marketing copy: industry-page specificity is the voice model — no service-overview SEO-echo third paragraphs; no “theater/teatro / slide deck / not another demo” denial stack; engineer-reply trust line once per surface. ES user-facing copy is Colombian Spanish (`playbook` → `libro de tácticas`).

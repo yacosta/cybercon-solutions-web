@@ -66,7 +66,7 @@ export function organizationJsonLd(locale: Locale = 'en') {
     image: absoluteUrl(site.ogImage),
     email: site.email,
     telephone: site.phone,
-    slogan: site.slogan,
+    slogan: copy.slogan,
     priceRange: '$$',
     description: copy.description,
     address: {
