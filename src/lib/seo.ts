@@ -36,17 +36,19 @@ function areaServedPlaces() {
 
 const orgCopy: Record<
   Locale,
-  { description: string; catalogName: string; contactType: string }
+  { description: string; catalogName: string; contactType: string; slogan: string }
 > = {
   en: {
     description: `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
     catalogName: 'Managed IT Services',
     contactType: 'sales',
+    slogan: site.slogan,
   },
   es: {
     description: `TI administrada proactiva para organizaciones en crecimiento, con la seguridad como base: gestión de endpoints y servidores, ciberseguridad, respaldo y recuperación ante desastres, y cumplimiento, a una tarifa mensual predecible. La dirección postal está en Miami Beach, Florida (${formatMailingAddress()}). Los servicios gestionados y en sitio se centran en Cooper City, Davie y el sur de Florida.`,
     catalogName: 'Servicios de TI administrada',
     contactType: 'sales',
+    slogan: 'Tecnología, resuelta.',
   },
 };
 
