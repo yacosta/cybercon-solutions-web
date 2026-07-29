@@ -31,7 +31,7 @@ Olvida los slogans por un minuto. En la práctica, Zero Trust responde cuatro pr
 
 Ese es todo el modelo. Certificados de VPN de 2019, contraseñas admin compartidas en una nota adhesiva y "están dentro del edificio, así que pueden ver el file share" fallan en cada una de esas preguntas.
 
-Fíjate en lo que no está en la lista: un requisito de sacar Active Directory el próximo trimestre, comprar siete plataformas que se traslapan o anunciar una transformación digital. Zero Trust de mercado medio trata principalmente de cerrar las brechas que los atacantes ya abusan — robo de credenciales, acceso remoto sin MFA, redes planas, laptops no administradas y derechos admin repartidos como dulces.
+Fíjate en lo que no está en la lista: un requisito de sacar Active Directory el próximo trimestre, comprar siete plataformas que se traslapan o anunciar una transformación digital. Zero Trust de mercado medio trata principalmente de cerrar los vacíos que los atacantes ya abusan — robo de credenciales, acceso remoto sin MFA, redes planas, laptops no administradas y derechos admin repartidos como dulces.
 
 ## Por qué los equipos de mercado medio se equivocan
 
@@ -136,7 +136,7 @@ Si quieres algo que puedas poner frente a un dueño o comité de junta el próxi
 - Prueba del checklist de offboarding en la próxima salida (o un tabletop si no hay ninguna)
 
 **Días 31–60**
-- Brechas de cobertura EDR cerradas en dispositivos administrados
+- Vacíos de cobertura EDR cerrados en dispositivos administrados
 - Requisitos de acceso condicional / dispositivo para apps sensibles
 - Limpieza de cuentas compartidas y obsoletas
 - Ruta de admin de backups endurecida; una prueba de restore documentada
@@ -151,7 +151,7 @@ Eso es un despliegue. No un slogan.
 
 ## Qué deberías negarte a comprar (por ahora)
 
-Sé escéptico de cualquier cosa que te exija "completar tu journey de Zero Trust" antes de producir un control. Prefiere compras que cierren una brecha nombrada: MFA resistente al phishing para admins, EDR donde solo tienes antivirus básico, detección administrada si nadie mira logs durante la noche, ZTNA para una VPN frágil que otorga toda la red.
+Sé escéptico de cualquier cosa que te exija "completar tu journey de Zero Trust" antes de producir un control. Prefiere compras que cierren un vacío nombrado: MFA resistente al phishing para admins, EDR donde solo tienes antivirus básico, detección administrada si nadie mira logs durante la noche, ZTNA para una VPN frágil que otorga toda la red.
 
 También rechaza métricas de vanidad. "Porcentaje de Zero Trust adoptado" no significa nada si todavía existe administración remota solo con contraseña. Mide:
 

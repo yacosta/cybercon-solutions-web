@@ -306,7 +306,7 @@ export const industries: Industry[] = [
       en: 'Education and nonprofit teams in Cooper City and Davie often stretch a small staff across fundraising, programs, and “also IT.” Budgets are real constraints. We provide managed IT and cybersecurity with clear per-user pricing, sensible security defaults, and patient support — so volunteers and staff can stay on the mission instead of chasing printers and phishing emails.',
       es: 'Los equipos educativos y sin fines de lucro en Cooper City y Davie suelen estirar un personal pequeño entre recaudación, programas y “también TI”. Los presupuestos son reales. Ofrecemos TI administrada y ciberseguridad con precio claro por usuario, seguridad sensata y soporte paciente — para que voluntarios y personal se queden en la misión en vez de perseguir impresoras y phishing.',
     },
-    challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Brechas comunes en escuelas y nonprofit' },
+    challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Vacíos comunes en escuelas y nonprofit' },
     challenges: [
       {
         en: 'Shared mailboxes and departed volunteers who still have access.',

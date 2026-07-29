@@ -54,7 +54,7 @@ Esta es temporada de roadmap y presupuesto — secuenciada, con opinión y dimen
 
 Normalmente ordenamos el trabajo en cuatro cubetas:
 
-**Detén la hemorragia.** Controles e higiene que eliminan exposición inaceptable. Brechas de MFA. Acceso privilegiado sin logging. Backups que nunca se han probado restaurando. Estos no son “proyectos” opcionales. Son el precio de seguir en el negocio.
+**Detén la hemorragia.** Controles e higiene que eliminan exposición inaceptable. Vacíos de MFA. Acceso privilegiado sin logging. Backups que nunca se han probado restaurando. Estos no son “proyectos” opcionales. Son el precio de seguir en el negocio.
 
 **Compra tiempo.** Retira o renegocia los contratos que están gravando en silencio a la empresa. Sabe qué pagas, qué usas y de qué puedes salir. Conectividad, UCaaS, impresión, asientos SaaS sin usar — las líneas aburridas son donde suele esconderse el dinero.
 
@@ -100,7 +100,7 @@ Una lista corta de trampas en las que nos negamos a caer — y te recomendamos n
 
 Mantén el readout de 90 días lo bastante apretado para un dueño ocupado o un comité de junta. Cinco líneas ganan a cincuenta.
 
-- **Postura de riesgo:** brechas críticas cerradas, ítems abiertos con dueños y fechas
+- **Postura de riesgo:** vacíos críticos cerradas, ítems abiertos con dueños y fechas
 - **Claridad de gasto:** qué pagamos, qué usamos, renovaciones dentro de 180 días
 - **Salud operativa:** tendencias de tickets, incidentes mayores, prueba de backup/restore
 - **Estado del roadmap:** financiado ahora / siguiente / después, con una victoria enviada señalada

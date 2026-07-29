@@ -145,7 +145,7 @@ Prefer a fast technical skim first? Start with the free site check at https://cy
 
 const assessmentEs = `---
 title: "Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions"
-description: "Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil."
+description: "Evaluación gratuita para empresas del Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil."
 ---
 
 # Evaluación gratuita de costo y riesgo de TI

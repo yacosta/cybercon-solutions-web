@@ -202,7 +202,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       },
       {
         en: 'Traditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer “which AI tools are allowed, with which data, and who can prove it.” That gap is where IP leaks, insurance friction, and quiet compliance failures start.',
-        es: 'La ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder “qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo.” Esa brecha es donde empiezan las filtraciones de IP, la fricción con seguros y los fallos silenciosos de cumplimiento.',
+        es: 'La ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder “qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo.” Ese vacío es donde empiezan las filtraciones de IP, la fricción con seguros y los fallos silenciosos de cumplimiento.',
       },
     ],
   },
@@ -217,7 +217,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     lede: {
       en: 'For Cooper City and Davie organizations adopting AI without exposing intellectual property, sensitive data, or compliance gaps.',
-      es: 'Para organizaciones en Cooper City y Davie que adoptan IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento.',
+      es: 'Para organizaciones en Cooper City y Davie que adoptan IA sin exponer propiedad intelectual, datos sensibles o vacíos de cumplimiento.',
     },
     pillars: [
       {
@@ -471,7 +471,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         options: [
           { id: 'unified', label: { en: 'Yes — shared monitoring / response', es: 'Sí — monitoreo / respuesta compartidos' }, score: 2 },
           { id: 'silos', label: { en: 'Separate tools, manual correlation', es: 'Herramientas separadas, correlación manual' }, score: 1 },
-          { id: 'gaps', label: { en: 'Major visibility gaps', es: 'Brechas importantes de visibilidad' }, score: 0 },
+          { id: 'gaps', label: { en: 'Major visibility gaps', es: 'Vacíos importantes de visibilidad' }, score: 0 },
         ],
       },
       {
@@ -505,7 +505,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         body: {
           en: 'You have pieces of the puzzle. The next step is correlating identity, email, and endpoint signals and closing the gap between policy and technical controls on public AI tools.',
-          es: 'Tienes piezas del rompecabezas. El siguiente paso es correlacionar señales de identidad, correo y endpoint y cerrar la brecha entre política y controles técnicos sobre herramientas de IA públicas.',
+          es: 'Tienes piezas del rompecabezas. El siguiente paso es correlacionar señales de identidad, correo y endpoint y cerrar el vacío entre política y controles técnicos sobre herramientas de IA públicas.',
         },
       },
       high: {
@@ -622,7 +622,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     body: {
       en: 'Tell us how your team uses AI today. We will map governance gaps, exposure risk, and a practical control plan — plain English, within one business day.',
-      es: 'Cuéntanos cómo usa IA tu equipo hoy. Mapearemos brechas de gobernanza, riesgo de exposición y un plan de control práctico — en lenguaje claro, en un día hábil.',
+      es: 'Cuéntanos cómo usa IA tu equipo hoy. Mapearemos vacíos de gobernanza, riesgo de exposición y un plan de control práctico — en lenguaje claro, en un día hábil.',
     },
     button: {
       en: 'Book a free AI security review',

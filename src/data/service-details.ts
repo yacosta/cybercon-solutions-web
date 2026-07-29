@@ -202,14 +202,14 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'AI Security from Cybercon Solutions helps Cooper City and Davie businesses adopt AI without exposing intellectual property, sensitive data, or compliance gaps. We combine AI usage governance, data-leakage controls, and continuous oversight with unified workspace security across identity, email, endpoints, awareness, and exposure.\n\nTraditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer which AI tools are allowed, with which data, and who can prove it. We close that gap with enforceable policies, monitoring of AI-enabled workflows, and SOC-backed response when something looks wrong.',
-      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concientización y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos esa brecha con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.',
+      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o vacíos de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concientización y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos ese vacío con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.',
     },
     process: [
       {
         title: { en: '1. Assess AI risk & usage', es: '1. Evaluar riesgo y uso de IA' },
         body: {
           en: 'Inventory tools in use, classify sensitive data paths, and score governance gaps against how your team actually works.',
-          es: 'Inventariamos herramientas en uso, clasificamos rutas de datos sensibles y puntuamos brechas de gobernanza según cómo trabaja de verdad tu equipo.',
+          es: 'Inventariamos herramientas en uso, clasificamos rutas de datos sensibles y puntuamos vacíos de gobernanza según cómo trabaja de verdad tu equipo.',
         },
       },
       {

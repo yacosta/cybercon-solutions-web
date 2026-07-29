@@ -74,7 +74,7 @@ export const es: Messages = {
     title: 'Mira lo que realmente cuesta tu TI.',
     metaTitle: 'Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions',
     metaDescription:
-      'Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil.',
+      'Evaluación gratuita para empresas del Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil.',
     cardTitle: 'Agenda una evaluación gratuita de costo y riesgo',
     lede: 'Sin recorrido de jerga. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.',
     name: 'Nombre',

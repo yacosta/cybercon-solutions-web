@@ -13,7 +13,7 @@ export function getSampleResult(locale: SiteCheckLocale | string = 'en'): SiteCh
     verified: true,
     overall_grade: 'C',
     one_line_summary: es
-      ? 'Un sitio viable de pequeño negocio — este vistazo lite encontró algunas brechas que valen una revisión más profunda.'
+      ? 'Un sitio viable de pequeño negocio — este vistazo lite encontró algunos vacíos que valen una revisión más profunda.'
       : 'A workable small-business site — this lite peek found a few gaps worth a deeper pass.',
     categories: [
       {
