@@ -265,7 +265,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     title: {
       en: 'Attackers do not think in silos. Neither should your stack.',
-      es: 'Los atacantes no piensan en silos. Tu stack tampoco debería.',
+      es: 'Los atacantes no piensan en silos. Tu stack tecnológico tampoco debería.',
     },
     lede: {
       en: 'Identity, email, endpoints, web, awareness, and data sit on one operating model — so signals correlate, priorities stay clear, and your team can act before risk spreads. Select a control layer to see how Cybercon covers it.',
@@ -600,7 +600,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         answer: {
           en: 'Cybersecurity & Compliance is the broader SOC, EDR, and framework foundation. AI Security layers governance, leakage controls, and oversight specifically for copilots, public models, and AI-enabled workflows — on top of that stack.',
-          es: 'Ciberseguridad y Cumplimiento es la base más amplia de SOC, EDR y marcos. Seguridad de IA añade gobernanza, control de filtraciones y supervisión específicamente para copilots, modelos públicos y flujos con IA — encima de ese stack.',
+          es: 'Ciberseguridad y Cumplimiento es la base más amplia de SOC, EDR y marcos. Seguridad de IA añade gobernanza, control de filtraciones y supervisión específicamente para copilots, modelos públicos y flujos con IA — encima de ese stack tecnológico.',
         },
       },
       {

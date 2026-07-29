@@ -95,7 +95,7 @@ Bring-your-own-device es una decisión de negocio, no una falla moral — pero n
 
 Aquí es donde los diagramas empresariales intimidan a los equipos de mercado medio hasta que no hacen nada. Reduce la ambición.
 
-**Menor privilegio para personas.** Revisa quién tiene global admin, exportación de buzones, VPN full-tunnel a todo, RDP a servidores y acceso a consolas de backup. Recorta privilegios permanentes. Usa elevación just-in-time donde tu stack lo soporte. Si todavía no puedes hacer JIT, al menos deja de otorgar admin permanente "porque es más fácil."
+**Menor privilegio para personas.** Revisa quién tiene global admin, exportación de buzones, VPN full-tunnel a todo, RDP a servidores y acceso a consolas de backup. Recorta privilegios permanentes. Usa elevación just-in-time donde tu stack tecnológico lo soporte. Si todavía no puedes hacer JIT, al menos deja de otorgar admin permanente "porque es más fácil."
 
 **Menor privilegio para sistemas.** Las redes planas donde cada workstation puede hablar con cada servidor son el parque favorito del ransomware. No necesitas microsegmentación en 400 aplicaciones para mejorar esto. Empieza con cortes gruesos:
 
@@ -178,7 +178,7 @@ Así que empieza ahí. Demuestra identidad. Prefiere dispositivos sanos. Reduce 
 
 Eso es Zero Trust sin jerga: un despliegue de mercado medio que puedes financiar por fases, operar con un equipo pequeño o un socio de confianza y explicar al liderazgo en una página.
 
-Si quieres ayuda para convertir esto en un plan secuenciado para tu stack — identidad, endpoints, monitoreo y mapeo de cumplimiento sin la hinchazón empresarial — ese es el trabajo que Cybercon Solutions hace en engagements de ciberseguridad y liderazgo de TI: primero revisión de riesgos y controles, luego proteger, monitorear y ajustar lo que de verdad importa.
+Si quieres ayuda para convertir esto en un plan secuenciado para tu stack tecnológico — identidad, endpoints, monitoreo y mapeo de cumplimiento sin la hinchazón empresarial — ese es el trabajo que Cybercon Solutions hace en engagements de ciberseguridad y liderazgo de TI: primero revisión de riesgos y controles, luego proteger, monitorear y ajustar lo que de verdad importa.
 
 ## Fuentes
 

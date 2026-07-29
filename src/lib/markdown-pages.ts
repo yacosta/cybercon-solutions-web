@@ -218,7 +218,7 @@ Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-
 
 ## Lo que gestionamos
 
-Un solo aliado para el stack. Una factura que puedes planificar. TI administrada proactiva con precio por usuario — sin sorpresas por fallas. Nos ocupamos del parcheo, el monitoreo y la mesa de ayuda para que tu gente no tenga que hacer de TI. Cuando algo serio ocurre, escalamos contigo.
+Un solo aliado para el stack tecnológico. Una factura que puedes planificar. TI administrada proactiva con precio por usuario — sin sorpresas por fallas. Nos ocupamos del parcheo, el monitoreo y la mesa de ayuda para que tu gente no tenga que hacer de TI. Cuando algo serio ocurre, escalamos contigo.
 
 ${servicesMarkdown('es')}
 

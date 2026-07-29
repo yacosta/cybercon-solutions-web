@@ -12,7 +12,7 @@ La mayoría de las empresas que contratan un CIO fraccionario ya saben que algo 
 
 Los tickets se acumulan. Las renovaciones se cuelan en el calendario. Llega una cotización de un proveedor que nadie se siente capacitado para cuestionar. Alguien pregunta si los backups realmente restauran, y la sala se queda en silencio. El negocio crece — o al menos sobrevive — pero las decisiones de tecnología siguen llegando como emergencias en lugar de elecciones.
 
-Ese es el trabajo. No “transformar” nada en la primera semana. No reescribir el stack por deporte. El trabajo en los primeros 90 días es más callado y más útil: averiguar qué está realmente roto, qué solo es molesto y qué le va a doler a la empresa si nadie lo toca este trimestre.
+Ese es el trabajo. No “transformar” nada en la primera semana. No reescribir el stack tecnológico por deporte. El trabajo en los primeros 90 días es más callado y más útil: averiguar qué está realmente roto, qué solo es molesto y qué le va a doler a la empresa si nadie lo toca este trimestre.
 
 Esta es la agenda que usamos cuando Cybercon entra en un engagement de CIO virtual (vCIO). Viene de más de 25 años de trabajo como CIO, CTO y CIO/CISO en salud, educación y operaciones orientadas a la misión — lugares donde una mala decisión tecnológica no solo desperdicia dinero. Puede poner en riesgo datos de pacientes, registros de estudiantes o la confianza de los donantes. La secuencia de abajo es lo que pondríamos en un pizarrón con un dueño, un CFO y quienquiera que “posea TI” sobre el papel.
 
@@ -86,7 +86,7 @@ Los mejores resultados a 90 días se ven casi poco espectaculares desde fuera: m
 
 Una lista corta de trampas en las que nos negamos a caer — y te recomendamos negarte también.
 
-**No reemplaces el stack porque no está de moda.** Los sistemas legacy pueden ser feos y aun así servir al propósito. Reemplázalos cuando el riesgo, el costo o la capacidad fuerzan el tema — no cuando un keynote de conferencia inquietó a alguien.
+**No reemplaces el stack tecnológico porque no está de moda.** Los sistemas legacy pueden ser feos y aun así servir al propósito. Reemplázalos cuando el riesgo, el costo o la capacidad fuerzan el tema — no cuando un keynote de conferencia inquietó a alguien.
 
 **No confundas presencia con progreso.** Asistir a cada reunión no es una estrategia. Protege horas de trabajo profundo para el mapa, el modelo de presupuesto y la victoria que tiene que llegar.
 

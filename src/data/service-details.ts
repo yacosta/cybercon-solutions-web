@@ -35,7 +35,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         body: {
           en: 'We review your current stack, support pain points, and coverage gaps. You’ll get a written summary of where you stand and what to tackle first.',
-          es: 'Revisamos tu stack actual, los dolores de soporte y los huecos de cobertura. Recibes un resumen escrito de dónde estás y qué conviene abordar primero.',
+          es: 'Revisamos tu stack tecnológico actual, los dolores de soporte y los huecos de cobertura. Recibes un resumen escrito de dónde estás y qué conviene abordar primero.',
         },
       },
       {
@@ -139,7 +139,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         title: { en: '3. Respond & improve', es: '3. Responder y mejorar' },
         body: {
           en: 'When incidents happen, we respond, document, and tighten controls. Compliance mapping stays current as your stack changes.',
-          es: 'Cuando hay incidentes, respondemos, documentamos y reforzamos controles. El mapeo de cumplimiento se mantiene al día conforme cambia tu stack.',
+          es: 'Cuando hay incidentes, respondemos, documentamos y reforzamos controles. El mapeo de cumplimiento se mantiene al día conforme cambia tu stack tecnológico.',
         },
       },
     ],
@@ -592,7 +592,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We build practical AI roadmaps and run readiness and ROI assessments that say where AI fits and where it does not. Work starts with highest-value, lower-risk opportunities so early projects teach your team without putting core operations at stake.\n\nAdvice stays grounded in your stack, data quality, and capacity. Serving Cooper City, Davie, and greater South Florida, we keep recommendations implementable by the people who will own them.',
-      es: 'Construimos hojas de ruta de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
+      es: 'Construimos hojas de ruta de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack tecnológico, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
     },
     process: [
       {
@@ -668,7 +668,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Connect AI tools to ERP, CRM, and your stack. Automate repetitive work with ongoing tuning for South Florida businesses.',
-      es: 'Conecta herramientas de IA con ERP, CRM y tu stack. Automatiza lo repetitivo con ajuste continuo para empresas del sur de Florida.',
+      es: 'Conecta herramientas de IA con ERP, CRM y tu stack tecnológico. Automatiza lo repetitivo con ajuste continuo para empresas del sur de Florida.',
     },
     audience: {
       en: 'Teams that already know where AI should help and need it wired into ERP, CRM, and existing systems. Suited to South Florida companies ready for automation with ongoing tuning. Best when a pilot already proved value and you need production-grade connections with monitoring.',
@@ -676,7 +676,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We connect AI tools to your ERP, CRM, and existing stack, then automate repetitive work with monitoring and ongoing tuning. Integration focuses on reliable handoffs between systems, clear failure modes, and human review where it matters.\n\nProjects stay scoped. We prefer durable automations your staff can trust over fragile demos. Delivery supports Cooper City, Davie, and greater South Florida operations with remote build work and onsite coordination when needed.',
-      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en handoffs fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demos frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación en sitio cuando hace falta.',
+      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack tecnológico actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en handoffs fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demos frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación en sitio cuando hace falta.',
     },
     process: [
       {
@@ -709,7 +709,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'We connect AI tools to ERP, CRM, and your existing stack as part of systems integration.',
-          es: 'Conectamos herramientas de IA con ERP, CRM y tu stack actual como parte de la integración de sistemas.',
+          es: 'Conectamos herramientas de IA con ERP, CRM y tu stack tecnológico actual como parte de la integración de sistemas.',
         },
       },
       {

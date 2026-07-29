@@ -105,12 +105,12 @@ export const services: Service[] = [
     title: { en: 'AI Integration & Automation', es: 'Integración y Automatización de IA' },
     summary: {
       en: 'Connect AI tools to your ERP, CRM, and existing stack; automate repetitive work with ongoing tuning.',
-      es: 'Conecta herramientas de IA con tu ERP, CRM y stack actual; automatiza lo repetitivo con ajuste continuo.',
+      es: 'Conecta herramientas de IA con tu ERP, CRM y stack tecnológico actual; automatiza lo repetitivo con ajuste continuo.',
     },
     items: [
       {
         en: 'Systems Integration: connect AI tools to ERP, CRM, and your existing stack.',
-        es: 'Integración de sistemas: conecta herramientas de IA con ERP, CRM y tu stack actual.',
+        es: 'Integración de sistemas: conecta herramientas de IA con ERP, CRM y tu stack tecnológico actual.',
       },
     ],
   },

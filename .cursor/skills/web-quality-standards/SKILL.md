@@ -41,7 +41,7 @@ When writing or editing homepage, service, industry, assessment/contact, chat, o
 3. **Do not reintroduce the anti-hype denial stack** as a brand tic — avoid reflexive “theater / teatro,” “not a slide deck of buzzwords,” “not another demo,” “enterprise theater,” “ticket theater,” “No theater. No moonshots.” Prefer one concrete proof (SLA, sample QBR, named local scenario) instead.
 4. **Trust mantra once per surface.** “A real engineer replies within one business day” / ES “Un ingeniero de nuestro equipo responde en un día hábil” belongs on form microcopy or the page reply note — not also in overview, process, FAQ, chat welcome, and CTA body on the same page. Elsewhere prefer “we reply” / “respondemos.”
 5. **Avoid LLM cadence tells:** stacked “clear picture / clear next steps / clear owner,” “Plain English. No obligation.” triads, “Full stop.”, “Here’s our bias, stated plainly,” “execute strategy,” “when things get loud,” “boring work that prevents outages.”
-6. **Spanish is Colombian Spanish** for user-facing ES: `en sitio` (not `in situ`), `fallas` for break/fix (not `averías`), `concientización` (not `concienciación`), prefer `agendar` / `ingresa`, `costo`, tú form as already used. Translate `playbook` as **libro de tácticas** (plural: **libros de tácticas**) — do not leave the English loanword. Keep EN + ES in sync when strings change.
+6. **Spanish is Colombian Spanish** for user-facing ES: `en sitio` (not `in situ`), `fallas` for break/fix (not `averías`), `concientización` (not `concienciación`), prefer `agendar` / `ingresa`, `costo`, tú form as already used. Translate `playbook` as **libro de tácticas** (plural: **libros de tácticas**). Translate tech `stack` as **stack tecnológico** (e.g. `tu stack tecnológico`, not bare `stack`) — do not leave the bare English loanword. Keep EN + ES in sync when strings change.
 
 ## Color contrast (brand coral)
 
@@ -122,7 +122,7 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
 - [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
-- [ ] ES user-facing strings use Colombian Spanish (`en sitio`, `fallas`, `concientización`, `agendar`/`ingresa`, `libro de tácticas` for playbook)
+- [ ] ES user-facing strings use Colombian Spanish (`en sitio`, `fallas`, `concientización`, `agendar`/`ingresa`, `libro de tácticas` for playbook, `stack tecnológico` for stack)
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`

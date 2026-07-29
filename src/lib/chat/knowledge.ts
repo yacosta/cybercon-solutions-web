@@ -97,7 +97,7 @@ export const FAQ: FaqEntry[] = [
   {
     patterns: [/pric|cost|how much|budget|quote|tarif|precio|cu[aá]nto cuest/i],
     en: `We use predictable per-user pricing instead of break/fix billing. Exact packages depend on headcount, stack, and risk — that’s what the free assessment is for. You’ll see what you’re spending, what’s covered, and what to fund next.`,
-    es: `Usamos precio predecible por usuario en lugar de cobro por falla. Los paquetes exactos dependen del personal, el stack y el riesgo — para eso es la evaluación gratuita. Vas a ver qué estás gastando, qué está cubierto y qué financiar después.`,
+    es: `Usamos precio predecible por usuario en lugar de cobro por falla. Los paquetes exactos dependen del personal, el stack tecnológico y el riesgo — para eso es la evaluación gratuita. Vas a ver qué estás gastando, qué está cubierto y qué financiar después.`,
     ctas: ['assessment'],
   },
   {
