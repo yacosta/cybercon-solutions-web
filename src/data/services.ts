@@ -13,7 +13,7 @@ export const services: Service[] = [
     title: { en: 'Managed IT Services', es: 'Servicios de TI Administrados' },
     summary: {
       en: 'Help desk, monitoring, and onsite support for South Florida businesses, run proactively. Per-user pricing you can plan around, instead of break/fix surprises.',
-      es: 'Mesa de ayuda, monitoreo y soporte in situ para empresas del sur de Florida, con un enfoque proactivo. Precio por usuario que puedes planificar, sin sorpresas por averías.',
+      es: 'Mesa de ayuda, monitoreo y soporte en sitio para empresas del sur de Florida, con un enfoque proactivo. Precio por usuario que puedes planificar, sin sorpresas por fallas.',
     },
     items: [
       {
@@ -26,11 +26,11 @@ export const services: Service[] = [
       },
       {
         en: 'Onsite IT Support: hardware failures, network issues, rollouts, and office moves.',
-        es: 'Soporte in situ: fallos de hardware, red, despliegues y mudanzas de oficina.',
+        es: 'Soporte en sitio: fallos de hardware, red, despliegues y mudanzas de oficina.',
       },
       {
         en: 'Flat-Rate Predictable Support: per-user packages instead of break/fix billing.',
-        es: 'Soporte de tarifa plana: paquetes por usuario en lugar de facturación por averías.',
+        es: 'Soporte de tarifa plana: paquetes por usuario en lugar de cobro por falla.',
       },
     ],
   },
@@ -76,7 +76,7 @@ export const services: Service[] = [
       },
       {
         en: 'Unified Workspace Security: identity, email, endpoints, awareness, and agentic MDR.',
-        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concienciación y MDR agentico.',
+        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concientización y MDR agentico.',
       },
     ],
   },

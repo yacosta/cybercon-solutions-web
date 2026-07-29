@@ -143,7 +143,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     replyNote: {
       en: 'A real engineer replies within one business day',
-      es: 'Un ingeniero real responde en un día hábil',
+      es: 'Un ingeniero de nuestro equipo responde en un día hábil',
     },
     imageAlt: {
       en: 'Security analyst reviewing layered network defenses on dual monitors',
@@ -166,8 +166,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       {
         value: { en: 'Per-user', es: 'Por usuario' },
         label: {
-          en: 'Predictable pricing, not break/fix theater',
-          es: 'Precio predecible, no teatro de averías',
+          en: 'Predictable pricing, not surprise break/fix bills',
+          es: 'Precio predecible, sin facturas sorpresa por falla',
         },
       },
       {
@@ -269,7 +269,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     lede: {
       en: 'Identity, email, endpoints, web, awareness, and data sit on one operating model — so signals correlate, priorities stay clear, and your team can act before risk spreads. Select a control layer to see how Cybercon covers it.',
-      es: 'Identidad, correo, endpoints, web, concienciación y datos en un mismo modelo operativo — para correlacionar señales, priorizar con claridad y actuar antes de que el riesgo se propague. Elige una capa de control para ver cómo la cubre Cybercon.',
+      es: 'Identidad, correo, endpoints, web, concientización y datos en un mismo modelo operativo — para correlacionar señales, priorizar con claridad y actuar antes de que el riesgo se propague. Elige una capa de control para ver cómo la cubre Cybercon.',
     },
     layers: [
       {
@@ -293,7 +293,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         detail: {
           en: 'AI makes phishing copy and deepfake voice notes cheaper. We layer filtering, reporting workflows, and awareness so suspicious mail is caught early — and mailbox rules that forward data to personal AI tools get reviewed.',
-          es: 'La IA abarata el copy de phishing y las notas de voz deepfake. Apilamos filtrado, flujos de reporte y concienciación para atrapar correo sospechoso a tiempo — y revisamos reglas de buzón que reenvían datos a herramientas de IA personales.',
+          es: 'La IA abarata el copy de phishing y las notas de voz deepfake. Apilamos filtrado, flujos de reporte y concientización para atrapar correo sospechoso a tiempo — y revisamos reglas de buzón que reenvían datos a herramientas de IA personales.',
         },
       },
       {
@@ -322,7 +322,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       },
       {
         id: 'awareness',
-        name: { en: 'Awareness', es: 'Concienciación' },
+        name: { en: 'Awareness', es: 'Concientización' },
         summary: {
           en: 'Training that covers AI misuse — not only classic phishing.',
           es: 'Formación que cubre el mal uso de la IA — no solo el phishing clásico.',
@@ -380,7 +380,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         body: {
           en: 'Bring identity, endpoint, email, data, awareness, and exposure protection together under one operating rhythm — sized for how your Cooper City or Davie team actually works.',
-          es: 'Unimos identidad, endpoint, correo, datos, concienciación y exposición en un mismo ritmo operativo — dimensionado a cómo trabaja de verdad tu equipo en Cooper City o Davie.',
+          es: 'Unimos identidad, endpoint, correo, datos, concientización y exposición en un mismo ritmo operativo — dimensionado a cómo trabaja de verdad tu equipo en Cooper City o Davie.',
         },
       },
       {
@@ -390,8 +390,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
           es: 'Detección y respuesta automatizadas',
         },
         body: {
-          en: 'Correlate related activity across environments, prioritize before risk spreads, and keep humans in the loop for decisions that need judgment — not ticket theater.',
-          es: 'Correlacionamos actividad relacionada entre entornos, priorizamos antes de que el riesgo se propague y mantenemos humanos en el circuito para decisiones que requieren criterio — no teatro de tickets.',
+          en: 'Correlate related activity across environments, prioritize before risk spreads, and keep a person in the loop for decisions that need judgment — not just another ticket in a queue.',
+          es: 'Correlacionamos actividad relacionada entre entornos, priorizamos antes de que el riesgo se propague y mantenemos a una persona en el circuito para decisiones que requieren criterio — no solo otro ticket en la cola.',
         },
       },
       {
@@ -401,8 +401,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
           es: 'Hacer la seguridad visible y valiosa',
         },
         body: {
-          en: 'Turn posture gains, compliance progress, and threat remediation into plain-English insights leadership, auditors, and cyber insurers can use.',
-          es: 'Convertimos mejoras de postura, avance de cumplimiento y remediación de amenazas en insights en lenguaje claro para dirección, auditores y aseguradoras cibernéticas.',
+          en: 'Turn posture gains, compliance progress, and threat remediation into reports leadership, auditors, and cyber insurers can actually use.',
+          es: 'Convertimos mejoras de postura, avance de cumplimiento y remediación de amenazas en reportes que dirección, auditores y aseguradoras cibernéticas puedan usar de verdad.',
         },
       },
     ],
@@ -523,24 +523,24 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     emailLabel: { en: 'Work email', es: 'Correo de trabajo' },
     emailPlaceholder: { en: 'you@company.com', es: 'tu@empresa.com' },
     nameLabel: { en: 'Name', es: 'Nombre' },
-    namePlaceholder: { en: 'Enter your name', es: 'Introduce tu nombre' },
+    namePlaceholder: { en: 'Enter your name', es: 'Ingresa tu nombre' },
     companyLabel: { en: 'Company', es: 'Empresa' },
-    companyPlaceholder: { en: 'Enter your company', es: 'Introduce tu empresa' },
+    companyPlaceholder: { en: 'Enter your company', es: 'Ingresa tu empresa' },
     submit: {
       en: 'Send my result to Cybercon',
       es: 'Enviar mi resultado a Cybercon',
     },
     disclosure: {
-      en: 'We use this only to follow up on your AI security readiness check. A real engineer replies within one business day.',
-      es: 'Lo usamos solo para dar seguimiento a tu revisión de preparación en seguridad de IA. Un ingeniero real responde en un día hábil.',
+      en: 'We use this only to follow up on your AI security readiness check. We reply within one business day.',
+      es: 'Lo usamos solo para dar seguimiento a tu revisión de preparación en seguridad de IA. Respondemos en un día hábil.',
     },
     thanksTitle: {
       en: 'Thanks — we have your readiness snapshot.',
       es: 'Gracias — ya tenemos tu instantánea de preparación.',
     },
     thanksBody: {
-      en: 'We will follow up within one business day with clear next steps. No sales pressure.',
-      es: 'Te contactaremos en un día hábil con pasos claros. Sin presión comercial.',
+      en: 'We’ll follow up within one business day with what we’d tackle next. No hard sell.',
+      es: 'Te contactaremos en un día hábil con lo que atacaríamos a continuación. Sin presión comercial.',
     },
     restart: { en: 'Retake the check', es: 'Repetir la revisión' },
     bookAssessment: {

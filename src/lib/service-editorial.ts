@@ -295,7 +295,7 @@ export function buildServiceEditorial(
 
   const replyNote =
     locale === 'es'
-      ? 'Un ingeniero real responde en un día hábil'
+      ? 'Un ingeniero de nuestro equipo responde en un día hábil'
       : 'A real engineer replies within one business day';
   const overviewLabel = locale === 'es' ? 'Resumen' : 'Overview';
   const overviewParas = paragraphs(details.overview[locale]);

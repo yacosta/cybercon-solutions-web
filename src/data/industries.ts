@@ -36,8 +36,8 @@ export const industries: Industry[] = [
       es: 'Los equipos clínicos no deberían ser el departamento de TI. Mantenemos los sistemas disponibles, el acceso controlado y los incidentes con un responsable claro.',
     },
     overview: {
-      en: 'Cooper City and Davie practices run on shared charts, imaging, billing, and remote access — all under HIPAA expectations. We treat security as the baseline: monitoring, patching, backups, and identity done in a way your staff can actually live with. When something breaks, a real engineer answers — not a ticket that sits until Monday.',
-      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, respaldos e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero real — no un ticket que espera hasta el lunes.',
+      en: 'Cooper City and Davie practices run on shared charts, imaging, billing, and remote access — all under HIPAA expectations. We treat security as the baseline: monitoring, patching, backups, and identity done in a way your staff can actually live with. When something breaks, an engineer answers — not a ticket that sits until Monday.',
+      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, respaldos e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero — no un ticket que espera hasta el lunes.',
     },
     challengesLabel: { en: 'What clinics feel every week', es: 'Lo que las clínicas sienten cada semana' },
     challenges: [
@@ -160,7 +160,7 @@ export const industries: Industry[] = [
         title: { en: 'Support that respects billable time', es: 'Soporte que respeta el tiempo facturable' },
         body: {
           en: 'Live help desk and onsite response when a machine or matter cannot wait for a ticket queue.',
-          es: 'Mesa de ayuda en vivo y respuesta in situ cuando un equipo o un asunto no puede esperar en la cola de tickets.',
+          es: 'Mesa de ayuda en vivo y respuesta en sitio cuando un equipo o un asunto no puede esperar en la cola de tickets.',
         },
       },
       {
@@ -331,21 +331,21 @@ export const industries: Industry[] = [
         title: { en: 'Predictable monthly cost', es: 'Costo mensual predecible' },
         body: {
           en: 'Per-user packaging so boards and administrators can budget without surprise break/fix invoices.',
-          es: 'Paquetes por usuario para que juntas y administradores presupuesten sin facturas sorpresa por averías.',
+          es: 'Paquetes por usuario para que juntas y administradores presupuesten sin facturas sorpresa por fallas.',
         },
       },
       {
-        title: { en: 'Security without theater', es: 'Seguridad sin teatro' },
+        title: { en: 'Security that small teams can run', es: 'Seguridad que equipos pequeños pueden operar' },
         body: {
           en: 'MFA, backups, patching, and email security that fit small teams — not a binder of controls nobody runs.',
           es: 'MFA, respaldos, parches y seguridad de correo que encajan en equipos pequeños — no una carpeta de controles que nadie ejecuta.',
         },
       },
       {
-        title: { en: 'Patient, plain-English support', es: 'Soporte paciente y en lenguaje claro' },
+        title: { en: 'Patient support in everyday language', es: 'Soporte paciente y en lenguaje cotidiano' },
         body: {
           en: 'Help desk that works with staff and volunteers who did not sign up to be systems administrators.',
-          es: 'Mesa de ayuda que trabaja con personal y voluntarios que no se apuntaron a ser administradores de sistemas.',
+          es: 'Mesa de ayuda que trabaja con personal y voluntarios que no se metieron a ser administradores de sistemas.',
         },
       },
     ],
@@ -357,7 +357,7 @@ export const industries: Industry[] = [
         },
         answer: {
           en: 'Yes. Many of our education and nonprofit clients are small teams. We size the engagement to your staff count and risk, not a Fortune-500 playbook.',
-          es: 'Sí. Muchos de nuestros clientes educativos y sin fines de lucro son equipos pequeños. Dimensionamos el engagement a tu personal y riesgo, no a un libreto Fortune 500.',
+          es: 'Sí. Muchos de nuestros clientes educativos y sin fines de lucro son equipos pequeños. Dimensionamos el acompañamiento a tu personal y riesgo, no a un manual Fortune 500.',
         },
       },
       {
@@ -509,7 +509,7 @@ export const industries: Industry[] = [
         title: { en: 'Uptime for the floor', es: 'Disponibilidad para el piso' },
         body: {
           en: 'Monitoring, patching, and onsite response aimed at scanners, POS, Wi-Fi, and the apps that ship product.',
-          es: 'Monitoreo, parches y respuesta in situ orientados a escáneres, POS, Wi-Fi y las apps que despachan producto.',
+          es: 'Monitoreo, parches y respuesta en sitio orientados a escáneres, POS, Wi-Fi y las apps que despachan producto.',
         },
       },
       {

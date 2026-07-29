@@ -16,7 +16,7 @@ That's the job. Not to "transform" anything in week one. Not to rewrite the stac
 
 This is the agenda we use when Cybercon steps into a virtual CIO (vCIO) engagement. It comes from 25+ years of CIO, CTO, and CIO/CISO work across healthcare, education, and mission-driven operations — places where a bad technology decision doesn't just waste money. It can put patient data, student records, or donor trust at risk. The sequence below is what we'd put on a whiteboard with an owner, a CFO, and whoever currently "owns IT" on paper.
 
-No theater. No 80-slide assessment deck that dies in a shared drive. Ninety days. Clear phases. Deliverables a board can understand.
+No 80-slide assessment that dies in a shared drive. Ninety days. Clear phases. Deliverables a board can understand.
 
 ## Why the first 90 days matter more than the title
 
@@ -116,7 +116,7 @@ Leadership can name the systems that must not fail. Finance has a renewals calen
 
 And — this matters more than consultants admit — the internal team or MSP is less confused about priorities. Fractional CIO work that demoralizes the people closest to the work is a failure, even if the slides look sharp. Bring them into the map early. Credit their knowledge. Use your altitude to remove obstacles they couldn't escalate alone.
 
-That's the difference between advisory theater and actual leadership support.
+That's the difference between advisory that looks busy and actual leadership support.
 
 ## Who this model is for (and who it isn't)
 

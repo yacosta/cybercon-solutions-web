@@ -17,15 +17,15 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Managed IT for Cooper City & Davie businesses: 24/7 help desk, monitoring, onsite support, and predictable per-user pricing. Book a free assessment.',
-      es: 'TI administrada para empresas en Cooper City y Davie: mesa de ayuda 24/7, monitoreo, soporte in situ y precio predecible por usuario. Evaluación gratuita.',
+      es: 'TI administrada para empresas en Cooper City y Davie: mesa de ayuda 24/7, monitoreo, soporte en sitio y precio predecible por usuario. Evaluación gratuita.',
     },
     audience: {
       en: 'Growing South Florida organizations in Cooper City, Davie, and nearby cities that want a reliable IT partner without hiring a full internal department. Ideal when break/fix bills feel unpredictable, tickets linger, or leadership needs one accountable team for day-to-day technology.',
-      es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un aliado de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por avería son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
+      es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un aliado de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por falla son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
     },
     overview: {
       en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida.\n\nPricing is packaged per user so monthly costs stay predictable. You get proactive maintenance instead of waiting for the next outage, and a clear owner when priorities compete.',
-      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI externalizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda in situ para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.\n\nEl precio va por usuario para que el costo mensual sea predecible. Obtienes mantenimiento proactivo en lugar de esperar la próxima caída, y un responsable claro cuando hay prioridades en conflicto.',
+      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI tercerizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda en sitio para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.\n\nEl precio va por usuario para que el costo mensual sea predecible. Obtienes mantenimiento proactivo en lugar de esperar la próxima caída, y un responsable claro cuando hay prioridades en conflicto.',
     },
     process: [
       {
@@ -55,7 +55,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         body: {
           en: 'Day-to-day help desk, proactive maintenance, and onsite response when remote fixes are not enough. You get one partner instead of juggling vendors.',
-          es: 'Mesa de ayuda diaria, mantenimiento proactivo y respuesta in situ cuando lo remoto no basta. Un solo aliado en lugar de malabarismos con proveedores.',
+          es: 'Mesa de ayuda diaria, mantenimiento proactivo y respuesta en sitio cuando lo remoto no basta. Un solo aliado en lugar de malabarismos con proveedores.',
         },
       },
     ],
@@ -77,17 +77,17 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'We use per-user packages instead of break/fix billing, so you can plan monthly IT spend without surprise trip charges for every incident.',
-          es: 'Usamos paquetes por usuario en lugar de facturación por avería, para que puedas planificar el gasto mensual de TI sin cargos sorpresa por cada incidente.',
+          es: 'Usamos paquetes por usuario en lugar de cobro por falla, para que puedas planificar el gasto mensual de TI sin cobros sorpresa por cada incidente.',
         },
       },
       {
         question: {
           en: 'Do you come onsite in Cooper City and Davie?',
-          es: '¿Van in situ a Cooper City y Davie?',
+          es: '¿Van en sitio a Cooper City y Davie?',
         },
         answer: {
           en: 'Yes. We provide onsite IT support across our South Florida service area, including Cooper City and Davie, for hardware, network, rollouts, and office moves.',
-          es: 'Sí. Damos soporte de TI in situ en nuestra zona del sur de Florida, incluidos Cooper City y Davie, para hardware, red, despliegues y mudanzas de oficina.',
+          es: 'Sí. Damos soporte de TI en sitio en nuestra zona del sur de Florida, incluidos Cooper City y Davie, para hardware, red, despliegues y mudanzas de oficina.',
         },
       },
       {
@@ -202,7 +202,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'AI Security from Cybercon Solutions helps Cooper City and Davie businesses adopt AI without exposing intellectual property, sensitive data, or compliance gaps. We combine AI usage governance, data-leakage controls, and continuous oversight with unified workspace security across identity, email, endpoints, awareness, and exposure.\n\nTraditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer which AI tools are allowed, with which data, and who can prove it. We close that gap with enforceable policies, monitoring of AI-enabled workflows, and SOC-backed response when something looks wrong.',
-      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concienciación y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos esa brecha con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.',
+      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concientización y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos esa brecha con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.',
     },
     process: [
       {
@@ -266,7 +266,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We plan and run cloud migrations to Microsoft 365 and Google Workspace, set up identity with Microsoft Entra ID / Azure AD (including provisioning and SSO), and consolidate files and servers securely. The work is sequenced to reduce downtime and keep users productive during cutover.\n\nAfter migration, we stay involved so identity, sharing, and administration do not drift. Serving Cooper City, Davie, and greater South Florida, we pair remote cloud work with onsite help when devices or network paths need hands-on attention.',
-      es: 'Planificamos y ejecutamos migraciones a Microsoft 365 y Google Workspace, configuramos identidad con Microsoft Entra ID / Azure AD (incluido aprovisionamiento y SSO) y consolidamos archivos y servidores de forma segura. El trabajo se secuencia para reducir caídas y mantener a la gente productiva durante el corte.\n\nTras la migración seguimos involucrados para que identidad, uso compartido y administración no se desvíen. Atendemos Cooper City, Davie y el sur de Florida, combinando trabajo remoto en la nube con ayuda in situ cuando hace falta tocar dispositivos o la red.',
+      es: 'Planificamos y ejecutamos migraciones a Microsoft 365 y Google Workspace, configuramos identidad con Microsoft Entra ID / Azure AD (incluido aprovisionamiento y SSO) y consolidamos archivos y servidores de forma segura. El trabajo se secuencia para reducir caídas y mantener a la gente productiva durante el corte.\n\nTras la migración seguimos involucrados para que identidad, uso compartido y administración no se desvíen. Atendemos Cooper City, Davie y el sur de Florida, combinando trabajo remoto en la nube con ayuda en sitio cuando hace falta tocar dispositivos o la red.',
     },
     process: [
       {
@@ -676,7 +676,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'We connect AI tools to your ERP, CRM, and existing stack, then automate repetitive work with monitoring and ongoing tuning. Integration focuses on reliable handoffs between systems, clear failure modes, and human review where it matters.\n\nProjects stay scoped. We prefer durable automations your staff can trust over fragile demos. Delivery supports Cooper City, Davie, and greater South Florida operations with remote build work and onsite coordination when needed.',
-      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en handoffs fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demos frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación in situ cuando hace falta.',
+      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en handoffs fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demos frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación en sitio cuando hace falta.',
     },
     process: [
       {

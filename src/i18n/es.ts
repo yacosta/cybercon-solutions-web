@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'TI y ciberseguridad en Cooper City y Davie | Cybercon',
     description:
-      'TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por averías. Mesa de ayuda 24/7, monitoreo y seguridad con respaldo SOC. Revisión gratuita del sitio o evaluación.',
+      'TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por fallas. Mesa de ayuda 24/7, monitoreo y seguridad con respaldo SOC. Revisión gratuita del sitio o evaluación.',
   },
   nav: {
     search: 'Buscar',
@@ -28,11 +28,11 @@ export const es: Messages = {
     title: 'Contacto',
     metaTitle: 'Contacto Cybercon Solutions | TI Sur de Florida',
     description:
-      'Cuéntale a Cybercon qué falla, cuánto te está costando o dónde tu equipo necesita refuerzo. Cooper City, Davie y el Sur de Florida. Un ingeniero real responde en un día hábil.',
+      'Cuéntale a Cybercon qué falla, cuánto te está costando o dónde tu equipo necesita refuerzo. Cooper City, Davie y el Sur de Florida. Respondemos en un día hábil.',
     eyebrow: 'Cybercon Solutions',
     heading: 'Cuéntanos qué falla — o cuánto te está costando.',
     lede:
-      'Gasto de TI impredecible, facturas sorpresa o un equipo enterrado en tickets rutinarios — absorbemos el ruido para que tú operes el negocio. Un ingeniero real responde en un día hábil. Sin compromiso.',
+      'Gasto de TI impredecible, facturas sorpresa o un equipo enterrado en tickets rutinarios — nos llevamos ese ruido para que tú operes el negocio. Alguien de nuestro equipo de ingeniería responde en un día hábil. Sin compromiso.',
     formTitle: 'Envía un mensaje',
     name: 'Nombre',
     email: 'Correo',
@@ -48,7 +48,7 @@ export const es: Messages = {
     agreeSuffix: '.',
     submit: 'Enviar mensaje',
     thanksTitle: 'Gracias — recibimos tu mensaje.',
-    thanksBody: 'Un ingeniero real te contactará en un día hábil.',
+    thanksBody: 'Te contactaremos en un día hábil.',
     error: 'Algo salió mal. Inténtalo de nuevo.',
     turnstileError: 'Completa la verificación, por favor.',
     agreeError: 'Acepta la política de privacidad para continuar.',
@@ -57,7 +57,7 @@ export const es: Messages = {
     areaLabel: 'Zona de servicio',
     mailingLabel: 'Dirección postal',
     assessmentCta: 'Mira lo que realmente cuesta tu TI',
-    siteCheckLede: '¿Prefieres primero una lectura técnica rápida?',
+    siteCheckLede: '¿Prefieres primero un vistazo técnico rápido?',
     siteCheckCta: 'Haz la revisión gratuita del sitio',
   },
   hero: {
@@ -65,7 +65,7 @@ export const es: Messages = {
     title: 'Technology, handled.',
     lede:
       'Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.',
-    status: 'Atendemos a empresas del sur de Florida',
+    status: 'Atendemos empresas del sur de Florida',
     cta: 'Mira lo que realmente cuesta tu TI',
     ctaSecondary: 'Haz la revisión gratuita del sitio',
   },
@@ -74,21 +74,21 @@ export const es: Messages = {
     title: 'Mira lo que realmente cuesta tu TI.',
     metaTitle: 'Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions',
     metaDescription:
-      'Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — siguientes pasos claros en un día hábil.',
+      'Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil.',
     cardTitle: 'Agenda una evaluación gratuita de costo y riesgo',
-    lede: 'Sin tecnicismos. Sin compromiso. Una lectura clara del gasto, las brechas y qué riesgos están cubiertos.',
+    lede: 'Sin recorrido de jerga. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.',
     name: 'Nombre',
     company: 'Empresa',
     email: 'Correo',
     submit: 'Agendar mi evaluación gratuita',
     microcopy:
-      'Un ingeniero real responde en un día hábil. Nunca compartimos tus datos.',
+      'Un ingeniero de nuestro equipo responde en un día hábil. Nunca compartimos tus datos.',
     siteCheckLede:
-      '¿Prefieres primero una lectura técnica rápida? Empieza con la revisión gratuita del sitio y luego agenda la evaluación para el pase más profundo.',
+      '¿Prefieres primero un vistazo técnico rápido? Empieza con la revisión gratuita del sitio y luego agenda la evaluación para el pase más profundo.',
     siteCheckCta: 'Haz la revisión gratuita del sitio',
     thanksTitle: 'Gracias, recibimos tu solicitud.',
     thanksBody:
-      'Te contactaremos en un día hábil. Sin presión de ventas: solo el siguiente paso, con claridad.',
+      'Te contactaremos en un día hábil — sin presión de ventas, solo qué haríamos a continuación.',
     namePlaceholder: 'Escribe tu nombre',
     companyPlaceholder: 'Escribe tu empresa',
     emailPlaceholder: 'Escribe un correo válido',
@@ -103,17 +103,17 @@ export const es: Messages = {
     eyebrow: 'Lo que gestionamos',
     title: 'Un solo aliado para el stack. Una factura que puedes planificar.',
     lede:
-      'TI administrada proactiva con precio por usuario — sin sorpresas por averías. Quitamos el parcheo rutinario, el monitoreo y el ruido del helpdesk de tu plato para que tu gente ejecute estrategia — y somos el nivel de escalación cuando las cosas se ponen fuertes.',
+      'TI administrada proactiva con precio por usuario — sin sorpresas por fallas. Nos ocupamos del parcheo, el monitoreo y la mesa de ayuda para que tu gente no tenga que hacer de TI. Cuando algo serio ocurre, escalamos contigo.',
     learnMoreAbout: '{name}: qué incluye',
   },
   engagement: {
-    eyebrow: 'Cómo funciona un engagement',
+    eyebrow: 'Cómo trabajamos juntos',
     title: 'Tres fases. Sin sorpresas a mitad de camino.',
     steps: [
       {
         number: '01',
         title: 'Descubrimiento',
-        body: 'Qué falla, qué crece y las restricciones de presupuesto y riesgo que importan. Sales con prioridades, brechas y qué retirar vs. financiar — no un deck de palabras de moda.',
+        body: 'Qué falla, qué crece y las restricciones de presupuesto y riesgo que importan. Sales con prioridades, vacíos y qué financiar después — escrito para que puedas compartirlo con quien aprueba el presupuesto.',
       },
       {
         number: '02',
@@ -123,7 +123,7 @@ export const es: Messages = {
       {
         number: '03',
         title: 'Ejecución',
-        body: 'Lo llevamos adelante, reportamos con la cadencia que elijas y respondemos hasta el cierre y después. No desaparecemos tras el kickoff.',
+        body: 'Llevamos el trabajo, reportamos con la cadencia que elijas y respondemos hasta el cierre — y después, si nos mantienes.',
       },
     ],
   },
@@ -131,7 +131,7 @@ export const es: Messages = {
     eyebrow: 'Industrias',
     title: 'TI que encaja con cómo opera tu sector de verdad.',
     lede:
-      'Organizaciones de Cooper City, Davie y el Sur de Florida con presión real de cumplimiento, disponibilidad y confianza del cliente — no el mismo stack para cada logo. Mismo playbook, controles distintos: mapeados a cómo trabaja tu gente.',
+      'Las organizaciones de Cooper City, Davie y el Sur de Florida enfrentan distinta presión de cumplimiento y disponibilidad. Mantenemos la misma disciplina operativa y luego afinamos los controles a cómo trabaja tu gente de verdad.',
     learnMoreAbout: 'TI hecha para {name}',
     allIndustries: 'Todas las industrias',
     overviewTitle: 'Hecho para cómo opera este sector de verdad',
@@ -143,8 +143,8 @@ export const es: Messages = {
     includedTitle: 'Qué incluye',
     processTitle: 'Cómo trabajamos',
     faqTitle: 'Preguntas frecuentes',
-    ctaTitle: '¿Quieres ver con claridad lo que cuesta tu TI — y qué riesgos están cubiertos?',
-    ctaBody: 'Una evaluación gratuita con próximos pasos claros. ¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio.',
+    ctaTitle: '¿Quieres saber lo que realmente cuesta tu TI?',
+    ctaBody: 'Agenda una evaluación gratuita, o haz primero la revisión gratuita del sitio si quieres un vistazo técnico rápido.',
     cta: 'Mira lo que realmente cuesta tu TI',
     ctaSecondary: 'Haz la revisión gratuita del sitio',
   },
@@ -156,12 +156,12 @@ export const es: Messages = {
       'Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida: ROI medible, gobernanza y disciplina operativa.',
     indexHeading: 'Perspectivas para líderes de tecnología',
     indexLede:
-      'Lo que decimos a ejecutivos y juntas: flujos que llegan a producción, gobernanza que acelera y métricas que aguantan la temporada de presupuestos.',
+      'Notas para ejecutivos y juntas: flujos que llegan a producción, gobernanza que sostiene y métricas que aguantan la temporada de presupuestos.',
     readMore: 'Leer el artículo',
     allPosts: 'Todas las entradas',
     ctaTitle: '¿Listo para pasar de pilotos de IA a producción?',
     ctaBody:
-      'Solicita una evaluación gratuita. Mapeamos flujos, gobernanza y un plan de automatización medible — no otra demo.',
+      'Solicita una evaluación gratuita. Mapeamos los flujos que vale la pena automatizar y la gobernanza que necesitas antes de comprar más herramientas.',
     cta: 'Solicita una evaluación gratuita',
   },
   footer: {
@@ -197,7 +197,7 @@ export const es: Messages = {
       'Una revisión superficial gratuita de ~60 segundos — un hallazgo claro, luego una evaluación más profunda. Parte de Diseño y desarrollo web para Cooper City y Davie, FL.',
     eyebrow: 'Revisión lite gratuita · ~60 segundos',
     title: 'Una mirada rápida a tu sitio web.',
-    lede: 'Introduce tu dominio. Miramos el sitio desde afuera, compartimos un hallazgo real y dejamos lo profundo para una llamada corta — donde también podemos hablar de correcciones.',
+    lede: 'Ingresa tu dominio. Miramos el sitio desde afuera, compartimos un hallazgo real y dejamos lo profundo para una llamada corta — donde también podemos hablar de correcciones.',
     domainLabel: 'Dominio de tu sitio web',
     domainPlaceholder: 'tuempresa.com',
     continue: 'Continuar',
@@ -301,7 +301,7 @@ export const es: Messages = {
     title: '{name}',
     close: 'Cerrar chat',
     welcome:
-      'Hola, soy {name} — Agente de soporte. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita. Un ingeniero real responde en un día hábil.',
+      'Hola, soy {name} — Agente de soporte. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita — respondemos en un día hábil.',
     suggestions: [
       '¿Qué hace Cybercon?',
       '¿Dónde atienden?',

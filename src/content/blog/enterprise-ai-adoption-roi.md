@@ -1,6 +1,6 @@
 ---
 title: 'Enterprise AI Adoption and ROI: What Actually Works'
-description: 'Most enterprise AI pilots deliver no P&L impact. Here is the board-ready playbook — workflows, governance, training, and metrics — from 25+ years of regulated-industry technology leadership.'
+description: 'Most enterprise AI pilots deliver no P&L impact. A practical playbook — workflows, governance, training, and metrics — from 25+ years of regulated-industry technology leadership.'
 pubDate: 2026-07-23
 banner: ai-consulting-brain
 bannerAlt:
@@ -16,7 +16,7 @@ So this post is what we'd tell a fellow executive over coffee, with the numbers 
 
 ## The uncomfortable truth about most AI initiatives
 
-Here's our bias, stated plainly: "AI transformation" as most companies practice it is theater. A vendor demo. A press release. A pilot in a corner of the business that never scales. Twelve months later, the CFO asks what the company got for the money, and nobody has an answer.
+Here's our take, without the polish: "AI transformation" as most companies practice it is mostly show. A vendor demo. A press release. A pilot in a corner of the business that never scales. Twelve months later, the CFO asks what the company got for the money, and nobody has an answer.
 
 The pattern is predictable. Someone senior gets excited. A tool gets bought. Licenses sit unused. The lawyers get nervous. The project quietly dies.
 
@@ -31,7 +31,7 @@ When the board approved funding for that enterprise AI strategy, the first move 
 
 That second question matters more than people realize. Saving time is good. Improving decisions is better. The automation pattern we're proudest of — built with Claude and n8n — doesn't just save hours. It delivers decision-grade intelligence to a board and executive team on a schedule, in a format they can act on. That's the difference between an AI toy and an AI asset.
 
-If you can't name the specific workflow, the specific people, and the specific decision an AI project will improve, don't fund it. Full stop.
+If you can't name the specific workflow, the specific people, and the specific decision an AI project will improve, don't fund it.
 
 ## The ROI math your CFO will actually accept
 
@@ -120,7 +120,7 @@ The next two years of enterprise AI won't be won by whoever buys the most tools.
 
 The ROI is there. We've measured it, presented it to a board, and defended it in budget season. About 5,000 hours a year across two initiatives, on top of $1.3M in annual savings the surrounding discipline uncovered — inside a mission-driven organization, under real compliance obligations, with a straight face in front of directors.
 
-No moonshots. No theater. Just workflows, guardrails, training, and a scorecard.
+No moonshots. No press-release pilots. Just workflows, guardrails, training, and a scorecard.
 
 Start with one workflow. Measure it honestly. Report the number. Then do it again.
 

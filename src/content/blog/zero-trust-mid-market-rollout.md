@@ -37,7 +37,7 @@ Notice what is missing from the list: a requirement to rip out Active Directory 
 
 Two failure modes show up constantly.
 
-**Failure mode one: theater.** Leadership buys a "Zero Trust suite," turns on a subset of features, never cleans identity, and declares victory in a slide deck. Six months later, service accounts still have standing Domain Admin rights, personal phones still sync corporate email with no controls, and nobody has tested what happens when an account is phished.
+**Failure mode one: checkbox programs.** Leadership buys a "Zero Trust suite," turns on a subset of features, never cleans identity, and declares victory in a slide deck. Six months later, service accounts still have standing Domain Admin rights, personal phones still sync corporate email with no controls, and nobody has tested what happens when an account is phished.
 
 **Failure mode two: paralysis.** The team reads an enterprise framework, sees a hundred controls, and decides they cannot start until budget, headcount, and a perfect asset inventory exist. Meanwhile, remote access still accepts password-only logins.
 
@@ -168,7 +168,7 @@ Five honest metrics beat a maturity rainbow chart.
 
 Zero Trust fails when leadership asks for exceptions faster than IT can grant secure access. If every executive VIP path bypasses MFA, you do not have Zero Trust. You have a dress code with a private entrance.
 
-Someone has to say no with a business reason, offer a safer alternative, and keep score when exceptions accumulate — often a CIO, CISO, or fractional vCIO. Security that only applies to everyone else is theater with better lighting. Train people in the same plain language: "We verify sign-ins and limit access so a stolen password doesn't become a company outage" beats any lunch-and-learn titled *Embracing the Zero Trust Paradigm.*
+Someone has to say no with a business reason, offer a safer alternative, and keep score when exceptions accumulate — often a CIO, CISO, or fractional vCIO. Security that only applies to everyone else is policy on paper. Train people in the same plain language: "We verify sign-ins and limit access so a stolen password doesn't become a company outage" beats any lunch-and-learn titled *Embracing the Zero Trust Paradigm.*
 
 ## Start where attackers already start
 
