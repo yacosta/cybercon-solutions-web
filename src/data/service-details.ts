@@ -21,7 +21,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Growing South Florida organizations in Cooper City, Davie, and nearby cities that want a reliable IT partner without hiring a full internal department. Ideal when break/fix bills feel unpredictable, tickets linger, or leadership needs one accountable team for day-to-day technology.',
-      es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un aliado de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por falla son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
+      es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un proveedor de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por falla son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
     },
     overview: {
       en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida.\n\nPricing is packaged per user so monthly costs stay predictable. You get proactive maintenance instead of waiting for the next outage, and a clear owner when priorities compete.',
@@ -55,7 +55,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         body: {
           en: 'Day-to-day help desk, proactive maintenance, and onsite response when remote fixes are not enough. You get one partner instead of juggling vendors.',
-          es: 'Mesa de ayuda diaria, mantenimiento proactivo y respuesta en sitio cuando lo remoto no basta. Un solo aliado en lugar de malabarismos con proveedores.',
+          es: 'Mesa de ayuda diaria, mantenimiento proactivo y respuesta en sitio cuando lo remoto no basta. Un solo proveedor en lugar de malabarismos con varios.',
         },
       },
     ],

@@ -101,7 +101,7 @@ export const es: Messages = {
   },
   services: {
     eyebrow: 'Lo que gestionamos',
-    title: 'Un solo aliado para el stack tecnológico. Una factura que puedes planificar.',
+    title: 'Un solo proveedor para el stack tecnológico. Una factura que puedes planificar.',
     lede:
       'TI administrada proactiva con precio por usuario — sin sorpresas por fallas. Nos ocupamos del parcheo, el monitoreo y la mesa de ayuda para que tu gente no tenga que hacer de TI. Cuando algo serio ocurre, escalamos contigo.',
     learnMoreAbout: '{name}: qué incluye',

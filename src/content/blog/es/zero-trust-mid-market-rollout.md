@@ -121,7 +121,7 @@ Visibilidad mínima útil:
 - Fallas de jobs de backup y eventos de borrado inesperado
 - Acciones críticas de admin en SaaS
 
-Luego escribe un checklist corto de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a counsel o a un socio forense. Practícalo una vez. Los planes en papel que nunca se han tabletopeado fallan con cortesía bajo presión.
+Luego escribe un checklist corto de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a counsel o a un proveedor forense. Practícalo una vez. Los planes en papel que nunca se han tabletopeado fallan con cortesía bajo presión.
 
 Los frameworks de cumplimiento (HIPAA, SOC 2, PCI DSS, GLBA) se mapean limpiamente a esta fase si documentas qué recopilas y por qué. Auditores y ciberaseguradoras piden evidencia de control, no poesía sobre modelos de madurez Zero Trust.
 
@@ -176,7 +176,7 @@ Los atacantes no necesitan tu diagrama de arquitectura future-state. Necesitan u
 
 Así que empieza ahí. Demuestra identidad. Prefiere dispositivos sanos. Reduce acceso. Observa las rutas críticas. Documenta lo suficiente para que aseguradoras, clientes y auditores vean un programa real — no una calcomanía en un firewall.
 
-Eso es Zero Trust sin jerga: un despliegue de mercado medio que puedes financiar por fases, operar con un equipo pequeño o un socio de confianza y explicar al liderazgo en una página.
+Eso es Zero Trust sin jerga: un despliegue de mercado medio que puedes financiar por fases, operar con un equipo pequeño o un proveedor de confianza y explicar al liderazgo en una página.
 
 Si quieres ayuda para convertir esto en un plan secuenciado para tu stack tecnológico — identidad, endpoints, monitoreo y mapeo de cumplimiento sin la hinchazón empresarial — ese es el trabajo que Cybercon Solutions hace en engagements de ciberseguridad y liderazgo de TI: primero revisión de riesgos y controles, luego proteger, monitorear y ajustar lo que de verdad importa.
 

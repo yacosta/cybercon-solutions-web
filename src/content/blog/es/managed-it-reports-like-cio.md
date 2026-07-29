@@ -37,7 +37,7 @@ El reporting estilo CIO se organiza alrededor de outcomes que el dueño o la jun
 - ¿El gasto es predecible, y está alineado al riesgo?
 - ¿Qué decisiones necesitamos del liderazgo este trimestre?
 
-Si tu MSP no puede responder eso sin abrir cinco portales, no tienes un socio tecnológico. Tienes una tienda break/fix con retainer.
+Si tu MSP no puede responder eso sin abrir cinco portales, no tienes un proveedor tecnológico. Tienes una tienda break/fix con retainer.
 
 ## SLAs que significan algo (y los que no)
 
@@ -123,7 +123,7 @@ Ya sea que trabajes con Cybercon o evalúes a otro proveedor, usa esto como filt
 
 **Pregunta qué *no* está en el acuerdo administrado.** Proyectos, onsite fuera de horario, monitoreo avanzado de seguridad, desarrollo de aplicaciones — la ambigüedad aquí se convierte en fricción de facturas después. El empaque predecible por usuario ayuda, pero solo si los límites de alcance son explícitos.
 
-**Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es busywork caro. Los socios estilo CIO rastrean temas y los eliminan.
+**Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es busywork caro. Los proveedores estilo CIO rastrean temas y los eliminan.
 
 **Pide evidencia de pruebas de restore, no checks verdes de jobs de backup.** Los backups que nunca se han restaurado son una historia que te cuentas a ti mismo.
 
