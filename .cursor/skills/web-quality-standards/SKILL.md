@@ -2,12 +2,14 @@
 name: web-quality-standards
 description: >-
   Enforce Cybercon Solutions web quality standards for Core Web Vitals (especially
-  LCP), SEO link text, color contrast, cache lifetimes (Zaraz), and accessibility
-  when editing pages, layouts, components, tokens, or marketing UI. Use for
-  Lighthouse, PageSpeed, SEO audits, a11y reviews, hero media, and brand color
-  changes. After fixing a new audit finding, update this skill so the rule sticks.
+  LCP), SEO link text, color contrast, cache lifetimes (Zaraz), accessibility, and
+  marketing copy voice when editing pages, layouts, components, tokens, i18n,
+  service/industry data, or blog content. Use for Lighthouse, PageSpeed, SEO
+  audits, a11y reviews, hero media, brand color changes, and new service or
+  marketing pages. After fixing a new audit/quality finding, update this skill
+  so the rule sticks.
 paths:
-  - "src/**/*.{astro,css,ts,tsx}"
+  - "src/**/*.{astro,css,ts,tsx,md}"
   - "public/**/*"
   - ".cursor/skills/web-quality-standards/**"
   - ".cursor/rules/web-quality-standards.mdc"
@@ -15,12 +17,12 @@ paths:
 
 # Cybercon web quality standards
 
-Read this skill before shipping UI, SEO, performance, or brand-token changes.
+Read this skill before shipping UI, SEO, performance, brand-token, or marketing-copy changes.
 These rules come from production audit fixes — follow them on every related change.
 
 ## Maintaining this skill (required)
 
-When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, or brand-quality finding:
+When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, brand-quality, or marketing-copy finding:
 
 1. **Codify it here** in the matching section (or add a section) with the concrete rule, the wrong pattern to avoid, and the file paths involved.
 2. **Update the checklist** below with a one-line verification item.
@@ -29,6 +31,17 @@ When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, or brand-quality findin
 5. If the fix needs dashboard/CI setup (not app code), document the durable procedure in `README.md` and link it from this skill — same pattern as Zaraz cache.
 
 Do this in the **same PR** as the fix whenever practical. Do not leave tribal knowledge only in the PR description.
+
+## Marketing copy voice (anti-AI tells)
+
+When writing or editing homepage, service, industry, assessment/contact, chat, or blog copy (`src/i18n/{en,es}.ts`, `src/data/service-details.ts`, `src/data/services.ts`, `src/data/industries.ts`, `src/data/ai-security-page.ts`, `src/data/web-design-page.ts`, `src/content/blog/`, `src/lib/markdown-pages.ts`, chat knowledge):
+
+1. **Industry pages are the voice model.** Prefer concrete scenes (shared clinic passwords, billable afternoon lost to a frozen laptop, backups never restored) over abstract MSP slogans. Match new service/marketing copy to that specificity.
+2. **No third-paragraph SEO echoes on service overviews.** Aim for ~two short paragraphs (~60–100 EN words). Do not restate Cooper City/Davie + the offer + a CTA in a third block that only exists for keywords.
+3. **Do not reintroduce the anti-hype denial stack** as a brand tic — avoid reflexive “theater / teatro,” “not a slide deck of buzzwords,” “not another demo,” “enterprise theater,” “ticket theater,” “No theater. No moonshots.” Prefer one concrete proof (SLA, sample QBR, named local scenario) instead.
+4. **Trust mantra once per surface.** “A real engineer replies within one business day” / ES “Un ingeniero de nuestro equipo responde en un día hábil” belongs on form microcopy or the page reply note — not also in overview, process, FAQ, chat welcome, and CTA body on the same page. Elsewhere prefer “we reply” / “respondemos.”
+5. **Avoid LLM cadence tells:** stacked “clear picture / clear next steps / clear owner,” “Plain English. No obligation.” triads, “Full stop.”, “Here’s our bias, stated plainly,” “execute strategy,” “when things get loud,” “boring work that prevents outages.”
+6. **Spanish is Colombian Spanish** for user-facing ES: `en sitio` (not `in situ`), `fallas` for break/fix (not `averías`), `concientización` (not `concienciación`), prefer `agendar` / `ingresa`, `costo`, tú form as already used. Keep EN + ES in sync when strings change.
 
 ## Color contrast (brand coral)
 
@@ -108,6 +121,8 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
+- [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
+- [ ] ES user-facing strings use Colombian Spanish (`en sitio`, `fallas`, `concientización`, `agendar`/`ingresa`)
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`
@@ -124,6 +139,7 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 | Hero LCP | `src/components/Hero.astro` |
 | Hero preload | `src/pages/index.astro`, `src/pages/es/index.astro` |
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
+| Marketing copy / voice | `src/i18n/{en,es}.ts`, `src/data/service-details.ts`, `src/data/industries.ts`, `src/data/services.ts`, `src/lib/markdown-pages.ts` |
 | Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |
