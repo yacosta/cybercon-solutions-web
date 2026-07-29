@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'TI y ciberseguridad en Cooper City y Davie | Cybercon',
     description:
-      'TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por fallas. Mesa de ayuda 24/7, monitoreo y seguridad con soporte del SOC. Revisión gratuita del sitio o evaluación.',
+      'TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y soporte del SOC. Revisión del sitio o evaluación.',
   },
   nav: {
     search: 'Buscar',
@@ -72,9 +72,9 @@ export const es: Messages = {
   form: {
     eyebrow: 'Cybercon Solutions',
     title: 'Mira lo que realmente cuesta tu TI.',
-    metaTitle: 'Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions',
+    metaTitle: 'Evaluación gratuita de TI | Cybercon Solutions',
     metaDescription:
-      'Evaluación gratuita para empresas del Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil.',
+      'Evaluación gratuita en el Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — en un día hábil.',
     cardTitle: 'Agenda una evaluación gratuita de costo y riesgo',
     lede: 'Sin rodeos. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.',
     name: 'Nombre',
@@ -194,7 +194,7 @@ export const es: Messages = {
     nav: 'Revisión del sitio',
     metaTitle: 'Revisión lite gratuita del sitio | Cybercon Solutions',
     metaDescription:
-      'Una revisión superficial gratuita de ~60 segundos — un hallazgo claro, luego una evaluación más profunda. Parte de Diseño y desarrollo web para Cooper City y Davie, FL.',
+      'Revisión gratuita del sitio (~60 s): un hallazgo claro y luego una evaluación más profunda. Parte de diseño web en Cooper City y Davie, FL.',
     eyebrow: 'Revisión lite gratuita · ~60 segundos',
     title: 'Una mirada rápida a tu sitio web.',
     lede: 'Ingresa tu dominio. Miramos el sitio desde afuera, compartimos un hallazgo real y dejamos lo profundo para una llamada corta — donde también podemos hablar de correcciones.',

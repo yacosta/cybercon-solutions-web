@@ -1,6 +1,6 @@
 ---
-title: 'Managed IT That Reports Like a CIO: SLAs, KPIs, and Quarterly Business Reviews That Matter'
-description: 'Most MSP reports are ticket charts nobody reads. Here is how managed IT should report like a CIO — SLAs that mean something, KPIs tied to the business, and QBRs that drive decisions.'
+title: 'Managed IT That Reports Like a CIO: SLAs, KPIs, QBRs'
+description: 'MSP reports are often ticket charts nobody reads. How managed IT should report like a CIO — meaningful SLAs, business KPIs, and QBRs that drive decisions.'
 pubDate: 2026-07-26
 updatedDate: 2026-07-26
 banner: managed-it-support

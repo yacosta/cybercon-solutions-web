@@ -29,7 +29,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT and cybersecurity for South Florida clinics and healthcare practices — secure access, HIPAA-aware controls, and clear incident handling.',
-      es: 'TI administrada y ciberseguridad para clínicas y prácticas de salud en el Sur de Florida — acceso seguro, controles conscientes de HIPAA y respuesta clara ante incidentes.',
+      es: 'TI y ciberseguridad para clínicas del Sur de Florida: acceso seguro, controles HIPAA y respuesta clara ante incidentes.',
     },
     lede: {
       en: 'Care teams should not have to be the IT department. We keep clinical systems available, access controlled, and incidents handled with a clear owner.',
@@ -118,7 +118,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Secure, reliable IT for South Florida law firms and professional services — confidentiality, uptime, and support that protects billable time.',
-      es: 'TI segura y fiable para bufetes y servicios profesionales en el Sur de Florida — confidencialidad, disponibilidad y soporte que protege el tiempo facturable.',
+      es: 'TI segura para bufetes y servicios profesionales en el Sur de Florida: confidencialidad, disponibilidad y soporte al tiempo facturable.',
     },
     lede: {
       en: 'Billable hours do not wait on a frozen laptop. We keep confidential work protected and systems responsive so your team stays on client work.',
@@ -207,7 +207,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT and cybersecurity for South Florida financial and insurance firms — audit-ready controls, monitoring, and uptime clients expect.',
-      es: 'TI administrada y ciberseguridad para firmas financieras y de seguros en el Sur de Florida — controles listos para auditoría, monitoreo y disponibilidad que esperan los clientes.',
+      es: 'TI y ciberseguridad para finanzas y seguros en el Sur de Florida: controles auditables, monitoreo y disponibilidad.',
     },
     lede: {
       en: 'Client confidence is earned in every login and every restore. We build IT that holds up to scrutiny without making your team fight the tools.',
@@ -292,11 +292,11 @@ export const industries: Industry[] = [
     },
     metaTitle: {
       en: 'IT for Schools, Churches & Nonprofits | Cybercon',
-      es: 'TI para escuelas, iglesias y sin fines de lucro | Cybercon',
+      es: 'TI para escuelas, iglesias y nonprofit | Cybercon',
     },
     metaDescription: {
       en: 'Affordable, secure managed IT for South Florida schools, churches, foundations, and nonprofits — predictable pricing and support that fits mission work.',
-      es: 'TI administrada asequible y segura para escuelas, iglesias, fundaciones y organizaciones sin fines de lucro en el Sur de Florida — precio predecible y soporte para el trabajo misional.',
+      es: 'TI asequible y segura para escuelas, iglesias y nonprofit en el Sur de Florida: precio predecible y soporte misional.',
     },
     lede: {
       en: 'Mission work should not depend on whoever happens to know passwords. We give schools, churches, and nonprofits IT that is steady, secure, and priced to plan around.',
@@ -385,7 +385,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT for South Florida construction and real estate teams — field access, office uptime, and security that keeps projects moving.',
-      es: 'TI administrada para equipos de construcción e inmobiliario en el Sur de Florida — acceso de campo, disponibilidad de oficina y seguridad que mantiene los proyectos en marcha.',
+      es: 'TI para construcción e inmobiliario en el Sur de Florida: acceso de campo, oficina disponible y seguridad en obra.',
     },
     lede: {
       en: 'Job sites and closings do not pause for a VPN that will not connect. We keep field and office technology working as one operation.',
@@ -474,7 +474,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT for South Florida warehouses, retailers, and light manufacturing — uptime, inventory systems, and recovery that keep product moving.',
-      es: 'TI administrada para bodegas, retail e industria ligera en el Sur de Florida — disponibilidad, sistemas de inventario y recuperación que mantienen el producto en movimiento.',
+      es: 'TI para bodegas, retail e industria ligera en el Sur de Florida: disponibilidad, inventario y recuperación.',
     },
     lede: {
       en: 'When scanners, POS, or the ERP stop, the floor stops. We keep distribution and retail technology running so product keeps moving.',

@@ -111,7 +111,8 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 
 ## SEO baselines
 
-- Unique, descriptive titles and meta descriptions per locale.
+- Unique, descriptive titles and meta descriptions per locale. Prefer **≤60 characters** for titles and **≤155–160** for meta descriptions (SERP soft caps); when humanizing ES copy, re-trim metas — glossary expansions (`copia de seguridad`, `libro de tácticas`, longer industry phrasing) often push ES past EN.
+- After EN/ES wording changes, re-check service/industry/blog metas for length, glossary leftovers in title tags/FAQ JSON-LD, and title↔H1 keyword alignment (e.g. keep *cumplimiento* / *recuperación ante desastres* in ES ranking copy when the H1 includes them).
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
 - Keep `hreflang` / canonical patterns used by `BaseLayout` intact when adding routes.
 - **Trailing slashes are canonical.** `trailingSlash: 'always'` + Workers `html_handling: 'force-trailing-slash'`. For high-value URLs (especially `/privacy/` and `/es/privacy/`), add explicit `301` rules in `public/_redirects` so non-slash variants are permanent (assets html_handling alone issues **307**, which can fail GSC “Validate fix” / split indexing).
@@ -149,6 +150,7 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
+- [ ] Titles ≤~60 chars and meta descriptions ≤~155–160 after copy edits (especially ES glossary expansions)
 - [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
 - [ ] ES user-facing strings use Colombian Spanish per skill glossary (`computador`/`celular`/`correo`, `proveedor`, `sin rodeos`, `libro de tácticas`, `stack tecnológico`; security: `incidente de seguridad` / `vacío(s)` / `filtración`; no Spainisms or B2B slang)
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)

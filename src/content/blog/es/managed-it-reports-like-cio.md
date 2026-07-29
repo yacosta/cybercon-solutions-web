@@ -1,6 +1,6 @@
 ---
-title: 'TI administrada que reporta como un CIO: SLAs, KPIs y revisiones trimestrales que importan'
-description: 'La mayoría de los reportes de MSP son gráficos de tickets que nadie lee. Así debe reportar la TI administrada como un CIO: SLAs con significado, KPIs ligados al negocio y QBRs que impulsan decisiones.'
+title: 'TI administrada que reporta como un CIO: SLAs, KPIs y QBRs'
+description: 'Los reportes de MSP suelen ser gráficos de tickets. Así reporta la TI administrada como un CIO: SLAs útiles, KPIs de negocio y QBRs con decisiones.'
 pubDate: 2026-07-26
 updatedDate: 2026-07-26
 banner: managed-it-support

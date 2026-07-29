@@ -1,6 +1,6 @@
 ---
-title: 'Zero Trust sin jerga: un despliegue práctico para TI de mercado medio'
-description: 'Un despliegue de Zero Trust sin jerga para TI de mercado medio: primero identidad, salud del dispositivo, menor privilegio y monitoreo que sí puedes operar — sin comprar un programa empresarial que no puedes ejecutar.'
+title: 'Zero Trust práctico para TI de mercado medio'
+description: 'Zero Trust sin jerga para TI de mercado medio: identidad, salud del dispositivo, menor privilegio y monitoreo operable — sin programa empresarial inmanejable.'
 pubDate: 2026-07-26
 banner: cybersecurity-lock
 bannerAlt:

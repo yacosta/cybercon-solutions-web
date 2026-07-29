@@ -1,6 +1,6 @@
 ---
 title: 'Enterprise AI Adoption and ROI: What Actually Works'
-description: 'Most enterprise AI pilots deliver no P&L impact. A practical playbook — workflows, governance, training, and metrics — from 25+ years of regulated-industry technology leadership.'
+description: 'Most enterprise AI pilots show no P&L impact. A practical playbook — workflows, governance, training, and metrics — from 25+ years in regulated industries.'
 pubDate: 2026-07-23
 banner: ai-consulting-brain
 bannerAlt:

@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: 'Managed IT & Cybersecurity in Cooper City & Davie | Cybercon',
     description:
-      'Predictable per-user IT for South Florida businesses — no break/fix surprises. 24/7 help desk, monitoring, and SOC-backed security. Free site check or assessment.',
+      'Predictable per-user IT for South Florida — no break/fix surprises. 24/7 help desk, monitoring, SOC-backed security. Free site check or assessment.',
   },
   nav: {
     search: 'Search',
@@ -72,7 +72,7 @@ export const en = {
     title: 'See what your IT actually costs.',
     metaTitle: 'Free IT Cost & Risk Assessment | Cybercon Solutions',
     metaDescription:
-      'Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — follow-up within one business day.',
+      'Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, fractional CIO — reply in one business day.',
     cardTitle: 'Book a free cost-and-risk assessment',
     lede: 'No jargon tour. No obligation. We’ll walk through what you’re spending, what’s covered, and what’s left open.',
     name: 'Name',
@@ -192,7 +192,7 @@ export const en = {
     nav: 'Site check',
     metaTitle: 'Free Lite Website Check | Cybercon Solutions',
     metaDescription:
-      'A free 60-second surface check of your website — one clear finding, then book a deeper assessment. Part of our Web Design & Development service for Cooper City & Davie, FL.',
+      'Free 60-second website surface check — one clear finding, then a deeper assessment. Part of web design for Cooper City & Davie, FL.',
     eyebrow: 'Free lite check · ~60 seconds',
     title: 'A quick look at your website.',
     lede: 'Enter your domain. We skim the live site from the outside, share one real finding, and leave the deeper work for a short call — where we can also talk about fixes.',

@@ -1,6 +1,6 @@
 ---
 title: 'Adopción de IA empresarial y ROI: lo que realmente funciona'
-description: 'La mayoría de los pilotos de IA empresarial no generan impacto en el P&G. Un libro de tácticas práctico: flujos de trabajo, gobernanza, capacitación y métricas — con 25+ años de liderazgo tecnológico en industrias reguladas.'
+description: 'La mayoría de los pilotos de IA no impactan el P&G. Libro de tácticas: flujos, gobernanza, capacitación y métricas — con 25+ años en industrias reguladas.'
 pubDate: 2026-07-23
 banner: ai-consulting-brain
 bannerAlt:
