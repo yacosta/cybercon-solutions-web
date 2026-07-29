@@ -20,6 +20,7 @@ export const site = {
   knowsAbout: [
     'Managed IT services',
     'Cybersecurity',
+    'AI security',
     'Endpoint management',
     'Server management',
     'Backup and disaster recovery',

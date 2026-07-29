@@ -58,6 +58,29 @@ export const services: Service[] = [
     ],
   },
   {
+    id: '02b',
+    slug: 'ai-security',
+    title: { en: 'AI Security', es: 'Seguridad de IA' },
+    summary: {
+      en: 'Govern AI tools, stop data leakage into public models, and unify workspace security — identity, email, endpoints, and exposure — for South Florida teams adopting AI safely.',
+      es: 'Gobierna herramientas de IA, evita filtraciones a modelos públicos y unifica la seguridad del espacio de trabajo — identidad, correo, endpoints y exposición — para equipos del sur de Florida que adoptan IA con seguridad.',
+    },
+    items: [
+      {
+        en: 'AI Usage Governance: approved tools, data rules, and auditability.',
+        es: 'Gobernanza del uso de IA: herramientas aprobadas, reglas de datos y auditabilidad.',
+      },
+      {
+        en: 'Data Leakage & Exposure Control: keep sensitive data out of public AI.',
+        es: 'Control de filtraciones y exposición: mantén datos sensibles fuera de la IA pública.',
+      },
+      {
+        en: 'Unified Workspace Security: identity, email, endpoints, awareness, and agentic MDR.',
+        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concienciación y MDR agentico.',
+      },
+    ],
+  },
+  {
     id: '03',
     slug: 'cloud',
     title: { en: 'Cloud Services & Architecture', es: 'Servicios de Nube y Arquitectura' },

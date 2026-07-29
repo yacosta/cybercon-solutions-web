@@ -12,6 +12,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     email?: string;
     locale?: string;
     turnstileToken?: string;
+    source?: string;
+    message?: string;
   };
 
   try {
@@ -25,6 +27,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const email = body.email?.trim() ?? '';
   const locale = body.locale ?? 'en';
   const turnstileToken = body.turnstileToken?.trim() ?? '';
+  const source = body.source?.trim() || 'https://cybercon-solutions.com/assessment/';
+  const message = body.message?.trim() || undefined;
 
   if (!name || !company || !email) {
     return Response.json({ error: 'Missing required fields' }, { status: 400 });
@@ -53,7 +57,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       company,
       email,
       locale,
-      source: 'https://cybercon-solutions.com/assessment/',
+      source,
+      message,
     });
     if (!prospectOk) {
       return Response.json({ error: 'CRM delivery failed' }, { status: 502 });
@@ -77,6 +82,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         company,
         email,
         locale,
+        source,
+        message: message ?? '',
       }),
     });
     if (!formRes.ok) {
@@ -91,7 +98,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   if (!delivered) {
-    console.log('[assessment]', { name, company, email, locale });
+    console.log('[assessment]', { name, company, email, locale, source, message });
   }
 
   return Response.json({ ok: true });

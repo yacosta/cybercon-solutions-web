@@ -8,8 +8,8 @@ export const privacyContent = {
     title: 'Privacy & Cookie Policy',
     eyebrow: 'Legal',
     /** ISO date for JSON-LD dateModified (keep in sync with lastUpdated copy). */
-    dateModified: '2026-07-28',
-    lastUpdated: 'Last updated: July 28, 2026',
+    dateModified: '2026-07-29',
+    lastUpdated: 'Last updated: July 29, 2026',
     intro:
       'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have. Non-essential cookies and similar trackers are not set or loaded until you give prior consent (or you may reject them and continue browsing).',
     controllerHeading: 'Who is responsible for your data',
@@ -21,7 +21,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Information you give us',
-            body: 'When you submit the assessment or contact form, we collect the full name, work email, and (when provided) company name and message. When you use the free breach check on the Cybersecurity page, we collect the work email you enter so we can look up known breaches and follow up. We use these only to respond to your request and to contact you about the services you asked about.',
+            body: 'When you submit the assessment or contact form, we collect the full name, work email, and (when provided) company name and message. When you use the free breach check on the Cybersecurity page (or the same check on the AI Security page), we collect the work email you enter so we can look up known breaches and follow up. When you complete the free AI security readiness check and choose to send your result, we collect your name, company, work email, and the readiness score/answers so we can follow up. We use these only to respond to your request and to contact you about the services you asked about.',
           },
           {
             sub: 'Information collected automatically',
@@ -117,8 +117,8 @@ export const privacyContent = {
       'Cómo Cybercon Solutions recopila, usa y protege tu información. Categorías de cookies, consentimiento de analítica, Turnstile, derechos CCPA y contacto.',
     title: 'Política de Privacidad y Cookies',
     eyebrow: 'Legal',
-    dateModified: '2026-07-28',
-    lastUpdated: 'Última actualización: 28 de julio de 2026',
+    dateModified: '2026-07-29',
+    lastUpdated: 'Última actualización: 29 de julio de 2026',
     intro:
       'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes. Las cookies no esenciales y rastreadores similares no se establecen ni se cargan hasta que des tu consentimiento previo (o puedes rechazarlas y seguir navegando).',
     controllerHeading: 'Quién es responsable de tus datos',
@@ -130,7 +130,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Información que nos das',
-            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Cuando usas la revisión gratuita de filtraciones en la página de Ciberseguridad, recopilamos el correo de trabajo que introduces para consultar filtraciones conocidas y dar seguimiento. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
+            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Cuando usas la revisión gratuita de filtraciones en la página de Ciberseguridad (o la misma revisión en Seguridad de IA), recopilamos el correo de trabajo que introduces para consultar filtraciones conocidas y dar seguimiento. Cuando completas la revisión gratuita de preparación en seguridad de IA y eliges enviar tu resultado, recopilamos tu nombre, empresa, correo de trabajo y la puntuación/respuestas de preparación para dar seguimiento. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
           },
           {
             sub: 'Información recopilada automáticamente',

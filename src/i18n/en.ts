@@ -172,6 +172,7 @@ export const en = {
     cookies: 'Cookie settings',
     siteCheck: 'Free site check',
     breachCheck: 'Free breach check',
+    aiSecurity: 'AI security readiness check',
   },
   search: {
     title: 'Search',

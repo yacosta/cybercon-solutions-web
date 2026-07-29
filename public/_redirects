@@ -35,6 +35,14 @@
 # --- Cybersecurity ---
 /managed-cybersecurity /services/cybersecurity/ 301
 /managed-cybersecurity/ /services/cybersecurity/ 301
+/ai-security /services/ai-security/ 301
+/ai-security/ /services/ai-security/ 301
+/es/ai-security /es/services/ai-security/ 301
+/es/ai-security/ /es/services/ai-security/ 301
+/ai-security-south-florida /services/ai-security/ 301
+/ai-security-south-florida/ /services/ai-security/ 301
+/ai-security-cooper-city /services/ai-security/ 301
+/ai-security-cooper-city/ /services/ai-security/ 301
 /cybersecurity-as-a-service /services/cybersecurity/ 301
 /cybersecurity-as-a-service/ /services/cybersecurity/ 301
 /managed-detection-response /services/cybersecurity/ 301

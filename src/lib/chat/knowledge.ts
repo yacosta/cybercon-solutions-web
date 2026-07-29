@@ -26,6 +26,8 @@ Herramientas gratuitas en el sitio
 - Evaluación de costo y riesgo de TI: /es/assessment/
 - Revisión rápida del sitio web: /es/services/web-design-development/#site-check
 - Revisión de filtraciones de correo (HIBP): /es/services/cybersecurity/#breach-check
+- Revisión de preparación en seguridad de IA: /es/services/ai-security/#ai-readiness
+- Seguridad de IA (página): /es/services/ai-security/
 - Contacto: /es/contact/
 
 Reglas
@@ -54,6 +56,8 @@ Free on-site tools
 - IT cost & risk assessment: /assessment/
 - Lite website check: /services/web-design-development/#site-check
 - Email breach check (HIBP): /services/cybersecurity/#breach-check
+- AI security readiness check: /services/ai-security/#ai-readiness
+- AI Security page: /services/ai-security/
 - Contact: /contact/
 
 Rules
@@ -113,6 +117,14 @@ export const FAQ: FaqEntry[] = [
     en: `On the Cybersecurity page you can run a free breach check against Have I Been Pwned for a work email exposure snapshot, then book an assessment for MFA, identity, and next steps.`,
     es: `En la página de Ciberseguridad puedes hacer una revisión gratuita de filtraciones con Have I Been Pwned para ver exposición de un correo de trabajo, y luego reservar una evaluación para MFA, identidad y próximos pasos.`,
     ctas: ['breach-check', 'assessment'],
+  },
+  {
+    patterns: [
+      /ai security|seguridad de ia|shadow ai|copilot|chatgpt|ai governance|gobernanza.*(ia|ai)|ai readiness|preparaci[oó]n.*(ia|ai)/i,
+    ],
+    en: `AI Security helps South Florida teams adopt copilots and public AI tools without leaking sensitive data. We cover usage governance, leakage controls, and unified workspace protection (identity, email, endpoints, exposure). Start with the free readiness check on /services/ai-security/#ai-readiness or book an assessment.`,
+    es: `Seguridad de IA ayuda a equipos del sur de Florida a adoptar copilots e IA pública sin filtrar datos sensibles. Cubiertos: gobernanza de uso, control de filtraciones y protección unificada del espacio de trabajo (identidad, correo, endpoints, exposición). Empieza con la revisión gratuita en /es/services/ai-security/#ai-readiness o reserva una evaluación.`,
+    ctas: ['assessment', 'breach-check'],
   },
   {
     patterns: [/help desk|24\/7|support hours|soporte|mesa de ayuda/i],

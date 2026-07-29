@@ -1,0 +1,878 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import BreachCheck from './BreachCheck.astro';
+import AiSecurityReady from './AiSecurityReady.astro';
+import { aiSecurityPage } from '../data/ai-security-page';
+import { getMessages, localePath } from '../i18n';
+import { site } from '../lib/site';
+import { faqPageJsonLd, jsonLdScript, webPageJsonLd } from '../lib/seo';
+
+interface Props {
+  locale: 'en' | 'es';
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const copy = aiSecurityPage;
+const path = locale === 'es' ? '/es/services/ai-security/' : '/services/ai-security/';
+const homePath = localePath(locale, '/');
+const assessmentHref = localePath(locale, '/assessment/');
+const cyberHref = localePath(locale, '/services/cybersecurity/');
+const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
+
+const faqs = copy.faq.items;
+const banner = {
+  jpg: '/images/cybersecurity-lock.jpg',
+  jpgSrcset:
+    '/images/cybersecurity-lock-768.jpg 768w, /images/cybersecurity-lock-960.jpg 960w, /images/cybersecurity-lock.jpg 1280w',
+  webpSrcset:
+    '/images/cybersecurity-lock-768.webp 768w, /images/cybersecurity-lock-960.webp 960w, /images/cybersecurity-lock.webp 1280w',
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy.metaTitle[locale]}
+  description={copy.metaDescription[locale]}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
+    { name: copy.breadcrumb[locale], path },
+  ]}
+>
+  <Fragment slot="head">
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      imagesrcset={banner.webpSrcset}
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        webPageJsonLd({
+          name: copy.metaTitle[locale],
+          description: copy.metaDescription[locale],
+          path,
+          locale,
+        }),
+      )}
+    />
+    <script type="application/ld+json" set:html={jsonLdScript(faqPageJsonLd(faqs, locale))} />
+  </Fragment>
+
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="ais" data-pagefind-body>
+    <section class="ais-hero" aria-labelledby="ais-hero-title">
+      <div class="ais-hero-media" aria-hidden="true">
+        <picture>
+          <source type="image/webp" srcset={banner.webpSrcset} sizes="100vw" />
+          <img
+            src={banner.jpg}
+            srcset={banner.jpgSrcset}
+            sizes="100vw"
+            alt=""
+            width="1280"
+            height="854"
+            decoding="sync"
+            fetchpriority="high"
+            loading="eager"
+          />
+        </picture>
+        <div class="ais-hero-shade"></div>
+      </div>
+      <div class="container ais-hero-inner">
+        <p class="ais-brand ais-reveal">{copy.hero.brand[locale]}</p>
+        <p class="ais-eyebrow ais-reveal ais-reveal-delay-1">{copy.hero.eyebrow[locale]}</p>
+        <h1 id="ais-hero-title" class="ais-reveal ais-reveal-delay-2">{copy.hero.title[locale]}</h1>
+        <p class="ais-hero-lede ais-reveal ais-reveal-delay-3">{copy.hero.lede[locale]}</p>
+        <div class="ais-hero-actions ais-reveal ais-reveal-delay-4">
+          <a class="btn btn-primary" href={assessmentHref}>{copy.hero.cta[locale]}</a>
+          <a class="ais-text-link" href="#ai-readiness">{copy.hero.ctaSecondary[locale]}</a>
+        </div>
+        <p class="ais-hero-note ais-reveal ais-reveal-delay-4">
+          {copy.hero.replyNote[locale]}
+          <span aria-hidden="true"> · </span>
+          <a href={phoneHref}>{site.phoneDisplay}</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="ais-trust" aria-labelledby="ais-trust-title">
+      <div class="container">
+        <h2 id="ais-trust-title" class="ais-section-label">{copy.trust.label[locale]}</h2>
+        <ul class="ais-trust-list">
+          {
+            copy.trust.items.map((item) => (
+              <li>
+                <span class="ais-trust-value">{item.value[locale]}</span>
+                <span class="ais-trust-label">{item.label[locale]}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <section class="ais-pitch container" aria-labelledby="ais-pitch-title">
+      <p class="ais-section-label">{copy.pitch.label[locale]}</p>
+      <div class="ais-pitch-grid">
+        <h2 id="ais-pitch-title">{copy.pitch.title[locale]}</h2>
+        <div class="ais-pitch-body">
+          {copy.pitch.body.map((para) => <p>{para[locale]}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="ais-covers" aria-labelledby="ais-covers-title">
+      <div class="container">
+        <p class="ais-section-label">{copy.covers.label[locale]}</p>
+        <h2 id="ais-covers-title">{copy.covers.title[locale]}</h2>
+        <p class="ais-covers-lede">{copy.covers.lede[locale]}</p>
+        <div class="ais-pillars">
+          {
+            copy.covers.pillars.map((pillar) => (
+              <article class="ais-pillar">
+                <h3>{pillar.title[locale]}</h3>
+                <p>{pillar.body[locale]}</p>
+                <ul>
+                  {pillar.items.map((item) => (
+                    <li>{item[locale]}</li>
+                  ))}
+                </ul>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="ais-platform" aria-labelledby="ais-platform-title" data-ais-platform>
+      <div class="container">
+        <p class="ais-section-label">{copy.platform.label[locale]}</p>
+        <h2 id="ais-platform-title">{copy.platform.title[locale]}</h2>
+        <p class="ais-platform-lede">{copy.platform.lede[locale]}</p>
+
+        <div class="ais-platform-shell">
+          <div class="ais-layers" role="tablist" aria-label={copy.platform.label[locale]}>
+            {
+              copy.platform.layers.map((layer, i) => (
+                <button
+                  type="button"
+                  class:list={['ais-layer', { 'is-active': i === 0 }]}
+                  role="tab"
+                  id={`ais-layer-${layer.id}`}
+                  aria-selected={i === 0 ? 'true' : 'false'}
+                  aria-controls={`ais-panel-${layer.id}`}
+                  tabindex={i === 0 ? 0 : -1}
+                  data-layer={layer.id}
+                >
+                  {layer.name[locale]}
+                </button>
+              ))
+            }
+          </div>
+
+          <div class="ais-layer-panels">
+            {
+              copy.platform.layers.map((layer, i) => (
+                <div
+                  class:list={['ais-layer-panel', { 'is-active': i === 0 }]}
+                  role="tabpanel"
+                  id={`ais-panel-${layer.id}`}
+                  aria-labelledby={`ais-layer-${layer.id}`}
+                  hidden={i !== 0}
+                  data-panel={layer.id}
+                >
+                  <p class="ais-layer-summary">{layer.summary[locale]}</p>
+                  <p class="ais-layer-detail">{layer.detail[locale]}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ais-ops container" aria-labelledby="ais-ops-title">
+      <p class="ais-section-label">{copy.ops.label[locale]}</p>
+      <h2 id="ais-ops-title">{copy.ops.title[locale]}</h2>
+      <p class="ais-ops-lede">{copy.ops.lede[locale]}</p>
+      <ol class="ais-ops-steps">
+        {
+          copy.ops.steps.map((step) => (
+            <li>
+              <span class="ais-ops-num" aria-hidden="true">
+                {step.number}
+              </span>
+              <h3>{step.title[locale]}</h3>
+              <p>{step.body[locale]}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <AiSecurityReady locale={locale} />
+
+    <BreachCheck locale={locale} t={t} variant="embed" />
+
+    <section class="ais-faq container" aria-labelledby="ais-faq-title">
+      <h2 id="ais-faq-title" class="ais-section-label">{copy.faq.label[locale]}</h2>
+      <dl class="ais-faq-list">
+        {
+          copy.faq.items.map((faq) => (
+            <div class="ais-faq-row">
+              <dt>{faq.question[locale]}</dt>
+              <dd>{faq.answer[locale]}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="ais-faq-related">
+        <a href={cyberHref}>
+          {
+            locale === 'es'
+              ? 'Ver también: Ciberseguridad y Cumplimiento'
+              : 'Also see: Cybersecurity & Compliance'
+          }
+        </a>
+      </p>
+    </section>
+
+    <section class="ais-cta" aria-labelledby="ais-cta-title">
+      <div class="container ais-cta-inner">
+        <div class="ais-cta-copy">
+          <h2 id="ais-cta-title">{copy.cta.title[locale]}</h2>
+          <p>{copy.cta.body[locale]}</p>
+          <div class="ais-cta-actions">
+            <a class="btn btn-primary" href={assessmentHref}>{copy.cta.button[locale]}</a>
+            <a class="ais-text-link ais-text-link-on-dark" href="#breach-check">
+              {copy.cta.secondary[locale]}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<script>
+  const platform = document.querySelector('[data-ais-platform]');
+  if (platform instanceof HTMLElement) {
+    const tabs = [...platform.querySelectorAll('[role="tab"]')];
+    const panels = [...platform.querySelectorAll('[role="tabpanel"]')];
+
+    function activate(id) {
+      for (const tab of tabs) {
+        if (!(tab instanceof HTMLElement)) continue;
+        const selected = tab.dataset.layer === id;
+        tab.classList.toggle('is-active', selected);
+        tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+        tab.tabIndex = selected ? 0 : -1;
+      }
+      for (const panel of panels) {
+        if (!(panel instanceof HTMLElement)) continue;
+        const selected = panel.dataset.panel === id;
+        panel.classList.toggle('is-active', selected);
+        panel.hidden = !selected;
+      }
+    }
+
+    platform.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement)) return;
+      const tab = target.closest('[role="tab"]');
+      if (!(tab instanceof HTMLElement) || !tab.dataset.layer) return;
+      activate(tab.dataset.layer);
+      tab.focus();
+    });
+
+    platform.addEventListener('keydown', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLElement) || target.getAttribute('role') !== 'tab') return;
+      const currentIndex = tabs.indexOf(target);
+      if (currentIndex < 0) return;
+      let next = currentIndex;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        next = (currentIndex + 1) % tabs.length;
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        next = (currentIndex - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        next = 0;
+      } else if (event.key === 'End') {
+        next = tabs.length - 1;
+      } else {
+        return;
+      }
+      event.preventDefault();
+      const nextTab = tabs[next];
+      if (nextTab instanceof HTMLElement && nextTab.dataset.layer) {
+        activate(nextTab.dataset.layer);
+        nextTab.focus();
+      }
+    });
+  }
+</script>
+
+<style is:global>
+  body:has(.ais) {
+    background: #f3f3f3;
+  }
+
+  body:has(.ais) .site-header.light {
+    background: #f3f3f3;
+  }
+</style>
+
+<style>
+  .ais {
+    background: #f3f3f3;
+    color: var(--navy);
+  }
+
+  .ais :global(h1),
+  .ais :global(h2),
+  .ais :global(h3) {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .ais-section-label {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--button-red);
+    margin: 0 0 1rem;
+  }
+
+  .ais-hero {
+    position: relative;
+    min-height: min(88vh, 52rem);
+    display: grid;
+    align-items: end;
+    color: var(--white);
+    overflow: hidden;
+  }
+
+  .ais-hero-media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .ais-hero-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .ais-hero-shade {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15, 44, 76, 0.35) 0%, rgba(15, 44, 76, 0.78) 55%, rgba(15, 44, 76, 0.92) 100%),
+      radial-gradient(ellipse 70% 55% at 70% 20%, rgba(192, 57, 43, 0.22), transparent 60%);
+  }
+
+  .ais-hero-inner {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(5.5rem, 12vw, 8rem) clamp(2.75rem, 6vw, 4.5rem);
+    max-width: 42rem;
+  }
+
+  .ais-brand {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 3vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.65rem;
+  }
+
+  .ais-eyebrow {
+    margin: 0 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .ais-hero h1 {
+    color: var(--white);
+    font-size: clamp(2rem, 5.5vw, 3.5rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    max-width: 14ch;
+  }
+
+  .ais-hero-lede {
+    margin: 0 0 1.5rem;
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 38rem;
+  }
+
+  .ais-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    align-items: center;
+    margin-bottom: 0.85rem;
+  }
+
+  .ais-hero-note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .ais-hero-note a {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .ais-text-link {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .ais-hero .ais-text-link {
+    color: var(--white);
+  }
+
+  .ais-text-link:hover {
+    color: var(--coral);
+  }
+
+  .ais-text-link-on-dark {
+    color: var(--white);
+  }
+
+  .ais-text-link-on-dark:hover {
+    color: #f5d0cb;
+  }
+
+  .ais-reveal {
+    animation: ais-rise 0.7s ease both;
+  }
+
+  .ais-reveal-delay-1 {
+    animation-delay: 0.08s;
+  }
+  .ais-reveal-delay-2 {
+    animation-delay: 0.16s;
+  }
+  .ais-reveal-delay-3 {
+    animation-delay: 0.24s;
+  }
+  .ais-reveal-delay-4 {
+    animation-delay: 0.32s;
+  }
+
+  @keyframes ais-rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.85rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ais-reveal {
+      animation: none;
+    }
+  }
+
+  .ais-trust {
+    background: var(--navy);
+    color: var(--white);
+    padding: clamp(2rem, 4vw, 2.75rem) 0;
+  }
+
+  .ais-trust .ais-section-label {
+    color: #f0b4ad;
+  }
+
+  .ais-trust-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 720px) {
+    .ais-trust-list {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  .ais-trust-value {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  .ais-trust-label {
+    display: block;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .ais-pitch {
+    padding-block: var(--section-pad-y);
+  }
+
+  .ais-pitch-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 860px) {
+    .ais-pitch-grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: start;
+    }
+  }
+
+  .ais-pitch h2 {
+    font-size: clamp(1.65rem, 3.2vw, 2.4rem);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  .ais-pitch-body p {
+    margin: 0 0 1rem;
+    color: var(--body-muted);
+    line-height: 1.6;
+    font-size: 1.05rem;
+  }
+
+  .ais-pitch-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ais-covers {
+    background: var(--white);
+    padding-block: var(--section-pad-y);
+    border-block: 1px solid rgba(15, 44, 76, 0.1);
+  }
+
+  .ais-covers h2 {
+    font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+    margin: 0 0 0.75rem;
+  }
+
+  .ais-covers-lede {
+    max-width: 40rem;
+    margin: 0 0 2rem;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .ais-pillars {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .ais-pillars {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+  }
+
+  .ais-pillar {
+    padding-top: 1rem;
+    border-top: 2px solid var(--coral);
+  }
+
+  .ais-pillar h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.55rem;
+  }
+
+  .ais-pillar > p {
+    margin: 0 0 0.85rem;
+    color: var(--body-muted);
+    line-height: 1.5;
+  }
+
+  .ais-pillar ul {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  .ais-pillar li + li {
+    margin-top: 0.35rem;
+  }
+
+  .ais-platform {
+    padding-block: var(--section-pad-y);
+    background:
+      radial-gradient(ellipse 55% 45% at 100% 0%, rgba(192, 57, 43, 0.08), transparent 55%),
+      #eef1f4;
+  }
+
+  .ais-platform h2 {
+    font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+    margin: 0 0 0.75rem;
+    max-width: 20ch;
+  }
+
+  .ais-platform-lede {
+    max-width: 44rem;
+    margin: 0 0 1.75rem;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .ais-platform-shell {
+    display: grid;
+    gap: 1.25rem;
+    background: var(--white);
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: var(--radius-md);
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  @media (min-width: 900px) {
+    .ais-platform-shell {
+      grid-template-columns: minmax(11rem, 0.7fr) minmax(0, 1.3fr);
+      gap: 1.5rem;
+      min-height: 18rem;
+    }
+  }
+
+  .ais-layers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 900px) {
+    .ais-layers {
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+    }
+  }
+
+  .ais-layer {
+    appearance: none;
+    border: 1px solid rgba(15, 44, 76, 0.14);
+    background: transparent;
+    color: var(--navy);
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-align: left;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .ais-layer:hover {
+    border-color: rgba(192, 57, 43, 0.4);
+  }
+
+  .ais-layer.is-active {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .ais-layer:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+  }
+
+  .ais-layer-panel {
+    animation: ais-fade 0.35s ease;
+  }
+
+  @keyframes ais-fade {
+    from {
+      opacity: 0;
+      transform: translateY(0.4rem);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ais-layer-panel {
+      animation: none;
+    }
+  }
+
+  .ais-layer-summary {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+  }
+
+  .ais-layer-detail {
+    margin: 0;
+    color: var(--body-muted);
+    line-height: 1.6;
+    font-size: 1.02rem;
+  }
+
+  .ais-ops {
+    padding-block: var(--section-pad-y);
+  }
+
+  .ais-ops h2 {
+    font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+    margin: 0 0 0.75rem;
+  }
+
+  .ais-ops-lede {
+    max-width: 42rem;
+    margin: 0 0 2rem;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .ais-ops-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .ais-ops-steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+  }
+
+  .ais-ops-num {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--coral);
+    margin-bottom: 0.5rem;
+  }
+
+  .ais-ops-steps h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .ais-ops-steps p {
+    margin: 0;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .ais-faq {
+    padding-block: var(--section-pad-y);
+  }
+
+  .ais-faq-list {
+    margin: 0;
+  }
+
+  .ais-faq-row {
+    padding: 1.15rem 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .ais-faq-row:last-child {
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .ais-faq-row dt {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+  }
+
+  .ais-faq-row dd {
+    margin: 0;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .ais-faq-related {
+    margin: 1.5rem 0 0;
+  }
+
+  .ais-faq-related a {
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .ais-faq-related a:hover {
+    color: var(--coral);
+  }
+
+  .ais-cta {
+    background:
+      linear-gradient(135deg, rgba(192, 57, 43, 0.18), transparent 45%),
+      var(--navy);
+    color: var(--white);
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .ais-cta h2 {
+    color: var(--white);
+    font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+    margin: 0 0 0.75rem;
+  }
+
+  .ais-cta p {
+    margin: 0 0 1.35rem;
+    max-width: 38rem;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.55;
+  }
+
+  .ais-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    align-items: center;
+  }
+</style>

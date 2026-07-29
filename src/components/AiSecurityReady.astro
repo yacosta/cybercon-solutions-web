@@ -1,0 +1,638 @@
+---
+import { turnstileSiteKey } from '../lib/turnstile';
+import { localePath } from '../i18n';
+import { aiSecurityPage } from '../data/ai-security-page';
+
+interface Props {
+  locale: 'en' | 'es';
+}
+
+const { locale } = Astro.props;
+const copy = aiSecurityPage.ready;
+const siteKey = turnstileSiteKey();
+const assessmentHref = localePath(locale, '/assessment/');
+const maxScore = copy.questions.length * 2;
+
+const questions = copy.questions.map((q) => ({
+  id: q.id,
+  prompt: q.prompt[locale],
+  options: q.options.map((o) => ({
+    id: o.id,
+    label: o.label[locale],
+    score: o.score,
+  })),
+}));
+
+const results = {
+  low: { title: copy.results.low.title[locale], body: copy.results.low.body[locale] },
+  mid: { title: copy.results.mid.title[locale], body: copy.results.mid.body[locale] },
+  high: { title: copy.results.high.title[locale], body: copy.results.high.body[locale] },
+};
+
+const labels = {
+  eyebrow: copy.eyebrow[locale],
+  title: copy.title[locale],
+  lede: copy.lede[locale],
+  start: copy.start[locale],
+  next: copy.next[locale],
+  back: copy.back[locale],
+  seeResult: copy.seeResult[locale],
+  progress: copy.progress[locale],
+  scoreLabel: copy.scoreLabel[locale],
+  emailLabel: copy.emailLabel[locale],
+  emailPlaceholder: copy.emailPlaceholder[locale],
+  nameLabel: copy.nameLabel[locale],
+  namePlaceholder: copy.namePlaceholder[locale],
+  companyLabel: copy.companyLabel[locale],
+  companyPlaceholder: copy.companyPlaceholder[locale],
+  submit: copy.submit[locale],
+  disclosure: copy.disclosure[locale],
+  thanksTitle: copy.thanksTitle[locale],
+  thanksBody: copy.thanksBody[locale],
+  restart: copy.restart[locale],
+  bookAssessment: copy.bookAssessment[locale],
+  error: copy.error[locale],
+  turnstileError: copy.turnstileError[locale],
+  requiredError: copy.requiredError[locale],
+};
+---
+
+<section
+  class="ais-ready"
+  id="ai-readiness"
+  data-ai-ready
+  aria-labelledby="ais-ready-title"
+>
+  <div class="container ais-ready-grid">
+    <div class="ais-ready-intro">
+      <p class="eyebrow">{labels.eyebrow}</p>
+      <h2 id="ais-ready-title">{labels.title}</h2>
+      <p class="lede">{labels.lede}</p>
+    </div>
+
+    <div class="ais-ready-widget" data-ready-panel>
+      <div class="view" data-view="intro">
+        <button type="button" class="btn btn-primary" data-ready-start>{labels.start}</button>
+      </div>
+
+      <div class="view" data-view="question" hidden>
+        <p class="progress" data-ready-progress aria-live="polite"></p>
+        <fieldset class="q-fieldset">
+          <legend class="q-prompt" data-ready-prompt></legend>
+          <div class="q-options" data-ready-options role="radiogroup"></div>
+        </fieldset>
+        <div class="q-nav">
+          <button type="button" class="text-link" data-ready-back>{labels.back}</button>
+          <button type="button" class="btn btn-primary" data-ready-next disabled>{labels.next}</button>
+        </div>
+      </div>
+
+      <div class="view" data-view="result" hidden>
+        <p class="score-line">
+          <span class="score-label">{labels.scoreLabel}</span>
+          <span class="score-value" data-ready-score></span>
+        </p>
+        <h3 class="result-title" data-ready-result-title></h3>
+        <p class="result-body" data-ready-result-body></p>
+
+        <form class="ready-form" data-ready-form novalidate>
+          <div class="field">
+            <label for="ais-ready-name">{labels.nameLabel}</label>
+            <input
+              id="ais-ready-name"
+              name="name"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder={labels.namePlaceholder}
+            />
+          </div>
+          <div class="field">
+            <label for="ais-ready-company">{labels.companyLabel}</label>
+            <input
+              id="ais-ready-company"
+              name="company"
+              type="text"
+              required
+              autocomplete="organization"
+              placeholder={labels.companyPlaceholder}
+            />
+          </div>
+          <div class="field">
+            <label for="ais-ready-email">{labels.emailLabel}</label>
+            <input
+              id="ais-ready-email"
+              name="email"
+              type="email"
+              inputmode="email"
+              required
+              autocomplete="email"
+              placeholder={labels.emailPlaceholder}
+            />
+          </div>
+
+          {
+            siteKey && (
+              <div class="turnstile-wrap">
+                <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div>
+              </div>
+            )
+          }
+
+          <p class="form-error" data-ready-error hidden role="alert" aria-live="assertive"></p>
+          <button type="submit" class="btn btn-primary" data-ready-submit>{labels.submit}</button>
+          <p class="disclosure">{labels.disclosure}</p>
+        </form>
+
+        <div class="thanks" data-ready-thanks hidden role="status" aria-live="polite" tabindex="-1">
+          <h3>{labels.thanksTitle}</h3>
+          <p>{labels.thanksBody}</p>
+        </div>
+
+        <div class="result-actions">
+          <a class="btn btn-primary" href={assessmentHref}>{labels.bookAssessment}</a>
+          <button type="button" class="text-link" data-ready-restart>{labels.restart}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{siteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>}
+
+<script
+  define:vars={{
+    locale,
+    questions,
+    results,
+    labels,
+    maxScore,
+    requireTurnstile: Boolean(siteKey),
+    sourcePath: 'https://cybercon-solutions.com/services/ai-security/#ai-readiness',
+  }}
+>
+  const root = document.querySelector('[data-ai-ready]');
+  if (!(root instanceof HTMLElement)) {
+    // no-op
+  } else {
+    const panel = root.querySelector('[data-ready-panel]');
+    const views = {
+      intro: root.querySelector('[data-view="intro"]'),
+      question: root.querySelector('[data-view="question"]'),
+      result: root.querySelector('[data-view="result"]'),
+    };
+    const progressEl = root.querySelector('[data-ready-progress]');
+    const promptEl = root.querySelector('[data-ready-prompt]');
+    const optionsEl = root.querySelector('[data-ready-options]');
+    const nextBtn = root.querySelector('[data-ready-next]');
+    const backBtn = root.querySelector('[data-ready-back]');
+    const startBtn = root.querySelector('[data-ready-start]');
+    const restartBtn = root.querySelector('[data-ready-restart]');
+    const form = root.querySelector('[data-ready-form]');
+    const errorEl = root.querySelector('[data-ready-error]');
+    const thanks = root.querySelector('[data-ready-thanks]');
+    const scoreEl = root.querySelector('[data-ready-score]');
+    const resultTitleEl = root.querySelector('[data-ready-result-title]');
+    const resultBodyEl = root.querySelector('[data-ready-result-body]');
+
+    let index = 0;
+    /** @type {Record<string, number>} */
+    const answers = {};
+
+    function showView(name) {
+      for (const [key, el] of Object.entries(views)) {
+        if (el instanceof HTMLElement) el.hidden = key !== name;
+      }
+      if (panel instanceof HTMLElement) {
+        panel.dataset.phase = name;
+      }
+    }
+
+    function progressLabel(current, total) {
+      return String(labels.progress)
+        .replace('{current}', String(current))
+        .replace('{total}', String(total));
+    }
+
+    function renderQuestion() {
+      const q = questions[index];
+      if (!q || !(promptEl instanceof HTMLElement) || !(optionsEl instanceof HTMLElement)) return;
+
+      if (progressEl instanceof HTMLElement) {
+        progressEl.textContent = progressLabel(index + 1, questions.length);
+      }
+      promptEl.textContent = q.prompt;
+      optionsEl.replaceChildren();
+
+      for (const option of q.options) {
+        const label = document.createElement('label');
+        label.className = 'q-option';
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = `ais-q-${q.id}`;
+        input.value = option.id;
+        input.dataset.score = String(option.score);
+        if (answers[q.id] !== undefined && Number(answers[q.id]) === option.score) {
+          // restore by matching score+id via checked after loop — use id
+        }
+        if (answers[`${q.id}:id`] === option.id) input.checked = true;
+        const span = document.createElement('span');
+        span.textContent = option.label;
+        label.append(input, span);
+        optionsEl.append(label);
+      }
+
+      if (nextBtn instanceof HTMLButtonElement) {
+        nextBtn.disabled = answers[`${q.id}:id`] == null;
+        nextBtn.textContent =
+          index === questions.length - 1 ? labels.seeResult : labels.next;
+      }
+      if (backBtn instanceof HTMLButtonElement) {
+        backBtn.hidden = index === 0;
+      }
+    }
+
+    function totalScore() {
+      return questions.reduce((sum, q) => sum + (Number(answers[q.id]) || 0), 0);
+    }
+
+    function bandForScore(score) {
+      const ratio = score / maxScore;
+      if (ratio < 0.4) return 'low';
+      if (ratio < 0.7) return 'mid';
+      return 'high';
+    }
+
+    function showResult() {
+      const score = totalScore();
+      const band = bandForScore(score);
+      const result = results[band];
+      if (scoreEl instanceof HTMLElement) {
+        scoreEl.textContent = `${score} / ${maxScore}`;
+      }
+      if (resultTitleEl instanceof HTMLElement) resultTitleEl.textContent = result.title;
+      if (resultBodyEl instanceof HTMLElement) resultBodyEl.textContent = result.body;
+      if (form instanceof HTMLFormElement) form.hidden = false;
+      if (thanks instanceof HTMLElement) thanks.hidden = true;
+      if (errorEl instanceof HTMLElement) errorEl.hidden = true;
+      showView('result');
+    }
+
+    optionsEl?.addEventListener('change', (event) => {
+      const target = event.target;
+      if (!(target instanceof HTMLInputElement)) return;
+      const q = questions[index];
+      if (!q) return;
+      answers[q.id] = Number(target.dataset.score || 0);
+      answers[`${q.id}:id`] = target.value;
+      if (nextBtn instanceof HTMLButtonElement) nextBtn.disabled = false;
+    });
+
+    startBtn?.addEventListener('click', () => {
+      index = 0;
+      for (const key of Object.keys(answers)) delete answers[key];
+      showView('question');
+      renderQuestion();
+      promptEl instanceof HTMLElement && promptEl.focus?.();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      const q = questions[index];
+      if (!q || answers[`${q.id}:id`] == null) return;
+      if (index >= questions.length - 1) {
+        showResult();
+        return;
+      }
+      index += 1;
+      renderQuestion();
+    });
+
+    backBtn?.addEventListener('click', () => {
+      if (index === 0) return;
+      index -= 1;
+      renderQuestion();
+    });
+
+    restartBtn?.addEventListener('click', () => {
+      index = 0;
+      for (const key of Object.keys(answers)) delete answers[key];
+      showView('intro');
+    });
+
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (!(form instanceof HTMLFormElement) || !(errorEl instanceof HTMLElement)) return;
+      errorEl.hidden = true;
+
+      const data = new FormData(form);
+      const name = String(data.get('name') ?? '').trim();
+      const company = String(data.get('company') ?? '').trim();
+      const email = String(data.get('email') ?? '').trim();
+      if (!name || !company || !email) {
+        errorEl.textContent = labels.requiredError;
+        errorEl.hidden = false;
+        return;
+      }
+
+      const turnstile = form.querySelector('[name="cf-turnstile-response"]');
+      const turnstileToken = turnstile instanceof HTMLInputElement ? turnstile.value : '';
+      if (requireTurnstile && !turnstileToken) {
+        errorEl.textContent = labels.turnstileError;
+        errorEl.hidden = false;
+        return;
+      }
+
+      const score = totalScore();
+      const band = bandForScore(score);
+      const answerSummary = questions
+        .map((q) => `${q.id}=${answers[`${q.id}:id`] ?? 'n/a'}(${answers[q.id] ?? 0})`)
+        .join(', ');
+
+      const response = await fetch('/api/assessment', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({
+          name,
+          company,
+          email,
+          locale,
+          turnstileToken,
+          source: sourcePath,
+          message: `AI security readiness: ${score}/${maxScore} (${band}). Answers: ${answerSummary}`,
+        }),
+      });
+
+      if (!response.ok) {
+        errorEl.textContent = labels.error;
+        errorEl.hidden = false;
+        return;
+      }
+
+      form.hidden = true;
+      if (thanks instanceof HTMLElement) {
+        thanks.hidden = false;
+        thanks.focus();
+      }
+    });
+  }
+</script>
+
+<style>
+  .ais-ready {
+    background:
+      radial-gradient(ellipse 60% 50% at 0% 0%, rgba(192, 57, 43, 0.07), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 100% 100%, rgba(15, 44, 76, 0.06), transparent 50%),
+      #eef1f4;
+    padding: var(--section-pad-y) 0;
+    color: var(--navy);
+  }
+
+  .ais-ready-grid {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  @media (min-width: 900px) {
+    .ais-ready-grid {
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: start;
+    }
+  }
+
+  .ais-ready-intro .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+
+  .ais-ready-intro h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin: 0 0 0.85rem;
+  }
+
+  .ais-ready-intro .lede {
+    margin: 0;
+    max-width: 36rem;
+    color: var(--body-muted);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .ais-ready-widget {
+    background: var(--white);
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: var(--radius-md);
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    box-shadow: 0 18px 40px rgba(15, 44, 76, 0.06);
+    min-height: 18rem;
+  }
+
+  .view[data-view='intro'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 14rem;
+  }
+
+  .progress {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--coral);
+    margin: 0 0 1rem;
+  }
+
+  .q-fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  .q-prompt {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 1.15rem;
+    padding: 0;
+  }
+
+  .q-options {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .q-option {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(15, 44, 76, 0.16);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+      border-color 0.2s ease,
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .q-option:hover {
+    border-color: rgba(192, 57, 43, 0.45);
+    background: rgba(192, 57, 43, 0.04);
+  }
+
+  .q-option:has(input:checked) {
+    border-color: var(--coral);
+    background: rgba(192, 57, 43, 0.07);
+    transform: translateY(-1px);
+  }
+
+  .q-option input {
+    margin-top: 0.2rem;
+    accent-color: var(--coral);
+  }
+
+  .q-option span {
+    font-size: 0.98rem;
+    line-height: 1.4;
+  }
+
+  .q-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.35rem;
+  }
+
+  .text-link {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--navy);
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
+  .text-link:hover {
+    color: var(--coral);
+  }
+
+  .score-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+    margin: 0 0 0.75rem;
+  }
+
+  .score-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--coral);
+  }
+
+  .score-value {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .result-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    margin: 0 0 0.5rem;
+  }
+
+  .result-body {
+    margin: 0 0 1.25rem;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .ready-form {
+    display: grid;
+    gap: 0.85rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .ready-form .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .ready-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .ready-form input {
+    font: inherit;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid rgba(15, 44, 76, 0.22);
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    color: var(--navy);
+  }
+
+  .ready-form input:focus-visible {
+    outline: none;
+    box-shadow: var(--shadow-focus);
+    border-color: var(--coral);
+  }
+
+  .disclosure {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--body-muted);
+    line-height: 1.45;
+  }
+
+  .form-error {
+    margin: 0;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .thanks {
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    background: rgba(15, 44, 76, 0.04);
+    border-radius: var(--radius-sm);
+  }
+
+  .thanks h3 {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+  }
+
+  .thanks p {
+    margin: 0;
+    color: var(--body-muted);
+  }
+
+  .result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.35rem;
+    align-items: center;
+  }
+
+  .turnstile-wrap {
+    min-height: 65px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .q-option {
+      transition: none;
+    }
+  }
+</style>

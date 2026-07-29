@@ -187,6 +187,70 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     ],
   },
 
+  'ai-security': {
+    metaTitle: {
+      en: 'AI Security in South Florida | Cybercon Solutions',
+      es: 'Seguridad de IA en el Sur de Florida | Cybercon Solutions',
+    },
+    metaDescription: {
+      en: 'Secure responsible AI use for Cooper City, Davie, and South Florida businesses. Governance, data-leakage controls, unified workspace protection, and a free AI security readiness check.',
+      es: 'IA responsable y segura para empresas en Cooper City, Davie y el sur de Florida. Gobernanza, control de filtraciones, protección unificada del espacio de trabajo y una revisión gratuita de preparación en seguridad de IA.',
+    },
+    audience: {
+      en: 'South Florida organizations adopting copilots, chatbots, and browser AI that need governance and leakage controls without hiring a full security department — especially Cooper City and Davie teams handling customer, patient, or financial data.',
+      es: 'Organizaciones del sur de Florida que adoptan copilots, chatbots e IA en el navegador y necesitan gobernanza y control de filtraciones sin un departamento de seguridad completo — especialmente equipos en Cooper City y Davie que manejan datos de clientes, pacientes o finanzas.',
+    },
+    overview: {
+      en: 'AI Security from Cybercon Solutions helps Cooper City and Davie businesses adopt AI without exposing intellectual property, sensitive data, or compliance gaps. We combine AI usage governance, data-leakage controls, and continuous oversight with unified workspace security across identity, email, endpoints, awareness, and exposure.\n\nTraditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer which AI tools are allowed, with which data, and who can prove it. We close that gap with enforceable policies, monitoring of AI-enabled workflows, and SOC-backed response when something looks wrong.\n\nStart with a free interactive readiness check or book a plain-English AI security review. A real engineer replies within one business day.',
+      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concienciación y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos esa brecha con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.\n\nEmpieza con una revisión interactiva gratuita de preparación o agenda una revisión de seguridad de IA en lenguaje claro. Un ingeniero real responde en un día hábil.',
+    },
+    process: [
+      {
+        title: { en: '1. Assess AI risk & usage', es: '1. Evaluar riesgo y uso de IA' },
+        body: {
+          en: 'Inventory tools in use, classify sensitive data paths, and score governance gaps against how your team actually works.',
+          es: 'Inventariamos herramientas en uso, clasificamos rutas de datos sensibles y puntuamos brechas de gobernanza según cómo trabaja de verdad tu equipo.',
+        },
+      },
+      {
+        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar barandillas y controles' },
+        body: {
+          en: 'Approve tools, restrict high-risk AI workflows, and unify identity, email, endpoint, and exposure protections.',
+          es: 'Aprobamos herramientas, restringimos flujos de IA de alto riesgo y unificamos protecciones de identidad, correo, endpoint y exposición.',
+        },
+      },
+      {
+        title: { en: '3. Monitor, respond & prove value', es: '3. Monitorear, responder y demostrar valor' },
+        body: {
+          en: 'Correlate signals, rehearse AI-related incident response, and report posture in language leadership and insurers understand.',
+          es: 'Correlacionamos señales, ensayamos respuesta a incidentes relacionados con IA e informamos la postura en lenguaje que entienden dirección y aseguradoras.',
+        },
+      },
+    ],
+    faqs: [
+      {
+        question: {
+          en: 'Do we need AI security if we already have cybersecurity tools?',
+          es: '¿Necesitamos seguridad de IA si ya tenemos herramientas de ciberseguridad?',
+        },
+        answer: {
+          en: 'Yes. Traditional tools protect endpoints, identity, and email — but they do not fully account for how AI tools access, process, and expose data.',
+          es: 'Sí. Las herramientas tradicionales protegen endpoints, identidad y correo — pero no contemplan del todo cómo las herramientas de IA acceden, procesan y exponen datos.',
+        },
+      },
+      {
+        question: {
+          en: 'Is AI security only for large enterprises?',
+          es: '¿La seguridad de IA es solo para grandes empresas?',
+        },
+        answer: {
+          en: 'No. Growing South Florida businesses often face more risk because AI tools are adopted informally without governance.',
+          es: 'No. Las empresas en crecimiento del sur de Florida suelen enfrentar más riesgo porque las herramientas de IA se adoptan de forma informal sin gobernanza.',
+        },
+      },
+    ],
+  },
+
   cloud: {
     metaTitle: {
       en: 'Cloud Services in South Florida | Cybercon',

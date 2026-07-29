@@ -174,6 +174,7 @@ export const es: Messages = {
     cookies: 'Configuración de cookies',
     siteCheck: 'Revisión gratuita del sitio',
     breachCheck: 'Revisión gratuita de filtraciones',
+    aiSecurity: 'Revisión de preparación en seguridad de IA',
   },
   search: {
     title: 'Buscar',

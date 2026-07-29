@@ -110,6 +110,14 @@ export const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
       es: 'Profesional de ciberseguridad ante monitores con un candado digital y mapa de red global',
     },
   },
+  'ai-security': {
+    mediaVariant: 'cyber',
+    basename: 'cybersecurity-lock',
+    imageAlt: {
+      en: 'Security analyst reviewing layered network defenses on dual monitors',
+      es: 'Analista de seguridad revisando defensas de red en capas en dos monitores',
+    },
+  },
   cloud: {
     mediaVariant: 'photo',
     basename: 'cloud-services',

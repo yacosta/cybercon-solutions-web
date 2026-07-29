@@ -1,6 +1,7 @@
 ---
 export const prerender = true;
 import ServicePage from '../../../components/ServicePage.astro';
+import AiSecurityPage from '../../../components/AiSecurityPage.astro';
 import { services } from '../../../data/services';
 
 export function getStaticPaths() {
@@ -13,4 +14,8 @@ export function getStaticPaths() {
 const { service } = Astro.props;
 ---
 
-<ServicePage locale="es" service={service} />
+{service.slug === 'ai-security' ? (
+  <AiSecurityPage locale="es" />
+) : (
+  <ServicePage locale="es" service={service} />
+)}
