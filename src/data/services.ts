@@ -86,12 +86,12 @@ export const services: Service[] = [
     title: { en: 'AI Consulting & Strategy', es: 'Consultoría y Estrategia de IA' },
     summary: {
       en: 'Practical AI roadmaps and an honest look at ROI. We start where the value is high and the risk is low.',
-      es: 'Hojas de ruta de IA prácticas y una mirada honesta al ROI. Empezamos donde hay más valor y menos riesgo.',
+      es: 'Planes estratégicos de IA prácticos y una mirada honesta al ROI. Empezamos donde hay más valor y menos riesgo.',
     },
     items: [
       {
         en: 'AI Roadmap & Adoption: practical plans starting with highest-value opportunities.',
-        es: 'Hoja de ruta de IA: planes prácticos empezando por las oportunidades de mayor valor.',
+        es: 'Plan estratégico de IA: planes prácticos empezando por las oportunidades de mayor valor.',
       },
       {
         en: 'Readiness & ROI Assessment: honest evaluation of where AI fits and where it does not.',
@@ -154,12 +154,12 @@ export const services: Service[] = [
     title: { en: 'IT Consulting & Strategic Leadership', es: 'Consultoría de TI y Liderazgo Estratégico' },
     summary: {
       en: 'Virtual CIO guidance: roadmaps, risk assessments, budgets, and quarterly business reviews.',
-      es: 'Orientación de CIO virtual: hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
+      es: 'Orientación de CIO virtual: planes estratégicos, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
     },
     items: [
       {
         en: 'Virtual CIO (vCIO): roadmapping, risk assessments, and quarterly business reviews.',
-        es: 'CIO virtual (vCIO): hoja de ruta, evaluaciones de riesgo y revisiones trimestrales.',
+        es: 'CIO virtual (vCIO): plan estratégico, evaluaciones de riesgo y revisiones trimestrales.',
       },
     ],
   },

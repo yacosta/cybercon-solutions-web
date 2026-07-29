@@ -46,6 +46,9 @@ When writing or editing homepage, service, industry, assessment/contact, chat, o
    - Lexicon: `en sitio` (not `in situ`); `fallas` for break/fix (not `averías`); `concientización` (not `concienciación`); `computador` / `computador portátil` (not `ordenador`); `celular` (not `móvil`); `correo` (not bare `email`); prefer `agendar` / `ingresa` / `cita`; `costo`; `colaborar` as everyday “help out”; `listo` for OK/done; `sin rodeos` / ir al grano for plain-talk CTAs; tú form as already used.
    - Avoid B2B slang (`chévere`, `bacano`, `parce`, `¡de una!`, `dar papaya`) — fine in chat tone experiments, not in service/hero copy.
    - `playbook` → **libro de tácticas**; tech `stack` → **stack tecnológico**; relationship `partner` → **proveedor** (not `aliado`/`socio`); `engagement` → **proyecto** (or **acompañamiento**); `handoff(s)` → **traspaso(s)**; fragile `demos` → **demostraciones**; `agentic MDR` → **MDR agéntico**.
+   - `roadmap` → **plan estratégico** (not `hoja de ruta` / calqued *roadmap*).
+   - `scorecard` → **cuadro de mando** (default corporate metrics); **tablero de control** when stressing visual monitoring; **matriz de indicadores** when it is strictly a KPI/metrics list.
+   - `guardrails` → **pautas de control** (operational boundaries); **lineamientos de cumplimiento** (governance / ethics / legal); **parámetros de seguridad** (risk management or AI safety limits). Not *barandillas*.
    - Security: active threat → **incidente de seguridad**; gaps → **vacío(s)** (never `brecha` for gaps); HIBP/data leak → **filtración**; prefer **respaldo(s)** over bare `backup`.
    - Keep EN + ES in sync when strings change.
 

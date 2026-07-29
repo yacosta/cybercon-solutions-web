@@ -213,7 +213,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
       },
       {
-        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar barandillas y controles' },
+        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar pautas de control y controles' },
         body: {
           en: 'Approve tools, restrict high-risk AI workflows, and unify identity, email, endpoint, and exposure protections.',
           es: 'Aprobamos herramientas, restringimos flujos de IA de alto riesgo y unificamos protecciones de identidad, correo, endpoint y exposición.',
@@ -332,7 +332,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Virtual CIO guidance for South Florida businesses: roadmaps, risk assessments, budgets, and quarterly business reviews. Free assessment available.',
-      es: 'Orientación de CIO virtual para empresas del sur de Florida: hojas de ruta, riesgos, presupuestos y revisiones trimestrales. Evaluación gratuita.',
+      es: 'Orientación de CIO virtual para empresas del sur de Florida: planes estratégicos, riesgos, presupuestos y revisiones trimestrales. Evaluación gratuita.',
     },
     audience: {
       en: 'Owners and operators who need strategic IT leadership without a full-time CIO. Fits Cooper City and Davie organizations balancing growth, risk, and budget with limited internal IT leadership bandwidth. Bring us in when renewals stack up, priorities conflict, or you need an independent voice before a major purchase.',
@@ -340,7 +340,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'Our virtual CIO (vCIO) service gives you roadmaps, risk assessments, budgets, and quarterly business reviews. We translate technology choices into business tradeoffs: what to fund now, what to defer, and what creates unnecessary risk.\n\nSessions stay practical. You leave with priorities, owners, and a timeline you can explain to finance and operations. We serve South Florida businesses that want calm, accountable IT planning alongside day-to-day managed services when needed.',
-      es: 'Nuestro servicio de CIO virtual (vCIO) ofrece hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales. Traducimos las decisiones tecnológicas a equilibrios de negocio: qué financiar ahora, qué aplazar y qué crea riesgo innecesario.\n\nLas sesiones son prácticas. Sales con prioridades, responsables y un calendario que puedes explicar a finanzas y operaciones. Atendemos empresas del sur de Florida que quieren planificación de TI serena y con dueño, junto a servicios administrados del día a día cuando haga falta.',
+      es: 'Nuestro servicio de CIO virtual (vCIO) ofrece planes estratégicos, evaluaciones de riesgo, presupuestos y revisiones trimestrales. Traducimos las decisiones tecnológicas a equilibrios de negocio: qué financiar ahora, qué aplazar y qué crea riesgo innecesario.\n\nLas sesiones son prácticas. Sales con prioridades, responsables y un calendario que puedes explicar a finanzas y operaciones. Atendemos empresas del sur de Florida que quieren planificación de TI serena y con dueño, junto a servicios administrados del día a día cuando haga falta.',
     },
     process: [
       {
@@ -351,7 +351,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
       },
       {
-        title: { en: '2. Roadmap & budget', es: '2. Hoja de ruta y presupuesto' },
+        title: { en: '2. Roadmap & budget', es: '2. Plan estratégico y presupuesto' },
         body: {
           en: 'Build a sequenced plan with risk notes and budget ranges leadership can approve.',
           es: 'Construimos un plan secuenciado con notas de riesgo y rangos de presupuesto que la dirección pueda aprobar.',
@@ -403,7 +403,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'Yes. vCIO guidance can include reviewing vendor roadmaps and helping you decide what to keep, renegotiate, or replace without disrupting day-to-day support.',
-          es: 'Sí. La orientación de vCIO puede incluir revisar hojas de ruta de proveedores y ayudarte a decidir qué mantener, renegociar o reemplazar sin romper el soporte diario.',
+          es: 'Sí. La orientación de vCIO puede incluir revisar planes estratégicos de proveedores y ayudarte a decidir qué mantener, renegociar o reemplazar sin romper el soporte diario.',
         },
       },
     ],
@@ -584,15 +584,15 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Practical AI roadmaps and honest ROI assessment for South Florida businesses. Start where value is high and risk is low.',
-      es: 'Hojas de ruta de IA prácticas y evaluación honesta de ROI para empresas del sur de Florida. Empieza donde hay más valor y menos riesgo.',
+      es: 'Planes estratégicos de IA prácticas y evaluación honesta de ROI para empresas del sur de Florida. Empieza donde hay más valor y menos riesgo.',
     },
     audience: {
       en: 'Leaders curious about AI but wary of hype. Built for South Florida organizations that want a clear roadmap and an honest ROI read before buying tools. Use this when leadership wants a decision memo before committing budget.',
-      es: 'Líderes curiosos por la IA pero recelosos del bombo. Pensado para organizaciones del sur de Florida que quieren una hoja de ruta clara y un ROI honesto antes de comprar herramientas. Úsalo cuando la dirección quiera un memo de decisión antes de comprometer presupuesto.',
+      es: 'Líderes curiosos por la IA pero recelosos del bombo. Pensado para organizaciones del sur de Florida que quieren un plan estratégico claro y un ROI honesto antes de comprar herramientas. Úsalo cuando la dirección quiera un memo de decisión antes de comprometer presupuesto.',
     },
     overview: {
       en: 'We build practical AI roadmaps and run readiness and ROI assessments that say where AI fits and where it does not. Work starts with highest-value, lower-risk opportunities so early projects teach your team without putting core operations at stake.\n\nAdvice stays grounded in your stack, data quality, and capacity. Serving Cooper City, Davie, and greater South Florida, we keep recommendations implementable by the people who will own them.',
-      es: 'Construimos hojas de ruta de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack tecnológico, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
+      es: 'Construimos planes estratégicos de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack tecnológico, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
     },
     process: [
       {
@@ -635,7 +635,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'A practical roadmap and prioritized opportunities tied to value and risk, scoped to what your team can actually run.',
-          es: 'Una hoja de ruta práctica y oportunidades priorizadas según valor y riesgo, acotadas a lo que tu equipo puede operar de verdad.',
+          es: 'Un plan estratégico práctico y oportunidades priorizadas según valor y riesgo, acotadas a lo que tu equipo puede operar de verdad.',
         },
       },
       {
@@ -651,11 +651,11 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       {
         question: {
           en: 'How long does an AI roadmap engagement take?',
-          es: '¿Cuánto dura un proyecto de hoja de ruta de IA?',
+          es: '¿Cuánto dura un proyecto de plan estratégico de IA?',
         },
         answer: {
           en: 'Most readiness and roadmap work fits in a short engagement measured in weeks, not months, so leadership can decide quickly whether to fund pilots.',
-          es: 'La mayor parte del trabajo de preparación y hoja de ruta cabe en un proyecto corto medido en semanas, no meses, para que la dirección decida rápido si financiar pilotos.',
+          es: 'La mayor parte del trabajo de preparación y plan estratégico cabe en un proyecto corto medido en semanas, no meses, para que la dirección decida rápido si financiar pilotos.',
         },
       },
     ],

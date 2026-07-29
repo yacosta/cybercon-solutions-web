@@ -53,7 +53,7 @@ Aquí es donde nuestro ADN de seguridad nos hace impopulares en las conferencias
 
 La mayoría de los líderes tecnológicos tratan la gobernanza como fricción. Algo que legal te obliga a hacer. Nosotros la tratamos como arquitectura. Cuando se construyó ese modelo operativo de IA responsable, los controles de gobernanza, riesgo, cumplimiento, seguridad y privacidad se definieron *antes* de escalar nada. Suena lento. Fue lo contrario.
 
-¿Por qué? Porque con guardrails precleados, los equipos no tienen que pedir permiso por cada caso de uso. Saben qué datos pueden tocar qué sistemas. Saben qué necesita revisión humana. Saben dónde están las líneas rojas. Las reglas claras crean velocidad de la misma forma que lo hacen los semáforos: nadie cree que las intersecciones se moverían más rápido sin ellos.
+¿Por qué? Porque con pautas de control preclearadas, los equipos no tienen que pedir permiso por cada caso de uso. Saben qué datos pueden tocar qué sistemas. Saben qué necesita revisión humana. Saben dónde están las líneas rojas. Las reglas claras crean velocidad de la misma forma que lo hacen los semáforos: nadie cree que las intersecciones se moverían más rápido sin ellos.
 
 La versión práctica, si estás empezando ahora:
 
@@ -72,7 +72,7 @@ El despliegue de Microsoft 365 Copilot citado arriba no empezó encendiendo lice
 
 Hemos visto la alternativa. Licencias compradas, un correo de anuncio enviado, y seis meses después la utilización está por debajo del 20%. El CFO mira la factura y el reporte de uso y cancela el programa entero. Se culpa a la tecnología. El fallo fue el rollout.
 
-Nuestra regla: presupuesta al menos tanta energía para enablement como para procurement. Construye una cultura de experimentación responsable — se anima a la gente a probar IA en su trabajo, dentro de los guardrails, y a compartir lo que encuentra. Capacitar gana a los mandatos siempre. Nadie adopta una herramienta porque un memo se lo dijo. La adoptan porque hizo el martes más fácil.
+Nuestra regla: presupuesta al menos tanta energía para enablement como para procurement. Construye una cultura de experimentación responsable — se anima a la gente a probar IA en su trabajo, dentro de las pautas de control, y a compartir lo que encuentra. Capacitar gana a los mandatos siempre. Nadie adopta una herramienta porque un memo se lo dijo. La adoptan porque hizo el martes más fácil.
 
 Y el liderazgo debería construir, no solo comprar. Las automatizaciones de Claude + n8n de arriba las arquitectó personalmente el liderazgo ejecutivo — no porque no hubiera a quién delegar, sino porque un ejecutivo que ha construido con las herramientas habla de ellas de otra forma. Las juntas notan la diferencia entre un líder que lee reportes de analistas y uno que ha puesto algo en producción. Sé el segundo.
 
@@ -92,7 +92,7 @@ Fíjate lo que no está en la lista: construir tu propio foundation model, contr
 
 ## Las métricas que pertenecen frente a una junta
 
-Para IA en concreto, mantén el scorecard trimestral apretado:
+Para IA en concreto, mantén la matriz de indicadores trimestral apretada:
 
 - **Horas recuperadas**, convertidas a valor en dólares a tasas laborales cargadas
 - **Tasas de adopción** — usuarios activos, no licencias compradas
@@ -120,7 +120,7 @@ Los próximos dos años de IA empresarial no los ganará quien compre más herra
 
 El ROI está ahí. Lo hemos medido, presentado a una junta y defendido en temporada de presupuestos. Unas 5.000 horas al año entre dos iniciativas, encima de 1,3M USD en ahorros anuales que descubrió la disciplina alrededor — dentro de una organización orientada a la misión, bajo obligaciones reales de cumplimiento, con la cara seria frente a directores.
 
-Sin moonshots. Sin pilotos de comunicado de prensa. Solo flujos, guardrails, capacitación y un scorecard.
+Sin moonshots. Sin pilotos de comunicado de prensa. Solo flujos, pautas de control, capacitación y un cuadro de mando.
 
 Empieza con un flujo. Mídelo con honestidad. Reporta el número. Luego hazlo otra vez.
 

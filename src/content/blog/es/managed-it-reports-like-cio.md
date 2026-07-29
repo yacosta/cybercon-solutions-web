@@ -19,9 +19,9 @@ La TI administrada que reporta como un CIO hace algo distinto. Trata la factura 
 
 Este es el estándar de reporting que Cybercon usa cuando operamos TI administrada como un departamento de TI tercerizado para organizaciones del Sur de Florida. Viene de la misma disciplina que traemos al trabajo de CIO y vCIO: si el liderazgo no puede usar el reporte para decidir qué financiar, arreglar o detener, el reporte falló — aunque el porcentaje de uptime se vea bonito.
 
-## La diferencia entre un scorecard de help desk y un readout de CIO
+## La diferencia entre un cuadro de mando de mesa de ayuda y un readout de CIO
 
-Un scorecard de help desk pregunta: *¿Qué tan ocupados estuvimos, y qué tan rápido cerramos tickets?*
+Un cuadro de mando de mesa de ayuda pregunta: *¿Qué tan ocupados estuvimos, y qué tan rápido cerramos tickets?*
 
 Un readout de CIO pregunta: *¿La tecnología está ayudando al negocio a operar de forma segura y predecible — y dónde debería intervenir el liderazgo?*
 
