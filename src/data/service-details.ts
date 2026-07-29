@@ -412,7 +412,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   'backup-disaster-recovery': {
     metaTitle: {
       en: 'Backup & DR in South Florida | Cybercon',
-      es: 'Copia de seguridad y recuperación | Florida | Cybercon',
+      es: 'Copia de seguridad | Sur de Florida | Cybercon',
     },
     metaDescription: {
       en: 'Automated backups, off-site replication, and recovery validation for South Florida businesses so an outage does not become a crisis.',
