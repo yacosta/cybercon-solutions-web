@@ -58,7 +58,7 @@ export const services: Service[] = [
     ],
   },
   {
-    id: '02b',
+    id: '03',
     slug: 'ai-security',
     title: { en: 'AI Security', es: 'Seguridad de IA' },
     summary: {
@@ -81,75 +81,7 @@ export const services: Service[] = [
     ],
   },
   {
-    id: '03',
-    slug: 'cloud',
-    title: { en: 'Cloud Services & Architecture', es: 'Servicios de Nube y Arquitectura' },
-    summary: {
-      en: 'Microsoft 365 and Google Workspace migrations, identity with Entra ID, and secure consolidation of files and servers.',
-      es: 'Migraciones a Microsoft 365 y Google Workspace, identidad con Entra ID y consolidación segura de archivos y servidores.',
-    },
-    items: [
-      {
-        en: 'Cloud Migrations & Management: Microsoft 365 and Google Workspace.',
-        es: 'Migraciones y gestión en la nube: Microsoft 365 y Google Workspace.',
-      },
-      {
-        en: 'Microsoft Entra ID / Azure AD: identity provisioning and SSO.',
-        es: 'Microsoft Entra ID / Azure AD: aprovisionamiento de identidades y SSO.',
-      },
-    ],
-  },
-  {
     id: '04',
-    slug: 'it-consulting',
-    title: { en: 'IT Consulting & Strategic Leadership', es: 'Consultoría de TI y Liderazgo Estratégico' },
-    summary: {
-      en: 'Virtual CIO guidance: roadmaps, risk assessments, budgets, and quarterly business reviews.',
-      es: 'Orientación de CIO virtual: hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
-    },
-    items: [
-      {
-        en: 'Virtual CIO (vCIO): roadmapping, risk assessments, and quarterly business reviews.',
-        es: 'CIO virtual (vCIO): hoja de ruta, evaluaciones de riesgo y revisiones trimestrales.',
-      },
-    ],
-  },
-  {
-    id: '05',
-    slug: 'backup-disaster-recovery',
-    title: { en: 'Backup & Disaster Recovery', es: 'Respaldo y Recuperación ante Desastres' },
-    summary: {
-      en: 'Automated backups, off-site replication, and recovery validation so an outage does not become a crisis.',
-      es: 'Respaldos automatizados, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
-    },
-    items: [
-      {
-        en: 'Data Protection: automated backups, off-site replication, and recovery validation.',
-        es: 'Protección de datos: respaldos automatizados, replicación externa y validación de recuperación.',
-      },
-    ],
-  },
-  {
-    id: '06',
-    slug: 'cabling-communications',
-    title: { en: 'Structured Cabling & Communications', es: 'Cableado Estructurado y Comunicaciones' },
-    summary: {
-      en: 'Fiber and low-voltage cabling, business VoIP, and workplace AV built for reliable day-to-day operations.',
-      es: 'Fibra y cableado de baja tensión, VoIP empresarial y AV de oficina pensados para el día a día.',
-    },
-    items: [
-      {
-        en: 'Structured Cabling: fiber, low-voltage cabling, and infrastructure labeling.',
-        es: 'Cableado estructurado: fibra, cableado de baja tensión y etiquetado de infraestructura.',
-      },
-      {
-        en: 'Business VoIP Systems: unified telephony platforms.',
-        es: 'Sistemas VoIP empresariales: plataformas de telefonía unificada.',
-      },
-    ],
-  },
-  {
-    id: '07',
     slug: 'ai-consulting',
     title: { en: 'AI Consulting & Strategy', es: 'Consultoría y Estrategia de IA' },
     summary: {
@@ -168,7 +100,7 @@ export const services: Service[] = [
     ],
   },
   {
-    id: '08',
+    id: '05',
     slug: 'ai-integration',
     title: { en: 'AI Integration & Automation', es: 'Integración y Automatización de IA' },
     summary: {
@@ -183,7 +115,7 @@ export const services: Service[] = [
     ],
   },
   {
-    id: '09',
+    id: '06',
     slug: 'conversational-ai',
     title: { en: 'Conversational AI & Voice', es: 'IA Conversacional y Voz' },
     summary: {
@@ -198,7 +130,75 @@ export const services: Service[] = [
     ],
   },
   {
+    id: '07',
+    slug: 'cloud',
+    title: { en: 'Cloud Services & Architecture', es: 'Servicios de Nube y Arquitectura' },
+    summary: {
+      en: 'Microsoft 365 and Google Workspace migrations, identity with Entra ID, and secure consolidation of files and servers.',
+      es: 'Migraciones a Microsoft 365 y Google Workspace, identidad con Entra ID y consolidación segura de archivos y servidores.',
+    },
+    items: [
+      {
+        en: 'Cloud Migrations & Management: Microsoft 365 and Google Workspace.',
+        es: 'Migraciones y gestión en la nube: Microsoft 365 y Google Workspace.',
+      },
+      {
+        en: 'Microsoft Entra ID / Azure AD: identity provisioning and SSO.',
+        es: 'Microsoft Entra ID / Azure AD: aprovisionamiento de identidades y SSO.',
+      },
+    ],
+  },
+  {
+    id: '08',
+    slug: 'it-consulting',
+    title: { en: 'IT Consulting & Strategic Leadership', es: 'Consultoría de TI y Liderazgo Estratégico' },
+    summary: {
+      en: 'Virtual CIO guidance: roadmaps, risk assessments, budgets, and quarterly business reviews.',
+      es: 'Orientación de CIO virtual: hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
+    },
+    items: [
+      {
+        en: 'Virtual CIO (vCIO): roadmapping, risk assessments, and quarterly business reviews.',
+        es: 'CIO virtual (vCIO): hoja de ruta, evaluaciones de riesgo y revisiones trimestrales.',
+      },
+    ],
+  },
+  {
+    id: '09',
+    slug: 'backup-disaster-recovery',
+    title: { en: 'Backup & Disaster Recovery', es: 'Respaldo y Recuperación ante Desastres' },
+    summary: {
+      en: 'Automated backups, off-site replication, and recovery validation so an outage does not become a crisis.',
+      es: 'Respaldos automatizados, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
+    },
+    items: [
+      {
+        en: 'Data Protection: automated backups, off-site replication, and recovery validation.',
+        es: 'Protección de datos: respaldos automatizados, replicación externa y validación de recuperación.',
+      },
+    ],
+  },
+  {
     id: '10',
+    slug: 'cabling-communications',
+    title: { en: 'Structured Cabling & Communications', es: 'Cableado Estructurado y Comunicaciones' },
+    summary: {
+      en: 'Fiber and low-voltage cabling, business VoIP, and workplace AV built for reliable day-to-day operations.',
+      es: 'Fibra y cableado de baja tensión, VoIP empresarial y AV de oficina pensados para el día a día.',
+    },
+    items: [
+      {
+        en: 'Structured Cabling: fiber, low-voltage cabling, and infrastructure labeling.',
+        es: 'Cableado estructurado: fibra, cableado de baja tensión y etiquetado de infraestructura.',
+      },
+      {
+        en: 'Business VoIP Systems: unified telephony platforms.',
+        es: 'Sistemas VoIP empresariales: plataformas de telefonía unificada.',
+      },
+    ],
+  },
+  {
+    id: '11',
     slug: 'web-design-development',
     title: { en: 'Web Design & Development', es: 'Diseño y Desarrollo Web' },
     summary: {
