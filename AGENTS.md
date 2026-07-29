@@ -1,3 +1,13 @@
+## Agent procedures
+
+For multi-step work (clarify/assume, task discipline, research-before-build, verify-before-ship, present-day search, MCP-before-guessing, final gate), follow:
+
+`.cursor/skills/agent-procedures/SKILL.md`
+
+(Also enforced via `.cursor/rules/agent-procedures.mdc`.)
+
+Cloud/unattended runs state assumptions and proceed; do not stall on clarifying questions. Keep that skill aligned with tools that actually exist in this environment.
+
 ## Web quality standards
 
 For UI, SEO, Core Web Vitals (LCP), color contrast, cache lifetimes, and accessibility work, follow the project skill:
