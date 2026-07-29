@@ -53,7 +53,7 @@ Aquí es donde nuestro ADN de seguridad nos hace impopulares en las conferencias
 
 La mayoría de los líderes tecnológicos tratan la gobernanza como fricción. Algo que legal te obliga a hacer. Nosotros la tratamos como arquitectura. Cuando se construyó ese modelo operativo de IA responsable, los controles de gobernanza, riesgo, cumplimiento, seguridad y privacidad se definieron *antes* de escalar nada. Suena lento. Fue lo contrario.
 
-¿Por qué? Porque con pautas de control preclearadas, los equipos no tienen que pedir permiso por cada caso de uso. Saben qué datos pueden tocar qué sistemas. Saben qué necesita revisión humana. Saben dónde están las líneas rojas. Las reglas claras crean velocidad de la misma forma que lo hacen los semáforos: nadie cree que las intersecciones se moverían más rápido sin ellos.
+¿Por qué? Porque con pautas de control preaprobadas, los equipos no tienen que pedir permiso por cada caso de uso. Saben qué datos pueden tocar qué sistemas. Saben qué necesita revisión humana. Saben dónde están las líneas rojas. Las reglas claras crean velocidad de la misma forma que lo hacen los semáforos: nadie cree que las intersecciones se moverían más rápido sin ellos.
 
 La versión práctica, si estás empezando ahora:
 

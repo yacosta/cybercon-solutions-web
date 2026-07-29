@@ -131,7 +131,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     lede: {
       en: 'Teams adopt copilots, chatbots, and browser AI faster than most security frameworks were built for. We put guardrails around that adoption — so innovation does not become your weakest link.',
-      es: 'Los equipos adoptan copilots, chatbots e IA en el navegador más rápido de lo que contemplan la mayoría de los marcos de seguridad. Ponemos pautas de control a esa adopción — para que la innovación no sea tu eslabón más débil.',
+      es: 'Los equipos adoptan copilots, chatbots e IA en el navegador más rápido de lo que contemplan la mayoría de los marcos de seguridad. Establecemos pautas de control en esa adopción — para que la innovación no sea tu eslabón más débil.',
     },
     cta: {
       en: 'Book a free AI security review',
