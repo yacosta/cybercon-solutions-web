@@ -13,15 +13,15 @@ La mayoría de los reportes de TI administrada están escritos para el proveedor
 
 Conoces el tipo. Llega un PDF el día antes de la llamada trimestral. La primera página es un logo. La segunda es un gráfico circular de categorías de tickets. La tercera celebra que el 94% de los tickets cumplió el SLA — sin explicar si esos tickets importaban, si las mismas cinco personas abrieron la mitad o si la outage que dejó a contabilidad fuera de línea toda una mañana siquiera aparece en los números. Todos asienten. Nadie cambia una línea del presupuesto. Tres meses después, ocurre la misma reunión con otro tono de azul en el gráfico.
 
-Eso es reporte como teatro.
+Eso es reporte como actuación, no como gestión.
 
 La TI administrada que reporta como un CIO hace algo distinto. Trata la factura mensual como una relación de servicio que tiene que ganarse la confianza con evidencia: **niveles de servicio que calzan con cómo el negocio realmente opera, KPIs que conectan el trabajo tecnológico con riesgo y productividad, y revisiones trimestrales de negocio que fuerzan decisiones — no turismo de diapositivas.**
 
 Este es el estándar de reporting que Cybercon usa cuando operamos TI administrada como un departamento de TI tercerizado para organizaciones del Sur de Florida. Viene de la misma disciplina que traemos al trabajo de CIO y vCIO: si el liderazgo no puede usar el reporte para decidir qué financiar, arreglar o detener, el reporte falló — aunque el porcentaje de uptime se vea bonito.
 
-## La diferencia entre un scorecard de help desk y un readout de CIO
+## La diferencia entre un cuadro de mando de mesa de ayuda y un readout de CIO
 
-Un scorecard de help desk pregunta: *¿Qué tan ocupados estuvimos, y qué tan rápido cerramos tickets?*
+Un cuadro de mando de mesa de ayuda pregunta: *¿Qué tan ocupados estuvimos, y qué tan rápido cerramos tickets?*
 
 Un readout de CIO pregunta: *¿La tecnología está ayudando al negocio a operar de forma segura y predecible — y dónde debería intervenir el liderazgo?*
 
@@ -33,11 +33,11 @@ El reporting estilo CIO se organiza alrededor de outcomes que el dueño o la jun
 
 - ¿La gente puede hacer su trabajo sin fricción?
 - ¿Estamos previniendo outages, o solo reaccionando bien después de ellas?
-- ¿Los controles de seguridad y backup son reales, o asumidos?
+- ¿Los controles de seguridad y de copia de seguridad son reales, o asumidos?
 - ¿El gasto es predecible, y está alineado al riesgo?
 - ¿Qué decisiones necesitamos del liderazgo este trimestre?
 
-Si tu MSP no puede responder eso sin abrir cinco portales, no tienes un socio tecnológico. Tienes una tienda break/fix con retainer.
+Si tu MSP no puede responder eso sin abrir cinco portales, no tienes un proveedor tecnológico. Tienes una tienda break/fix con un contrato de honorarios mensuales por disponibilidad.
 
 ## SLAs que significan algo (y los que no)
 
@@ -47,15 +47,15 @@ Un SLA débil suena impresionante y mide lo incorrecto: "Respondemos a todos los
 
 Un SLA útil es más estrecho y más difícil de manipular.
 
-**Define prioridades en lenguaje de negocio.** Prioridad 1 no es "el usuario seleccionó urgente." Es: no puede correr nómina, la clínica no puede acceder a registros, los scanners del warehouse están caídos, el correo está fuera de línea para todos, un incidente de seguridad está activo. Prioridad 3 es el mapeo de impresora de un solo usuario. Si tu modelo de prioridad no coincide con ingresos y seguridad, reescríbelo antes de discutir minutos.
+**Define prioridades en lenguaje de negocio.** Prioridad 1 no es "el usuario seleccionó urgente." Es: no puede correr nómina, la clínica no puede acceder a registros, los escáneres de la bodega están caídos, el correo está fuera de línea para todos, un incidente de seguridad está activo. Prioridad 3 es el mapeo de impresora de un solo usuario. Si tu modelo de prioridad no coincide con ingresos y seguridad, reescríbelo antes de discutir minutos.
 
 **Separa respuesta de restauración.** El tiempo de respuesta importa. El tiempo de restauración importa más para los incidentes que detienen el trabajo. Reporta ambos. No celebres ninguno si la "restauración" fue un workaround temporal que todavía necesita un arreglo real.
 
 **Publica excepciones antes de que se vuelvan discusiones.** Mantenimiento planificado, outages de SaaS de terceros, hardware propiedad del cliente fuera de soporte — escribe cómo se manejan. La ambigüedad es cómo muere la confianza después de un incidente.
 
-**Mide lo que realmente cubres con personal.** Un live phone desk 24/7 es una promesa distinta a email-only después de las 6 p.m. Si el contrato dice respuesta telefónica en vivo, el reporte debería mostrar desempeño fuera de horario, no enterrarlo dentro de un promedio combinado que se ve bien porque los tickets diurnos dominan la matemática.
+**Mide lo que realmente cubres con personal.** Una mesa de ayuda telefónica 24/7 es una promesa distinta a solo correo después de las 6 p.m. Si el contrato dice respuesta telefónica en vivo, el reporte debería mostrar desempeño fuera de horario, no enterrarlo dentro de un promedio combinado que se ve bien porque los tickets diurnos dominan la matemática.
 
-**Incluye la realidad onsite para negocios locales.** Para operadores de Cooper City, Davie y el área amplia del Sur de Florida, algunas fallas no se pueden arreglar remoto. Un SLA que ignora viajes y ventanas onsite es un documento escrito para una hoja de cálculo, no para un warehouse o el piso de una clínica.
+**Incluye la realidad onsite para negocios locales.** Para operadores de Cooper City, Davie y el área amplia del Sur de Florida, algunas fallas no se pueden arreglar remoto. Un SLA que ignora viajes y ventanas onsite es un documento escrito para una hoja de cálculo, no para una bodega o el piso de una clínica.
 
 Los buenos SLAs son incómodos de escribir porque crean accountability. Esa incomodidad es el punto.
 
@@ -70,9 +70,9 @@ Mantén el set de KPIs lo bastante pequeño para que un operador ocupado todaví
 - **Tickets envejecidos** por encima de un umbral acordado, con dueños
 
 ### Seguridad y continuidad
-- **Brechas de cobertura EDR/antivirus** (dispositivos faltantes o no saludables)
+- **Vacíos de cobertura EDR/antivirus** (dispositivos faltantes o no saludables)
 - **Cobertura MFA** en correo y acceso remoto
-- **Tasa de éxito de backups** y **última prueba de restore exitosa** (fecha, sistema, resultado)
+- **Tasa de éxito de respaldos** y **última prueba de restore exitosa** (fecha, sistema, resultado)
 - **Reconocimientos de alertas críticas** — no solo alertas generadas
 
 ### Acceso y ciclo de vida
@@ -82,18 +82,18 @@ Mantén el set de KPIs lo bastante pequeño para que un operador ocupado todaví
 
 ### Claridad comercial
 - **Usuarios/dispositivos bajo administración** versus facturados
-- **Proyectos fuera del retainer** completados o en cola
+- **Proyectos fuera del contrato de asesoría permanente** completados o en cola
 - **Renovaciones dentro de 90–180 días** que necesitan una decisión de negocio
 
-Fíjate en lo que falta: gráficos de vanidad sobre puntajes promedio de satisfacción con cinco respuestas, o "utilización de técnicos" que existe para justificar headcount internamente. Esos pueden ser herramientas operativas. No son KPIs de CIO.
+Fíjate en lo que falta: gráficos de vanidad sobre puntajes promedio de satisfacción con cinco respuestas, o "utilización de técnicos" que existe para justificar la planta de personal internamente. Esos pueden ser herramientas operativas. No son KPIs de CIO.
 
-Una regla más: **empareja cada métrica roja con una próxima acción.** "Fallas de backup al 12%" sin "esta semana estamos reemplazando el agente que falla en el servidor de contabilidad, dueño: ___" es solo entrega de ansiedad.
+Una regla más: **empareja cada métrica roja con una próxima acción.** "Fallas de respaldo al 12%" sin "esta semana estamos reemplazando el agente que falla en el servidor de contabilidad, dueño: ___" es solo entrega de ansiedad.
 
 ## La revisión trimestral de negocio que se gana la reunión
 
 Un QBR no es un reporte mensual más largo. Es un foro de decisión.
 
-Si tu revisión trimestral se puede enviar por email como PDF sin conversación, cancela la reunión y ahórrale a todos el impuesto de calendario. Si requiere una conversación, estructúrala para que el liderazgo salga con compromisos.
+Si tu revisión trimestral se puede enviar por correo como PDF sin conversación, cancela la reunión y ahórrale a todos el impuesto de calendario. Si requiere una conversación, estructúrala para que el liderazgo salga con compromisos.
 
 Un QBR que importa normalmente tiene cinco secciones — y rara vez necesita más.
 
@@ -101,7 +101,7 @@ Un QBR que importa normalmente tiene cinco secciones — y rara vez necesita má
 
 **2. Desempeño operativo contra SLAs/KPIs.** Tendencias de al menos dos trimestres previos cuando sea posible. Un mes verde prueba poco. Los patrones prueban más.
 
-**3. Riesgo y resiliencia.** La lista honesta: prueba de restore de backup, brechas de identidad, hardware envejecido que fallará con ruido, concentración de proveedores, requisitos de ciberseguro. Ordena por impacto de negocio, no por lo divertido que sería el proyecto.
+**3. Riesgo y resiliencia.** La lista honesta: prueba de restauración de copia de seguridad, vacíos de identidad, hardware envejecido que fallará con ruido, concentración de proveedores, requisitos de ciberseguro. Ordena por impacto de negocio, no por lo divertido que sería el proyecto.
 
 **4. Roadmap y pedidos de presupuesto.** Financiado ahora, siguiente, después. Bandas de costo. Qué pasa si el liderazgo difiere. Aquí es donde la TI administrada debería conectarse con pensamiento de vCIO — aunque las horas de estrategia sean más ligeras que las de break-fix.
 
@@ -123,9 +123,9 @@ Ya sea que trabajes con Cybercon o evalúes a otro proveedor, usa esto como filt
 
 **Pregunta qué *no* está en el acuerdo administrado.** Proyectos, onsite fuera de horario, monitoreo avanzado de seguridad, desarrollo de aplicaciones — la ambigüedad aquí se convierte en fricción de facturas después. El empaque predecible por usuario ayuda, pero solo si los límites de alcance son explícitos.
 
-**Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es busywork caro. Los socios estilo CIO rastrean temas y los eliminan.
+**Pregunta cómo manejan el mismo tema de ticket tres veces.** La recurrencia sin trabajo de causa raíz es trabajo de relleno caro. Los proveedores estilo CIO rastrean temas y los eliminan.
 
-**Pide evidencia de pruebas de restore, no checks verdes de jobs de backup.** Los backups que nunca se han restaurado son una historia que te cuentas a ti mismo.
+**Pide evidencia de pruebas de restore, no checks verdes de trabajos de respaldo.** Las copias de seguridad que nunca se han restaurado son una historia que te cuentas a ti mismo.
 
 Estas preguntas no son adversariales. Son la forma de distinguir un servicio administrado proactivo de una relación break/fix educada con una cuota mensual.
 
@@ -135,7 +135,7 @@ No necesitas un binder de centro de comando. Necesitas un ritmo.
 
 **Semanal (ops):** triage de tickets, excepciones de parches, revisión de P1/P2 abiertos. Esto se queda con los leads de TI y el MSP. El liderazgo no lo necesita salvo que algo esté en llamas.
 
-**Mensual (gestión):** snapshot de KPIs de una página — incidentes, trabajo envejecido, brechas de cobertura de seguridad, estado de backups, riesgos notables. Quince minutos para un dueño; más tiempo solo si hay rojo.
+**Mensual (gestión):** snapshot de KPIs de una página — incidentes, trabajo envejecido, vacíos de cobertura de seguridad, estado de las copias de seguridad, riesgos notables. Quince minutos para un dueño; más tiempo solo si hay rojo.
 
 **Trimestral (liderazgo):** el QBR de decisión de arriba. Trae a finanzas cuando el gasto o las renovaciones sean materiales. Trae a operaciones cuando los temas de downtime estén golpeando el piso.
 
@@ -174,13 +174,13 @@ Eso es TI administrada como función operativa. No una fábrica de tickets con l
 
 ## Empieza con el reporte que quisieras haber tenido el trimestre pasado
 
-Si el reporting de tu proveedor actual no puede sostener una conversación estilo junta, no esperes al aniversario del contrato para levantar el tema. Pide un one-pager mensual rediseñado y una agenda de QBR con espacios de decisión. Observa si la conversación se vuelve más afilada en un ciclo.
+Si el reporting de tu proveedor actual no puede sostener una conversación estilo junta, no esperes al aniversario del contrato para levantar el tema. Pide un resumen ejecutivo mensual de una página, rediseñado, y una agenda de QBR con espacios de decisión. Observa si la conversación se vuelve más afilada en un ciclo.
 
 Si estás evaluando un cambio, trae tus dos últimos paquetes trimestrales a la evaluación y pide al nuevo equipo que muestre cómo los reescribiría. La respuesta te dice más que una matriz de funciones.
 
 Cybercon Solutions opera TI administrada para negocios del Sur de Florida con help desk en vivo 24/7, monitoreo y parches proactivos, soporte onsite cuando remoto no basta y empaque predecible por usuario — y lo reportamos como lo haría un CIO: SLAs ligados al impacto de negocio, KPIs que exponen riesgo y fricción, y revisiones trimestrales que terminan en decisiones.
 
-Si esa es la relación que quieres con la tecnología — accountable, legible y felizmente libre de gráficos de vanidad inútiles — empieza con una evaluación gratuita. Un ingeniero real dará seguimiento dentro de un día hábil con una lectura en lenguaje claro de dónde estás parado.
+Si esa es la relación que quieres con la tecnología — accountable, legible y felizmente libre de gráficos de vanidad inútiles — empieza con una evaluación gratuita. Te contactaremos en un día hábil con un resumen de dónde estás.
 
 ---
 

@@ -108,14 +108,14 @@ function fallbackReply(locale: 'en' | 'es', userMessage: string): { reply: strin
   if (locale === 'es') {
     return {
       reply:
-        'Puedo ayudarte con lo básico sobre Cybercon: servicios, zona de cobertura y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita — un ingeniero real responde en un día hábil.',
+        'Puedo ayudarte con lo básico sobre Cybercon: servicios, zona de cobertura y cómo empezar. Para precios o un plan a tu medida, lo mejor es la evaluación gratuita — respondemos en un día hábil.',
       ctaIds: ['assessment', 'contact'],
     };
   }
 
   return {
     reply:
-      'I can help with the basics on Cybercon — services, service area, and how to get started. For pricing or a tailored plan, the free assessment is the best next step. A real engineer replies within one business day.',
+      'I can help with the basics on Cybercon — services, service area, and how to get started. For pricing or a tailored plan, the free assessment is the best next step. We reply within one business day.',
     ctaIds: ['assessment', 'contact'],
   };
 }

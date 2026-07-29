@@ -131,7 +131,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     lede: {
       en: 'Teams adopt copilots, chatbots, and browser AI faster than most security frameworks were built for. We put guardrails around that adoption — so innovation does not become your weakest link.',
-      es: 'Los equipos adoptan copilots, chatbots e IA en el navegador más rápido de lo que contemplan la mayoría de los marcos de seguridad. Ponemos barandillas a esa adopción — para que la innovación no sea tu eslabón más débil.',
+      es: 'Los equipos adoptan copilots, chatbots e IA en el navegador más rápido de lo que contemplan la mayoría de los marcos de seguridad. Establecemos pautas de control en esa adopción — para que la innovación no sea tu eslabón más débil.',
     },
     cta: {
       en: 'Book a free AI security review',
@@ -143,7 +143,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     replyNote: {
       en: 'A real engineer replies within one business day',
-      es: 'Un ingeniero real responde en un día hábil',
+      es: 'Un ingeniero de nuestro equipo responde en un día hábil',
     },
     imageAlt: {
       en: 'Security analyst reviewing layered network defenses on dual monitors',
@@ -166,8 +166,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       {
         value: { en: 'Per-user', es: 'Por usuario' },
         label: {
-          en: 'Predictable pricing, not break/fix theater',
-          es: 'Precio predecible, no teatro de averías',
+          en: 'Predictable pricing, not surprise break/fix bills',
+          es: 'Precio predecible, sin facturas sorpresa por falla',
         },
       },
       {
@@ -202,7 +202,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       },
       {
         en: 'Traditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer “which AI tools are allowed, with which data, and who can prove it.” That gap is where IP leaks, insurance friction, and quiet compliance failures start.',
-        es: 'La ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder “qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo.” Esa brecha es donde empiezan las filtraciones de IP, la fricción con seguros y los fallos silenciosos de cumplimiento.',
+        es: 'La ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder “qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo.” Ese vacío es donde empiezan las filtraciones de IP, la fricción con seguros y los fallos silenciosos de cumplimiento.',
       },
     ],
   },
@@ -217,7 +217,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     lede: {
       en: 'For Cooper City and Davie organizations adopting AI without exposing intellectual property, sensitive data, or compliance gaps.',
-      es: 'Para organizaciones en Cooper City y Davie que adoptan IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento.',
+      es: 'Para organizaciones en Cooper City y Davie que adoptan IA sin exponer propiedad intelectual, datos sensibles o vacíos de cumplimiento.',
     },
     pillars: [
       {
@@ -265,11 +265,11 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     title: {
       en: 'Attackers do not think in silos. Neither should your stack.',
-      es: 'Los atacantes no piensan en silos. Tu stack tampoco debería.',
+      es: 'Los atacantes no piensan en silos. Tu stack tecnológico tampoco debería.',
     },
     lede: {
       en: 'Identity, email, endpoints, web, awareness, and data sit on one operating model — so signals correlate, priorities stay clear, and your team can act before risk spreads. Select a control layer to see how Cybercon covers it.',
-      es: 'Identidad, correo, endpoints, web, concienciación y datos en un mismo modelo operativo — para correlacionar señales, priorizar con claridad y actuar antes de que el riesgo se propague. Elige una capa de control para ver cómo la cubre Cybercon.',
+      es: 'Identidad, correo, endpoints, web, concientización y datos en un mismo modelo operativo — para correlacionar señales, priorizar con claridad y actuar antes de que el riesgo se propague. Elige una capa de control para ver cómo la cubre Cybercon.',
     },
     layers: [
       {
@@ -293,7 +293,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         detail: {
           en: 'AI makes phishing copy and deepfake voice notes cheaper. We layer filtering, reporting workflows, and awareness so suspicious mail is caught early — and mailbox rules that forward data to personal AI tools get reviewed.',
-          es: 'La IA abarata el copy de phishing y las notas de voz deepfake. Apilamos filtrado, flujos de reporte y concienciación para atrapar correo sospechoso a tiempo — y revisamos reglas de buzón que reenvían datos a herramientas de IA personales.',
+          es: 'La IA abarata el copy de phishing y las notas de voz deepfake. Apilamos filtrado, flujos de reporte y concientización para atrapar correo sospechoso a tiempo — y revisamos reglas de buzón que reenvían datos a herramientas de IA personales.',
         },
       },
       {
@@ -322,14 +322,14 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       },
       {
         id: 'awareness',
-        name: { en: 'Awareness', es: 'Concienciación' },
+        name: { en: 'Awareness', es: 'Concientización' },
         summary: {
           en: 'Training that covers AI misuse — not only classic phishing.',
           es: 'Formación que cubre el mal uso de la IA — no solo el phishing clásico.',
         },
         detail: {
           en: 'People adopt tools that make work faster. We teach what is safe to share with AI, how to report shadow AI, and how deepfake or prompt-injection tricks show up in day-to-day roles.',
-          es: 'La gente adopta lo que acelera el trabajo. Enseñamos qué es seguro compartir con IA, cómo reportar IA en la sombra y cómo aparecen deepfakes o inyecciones de prompts en el día a día.',
+          es: 'La gente adopta lo que acelera el trabajo. Enseñamos qué es seguro compartir con IA, cómo reportar el uso no autorizado de herramientas de IA ("IA en la sombra") y cómo aparecen deepfakes o inyecciones de *prompts* en el día a día.',
         },
       },
       {
@@ -346,7 +346,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       },
       {
         id: 'mdr',
-        name: { en: 'Agentic MDR', es: 'MDR agentico' },
+        name: { en: 'Agentic MDR', es: 'MDR agéntico' },
         summary: {
           en: 'Correlate signals, prioritize, and respond — with humans in the loop.',
           es: 'Correlacionar señales, priorizar y responder — con humanos en el circuito.',
@@ -380,7 +380,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         body: {
           en: 'Bring identity, endpoint, email, data, awareness, and exposure protection together under one operating rhythm — sized for how your Cooper City or Davie team actually works.',
-          es: 'Unimos identidad, endpoint, correo, datos, concienciación y exposición en un mismo ritmo operativo — dimensionado a cómo trabaja de verdad tu equipo en Cooper City o Davie.',
+          es: 'Unimos identidad, endpoint, correo, datos, concientización y exposición en un mismo ritmo operativo — dimensionado a cómo trabaja de verdad tu equipo en Cooper City o Davie.',
         },
       },
       {
@@ -390,8 +390,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
           es: 'Detección y respuesta automatizadas',
         },
         body: {
-          en: 'Correlate related activity across environments, prioritize before risk spreads, and keep humans in the loop for decisions that need judgment — not ticket theater.',
-          es: 'Correlacionamos actividad relacionada entre entornos, priorizamos antes de que el riesgo se propague y mantenemos humanos en el circuito para decisiones que requieren criterio — no teatro de tickets.',
+          en: 'Correlate related activity across environments, prioritize before risk spreads, and keep a person in the loop for decisions that need judgment — not just another ticket in a queue.',
+          es: 'Correlacionamos actividad relacionada entre entornos, priorizamos antes de que el riesgo se propague y mantenemos a una persona en el circuito para decisiones que requieren criterio — no solo otro ticket en la cola.',
         },
       },
       {
@@ -401,8 +401,8 @@ export const aiSecurityPage: AiSecurityPageCopy = {
           es: 'Hacer la seguridad visible y valiosa',
         },
         body: {
-          en: 'Turn posture gains, compliance progress, and threat remediation into plain-English insights leadership, auditors, and cyber insurers can use.',
-          es: 'Convertimos mejoras de postura, avance de cumplimiento y remediación de amenazas en insights en lenguaje claro para dirección, auditores y aseguradoras cibernéticas.',
+          en: 'Turn posture gains, compliance progress, and threat remediation into reports leadership, auditors, and cyber insurers can actually use.',
+          es: 'Convertimos mejoras de postura, avance de cumplimiento y remediación de amenazas en reportes que dirección, auditores y aseguradoras cibernéticas puedan usar de verdad.',
         },
       },
     ],
@@ -442,7 +442,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         id: 'shadow',
         prompt: {
           en: 'How visible is “shadow AI” (personal ChatGPT, browser extensions, unapproved copilots) in your organization?',
-          es: '¿Qué tan visible es la “IA en la sombra” (ChatGPT personal, extensiones, copilots no aprobados) en tu organización?',
+          es: '¿Qué tan visible es el uso no autorizado de herramientas de IA — “IA en la sombra” (ChatGPT personal, extensiones, copilots no aprobados) — en tu organización?',
         },
         options: [
           { id: 'tracked', label: { en: 'We inventory and review AI tools', es: 'Inventariamos y revisamos herramientas de IA' }, score: 2 },
@@ -471,7 +471,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         options: [
           { id: 'unified', label: { en: 'Yes — shared monitoring / response', es: 'Sí — monitoreo / respuesta compartidos' }, score: 2 },
           { id: 'silos', label: { en: 'Separate tools, manual correlation', es: 'Herramientas separadas, correlación manual' }, score: 1 },
-          { id: 'gaps', label: { en: 'Major visibility gaps', es: 'Brechas importantes de visibilidad' }, score: 0 },
+          { id: 'gaps', label: { en: 'Major visibility gaps', es: 'Vacíos importantes de visibilidad' }, score: 0 },
         ],
       },
       {
@@ -481,7 +481,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
           es: 'Si mañana un empleado filtrara datos sensibles a una herramienta de IA pública, ¿tienes un plan de respuesta?',
         },
         options: [
-          { id: 'ready', label: { en: 'Yes — playbook and owners defined', es: 'Sí — playbook y responsables definidos' }, score: 2 },
+          { id: 'ready', label: { en: 'Yes — playbook and owners defined', es: 'Sí — libro de tácticas y responsables definidos' }, score: 2 },
           { id: 'partial', label: { en: 'We would improvise from general IR', es: 'Improvisaríamos desde IR general' }, score: 1 },
           { id: 'none', label: { en: 'No AI-specific plan', es: 'Sin plan específico para IA' }, score: 0 },
         ],
@@ -491,7 +491,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
       low: {
         title: {
           en: 'AI adoption is outrunning your guardrails.',
-          es: 'La adopción de IA va por delante de tus barandillas.',
+          es: 'La adopción de IA va por delante de tus pautas de control.',
         },
         body: {
           en: 'You are not alone — most South Florida SMBs land here first. Prioritize a written AI-use policy, a quick inventory of tools in use, and exposure checks on work emails while we map identity and data controls.',
@@ -505,7 +505,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         body: {
           en: 'You have pieces of the puzzle. The next step is correlating identity, email, and endpoint signals and closing the gap between policy and technical controls on public AI tools.',
-          es: 'Tienes piezas del rompecabezas. El siguiente paso es correlacionar señales de identidad, correo y endpoint y cerrar la brecha entre política y controles técnicos sobre herramientas de IA públicas.',
+          es: 'Tienes piezas del rompecabezas. El siguiente paso es correlacionar señales de identidad, correo y endpoint y cerrar el vacío entre política y controles técnicos sobre herramientas de IA públicas.',
         },
       },
       high: {
@@ -523,24 +523,24 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     emailLabel: { en: 'Work email', es: 'Correo de trabajo' },
     emailPlaceholder: { en: 'you@company.com', es: 'tu@empresa.com' },
     nameLabel: { en: 'Name', es: 'Nombre' },
-    namePlaceholder: { en: 'Enter your name', es: 'Introduce tu nombre' },
+    namePlaceholder: { en: 'Enter your name', es: 'Ingresa tu nombre' },
     companyLabel: { en: 'Company', es: 'Empresa' },
-    companyPlaceholder: { en: 'Enter your company', es: 'Introduce tu empresa' },
+    companyPlaceholder: { en: 'Enter your company', es: 'Ingresa tu empresa' },
     submit: {
       en: 'Send my result to Cybercon',
       es: 'Enviar mi resultado a Cybercon',
     },
     disclosure: {
-      en: 'We use this only to follow up on your AI security readiness check. A real engineer replies within one business day.',
-      es: 'Lo usamos solo para dar seguimiento a tu revisión de preparación en seguridad de IA. Un ingeniero real responde en un día hábil.',
+      en: 'We use this only to follow up on your AI security readiness check. We reply within one business day.',
+      es: 'Lo usamos solo para dar seguimiento a tu revisión de preparación en seguridad de IA. Respondemos en un día hábil.',
     },
     thanksTitle: {
       en: 'Thanks — we have your readiness snapshot.',
       es: 'Gracias — ya tenemos tu instantánea de preparación.',
     },
     thanksBody: {
-      en: 'We will follow up within one business day with clear next steps. No sales pressure.',
-      es: 'Te contactaremos en un día hábil con pasos claros. Sin presión comercial.',
+      en: 'We’ll follow up within one business day with what we’d tackle next. No hard sell.',
+      es: 'Te contactaremos en un día hábil con lo que atacaríamos a continuación. Sin presión comercial.',
     },
     restart: { en: 'Retake the check', es: 'Repetir la revisión' },
     bookAssessment: {
@@ -580,7 +580,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         answer: {
           en: 'No. Growing South Florida businesses often face more risk because AI tools are adopted informally — without governance, inventory, or incident playbooks.',
-          es: 'No. Las empresas en crecimiento del sur de Florida suelen enfrentar más riesgo porque las herramientas de IA se adoptan de forma informal — sin gobernanza, inventario ni playbooks de incidentes.',
+          es: 'No. Las empresas en crecimiento del sur de Florida suelen enfrentar más riesgo porque las herramientas de IA se adoptan de forma informal — sin gobernanza, inventario ni libros de tácticas de incidentes.',
         },
       },
       {
@@ -600,7 +600,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         answer: {
           en: 'Cybersecurity & Compliance is the broader SOC, EDR, and framework foundation. AI Security layers governance, leakage controls, and oversight specifically for copilots, public models, and AI-enabled workflows — on top of that stack.',
-          es: 'Ciberseguridad y Cumplimiento es la base más amplia de SOC, EDR y marcos. Seguridad de IA añade gobernanza, control de filtraciones y supervisión específicamente para copilots, modelos públicos y flujos con IA — encima de ese stack.',
+          es: 'Ciberseguridad y Cumplimiento es la base más amplia de SOC, EDR y marcos. Seguridad de IA añade gobernanza, control de filtraciones y supervisión específicamente para copilots, modelos públicos y flujos con IA — encima de ese stack tecnológico.',
         },
       },
       {
@@ -622,7 +622,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     body: {
       en: 'Tell us how your team uses AI today. We will map governance gaps, exposure risk, and a practical control plan — plain English, within one business day.',
-      es: 'Cuéntanos cómo usa IA tu equipo hoy. Mapearemos brechas de gobernanza, riesgo de exposición y un plan de control práctico — en lenguaje claro, en un día hábil.',
+      es: 'Cuéntanos cómo usa IA tu equipo hoy. Mapearemos vacíos de gobernanza, riesgo de exposición y un plan de control práctico — en lenguaje claro, en un día hábil.',
     },
     button: {
       en: 'Book a free AI security review',

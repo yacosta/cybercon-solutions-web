@@ -13,7 +13,7 @@ Most managed IT reports are written for the provider, not the business.
 
 You know the type. A PDF arrives the day before the quarterly call. Page one is a logo. Page two is a pie chart of ticket categories. Page three celebrates that 94% of tickets met the SLA — without explaining whether those tickets mattered, whether the same five people opened half of them, or whether the one outage that took accounting offline for a morning even appears in the numbers. Everyone nods. Nobody changes a budget line. Three months later, the same meeting happens with a different shade of blue on the chart.
 
-That is reporting as theater.
+That is reporting as performance, not management.
 
 Managed IT that reports like a CIO does something different. It treats the monthly invoice as a service relationship that has to earn trust with evidence: **service levels that match how the business actually runs, KPIs that connect technology work to risk and productivity, and quarterly business reviews that force decisions — not slide tourism.**
 
@@ -180,7 +180,7 @@ If you are evaluating a switch, bring your last two quarterly packets to the ass
 
 Cybercon Solutions runs managed IT for South Florida businesses with live 24/7 help desk, proactive monitoring and patching, onsite support when remote is not enough, and predictable per-user packaging — and we report it the way a CIO would: SLAs tied to business impact, KPIs that expose risk and friction, and quarterly reviews that end in decisions.
 
-If that is the relationship you want with technology — accountable, readable, and uselessly free of vanity charts — start with a free assessment. A real engineer will follow up within one business day with a plain-English read on where you stand.
+If that is the relationship you want with technology — accountable, readable, and free of vanity charts — start with a free assessment. We’ll follow up within one business day with a written summary of where you stand.
 
 ---
 

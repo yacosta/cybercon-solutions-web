@@ -36,8 +36,8 @@ export const industries: Industry[] = [
       es: 'Los equipos clínicos no deberían ser el departamento de TI. Mantenemos los sistemas disponibles, el acceso controlado y los incidentes con un responsable claro.',
     },
     overview: {
-      en: 'Cooper City and Davie practices run on shared charts, imaging, billing, and remote access — all under HIPAA expectations. We treat security as the baseline: monitoring, patching, backups, and identity done in a way your staff can actually live with. When something breaks, a real engineer answers — not a ticket that sits until Monday.',
-      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, respaldos e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero real — no un ticket que espera hasta el lunes.',
+      en: 'Cooper City and Davie practices run on shared charts, imaging, billing, and remote access — all under HIPAA expectations. We treat security as the baseline: monitoring, patching, backups, and identity done in a way your staff can actually live with. When something breaks, an engineer answers — not a ticket that sits until Monday.',
+      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, copias de seguridad e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero — no un ticket que espera hasta el lunes.',
     },
     challengesLabel: { en: 'What clinics feel every week', es: 'Lo que las clínicas sienten cada semana' },
     challenges: [
@@ -55,7 +55,7 @@ export const industries: Industry[] = [
       },
       {
         en: 'Backups that exist on paper but have never been restored.',
-        es: 'Respaldos que existen en el papel pero nunca se han restaurado.',
+        es: 'Copias de seguridad que existen en el papel pero nunca se han restaurado.',
       },
     ],
     helpLabel: { en: 'How we help healthcare teams', es: 'Cómo ayudamos a equipos de salud' },
@@ -78,7 +78,7 @@ export const industries: Industry[] = [
         title: { en: 'Recovery you can trust', es: 'Recuperación en la que puedes confiar' },
         body: {
           en: 'Backups and restore tests so an outage or ransomware event does not erase a day of care.',
-          es: 'Respaldos y pruebas de restauración para que una caída o ransomware no borre un día de atención.',
+          es: 'Copias de seguridad y pruebas de restauración para que una caída o ransomware no borre un día de atención.',
         },
       },
     ],
@@ -100,7 +100,7 @@ export const industries: Industry[] = [
         },
         answer: {
           en: 'We implement and operate the technical controls clinics rely on — access control, encryption in transit where applicable, monitoring, and backup — and we document what we manage.',
-          es: 'Implementamos y operamos los controles técnicos en los que las clínicas se apoyan — control de acceso, cifrado en tránsito cuando aplica, monitoreo y respaldo — y documentamos lo que gestionamos.',
+          es: 'Implementamos y operamos los controles técnicos en los que las clínicas se apoyan — control de acceso, cifrado en tránsito cuando aplica, monitoreo y copia de seguridad — y documentamos lo que gestionamos.',
         },
       },
     ],
@@ -122,7 +122,7 @@ export const industries: Industry[] = [
     },
     lede: {
       en: 'Billable hours do not wait on a frozen laptop. We keep confidential work protected and systems responsive so your team stays on client work.',
-      es: 'Las horas facturables no esperan a un portátil congelado. Protegemos el trabajo confidencial y mantenemos los sistemas responsivos para que el equipo se centre en el cliente.',
+      es: 'Las horas facturables no esperan a un computador congelado. Protegemos el trabajo confidencial y mantenemos los sistemas responsivos para que el equipo se centre en el cliente.',
     },
     overview: {
       en: 'Law firms and professional practices live on documents, email, and deadlines. Privilege and client trust leave little room for loose access or slow recovery. We run managed IT and security for South Florida firms that need confidentiality without friction — secure remote work, fast support, and clear ownership when something breaks mid-matter.',
@@ -136,7 +136,7 @@ export const industries: Industry[] = [
       },
       {
         en: 'Document systems that feel fragile when a laptop dies the day before a filing.',
-        es: 'Sistemas de documentos frágiles cuando un portátil muere el día antes de una presentación.',
+        es: 'Sistemas de documentos frágiles cuando un computador muere el día antes de una presentación.',
       },
       {
         en: 'Phishing aimed at wire instructions and client funds.',
@@ -160,7 +160,7 @@ export const industries: Industry[] = [
         title: { en: 'Support that respects billable time', es: 'Soporte que respeta el tiempo facturable' },
         body: {
           en: 'Live help desk and onsite response when a machine or matter cannot wait for a ticket queue.',
-          es: 'Mesa de ayuda en vivo y respuesta in situ cuando un equipo o un asunto no puede esperar en la cola de tickets.',
+          es: 'Mesa de ayuda en vivo y respuesta en sitio cuando un equipo o un asunto no puede esperar en la cola de tickets.',
         },
       },
       {
@@ -215,7 +215,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Financial and insurance teams handle money, PII, and regulated workflows. Downtime and weak controls are not abstract risks — they are client and exam problems. Cybercon runs proactive IT and security for South Florida firms that need monitoring, identity, backup, and documentation that stay ready when auditors or customers ask hard questions.',
-      es: 'Los equipos financieros y de seguros manejan dinero, PII y flujos regulados. La caída y los controles débiles no son riesgos abstractos — son problemas de cliente y de examen. Cybercon opera TI y seguridad proactiva para firmas del Sur de Florida que necesitan monitoreo, identidad, respaldo y documentación listos cuando auditores o clientes hacen preguntas difíciles.',
+      es: 'Los equipos financieros y de seguros manejan dinero, PII y flujos regulados. La caída y los controles débiles no son riesgos abstractos — son problemas de cliente y de examen. Cybercon opera TI y seguridad proactiva para firmas del Sur de Florida que necesitan monitoreo, identidad, copia de seguridad y documentación listos cuando auditores o clientes hacen preguntas difíciles.',
     },
     challengesLabel: { en: 'What we hear from finance teams', es: 'Lo que escuchamos de equipos financieros' },
     challenges: [
@@ -256,7 +256,7 @@ export const industries: Industry[] = [
         title: { en: 'Recovery and continuity', es: 'Recuperación y continuidad' },
         body: {
           en: 'Backups, off-site copies, and restore validation so an outage does not become a client event.',
-          es: 'Respaldos, copias fuera del sitio y validación de restauración para que una caída no se convierta en un evento de cliente.',
+          es: 'Copias de seguridad, réplicas fuera del sitio y validación de restauración para que una caída no se convierta en un evento de cliente.',
         },
       },
     ],
@@ -304,9 +304,9 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Education and nonprofit teams in Cooper City and Davie often stretch a small staff across fundraising, programs, and “also IT.” Budgets are real constraints. We provide managed IT and cybersecurity with clear per-user pricing, sensible security defaults, and patient support — so volunteers and staff can stay on the mission instead of chasing printers and phishing emails.',
-      es: 'Los equipos educativos y sin fines de lucro en Cooper City y Davie suelen estirar un personal pequeño entre recaudación, programas y “también TI”. Los presupuestos son reales. Ofrecemos TI administrada y ciberseguridad con precio claro por usuario, seguridad sensata y soporte paciente — para que voluntarios y personal se queden en la misión en vez de perseguir impresoras y phishing.',
+      es: 'Los equipos educativos y sin fines de lucro en Cooper City y Davie suelen estirar un personal pequeño entre recaudación, programas y “también TI”. Los presupuestos son reales. Ofrecemos TI administrada y ciberseguridad con precio claro por usuario, configuración de seguridad sensata por defecto y soporte paciente — para que voluntarios y personal se queden en la misión en vez de perseguir impresoras y phishing.',
     },
-    challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Brechas comunes en escuelas y nonprofit' },
+    challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Vacíos comunes en escuelas y nonprofit' },
     challenges: [
       {
         en: 'Shared mailboxes and departed volunteers who still have access.',
@@ -331,21 +331,21 @@ export const industries: Industry[] = [
         title: { en: 'Predictable monthly cost', es: 'Costo mensual predecible' },
         body: {
           en: 'Per-user packaging so boards and administrators can budget without surprise break/fix invoices.',
-          es: 'Paquetes por usuario para que juntas y administradores presupuesten sin facturas sorpresa por averías.',
+          es: 'Paquetes por usuario para que juntas y administradores presupuesten sin facturas sorpresa por fallas.',
         },
       },
       {
-        title: { en: 'Security without theater', es: 'Seguridad sin teatro' },
+        title: { en: 'Security that small teams can run', es: 'Seguridad que equipos pequeños pueden operar' },
         body: {
           en: 'MFA, backups, patching, and email security that fit small teams — not a binder of controls nobody runs.',
-          es: 'MFA, respaldos, parches y seguridad de correo que encajan en equipos pequeños — no una carpeta de controles que nadie ejecuta.',
+          es: 'MFA, copias de seguridad, parches y seguridad de correo que encajan en equipos pequeños — no una carpeta de controles que nadie ejecuta.',
         },
       },
       {
-        title: { en: 'Patient, plain-English support', es: 'Soporte paciente y en lenguaje claro' },
+        title: { en: 'Patient support in everyday language', es: 'Soporte paciente y en lenguaje cotidiano' },
         body: {
           en: 'Help desk that works with staff and volunteers who did not sign up to be systems administrators.',
-          es: 'Mesa de ayuda que trabaja con personal y voluntarios que no se apuntaron a ser administradores de sistemas.',
+          es: 'Mesa de ayuda que trabaja con personal y voluntarios que no se metieron a ser administradores de sistemas.',
         },
       },
     ],
@@ -357,7 +357,7 @@ export const industries: Industry[] = [
         },
         answer: {
           en: 'Yes. Many of our education and nonprofit clients are small teams. We size the engagement to your staff count and risk, not a Fortune-500 playbook.',
-          es: 'Sí. Muchos de nuestros clientes educativos y sin fines de lucro son equipos pequeños. Dimensionamos el engagement a tu personal y riesgo, no a un libreto Fortune 500.',
+          es: 'Sí. Muchos de nuestros clientes educativos y sin fines de lucro son equipos pequeños. Dimensionamos el acompañamiento a tu personal y riesgo, no a un libro de tácticas Fortune 500.',
         },
       },
       {
@@ -393,13 +393,13 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Construction and real estate teams split time between trailers, sites, showings, and the office. Files, bids, drawings, and CRM tools have to work on cellular, Wi-Fi, and laptops that take a beating. We support South Florida builders, trades, brokers, and property teams with reliable access, endpoint protection, and support that understands dust, deadlines, and distributed crews.',
-      es: 'Los equipos de construcción e inmobiliario dividen el tiempo entre trailers, obras, visitas y la oficina. Archivos, cotizaciones, planos y CRM tienen que funcionar con celular, Wi-Fi y portátiles que sufren. Apoyamos a constructores, oficios, brokers y equipos de propiedades en el Sur de Florida con acceso fiable, protección de endpoints y soporte que entiende polvo, plazos y cuadrillas distribuidas.',
+      es: 'Los equipos de construcción e inmobiliario dividen el tiempo entre trailers, obras, visitas y la oficina. Archivos, cotizaciones, planos y CRM tienen que funcionar con celular, Wi-Fi y computadores portátiles que sufren. Apoyamos a constructores, oficios, brokers y equipos de propiedades en el Sur de Florida con acceso fiable, protección de endpoints y soporte que entiende polvo, plazos y cuadrillas distribuidas.',
     },
     challengesLabel: { en: 'Field + office friction', es: 'Fricción campo + oficina' },
     challenges: [
       {
         en: 'Project files scattered across USB drives, personal Dropbox, and someone’s truck laptop.',
-        es: 'Archivos de proyecto repartidos en USB, Dropbox personal y el portátil de la camioneta de alguien.',
+        es: 'Archivos de proyecto repartidos en USB, Dropbox personal y el computador de la camioneta de alguien.',
       },
       {
         en: 'Phishing against AP and wire payments on large draws.',
@@ -427,7 +427,7 @@ export const industries: Industry[] = [
         title: { en: 'Field-ready devices', es: 'Dispositivos listos para campo' },
         body: {
           en: 'Laptops and mobiles managed with patching, encryption, and remote wipe when a device walks off a site.',
-          es: 'Portátiles y móviles gestionados con parches, cifrado y borrado remoto cuando un dispositivo se pierde en obra.',
+          es: 'Portátiles y celulares gestionados con parches, cifrado y borrado remoto cuando un dispositivo se pierde en obra.',
         },
       },
       {
@@ -466,7 +466,7 @@ export const industries: Industry[] = [
     title: { en: 'Distribution, retail & manufacturing', es: 'Distribución, retail y manufactura' },
     summary: {
       en: 'Uptime for warehouses, storefronts, and light industrial ops in Davie and nearby — inventory, connectivity, and recovery that work.',
-      es: 'Disponibilidad para almacenes, tiendas e industria ligera en Davie y alrededores: inventario, conectividad y recuperación que funcionan.',
+      es: 'Disponibilidad para bodegas, tiendas e industria ligera en Davie y alrededores: inventario, conectividad y recuperación que funcionan.',
     },
     metaTitle: {
       en: 'IT for Distribution, Retail & Manufacturing | Cybercon',
@@ -474,7 +474,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT for South Florida warehouses, retailers, and light manufacturing — uptime, inventory systems, and recovery that keep product moving.',
-      es: 'TI administrada para almacenes, retail e industria ligera en el Sur de Florida — disponibilidad, sistemas de inventario y recuperación que mantienen el producto en movimiento.',
+      es: 'TI administrada para bodegas, retail e industria ligera en el Sur de Florida — disponibilidad, sistemas de inventario y recuperación que mantienen el producto en movimiento.',
     },
     lede: {
       en: 'When scanners, POS, or the ERP stop, the floor stops. We keep distribution and retail technology running so product keeps moving.',
@@ -482,7 +482,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Davie and greater South Florida host warehouses, light manufacturing, and retail operations that live on scanners, POS, ERP, and internet links. Minutes of downtime show up in labor and lost sales. Cybercon provides proactive managed IT, network reliability, and recovery planning for operators who need the floor online — not a lecture about the cloud.',
-      es: 'Davie y el Sur de Florida albergan almacenes, industria ligera y retail que viven de escáneres, POS, ERP y enlaces de internet. Minutos de caída se ven en mano de obra y ventas perdidas. Cybercon ofrece TI administrada proactiva, fiabilidad de red y planificación de recuperación para operadores que necesitan el piso en línea — no una charla sobre la nube.',
+      es: 'Davie y el Sur de Florida albergan bodegas, industria ligera y retail que viven de escáneres, POS, ERP y enlaces de internet. Minutos de caída se ven en mano de obra y ventas perdidas. Cybercon ofrece TI administrada proactiva, fiabilidad de red y planificación de recuperación para operadores que necesitan el piso en línea — no una charla sobre la nube.',
     },
     challengesLabel: { en: 'What stops the floor', es: 'Lo que detiene el piso' },
     challenges: [
@@ -496,7 +496,7 @@ export const industries: Industry[] = [
       },
       {
         en: 'Shift changes that create shared-login chaos and audit gaps.',
-        es: 'Cambios de turno que crean caos de logins compartidos y huecos de auditoría.',
+        es: 'Cambios de turno que crean caos de logins compartidos y vacíos de auditoría.',
       },
       {
         en: 'Ransomware risk against operations that cannot afford a multi-day rebuild.',
@@ -509,18 +509,18 @@ export const industries: Industry[] = [
         title: { en: 'Uptime for the floor', es: 'Disponibilidad para el piso' },
         body: {
           en: 'Monitoring, patching, and onsite response aimed at scanners, POS, Wi-Fi, and the apps that ship product.',
-          es: 'Monitoreo, parches y respuesta in situ orientados a escáneres, POS, Wi-Fi y las apps que despachan producto.',
+          es: 'Monitoreo, parches y respuesta en sitio orientados a escáneres, POS, Wi-Fi y las apps que despachan producto.',
         },
       },
       {
         title: { en: 'Network resilience', es: 'Resiliencia de red' },
         body: {
           en: 'Circuit design, failover options, and vendor coordination so a single ISP outage does not close the warehouse.',
-          es: 'Diseño de circuitos, opciones de failover y coordinación de proveedores para que una caída de ISP no cierre el almacén.',
+          es: 'Diseño de circuitos, opciones de failover y coordinación de proveedores para que una caída de ISP no cierre la bodega.',
         },
       },
       {
-        title: { en: 'Backup and recovery that match ops', es: 'Respaldo y recuperación a la medida' },
+        title: { en: 'Backup and recovery that match ops', es: 'Copia de seguridad y recuperación a la medida' },
         body: {
           en: 'Restore targets tied to how long you can run without the system — tested, not assumed.',
           es: 'Objetivos de restauración ligados a cuánto puedes operar sin el sistema — probados, no asumidos.',

@@ -17,15 +17,15 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Managed IT for Cooper City & Davie businesses: 24/7 help desk, monitoring, onsite support, and predictable per-user pricing. Book a free assessment.',
-      es: 'TI administrada para empresas en Cooper City y Davie: mesa de ayuda 24/7, monitoreo, soporte in situ y precio predecible por usuario. Evaluación gratuita.',
+      es: 'TI administrada para empresas en Cooper City y Davie: mesa de ayuda 24/7, monitoreo, soporte en sitio y precio predecible por usuario. Evaluación gratuita.',
     },
     audience: {
       en: 'Growing South Florida organizations in Cooper City, Davie, and nearby cities that want a reliable IT partner without hiring a full internal department. Ideal when break/fix bills feel unpredictable, tickets linger, or leadership needs one accountable team for day-to-day technology.',
-      es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un aliado de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por avería son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
+      es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un proveedor de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por falla son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
     },
     overview: {
-      en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida.\n\nPricing is packaged per user so monthly costs stay predictable. You get proactive maintenance instead of waiting for the next outage, and a clear owner when priorities compete.\n\nFor many Cooper City and Davie teams, the tipping point is simple: too much time spent chasing vendors, waiting on after-hours tickets, or absorbing surprise break/fix invoices. Managed IT puts monitoring, patching, help desk, and onsite response under one agreement so leadership can focus on the business. We stay accountable for the boring work that prevents outages, and we show up when something still breaks. If you want a clear read before changing providers, start with a free assessment. A real engineer replies within one business day with next steps you can act on.',
-      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI externalizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda in situ para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.\n\nEl precio va por usuario para que el costo mensual sea predecible. Obtienes mantenimiento proactivo en lugar de esperar la próxima caída, y un responsable claro cuando hay prioridades en conflicto.\n\nPara muchos equipos en Cooper City y Davie, el punto de inflexión es simple: demasiado tiempo persiguiendo proveedores, esperando tickets fuera de horario o absorbiendo facturas sorpresa por avería. La TI administrada pone monitoreo, parches, mesa de ayuda y respuesta in situ bajo un solo acuerdo para que la dirección se enfoque en el negocio. Nos hacemos cargo del trabajo rutinario que evita caídas, y aparecemos cuando algo igual se rompe. Si quieres una lectura clara antes de cambiar de proveedor, empieza con una evaluación gratuita. Un ingeniero real responde en un día hábil con pasos concretos.',
+      en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida.\n\nPricing is packaged per user so monthly costs stay predictable. You get proactive maintenance instead of waiting for the next outage, and a clear owner when priorities compete.',
+      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI tercerizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda en sitio para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.\n\nEl precio va por usuario para que el costo mensual sea predecible. Obtienes mantenimiento proactivo en lugar de esperar la próxima caída, y un responsable claro cuando hay prioridades en conflicto.',
     },
     process: [
       {
@@ -34,8 +34,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '1. Evaluación gratuita',
         },
         body: {
-          en: 'We review your current stack, support pain points, and coverage gaps. A real engineer follows up within one business day with a plain-English read on where you stand.',
-          es: 'Revisamos tu stack actual, los dolores de soporte y los huecos de cobertura. Un ingeniero real responde en un día hábil con una lectura clara de dónde estás.',
+          en: 'We review your current stack, support pain points, and coverage gaps. You’ll get a written summary of where you stand and what to tackle first.',
+          es: 'Revisamos tu stack tecnológico actual, los dolores de soporte y los huecos de cobertura. Recibes un resumen escrito de dónde estás y qué conviene abordar primero.',
         },
       },
       {
@@ -55,7 +55,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         body: {
           en: 'Day-to-day help desk, proactive maintenance, and onsite response when remote fixes are not enough. You get one partner instead of juggling vendors.',
-          es: 'Mesa de ayuda diaria, mantenimiento proactivo y respuesta in situ cuando lo remoto no basta. Un solo aliado en lugar de malabarismos con proveedores.',
+          es: 'Mesa de ayuda diaria, mantenimiento proactivo y respuesta en sitio cuando lo remoto no basta. Un solo proveedor en lugar de malabarismos con varios.',
         },
       },
     ],
@@ -77,17 +77,17 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'We use per-user packages instead of break/fix billing, so you can plan monthly IT spend without surprise trip charges for every incident.',
-          es: 'Usamos paquetes por usuario en lugar de facturación por avería, para que puedas planificar el gasto mensual de TI sin cargos sorpresa por cada incidente.',
+          es: 'Usamos paquetes por usuario en lugar de cobro por falla, para que puedas planificar el gasto mensual de TI sin cobros sorpresa por cada incidente.',
         },
       },
       {
         question: {
           en: 'Do you come onsite in Cooper City and Davie?',
-          es: '¿Van in situ a Cooper City y Davie?',
+          es: '¿Van en sitio a Cooper City y Davie?',
         },
         answer: {
           en: 'Yes. We provide onsite IT support across our South Florida service area, including Cooper City and Davie, for hardware, network, rollouts, and office moves.',
-          es: 'Sí. Damos soporte de TI in situ en nuestra zona del sur de Florida, incluidos Cooper City y Davie, para hardware, red, despliegues y mudanzas de oficina.',
+          es: 'Sí. Damos soporte de TI en sitio en nuestra zona del sur de Florida, incluidos Cooper City y Davie, para hardware, red, despliegues y mudanzas de oficina.',
         },
       },
       {
@@ -117,8 +117,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Empresas del sur de Florida que manejan datos sensibles o enfrentan expectativas de clientes y aseguradoras sobre seguridad. Especialmente útil si alineas controles con HIPAA, SOC 2, PCI DSS o GLBA sin un departamento de seguridad completo.',
     },
     overview: {
-      en: 'We combine endpoint protection (EDR/XDR), firewalls, and layered threat detection with 24/7 SOC monitoring, SIEM logging, and incident response. The goal is practical defense: stop common attacks early, keep visibility when something looks wrong, and document controls in language auditors and leadership can use.\n\nCompliance support maps your environment to HIPAA, SOC 2, PCI DSS, and GLBA expectations. We focus on Cooper City, Davie, and greater South Florida businesses that need security that fits operations, not a binder that sits on a shelf.\n\nAttackers do not wait for a convenient maintenance window, and neither do customer security questionnaires. Growing South Florida businesses often need stronger endpoint controls and continuous monitoring without hiring a dedicated SOC. We keep recommendations proportional: protect what you run today, log what auditors ask for, and respond when alerts matter. Whether you are preparing for HIPAA, SOC 2, PCI DSS, or GLBA conversations, or you simply want fewer sleepless nights about ransomware, we map controls to how your Cooper City or Davie operation actually works.',
-      es: 'Combinamos protección de endpoints (EDR/XDR), firewalls y detección en capas con monitoreo SOC 24/7, registro SIEM y respuesta a incidentes. La meta es defensa práctica: frenar ataques comunes a tiempo, mantener visibilidad cuando algo falla y documentar controles en lenguaje útil para auditores y dirección.\n\nEl apoyo al cumplimiento alinea tu entorno con expectativas de HIPAA, SOC 2, PCI DSS y GLBA. Nos enfocamos en empresas de Cooper City, Davie y el sur de Florida que necesitan seguridad operable, no un manual que nadie usa.\n\nLos atacantes no esperan una ventana de mantenimiento cómoda, y tampoco lo hacen los cuestionarios de seguridad de clientes. Las empresas en crecimiento del sur de Florida suelen necesitar mejores controles de endpoints y monitoreo continuo sin contratar un SOC dedicado. Mantenemos las recomendaciones proporcionales: protege lo que operas hoy, registra lo que piden los auditores y responde cuando las alertas importan. Ya sea que te prepares para conversaciones HIPAA, SOC 2, PCI DSS o GLBA, o simplemente quieras menos noches en vela por ransomware, alineamos controles con cómo opera de verdad tu negocio en Cooper City o Davie.',
+      en: 'We combine endpoint protection (EDR/XDR), firewalls, and layered threat detection with 24/7 SOC monitoring, SIEM logging, and incident response. The goal is practical defense: stop common attacks early, keep visibility when something looks wrong, and document controls in language auditors and leadership can use.\n\nCompliance support maps your environment to HIPAA, SOC 2, PCI DSS, and GLBA. We size controls for growing South Florida businesses that need security that fits operations, not a binder on a shelf.',
+      es: 'Combinamos protección de endpoints (EDR/XDR), firewalls y detección en capas con monitoreo SOC 24/7, registro SIEM y respuesta a incidentes. La meta es defensa práctica: frenar ataques comunes a tiempo, mantener visibilidad cuando algo falla y documentar controles en lenguaje útil para auditores y dirección.\n\nEl apoyo al cumplimiento alinea tu entorno con HIPAA, SOC 2, PCI DSS y GLBA. Dimensionamos controles para empresas en crecimiento del sur de Florida que necesitan seguridad operable, no un manual que nadie usa.',
     },
     process: [
       {
@@ -139,7 +139,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         title: { en: '3. Respond & improve', es: '3. Responder y mejorar' },
         body: {
           en: 'When incidents happen, we respond, document, and tighten controls. Compliance mapping stays current as your stack changes.',
-          es: 'Cuando hay incidentes, respondemos, documentamos y reforzamos controles. El mapeo de cumplimiento se mantiene al día conforme cambia tu stack.',
+          es: 'Cuando hay incidentes, respondemos, documentamos y reforzamos controles. El mapeo de cumplimiento se mantiene al día conforme cambia tu stack tecnológico.',
         },
       },
     ],
@@ -170,8 +170,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Esto es solo para grandes empresas?',
         },
         answer: {
-          en: 'No. We design controls for growing South Florida organizations that need strong security without enterprise theater.',
-          es: 'No. Diseñamos controles para organizaciones en crecimiento del sur de Florida que necesitan seguridad sólida sin teatro empresarial.',
+          en: 'No. We design controls for growing South Florida organizations that need strong security without an enterprise-sized program or headcount.',
+          es: 'No. Diseñamos controles para organizaciones en crecimiento del sur de Florida que necesitan seguridad sólida sin un programa ni una planta de personal de tamaño empresarial.',
         },
       },
       {
@@ -201,19 +201,19 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Organizaciones del sur de Florida que adoptan copilots, chatbots e IA en el navegador y necesitan gobernanza y control de filtraciones sin un departamento de seguridad completo — especialmente equipos en Cooper City y Davie que manejan datos de clientes, pacientes o finanzas.',
     },
     overview: {
-      en: 'AI Security from Cybercon Solutions helps Cooper City and Davie businesses adopt AI without exposing intellectual property, sensitive data, or compliance gaps. We combine AI usage governance, data-leakage controls, and continuous oversight with unified workspace security across identity, email, endpoints, awareness, and exposure.\n\nTraditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer which AI tools are allowed, with which data, and who can prove it. We close that gap with enforceable policies, monitoring of AI-enabled workflows, and SOC-backed response when something looks wrong.\n\nStart with a free interactive readiness check or book a plain-English AI security review. A real engineer replies within one business day.',
-      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o brechas de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concienciación y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos esa brecha con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.\n\nEmpieza con una revisión interactiva gratuita de preparación o agenda una revisión de seguridad de IA en lenguaje claro. Un ingeniero real responde en un día hábil.',
+      en: 'AI Security from Cybercon Solutions helps Cooper City and Davie businesses adopt AI without exposing intellectual property, sensitive data, or compliance gaps. We combine AI usage governance, data-leakage controls, and continuous oversight with unified workspace security across identity, email, endpoints, awareness, and exposure.\n\nTraditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer which AI tools are allowed, with which data, and who can prove it. We close that gap with enforceable policies, monitoring of AI-enabled workflows, and SOC-backed response when something looks wrong.',
+      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o vacíos de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concientización y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos ese vacío con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.',
     },
     process: [
       {
         title: { en: '1. Assess AI risk & usage', es: '1. Evaluar riesgo y uso de IA' },
         body: {
           en: 'Inventory tools in use, classify sensitive data paths, and score governance gaps against how your team actually works.',
-          es: 'Inventariamos herramientas en uso, clasificamos rutas de datos sensibles y puntuamos brechas de gobernanza según cómo trabaja de verdad tu equipo.',
+          es: 'Inventariamos herramientas en uso, clasificamos rutas de datos sensibles y puntuamos vacíos de gobernanza según cómo trabaja de verdad tu equipo.',
         },
       },
       {
-        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar barandillas y controles' },
+        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar pautas de control y controles' },
         body: {
           en: 'Approve tools, restrict high-risk AI workflows, and unify identity, email, endpoint, and exposure protections.',
           es: 'Aprobamos herramientas, restringimos flujos de IA de alto riesgo y unificamos protecciones de identidad, correo, endpoint y exposición.',
@@ -265,8 +265,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Equipos que dejan servidores antiguos o SaaS fragmentado, o consolidan Microsoft 365 / Google Workspace con identidad más limpia. Habitual en oficinas del sur de Florida que necesitan migraciones ordenadas y gestión continua en la nube. Si tu equipo está a mitad de migración o atrapado entre un servidor de archivos y un tenant a medias, te ayudamos a terminar sin dejar usuarios colgados.',
     },
     overview: {
-      en: 'We plan and run cloud migrations to Microsoft 365 and Google Workspace, set up identity with Microsoft Entra ID / Azure AD (including provisioning and SSO), and consolidate files and servers securely. The work is sequenced to reduce downtime and keep users productive during cutover.\n\nAfter migration, we stay involved so identity, sharing, and administration do not drift. Serving Cooper City, Davie, and greater South Florida, we pair remote cloud work with onsite help when devices or network paths need hands-on attention.\n\nCloud projects fail quietly when identity, sharing defaults, and mailbox cutovers are treated as afterthoughts. We treat migration as an operations event: who loses access, who needs SSO on day one, and how files land without chaos. After go-live, management matters just as much as the move. Permissions drift, guest access multiplies, and licensing surprises show up in the invoice. Our South Florida clients use us to keep Microsoft 365 or Google Workspace orderly while Entra ID remains the source of truth for people joining and leaving the company.',
-      es: 'Planificamos y ejecutamos migraciones a Microsoft 365 y Google Workspace, configuramos identidad con Microsoft Entra ID / Azure AD (incluido aprovisionamiento y SSO) y consolidamos archivos y servidores de forma segura. El trabajo se secuencia para reducir caídas y mantener a la gente productiva durante el corte.\n\nTras la migración seguimos involucrados para que identidad, uso compartido y administración no se desvíen. Atendemos Cooper City, Davie y el sur de Florida, combinando trabajo remoto en la nube con ayuda in situ cuando hace falta tocar dispositivos o la red.\n\nLos proyectos en la nube fallan en silencio cuando la identidad, los valores de uso compartido y el corte de buzones se tratan como algo secundario. Tratamos la migración como un evento operativo: quién pierde acceso, quién necesita SSO el primer día y cómo aterrizan los archivos sin caos. Tras el go-live, la gestión importa tanto como el traslado. Los permisos se desvían, los invitados se multiplican y las sorpresas de licencias aparecen en la factura. Nuestros clientes en el sur de Florida nos usan para mantener Microsoft 365 o Google Workspace en orden mientras Entra ID sigue siendo la fuente de verdad de altas y bajas.',
+      en: 'We plan and run cloud migrations to Microsoft 365 and Google Workspace, set up identity with Microsoft Entra ID / Azure AD (including provisioning and SSO), and consolidate files and servers securely. The work is sequenced to reduce downtime and keep users productive during cutover.\n\nAfter migration, we stay involved so identity, sharing, and administration do not drift. Serving Cooper City, Davie, and greater South Florida, we pair remote cloud work with onsite help when devices or network paths need hands-on attention.',
+      es: 'Planificamos y ejecutamos migraciones a Microsoft 365 y Google Workspace, configuramos identidad con Microsoft Entra ID / Azure AD (incluido aprovisionamiento y SSO) y consolidamos archivos y servidores de forma segura. El trabajo se secuencia para reducir caídas y mantener a la gente productiva durante el corte.\n\nTras la migración seguimos involucrados para que identidad, uso compartido y administración no se desvíen. Atendemos Cooper City, Davie y el sur de Florida, combinando trabajo remoto en la nube con ayuda en sitio cuando hace falta tocar dispositivos o la red.',
     },
     process: [
       {
@@ -332,15 +332,15 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Virtual CIO guidance for South Florida businesses: roadmaps, risk assessments, budgets, and quarterly business reviews. Free assessment available.',
-      es: 'Orientación de CIO virtual para empresas del sur de Florida: hojas de ruta, riesgos, presupuestos y revisiones trimestrales. Evaluación gratuita.',
+      es: 'Orientación de CIO virtual para empresas del sur de Florida: planes estratégicos, riesgos, presupuestos y revisiones trimestrales. Evaluación gratuita.',
     },
     audience: {
       en: 'Owners and operators who need strategic IT leadership without a full-time CIO. Fits Cooper City and Davie organizations balancing growth, risk, and budget with limited internal IT leadership bandwidth. Bring us in when renewals stack up, priorities conflict, or you need an independent voice before a major purchase.',
       es: 'Dueños y operadores que necesitan liderazgo estratégico de TI sin un CIO a tiempo completo. Encaja en organizaciones de Cooper City y Davie que equilibran crecimiento, riesgo y presupuesto con poca capacidad de liderazgo interno de TI. Llámanos cuando se acumulen renovaciones, choquen prioridades o necesites una voz independiente antes de una compra grande.',
     },
     overview: {
-      en: 'Our virtual CIO (vCIO) service gives you roadmaps, risk assessments, budgets, and quarterly business reviews. We translate technology choices into business tradeoffs: what to fund now, what to defer, and what creates unnecessary risk.\n\nSessions stay practical. You leave with priorities, owners, and a timeline you can explain to finance and operations. We serve South Florida businesses that want calm, accountable IT planning alongside day-to-day managed services when needed.\n\nTechnology spend without a roadmap turns into a pile of renewals and reactive projects. vCIO work gives Cooper City and Davie leadership a place to decide: which risks to fund, which tools to retire, and which initiatives can wait a quarter. We write recommendations in plain language so finance and operations can debate tradeoffs without translating jargon. Quarterly reviews keep the plan honest when hiring plans change, a customer asks for new controls, or a major platform renewal approaches. You still own the decisions; we make the options clearer.',
-      es: 'Nuestro servicio de CIO virtual (vCIO) ofrece hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales. Traducimos las decisiones tecnológicas a equilibrios de negocio: qué financiar ahora, qué aplazar y qué crea riesgo innecesario.\n\nLas sesiones son prácticas. Sales con prioridades, responsables y un calendario que puedes explicar a finanzas y operaciones. Atendemos empresas del sur de Florida que quieren planificación de TI serena y con dueño, junto a servicios administrados del día a día cuando haga falta.\n\nEl gasto en tecnología sin hoja de ruta se convierte en un montón de renovaciones y proyectos reactivos. El trabajo de vCIO da a la dirección en Cooper City y Davie un lugar para decidir: qué riesgos financiar, qué herramientas retirar y qué iniciativas pueden esperar un trimestre. Escribimos recomendaciones en lenguaje claro para que finanzas y operaciones debatan equilibrios sin traducir jerga. Las revisiones trimestrales mantienen el plan honesto cuando cambian las contrataciones, un cliente pide nuevos controles o se acerca una renovación grande. Tú sigues dueño de las decisiones; nosotros hacemos las opciones más claras.',
+      en: 'Our virtual CIO (vCIO) service gives you roadmaps, risk assessments, budgets, and quarterly business reviews. We translate technology choices into business tradeoffs: what to fund now, what to defer, and what creates unnecessary risk.\n\nSessions stay practical. You leave with priorities, owners, and a timeline you can explain to finance and operations. We serve South Florida businesses that want calm, accountable IT planning alongside day-to-day managed services when needed.',
+      es: 'Nuestro servicio de CIO virtual (vCIO) ofrece planes estratégicos, evaluaciones de riesgo, presupuestos y revisiones trimestrales. Traducimos las decisiones tecnológicas a equilibrios de negocio: qué financiar ahora, qué aplazar y qué crea riesgo innecesario.\n\nLas sesiones son prácticas. Sales con prioridades, responsables y un calendario que puedes explicar a finanzas y operaciones. Atendemos empresas del sur de Florida que quieren planificación de TI serena y con dueño, junto a servicios administrados del día a día cuando haga falta.',
     },
     process: [
       {
@@ -351,7 +351,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
       },
       {
-        title: { en: '2. Roadmap & budget', es: '2. Hoja de ruta y presupuesto' },
+        title: { en: '2. Roadmap & budget', es: '2. Plan estratégico y presupuesto' },
         body: {
           en: 'Build a sequenced plan with risk notes and budget ranges leadership can approve.',
           es: 'Construimos un plan secuenciado con notas de riesgo y rangos de presupuesto que la dirección pueda aprobar.',
@@ -403,7 +403,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'Yes. vCIO guidance can include reviewing vendor roadmaps and helping you decide what to keep, renegotiate, or replace without disrupting day-to-day support.',
-          es: 'Sí. La orientación de vCIO puede incluir revisar hojas de ruta de proveedores y ayudarte a decidir qué mantener, renegociar o reemplazar sin romper el soporte diario.',
+          es: 'Sí. La orientación de vCIO puede incluir revisar planes estratégicos de proveedores y ayudarte a decidir qué mantener, renegociar o reemplazar sin romper el soporte diario.',
         },
       },
     ],
@@ -412,40 +412,40 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   'backup-disaster-recovery': {
     metaTitle: {
       en: 'Backup & DR in South Florida | Cybercon',
-      es: 'Respaldo y DR en el Sur de Florida | Cybercon',
+      es: 'Copia de seguridad y DR en el Sur de Florida | Cybercon',
     },
     metaDescription: {
       en: 'Automated backups, off-site replication, and recovery validation for South Florida businesses so an outage does not become a crisis.',
-      es: 'Respaldos automatizados, replicación externa y validación de recuperación para empresas del sur de Florida, para que una caída no sea una crisis.',
+      es: 'Copias de seguridad automatizadas, replicación externa y validación de recuperación para empresas del sur de Florida, para que una caída no sea una crisis.',
     },
     audience: {
       en: 'Organizations that cannot afford prolonged downtime or silent backup failures. Fits South Florida offices that need proven recovery, not just a backup checkbox. If you are unsure whether last night’s backup would restore payroll or patient files today, that uncertainty is the problem we solve.',
-      es: 'Organizaciones que no pueden permitirse caídas largas o respaldos que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo una casilla de backup. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
+      es: 'Organizaciones que no pueden permitirse caídas largas o copias de seguridad que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo un ejercicio de mero cumplimiento. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
     },
     overview: {
-      en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed.\n\nDisaster recovery planning focuses on clear recovery points and realistic timelines. When something fails, the goal is a controlled restore, not improvisation under pressure.\n\nA backup that has never been restored is a hope, not a plan. South Florida storms, ransomware, and everyday storage failures all end the same way if recovery is untested: long downtime and incomplete data. We emphasize validation because executives ask a simple question in a crisis: how long until we are working again, and what will we lose? Automated jobs and off-site copies matter, but so do documented steps your team can follow with our help. Protecting Cooper City and Davie operations means treating recovery as a practiced path, not a folder name.',
-      es: 'Implementamos respaldos automatizados, replicación externa y validación de recuperación para saber que las restauraciones funcionan antes de necesitarlas. La protección cubre los sistemas que mantienen la operación en Cooper City y Davie, con monitoreo para que los fallos no pasen desapercibidos.\n\nLa planificación ante desastres se centra en puntos de recuperación claros y plazos realistas. Cuando algo falla, la meta es una restauración controlada, no improvisar bajo presión.\n\nUn respaldo que nunca se ha restaurado es una esperanza, no un plan. Tormentas en el sur de Florida, ransomware y fallos cotidianos de almacenamiento terminan igual si la recuperación no se prueba: mucho tiempo caído y datos incompletos. Enfatizamos la validación porque en una crisis los directivos preguntan algo simple: ¿cuánto hasta volver a trabajar y qué perderemos? Los trabajos automáticos y las copias externas importan, pero también los pasos documentados que tu equipo puede seguir con nuestra ayuda. Proteger la operación en Cooper City y Davie significa tratar la recuperación como un camino practicado, no como el nombre de una carpeta.',
+      en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed.\n\nDisaster recovery planning focuses on clear recovery points and realistic timelines. When something fails, the goal is a controlled restore, not improvisation under pressure.',
+      es: 'Implementamos copias de seguridad automatizadas, replicación externa y validación de recuperación para saber que las restauraciones funcionan antes de necesitarlas. La protección cubre los sistemas que mantienen la operación en Cooper City y Davie, con monitoreo para que los fallos no pasen desapercibidos.\n\nLa planificación ante desastres se centra en puntos de recuperación claros y plazos realistas. Cuando algo falla, la meta es una restauración controlada, no improvisar bajo presión.',
     },
     process: [
       {
         title: { en: '1. Protect what matters', es: '1. Proteger lo importante' },
         body: {
           en: 'Identify critical systems and data, then configure automated backups with off-site replication.',
-          es: 'Identificamos sistemas y datos críticos y configuramos respaldos automatizados con replicación externa.',
+          es: 'Identificamos sistemas y datos críticos y configuramos copias de seguridad automatizadas con replicación externa.',
         },
       },
       {
         title: { en: '2. Validate restores', es: '2. Validar restauraciones' },
         body: {
           en: 'Test recovery so backup jobs are proven, not assumed. Fix gaps before an incident.',
-          es: 'Probamos la recuperación para que los trabajos de respaldo estén demostrados, no supuestos. Corregimos huecos antes de un incidente.',
+          es: 'Probamos la recuperación para que los trabajos de respaldo estén demostrados, no supuestos. Corregimos vacíos antes de un incidente.',
         },
       },
       {
         title: { en: '3. Monitor & refine', es: '3. Monitorear y afinar' },
         body: {
           en: 'Watch backup health and adjust retention or scope as your environment changes.',
-          es: 'Vigilamos la salud de los respaldos y ajustamos retención o alcance cuando cambia el entorno.',
+          es: 'Vigilamos la salud de las copias de seguridad y ajustamos retención o alcance cuando cambia el entorno.',
         },
       },
     ],
@@ -453,7 +453,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       {
         question: {
           en: 'Do you only configure backups, or also test them?',
-          es: '¿Solo configuran respaldos o también los prueban?',
+          es: '¿Solo configuran copias de seguridad o también las prueban?',
         },
         answer: {
           en: 'We include recovery validation so restores are tested, not just scheduled.',
@@ -467,7 +467,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'Yes. Data protection includes automated backups, off-site replication, and recovery validation.',
-          es: 'Sí. La protección de datos incluye respaldos automatizados, replicación externa y validación de recuperación.',
+          es: 'Sí. La protección de datos incluye copias de seguridad automatizadas, replicación externa y validación de recuperación.',
         },
       },
       {
@@ -507,8 +507,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Oficinas que mejoran la red, se mudan o sustituyen telefonía poco fiable. Pensado para espacios de trabajo del sur de Florida que necesitan cableado y comunicaciones bien hechos y etiquetados a largo plazo. Contrátanos antes de cerrar drywall o durante una renovación, cuando el etiquetado y las rutas todavía ahorran dinero.',
     },
     overview: {
-      en: 'We install fiber and low-voltage structured cabling with infrastructure labeling, plus business VoIP and workplace AV for everyday reliability. Clean pathways and documentation make future moves, adds, and changes faster and less risky.\n\nWhether you are fitting out a Cooper City or Davie suite or refreshing an aging closet, we align physical plant with how your team actually communicates.\n\nWireless patches and temporary drops hide problems until the office grows or moves. Structured cabling and labeled infrastructure make the next change cheaper: a new desk, a camera, a badge reader, or a phone cutover. VoIP and workplace AV only feel “set and forget” when the physical layer is clean and tested. For South Florida build-outs in Cooper City and Davie, we coordinate around occupied spaces where possible and leave documentation that the next technician can trust. Good cable plant is quiet infrastructure; you notice it when it is missing.',
-      es: 'Instalamos fibra y cableado estructurado de baja tensión con etiquetado de infraestructura, además de VoIP empresarial y AV de oficina para fiabilidad diaria. Rutas limpias y documentación hacen más rápidos y seguros los cambios futuros.\n\nYa sea un acondicionamiento en Cooper City o Davie o renovar un cuarto de comunicaciones antiguo, alineamos la planta física con cómo se comunica tu equipo de verdad.\n\nLos parches inalámbricos y los puntos temporales esconden problemas hasta que la oficina crece o se muda. El cableado estructurado y la infraestructura etiquetada abaratan el siguiente cambio: un escritorio nuevo, una cámara, un lector de accesos o un corte de telefonía. El VoIP y el AV de oficina solo se sienten “instalar y olvidar” cuando la capa física está limpia y probada. En acondicionamientos del sur de Florida en Cooper City y Davie, coordinamos en espacios ocupados cuando es posible y dejamos documentación en la que el próximo técnico pueda confiar. Una buena planta de cableado es infraestructura silenciosa; se nota cuando falta.',
+      en: 'We install fiber and low-voltage structured cabling with infrastructure labeling, plus business VoIP and workplace AV for everyday reliability. Clean pathways and documentation make future moves, adds, and changes faster and less risky.\n\nWhether you are fitting out a Cooper City or Davie suite or refreshing an aging closet, we align physical plant with how your team actually communicates.',
+      es: 'Instalamos fibra y cableado estructurado de baja tensión con etiquetado de infraestructura, además de VoIP empresarial y AV de oficina para fiabilidad diaria. Rutas limpias y documentación hacen más rápidos y seguros los cambios futuros.\n\nYa sea un acondicionamiento en Cooper City o Davie o renovar un cuarto de comunicaciones antiguo, alineamos la planta física con cómo se comunica tu equipo de verdad.',
     },
     process: [
       {
@@ -584,15 +584,15 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Practical AI roadmaps and honest ROI assessment for South Florida businesses. Start where value is high and risk is low.',
-      es: 'Hojas de ruta de IA prácticas y evaluación honesta de ROI para empresas del sur de Florida. Empieza donde hay más valor y menos riesgo.',
+      es: 'Planes estratégicos de IA prácticas y evaluación honesta de ROI para empresas del sur de Florida. Empieza donde hay más valor y menos riesgo.',
     },
     audience: {
-      en: 'Leaders curious about AI but wary of hype. Built for South Florida organizations that want a clear roadmap and an honest ROI read before buying tools. Use this when leadership wants a decision memo, not another vendor demo.',
-      es: 'Líderes curiosos por la IA pero recelosos del bombo. Pensado para organizaciones del sur de Florida que quieren una hoja de ruta clara y un ROI honesto antes de comprar herramientas. Úsalo cuando la dirección quiera un memo de decisión, no otra demo de proveedor.',
+      en: 'Leaders curious about AI but wary of hype. Built for South Florida organizations that want a clear roadmap and an honest ROI read before buying tools. Use this when leadership wants a decision memo before committing budget.',
+      es: 'Líderes curiosos por la IA pero recelosos del bombo. Pensado para organizaciones del sur de Florida que quieren un plan estratégico claro y un ROI honesto antes de comprar herramientas. Úsalo cuando la dirección quiera un memo de decisión antes de comprometer presupuesto.',
     },
     overview: {
-      en: 'We build practical AI roadmaps and run readiness and ROI assessments that say where AI fits and where it does not. Work starts with highest-value, lower-risk opportunities so early projects teach your team without putting core operations at stake.\n\nAdvice stays grounded in your stack, data quality, and capacity. Serving Cooper City, Davie, and greater South Florida, we keep recommendations implementable by the people who will own them.\n\nMost AI disappointment comes from starting with a tool instead of a workflow. We push Cooper City and Davie leaders to name the job to be done, the data required, and the risk if the model is wrong. That framing keeps budgets honest and prevents pilots that cannot graduate into production. When a use case clears the bar, we document owners, success metrics, and what “good enough” looks like before anyone buys licenses. If the answer is to wait, we say so. Strategy only helps when it saves you from expensive detours.',
-      es: 'Construimos hojas de ruta de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.\n\nLa mayor decepción con la IA viene de empezar por una herramienta en lugar de un flujo de trabajo. Empujamos a líderes en Cooper City y Davie a nombrar el trabajo a resolver, los datos necesarios y el riesgo si el modelo se equivoca. Ese marco mantiene honestos los presupuestos y evita pilotos que no pueden pasar a producción. Cuando un caso de uso supera el listón, documentamos responsables, métricas de éxito y qué significa “suficientemente bueno” antes de comprar licencias. Si la respuesta es esperar, lo decimos. La estrategia solo ayuda cuando te ahorra desvíos caros.',
+      en: 'We build practical AI roadmaps and run readiness and ROI assessments that say where AI fits and where it does not. Work starts with highest-value, lower-risk opportunities so early projects teach your team without putting core operations at stake.\n\nAdvice stays grounded in your stack, data quality, and capacity. Serving Cooper City, Davie, and greater South Florida, we keep recommendations implementable by the people who will own them.',
+      es: 'Construimos planes estratégicos de IA prácticas y hacemos evaluaciones de preparación y ROI que dicen dónde encaja la IA y dónde no. Empezamos por oportunidades de alto valor y menor riesgo para que los primeros proyectos enseñen al equipo sin poner en juego la operación central.\n\nEl consejo se ancla en tu stack tecnológico, la calidad de datos y la capacidad real. Atendemos Cooper City, Davie y el sur de Florida, y mantenemos recomendaciones ejecutables por quienes las van a poseer.',
     },
     process: [
       {
@@ -634,8 +634,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Qué obtenemos al final?',
         },
         answer: {
-          en: 'A practical roadmap and prioritized opportunities tied to value and risk, not a generic slide deck.',
-          es: 'Una hoja de ruta práctica y oportunidades priorizadas según valor y riesgo, no una presentación genérica.',
+          en: 'A practical roadmap and prioritized opportunities tied to value and risk, scoped to what your team can actually run.',
+          es: 'Un plan estratégico práctico y oportunidades priorizadas según valor y riesgo, acotadas a lo que tu equipo puede operar de verdad.',
         },
       },
       {
@@ -651,11 +651,11 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       {
         question: {
           en: 'How long does an AI roadmap engagement take?',
-          es: '¿Cuánto dura un engagement de hoja de ruta de IA?',
+          es: '¿Cuánto dura un proyecto de plan estratégico de IA?',
         },
         answer: {
           en: 'Most readiness and roadmap work fits in a short engagement measured in weeks, not months, so leadership can decide quickly whether to fund pilots.',
-          es: 'La mayor parte del trabajo de preparación y hoja de ruta cabe en un engagement corto medido en semanas, no meses, para que la dirección decida rápido si financiar pilotos.',
+          es: 'La mayor parte del trabajo de preparación y plan estratégico cabe en un proyecto corto medido en semanas, no meses, para que la dirección decida rápido si financiar pilotos.',
         },
       },
     ],
@@ -668,15 +668,15 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     metaDescription: {
       en: 'Connect AI tools to ERP, CRM, and your stack. Automate repetitive work with ongoing tuning for South Florida businesses.',
-      es: 'Conecta herramientas de IA con ERP, CRM y tu stack. Automatiza lo repetitivo con ajuste continuo para empresas del sur de Florida.',
+      es: 'Conecta herramientas de IA con ERP, CRM y tu stack tecnológico. Automatiza lo repetitivo con ajuste continuo para empresas del sur de Florida.',
     },
     audience: {
       en: 'Teams that already know where AI should help and need it wired into ERP, CRM, and existing systems. Suited to South Florida companies ready for automation with ongoing tuning. Best when a pilot already proved value and you need production-grade connections with monitoring.',
       es: 'Equipos que ya saben dónde debe ayudar la IA y necesitan conectarla a ERP, CRM y sistemas actuales. Ideal para empresas del sur de Florida listas para automatizar con ajuste continuo. Ideal cuando un piloto ya demostró valor y necesitas conexiones de producción con monitoreo.',
     },
     overview: {
-      en: 'We connect AI tools to your ERP, CRM, and existing stack, then automate repetitive work with monitoring and ongoing tuning. Integration focuses on reliable handoffs between systems, clear failure modes, and human review where it matters.\n\nProjects stay scoped. We prefer durable automations your staff can trust over fragile demos. Delivery supports Cooper City, Davie, and greater South Florida operations with remote build work and onsite coordination when needed.\n\nAutomation earns trust when failures are visible and reversible. We design integrations so South Florida operators know what ran, what failed, and how to unwind a bad action without calling five vendors. Connecting AI to ERP and CRM is less about clever prompts and more about permissions, audit trails, and edge cases your staff already know. After launch, tuning is part of the service: processes change, fields change, and yesterday’s automation can become today’s ticket pile. We stay close enough to adjust before users abandon the workflow.',
-      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en handoffs fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demos frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación in situ cuando hace falta.\n\nLa automatización gana confianza cuando los fallos son visibles y reversibles. Diseñamos integraciones para que operadores del sur de Florida sepan qué corrió, qué falló y cómo deshacer una mala acción sin llamar a cinco proveedores. Conectar IA a ERP y CRM va menos de prompts ingeniosos y más de permisos, pistas de auditoría y casos límite que tu personal ya conoce. Tras el lanzamiento, el ajuste es parte del servicio: los procesos cambian, los campos cambian, y la automatización de ayer puede ser la pila de tickets de hoy. Nos mantenemos cerca para ajustar antes de que los usuarios abandonen el flujo.',
+      en: 'We connect AI tools to your ERP, CRM, and existing stack, then automate repetitive work with monitoring and ongoing tuning. Integration focuses on reliable handoffs between systems, clear failure modes, and human review where it matters.\n\nProjects stay scoped. We prefer durable automations your staff can trust over fragile demos. Delivery supports Cooper City, Davie, and greater South Florida operations with remote build work and onsite coordination when needed.',
+      es: 'Conectamos herramientas de IA con tu ERP, CRM y stack tecnológico actual, y automatizamos lo repetitivo con monitoreo y ajuste continuo. La integración se centra en traspasos fiables entre sistemas, modos de fallo claros y revisión humana donde importa.\n\nLos proyectos tienen alcance acotado. Preferimos automatizaciones duraderas en las que el equipo confíe, no demostraciones frágiles. Entregamos para operaciones en Cooper City, Davie y el sur de Florida con trabajo remoto y coordinación en sitio cuando hace falta.',
     },
     process: [
       {
@@ -709,7 +709,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         answer: {
           en: 'We connect AI tools to ERP, CRM, and your existing stack as part of systems integration.',
-          es: 'Conectamos herramientas de IA con ERP, CRM y tu stack actual como parte de la integración de sistemas.',
+          es: 'Conectamos herramientas de IA con ERP, CRM y tu stack tecnológico actual como parte de la integración de sistemas.',
         },
       },
       {
@@ -756,11 +756,11 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Support and front-office teams buried in repetitive questions. Fits South Florida businesses that want chat or voice AI without abandoning human help for hard cases. Especially helpful when call volume or chat volume is growing faster than headcount. When volume spikes seasonally, conversational AI absorbs the predictable layer so your South Florida staff is not drowning in the same ten questions. Clear ownership of answers and escalations keeps the experience consistent across seasons.',
-      es: 'Equipos de soporte y recepción saturados de preguntas repetitivas. Encaja en empresas del sur de Florida que quieren chat o voz con IA sin abandonar la ayuda humana en casos difíciles. Especialmente útil cuando el volumen de llamadas o chat crece más rápido que la plantilla. Cuando el volumen sube por temporada, la IA conversacional absorbe la capa predecible para que tu personal del sur de Florida no se ahogue con las mismas diez preguntas. Una propiedad clara de respuestas y escalados mantiene la experiencia consistente entre temporadas.',
+      es: 'Equipos de soporte y recepción saturados de preguntas repetitivas. Encaja en empresas del sur de Florida que quieren chat o voz con IA sin abandonar la ayuda humana en casos difíciles. Especialmente útil cuando el volumen de llamadas o chat crece más rápido que la planta de personal. Cuando el volumen sube por temporada, la IA conversacional absorbe la capa predecible para que tu personal del sur de Florida no se ahogue con las mismas diez preguntas. Una propiedad clara de respuestas y escalados mantiene la experiencia consistente entre temporadas.',
     },
     overview: {
-      en: 'We implement chatbots and AI voice systems that answer routine questions and escalate exceptions to people. The design goal is fewer repetitive tickets, faster answers for common issues, and clearer handoffs when a human should take over.\n\nContent and escalation rules stay under your control. We serve Cooper City, Davie, and greater South Florida organizations that need conversational AI aligned with real support workflows.\n\nA bot that guesses is worse than a slow human. We keep conversational AI useful by narrowing what it is allowed to answer and making escalation obvious. South Florida customers notice when routine questions resolve in seconds and when complicated issues reach a person without repeating the story three times. That balance protects your brand while still cutting noise for Cooper City and Davie support teams. We review transcripts and containment metrics so improvements come from real conversations, not wishful dashboards.',
-      es: 'Implementamos chatbots y sistemas de voz con IA que responden lo rutinario y escalan excepciones a personas. El objetivo es menos tickets repetitivos, respuestas más rápidas a lo común y handoffs claros cuando debe intervenir un humano.\n\nEl contenido y las reglas de escalado siguen bajo tu control. Atendemos organizaciones de Cooper City, Davie y el sur de Florida que necesitan IA conversacional alineada con flujos de soporte reales.\n\nUn bot que adivina es peor que un humano lento. Mantenemos útil la IA conversacional acotando lo que puede responder y haciendo obvio el escalado. Los clientes del sur de Florida notan cuando lo rutinario se resuelve en segundos y cuando lo complicado llega a una persona sin repetir la historia tres veces. Ese equilibrio protege tu marca y a la vez reduce ruido para equipos de soporte en Cooper City y Davie. Revisamos transcripciones y métricas de contención para mejorar a partir de conversaciones reales, no de paneles ilusorios.',
+      en: 'We implement chatbots and AI voice systems that answer routine questions and escalate exceptions to people. The design goal is fewer repetitive tickets, faster answers for common issues, and clearer handoffs when a human should take over.\n\nContent and escalation rules stay under your control. We serve Cooper City, Davie, and greater South Florida organizations that need conversational AI aligned with real support workflows.',
+      es: 'Implementamos chatbots y sistemas de voz con IA que responden lo rutinario y escalan excepciones a personas. El objetivo es menos tickets repetitivos, respuestas más rápidas a lo común y traspasos claros cuando debe intervenir un humano.\n\nEl contenido y las reglas de escalado siguen bajo tu control. Atendemos organizaciones de Cooper City, Davie y el sur de Florida que necesitan IA conversacional alineada con flujos de soporte reales.',
     },
     process: [
       {
@@ -843,8 +843,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Empresas que necesitan presencia web creíble o una aplicación a medida enfocada, con hosting y soporte incluidos. Orientado a organizaciones del sur de Florida que cuidan accesibilidad, marca y operación segura. Elige esto cuando tu sitio actual vende por debajo de la calidad de tu servicio en la vida real. También planificamos consentimiento de analítica y bases SEO básicas para que el sitio nuevo se pueda encontrar y medir tras el lanzamiento sin improvisar herramientas después.',
     },
     overview: {
-      en: 'We design and build accessible, on-brand sites and custom applications, then host them securely with ongoing support. UX work focuses on clarity: visitors should understand what you offer and how to contact you without friction.\n\nAfter launch we stay available for updates and security hygiene. Projects commonly support Cooper City and Davie businesses that want a durable site, not a one-off brochure that ages poorly.\n\nA website should answer the questions a careful buyer already has: who you are, where you serve, how to reach a human, and why trust you. We build for that clarity, then keep hosting and support in the loop so security updates and content changes do not stall. Custom applications get the same treatment: scoped features, accessible interfaces, and an operations plan after launch. For South Florida companies in Cooper City and Davie, the win is a durable digital front door that matches how you sell and support customers in person.',
-      es: 'Diseñamos y construimos sitios accesibles y con tu marca, y aplicaciones a medida; luego los alojamos de forma segura con soporte continuo. El UX busca claridad: el visitante debe entender qué ofreces y cómo contactarte sin fricción.\n\nTras el lanzamiento seguimos disponibles para actualizaciones e higiene de seguridad. Los proyectos suelen apoyar a empresas de Cooper City y Davie que quieren un sitio duradero, no un folleto que envejece mal.\n\nUn sitio web debe responder las preguntas que un comprador cuidadoso ya tiene: quién eres, dónde atiendes, cómo hablar con una persona y por qué confiar. Construimos para esa claridad y mantenemos hosting y soporte en el circuito para que actualizaciones de seguridad y cambios de contenido no se estanquen. Las aplicaciones a medida reciben el mismo trato: funciones con alcance, interfaces accesibles y un plan operativo tras el lanzamiento. Para empresas del sur de Florida en Cooper City y Davie, el logro es una puerta digital duradera alineada con cómo vendes y das soporte en persona.',
+      en: 'We design and build accessible, on-brand sites and custom applications, then host them securely with ongoing support. UX work focuses on clarity: visitors should understand what you offer and how to contact you without friction.\n\nAfter launch we stay available for updates and security hygiene. Projects commonly support Cooper City and Davie businesses that want a durable site, not a one-off brochure that ages poorly.',
+      es: 'Diseñamos y construimos sitios accesibles y con tu marca, y aplicaciones a medida; luego los alojamos de forma segura con soporte continuo. El UX busca claridad: el visitante debe entender qué ofreces y cómo contactarte sin fricción.\n\nTras el lanzamiento seguimos disponibles para actualizaciones e higiene de seguridad. Los proyectos suelen apoyar a empresas de Cooper City y Davie que quieren un sitio duradero, no un folleto que envejece mal.',
     },
     process: [
       {

@@ -13,7 +13,7 @@ export const services: Service[] = [
     title: { en: 'Managed IT Services', es: 'Servicios de TI Administrados' },
     summary: {
       en: 'Help desk, monitoring, and onsite support for South Florida businesses, run proactively. Per-user pricing you can plan around, instead of break/fix surprises.',
-      es: 'Mesa de ayuda, monitoreo y soporte in situ para empresas del sur de Florida, con un enfoque proactivo. Precio por usuario que puedes planificar, sin sorpresas por averías.',
+      es: 'Mesa de ayuda, monitoreo y soporte en sitio para empresas del sur de Florida, con un enfoque proactivo. Precio por usuario que puedes planificar, sin sorpresas por fallas.',
     },
     items: [
       {
@@ -26,11 +26,11 @@ export const services: Service[] = [
       },
       {
         en: 'Onsite IT Support: hardware failures, network issues, rollouts, and office moves.',
-        es: 'Soporte in situ: fallos de hardware, red, despliegues y mudanzas de oficina.',
+        es: 'Soporte en sitio: fallos de hardware, red, despliegues y mudanzas de oficina.',
       },
       {
         en: 'Flat-Rate Predictable Support: per-user packages instead of break/fix billing.',
-        es: 'Soporte de tarifa plana: paquetes por usuario en lugar de facturación por averías.',
+        es: 'Soporte de tarifa plana: paquetes por usuario en lugar de cobro por falla.',
       },
     ],
   },
@@ -76,7 +76,7 @@ export const services: Service[] = [
       },
       {
         en: 'Unified Workspace Security: identity, email, endpoints, awareness, and agentic MDR.',
-        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concienciación y MDR agentico.',
+        es: 'Seguridad unificada del espacio de trabajo: identidad, correo, endpoints, concientización y MDR agéntico.',
       },
     ],
   },
@@ -86,12 +86,12 @@ export const services: Service[] = [
     title: { en: 'AI Consulting & Strategy', es: 'Consultoría y Estrategia de IA' },
     summary: {
       en: 'Practical AI roadmaps and an honest look at ROI. We start where the value is high and the risk is low.',
-      es: 'Hojas de ruta de IA prácticas y una mirada honesta al ROI. Empezamos donde hay más valor y menos riesgo.',
+      es: 'Planes estratégicos de IA prácticos y una mirada honesta al ROI. Empezamos donde hay más valor y menos riesgo.',
     },
     items: [
       {
         en: 'AI Roadmap & Adoption: practical plans starting with highest-value opportunities.',
-        es: 'Hoja de ruta de IA: planes prácticos empezando por las oportunidades de mayor valor.',
+        es: 'Plan estratégico de IA: planes prácticos empezando por las oportunidades de mayor valor.',
       },
       {
         en: 'Readiness & ROI Assessment: honest evaluation of where AI fits and where it does not.',
@@ -105,12 +105,12 @@ export const services: Service[] = [
     title: { en: 'AI Integration & Automation', es: 'Integración y Automatización de IA' },
     summary: {
       en: 'Connect AI tools to your ERP, CRM, and existing stack; automate repetitive work with ongoing tuning.',
-      es: 'Conecta herramientas de IA con tu ERP, CRM y stack actual; automatiza lo repetitivo con ajuste continuo.',
+      es: 'Conecta herramientas de IA con tu ERP, CRM y stack tecnológico actual; automatiza lo repetitivo con ajuste continuo.',
     },
     items: [
       {
         en: 'Systems Integration: connect AI tools to ERP, CRM, and your existing stack.',
-        es: 'Integración de sistemas: conecta herramientas de IA con ERP, CRM y tu stack actual.',
+        es: 'Integración de sistemas: conecta herramientas de IA con ERP, CRM y tu stack tecnológico actual.',
       },
     ],
   },
@@ -154,27 +154,27 @@ export const services: Service[] = [
     title: { en: 'IT Consulting & Strategic Leadership', es: 'Consultoría de TI y Liderazgo Estratégico' },
     summary: {
       en: 'Virtual CIO guidance: roadmaps, risk assessments, budgets, and quarterly business reviews.',
-      es: 'Orientación de CIO virtual: hojas de ruta, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
+      es: 'Orientación de CIO virtual: planes estratégicos, evaluaciones de riesgo, presupuestos y revisiones trimestrales.',
     },
     items: [
       {
         en: 'Virtual CIO (vCIO): roadmapping, risk assessments, and quarterly business reviews.',
-        es: 'CIO virtual (vCIO): hoja de ruta, evaluaciones de riesgo y revisiones trimestrales.',
+        es: 'CIO virtual (vCIO): plan estratégico, evaluaciones de riesgo y revisiones trimestrales.',
       },
     ],
   },
   {
     id: '09',
     slug: 'backup-disaster-recovery',
-    title: { en: 'Backup & Disaster Recovery', es: 'Respaldo y Recuperación ante Desastres' },
+    title: { en: 'Backup & Disaster Recovery', es: 'Copia de seguridad y recuperación ante desastres' },
     summary: {
       en: 'Automated backups, off-site replication, and recovery validation so an outage does not become a crisis.',
-      es: 'Respaldos automatizados, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
+      es: 'Copias de seguridad automatizadas, replicación externa y validación de recuperación para que una interrupción no se convierta en crisis.',
     },
     items: [
       {
         en: 'Data Protection: automated backups, off-site replication, and recovery validation.',
-        es: 'Protección de datos: respaldos automatizados, replicación externa y validación de recuperación.',
+        es: 'Protección de datos: copias de seguridad automatizadas, replicación externa y validación de recuperación.',
       },
     ],
   },

@@ -97,12 +97,12 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 const contactEn = `---
 title: "Contact Cybercon Solutions | South Florida IT"
-description: "Tell Cybercon what’s broken, what it’s costing you, or where your team needs backup. Cooper City, Davie, and South Florida. A real engineer replies within one business day."
+description: "Tell Cybercon what’s broken, what it’s costing you, or where your team needs backup. Cooper City, Davie, and South Florida. We reply within one business day."
 ---
 
 # Contact Cybercon Solutions
 
-Tell us what’s broken — or what it’s costing you. Unpredictable IT spend, surprise invoices, or a team buried in routine tickets — we absorb the noise so you can run the business. A real engineer replies within one business day. No obligation.
+Tell us what’s broken — or what it’s costing you. Unpredictable IT spend, surprise invoices, or a team buried in routine tickets — we take that noise so you can run the business. Someone on our engineering team replies within one business day. No obligation.
 
 - Phone: ${site.phoneDisplay}
 - Email: ${site.email}
@@ -114,12 +114,12 @@ Send a message at https://cybercon-solutions.com/contact/ (protected by Cloudfla
 
 const contactEs = `---
 title: "Contacto Cybercon Solutions | TI Sur de Florida"
-description: "Cuéntale a Cybercon qué falla, cuánto te está costando o dónde tu equipo necesita refuerzo. Cooper City, Davie y el Sur de Florida. Un ingeniero real responde en un día hábil."
+description: "Cuéntale a Cybercon qué falla, cuánto te está costando o dónde tu equipo necesita refuerzo. Cooper City, Davie y el Sur de Florida. Respondemos en un día hábil."
 ---
 
 # Contacto Cybercon Solutions
 
-Cuéntanos qué falla — o cuánto te está costando. Gasto de TI impredecible, facturas sorpresa o un equipo enterrado en tickets rutinarios — absorbemos el ruido para que tú operes el negocio. Un ingeniero real responde en un día hábil. Sin compromiso.
+Cuéntanos qué falla — o cuánto te está costando. Gasto de TI impredecible, facturas sorpresa o un equipo enterrado en tickets rutinarios — nos llevamos ese ruido para que tú operes el negocio. Alguien de nuestro equipo de ingeniería responde en un día hábil. Sin compromiso.
 
 - Teléfono: ${site.phoneDisplay}
 - Correo: ${site.email}
@@ -131,30 +131,30 @@ Envía un mensaje en https://cybercon-solutions.com/es/contact/ (protegido con C
 
 const assessmentEn = `---
 title: "Free IT Cost & Risk Assessment | Cybercon Solutions"
-description: "Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day."
+description: "Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — follow-up within one business day."
 ---
 
 # Free IT Cost & Risk Assessment
 
-See what your IT actually costs. Plain English. No obligation. A clear picture of spend, gaps, and which risks are funded.
+See what your IT actually costs. No jargon tour. No obligation. We’ll walk through what you’re spending, what’s covered, and what’s left open.
 
-Submit name, company, and work email via https://cybercon-solutions.com/assessment/ (protected by Cloudflare Turnstile). A real engineer replies within one business day.
+Submit name, company, and work email via https://cybercon-solutions.com/assessment/ (protected by Cloudflare Turnstile). A real engineer replies within one business day. We never share your details.
 
-Prefer a fast technical read first? Run the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check. General inquiry? Use https://cybercon-solutions.com/contact/.
+Prefer a fast technical skim first? Start with the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check, then book the assessment for the deeper pass. General inquiry? Use https://cybercon-solutions.com/contact/.
 `;
 
 const assessmentEs = `---
 title: "Evaluación gratuita de costo y riesgo de TI | Cybercon Solutions"
-description: "Evaluación gratuita para empresas del Sur de Florida: gasto, brechas y qué retirar. TI administrada, ciberseguridad y CIO fraccional — siguientes pasos claros en un día hábil."
+description: "Evaluación gratuita para empresas del Sur de Florida: gasto, vacíos y qué retirar. TI administrada, ciberseguridad y CIO fraccional — seguimiento en un día hábil."
 ---
 
 # Evaluación gratuita de costo y riesgo de TI
 
-Mira lo que realmente cuesta tu TI. Sin tecnicismos. Sin compromiso. Una lectura clara del gasto, las brechas y qué riesgos están cubiertos.
+Mira lo que realmente cuesta tu TI. Sin rodeos. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto.
 
-Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/assessment/ (protegido con Cloudflare Turnstile). Un ingeniero real responde en un día hábil.
+Envía nombre, empresa y correo de trabajo en https://cybercon-solutions.com/es/assessment/ (protegido con Cloudflare Turnstile). Un ingeniero de nuestro equipo responde en un día hábil. Nunca compartimos tus datos.
 
-¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check. ¿Consulta general? Usa https://cybercon-solutions.com/es/contact/.
+¿Prefieres primero un vistazo técnico rápido? Empieza con la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check y luego agenda la evaluación para el pase más profundo. ¿Consulta general? Usa https://cybercon-solutions.com/es/contact/.
 `;
 
 const pages: Record<string, string> = {
@@ -171,19 +171,19 @@ Your IT department — without the overhead, the surprise invoices, or the 2 a.m
 
 ## See what your IT actually costs
 
-Plain English. No obligation. A clear picture of spend, gaps, and which risks are funded. Prefer a fast technical read first? Run the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check.
+No jargon tour. No obligation. We’ll walk through what you’re spending, what’s covered, and what’s left open. Prefer a fast technical skim first? Start with the free site check at https://cybercon-solutions.com/services/web-design-development/#site-check, then book the assessment for the deeper pass.
 
 Submit name, company, and work email via the form on https://cybercon-solutions.com/ (protected by Cloudflare Turnstile).
 
 ## What we handle
 
-One partner for the stack. One bill you can plan around. Proactive managed IT with per-user pricing — no break/fix surprises. We take routine patching, monitoring, and helpdesk noise off your plate so your people execute strategy.
+One partner for the stack. One bill you can plan around. Proactive managed IT with per-user pricing — no break/fix surprises. We handle patching, monitoring, and the help desk so your people aren’t stuck being IT. When something serious hits, we escalate with you.
 
 ${servicesMarkdown('en')}
 
 ## Industries
 
-Where industry knowledge meets IT that holds up. See https://cybercon-solutions.com/#industries
+IT that matches how your industry actually runs. See https://cybercon-solutions.com/#industries
 
 ${industriesMarkdown('en')}
 
@@ -191,9 +191,9 @@ ${industriesMarkdown('en')}
 
 Three phases. No surprises mid-project.
 
-1. **Discovery** — We scope your environment with you: what’s broken, what’s growing, and the constraints that matter — so the plan reflects how your business actually runs.
-2. **Strategy** — You get a clear picture of priorities, risks, timeline, and next steps. Nothing kicks off until you’ve approved the scope and the approach.
-3. **Execution** — We run it, and we don’t disappear. We deliver the work, keep you informed on a cadence that fits, and stay accountable through sign-off and beyond.
+1. **Discovery** — What’s broken, what’s growing, and the budget and risk constraints that matter. You leave with priorities, gaps, and what to fund next — written so you can share it with whoever signs the checks.
+2. **Strategy** — Priorities, risks, timeline, and next steps. Nothing starts until you’ve approved the scope and the approach.
+3. **Execution** — We run the work, report on the cadence you choose, and stay on the hook through sign-off — and after, if you keep us on.
 
 ## Contact
 
@@ -201,40 +201,40 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en Cooper City y Davie | Cybercon"
-description: "TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por averías. Mesa de ayuda 24/7, monitoreo y seguridad con respaldo SOC. Revisión gratuita del sitio o evaluación."
+description: "TI predecible por usuario para empresas del Sur de Florida — sin sorpresas por fallas. Mesa de ayuda 24/7, monitoreo y seguridad con soporte del SOC. Revisión gratuita del sitio o evaluación."
 ---
 
 # Cybercon Solutions
 
-Technology, handled.
+Tecnología, resuelta.
 
-Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con respaldo SOC cuando tu equipo necesita refuerzo.
+Tu departamento de TI — sin la sobrecarga, las facturas sorpresa ni la carrera a las 2 a.m. Precio predecible por usuario, mesa de ayuda 24/7, monitoreo y escalación con soporte del SOC cuando tu equipo necesita refuerzo.
 
 ## Mira lo que realmente cuesta tu TI
 
-Sin tecnicismos. Sin compromiso. Una lectura clara del gasto, las brechas y qué riesgos están cubiertos. ¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check.
+Sin rodeos. Sin compromiso. Revisamos juntos qué estás gastando, qué está cubierto y qué queda abierto. ¿Prefieres primero un vistazo técnico rápido? Empieza con la revisión gratuita del sitio en https://cybercon-solutions.com/es/services/web-design-development/#site-check y luego agenda la evaluación para el pase más profundo.
 
 Envía nombre, empresa y correo de trabajo en el formulario de https://cybercon-solutions.com/es/ (protegido con Cloudflare Turnstile).
 
 ## Lo que gestionamos
 
-Un solo aliado para el stack. Una factura que puedes planificar. TI administrada proactiva con precio por usuario — sin sorpresas por averías. Quitamos el parcheo rutinario, el monitoreo y el ruido del helpdesk de tu plato para que tu gente ejecute estrategia.
+Un solo proveedor para el stack tecnológico. Una factura que puedes planificar. TI administrada proactiva con precio por usuario — sin sorpresas por fallas. Nos ocupamos del parcheo, el monitoreo y la mesa de ayuda para que tu gente no tenga que hacer de TI. Cuando algo serio ocurre, escalamos contigo.
 
 ${servicesMarkdown('es')}
 
 ## Industrias
 
-Donde el conocimiento del sector se encuentra con TI que resiste. Ver https://cybercon-solutions.com/es/#industries
+TI que encaja con cómo opera tu sector de verdad. Ver https://cybercon-solutions.com/es/#industries
 
 ${industriesMarkdown('es')}
 
-## Cómo funciona un engagement
+## Cómo trabajamos juntos
 
 Tres fases. Sin sorpresas a mitad de camino.
 
-1. **Descubrimiento** — Definimos el alcance contigo: qué falla, qué crece y las restricciones que importan — para que el plan refleje cómo opera tu negocio de verdad.
-2. **Estrategia** — Recibes un panorama claro de prioridades, riesgos, plazos y siguientes pasos. Nada arranca hasta que apruebas el alcance y el enfoque.
-3. **Ejecución** — Lo llevamos adelante y no desaparecemos. Entregamos el trabajo, te informamos con la cadencia que necesitas y respondemos hasta el cierre y después.
+1. **Descubrimiento** — Qué falla, qué crece y las restricciones de presupuesto y riesgo que importan. Sales con prioridades, vacíos y qué financiar después — escrito para que puedas compartirlo con quien aprueba el presupuesto.
+2. **Estrategia** — Prioridades, riesgos, plazos y siguientes pasos. Nada arranca hasta que apruebas el alcance y el enfoque.
+3. **Ejecución** — Llevamos el trabajo, reportamos con la cadencia que elijas y respondemos hasta el cierre — y después, si nos mantienes.
 
 ## Contacto
 

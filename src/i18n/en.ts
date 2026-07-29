@@ -26,11 +26,11 @@ export const en = {
     title: 'Contact',
     metaTitle: 'Contact Cybercon Solutions | South Florida IT',
     description:
-      'Tell Cybercon what’s broken, what it’s costing you, or where your team needs backup. Cooper City, Davie, and South Florida. A real engineer replies within one business day.',
+      'Tell Cybercon what’s broken, what it’s costing you, or where your team needs backup. Cooper City, Davie, and South Florida. We reply within one business day.',
     eyebrow: 'Cybercon Solutions',
     heading: 'Tell us what’s broken — or what it’s costing you.',
     lede:
-      'Unpredictable IT spend, surprise invoices, or a team buried in routine tickets — we absorb the noise so you can run the business. A real engineer replies within one business day. No obligation.',
+      'Unpredictable IT spend, surprise invoices, or a team buried in routine tickets — we take that noise so you can run the business. Someone on our engineering team replies within one business day. No obligation.',
     formTitle: 'Send a message',
     name: 'Name',
     email: 'Email',
@@ -46,7 +46,7 @@ export const en = {
     agreeSuffix: '.',
     submit: 'Send message',
     thanksTitle: 'Thanks — we got your message.',
-    thanksBody: 'A real engineer will follow up within one business day.',
+    thanksBody: 'We’ll follow up within one business day.',
     error: 'Something went wrong. Please try again.',
     turnstileError: 'Please complete the verification check.',
     agreeError: 'Please accept the privacy policy to continue.',
@@ -72,9 +72,9 @@ export const en = {
     title: 'See what your IT actually costs.',
     metaTitle: 'Free IT Cost & Risk Assessment | Cybercon Solutions',
     metaDescription:
-      'Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — clear next steps within one business day.',
+      'Free assessment for South Florida businesses: spend, gaps, and what to retire. Managed IT, cybersecurity, and fractional CIO guidance — follow-up within one business day.',
     cardTitle: 'Book a free cost-and-risk assessment',
-    lede: 'Plain English. No obligation. A clear picture of spend, gaps, and which risks are funded.',
+    lede: 'No jargon tour. No obligation. We’ll walk through what you’re spending, what’s covered, and what’s left open.',
     name: 'Name',
     company: 'Company',
     email: 'Email',
@@ -82,11 +82,11 @@ export const en = {
     microcopy:
       'A real engineer replies within one business day. We never share your details.',
     siteCheckLede:
-      'Prefer a fast technical read first? Start with the free site check, then book the assessment for the deeper pass.',
+      'Prefer a fast technical skim first? Start with the free site check, then book the assessment for the deeper pass.',
     siteCheckCta: 'Run the free site check',
     thanksTitle: 'Thanks, we received your request.',
     thanksBody:
-      "We'll be in touch within one business day. No sales pressure, just a clear next step.",
+      "We'll be in touch within one business day — no hard sell, just what we’d do next.",
     namePlaceholder: 'Enter your name',
     companyPlaceholder: 'Enter your company',
     emailPlaceholder: 'Enter a valid email address',
@@ -101,7 +101,7 @@ export const en = {
     eyebrow: 'What we handle',
     title: 'One partner for the stack. One bill you can plan around.',
     lede:
-      'Proactive managed IT with per-user pricing — no break/fix surprises. We take routine patching, monitoring, and helpdesk noise off your plate so your people execute strategy — and we stay the escalation tier when things get loud.',
+      'Proactive managed IT with per-user pricing — no break/fix surprises. We handle patching, monitoring, and the help desk so your people aren’t stuck being IT. When something serious hits, we escalate with you.',
     learnMoreAbout: '{name}: what’s included',
   },
   engagement: {
@@ -111,7 +111,7 @@ export const en = {
       {
         number: '01',
         title: 'Discovery',
-        body: 'What’s broken, what’s growing, and the budget and risk constraints that matter. You leave with priorities, gaps, and what to retire vs. fund — not a slide deck of buzzwords.',
+        body: 'What’s broken, what’s growing, and the budget and risk constraints that matter. You leave with priorities, gaps, and what to fund next — written so you can share it with whoever signs the checks.',
       },
       {
         number: '02',
@@ -121,7 +121,7 @@ export const en = {
       {
         number: '03',
         title: 'Execution',
-        body: 'We run it, report on a cadence you choose, and stay accountable through sign-off and beyond. We don’t disappear after kickoff.',
+        body: 'We run the work, report on the cadence you choose, and stay on the hook through sign-off — and after, if you keep us on.',
       },
     ],
   },
@@ -129,7 +129,7 @@ export const en = {
     eyebrow: 'Industries',
     title: 'IT that matches how your industry actually runs.',
     lede:
-      'Cooper City, Davie, and South Florida orgs under real compliance, uptime, and client-trust pressure — not the same stack for every logo. Same playbook, different controls: mapped to how your people work.',
+      'Cooper City, Davie, and South Florida orgs deal with different compliance and uptime pressure. We keep the same operating discipline, then tune controls to how your people actually work.',
     learnMoreAbout: 'IT built for {name}',
     allIndustries: 'All industries',
     overviewTitle: 'Built for how this industry actually runs',
@@ -141,8 +141,8 @@ export const en = {
     includedTitle: 'What’s included',
     processTitle: 'How we work',
     faqTitle: 'FAQ',
-    ctaTitle: 'Want a clear picture of what your IT costs — and which risks are funded?',
-    ctaBody: 'A free assessment with clear next steps. Prefer a fast technical read first? Run the free site check.',
+    ctaTitle: 'Want to know what your IT actually costs?',
+    ctaBody: 'Book a free assessment, or run the free site check first if you want a quick technical skim.',
     cta: 'See what your IT actually costs',
     ctaSecondary: 'Run the free site check',
   },
@@ -154,12 +154,12 @@ export const en = {
       'Practical notes on enterprise AI, managed IT, and cybersecurity for South Florida leaders — measured ROI, governance, and operating discipline.',
     indexHeading: 'Insights for technology leaders',
     indexLede:
-      'What we tell executives and boards: workflows that ship, governance that accelerates, and metrics that survive budget season.',
+      'Notes for executives and boards: workflows that ship, governance that holds up, and metrics that survive budget season.',
     readMore: 'Read the article',
     allPosts: 'All posts',
     ctaTitle: 'Ready to turn AI pilots into production?',
     ctaBody:
-      'Book a free assessment. We map workflows, governance, and a measured automation plan — not another demo.',
+      'Book a free assessment. We’ll map the workflows worth automating and the governance you need before you buy more tools.',
     cta: 'Book a free assessment',
   },
   footer: {
@@ -299,7 +299,7 @@ export const en = {
     title: '{name}',
     close: 'Close chat',
     welcome:
-      "Hi, I’m {name} — Support Agent. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best. A real engineer replies within one business day.",
+      "Hi, I’m {name} — Support Agent. I can answer basics about our services, South Florida coverage, and how to get started. For pricing or a tailored plan, the free assessment is best — we reply within one business day.",
     suggestions: [
       'What does Cybercon do?',
       'Where do you serve?',

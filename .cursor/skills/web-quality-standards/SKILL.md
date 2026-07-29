@@ -2,12 +2,14 @@
 name: web-quality-standards
 description: >-
   Enforce Cybercon Solutions web quality standards for Core Web Vitals (especially
-  LCP), SEO link text, color contrast, cache lifetimes (Zaraz), and accessibility
-  when editing pages, layouts, components, tokens, or marketing UI. Use for
-  Lighthouse, PageSpeed, SEO audits, a11y reviews, hero media, and brand color
-  changes. After fixing a new audit finding, update this skill so the rule sticks.
+  LCP), SEO link text, color contrast, cache lifetimes (Zaraz), accessibility, and
+  marketing copy voice when editing pages, layouts, components, tokens, i18n,
+  service/industry data, or blog content. Use for Lighthouse, PageSpeed, SEO
+  audits, a11y reviews, hero media, brand color changes, and new service or
+  marketing pages. After fixing a new audit/quality finding, update this skill
+  so the rule sticks.
 paths:
-  - "src/**/*.{astro,css,ts,tsx}"
+  - "src/**/*.{astro,css,ts,tsx,md}"
   - "public/**/*"
   - ".cursor/skills/web-quality-standards/**"
   - ".cursor/rules/web-quality-standards.mdc"
@@ -15,12 +17,12 @@ paths:
 
 # Cybercon web quality standards
 
-Read this skill before shipping UI, SEO, performance, or brand-token changes.
+Read this skill before shipping UI, SEO, performance, brand-token, or marketing-copy changes.
 These rules come from production audit fixes — follow them on every related change.
 
 ## Maintaining this skill (required)
 
-When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, or brand-quality finding:
+When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, brand-quality, or marketing-copy finding:
 
 1. **Codify it here** in the matching section (or add a section) with the concrete rule, the wrong pattern to avoid, and the file paths involved.
 2. **Update the checklist** below with a one-line verification item.
@@ -29,6 +31,45 @@ When you fix a **new** Lighthouse, PageSpeed, SEO, a11y, or brand-quality findin
 5. If the fix needs dashboard/CI setup (not app code), document the durable procedure in `README.md` and link it from this skill — same pattern as Zaraz cache.
 
 Do this in the **same PR** as the fix whenever practical. Do not leave tribal knowledge only in the PR description.
+
+## Marketing copy voice (anti-AI tells)
+
+When writing or editing homepage, service, industry, assessment/contact, chat, or blog copy (`src/i18n/{en,es}.ts`, `src/data/service-details.ts`, `src/data/services.ts`, `src/data/industries.ts`, `src/data/ai-security-page.ts`, `src/data/web-design-page.ts`, `src/content/blog/`, `src/lib/markdown-pages.ts`, chat knowledge):
+
+1. **Industry pages are the voice model.** Prefer concrete scenes (shared clinic passwords, billable afternoon lost to a frozen laptop, backups never restored) over abstract MSP slogans. Match new service/marketing copy to that specificity.
+2. **No third-paragraph SEO echoes on service overviews.** Aim for ~two short paragraphs (~60–100 EN words). Do not restate Cooper City/Davie + the offer + a CTA in a third block that only exists for keywords.
+3. **Do not reintroduce the anti-hype denial stack** as a brand tic — avoid reflexive “theater / teatro,” “not a slide deck of buzzwords,” “not another demo,” “enterprise theater,” “ticket theater,” “No theater. No moonshots.” Prefer one concrete proof (SLA, sample QBR, named local scenario) instead.
+4. **Trust mantra once per surface.** “A real engineer replies within one business day” / ES “Un ingeniero de nuestro equipo responde en un día hábil” belongs on form microcopy or the page reply note — not also in overview, process, FAQ, chat welcome, and CTA body on the same page. Elsewhere prefer “we reply” / “respondemos.”
+5. **Avoid LLM cadence tells:** stacked “clear picture / clear next steps / clear owner,” “Plain English. No obligation.” triads, “Full stop.”, “Here’s our bias, stated plainly,” “execute strategy,” “when things get loud,” “boring work that prevents outages.”
+6. **Spanish is Colombian Spanish** for user-facing ES. Prefer professional **culto** American Spanish for Colombia — not Spain defaults and not slang on B2B pages.
+   - **Authorities:** [Colombian Spanish learner’s dictionary](https://colombianspanish.co/blog/colombian-spanish-learners-dictionary) for everyday Co usage; ASALE *Diccionario de americanismos* (DA, 2010) for whether a form is American and which countries mark it (**Co** = Colombia). The DA is **descriptive** (geographic/sociolinguistic marks), not a “Spain is normal / America is special” style guide — treat American culto forms as full Spanish. Prefer Co-marked or pan-American culto terms when they differ from peninsular; skip rural/pop/vulgar DA marks on marketing pages. See Bravo García (2015) overview of the DA’s criteria (indigenous loans, American creations, Spanish lexemes with American senses, archaisms alive in America, other-language loans such as *carro*).
+   - Lexicon: `en sitio` (not `in situ`); `fallas` for break/fix (not `averías`); `concientización` (not `concienciación`); `computador` / `computador portátil` (not `ordenador`); `celular` (not `móvil`); `correo` (not bare `email`); prefer `agendar` / `ingresa` / `cita`; `costo`; `colaborar` as everyday “help out”; `listo` for OK/done; `sin rodeos` / ir al grano for plain-talk CTAs; tú form as already used.
+   - Avoid B2B slang (`chévere`, `bacano`, `parce`, `¡de una!`, `dar papaya`) — fine in chat tone experiments, not in service/hero copy.
+   - `playbook` → **libro de tácticas**; tech `stack` → **stack tecnológico**; relationship `partner` → **proveedor** (not `aliado`/`socio`); `engagement` → **proyecto** (or **acompañamiento**); `handoff(s)` → **traspaso(s)**; fragile `demos` → **demostraciones**; `agentic MDR` → **MDR agéntico**.
+   - `roadmap` → **plan estratégico** (not `hoja de ruta` / calqued *roadmap*).
+   - `scorecard` → **cuadro de mando** (default corporate metrics); **tablero de control** when stressing visual monitoring; **matriz de indicadores** when it is strictly a KPI/metrics list.
+   - `guardrails` → **pautas de control** (operational boundaries); **lineamientos de cumplimiento** (governance / ethics / legal); **parámetros de seguridad** (risk management or AI safety limits). Not *barandillas*.
+   - Security: active threat → **incidente de seguridad**; gaps → **vacío(s)** (never `brecha` for gaps); HIBP/data leak → **filtración**.
+   - `backup` (data files / IT): **copia de seguridad** (standard professional); **respaldo** as corporate shorthand (e.g. *hacer un respaldo*, *trabajos de respaldo*). Never leave English *backup* in ES.
+   - `backup` (business / ops): contingency plan → **plan de contingencia**; secondary vendor → **proveedor de respaldo**; standby hardware/generators → **sistema de reserva** / **sistema alterno**. Do not use data-backup wording for staffing (“needs backup” → **refuerzo**) or “SOC-backed” (**con soporte del SOC**, not *con respaldo SOC*).
+   - `headcount` → **planta de personal** / **número de colaboradores**; budget contexts → **aprobación de planta** / **cupos de contratación**.
+   - `prompting` → **diseño de prompts** / **formulación de instrucciones (*prompts*)**; formal docs → **redacción de instrucciones para modelos de IA**. Italicize or quote *prompt* on first use.
+   - `defaults` → **valores predeterminados** / **configuración por defecto**.
+   - `deck` → **presentación** (de diapositivas); not calqued *deck*.
+   - `checkbox` (UI) → **casilla de verificación**; figurative “checkbox exercise” → **ejercicio de mero cumplimiento** / **cumplir por cumplir**.
+   - `P&L` → **estado de resultados** or Colombian corporate **P&G** (pérdidas y ganancias); “own the P&L” → **tener la responsabilidad del P&G**.
+   - `shadow AI` → **IA en la sombra**; in risk reports prefer the explanatory form: **uso no autorizado de herramientas de IA por fuera del control de TI**.
+   - `moonshot` → **apuesta ambiciosa** / **iniciativa de alto riesgo y alto impacto**.
+   - `legacy` (tech) → **sistemas heredados** (also *infraestructura legada*); reputation → **legado**.
+   - `keynote` → **conferencia magistral** / **ponencia principal**.
+   - `retainer` → **anticipo de honorarios** / **contrato de honorarios mensuales por disponibilidad**; ongoing advisory → **contrato de asesoría permanente**.
+   - `busywork` → **trabajo de relleno** / **tareas operativas sin valor agregado**.
+   - `one-pager` → **resumen ejecutivo de una página** / **documento de una página**.
+   - `warehouse` → **bodega** (prefer over *almacén* in Co); data warehouse → **bodega de datos**.
+   - `journey` / customer journey → **recorrido** / **recorrido del cliente** (prefer over *viaje del cliente*).
+   - `counsel` → **asesor jurídico** / **abogado asesor**; General Counsel → **director jurídico** / **vicepresidente jurídico**.
+   - `tabletop` / *tabletopeado* → **ejercicio de simulación de mesa** / **simulacro de escritorio** (never the Spanglish verb).
+   - Keep EN + ES in sync when strings change.
 
 ## Color contrast (brand coral)
 
@@ -108,6 +149,8 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
+- [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
+- [ ] ES user-facing strings use Colombian Spanish per skill glossary (`computador`/`celular`/`correo`, `proveedor`, `sin rodeos`, `libro de tácticas`, `stack tecnológico`; security: `incidente de seguridad` / `vacío(s)` / `filtración`; no Spainisms or B2B slang)
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`
@@ -124,6 +167,7 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 | Hero LCP | `src/components/Hero.astro` |
 | Hero preload | `src/pages/index.astro`, `src/pages/es/index.astro` |
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
+| Marketing copy / voice | `src/i18n/{en,es}.ts`, `src/data/service-details.ts`, `src/data/industries.ts`, `src/data/services.ts`, `src/lib/markdown-pages.ts` |
 | Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |

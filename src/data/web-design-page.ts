@@ -43,7 +43,7 @@ export const webDesignPage: WebDesignPageCopy = {
   },
   replyNote: {
     en: 'A real engineer replies within one business day',
-    es: 'Un ingeniero real responde en un día hábil',
+      es: 'Un ingeniero de nuestro equipo responde en un día hábil',
   },
   audience: {
     label: {
@@ -121,12 +121,12 @@ export const webDesignPage: WebDesignPageCopy = {
   },
   cta: {
     title: {
-      en: 'Want a clear picture of what your IT costs — and which risks are funded?',
-      es: '¿Quieres ver con claridad lo que cuesta tu TI — y qué riesgos están cubiertos?',
+      en: 'Want to know what your IT actually costs?',
+      es: '¿Quieres saber lo que realmente cuesta tu TI?',
     },
     body: {
-      en: 'A free assessment with clear next steps. Prefer a fast technical read first? Run the free site check.',
-      es: 'Una evaluación gratuita con próximos pasos claros. ¿Prefieres primero una lectura técnica rápida? Haz la revisión gratuita del sitio.',
+      en: 'Book a free assessment, or run the free site check first if you want a quick technical skim.',
+      es: 'Agenda una evaluación gratuita, o haz primero la revisión gratuita del sitio si quieres un vistazo técnico rápido.',
     },
     button: {
       en: 'See what your IT actually costs',

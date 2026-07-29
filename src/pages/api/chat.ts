@@ -59,7 +59,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!limits.allowed) {
     const reply =
       locale === 'es'
-        ? 'Alcanzaste el límite de chat de hoy. Reserva la evaluación gratuita o llámanos — un ingeniero real te atiende.'
+        ? 'Llegaste al límite de chat de hoy. Agenda la evaluación gratuita o llámanos — nuestro equipo te atiende.'
         : 'You’ve reached today’s chat limit. Book the free assessment or call us — a real engineer will help.';
     return Response.json({
       ok: true,
