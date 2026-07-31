@@ -73,23 +73,23 @@ const ogImage = absoluteUrl(banner.jpg);
   <Header slot="header" locale={locale} t={t} variant="light" />
 
   <article class="blog-post" data-pagefind-body>
-    <figure class="blog-banner">
-      <picture>
-        <source type="image/webp" srcset={banner.webpSrcset} sizes="100vw" />
-        <img
-          src={banner.jpg}
-          srcset={banner.jpgSrcset}
-          sizes="100vw"
-          alt={bannerAlt}
-          width={banner.width}
-          height={banner.height}
-          decoding="async"
-          fetchpriority="high"
-        />
-      </picture>
-    </figure>
-
     <div class="blog-post-inner container">
+      <figure class="blog-banner">
+        <picture>
+          <source type="image/webp" srcset={banner.webpSrcset} sizes="(min-width: 1120px) 1120px, calc(100vw - 2rem)" />
+          <img
+            src={banner.jpg}
+            srcset={banner.jpgSrcset}
+            sizes="(min-width: 1120px) 1120px, calc(100vw - 2rem)"
+            alt={bannerAlt}
+            width={banner.width}
+            height={banner.height}
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
+      </figure>
+
       <header class="blog-post-head">
         <p class="eyebrow">{t.blog.eyebrow}</p>
         <h1>{title}</h1>
@@ -121,11 +121,12 @@ const ogImage = absoluteUrl(banner.jpg);
   }
 
   .blog-banner {
-    margin: 0;
+    margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
     width: 100%;
     max-height: min(42vw, 420px);
     overflow: hidden;
     background: var(--navy);
+    border-radius: var(--radius-md);
   }
 
   .blog-banner img {
@@ -137,7 +138,7 @@ const ogImage = absoluteUrl(banner.jpg);
   }
 
   .blog-post-inner {
-    padding-block: clamp(2rem, 4vw, 3.25rem) var(--section-pad-y);
+    padding-block: var(--section-pad-y);
   }
 
   .blog-post-head {
@@ -232,6 +233,27 @@ const ogImage = absoluteUrl(banner.jpg);
     margin: 2rem 0;
     border: 0;
     border-top: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .blog-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.35rem;
+    font-size: 0.95rem;
+  }
+
+  .blog-prose th,
+  .blog-prose td {
+    padding: 0.65rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .blog-prose th {
+    color: var(--navy);
+    font-weight: 600;
+    border-bottom-color: rgba(15, 44, 76, 0.22);
   }
 
   .blog-prose #sources {
