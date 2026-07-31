@@ -10,11 +10,8 @@ When fixing a new Lighthouse/SEO/a11y/brand/copy-voice audit finding, update tha
 
 ## Project orchestration (multi-agent)
 
-For large or multi-subsystem work — assess complexity, split into parallel worker tasks, verify handoffs, and integrate — follow:
-
-`.cursor/skills/project-orchestrator/SKILL.md`
-
-(Templates: `.cursor/skills/project-orchestrator/references.md`.)
+User-global skill (also vendored here for cloud/teammates): `.cursor/skills/project-orchestrator/SKILL.md`.
+(Templates: `references/REFERENCE.md`.)
 
 Characterize difficulty with technical factors (blast radius, coupling, unknowns, validation). Do not estimate calendar days/weeks. Skip orchestration for trivial single-file work.
 

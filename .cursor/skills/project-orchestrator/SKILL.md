@@ -1,12 +1,13 @@
 ---
 name: project-orchestrator
 description: >-
-  Orchestrate multi-agent delivery: assess project/task complexity, decompose
-  into parallel workstreams, assign worker agents via the Task tool, verify
-  each result, and integrate into a coherent whole. Use when the user asks to
-  orchestrate, parallelize, break down a large feature/project, plan multi-agent
-  work, estimate complexity (not calendar time), or when a request clearly spans
-  several independent subsystems that can be built or researched concurrently.
+  User-global multi-agent orchestration for any project. Assess task/project
+  complexity, decompose into parallel workstreams, assign worker agents via the
+  Task tool, verify each result, and integrate into a coherent whole. Use when
+  the user asks to orchestrate, parallelize, break down a large feature/project,
+  plan multi-agent work, estimate complexity (not calendar time), or when a
+  request clearly spans several independent subsystems that can be built or
+  researched concurrently.
 ---
 
 # Project orchestrator
@@ -239,9 +240,13 @@ Say things like:
 
 Do **not** say “about two days” or “a one-week project.”
 
-## Copying this skill to other projects
+## Scope
 
-This skill is project-agnostic. To reuse elsewhere, copy
-`.cursor/skills/project-orchestrator/` into that repo (or into your user-level
-Cursor skills). Point `AGENTS.md` / `CLAUDE.md` at it so orchestrators load it
-on multi-agent work.
+This is a **user-global** skill (not tied to one repo). Install / keep it at:
+
+- `~/.cursor/skills/project-orchestrator/` (Cursor, all projects)
+- `~/.agents/skills/project-orchestrator/` (Agent Skills-compatible tools)
+
+Optional: vendor the same folder into a repo’s `.cursor/skills/` so cloud agents
+and teammates without the user skill still load it. Templates live in
+`references/REFERENCE.md` (and `references.md`).
