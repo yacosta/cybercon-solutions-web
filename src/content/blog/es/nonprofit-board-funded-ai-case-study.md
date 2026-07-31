@@ -89,7 +89,7 @@ Y mantén el reporte trimestral corto: horas recuperadas (en dinero a una tarifa
 
 No necesitas tu propio modelo fundacional a menos que la IA *sea* el producto. Necesitas automatizaciones dentro del trabajo que ya haces.
 
-## Cómo se presentó Cybercon en este proyecto
+## Cómo se presentó Cybercon Solutions en este proyecto
 
 Cybercon fue dueña de la dirección tecnológica, el diseño de gobernanza de IA, la arquitectura de automatización en producción, la confiabilidad de plataformas y el reporte a la junta. Cuando la preparación necesitó manos extra, trajimos capacidad de consultoría especializada — pero lo que se entregó, lo que se midió y lo que oyeron los directores quedó con nosotros.
 

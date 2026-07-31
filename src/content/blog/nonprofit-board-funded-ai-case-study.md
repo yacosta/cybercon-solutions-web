@@ -89,7 +89,7 @@ And keep the quarterly report short: hours reclaimed (in dollars at a loaded rat
 
 You don’t need your own foundation model unless AI *is* the product. You need automations inside work you already do.
 
-## How Cybercon showed up on this project
+## How Cybercon Solutions showed up on this project
 
 Cybercon owned technology direction, AI governance design, production automation architecture, platform reliability, and board reporting. When readiness work needed extra hands, we brought in specialized consulting capacity — but what shipped, what got measured, and what directors heard stayed on us.
 
