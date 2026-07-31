@@ -11,7 +11,7 @@ bannerAlt:
 
 Un programa educativo a escala de ciudad solo funciona si las familias confían en la plataforma — y si la plataforma puede crecer sin caerse. El encargo de Cybercon Solutions fue liderar la tecnología de una organización educativa sin fines de lucro en la ciudad de Nueva York que opera un programa de construcción de patrimonio para familias de escuelas públicas: en vivo para **145.000 familias**, arquitectada para escalar más allá de **1,1 millones** de estudiantes.
 
-No nombramos a la organización. Esto es lo que encontramos, lo que entregamos y lo que le diríamos a otro líder educativo en el mismo asiento.
+Esto es lo que encontramos, lo que entregamos y lo que le diríamos a otro líder educativo en el mismo asiento.
 
 ## Lo que encontramos
 
@@ -73,3 +73,7 @@ Si operas una plataforma educativa bajo escrutinio público y necesitas liderazg
 - [Zero Trust para TI de mercado medio: un despliegue práctico](/es/blog/zero-trust-mid-market-rollout/)
 - [TI pensada para educación y organizaciones sin fines de lucro](/es/industries/education-nonprofits/)
 - [Ciberseguridad para equipos regulados](/es/services/cybersecurity/)
+
+---
+
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*

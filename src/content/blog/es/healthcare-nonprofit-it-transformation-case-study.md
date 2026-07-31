@@ -11,7 +11,7 @@ bannerAlt:
 
 Una red de salud y servicios sociales no puede elegir entre “mantener las luces,” “pasar la auditoría” y “dejar de sobrepagar a proveedores.” Necesita las tres. Cybercon Solutions asumió un mandato combinado de **CIO y CISO** para una organización sin fines de lucro del área de Nueva York que apoya a **más de 2.000 colaboradores en 31 sedes** — con un presupuesto de tecnología de **$5M** en juego.
 
-No nombramos a la organización. Así se vio el trabajo en la práctica.
+Así se vio el trabajo en la práctica.
 
 ## Lo que encontramos
 
@@ -76,3 +76,7 @@ Si tu red de clínicas o sedes de servicios sociales necesita ese tipo de lidera
 - [TI administrada que reporta como un CIO](/es/blog/managed-it-reports-like-cio/)
 - [TI pensada para salud y clínicas](/es/industries/healthcare-clinics/)
 - [La agenda del CIO fraccionario: los primeros 90 días](/es/blog/fractional-cio-first-90-days/)
+
+---
+
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*

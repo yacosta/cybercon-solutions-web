@@ -11,7 +11,7 @@ bannerAlt:
 
 La junta quería IA empresarial. El personal quería menos noches armando los mismos reportes. Finanzas quería un número que aguantara la temporada de presupuesto. Y debajo de todo eso, los sistemas tenían que seguir en pie — registros de donantes, trabajo científico, CRM, correo — sin un drama cada lunes.
 
-Ese fue el encargo cuando Cybercon Solutions empezó el trabajo de [consultoría de IA](/es/services/ai-consulting/) con una organización ambiental sin fines de lucro del Sur de Florida. No la nombramos aquí. Lo que sigue es lo que hicimos, lo que medimos y lo que repetiríamos con otro equipo de liderazgo bajo la misma presión.
+Ese fue el encargo cuando Cybercon Solutions empezó el trabajo de [consultoría de IA](/es/services/ai-consulting/) con una organización ambiental sin fines de lucro del Sur de Florida. Lo que sigue es lo que hicimos, lo que medimos y lo que repetiríamos con otro equipo de liderazgo bajo la misma presión.
 
 ## El vacío tecnológico que encontramos en el nonprofit
 
@@ -105,3 +105,7 @@ Si tu junta pregunta por IA mientras los silos y las preguntas de acceso siguen 
 - [Zero Trust para TI de mercado medio: un despliegue práctico](/es/blog/zero-trust-mid-market-rollout/)
 - [Consultoría de IA para equipos del Sur de Florida](/es/services/ai-consulting/)
 - [TI pensada para educación y organizaciones sin fines de lucro](/es/industries/education-nonprofits/)
+
+---
+
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*

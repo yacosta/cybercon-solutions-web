@@ -11,7 +11,7 @@ bannerAlt:
 
 Los clientes empresariales no compran “un plan estratégico.” Compran integraciones que funcionan el día del lanzamiento, flujos de pago que pasan revisión PCI y despliegues de punto de venta móvil que no dejan a los equipos de campo colgados. Cybercon Solutions asumió la propiedad de CIO de una firma de entrega tecnológica de mercado medio: planificación de plataforma a varios años, un presupuesto de entrega de **más de $2M** y **19 desarrolladores** en equipos en sitio, remotos y offshore.
 
-No nombramos a la firma ni a sus clientes. Este es el patrón operativo que corrimos.
+Este es el patrón operativo que corrimos.
 
 ## Lo que encontramos
 
@@ -65,3 +65,7 @@ Si tu organización de servicios profesionales o de entrega necesita ese tipo de
 - [TI para legal y servicios profesionales](/es/industries/legal-professional-services/)
 - [Ciberseguridad para equipos de cara al cliente](/es/services/cybersecurity/)
 - [Consultoría de TI para entrega secuenciada](/es/services/it-consulting/)
+
+---
+
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*

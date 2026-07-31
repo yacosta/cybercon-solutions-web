@@ -13,7 +13,7 @@ El retail premium se ve simple desde el piso de ventas. Detrás: operaciones mul
 
 Cybercon Solutions lideró la TI de Norteamérica para una marca global de retail premium en **seis países** de las Américas — EE. UU., Canadá, México, Colombia, Brasil y Argentina — mientras operaba directamente EE. UU. y Canadá en **más de 50 boutiques** y coordinaba estándares regionales, proveedores y cumplimiento.
 
-No nombramos a la marca. Así corrió el trabajo de verdad.
+Así corrió el trabajo de verdad.
 
 ## Lo que encontramos
 
@@ -67,3 +67,7 @@ Si tu huella de retail cruza países y vitrinas y necesitas esa disciplina opera
 - [TI para distribución, retail y manufactura](/es/industries/distribution-retail-manufacturing/)
 - [Servicios en la nube para operadores multi-sede](/es/services/cloud/)
 - [La agenda del CIO fraccionario: los primeros 90 días](/es/blog/fractional-cio-first-90-days/)
+
+---
+
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*
