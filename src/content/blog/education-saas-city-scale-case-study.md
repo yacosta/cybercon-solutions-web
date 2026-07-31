@@ -1,6 +1,6 @@
 ---
 title: 'Education SaaS at City Scale: A Case Study'
-description: 'How Cybercon Solutions helped a NYC education nonprofit run a wealth-building platform for 145,000 families — with FERPA-grade security and room to scale.'
+description: 'How Cybercon Solutions partnered with NYC education tech leaders to run a wealth-building platform for 145,000 families — FERPA-grade security and room to scale.'
 pubDate: 2026-08-01
 customerIndustry: education
 banner: managed-it-support
@@ -9,9 +9,9 @@ bannerAlt:
   es: 'Espacio de soporte de TI con pantallas y herramientas de colaboración'
 ---
 
-A citywide education program only works if families can trust the platform — and if the platform can grow without falling over. The brief for Cybercon Solutions was to lead technology for a New York City education nonprofit running a wealth-building program for public-school families: live for **145,000 families**, architected to scale past **1.1 million** students.
+A citywide education program only works if families can trust the platform — and if the platform can grow without falling over. Cybercon Solutions partnered with the technology leaders at a New York City education nonprofit running a wealth-building program for public-school families: live for **145,000 families**, architected to scale past **1.1 million** students.
 
-Here’s what we found, what we shipped, and what we’d tell another education leader in the same seat.
+Here’s what we found together, what we shipped, and what we’d tell another education tech leader in the same seat.
 
 ## What we walked into
 
@@ -23,7 +23,7 @@ If you run [education or nonprofit IT](/industries/education-nonprofits/), that 
 
 ## Platform leadership at city scale
 
-Cybercon Solutions directed the technology infrastructure behind the program platform. The job wasn’t a greenfield rebuild. It was keeping a live system healthy while the enrollment curve pointed at citywide scale.
+Alongside their technology leaders, Cybercon Solutions helped direct the technology infrastructure behind the program platform. The job wasn’t a greenfield rebuild. It was keeping a live system healthy while the enrollment curve pointed at citywide scale.
 
 That meant capacity planning, vendor coordination, integration discipline, and a clear path for what had to work on day one versus what could wait. Growth without architecture is just a longer outage list.
 
@@ -61,11 +61,11 @@ Name the crown jewels early — family identity, student data, enrollment paths,
 
 And don’t let “scale someday” wait until enrollment forces an emergency. Design for the number you’re promising now.
 
-## How Cybercon Solutions showed up on this project
+## How Cybercon Solutions partnered with their tech leaders
 
-Cybercon Solutions owned platform direction, product outcome tracking, security/compliance posture, and the stakeholder bridge to city technology offices. Vendors and consultants stayed in the mix — with clear accountability for what shipped and what got reported.
+Cybercon Solutions worked with the organization’s technology leaders on platform direction, product outcome tracking, security/compliance posture, and the stakeholder bridge to city technology offices. Vendors and consultants stayed in the mix — with shared accountability for what shipped and what got reported. The consulting partnership was built to strengthen the tech leaders already carrying the program, not to replace them.
 
-If you’re running an education platform under public scrutiny and need technology leadership that can talk program and compliance in the same meeting, [start with a cost-and-risk assessment](/assessment/) — or see how we approach [fractional CIO work in the first 90 days](/blog/fractional-cio-first-90-days/).
+If you’re running an education platform under public scrutiny and want a partner who can sit with your tech leaders on program and compliance in the same meeting, [start with a cost-and-risk assessment](/assessment/) — or see how we approach [fractional CIO work in the first 90 days](/blog/fractional-cio-first-90-days/).
 
 ## Related reading
 
@@ -76,4 +76,4 @@ If you’re running an education platform under public scrutiny and need technol
 
 ---
 
-*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe work delivered by Cybercon Solutions in partnership with the client’s technology leaders.*

@@ -1,6 +1,6 @@
 ---
 title: '$1,3M ahorrados: caso de TI en nonprofit de salud'
-description: 'Cómo Cybercon Solutions lideró CIO/CISO en una red de servicios sociales del área de NYC — migración EHR, Azure, confianza cero y $1,3M+ de ahorro anual.'
+description: 'Cómo Cybercon Solutions se asoció con líderes CIO/CISO en una red de servicios sociales del área de NYC — EHR, Azure, confianza cero y $1,3M+ de ahorro anual.'
 pubDate: 2026-08-02
 customerIndustry: healthcare
 banner: cybersecurity-lock
@@ -9,9 +9,9 @@ bannerAlt:
   es: 'Candado digital e imágenes de circuitos que representan controles de ciberseguridad en capas'
 ---
 
-Una red de salud y servicios sociales no puede elegir entre “mantener las luces,” “pasar la auditoría” y “dejar de sobrepagar a proveedores.” Necesita las tres. Cybercon Solutions asumió un mandato combinado de **CIO y CISO** para una organización sin fines de lucro del área de Nueva York que apoya a **más de 2.000 colaboradores en 31 sedes** — con un presupuesto de tecnología de **$5M** en juego.
+Una red de salud y servicios sociales no puede elegir entre “mantener las luces,” “pasar la auditoría” y “dejar de sobrepagar a proveedores.” Necesita las tres. Cybercon Solutions se asoció con los líderes de **CIO y CISO** de una organización sin fines de lucro del área de Nueva York que apoya a **más de 2.000 colaboradores en 31 sedes** — con un presupuesto de tecnología de **$5M** en juego — como una relación de consultoría hecha para reforzar ese liderazgo, no para dejarlo de lado.
 
-Así se vio el trabajo en la práctica.
+Así se vio la alianza en la práctica.
 
 ## Lo que encontramos
 
@@ -23,7 +23,7 @@ Ese es el patrón que vemos en [TI para salud y clínicas](/es/industries/health
 
 ## Migración de EHR sin romper el trabajo clínico
 
-Cybercon Solutions lideró una migración completa de EHR empresarial — de un sistema clínico heredado a una plataforma moderna — incluyendo arquitectura de privacidad de datos, rediseño de flujos clínicos y controles de cumplimiento en un entorno regulado de salud y servicios sociales.
+Junto con sus líderes de tecnología, Cybercon Solutions ayudó a liderar una migración completa de EHR empresarial — de un sistema clínico heredado a una plataforma moderna — incluyendo arquitectura de privacidad de datos, rediseño de flujos clínicos y controles de cumplimiento en un entorno regulado de salud y servicios sociales.
 
 Las migraciones fallan cuando TI las trata como un volcado de datos. Nosotros las tratamos como trabajo clínico con una columna tecnológica: privacidad primero, rediseño de flujos con quienes registran, controles documentados como si viniera un auditor — porque viene.
 
@@ -35,7 +35,7 @@ La disponibilidad a ese nivel no es un eslogan. Salió del monitoreo, del diseñ
 
 ## Seguridad que redujo incidentes año tras año
 
-Como CISO, Cybercon Solutions estableció y aplicó políticas de seguridad y cumplimiento bajo FERPA, HIPAA y la Ley SHIELD de NY con controles documentados. El trabajo sistemático de marco redujo de forma medible los incidentes de seguridad año tras año — el tipo de tendencia que una junta puede leer sin glosario.
+En alianza sobre el mandato de CISO, Cybercon Solutions ayudó a establecer y aplicar políticas de seguridad y cumplimiento bajo FERPA, HIPAA y la Ley SHIELD de NY con controles documentados. El trabajo sistemático de marco redujo de forma medible los incidentes de seguridad año tras año — el tipo de tendencia que una junta puede leer sin glosario.
 
 ## Administración financiera que financió el trabajo duro
 
@@ -45,7 +45,7 @@ Esa historia de ahorro importa porque la transformación sin camino de financiam
 
 ## Equipo, junta y M&A
 
-Lideramos **17** personas técnicas en red/sistemas, mesa de ayuda y administración apoyando a esos 2.000+ colaboradores y 31 sedes. Cybercon Solutions también participó en el Comité de Tecnología de la Junta y lideró la debida diligencia tecnológica e integración de **dos fusiones** manteniendo el cumplimiento HIPAA/FERPA continuo en los cortes.
+Junto a sus líderes de TI, ayudamos a liderar **17** personas técnicas en red/sistemas, mesa de ayuda y administración apoyando a esos 2.000+ colaboradores y 31 sedes. Cybercon Solutions también apoyó a sus líderes en el Comité de Tecnología de la Junta y ayudó a liderar la debida diligencia tecnológica e integración de **dos fusiones** manteniendo el cumplimiento HIPAA/FERPA continuo en los cortes.
 
 ## Resultados de un vistazo
 
@@ -64,11 +64,11 @@ No separes el trabajo de CIO y CISO si la misma persona debe responder por caíd
 
 Y cuando aparece M&A, la debida diligencia tecnológica no es papeleo opcional. Es cómo evitas heredar la filtración de otro.
 
-## Cómo se presentó Cybercon Solutions en este proyecto
+## Cómo Cybercon Solutions se asoció con sus líderes de tecnología
 
-Cybercon Solutions fue dueña de la dirección tecnológica empresarial, seguridad y cumplimiento, nube y resiliencia, economía de proveedores, liderazgo de equipo y reportes a la junta — incluida la diligencia de fusiones. [TI administrada](/es/services/managed-it/), [ciberseguridad](/es/services/cybersecurity/) y [copia de seguridad y recuperación ante desastres](/es/services/backup-disaster-recovery/) fueron una sola historia operativa, no tres proveedores discutiendo.
+Cybercon Solutions se asoció con los líderes de CIO/CISO de la organización en la dirección tecnológica empresarial, seguridad y cumplimiento, nube y resiliencia, economía de proveedores, liderazgo de equipo y reportes a la junta — incluida la diligencia de fusiones. [TI administrada](/es/services/managed-it/), [ciberseguridad](/es/services/cybersecurity/) y [copia de seguridad y recuperación ante desastres](/es/services/backup-disaster-recovery/) fueron una sola historia operativa compartida con sus líderes de tecnología, no tres proveedores discutiendo.
 
-Si tu red de clínicas o sedes de servicios sociales necesita ese tipo de liderazgo combinado, [empieza con una evaluación de costo y riesgo](/es/assessment/).
+Si tu red de clínicas o sedes de servicios sociales necesita un proveedor de consultoría que refuerce a los líderes de tecnología que ya están en planta, [empieza con una evaluación de costo y riesgo](/es/assessment/).
 
 ## Lecturas relacionadas
 
@@ -79,4 +79,4 @@ Si tu red de clínicas o sedes de servicios sociales necesita ese tipo de lidera
 
 ---
 
-*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen el trabajo entregado por Cybercon Solutions en alianza con los líderes de tecnología del cliente.*

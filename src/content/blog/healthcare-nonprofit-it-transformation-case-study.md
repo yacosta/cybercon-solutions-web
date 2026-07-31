@@ -1,6 +1,6 @@
 ---
 title: '$1.3M Saved: Healthcare Nonprofit IT Case Study'
-description: 'How Cybercon Solutions led CIO/CISO work for a NYC-area social-services network — EHR migration, Azure, zero trust, and $1.3M+ in annual savings.'
+description: 'How Cybercon Solutions partnered with CIO/CISO leaders at a NYC-area social-services network — EHR, Azure, zero trust, and $1.3M+ in annual savings.'
 pubDate: 2026-08-02
 customerIndustry: healthcare
 banner: cybersecurity-lock
@@ -9,9 +9,9 @@ bannerAlt:
   es: 'Candado digital e imágenes de circuitos que representan controles de ciberseguridad en capas'
 ---
 
-A healthcare and social-services network doesn’t get to choose between “keep the lights on,” “pass the audit,” and “stop overpaying vendors.” It needs all three. Cybercon Solutions stepped into a combined **CIO and CISO** mandate for a New York–area nonprofit supporting **2,000+ employees across 31 locations** — with a **$5M** technology budget on the line.
+A healthcare and social-services network doesn’t get to choose between “keep the lights on,” “pass the audit,” and “stop overpaying vendors.” It needs all three. Cybercon Solutions partnered with the **CIO and CISO** leaders of a New York–area nonprofit supporting **2,000+ employees across 31 locations** — with a **$5M** technology budget on the line — as a consulting relationship built to strengthen that leadership, not sideline it.
 
-This is what the work looked like in practice.
+This is what the partnership looked like in practice.
 
 ## What we walked into
 
@@ -23,7 +23,7 @@ That’s the pattern we see across [healthcare and clinic IT](/industries/health
 
 ## EHR migration without breaking clinical work
 
-Cybercon Solutions led a full enterprise EHR migration — from a legacy clinical system to a modern EHR platform — including data privacy architecture, clinical workflow redesign, and compliance controls across a regulated healthcare and social-services environment.
+Together with their technology leaders, Cybercon Solutions helped lead a full enterprise EHR migration — from a legacy clinical system to a modern EHR platform — including data privacy architecture, clinical workflow redesign, and compliance controls across a regulated healthcare and social-services environment.
 
 Migrations fail when IT treats them as a data dump. We treated them as clinical work with a technology spine: privacy first, workflow redesign with the people who chart, controls documented like an auditor is coming — because one is.
 
@@ -35,7 +35,7 @@ Uptime at that level isn’t a slogan. It came from monitoring, failover design,
 
 ## Security that reduced incidents year over year
 
-As CISO, Cybercon Solutions established and enforced security and compliance policies under FERPA, HIPAA, and the NY SHIELD Act with documented controls. Systematic framework work measurably reduced security incidents year over year — the kind of trend a board can read without a glossary.
+Partnering on the CISO mandate, Cybercon Solutions helped establish and enforce security and compliance policies under FERPA, HIPAA, and the NY SHIELD Act with documented controls. Systematic framework work measurably reduced security incidents year over year — the kind of trend a board can read without a glossary.
 
 ## Financial stewardship that funded the hard work
 
@@ -45,7 +45,7 @@ That savings story matters because transformation without a funding path dies in
 
 ## Team, board, and M&A
 
-We led **17** technical staff across network/systems, helpdesk, and administration supporting those 2,000+ employees and 31 sites. Cybercon Solutions also served on the Board Technology Committee and led technology due diligence and integration for **two mergers** while keeping HIPAA/FERPA compliance continuous through the cutovers.
+Alongside their tech leaders, we helped lead **17** technical staff across network/systems, helpdesk, and administration supporting those 2,000+ employees and 31 sites. Cybercon Solutions also supported their leaders on the Board Technology Committee and helped lead technology due diligence and integration for **two mergers** while keeping HIPAA/FERPA compliance continuous through the cutovers.
 
 ## Results at a glance
 
@@ -64,11 +64,11 @@ Don’t separate CIO and CISO work if the same person has to answer for both out
 
 And when M&A shows up, technology due diligence isn’t optional paperwork. It’s how you avoid inheriting someone else’s breach.
 
-## How Cybercon Solutions showed up on this project
+## How Cybercon Solutions partnered with their tech leaders
 
-Cybercon Solutions owned enterprise technology direction, security and compliance, cloud and resilience, vendor economics, team leadership, and board-facing reporting — including merger diligence. [Managed IT](/services/managed-it/), [cybersecurity](/services/cybersecurity/), and [backup and disaster recovery](/services/backup-disaster-recovery/) were one operating story, not three vendors arguing.
+Cybercon Solutions partnered with the organization’s CIO/CISO leaders on enterprise technology direction, security and compliance, cloud and resilience, vendor economics, team leadership, and board-facing reporting — including merger diligence. [Managed IT](/services/managed-it/), [cybersecurity](/services/cybersecurity/), and [backup and disaster recovery](/services/backup-disaster-recovery/) were one operating story shared with their tech leaders, not three vendors arguing.
 
-If your network of clinics or social-services sites needs that kind of combined leadership, [start with a cost-and-risk assessment](/assessment/).
+If your network of clinics or social-services sites needs a consulting partner who strengthens the technology leaders already on staff, [start with a cost-and-risk assessment](/assessment/).
 
 ## Related reading
 
@@ -79,4 +79,4 @@ If your network of clinics or social-services sites needs that kind of combined 
 
 ---
 
-*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe work delivered by Cybercon Solutions in partnership with the client’s technology leaders.*

@@ -1,6 +1,6 @@
 ---
 title: 'SaaS educativa a escala de ciudad: un caso'
-description: 'Cómo Cybercon Solutions ayudó a un nonprofit educativo de NYC a operar una plataforma para 145.000 familias — con seguridad FERPA y margen para escalar.'
+description: 'Cómo Cybercon Solutions se asoció con líderes de TI educativos en NYC para operar una plataforma para 145.000 familias — seguridad FERPA y margen para escalar.'
 pubDate: 2026-08-01
 customerIndustry: education
 banner: managed-it-support
@@ -9,9 +9,9 @@ bannerAlt:
   es: 'Espacio de soporte de TI con pantallas y herramientas de colaboración'
 ---
 
-Un programa educativo a escala de ciudad solo funciona si las familias confían en la plataforma — y si la plataforma puede crecer sin caerse. El encargo de Cybercon Solutions fue liderar la tecnología de una organización educativa sin fines de lucro en la ciudad de Nueva York que opera un programa de construcción de patrimonio para familias de escuelas públicas: en vivo para **145.000 familias**, arquitectada para escalar más allá de **1,1 millones** de estudiantes.
+Un programa educativo a escala de ciudad solo funciona si las familias confían en la plataforma — y si la plataforma puede crecer sin caerse. Cybercon Solutions se asoció con los líderes de tecnología de una organización educativa sin fines de lucro en la ciudad de Nueva York que opera un programa de construcción de patrimonio para familias de escuelas públicas: en vivo para **145.000 familias**, arquitectada para escalar más allá de **1,1 millones** de estudiantes.
 
-Esto es lo que encontramos, lo que entregamos y lo que le diríamos a otro líder educativo en el mismo asiento.
+Esto es lo que encontramos juntos, lo que entregamos y lo que le diríamos a otro líder de tecnología educativa en el mismo asiento.
 
 ## Lo que encontramos
 
@@ -23,7 +23,7 @@ Si operas [TI para educación u organizaciones sin fines de lucro](/es/industrie
 
 ## Liderazgo de plataforma a escala de ciudad
 
-Cybercon Solutions dirigió la infraestructura tecnológica detrás de la plataforma del programa. El trabajo no era un rebuild desde cero. Era mantener un sistema en vivo sano mientras la curva de inscripción apuntaba a escala de toda la ciudad.
+Junto a sus líderes de tecnología, Cybercon Solutions ayudó a dirigir la infraestructura tecnológica detrás de la plataforma del programa. El trabajo no era un rebuild desde cero. Era mantener un sistema en vivo sano mientras la curva de inscripción apuntaba a escala de toda la ciudad.
 
 Eso significó planificación de capacidad, coordinación de proveedores, disciplina de integración y un camino claro para lo que tenía que funcionar el día uno frente a lo que podía esperar. Crecer sin arquitectura es solo una lista más larga de caídas.
 
@@ -61,11 +61,11 @@ Nombra pronto las joyas de la corona — identidad familiar, datos de estudiante
 
 Y no dejes el “escalar algún día” hasta que la inscripción fuerce una emergencia. Diseña para el número que estás prometiendo ahora.
 
-## Cómo se presentó Cybercon Solutions en este proyecto
+## Cómo Cybercon Solutions se asoció con sus líderes de tecnología
 
-Cybercon Solutions fue dueña de la dirección de plataforma, el seguimiento de resultados de producto, la postura de seguridad/cumplimiento y el puente con las oficinas de tecnología de la ciudad. Proveedores y consultores siguieron en la mezcla — con responsabilidad clara de lo que se entregó y lo que se reportó.
+Cybercon Solutions trabajó con los líderes de tecnología de la organización en la dirección de plataforma, el seguimiento de resultados de producto, la postura de seguridad/cumplimiento y el puente con las oficinas de tecnología de la ciudad. Proveedores y consultores siguieron en la mezcla — con responsabilidad compartida de lo que se entregó y lo que se reportó. La alianza de consultoría se construyó para reforzar a los líderes de tecnología que ya cargan el programa, no para reemplazarlos.
 
-Si operas una plataforma educativa bajo escrutinio público y necesitas liderazgo tecnológico que hable de programa y cumplimiento en la misma reunión, [empieza con una evaluación de costo y riesgo](/es/assessment/) — o mira cómo abordamos el [trabajo de CIO fraccionario en los primeros 90 días](/es/blog/fractional-cio-first-90-days/).
+Si operas una plataforma educativa bajo escrutinio público y quieres un proveedor que se siente con tus líderes de tecnología en programa y cumplimiento en la misma reunión, [empieza con una evaluación de costo y riesgo](/es/assessment/) — o mira cómo abordamos el [trabajo de CIO fraccionario en los primeros 90 días](/es/blog/fractional-cio-first-90-days/).
 
 ## Lecturas relacionadas
 
@@ -76,4 +76,4 @@ Si operas una plataforma educativa bajo escrutinio público y necesitas liderazg
 
 ---
 
-*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen el trabajo entregado por Cybercon Solutions en alianza con los líderes de tecnología del cliente.*

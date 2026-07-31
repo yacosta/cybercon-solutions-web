@@ -11,7 +11,7 @@ bannerAlt:
 
 La junta quería IA empresarial. El personal quería menos noches armando los mismos reportes. Finanzas quería un número que aguantara la temporada de presupuesto. Y debajo de todo eso, los sistemas tenían que seguir en pie — registros de donantes, trabajo científico, CRM, correo — sin un drama cada lunes.
 
-Ese fue el encargo cuando Cybercon Solutions empezó el trabajo de [consultoría de IA](/es/services/ai-consulting/) con una organización ambiental sin fines de lucro del Sur de Florida. Lo que sigue es lo que hicimos, lo que medimos y lo que repetiríamos con otro equipo de liderazgo bajo la misma presión.
+Ese fue el encargo cuando Cybercon Solutions se asoció con los líderes de tecnología de una organización ambiental sin fines de lucro del Sur de Florida — [consultoría de IA](/es/services/ai-consulting/) como relación de trabajo, no como una presentación. Lo que sigue es lo que construimos juntos, lo que medimos y lo que repetiríamos con otro equipo de liderazgo tecnológico bajo la misma presión.
 
 ## El vacío tecnológico que encontramos en el nonprofit
 
@@ -31,7 +31,7 @@ Cada trimestre nos sentamos con el Comité de Tecnología de la Junta y revisamo
 
 ## Cómo logramos financiamiento de varios años para la IA empresarial
 
-Cybercon Solutions lideró el programa de IA empresarial. Una firma global de consultoría aportó capacidad en la evaluación de preparación; nosotros fuimos dueños del modelo operativo que hizo que el financiamiento continuo tuviera sentido para la junta.
+Junto con sus líderes de tecnología, Cybercon Solutions ayudó a dirigir el programa de IA empresarial. Una firma global de consultoría aportó capacidad en la evaluación de preparación; la alianza fue dueña del modelo operativo que hizo que el financiamiento continuo tuviera sentido para la junta.
 
 Antes de elegir un modelo, preguntamos dónde el personal quemaba horas en trabajo de conocimiento repetitivo, y dónde una información mejor sintetizada cambiaría una decisión real. La preparación se amarró a esos flujos. Escribimos lineamientos de cumplimiento de IA responsable para gobernanza, riesgo, cumplimiento, seguridad y privacidad — incluyendo la hipótesis de que datos de donantes, personal e investigación eventualmente tocarían sistemas de IA. Después armamos un marco de ROI que la junta pudiera reabrir en cada ciclo de financiamiento: horas recuperadas, adopción, qué está en producción frente a lo que sigue en piloto, y qué viene.
 
@@ -89,13 +89,13 @@ Y mantén el reporte trimestral corto: horas recuperadas (en dinero a una tarifa
 
 No necesitas tu propio modelo fundacional a menos que la IA *sea* el producto. Necesitas automatizaciones dentro del trabajo que ya haces.
 
-## Cómo se presentó Cybercon Solutions en este proyecto
+## Cómo Cybercon Solutions se asoció con sus líderes de tecnología
 
-Cybercon Solutions fue dueña de la dirección tecnológica, el diseño de gobernanza de IA, la arquitectura de automatización en producción, la confiabilidad de plataformas y el reporte a la junta. Cuando la preparación necesitó manos extra, trajimos capacidad de consultoría especializada — pero lo que se entregó, lo que se midió y lo que oyeron los directores quedó con nosotros.
+Cybercon Solutions trabajó junto a los líderes de tecnología de la organización en la dirección tecnológica, el diseño de gobernanza de IA, la arquitectura de automatización en producción, la confiabilidad de plataformas y el reporte a la junta. Cuando la preparación necesitó manos extra, trajimos capacidad de consultoría especializada — con responsabilidad compartida de lo que se entregó, lo que se midió y lo que oyeron los directores.
 
-Ese es el modelo que usamos con otros equipos ejecutivos: liderazgo tecnológico fraccional o por proyecto, refuerzo de seguridad, confiabilidad de plataformas y programas de IA medidos en horas devueltas y riesgo reducido.
+Ese es el modelo de consultoría que usamos con otros equipos de liderazgo tecnológico: una alianza que refuerza a los líderes que ya están en el terreno — apoyo fraccional o por proyecto, refuerzo de seguridad, confiabilidad de plataformas y programas de IA medidos en horas devueltas y riesgo reducido.
 
-La organización no necesitaba otro experimento. Necesitaba un plan financiado, sistemas en los que los directores confíen, e IA que devuelva tiempo a la misión bajo controles que aguanten una pregunta de auditoría. Seguimos en ese ritmo trimestral con el Comité de Tecnología de la Junta.
+No necesitaban otro experimento. Necesitaban un plan financiado, sistemas en los que sus directores confíen, e IA que devuelva tiempo a la misión bajo controles que aguanten una pregunta de auditoría. La alianza se mantuvo en ese ritmo trimestral con el Comité de Tecnología de la Junta.
 
 Si tu junta pregunta por IA mientras los silos y las preguntas de acceso siguen abiertas, [empieza con una evaluación de costo y riesgo](/es/assessment/) — o lee cómo abordamos el [trabajo de CIO fraccionario en los primeros 90 días](/es/blog/fractional-cio-first-90-days/).
 
@@ -108,4 +108,4 @@ Si tu junta pregunta por IA mientras los silos y las preguntas de acceso siguen 
 
 ---
 
-*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen la entrega de Cybercon Solutions en el proyecto.*
+*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen el trabajo entregado por Cybercon Solutions en alianza con los líderes de tecnología del cliente.*
