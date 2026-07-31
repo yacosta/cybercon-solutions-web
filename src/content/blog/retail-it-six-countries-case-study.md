@@ -13,7 +13,7 @@ Premium retail looks simple from the sales floor. Behind it: multi-country opera
 
 Cybercon Solutions led North American IT for a global premium retail brand across **six countries** in the Americas — USA, Canada, Mexico, Colombia, Brazil, and Argentina — while directly running US and Canadian operations across **50+ boutiques** and coordinating regional standards, vendors, and compliance.
 
-We’re not naming the brand. Here’s how the work actually ran.
+Here’s how the work actually ran.
 
 ## What we walked into
 
@@ -67,3 +67,7 @@ If your retail footprint spans countries and storefronts and you need that opera
 - [IT for distribution, retail, and manufacturing](/industries/distribution-retail-manufacturing/)
 - [Cloud services for multi-site operators](/services/cloud/)
 - [The fractional CIO agenda: first 90 days](/blog/fractional-cio-first-90-days/)
+
+---
+
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*

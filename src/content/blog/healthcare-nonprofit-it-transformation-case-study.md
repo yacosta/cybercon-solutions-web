@@ -11,7 +11,7 @@ bannerAlt:
 
 A healthcare and social-services network doesn’t get to choose between “keep the lights on,” “pass the audit,” and “stop overpaying vendors.” It needs all three. Cybercon Solutions stepped into a combined **CIO and CISO** mandate for a New York–area nonprofit supporting **2,000+ employees across 31 locations** — with a **$5M** technology budget on the line.
 
-We’re not naming the organization. This is what the work looked like in practice.
+This is what the work looked like in practice.
 
 ## What we walked into
 
@@ -76,3 +76,7 @@ If your network of clinics or social-services sites needs that kind of combined 
 - [Managed IT that reports like a CIO](/blog/managed-it-reports-like-cio/)
 - [IT built for healthcare and clinics](/industries/healthcare-clinics/)
 - [The fractional CIO agenda: first 90 days](/blog/fractional-cio-first-90-days/)
+
+---
+
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*

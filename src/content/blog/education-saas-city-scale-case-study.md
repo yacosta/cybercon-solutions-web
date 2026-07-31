@@ -11,7 +11,7 @@ bannerAlt:
 
 A citywide education program only works if families can trust the platform — and if the platform can grow without falling over. The brief for Cybercon Solutions was to lead technology for a New York City education nonprofit running a wealth-building program for public-school families: live for **145,000 families**, architected to scale past **1.1 million** students.
 
-We’re not naming the organization. Here’s what we found, what we shipped, and what we’d tell another education leader in the same seat.
+Here’s what we found, what we shipped, and what we’d tell another education leader in the same seat.
 
 ## What we walked into
 
@@ -73,3 +73,7 @@ If you’re running an education platform under public scrutiny and need technol
 - [Zero Trust for mid-market IT: a practical rollout](/blog/zero-trust-mid-market-rollout/)
 - [IT built for education and nonprofits](/industries/education-nonprofits/)
 - [Cybersecurity for regulated teams](/services/cybersecurity/)
+
+---
+
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*

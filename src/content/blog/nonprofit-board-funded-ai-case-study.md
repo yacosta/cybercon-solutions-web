@@ -11,7 +11,7 @@ bannerAlt:
 
 The board wanted enterprise AI. Staff wanted fewer late nights assembling the same reports. Finance wanted a number that survived budget season. And underneath all of that, the systems still had to stay up — donor records, science work, CRM, email — without a drama every Monday morning.
 
-That was the brief when Cybercon Solutions started [AI consulting](/services/ai-consulting/) work with a South Florida environmental nonprofit. We’re not naming them here. What follows is what we actually did, what we measured, and what we’d repeat with another leadership team under the same pressure.
+That was the brief when Cybercon Solutions started [AI consulting](/services/ai-consulting/) work with a South Florida environmental nonprofit. What follows is what we actually did, what we measured, and what we’d repeat with another leadership team under the same pressure.
 
 ## The nonprofit technology gap we found
 
@@ -105,3 +105,7 @@ If your board is asking about AI while the silos and access questions are still 
 - [Zero Trust for mid-market IT: a practical rollout](/blog/zero-trust-mid-market-rollout/)
 - [AI consulting for South Florida teams](/services/ai-consulting/)
 - [IT built for education and nonprofits](/industries/education-nonprofits/)
+
+---
+
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*

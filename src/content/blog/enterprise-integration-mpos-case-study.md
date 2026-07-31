@@ -11,7 +11,7 @@ bannerAlt:
 
 Enterprise clients don’t buy “a roadmap.” They buy integrations that work on launch day, payment flows that clear PCI review, and mobile point-of-sale rollouts that don’t strand field teams. Cybercon Solutions took CIO ownership for a mid-market technology delivery firm: multi-year platform planning, a **$2M+** delivery budget, and **19 developers** across onsite, remote, and offshore teams.
 
-We’re not naming the firm or its clients. This is the operating pattern we ran.
+This is the operating pattern we ran.
 
 ## What we walked into
 
@@ -65,3 +65,7 @@ If your professional-services or delivery organization needs that kind of techno
 - [IT for legal and professional services](/industries/legal-professional-services/)
 - [Cybersecurity for client-facing teams](/services/cybersecurity/)
 - [IT consulting for sequenced delivery](/services/it-consulting/)
+
+---
+
+*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Figures and operating details describe Cybercon Solutions’ delivery on the engagement.*
