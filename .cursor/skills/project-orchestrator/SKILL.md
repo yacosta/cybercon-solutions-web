@@ -247,6 +247,10 @@ This is a **user-global** skill (not tied to one repo). Install / keep it at:
 - `~/.cursor/skills/project-orchestrator/` (Cursor, all projects)
 - `~/.agents/skills/project-orchestrator/` (Agent Skills-compatible tools)
 
+**Downloadable Cursor rule (`.mdc`):**
+`/.well-known/agent-skills/project-orchestrator/project-orchestrator.mdc`
+(served with `Content-Disposition: attachment` — save to `~/.cursor/rules/project-orchestrator.mdc`).
+
 Optional: vendor the same folder into a repo’s `.cursor/skills/` so cloud agents
 and teammates without the user skill still load it. Templates live in
 `references/REFERENCE.md` (and `references.md`).
