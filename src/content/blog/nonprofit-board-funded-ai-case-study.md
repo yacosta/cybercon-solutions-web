@@ -1,6 +1,6 @@
 ---
 title: 'Board-Funded AI for Nonprofits: A Case Study'
-description: 'How Cybercon helped a South Florida environmental nonprofit win board AI funding, ship production automations, and reclaim ~5,000 hours a year.'
+description: 'How Cybercon Solutions helped a South Florida environmental nonprofit win board AI funding, ship production automations, and reclaim ~5,000 hours a year.'
 pubDate: 2026-07-31
 customerIndustry: nonprofit
 banner: ai-integration-play
@@ -31,7 +31,7 @@ Every quarter we sat with the Board Technology Committee and walked funded items
 
 ## Winning multi-year board funding for enterprise AI
 
-Cybercon led the enterprise AI program. A global consulting firm helped with readiness assessment capacity; we owned the operating model that made ongoing funding make sense to the board.
+Cybercon Solutions led the enterprise AI program. A global consulting firm helped with readiness assessment capacity; we owned the operating model that made ongoing funding make sense to the board.
 
 Before anyone picked a model, we asked where staff burned hours on repetitive knowledge work, and where better-synthesized information would change a real decision. Readiness work tied to those workflows. We wrote responsible-AI rules for governance, risk, compliance, security, and privacy — including the assumption that donor, staff, and research-adjacent data would eventually touch AI systems. Then we built an ROI frame the board could reopen each funding cycle: hours reclaimed, adoption, what’s in production vs. still in pilot, and what’s next.
 
@@ -91,7 +91,7 @@ You don’t need your own foundation model unless AI *is* the product. You need 
 
 ## How Cybercon Solutions showed up on this project
 
-Cybercon owned technology direction, AI governance design, production automation architecture, platform reliability, and board reporting. When readiness work needed extra hands, we brought in specialized consulting capacity — but what shipped, what got measured, and what directors heard stayed on us.
+Cybercon Solutions owned technology direction, AI governance design, production automation architecture, platform reliability, and board reporting. When readiness work needed extra hands, we brought in specialized consulting capacity — but what shipped, what got measured, and what directors heard stayed on us.
 
 That’s the model we use with other executive teams: fractional or project-based technology leadership, security hardening, platform reliability, and AI programs scored in hours returned and risk reduced.
 

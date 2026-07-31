@@ -1,6 +1,6 @@
 ---
 title: 'IA empresarial con ROI: caso en nonprofit'
-description: 'Cybercon ayudó a una organización del Sur de Florida a financiar IA con la junta, poner automatizaciones en producción y recuperar ~5.000 horas al año.'
+description: 'Cybercon Solutions ayudó a una organización del Sur de Florida a financiar IA con la junta, poner automatizaciones en producción y recuperar ~5.000 horas al año.'
 pubDate: 2026-07-31
 customerIndustry: nonprofit
 banner: ai-integration-play
@@ -31,7 +31,7 @@ Cada trimestre nos sentamos con el Comité de Tecnología de la Junta y revisamo
 
 ## Cómo logramos financiamiento de varios años para la IA empresarial
 
-Cybercon lideró el programa de IA empresarial. Una firma global de consultoría aportó capacidad en la evaluación de preparación; nosotros fuimos dueños del modelo operativo que hizo que el financiamiento continuo tuviera sentido para la junta.
+Cybercon Solutions lideró el programa de IA empresarial. Una firma global de consultoría aportó capacidad en la evaluación de preparación; nosotros fuimos dueños del modelo operativo que hizo que el financiamiento continuo tuviera sentido para la junta.
 
 Antes de elegir un modelo, preguntamos dónde el personal quemaba horas en trabajo de conocimiento repetitivo, y dónde una información mejor sintetizada cambiaría una decisión real. La preparación se amarró a esos flujos. Escribimos lineamientos de cumplimiento de IA responsable para gobernanza, riesgo, cumplimiento, seguridad y privacidad — incluyendo la hipótesis de que datos de donantes, personal e investigación eventualmente tocarían sistemas de IA. Después armamos un marco de ROI que la junta pudiera reabrir en cada ciclo de financiamiento: horas recuperadas, adopción, qué está en producción frente a lo que sigue en piloto, y qué viene.
 
@@ -91,7 +91,7 @@ No necesitas tu propio modelo fundacional a menos que la IA *sea* el producto. N
 
 ## Cómo se presentó Cybercon Solutions en este proyecto
 
-Cybercon fue dueña de la dirección tecnológica, el diseño de gobernanza de IA, la arquitectura de automatización en producción, la confiabilidad de plataformas y el reporte a la junta. Cuando la preparación necesitó manos extra, trajimos capacidad de consultoría especializada — pero lo que se entregó, lo que se midió y lo que oyeron los directores quedó con nosotros.
+Cybercon Solutions fue dueña de la dirección tecnológica, el diseño de gobernanza de IA, la arquitectura de automatización en producción, la confiabilidad de plataformas y el reporte a la junta. Cuando la preparación necesitó manos extra, trajimos capacidad de consultoría especializada — pero lo que se entregó, lo que se midió y lo que oyeron los directores quedó con nosotros.
 
 Ese es el modelo que usamos con otros equipos ejecutivos: liderazgo tecnológico fraccional o por proyecto, refuerzo de seguridad, confiabilidad de plataformas y programas de IA medidos en horas devueltas y riesgo reducido.
 
