@@ -1,6 +1,6 @@
 ---
 title: 'IA empresarial con ROI: caso en nonprofit'
-description: 'Cybercon Solutions ayudó a una organización del Sur de Florida a financiar IA con la junta, poner automatizaciones en producción y recuperar ~5.000 horas al año.'
+description: 'Cybercon Solutions ayudó a una organización del Sur de Florida a financiar IA con la junta, poner automatizaciones en producción y recuperar ~5.000 horas/año.'
 pubDate: 2026-07-31
 customerIndustry: nonprofit
 banner: ai-integration-play
