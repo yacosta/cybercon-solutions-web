@@ -8,6 +8,16 @@ import fractionalCioFirst90Days from '../content/blog/fractional-cio-first-90-da
 import fractionalCioFirst90DaysEs from '../content/blog/es/fractional-cio-first-90-days.md?raw';
 import managedItReportsLikeCio from '../content/blog/managed-it-reports-like-cio.md?raw';
 import managedItReportsLikeCioEs from '../content/blog/es/managed-it-reports-like-cio.md?raw';
+import nonprofitBoardFundedAiCaseStudy from '../content/blog/nonprofit-board-funded-ai-case-study.md?raw';
+import nonprofitBoardFundedAiCaseStudyEs from '../content/blog/es/nonprofit-board-funded-ai-case-study.md?raw';
+import educationSaasCityScaleCaseStudy from '../content/blog/education-saas-city-scale-case-study.md?raw';
+import educationSaasCityScaleCaseStudyEs from '../content/blog/es/education-saas-city-scale-case-study.md?raw';
+import healthcareNonprofitItTransformationCaseStudy from '../content/blog/healthcare-nonprofit-it-transformation-case-study.md?raw';
+import healthcareNonprofitItTransformationCaseStudyEs from '../content/blog/es/healthcare-nonprofit-it-transformation-case-study.md?raw';
+import retailItSixCountriesCaseStudy from '../content/blog/retail-it-six-countries-case-study.md?raw';
+import retailItSixCountriesCaseStudyEs from '../content/blog/es/retail-it-six-countries-case-study.md?raw';
+import enterpriseIntegrationMposCaseStudy from '../content/blog/enterprise-integration-mpos-case-study.md?raw';
+import enterpriseIntegrationMposCaseStudyEs from '../content/blog/es/enterprise-integration-mpos-case-study.md?raw';
 import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rollout.md?raw';
 import zeroTrustMidMarketRolloutEs from '../content/blog/es/zero-trust-mid-market-rollout.md?raw';
 import { formatMailingAddress, site } from './site';
@@ -72,6 +82,11 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
+- [Enterprise Integration & mPOS: A Case Study](https://cybercon-solutions.com/blog/enterprise-integration-mpos-case-study/)
+- [Case Study: Retail IT Across Six Countries](https://cybercon-solutions.com/blog/retail-it-six-countries-case-study/)
+- [$1.3M Saved: Healthcare Nonprofit IT Case Study](https://cybercon-solutions.com/blog/healthcare-nonprofit-it-transformation-case-study/)
+- [Education SaaS at City Scale: A Case Study](https://cybercon-solutions.com/blog/education-saas-city-scale-case-study/)
+- [Board-Funded AI for Nonprofits: A Case Study](https://cybercon-solutions.com/blog/nonprofit-board-funded-ai-case-study/)
 - [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
 - [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/blog/fractional-cio-first-90-days/)
 - [Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT](https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/)
@@ -89,6 +104,11 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
+- [Integración empresarial y mPOS: un caso](https://cybercon-solutions.com/es/blog/enterprise-integration-mpos-case-study/)
+- [Caso: TI de retail en seis países](https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/)
+- [$1,3M ahorrados: caso de TI en nonprofit de salud](https://cybercon-solutions.com/es/blog/healthcare-nonprofit-it-transformation-case-study/)
+- [SaaS educativa a escala de ciudad: un caso](https://cybercon-solutions.com/es/blog/education-saas-city-scale-case-study/)
+- [IA empresarial con ROI: caso en nonprofit](https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/)
 - [Adopción de IA empresarial y ROI: lo que realmente funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
 - [La agenda del CIO fraccionario: los primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
 - [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)
@@ -288,6 +308,26 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog': blogIndexEn,
   '/es/blog/': blogIndexEs,
   '/es/blog': blogIndexEs,
+  '/blog/nonprofit-board-funded-ai-case-study/': nonprofitBoardFundedAiCaseStudy,
+  '/blog/nonprofit-board-funded-ai-case-study': nonprofitBoardFundedAiCaseStudy,
+  '/es/blog/nonprofit-board-funded-ai-case-study/': nonprofitBoardFundedAiCaseStudyEs,
+  '/es/blog/nonprofit-board-funded-ai-case-study': nonprofitBoardFundedAiCaseStudyEs,
+  '/blog/education-saas-city-scale-case-study/': educationSaasCityScaleCaseStudy,
+  '/blog/education-saas-city-scale-case-study': educationSaasCityScaleCaseStudy,
+  '/es/blog/education-saas-city-scale-case-study/': educationSaasCityScaleCaseStudyEs,
+  '/es/blog/education-saas-city-scale-case-study': educationSaasCityScaleCaseStudyEs,
+  '/blog/healthcare-nonprofit-it-transformation-case-study/': healthcareNonprofitItTransformationCaseStudy,
+  '/blog/healthcare-nonprofit-it-transformation-case-study': healthcareNonprofitItTransformationCaseStudy,
+  '/es/blog/healthcare-nonprofit-it-transformation-case-study/': healthcareNonprofitItTransformationCaseStudyEs,
+  '/es/blog/healthcare-nonprofit-it-transformation-case-study': healthcareNonprofitItTransformationCaseStudyEs,
+  '/blog/retail-it-six-countries-case-study/': retailItSixCountriesCaseStudy,
+  '/blog/retail-it-six-countries-case-study': retailItSixCountriesCaseStudy,
+  '/es/blog/retail-it-six-countries-case-study/': retailItSixCountriesCaseStudyEs,
+  '/es/blog/retail-it-six-countries-case-study': retailItSixCountriesCaseStudyEs,
+  '/blog/enterprise-integration-mpos-case-study/': enterpriseIntegrationMposCaseStudy,
+  '/blog/enterprise-integration-mpos-case-study': enterpriseIntegrationMposCaseStudy,
+  '/es/blog/enterprise-integration-mpos-case-study/': enterpriseIntegrationMposCaseStudyEs,
+  '/es/blog/enterprise-integration-mpos-case-study': enterpriseIntegrationMposCaseStudyEs,
   '/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
   '/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
   '/es/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoiEs,

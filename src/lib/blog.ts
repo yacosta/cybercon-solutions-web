@@ -1,7 +1,13 @@
 import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
+import { customerIndustries, type CustomerIndustry } from '../data/customer-stories';
 
 export type BlogPost = CollectionEntry<'blog'>;
 export type BlogLocale = 'en' | 'es';
+
+export type CustomerStoryGroup = {
+  industry: CustomerIndustry;
+  papers: { title: string; href: string; current: boolean }[];
+};
 
 /** Content id without locale prefix (`es/...` → slug). */
 export function blogSlug(post: BlogPost | string): string {
@@ -64,4 +70,43 @@ export function formatPostDate(date: Date, locale: string): string {
     month: 'long',
     day: 'numeric',
   }).format(date);
+}
+
+/** Published white papers grouped for the Our Customers nav accordion. */
+export async function getCustomerStoryGroups(
+  locale: BlogLocale,
+  currentPath = '',
+): Promise<CustomerStoryGroup[]> {
+  const posts = await getCollection(
+    'blog',
+    (entry) =>
+      !entry.data.draft &&
+      postLocale(entry) === locale &&
+      Boolean(entry.data.customerIndustry),
+  );
+
+  const byIndustry = new Map<string, BlogPost[]>();
+  for (const post of posts) {
+    const id = post.data.customerIndustry!;
+    const list = byIndustry.get(id) ?? [];
+    list.push(post);
+    byIndustry.set(id, list);
+  }
+
+  return customerIndustries
+    .map((industry) => {
+      const papers = (byIndustry.get(industry.id) ?? [])
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+        .map((post) => {
+          const href = blogPath(locale, blogSlug(post));
+          const normalized = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+          return {
+            title: post.data.title,
+            href,
+            current: normalized === href,
+          };
+        });
+      return { industry, papers };
+    })
+    .filter((group) => group.papers.length > 0);
 }

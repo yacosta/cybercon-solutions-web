@@ -3,6 +3,7 @@ import Wordmark from './Wordmark.astro';
 import { localePath, type Messages } from '../i18n';
 import { services, servicePath } from '../data/services';
 import { industries, industryPath } from '../data/industries';
+import { getCustomerStoryGroups } from '../lib/blog';
 
 interface Props {
   locale: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const { locale, t, variant = 'dark' } = Astro.props;
+const loc = locale === 'es' ? 'es' : 'en';
 const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
@@ -25,16 +27,18 @@ const onContact =
   path.startsWith('/es/contact/');
 const onServices = path.includes('/services/');
 const onIndustries = path.includes('/industries');
+const customerGroups = await getCustomerStoryGroups(loc, path);
+const onCustomers = customerGroups.some((group) => group.papers.some((paper) => paper.current));
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
 const serviceLinks = services.map((service) => ({
   href: servicePath(locale, service.slug),
-  title: service.title[locale as 'en' | 'es'],
+  title: service.title[loc],
   current: path.includes(`/services/${service.slug}`),
 }));
 const industryLinks = industries.map((industry) => ({
   href: industryPath(locale, industry.slug),
-  title: industry.title[locale as 'en' | 'es'],
+  title: industry.title[loc],
   current: path.includes(`/industries/${industry.slug}`),
 }));
 ---
@@ -124,10 +128,78 @@ const industryLinks = industries.map((industry) => ({
           </ul>
         </div>
 
+        <div class="nav-dropdown nav-customers" data-nav-dropdown>
+          <button
+            type="button"
+            class:list={['nav-link', 'nav-dropdown-toggle', { active: onCustomers }]}
+            data-nav-dropdown-toggle
+            aria-expanded="false"
+            aria-controls="nav-customers-menu"
+            aria-haspopup="true"
+          >
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span>{t.nav.customers}</span>
+          </button>
+          <div
+            id="nav-customers-menu"
+            class="nav-dropdown-menu nav-customers-menu"
+            data-nav-dropdown-menu
+            role="region"
+            aria-label={t.nav.customersMenu}
+            hidden
+          >
+            {
+              customerGroups.length === 0 ? (
+                <p class="nav-customers-empty">{t.nav.customersEmpty}</p>
+              ) : (
+                customerGroups.map((group, index) => {
+                  const panelId = `nav-customers-panel-${group.industry.id}`;
+                  const openByDefault = group.papers.some((paper) => paper.current) || index === 0;
+                  return (
+                    <div
+                      class:list={['nav-accordion', { 'is-open': openByDefault }]}
+                      data-nav-accordion
+                    >
+                      <button
+                        type="button"
+                        class="nav-accordion-toggle"
+                        data-nav-accordion-toggle
+                        aria-expanded={openByDefault ? 'true' : 'false'}
+                        aria-controls={panelId}
+                      >
+                        <span>{group.industry.label[loc]}</span>
+                        <span class="nav-accordion-chevron" aria-hidden="true"></span>
+                      </button>
+                      <ul
+                        id={panelId}
+                        class="nav-accordion-panel"
+                        data-nav-accordion-panel
+                        hidden={!openByDefault}
+                      >
+                        {group.papers.map((paper) => (
+                          <li>
+                            <a
+                              href={paper.href}
+                              class:list={[{ active: paper.current }]}
+                              aria-current={paper.current ? 'page' : undefined}
+                            >
+                              {paper.title}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                })
+              )
+            }
+          </div>
+        </div>
+
         <a
           href={blogHref}
-          class:list={['nav-link', { active: onBlog }]}
-          aria-current={onBlog ? 'page' : undefined}
+          class:list={['nav-link', { active: onBlog && !onCustomers }]}
+          aria-current={onBlog && !onCustomers ? 'page' : undefined}
         >
           <span class="nav-dot" aria-hidden="true"></span>
           <span>{t.blog.nav}</span>
@@ -261,10 +333,55 @@ const industryLinks = industries.map((industry) => ({
           </a>
         ))
       }
+      <p class="menu-panel-label">{t.nav.customers}</p>
+      {
+        customerGroups.length === 0 ? (
+          <p class="menu-panel-empty">{t.nav.customersEmpty}</p>
+        ) : (
+          customerGroups.map((group, index) => {
+            const panelId = `menu-customers-panel-${group.industry.id}`;
+            const openByDefault = group.papers.some((paper) => paper.current) || index === 0;
+            return (
+              <div
+                class:list={['menu-accordion', { 'is-open': openByDefault }]}
+                data-nav-accordion
+              >
+                <button
+                  type="button"
+                  class="menu-accordion-toggle"
+                  data-nav-accordion-toggle
+                  aria-expanded={openByDefault ? 'true' : 'false'}
+                  aria-controls={panelId}
+                >
+                  <span>{group.industry.label[loc]}</span>
+                  <span class="nav-accordion-chevron" aria-hidden="true"></span>
+                </button>
+                <div
+                  id={panelId}
+                  class="menu-accordion-panel"
+                  data-nav-accordion-panel
+                  hidden={!openByDefault}
+                >
+                  {group.papers.map((paper) => (
+                    <a
+                      href={paper.href}
+                      class:list={['menu-panel-link', 'is-service', { active: paper.current }]}
+                      aria-current={paper.current ? 'page' : undefined}
+                    >
+                      <span class="nav-dot" aria-hidden="true"></span>
+                      <span>{paper.title}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        )
+      }
       <a
         href={blogHref}
-        class:list={['menu-panel-link', { active: onBlog }]}
-        aria-current={onBlog ? 'page' : undefined}
+        class:list={['menu-panel-link', { active: onBlog && !onCustomers }]}
+        aria-current={onBlog && !onCustomers ? 'page' : undefined}
       >
         <span class="nav-dot" aria-hidden="true"></span>
         <span>{t.blog.nav}</span>
@@ -439,9 +556,7 @@ const industryLinks = industries.map((industry) => ({
   const header = document.querySelector('[data-site-header]');
   const menuToggle = header?.querySelector('[data-menu-toggle]');
   const menuPanel = header?.querySelector('[data-menu-panel]');
-  const dropdown = header?.querySelector('[data-nav-dropdown]');
-  const dropdownToggle = dropdown?.querySelector('[data-nav-dropdown-toggle]');
-  const dropdownMenu = dropdown?.querySelector('[data-nav-dropdown-menu]');
+  const dropdowns = header ? [...header.querySelectorAll('[data-nav-dropdown]')] : [];
 
   if (
     header instanceof HTMLElement &&
@@ -479,12 +594,28 @@ const industryLinks = industries.map((industry) => ({
     });
   }
 
-  if (
-    dropdown instanceof HTMLElement &&
-    dropdownToggle instanceof HTMLButtonElement &&
-    dropdownMenu instanceof HTMLElement
-  ) {
+  const closeAllDropdowns = (except = null) => {
+    dropdowns.forEach((dropdown) => {
+      if (!(dropdown instanceof HTMLElement) || dropdown === except) return;
+      const toggle = dropdown.querySelector('[data-nav-dropdown-toggle]');
+      const menu = dropdown.querySelector('[data-nav-dropdown-menu]');
+      if (!(toggle instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
+      dropdown.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.hidden = true;
+    });
+  };
+
+  dropdowns.forEach((dropdown) => {
+    if (!(dropdown instanceof HTMLElement)) return;
+    const dropdownToggle = dropdown.querySelector('[data-nav-dropdown-toggle]');
+    const dropdownMenu = dropdown.querySelector('[data-nav-dropdown-menu]');
+    if (!(dropdownToggle instanceof HTMLButtonElement) || !(dropdownMenu instanceof HTMLElement)) {
+      return;
+    }
+
     const setDropdownOpen = (next) => {
+      if (next) closeAllDropdowns(dropdown);
       dropdown.classList.toggle('is-open', next);
       dropdownToggle.setAttribute('aria-expanded', String(next));
       dropdownMenu.hidden = !next;
@@ -506,7 +637,39 @@ const industryLinks = industries.map((industry) => ({
       const target = event.target;
       if (target instanceof Node && !dropdown.contains(target)) setDropdownOpen(false);
     });
-  }
+  });
+
+  const wireAccordions = (root) => {
+    if (!(root instanceof HTMLElement)) return;
+    const items = [...root.querySelectorAll('[data-nav-accordion]')];
+    items.forEach((item) => {
+      if (!(item instanceof HTMLElement)) return;
+      const toggle = item.querySelector('[data-nav-accordion-toggle]');
+      const panel = item.querySelector('[data-nav-accordion-panel]');
+      if (!(toggle instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) return;
+
+      toggle.addEventListener('click', () => {
+        const willOpen = panel.hidden;
+        items.forEach((other) => {
+          if (!(other instanceof HTMLElement) || other === item) return;
+          const otherToggle = other.querySelector('[data-nav-accordion-toggle]');
+          const otherPanel = other.querySelector('[data-nav-accordion-panel]');
+          if (!(otherToggle instanceof HTMLButtonElement) || !(otherPanel instanceof HTMLElement)) {
+            return;
+          }
+          other.classList.remove('is-open');
+          otherToggle.setAttribute('aria-expanded', 'false');
+          otherPanel.hidden = true;
+        });
+        item.classList.toggle('is-open', willOpen);
+        toggle.setAttribute('aria-expanded', String(willOpen));
+        panel.hidden = !willOpen;
+      });
+    });
+  };
+
+  wireAccordions(header?.querySelector('#nav-customers-menu'));
+  wireAccordions(header?.querySelector('[data-menu-panel]'));
 </script>
 
 <style is:global>
@@ -701,9 +864,130 @@ const industryLinks = industries.map((industry) => ({
     color: var(--navy);
   }
 
-  .site-header.light .nav-dropdown-menu a.active,
+  .nav-dropdown-menu a.active,
   .nav-dropdown-menu a.active {
     color: var(--coral);
+  }
+
+  .nav-customers-menu {
+    min-width: min(22rem, 92vw);
+    padding: 0.35rem;
+  }
+
+  .nav-customers-empty,
+  .menu-panel-empty {
+    margin: 0;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--muted-blue);
+  }
+
+  .site-header.light .nav-customers-empty,
+  .site-header.light .menu-panel-empty {
+    color: var(--body-muted);
+  }
+
+  .nav-accordion,
+  .menu-accordion {
+    border-radius: 6px;
+  }
+
+  .nav-accordion-toggle,
+  .menu-accordion-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 42px;
+    padding: 0.5rem 0.7rem;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: var(--secondary-dark);
+    font: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .site-header.light .nav-accordion-toggle,
+  .site-header.light .menu-accordion-toggle {
+    color: var(--navy);
+  }
+
+  .menu-accordion-toggle {
+    min-height: 44px;
+    padding: 0.45rem 0.15rem;
+    font-size: 0.9375rem;
+    color: var(--secondary-dark);
+  }
+
+  .site-header.light .menu-accordion-toggle {
+    color: var(--navy);
+  }
+
+  .nav-accordion-toggle:hover,
+  .nav-accordion-toggle:focus-visible,
+  .menu-accordion-toggle:hover,
+  .menu-accordion-toggle:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    outline: none;
+  }
+
+  .site-header.light .nav-accordion-toggle:hover,
+  .site-header.light .nav-accordion-toggle:focus-visible,
+  .site-header.light .menu-accordion-toggle:hover,
+  .site-header.light .menu-accordion-toggle:focus-visible {
+    background: rgba(15, 44, 76, 0.05);
+    color: var(--navy);
+  }
+
+  .nav-accordion-toggle:focus-visible,
+  .menu-accordion-toggle:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  .nav-accordion-chevron {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease;
+    flex-shrink: 0;
+    opacity: 0.8;
+  }
+
+  .nav-accordion.is-open .nav-accordion-chevron,
+  .menu-accordion.is-open .nav-accordion-chevron {
+    transform: rotate(-135deg);
+  }
+
+  .nav-accordion-panel {
+    margin: 0;
+    padding: 0 0 0.25rem;
+    list-style: none;
+  }
+
+  .nav-accordion-panel a {
+    padding-left: 1rem;
+    font-weight: 400;
+  }
+
+  .menu-accordion-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0 0 0.35rem 0.55rem;
+  }
+
+  .menu-accordion {
+    margin-bottom: 0.15rem;
   }
 
   .header-tools {
@@ -1057,7 +1341,7 @@ const industryLinks = industries.map((industry) => ({
     color: var(--body-muted);
   }
 
-  @media (max-width: 960px) {
+  @media (max-width: 1080px) {
     .site-nav,
     .lang {
       display: none;

@@ -201,6 +201,13 @@
 
 # --- News / case studies / misc legacy content → home ---
 # (Former /blog catch-alls removed — /blog/ is a live section now.)
+
+# Preview slug rename (SEO) — old draft URL → current case study
+/blog/mission-org-ai-digital-transformation /blog/nonprofit-board-funded-ai-case-study/ 301
+/blog/mission-org-ai-digital-transformation/ /blog/nonprofit-board-funded-ai-case-study/ 301
+/es/blog/mission-org-ai-digital-transformation /es/blog/nonprofit-board-funded-ai-case-study/ 301
+/es/blog/mission-org-ai-digital-transformation/ /es/blog/nonprofit-board-funded-ai-case-study/ 301
+
 /latest-news / 301
 /latest-news/ / 301
 /latest-rants-raves / 301
