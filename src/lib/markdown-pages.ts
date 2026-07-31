@@ -8,6 +8,8 @@ import fractionalCioFirst90Days from '../content/blog/fractional-cio-first-90-da
 import fractionalCioFirst90DaysEs from '../content/blog/es/fractional-cio-first-90-days.md?raw';
 import managedItReportsLikeCio from '../content/blog/managed-it-reports-like-cio.md?raw';
 import managedItReportsLikeCioEs from '../content/blog/es/managed-it-reports-like-cio.md?raw';
+import nonprofitBoardFundedAiCaseStudy from '../content/blog/nonprofit-board-funded-ai-case-study.md?raw';
+import nonprofitBoardFundedAiCaseStudyEs from '../content/blog/es/nonprofit-board-funded-ai-case-study.md?raw';
 import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rollout.md?raw';
 import zeroTrustMidMarketRolloutEs from '../content/blog/es/zero-trust-mid-market-rollout.md?raw';
 import { formatMailingAddress, site } from './site';
@@ -72,6 +74,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
+- [Board-Funded AI for Nonprofits: A Case Study](https://cybercon-solutions.com/blog/nonprofit-board-funded-ai-case-study/)
 - [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
 - [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/blog/fractional-cio-first-90-days/)
 - [Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT](https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/)
@@ -89,6 +92,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
+- [IA empresarial con ROI: caso en nonprofit](https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/)
 - [Adopción de IA empresarial y ROI: lo que realmente funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
 - [La agenda del CIO fraccionario: los primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
 - [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)
@@ -288,6 +292,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog': blogIndexEn,
   '/es/blog/': blogIndexEs,
   '/es/blog': blogIndexEs,
+  '/blog/nonprofit-board-funded-ai-case-study/': nonprofitBoardFundedAiCaseStudy,
+  '/blog/nonprofit-board-funded-ai-case-study': nonprofitBoardFundedAiCaseStudy,
+  '/es/blog/nonprofit-board-funded-ai-case-study/': nonprofitBoardFundedAiCaseStudyEs,
+  '/es/blog/nonprofit-board-funded-ai-case-study': nonprofitBoardFundedAiCaseStudyEs,
   '/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoi,
   '/blog/enterprise-ai-adoption-roi': enterpriseAiAdoptionRoi,
   '/es/blog/enterprise-ai-adoption-roi/': enterpriseAiAdoptionRoiEs,

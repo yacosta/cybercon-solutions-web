@@ -1,6 +1,6 @@
 ---
-title: 'White Paper: Getting Board-Funded AI Working at a Mission Organization'
-description: 'How Cybercon helped a South Florida environmental nonprofit clean up platforms, lock down access, and put AI into weekly board and executive use — with hours you can defend.'
+title: 'Board-Funded AI for Nonprofits: A Case Study'
+description: 'How Cybercon helped a South Florida environmental nonprofit win board AI funding, ship production automations, and reclaim ~5,000 hours a year.'
 pubDate: 2026-07-31
 banner: ai-integration-play
 bannerAlt:
@@ -8,37 +8,37 @@ bannerAlt:
   es: 'Manos colaborando sobre una tablet con capas de IA, analítica y automatización'
 ---
 
-The board wanted AI. Staff wanted fewer late nights assembling the same reports. Finance wanted a number that survived budget season. And underneath all of that, the systems still had to stay up — donor records, science work, CRM, email — without a drama every Monday morning.
+The board wanted enterprise AI. Staff wanted fewer late nights assembling the same reports. Finance wanted a number that survived budget season. And underneath all of that, the systems still had to stay up — donor records, science work, CRM, email — without a drama every Monday morning.
 
-That was the brief when Cybercon Solutions started with a South Florida environmental nonprofit. We’re not naming them here. What follows is what we actually did, what we measured, and what we’d repeat with another leadership team under the same pressure.
+That was the brief when Cybercon Solutions started [AI consulting](/services/ai-consulting/) work with a South Florida environmental nonprofit. We’re not naming them here. What follows is what we actually did, what we measured, and what we’d repeat with another leadership team under the same pressure.
 
-## What we walked into
+## The nonprofit technology gap we found
 
 Nobody was incompetent. Tools were in place. People cared about the mission. The friction was quieter than that.
 
-Technology work was happening, but it wasn’t sequenced. Cloud moves, security hardening, analytics experiments, and delivery habits all competed for attention without a multi-year plan the board could fund in phases. Mission data lived in old database silos, so CRM, finance, and ops each had a partial picture. When someone asked for a clean answer, someone else opened three systems and a spreadsheet.
+Technology work was happening, but it wasn’t sequenced. Cloud moves, security hardening, analytics experiments, and delivery habits all competed for attention without a multi-year digital plan the board could fund in phases. Mission data lived in old database silos, so CRM, finance, and ops each had a partial picture. When someone asked for a clean answer, someone else opened three systems and a spreadsheet.
 
 Meanwhile AI showed up in board conversations the way it shows up everywhere now: peers talking about copilots, articles about productivity, a quiet fear of falling behind. Licenses without rules would have meant shelfware. Rules without shipping would have meant a policy binder nobody opened. Staff were already tempted to try personal AI tools on real work — the usual path when official options feel slow.
 
-If you’ve run a nonprofit or any regulated mid-market shop, none of this will sound exotic. Lean staffing, donor trust, compliance expectations, and a board that wants a straight answer about AI. Same collision, different logo.
+If you’ve run a nonprofit or any regulated mid-market shop — the same pattern we see across [education and nonprofit IT](/industries/education-nonprofits/) — none of this will sound exotic. Lean staffing, donor trust, compliance expectations, and a board that wants a straight answer about AI. Same collision, different logo.
 
-## First job: a plan directors can follow
+## A multi-year digital plan the board could fund
 
-We wrote a multi-year digital plan that put work in order: stabilize Azure and security, rationalize platforms, then grow analytics and AI where the payoff was measurable. Agile delivery for internal projects stopped being a slogan and became how work got scheduled.
+We wrote a multi-year digital plan that put work in order: stabilize Azure and security, rationalize platforms, then grow analytics and AI where the payoff was measurable. That [IT consulting](/services/it-consulting/) sequencing stopped competing priorities from eating the quarter. Agile delivery for internal projects stopped being a slogan and became how work got scheduled.
 
 Every quarter we sat with the Board Technology Committee and walked funded items, finished items, and what we wanted next. That rhythm mattered more than the document itself. Directors stopped guessing whether technology was “fine” and started asking sharper questions.
 
-## AI funding that didn’t die after quarter one
+## Winning multi-year board funding for enterprise AI
 
 Cybercon led the enterprise AI program. A global consulting firm helped with readiness assessment capacity; we owned the operating model that made ongoing funding make sense to the board.
 
 Before anyone picked a model, we asked where staff burned hours on repetitive knowledge work, and where better-synthesized information would change a real decision. Readiness work tied to those workflows. We wrote responsible-AI rules for governance, risk, compliance, security, and privacy — including the assumption that donor, staff, and research-adjacent data would eventually touch AI systems. Then we built an ROI frame the board could reopen each funding cycle: hours reclaimed, adoption, what’s in production vs. still in pilot, and what’s next.
 
-That package got board approval and multi-year AI investment. Not a one-time pilot line that vanishes when the novelty wears off.
+That package got board approval and multi-year AI investment. Not a one-time pilot line that vanishes when the novelty wears off. For the broader pattern behind these numbers, see our notes on [enterprise AI adoption and ROI](/blog/enterprise-ai-adoption-roi/).
 
-## What shipped — and what the hours looked like
+## Production AI automations and reclaimed staff hours
 
-Policy alone doesn’t move a board. We built production automations with Claude and n8n that put decision-grade briefings in front of executives and directors on a schedule, with a human owner on the output.
+Policy alone doesn’t move a board. Through [AI integration](/services/ai-integration/), we built production automations with Claude and n8n that put decision-grade briefings in front of executives and directors on a schedule, with a human owner on the output.
 
 Internal time tracking against the old manual process showed about **500 staff-hours a year** back from the first pattern. Other departments reused the same pattern instead of inventing a new exception process each time.
 
@@ -48,13 +48,13 @@ Add them up and you’re near **5,000 hours a year** — more than two full-time
 
 We also ran a generative-AI proof-of-concept across Science, Development, and Operations under documented controls, so regulated teams could experiment inside the fence instead of inventing their own tools on the side.
 
-## The unglamorous work that made AI believable
+## Cloud reliability, CRM cleanup, and zero-trust controls
 
 If email, finance, and CRM wobble, nobody trusts an AI briefing. While the AI track ran, we kept mission-critical Azure infrastructure at **99.999% uptime**, kept Oracle NetSuite and Salesforce performing like systems leadership depends on, and moved legacy database silos into a **unified Salesforce CRM** so analytics finally had one place to stand.
 
-On security, we put sensitivity labels, eDiscovery readiness, and identity/access discipline in place — zero-trust habits aligned to HIPAA-grade expectations where the data called for it. Donor files, research materials, and confidential staff records deserve the same seriousness patient or student data gets elsewhere. You also can’t set AI boundaries around data you haven’t classified. Classification came first for a reason.
+On [cybersecurity](/services/cybersecurity/), we put sensitivity labels, eDiscovery readiness, and identity/access discipline in place — zero-trust habits aligned to HIPAA-grade expectations where the data called for it. Donor files, research materials, and confidential staff records deserve the same seriousness patient or student data gets elsewhere. You also can’t set AI boundaries around data you haven’t classified. Classification came first for a reason. Our practical [zero-trust rollout for mid-market IT](/blog/zero-trust-mid-market-rollout/) covers the same sequence we use when access is still too flat.
 
-## The numbers we still put in front of the board
+## Nonprofit AI results we still report to the board
 
 | What we track | Where it landed |
 | --- | --- |
@@ -68,7 +68,7 @@ On security, we put sensitivity labels, eDiscovery readiness, and identity/acces
 
 Hours came from internal time tracking. Uptime came from monitoring. Same figures we use with directors — not a vendor’s slide.
 
-## What we’d tell another executive in the same seat
+## What we’d tell another nonprofit executive
 
 Start with the workflow and the decision, then pick tools. That’s why the Claude + n8n work produced briefings people use, not a chatbot nobody opens twice.
 
@@ -78,7 +78,7 @@ Budget training with the same seriousness as licenses. Copilot hours showed up b
 
 And keep the quarterly report short: hours reclaimed (in dollars at a loaded rate if finance wants it), active users not seats purchased, production vs. pilot, governance status, next-quarter pipeline. Five lines. If it needs a glossary, cut it.
 
-## If you’re starting from a similar mess
+## A short sequence if you’re starting from the same place
 
 1. One-page digital plan the board can fund in phases — stability, platform cleanup, then AI.
 2. Classify data and name who owns AI before buying seats.
@@ -88,7 +88,7 @@ And keep the quarterly report short: hours reclaimed (in dollars at a loaded rat
 
 You don’t need your own foundation model unless AI *is* the product. You need automations inside work you already do.
 
-## How we showed up on this project
+## How Cybercon showed up on this project
 
 Cybercon owned technology direction, AI governance design, production automation architecture, platform reliability, and board reporting. When readiness work needed extra hands, we brought in specialized consulting capacity — but what shipped, what got measured, and what directors heard stayed on us.
 
@@ -96,4 +96,11 @@ That’s the model we use with other executive teams: fractional or project-base
 
 The organization didn’t need another experiment. They needed a funded plan, systems directors trust, and AI that gives time back to the mission under controls that survive an audit question. We’re still on that quarterly cadence with the Board Technology Committee.
 
-If your board is asking about AI while the silos and access questions are still open, this is the kind of work we do at Cybercon Solutions.
+If your board is asking about AI while the silos and access questions are still open, [start with a cost-and-risk assessment](/assessment/) — or read how we approach [fractional CIO work in the first 90 days](/blog/fractional-cio-first-90-days/).
+
+## Related reading
+
+- [Enterprise AI adoption and ROI: what actually works](/blog/enterprise-ai-adoption-roi/)
+- [Zero Trust for mid-market IT: a practical rollout](/blog/zero-trust-mid-market-rollout/)
+- [AI consulting for South Florida teams](/services/ai-consulting/)
+- [IT built for education and nonprofits](/industries/education-nonprofits/)
