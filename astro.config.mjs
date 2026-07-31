@@ -11,6 +11,17 @@ export default defineConfig({
   compressHTML: false,
   // Canonical URLs use trailing slashes; pair with Workers html_handling + _redirects 301s.
   trailingSlash: 'always',
+  // Temporary preview/SEO slug rename — keep old bookmarked paths working.
+  redirects: {
+    '/blog/mission-org-ai-digital-transformation':
+      '/blog/nonprofit-board-funded-ai-case-study/',
+    '/blog/mission-org-ai-digital-transformation/':
+      '/blog/nonprofit-board-funded-ai-case-study/',
+    '/es/blog/mission-org-ai-digital-transformation':
+      '/es/blog/nonprofit-board-funded-ai-case-study/',
+    '/es/blog/mission-org-ai-digital-transformation/':
+      '/es/blog/nonprofit-board-funded-ai-case-study/',
+  },
   adapter: cloudflare({
     platformProxy: { enabled: true },
     // Default prerenderEnvironment is workerd so `cloudflare:workers` env
