@@ -2,6 +2,7 @@
 title: 'Board-Funded AI for Nonprofits: A Case Study'
 description: 'How Cybercon helped a South Florida environmental nonprofit win board AI funding, ship production automations, and reclaim ~5,000 hours a year.'
 pubDate: 2026-07-31
+customerIndustry: nonprofit
 banner: ai-integration-play
 bannerAlt:
   en: 'Hands collaborating over a tablet with AI, analytics, and automation overlays'
