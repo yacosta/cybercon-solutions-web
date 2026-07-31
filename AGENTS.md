@@ -8,6 +8,16 @@ For UI, SEO, Core Web Vitals (LCP), color contrast, cache lifetimes, accessibili
 
 When fixing a new Lighthouse/SEO/a11y/brand/copy-voice audit finding, update that skill in the same PR so the rule sticks for future agents.
 
+## Project orchestration (multi-agent)
+
+For large or multi-subsystem work — assess complexity, split into parallel worker tasks, verify handoffs, and integrate — follow:
+
+`.cursor/skills/project-orchestrator/SKILL.md`
+
+(Templates: `.cursor/skills/project-orchestrator/references.md`.)
+
+Characterize difficulty with technical factors (blast radius, coupling, unknowns, validation). Do not estimate calendar days/weeks. Skip orchestration for trivial single-file work.
+
 ## Development
 
 When starting the dev server, use background mode:

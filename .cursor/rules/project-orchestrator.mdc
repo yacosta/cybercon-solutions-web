@@ -1,0 +1,18 @@
+---
+description: >-
+  Multi-agent project orchestration — assess complexity, parallel workers via
+  Task, verify, integrate. Use for large features spanning subsystems.
+alwaysApply: false
+---
+
+# Project orchestration
+
+When the request is a large feature, multi-subsystem change, or the user asks to
+orchestrate / parallelize / break work across agents, read and follow:
+
+`.cursor/skills/project-orchestrator/SKILL.md`
+
+- Score complexity technically (not calendar time).
+- Band S → implement yourself; M/L/XL → contract → parallel Task workers → verify → integrate.
+- Cap concurrent workers at 4 per wave; never assign two writers to the same file in one wave.
+- Orchestrator owns integration and final validation.
