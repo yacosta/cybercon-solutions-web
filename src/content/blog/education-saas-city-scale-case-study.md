@@ -1,6 +1,6 @@
 ---
 title: 'Education SaaS at City Scale: A Case Study'
-description: 'How Cybercon Solutions partnered with NYC education tech leaders to run a wealth-building platform for 145,000 families — FERPA-grade security and room to scale.'
+description: 'How Cybercon Solutions partnered with NYC education tech leaders on a wealth-building platform for 145,000 families — FERPA-grade security and room to scale.'
 pubDate: 2026-08-01
 customerIndustry: education
 banner: managed-it-support
