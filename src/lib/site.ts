@@ -30,7 +30,7 @@ export const site = {
   ],
   ogImage: '/og-image.png',
   social: {
-    linkedin: 'https://www.linkedin.com/company/cybercon-solutions',
+    linkedin: 'https://www.linkedin.com/company/cybercon-solutions-llc',
   },
 } as const;
 
