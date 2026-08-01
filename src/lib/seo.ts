@@ -79,7 +79,7 @@ export function organizationJsonLd(locale: Locale = 'en') {
     },
     areaServed: areaServedPlaces(),
     knowsAbout: [...site.knowsAbout],
-    sameAs: [site.social.linkedin],
+    sameAs: [site.social.linkedin, site.social.x],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: copy.contactType,
