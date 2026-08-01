@@ -35,7 +35,6 @@ Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida.
 - [Cloud Services & Architecture](https://cybercon-solutions.com/services/cloud/): Microsoft 365, Google Workspace, Entra ID
 - [IT Consulting & Virtual CIO](https://cybercon-solutions.com/services/it-consulting/): Roadmaps, risk, budgets, QBRs
 - [Backup & Disaster Recovery](https://cybercon-solutions.com/services/backup-disaster-recovery/): Backups, replication, recovery validation
-- [Structured Cabling & Communications](https://cybercon-solutions.com/services/cabling-communications/): Fiber, VoIP, workplace AV
 - [AI Consulting & Strategy](https://cybercon-solutions.com/services/ai-consulting/): Practical AI roadmaps and ROI assessment
 - [AI Integration & Automation](https://cybercon-solutions.com/services/ai-integration/): Connect AI to ERP, CRM, and existing stack
 - [Conversational AI & Voice](https://cybercon-solutions.com/services/conversational-ai/): Chatbots and AI voice systems

@@ -11,11 +11,10 @@ One partner for all of your technology with predictable per-user pricing:
 3. Cloud: Microsoft 365, Google Workspace, Entra ID / Azure AD
 4. vCIO & consulting: roadmaps, QBRs, business continuity
 5. Backup & disaster recovery
-6. Structured cabling, VoIP, AV
-7. AI consulting & strategy (honest ROI assessment)
-8. AI integration & automation
-9. Conversational AI & voice
-10. Web design & development
+6. AI consulting & strategy (honest ROI assessment)
+7. AI integration & automation
+8. Conversational AI & voice
+9. Web design & development
 
 ## Key URLs
 
@@ -47,7 +46,6 @@ One partner for all of your technology with predictable per-user pricing:
 | Cloud Services & Architecture | https://cybercon-solutions.com/services/cloud/ |
 | IT Consulting & Virtual CIO | https://cybercon-solutions.com/services/it-consulting/ |
 | Backup & Disaster Recovery | https://cybercon-solutions.com/services/backup-disaster-recovery/ |
-| Structured Cabling & Communications | https://cybercon-solutions.com/services/cabling-communications/ |
 | AI Consulting & Strategy | https://cybercon-solutions.com/services/ai-consulting/ |
 | AI Integration & Automation | https://cybercon-solutions.com/services/ai-integration/ |
 | Conversational AI & Voice | https://cybercon-solutions.com/services/conversational-ai/ |

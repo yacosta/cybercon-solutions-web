@@ -180,25 +180,6 @@ export const services: Service[] = [
   },
   {
     id: '10',
-    slug: 'cabling-communications',
-    title: { en: 'Structured Cabling & Communications', es: 'Cableado Estructurado y Comunicaciones' },
-    summary: {
-      en: 'Fiber and low-voltage cabling, business VoIP, and workplace AV built for reliable day-to-day operations.',
-      es: 'Fibra y cableado de baja tensión, VoIP empresarial y AV de oficina pensados para el día a día.',
-    },
-    items: [
-      {
-        en: 'Structured Cabling: fiber, low-voltage cabling, and infrastructure labeling.',
-        es: 'Cableado estructurado: fibra, cableado de baja tensión y etiquetado de infraestructura.',
-      },
-      {
-        en: 'Business VoIP Systems: unified telephony platforms.',
-        es: 'Sistemas VoIP empresariales: plataformas de telefonía unificada.',
-      },
-    ],
-  },
-  {
-    id: '11',
     slug: 'web-design-development',
     title: { en: 'Web Design & Development', es: 'Diseño y Desarrollo Web' },
     summary: {

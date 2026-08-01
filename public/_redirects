@@ -103,12 +103,18 @@
 /managed-backups-disaster-recovery/ /services/backup-disaster-recovery/ 301
 
 # --- Cabling / phone ---
-/low-voltage-cabling /services/cabling-communications/ 301
-/low-voltage-cabling/ /services/cabling-communications/ 301
-/managed-phone-services /services/cabling-communications/ 301
-/managed-phone-services/ /services/cabling-communications/ 301
-/phone-systems /services/cabling-communications/ 301
-/phone-systems/ /services/cabling-communications/ 301
+/low-voltage-cabling /services/managed-it/ 301
+/low-voltage-cabling/ /services/managed-it/ 301
+/managed-phone-services /services/managed-it/ 301
+/managed-phone-services/ /services/managed-it/ 301
+/phone-systems /services/managed-it/ 301
+/phone-systems/ /services/managed-it/ 301
+/services/cabling-communications /services/managed-it/ 301
+/services/cabling-communications/ /services/managed-it/ 301
+/es/services/cabling-communications /es/services/managed-it/ 301
+/es/services/cabling-communications/ /es/services/managed-it/ 301
+/services/cabling-communications/* /services/managed-it/ 301
+/es/services/cabling-communications/* /es/services/managed-it/ 301
 
 # --- Web / creative (legacy agency pages) ---
 /website-as-a-service /services/web-design-development/ 301
@@ -297,7 +303,7 @@
 /managed-security/* /services/cybersecurity/ 301
 /cloud-services/* /services/cloud/ 301
 /network-assessment/* /services/it-consulting/ 301
-/low-voltage-cabling/* /services/cabling-communications/ 301
+/low-voltage-cabling/* /services/managed-it/ 301
 /full-service-advertising-agency/* /services/web-design-development/ 301
 /web-development/* /services/web-design-development/ 301
 /category/* / 301

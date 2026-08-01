@@ -142,14 +142,6 @@ export const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
       es: 'Placa de disco duro junto a fichas de madera que dicen Backup Day',
     },
   },
-  'cabling-communications': {
-    mediaVariant: 'photo',
-    basename: 'cabling-network',
-    imageAlt: {
-      en: 'Dense blue and orange structured cabling on a network backplane',
-      es: 'Cableado estructurado azul y naranja en un panel de red',
-    },
-  },
   'ai-consulting': {
     mediaVariant: 'photo',
     basename: 'ai-consulting-brain',
