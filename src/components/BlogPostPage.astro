@@ -33,6 +33,8 @@ const bannerAlt = post.data.bannerAlt[locale];
 const published = formatPostDate(post.data.pubDate, locale);
 const assessmentHref = localePath(locale, '/assessment/');
 const ogImage = absoluteUrl(banner.jpg);
+const isCustomerStory = Boolean(post.data.customerIndustry);
+const sectionEyebrow = isCustomerStory ? t.nav.customers : t.blog.eyebrow;
 ---
 
 <BaseLayout
@@ -45,7 +47,7 @@ const ogImage = absoluteUrl(banner.jpg);
   ogImageAlt={bannerAlt}
   breadcrumbs={[
     { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
-    { name: t.blog.nav, path: blogIndexPath },
+    ...(isCustomerStory ? [] : [{ name: t.blog.nav, path: blogIndexPath }]),
     { name: title, path },
   ]}
 >
@@ -91,7 +93,7 @@ const ogImage = absoluteUrl(banner.jpg);
       </figure>
 
       <header class="blog-post-head">
-        <p class="eyebrow">{t.blog.eyebrow}</p>
+        <p class="eyebrow">{sectionEyebrow}</p>
         <h1>{title}</h1>
         <p class="blog-meta">
           <time datetime={post.data.pubDate.toISOString()}>{published}</time>
