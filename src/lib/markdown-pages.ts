@@ -1,3 +1,4 @@
+import { accessibilityContent } from '../data/accessibility';
 import { privacyContent } from '../data/privacy';
 import { services } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
@@ -264,6 +265,10 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City y Davie, Florida
   '/privacy': privacyToMarkdown('en'),
   '/es/privacy/': privacyToMarkdown('es'),
   '/es/privacy': privacyToMarkdown('es'),
+  '/accessibility/': accessibilityToMarkdown('en'),
+  '/accessibility': accessibilityToMarkdown('en'),
+  '/es/accessibility/': accessibilityToMarkdown('es'),
+  '/es/accessibility': accessibilityToMarkdown('es'),
   '/contact/': contactEn,
   '/contact': contactEn,
   '/es/contact/': contactEs,
@@ -398,6 +403,45 @@ function privacyToMarkdown(locale: 'en' | 'es'): string {
       parts.push('');
     }
     if ('after' in section && section.after) parts.push(section.after, '');
+  }
+
+  return parts.join('\n');
+}
+
+function accessibilityToMarkdown(locale: 'en' | 'es'): string {
+  const a = accessibilityContent[locale];
+  const parts = [
+    '---',
+    `title: "${a.metaTitle}"`,
+    `description: "${a.metaDescription}"`,
+    '---',
+    '',
+    `# ${a.title}`,
+    '',
+    a.lastUpdated,
+    '',
+    a.intro,
+  ];
+
+  for (const section of a.sections) {
+    parts.push('', `## ${section.heading}`, '');
+    if (section.body) parts.push(section.body, '');
+    if (section.contact) {
+      const c = section.contact;
+      parts.push(
+        c.org,
+        `${c.mailingLabel}: ${c.mailing}`,
+        `${c.emailLabel}: ${c.email}`,
+        `${c.phoneLabel}: ${c.phoneDisplay}`,
+        `${c.formLabel}: ${c.formHref}`,
+        '',
+      );
+    }
+    if (section.list) {
+      for (const item of section.list) parts.push(`- ${item}`);
+      parts.push('');
+    }
+    if (section.after) parts.push(section.after, '');
   }
 
   return parts.join('\n');

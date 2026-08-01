@@ -35,6 +35,8 @@ One partner for all of your technology with predictable per-user pricing:
 | Free IT assessment (ES) | https://cybercon-solutions.com/es/assessment/ |
 | Privacy | https://cybercon-solutions.com/privacy/ |
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
+| Accessibility | https://cybercon-solutions.com/accessibility/ |
+| Accessibility (ES) | https://cybercon-solutions.com/es/accessibility/ |
 | Search | https://cybercon-solutions.com/search/ |
 | Contact | https://cybercon-solutions.com/contact/ |
 | Contact (ES) | https://cybercon-solutions.com/es/contact/ |

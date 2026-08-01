@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getMessages, localePath } from '../i18n';
+import { accessibilityContent, type AccessibilityLocale } from '../data/accessibility';
+import { jsonLdScript, webPageJsonLd } from '../lib/seo';
+
+interface Props {
+  locale: AccessibilityLocale;
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const a = accessibilityContent[locale];
+const path = localePath(locale, '/accessibility/');
+---
+
+<BaseLayout
+  locale={locale}
+  title={a.metaTitle}
+  description={a.metaDescription}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: localePath(locale, '/') },
+    { name: a.title, path },
+  ]}
+>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript({
+        ...webPageJsonLd({
+          name: a.metaTitle,
+          description: a.metaDescription,
+          path,
+          locale,
+        }),
+        dateModified: a.dateModified,
+      })}
+    />
+  </Fragment>
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="a11y-page container page" data-pagefind-body>
+    <header class="a11y-head">
+      <p class="eyebrow">{a.eyebrow}</p>
+      <h1>{a.title}</h1>
+      <p class="updated">{a.lastUpdated}</p>
+    </header>
+
+    <p class="lead">{a.intro}</p>
+
+    {a.sections.map((section, i) => (
+      <section aria-labelledby={`a11y-s-${i}`}>
+        <h2 id={`a11y-s-${i}`}>{section.heading}</h2>
+        {section.body && <p>{section.body}</p>}
+        {section.contact && (
+          <p class="contact-block">
+            {section.contact.org}
+            <br />
+            {section.contact.mailingLabel}: {section.contact.mailing}
+            <br />
+            {section.contact.emailLabel}:{' '}
+            <a href={`mailto:${section.contact.email}`}>{section.contact.email}</a>
+            <br />
+            {section.contact.phoneLabel}:{' '}
+            <a href={section.contact.phoneHref}>{section.contact.phoneDisplay}</a>
+            <br />
+            {section.contact.formLabel}:{' '}
+            <a href={section.contact.formHref}>{section.contact.formDisplay}</a>
+          </p>
+        )}
+        {section.list && (
+          <ul>
+            {section.list.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+        {section.after && <p>{section.after}</p>}
+      </section>
+    ))}
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .a11y-page {
+    color: var(--body-muted);
+  }
+
+  .a11y-head {
+    margin-bottom: 1.5rem;
+  }
+
+  .a11y-page h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--navy);
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .updated {
+    font-size: 0.875rem;
+    color: var(--muted-blue);
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .a11y-page section {
+    margin-top: 2rem;
+  }
+
+  .a11y-page h2 {
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .a11y-page ul {
+    padding-left: 1.25rem;
+  }
+
+  .a11y-page li + li {
+    margin-top: 0.35rem;
+  }
+
+  .contact-block {
+    margin: 0;
+  }
+
+  .a11y-page a {
+    color: var(--coral);
+    text-decoration: underline;
+  }
+
+  .a11y-page a:hover,
+  .a11y-page a:focus-visible {
+    color: var(--navy);
+  }
+
+  .a11y-page a:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+</style>

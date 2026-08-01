@@ -11,6 +11,8 @@
 /es/index.html /es/ 301
 /privacy.html /privacy/ 301
 /es/privacy.html /es/privacy/ 301
+/accessibility.html /accessibility/ 301
+/es/accessibility.html /es/accessibility/ 301
 
 # --- Priority survivors called out in SEO audit ---
 /remote-workforce /services/cloud/ 301
@@ -198,6 +200,12 @@
 /privacidad/ /es/privacy/ 301
 /es/privacidad /es/privacy/ 301
 /es/privacidad/ /es/privacy/ 301
+/accessibility /accessibility/ 301
+/es/accessibility /es/accessibility/ 301
+/accesibilidad /es/accessibility/ 301
+/accesibilidad/ /es/accessibility/ 301
+/es/accesibilidad /es/accessibility/ 301
+/es/accesibilidad/ /es/accessibility/ 301
 
 # --- News / case studies / misc legacy content → home ---
 # (Former /blog catch-alls removed — /blog/ is a live section now.)

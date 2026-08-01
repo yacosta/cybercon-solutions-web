@@ -172,6 +172,7 @@ export const en = {
     blog: 'Blog',
     contact: 'Contact',
     privacy: 'Privacy & Cookies',
+    accessibility: 'Accessibility',
     cookies: 'Cookie settings',
     siteCheck: 'Free site check',
     breachCheck: 'Free breach check',
