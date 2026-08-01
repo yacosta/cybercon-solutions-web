@@ -33,21 +33,6 @@ const serviceLinkGroups = serviceGroups.map((slugs) =>
     })),
 );
 
-const toolLinks = [
-  {
-    href: `${localePath(locale, '/services/web-design-development/')}#site-check`,
-    title: t.footer.siteCheck,
-  },
-  {
-    href: `${localePath(locale, '/services/cybersecurity/')}#breach-check`,
-    title: t.footer.breachCheck,
-  },
-  {
-    href: `${localePath(locale, '/services/ai-security/')}#ai-readiness`,
-    title: t.footer.aiSecurity,
-  },
-];
-
 const industryLinks = industries.map((industry) => ({
   href: industryPath(locale, industry.slug),
   title: industry.title[loc],
@@ -122,22 +107,6 @@ const addressLines =
             </>
           ))
         }
-        <hr class="footer-rule" />
-        <ul class="footer-links">
-          {
-            toolLinks.map((link) => (
-              <li>
-                <a href={link.href}>{link.title}</a>
-              </li>
-            ))
-          }
-          <li>
-            <a href={localePath(locale, '/blog/')}>{t.footer.blog}</a>
-          </li>
-          <li>
-            <a href={localePath(locale, '/contact/')}>{t.footer.contact}</a>
-          </li>
-        </ul>
       </nav>
 
       <nav class="footer-col" aria-labelledby="footer-industries-heading">
