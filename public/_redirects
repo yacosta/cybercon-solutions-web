@@ -113,8 +113,6 @@
 /services/cabling-communications/ /services/managed-it/ 301
 /es/services/cabling-communications /es/services/managed-it/ 301
 /es/services/cabling-communications/ /es/services/managed-it/ 301
-/services/cabling-communications/* /services/managed-it/ 301
-/es/services/cabling-communications/* /es/services/managed-it/ 301
 
 # --- Web / creative (legacy agency pages) ---
 /website-as-a-service /services/web-design-development/ 301
