@@ -14,7 +14,6 @@ const { locale, t } = Astro.props;
 const loc = locale === 'es' ? 'es' : 'en';
 const homeHref = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
-const searchHref = localePath(locale, '/search/');
 const newWindowHint = locale === 'es' ? '(se abre en una pestaña nueva)' : '(opens in a new tab)';
 
 const serviceGroups = [
@@ -201,10 +200,10 @@ const addressLines =
 
   .footer-blurb {
     margin: 0;
-    max-width: 28ch;
+    max-width: 38ch;
     font-family: var(--font-body);
     font-size: 0.9375rem;
-    line-height: 1.45;
+    line-height: 1.5;
     color: #b6c7d6;
   }
 
