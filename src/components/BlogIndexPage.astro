@@ -8,7 +8,7 @@ import {
   blogPath,
   blogSlug,
   formatPostDate,
-  getPublishedPosts,
+  getBlogIndexPosts,
   postDescription,
   postTitle,
 } from '../lib/blog';
@@ -19,7 +19,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getMessages(locale);
-const posts = await getPublishedPosts(locale);
+const posts = await getBlogIndexPosts(locale);
 const path = blogPath(locale);
 const homePath = localePath(locale, '/');
 ---

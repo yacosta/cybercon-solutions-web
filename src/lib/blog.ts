@@ -47,6 +47,12 @@ export async function getPublishedPosts(locale: BlogLocale = 'en'): Promise<Blog
   return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 
+/** Blog index listing — excludes Our Customers white papers (`customerIndustry`). */
+export async function getBlogIndexPosts(locale: BlogLocale = 'en'): Promise<BlogPost[]> {
+  const posts = await getPublishedPosts(locale);
+  return posts.filter((post) => !post.data.customerIndustry);
+}
+
 export async function getPublishedPost(
   slug: string,
   locale: BlogLocale,
