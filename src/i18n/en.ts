@@ -169,7 +169,7 @@ export const en = {
     area: 'Serving Cooper City & Davie, Florida',
     mailing: 'Mailing address: Miami Beach, FL',
     blurb:
-      'We become part of your IT bench — predictable support, named owners, and an engineer who picks up when things break. You see how we work; we learn your business, goals, and stack.',
+      'Supercharge your business with a trusted IT partner who delivers proactive support, rapid response, and dedicated expertise. Our hands-on approach ensures your technology is always optimized and secure, while you stay focused on growing your business. Experience the confidence of working with a team that understands your goals, priorities, and tech stack—so you can achieve more, faster.',
     servicesHeading: 'Services',
     industriesHeading: 'Industries',
     areasHeading: 'Areas We Serve',

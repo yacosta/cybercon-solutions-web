@@ -171,7 +171,7 @@ export const es: Messages = {
     area: 'Servicio en Cooper City y Davie, Florida',
     mailing: 'Dirección postal: Miami Beach, FL',
     blurb:
-      'Nos integramos a tu equipo de TI: soporte predecible, responsables con nombre y un ingeniero que atiende cuando algo falla. Ves cómo trabajamos; nosotros aprendemos tu negocio, tus metas y tu stack tecnológico.',
+      'Impulsa tu negocio con un proveedor de TI de confianza que brinda soporte proactivo, respuesta rápida y experiencia dedicada. Nuestro enfoque práctico mantiene tu tecnología optimizada y segura, mientras tú te concentras en hacer crecer el negocio. Trabaja con un equipo que entiende tus metas, prioridades y stack tecnológico — para que logres más, más rápido.',
     servicesHeading: 'Servicios',
     industriesHeading: 'Industrias',
     areasHeading: 'Áreas que atendemos',
