@@ -16,6 +16,7 @@ export function buildKnowledgePack(locale: 'en' | 'es'): string {
 - Teléfono: ${site.phoneDisplay} (${site.phone})
 - Email: ${site.email}
 - LinkedIn: ${site.social.linkedin}
+- X: ${site.social.x}
 - Respuesta: un ingeniero de nuestro equipo responde en un día hábil
 - Modelo: precio predecible por usuario (no cobro por falla). No inventes precios exactos en dólares.
 
@@ -46,6 +47,7 @@ Reglas
 - Phone: ${site.phoneDisplay} (${site.phone})
 - Email: ${site.email}
 - LinkedIn: ${site.social.linkedin}
+- X: ${site.social.x}
 - Response time: we reply within one business day
 - Pricing model: predictable per-user (not break/fix). Never invent dollar prices.
 
