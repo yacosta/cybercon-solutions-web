@@ -119,6 +119,8 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - **Legacy `.html` URLs must 301, not 307.** `force-trailing-slash` maps `/page.html` → `/page/` with a temporary 307. Keep static **301** rules for `/index.html`, `/es/index.html`, `/privacy.html`, and `/es/privacy.html` near the top of `public/_redirects`. Do **not** add a top-of-file `/*.html` splat — Cloudflare requires static rules before dynamic ones; a leading splat makes later static rows count toward the **100 dynamic redirect** limit and breaks `wrangler deploy`. GSC “Page with redirect” for `.html` / `www` / `http` variants is **expected exclusion** once redirects are permanent — do not try to make those URLs return 200.
 - **Sitemap hreflang must include `x-default`** (pointing at the EN URL). `@astrojs/sitemap` i18n omits it — keep the `serialize` hook in `astro.config.mjs` that appends `x-default` from the `en-US` alternate.
 - **Privacy pages** (`/privacy/`, `/es/privacy/`): ship `PrivacyPolicy` JSON-LD via `privacyPolicyJsonLd` in `PrivacyPage.astro`, keep EN/ES bodies aligned in `src/data/privacy.ts`, and keep both URLs in the sitemap (never `noindex` them).
+- **Accessibility Statement** (`/accessibility/`, `/es/accessibility/`): keep EN/ES bodies aligned in `src/data/accessibility.ts` (Figment-style structure: approach, practices, non-conformance honesty, third parties, feedback/contact). Do not claim full WCAG conformance without a formal audit. Ship trailing-slash **301**s in `public/_redirects` (and ES `/accesibilidad/` aliases). Keep both URLs in the sitemap and footer; never `noindex` them.
+- **Terms and Conditions** (`/terms/`, `/es/terms/`): keep EN/ES bodies aligned in `src/data/terms.ts` (Figment-style: use of site, IP, third-party links, no professional advice, warranties, liability, indemnification, changes, Florida governing law, contact). Link Privacy from the intro. Ship trailing-slash **301**s plus `/terms-and-conditions/` and ES `/terminos/` aliases; point legacy `/terms-of-service-*` rules at `/terms/` (not `/privacy/`). Keep both URLs in the sitemap and footer; never `noindex` them.
 - **Blog posts are fully bilingual.** English lives in `src/content/blog/<slug>.md`; Spanish in `src/content/blog/es/<slug>.md` (same slug, full translated body — not title-only). Wire both in `src/lib/markdown-pages.ts`. Do not ship `/es/blog/...` with an English body or an “artículo en inglés” note.
 
 ## Cache lifetimes (Zaraz)
@@ -156,6 +158,8 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`
+- [ ] `/accessibility` and `/es/accessibility` (no slash) 301 to the slashed canonicals; ES `/accesibilidad/` aliases point at `/es/accessibility/`
+- [ ] `/terms` and `/es/terms` (no slash) 301 to the slashed canonicals; `/terms-and-conditions/` and ES `/terminos/` aliases point at `/terms/` / `/es/terms/`
 - [ ] Legacy `.html` URLs (`/index.html`, `/privacy.html`, `/es/…`) 301 (not 307) to trailing-slash canonicals; no leading `/*.html` splat in `_redirects`
 - [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
 - [ ] Non-essential analytics/trackers still gated behind prior consent (banner + Consent Mode defaults denied)

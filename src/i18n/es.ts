@@ -174,6 +174,8 @@ export const es: Messages = {
     blog: 'Blog',
     contact: 'Contacto',
     privacy: 'Privacidad y cookies',
+    accessibility: 'Accesibilidad',
+    terms: 'Términos',
     cookies: 'Configuración de cookies',
     siteCheck: 'Revisión gratuita del sitio',
     breachCheck: 'Revisión gratuita de filtraciones',

@@ -11,6 +11,12 @@
 /es/index.html /es/ 301
 /privacy.html /privacy/ 301
 /es/privacy.html /es/privacy/ 301
+/accessibility.html /accessibility/ 301
+/es/accessibility.html /es/accessibility/ 301
+/terms.html /terms/ 301
+/es/terms.html /es/terms/ 301
+/terms-and-conditions.html /terms/ 301
+/es/terms-and-conditions.html /es/terms/ 301
 
 # --- Priority survivors called out in SEO audit ---
 /remote-workforce /services/cloud/ 301
@@ -190,14 +196,34 @@
 /cookie-use/ /privacy/ 301
 /es/cookie-use /es/privacy/ 301
 /es/cookie-use/ /es/privacy/ 301
-/terms-of-service-2 /privacy/ 301
-/terms-of-service-2/ /privacy/ 301
-/terms-of-service-agreement /privacy/ 301
-/terms-of-service-agreement/ /privacy/ 301
+/terms-of-service-2 /terms/ 301
+/terms-of-service-2/ /terms/ 301
+/terms-of-service-agreement /terms/ 301
+/terms-of-service-agreement/ /terms/ 301
 /privacidad /es/privacy/ 301
 /privacidad/ /es/privacy/ 301
 /es/privacidad /es/privacy/ 301
 /es/privacidad/ /es/privacy/ 301
+/accessibility /accessibility/ 301
+/es/accessibility /es/accessibility/ 301
+/accesibilidad /es/accessibility/ 301
+/accesibilidad/ /es/accessibility/ 301
+/es/accesibilidad /es/accessibility/ 301
+/es/accesibilidad/ /es/accessibility/ 301
+/terms /terms/ 301
+/es/terms /es/terms/ 301
+/terms-and-conditions /terms/ 301
+/terms-and-conditions/ /terms/ 301
+/es/terms-and-conditions /es/terms/ 301
+/es/terms-and-conditions/ /es/terms/ 301
+/terminos /es/terms/ 301
+/terminos/ /es/terms/ 301
+/es/terminos /es/terms/ 301
+/es/terminos/ /es/terms/ 301
+/terminos-y-condiciones /es/terms/ 301
+/terminos-y-condiciones/ /es/terms/ 301
+/es/terminos-y-condiciones /es/terms/ 301
+/es/terminos-y-condiciones/ /es/terms/ 301
 
 # --- News / case studies / misc legacy content → home ---
 # (Former /blog catch-alls removed — /blog/ is a live section now.)

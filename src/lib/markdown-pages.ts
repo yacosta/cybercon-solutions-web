@@ -1,4 +1,6 @@
+import { accessibilityContent } from '../data/accessibility';
 import { privacyContent } from '../data/privacy';
+import { termsContent } from '../data/terms';
 import { services } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
 import { industries } from '../data/industries';
@@ -264,6 +266,14 @@ info@cybercon-solutions.com · (305) 320-5335 · Cooper City y Davie, Florida
   '/privacy': privacyToMarkdown('en'),
   '/es/privacy/': privacyToMarkdown('es'),
   '/es/privacy': privacyToMarkdown('es'),
+  '/accessibility/': accessibilityToMarkdown('en'),
+  '/accessibility': accessibilityToMarkdown('en'),
+  '/es/accessibility/': accessibilityToMarkdown('es'),
+  '/es/accessibility': accessibilityToMarkdown('es'),
+  '/terms/': termsToMarkdown('en'),
+  '/terms': termsToMarkdown('en'),
+  '/es/terms/': termsToMarkdown('es'),
+  '/es/terms': termsToMarkdown('es'),
   '/contact/': contactEn,
   '/contact': contactEn,
   '/es/contact/': contactEs,
@@ -398,6 +408,86 @@ function privacyToMarkdown(locale: 'en' | 'es'): string {
       parts.push('');
     }
     if ('after' in section && section.after) parts.push(section.after, '');
+  }
+
+  return parts.join('\n');
+}
+
+function accessibilityToMarkdown(locale: 'en' | 'es'): string {
+  const a = accessibilityContent[locale];
+  const parts = [
+    '---',
+    `title: "${a.metaTitle}"`,
+    `description: "${a.metaDescription}"`,
+    '---',
+    '',
+    `# ${a.title}`,
+    '',
+    a.lastUpdated,
+    '',
+    a.intro,
+  ];
+
+  for (const section of a.sections) {
+    parts.push('', `## ${section.heading}`, '');
+    if (section.body) parts.push(section.body, '');
+    if (section.contact) {
+      const c = section.contact;
+      parts.push(
+        c.org,
+        `${c.mailingLabel}: ${c.mailing}`,
+        `${c.emailLabel}: ${c.email}`,
+        `${c.phoneLabel}: ${c.phoneDisplay}`,
+        `${c.formLabel}: ${c.formHref}`,
+        '',
+      );
+    }
+    if (section.list) {
+      for (const item of section.list) parts.push(`- ${item}`);
+      parts.push('');
+    }
+    if (section.after) parts.push(section.after, '');
+  }
+
+  return parts.join('\n');
+}
+
+function termsToMarkdown(locale: 'en' | 'es'): string {
+  const terms = termsContent[locale];
+  const privacyPath = locale === 'es' ? '/es/privacy/' : '/privacy/';
+  const parts = [
+    '---',
+    `title: "${terms.metaTitle}"`,
+    `description: "${terms.metaDescription}"`,
+    '---',
+    '',
+    `# ${terms.title}`,
+    '',
+    terms.lastUpdated,
+    '',
+    terms.intro,
+    '',
+    `${terms.introLink.before}[${terms.introLink.label}](${privacyPath})${terms.introLink.after}`,
+  ];
+
+  for (const section of terms.sections) {
+    parts.push('', `## ${section.heading}`, '');
+    if (section.body) parts.push(section.body, '');
+    if (section.contact) {
+      const c = section.contact;
+      parts.push(
+        c.org,
+        `${c.mailingLabel}: ${c.mailing}`,
+        `${c.emailLabel}: ${c.email}`,
+        `${c.phoneLabel}: ${c.phoneDisplay}`,
+        '',
+      );
+    }
+    if (section.list) {
+      for (const item of section.list) parts.push(`- ${item}`);
+      parts.push('');
+    }
+    if (section.after) parts.push(section.after, '');
   }
 
   return parts.join('\n');

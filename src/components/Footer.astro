@@ -39,14 +39,18 @@ const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
       <a href={`${localePath(locale, '/services/ai-security/')}#ai-readiness`}>
         {t.footer.aiSecurity}
       </a>
-      <span class="divider" aria-hidden="true">|</span>
+    </p>
+    <p class="footer-contact">
       <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
+      <span class="divider" aria-hidden="true">|</span>
+      <a href={localePath(locale, '/accessibility/')}>{t.footer.accessibility}</a>
+      <span class="divider" aria-hidden="true">|</span>
+      <a href={localePath(locale, '/terms/')}>{t.footer.terms}</a>
       <span class="divider" aria-hidden="true">|</span>
       <button type="button" class="cookie-reset" data-cookie-settings>
         {t.footer.cookies}
       </button>
-    </p>
-    <p class="footer-contact">
+      <span class="divider" aria-hidden="true">|</span>
       <a href={`mailto:${site.email}`}>{site.email}</a>
       <span class="divider" aria-hidden="true">|</span>
       <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
