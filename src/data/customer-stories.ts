@@ -33,6 +33,11 @@ export const customerIndustries: CustomerIndustry[] = [
     label: { en: 'Retail', es: 'Retail' },
   },
   {
+    id: 'fitness',
+    industrySlug: 'distribution-retail-manufacturing',
+    label: { en: 'Fitness', es: 'Fitness' },
+  },
+  {
     id: 'professional',
     industrySlug: 'legal-professional-services',
     label: { en: 'Professional services', es: 'Servicios profesionales' },
