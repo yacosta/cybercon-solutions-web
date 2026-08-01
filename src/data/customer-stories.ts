@@ -2,7 +2,8 @@ import type { LocaleText } from './service-details';
 
 /**
  * Customer-story industries for the “Our Customers” nav accordion.
- * Blog posts opt in via frontmatter `customerIndustry` matching `id`.
+ * Posts opt in via frontmatter `customerIndustry` matching `id`; those posts
+ * stay off the Blog index and surface only under Our Customers.
  */
 export type CustomerIndustry = {
   id: string;

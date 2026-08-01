@@ -17,7 +17,8 @@ const blog = defineCollection({
     draft: z.boolean().default(false),
     /**
      * When set, the post appears under Our Customers → this industry accordion
-     * (see `src/data/customer-stories.ts` ids, e.g. `nonprofit`).
+     * (see `src/data/customer-stories.ts` ids, e.g. `nonprofit`) and is omitted
+     * from the Blog index listing.
      */
     customerIndustry: z.string().optional(),
   }),
