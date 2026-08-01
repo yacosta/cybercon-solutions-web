@@ -37,6 +37,8 @@ One partner for all of your technology with predictable per-user pricing:
 | Privacy (ES) | https://cybercon-solutions.com/es/privacy/ |
 | Accessibility | https://cybercon-solutions.com/accessibility/ |
 | Accessibility (ES) | https://cybercon-solutions.com/es/accessibility/ |
+| Terms | https://cybercon-solutions.com/terms/ |
+| Terms (ES) | https://cybercon-solutions.com/es/terms/ |
 | Search | https://cybercon-solutions.com/search/ |
 | Contact | https://cybercon-solutions.com/contact/ |
 | Contact (ES) | https://cybercon-solutions.com/es/contact/ |

@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getMessages, localePath } from '../i18n';
+import { termsContent, type TermsLocale } from '../data/terms';
+import { jsonLdScript, webPageJsonLd } from '../lib/seo';
+
+interface Props {
+  locale: TermsLocale;
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const terms = termsContent[locale];
+const path = localePath(locale, '/terms/');
+const privacyHref = localePath(locale, terms.introLink.path);
+---
+
+<BaseLayout
+  locale={locale}
+  title={terms.metaTitle}
+  description={terms.metaDescription}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: localePath(locale, '/') },
+    { name: terms.title, path },
+  ]}
+>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript({
+        ...webPageJsonLd({
+          name: terms.metaTitle,
+          description: terms.metaDescription,
+          path,
+          locale,
+        }),
+        dateModified: terms.dateModified,
+      })}
+    />
+  </Fragment>
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="terms-page container page" data-pagefind-body>
+    <header class="terms-head">
+      <p class="eyebrow">{terms.eyebrow}</p>
+      <h1>{terms.title}</h1>
+      <p class="updated">{terms.lastUpdated}</p>
+    </header>
+
+    <p class="lead">{terms.intro}</p>
+    <p>
+      {terms.introLink.before}
+      <a href={privacyHref}>{terms.introLink.label}</a>
+      {terms.introLink.after}
+    </p>
+
+    {terms.sections.map((section, i) => (
+      <section aria-labelledby={`terms-s-${i}`}>
+        <h2 id={`terms-s-${i}`}>{section.heading}</h2>
+        {section.body && <p>{section.body}</p>}
+        {section.contact && (
+          <p class="contact-block">
+            {section.contact.org}
+            <br />
+            {section.contact.mailingLabel}: {section.contact.mailing}
+            <br />
+            {section.contact.emailLabel}:{' '}
+            <a href={`mailto:${section.contact.email}`}>{section.contact.email}</a>
+            <br />
+            {section.contact.phoneLabel}:{' '}
+            <a href={section.contact.phoneHref}>{section.contact.phoneDisplay}</a>
+          </p>
+        )}
+        {section.list && (
+          <ul>
+            {section.list.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )}
+        {section.after && <p>{section.after}</p>}
+      </section>
+    ))}
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .terms-page {
+    color: var(--body-muted);
+  }
+
+  .terms-head {
+    margin-bottom: 1.5rem;
+  }
+
+  .terms-page h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    color: var(--navy);
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .updated {
+    font-size: 0.875rem;
+    color: var(--muted-blue);
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .terms-page section {
+    margin-top: 2rem;
+  }
+
+  .terms-page h2 {
+    font-size: 1.25rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .terms-page ul {
+    padding-left: 1.25rem;
+  }
+
+  .terms-page li + li {
+    margin-top: 0.35rem;
+  }
+
+  .contact-block {
+    margin: 0;
+  }
+
+  .terms-page a {
+    color: var(--coral);
+    text-decoration: underline;
+  }
+
+  .terms-page a:hover,
+  .terms-page a:focus-visible {
+    color: var(--navy);
+  }
+
+  .terms-page a:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+</style>
