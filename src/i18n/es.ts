@@ -179,6 +179,7 @@ export const es: Messages = {
     cta: 'Solicita una evaluación gratuita',
     copyright: 'Copyright © 2026 Cybercon Solutions LLC',
     madeWith: 'Hecho con',
+    madeWithPlace: 'en Cooper City, Florida',
     blog: 'Blog',
     contact: 'Contacto',
     privacy: 'Privacidad y cookies',

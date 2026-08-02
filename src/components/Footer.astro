@@ -15,7 +15,7 @@ const loc = locale === 'es' ? 'es' : 'en';
 const homeHref = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
 const newWindowHint = locale === 'es' ? '(se abre en una pestaña nueva)' : '(opens in a new tab)';
-const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
+const heartLabel = locale === 'es' ? 'cariño' : 'love';
 
 const serviceGroups = [
   ['managed-it', 'cybersecurity', 'backup-disaster-recovery', 'it-consulting'],
@@ -139,6 +139,8 @@ const addressLines =
           {t.footer.madeWith}
           {' '}
           <span class="heart" role="img" aria-label={heartLabel}>&#10084;</span>
+          {' '}
+          {t.footer.madeWithPlace}
         </span>
       </p>
       <div class="footer-social">

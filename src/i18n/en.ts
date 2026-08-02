@@ -177,6 +177,7 @@ export const en = {
     cta: 'Book a free assessment',
     copyright: 'Copyright © 2026 Cybercon Solutions LLC',
     madeWith: 'Made with',
+    madeWithPlace: 'in Cooper City, Florida',
     blog: 'Blog',
     contact: 'Contact',
     privacy: 'Privacy & Cookies',
