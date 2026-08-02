@@ -39,6 +39,8 @@ const isSplit = layout === 'split';
             <a href={siteCheckHref}>{t.form.siteCheckCta}</a>
           </p>
           <p class="capture-inline capture-reveal capture-reveal-delay-3">
+            <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+            <span aria-hidden="true">·</span>
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </p>
         </div>

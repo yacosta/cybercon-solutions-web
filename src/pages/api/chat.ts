@@ -59,8 +59,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!limits.allowed) {
     const reply =
       locale === 'es'
-        ? 'Llegaste al límite de chat de hoy. Agenda la evaluación gratuita o usa el formulario de contacto — nuestro equipo te atiende.'
-        : 'You’ve reached today’s chat limit. Book the free assessment or use the contact form — a real engineer will help.';
+        ? 'Llegaste al límite de chat de hoy. Agenda la evaluación gratuita o llámanos — nuestro equipo te atiende.'
+        : 'You’ve reached today’s chat limit. Book the free assessment or call us — a real engineer will help.';
     return Response.json({
       ok: true,
       reply,
@@ -68,11 +68,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         locale === 'es'
           ? [
               { id: 'assessment', label: 'Reservar evaluación gratuita', href: '/es/assessment/' },
-              { id: 'contact', label: 'Contactar', href: '/es/contact/' },
+              { id: 'call', label: 'Llamar', href: 'tel:+17542271554' },
             ]
           : [
               { id: 'assessment', label: 'Book free assessment', href: '/assessment/' },
-              { id: 'contact', label: 'Contact us', href: '/contact/' },
+              { id: 'call', label: 'Call us', href: 'tel:+17542271554' },
             ],
       askEmail: false,
       leadCaptured: false,

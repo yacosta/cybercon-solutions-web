@@ -11,6 +11,9 @@ export type AccessibilitySection = {
     mailing: string;
     emailLabel: string;
     email: string;
+    phoneLabel: string;
+    phoneDisplay: string;
+    phoneHref: string;
     formLabel: string;
     formHref: string;
     formDisplay: string;
@@ -73,6 +76,9 @@ export const accessibilityContent = {
           mailing: '407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139, United States',
           emailLabel: 'Email',
           email: 'info@cybercon-solutions.com',
+          phoneLabel: 'Phone',
+          phoneDisplay: '(754) 227-1554',
+          phoneHref: 'tel:+1-754-227-1554',
           formLabel: 'Contact form',
           formHref: 'https://cybercon-solutions.com/contact/',
           formDisplay: 'cybercon-solutions.com/contact/',
@@ -139,6 +145,9 @@ export const accessibilityContent = {
           mailing: '407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139, Estados Unidos',
           emailLabel: 'Correo',
           email: 'info@cybercon-solutions.com',
+          phoneLabel: 'Teléfono',
+          phoneDisplay: '(754) 227-1554',
+          phoneHref: 'tel:+1-754-227-1554',
           formLabel: 'Formulario de contacto',
           formHref: 'https://cybercon-solutions.com/es/contact/',
           formDisplay: 'cybercon-solutions.com/es/contact/',
