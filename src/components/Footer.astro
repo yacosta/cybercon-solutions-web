@@ -15,6 +15,7 @@ const loc = locale === 'es' ? 'es' : 'en';
 const homeHref = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
 const newWindowHint = locale === 'es' ? '(se abre en una pestaña nueva)' : '(opens in a new tab)';
+const heartLabel = locale === 'es' ? 'con cariño' : 'with love';
 
 const serviceGroups = [
   ['managed-it', 'cybersecurity', 'backup-disaster-recovery', 'it-consulting'],
@@ -131,7 +132,15 @@ const addressLines =
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">{t.footer.copyright}</p>
+      <p class="footer-copy">
+        {t.footer.copyright}
+        <span class="divider" aria-hidden="true">|</span>
+        <span class="footer-made">
+          {t.footer.madeWith}
+          {' '}
+          <span class="heart" role="img" aria-label={heartLabel}>&#10084;</span>
+        </span>
+      </p>
       <div class="footer-social">
         <a
           class="footer-social-link"
@@ -330,6 +339,37 @@ const addressLines =
     font-size: 0.875rem;
     line-height: 1.5;
     color: #b6c7d6;
+  }
+
+  .footer-made {
+    white-space: nowrap;
+  }
+
+  .heart {
+    color: var(--coral);
+    display: inline-block;
+    font-size: 1.35em;
+    line-height: 1;
+    vertical-align: -0.05em;
+    transform-origin: center;
+    /* Same idea as MediaNV’s footer heart: scale pulse, alternate forever */
+    animation: heart-pulse 1.5s ease-in infinite alternate;
+  }
+
+  @keyframes heart-pulse {
+    0% {
+      transform: scale(0.55);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .heart {
+      animation: none;
+    }
   }
 
   .footer-legal {
