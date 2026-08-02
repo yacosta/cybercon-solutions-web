@@ -747,12 +747,12 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'web-design-development': {
     metaTitle: {
-      en: 'Web Design in South Florida | Cybercon',
-      es: 'Diseño web en el Sur de Florida | Cybercon',
+      en: 'Web Design & Redesign in South Florida | Cybercon',
+      es: 'Diseño y rediseño web en el Sur de Florida | Cybercon',
     },
     metaDescription: {
-      en: 'Accessible, on-brand websites and custom apps with secure hosting and ongoing support for Cooper City, Davie, and South Florida.',
-      es: 'Sitios accesibles y con tu marca, apps a medida, hosting seguro y soporte continuo para Cooper City, Davie y el sur de Florida.',
+      en: 'Website design & redesign for South Florida — flat-rate packages, accessible builds, secure hosting, and support for Cooper City & Davie.',
+      es: 'Diseño y rediseño web en el sur de Florida — paquetes a tarifa plana, sitios accesibles, hosting seguro y soporte para Cooper City y Davie.',
     },
     audience: {
       en: 'Businesses that need a credible web presence or a focused custom application, with hosting and support included. Aimed at South Florida organizations that care about accessibility, brand consistency, and secure operations. Choose this when your current site undersells the quality of your real-world service delivery. We also plan analytics consent and basic SEO foundations so the new site can be found and measured after launch without bolting tools on later.',
@@ -786,6 +786,16 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       },
     ],
     faqs: [
+      {
+        question: {
+          en: 'How much does website design or redesign cost?',
+          es: '¿Cuánto cuesta el diseño o rediseño de un sitio web?',
+        },
+        answer: {
+          en: 'Starter brochure sites typically run $2,000–$6,000. Most local businesses land in the Professional range at $6,000–$15,000. Advanced builds with e-commerce or heavier integrations start around $15,000. Enterprise platforms are scoped after we talk — no fixed public price. Final cost depends on pages, CMS needs, and integrations.',
+          es: 'Los sitios folleto iniciales suelen ir de $2,000 a $6,000. La mayoría de negocios locales cae en el rango Profesional de $6,000 a $15,000. Los proyectos avanzados con comercio electrónico o integraciones más pesadas parten cerca de $15,000. Las plataformas empresariales se cotizan después de conversar — sin precio público fijo. El costo final depende de páginas, necesidades de CMS e integraciones.',
+        },
+      },
       {
         question: {
           en: 'Do you only design marketing sites?',
