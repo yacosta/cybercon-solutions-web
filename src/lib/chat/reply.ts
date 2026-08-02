@@ -161,7 +161,7 @@ export function resolveCtas(locale: 'en' | 'es', ids: ChatCtaId[]): ChatCta[] {
     'site-check': `${prefix}/services/web-design-development/#site-check`,
     'breach-check': `${prefix}/services/cybersecurity/#breach-check`,
     contact: `${prefix}/contact/`,
-    call: 'tel:+13053205335',
+    call: 'tel:+17543009786',
   };
 
   return ids.map((id) => ({ id, label: labels[id], href: hrefs[id] }));

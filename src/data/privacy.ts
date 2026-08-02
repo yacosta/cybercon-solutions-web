@@ -8,13 +8,13 @@ export const privacyContent = {
     title: 'Privacy & Cookie Policy',
     eyebrow: 'Legal',
     /** ISO date for JSON-LD dateModified (keep in sync with lastUpdated copy). */
-    dateModified: '2026-07-29',
-    lastUpdated: 'Last updated: July 29, 2026',
+    dateModified: '2026-08-02',
+    lastUpdated: 'Last updated: August 2, 2026',
     intro:
       'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have. Non-essential cookies and similar trackers are not set or loaded until you give prior consent (or you may reject them and continue browsing).',
     controllerHeading: 'Who is responsible for your data',
     controller:
-      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · (305) 320-5335.',
+      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · (754) 300-9786.',
     sections: [
       {
         heading: '1. Information we collect',
@@ -107,7 +107,7 @@ export const privacyContent = {
       },
       {
         heading: '10. Contact us',
-        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (305) 320-5335 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States.',
+        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (754) 300-9786 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States.',
       },
     ],
   },
@@ -117,13 +117,13 @@ export const privacyContent = {
       'Cómo Cybercon Solutions recopila, usa y protege tu información. Categorías de cookies, consentimiento de analítica, Turnstile, derechos CCPA y contacto.',
     title: 'Política de Privacidad y Cookies',
     eyebrow: 'Legal',
-    dateModified: '2026-07-29',
-    lastUpdated: 'Última actualización: 29 de julio de 2026',
+    dateModified: '2026-08-02',
+    lastUpdated: 'Última actualización: 2 de agosto de 2026',
     intro:
       'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes. Las cookies no esenciales y rastreadores similares no se establecen ni se cargan hasta que des tu consentimiento previo (o puedes rechazarlas y seguir navegando).',
     controllerHeading: 'Quién es responsable de tus datos',
     controller:
-      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · (305) 320-5335.',
+      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · (754) 300-9786.',
     sections: [
       {
         heading: '1. Información que recopilamos',
@@ -216,7 +216,7 @@ export const privacyContent = {
       },
       {
         heading: '10. Contáctanos',
-        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (305) 320-5335 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos.',
+        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (754) 300-9786 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos.',
       },
     ],
   },

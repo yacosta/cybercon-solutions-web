@@ -68,11 +68,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         locale === 'es'
           ? [
               { id: 'assessment', label: 'Reservar evaluación gratuita', href: '/es/assessment/' },
-              { id: 'call', label: 'Llamar', href: 'tel:+13053205335' },
+              { id: 'call', label: 'Llamar', href: 'tel:+17543009786' },
             ]
           : [
               { id: 'assessment', label: 'Book free assessment', href: '/assessment/' },
-              { id: 'call', label: 'Call us', href: 'tel:+13053205335' },
+              { id: 'call', label: 'Call us', href: 'tel:+17543009786' },
             ],
       askEmail: false,
       leadCaptured: false,

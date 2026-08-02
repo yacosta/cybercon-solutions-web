@@ -25,8 +25,8 @@ export const termsContent = {
     title: 'Terms and Conditions',
     eyebrow: 'Legal',
     /** ISO date for JSON-LD dateModified (keep in sync with lastUpdated copy). */
-    dateModified: '2026-08-01',
-    lastUpdated: 'Last updated: August 1, 2026',
+    dateModified: '2026-08-02',
+    lastUpdated: 'Last updated: August 2, 2026',
     intro:
       'These Terms and Conditions (“Terms”) govern your use of the website at cybercon-solutions.com (including the Spanish locale at /es/) (the “Site”), operated by Cybercon Solutions LLC (“Cybercon Solutions,” “we,” “us,” or “our”). By using the Site, you agree to these Terms. If you do not agree, please do not use the Site.',
     introLink: {
@@ -92,8 +92,8 @@ export const termsContent = {
           emailLabel: 'Email',
           email: 'info@cybercon-solutions.com',
           phoneLabel: 'Phone',
-          phoneDisplay: '(305) 320-5335',
-          phoneHref: 'tel:+1-305-320-5335',
+          phoneDisplay: '(754) 300-9786',
+          phoneHref: 'tel:+1-754-300-9786',
         },
       },
     ] satisfies TermsSection[],
@@ -104,8 +104,8 @@ export const termsContent = {
       'Términos de uso de cybercon-solutions.com: uso aceptable, propiedad intelectual, exclusiones de responsabilidad, límites de responsabilidad y ley de Florida.',
     title: 'Términos y condiciones',
     eyebrow: 'Legal',
-    dateModified: '2026-08-01',
-    lastUpdated: 'Última actualización: 1 de agosto de 2026',
+    dateModified: '2026-08-02',
+    lastUpdated: 'Última actualización: 2 de agosto de 2026',
     intro:
       'Estos Términos y condiciones (“Términos”) rigen el uso del sitio web en cybercon-solutions.com (incluida la versión en español en /es/) (el “Sitio”), operado por Cybercon Solutions LLC (“Cybercon Solutions”, “nosotros” o “nuestro”). Al usar el Sitio, aceptas estos Términos. Si no estás de acuerdo, no uses el Sitio.',
     introLink: {
@@ -171,8 +171,8 @@ export const termsContent = {
           emailLabel: 'Correo',
           email: 'info@cybercon-solutions.com',
           phoneLabel: 'Teléfono',
-          phoneDisplay: '(305) 320-5335',
-          phoneHref: 'tel:+1-305-320-5335',
+          phoneDisplay: '(754) 300-9786',
+          phoneHref: 'tel:+1-754-300-9786',
         },
       },
     ] satisfies TermsSection[],

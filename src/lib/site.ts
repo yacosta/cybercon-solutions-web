@@ -3,8 +3,8 @@ export const site = {
   legalName: 'Cybercon Solutions LLC',
   url: 'https://cybercon-solutions.com',
   email: 'info@cybercon-solutions.com',
-  phone: '+1-305-320-5335',
-  phoneDisplay: '(305) 320-5335',
+  phone: '+1-754-300-9786',
+  phoneDisplay: '(754) 300-9786',
   slogan: 'Technology, handled.',
   /** Legal / mailing address (PMB). Not the primary onsite service HQ. */
   address: {
