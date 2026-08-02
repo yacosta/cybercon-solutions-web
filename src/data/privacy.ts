@@ -14,7 +14,7 @@ export const privacyContent = {
       'This policy explains what information CYBERCON SOLUTIONS collects when you use this website, how we use and protect it, the cookies and analytics we rely on, and the choices and rights you have. Non-essential cookies and similar trackers are not set or loaded until you give prior consent (or you may reject them and continue browsing).',
     controllerHeading: 'Who is responsible for your data',
     controller:
-      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · (754) 227-1554.',
+      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States, serving Cooper City & Davie, Florida. Questions about this policy or your data: info@cybercon-solutions.com · (754) 300-9786.',
     sections: [
       {
         heading: '1. Information we collect',
@@ -107,7 +107,7 @@ export const privacyContent = {
       },
       {
         heading: '10. Contact us',
-        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (754) 227-1554 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States.',
+        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (754) 300-9786 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, United States.',
       },
     ],
   },
@@ -123,7 +123,7 @@ export const privacyContent = {
       'Esta política explica qué información recopila CYBERCON SOLUTIONS cuando usas este sitio, cómo la usamos y protegemos, las cookies y la analítica que empleamos, y las opciones y derechos que tienes. Las cookies no esenciales y rastreadores similares no se establecen ni se cargan hasta que des tu consentimiento previo (o puedes rechazarlas y seguir navegando).',
     controllerHeading: 'Quién es responsable de tus datos',
     controller:
-      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · (754) 227-1554.',
+      'CYBERCON SOLUTIONS (Cybercon Solutions LLC), 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos, con servicio en Cooper City y Davie, Florida. Preguntas sobre esta política o tus datos: info@cybercon-solutions.com · (754) 300-9786.',
     sections: [
       {
         heading: '1. Información que recopilamos',
@@ -216,7 +216,7 @@ export const privacyContent = {
       },
       {
         heading: '10. Contáctanos',
-        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (754) 227-1554 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos.',
+        body: 'CYBERCON SOLUTIONS — info@cybercon-solutions.com · (754) 300-9786 · 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, Florida 33139, Estados Unidos.',
       },
     ],
   },
