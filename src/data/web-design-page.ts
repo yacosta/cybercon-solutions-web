@@ -2,7 +2,7 @@ export type LocaleCopy = { en: string; es: string };
 
 export type WebDesignPricingTier = {
   name: LocaleCopy;
-  priceFrom: string;
+  priceFrom: LocaleCopy;
   priceTo: LocaleCopy;
   description: LocaleCopy;
   features: LocaleCopy[];
@@ -135,7 +135,7 @@ export const webDesignPage: WebDesignPageCopy = {
     tiers: [
       {
         name: { en: 'Basic / Starter', es: 'Básico / Inicial' },
-        priceFrom: '$2,000',
+        priceFrom: { en: '$2,000', es: '$2,000' },
         priceTo: { en: '– $6,000', es: '– $6,000' },
         description: {
           en: '5–8 page brochure site, template-based (WordPress or similar), responsive, basic forms & SEO.',
@@ -153,7 +153,7 @@ export const webDesignPage: WebDesignPageCopy = {
       },
       {
         name: { en: 'Professional', es: 'Profesional' },
-        priceFrom: '$6,000',
+        priceFrom: { en: '$6,000', es: '$6,000' },
         priceTo: { en: '– $15,000', es: '– $15,000' },
         description: {
           en: 'Custom design, 8–15 pages, solid UX, CMS, on-page SEO, forms & light integrations. The sweet spot for most local businesses.',
@@ -174,7 +174,7 @@ export const webDesignPage: WebDesignPageCopy = {
       },
       {
         name: { en: 'Advanced', es: 'Avanzado' },
-        priceFrom: '$15,000',
+        priceFrom: { en: '$15,000', es: '$15,000' },
         priceTo: { en: '– $40,000+', es: '– $40,000+' },
         description: {
           en: 'E-commerce, memberships, custom functionality, advanced animations, CRM integrations, multi-language & heavy SEO.',
@@ -192,8 +192,8 @@ export const webDesignPage: WebDesignPageCopy = {
       },
       {
         name: { en: 'Enterprise', es: 'Empresarial' },
-        priceFrom: '$40,000',
-        priceTo: { en: '– $100k+', es: '– $100k+' },
+        priceFrom: { en: 'Contact us', es: 'Contáctanos' },
+        priceTo: { en: '', es: '' },
         description: {
           en: 'Large sites, custom platforms, heavy integrations, and high-traffic systems.',
           es: 'Sitios grandes, plataformas a medida, integraciones complejas y sistemas de alto tráfico.',

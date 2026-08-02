@@ -133,7 +133,7 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
                 <h3>{tier.name}</h3>
                 <p class="wd-price-amount">
                   <strong>{tier.priceFrom}</strong>
-                  <span>{tier.priceTo}</span>
+                  {tier.priceTo && <span>{tier.priceTo}</span>}
                 </p>
                 <p class="wd-price-desc">{tier.description}</p>
                 <ul class="wd-price-features">

@@ -288,7 +288,7 @@ export function buildServiceEditorial(
         footnote: copy.pricing.footnote[locale],
         tiers: copy.pricing.tiers.map((tier) => ({
           name: tier.name[locale],
-          priceFrom: tier.priceFrom,
+          priceFrom: tier.priceFrom[locale],
           priceTo: tier.priceTo[locale],
           description: tier.description[locale],
           features: tier.features.map((feature) => feature[locale]),
