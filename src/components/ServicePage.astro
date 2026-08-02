@@ -116,6 +116,48 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
       </ol>
     </section>
 
+    {copy.pricing && (
+      <section class="wd-pricing" aria-labelledby="wd-pricing-title" id="pricing">
+        <div class="container">
+          <header class="wd-pricing-head">
+            <p class="wd-label">{copy.pricing.eyebrow}</p>
+            <h2 id="wd-pricing-title">{copy.pricing.title}</h2>
+            <p class="wd-pricing-lede">{copy.pricing.lede}</p>
+          </header>
+          <div class="wd-pricing-grid">
+            {copy.pricing.tiers.map((tier) => (
+              <article class:list={['wd-price-card', { featured: tier.featured }]}>
+                {tier.featured && tier.badge && (
+                  <p class="wd-price-badge">{tier.badge}</p>
+                )}
+                <h3>{tier.name}</h3>
+                <p class="wd-price-amount">
+                  <strong>{tier.priceFrom}</strong>
+                  <span>{tier.priceTo}</span>
+                </p>
+                <p class="wd-price-desc">{tier.description}</p>
+                <ul class="wd-price-features">
+                  {tier.features.map((feature) => (
+                    <li>
+                      <span class="wd-price-check" aria-hidden="true">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  class:list={['wd-price-cta', { primary: tier.featured }]}
+                  href={assessmentHref}
+                >
+                  {tier.cta}
+                </a>
+              </article>
+            ))}
+          </div>
+          <p class="wd-pricing-footnote">{copy.pricing.footnote}</p>
+        </div>
+      </section>
+    )}
+
     {showSiteCheck && <SiteCheck locale={locale} t={t} variant="embed" />}
     {showBreachCheck && <BreachCheck locale={locale} t={t} variant="embed" />}
 
@@ -440,6 +482,196 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
       text-align: left;
       max-width: 30rem;
     }
+  }
+
+  .wd-pricing {
+    background:
+      radial-gradient(900px 360px at 8% 0%, rgba(192, 57, 43, 0.07), transparent 55%),
+      radial-gradient(800px 320px at 92% 10%, rgba(15, 44, 76, 0.06), transparent 50%),
+      var(--cream);
+    padding-block: clamp(2.75rem, 6vw, 4.5rem);
+    border-block: 1px solid rgba(15, 44, 76, 0.1);
+  }
+
+  .wd-pricing-head {
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 2.75rem);
+  }
+
+  .wd-pricing-head .wd-label {
+    margin-bottom: 0.75rem;
+  }
+
+  .wd-pricing-head h2 {
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    letter-spacing: -0.02em;
+  }
+
+  .wd-pricing-lede {
+    margin: 1rem auto 0;
+    max-width: 36rem;
+    color: var(--body-muted);
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .wd-pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 720px) {
+    .wd-pricing-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .wd-pricing-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.35rem;
+      align-items: stretch;
+    }
+  }
+
+  .wd-price-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: var(--radius-md);
+    padding: 1.5rem 1.35rem 1.35rem;
+  }
+
+  .wd-price-card.featured {
+    border: 2px solid var(--coral);
+    box-shadow: 0 14px 36px rgba(15, 44, 76, 0.1);
+  }
+
+  .wd-price-badge {
+    position: absolute;
+    top: -0.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    background: var(--coral);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .wd-price-card h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .wd-price-amount {
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .wd-price-amount strong {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .wd-price-amount span {
+    color: var(--muted-blue);
+    font-size: 0.95rem;
+  }
+
+  .wd-price-desc {
+    margin: 1rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--body-muted);
+  }
+
+  .wd-price-features {
+    list-style: none;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--body-muted);
+  }
+
+  .wd-price-features li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+  }
+
+  .wd-price-check {
+    color: var(--coral);
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .wd-price-cta {
+    margin-top: 1.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    background: var(--navy);
+    color: var(--white);
+    border: 1px solid var(--navy);
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .wd-price-cta:hover {
+    background: #0b223b;
+    border-color: #0b223b;
+  }
+
+  .wd-price-cta.primary {
+    background: var(--button-red);
+    border-color: var(--button-red);
+  }
+
+  .wd-price-cta.primary:hover {
+    background: var(--button-red-hover);
+    border-color: var(--button-red-hover);
+  }
+
+  .wd-price-cta:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  .wd-pricing-footnote {
+    margin: 2rem auto 0;
+    max-width: 44rem;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--muted-blue);
   }
 
   .wd-after {

@@ -3,6 +3,17 @@ import type { ServiceDetails } from './service-details';
 import { webDesignPage } from '../data/web-design-page';
 import type { Messages } from '../i18n/en';
 
+export type EditorialPricingTier = {
+  name: string;
+  priceFrom: string;
+  priceTo: string;
+  description: string;
+  features: string[];
+  cta: string;
+  featured?: boolean;
+  badge?: string;
+};
+
 export type EditorialCopy = {
   displayTitle: string;
   lede: string;
@@ -15,6 +26,13 @@ export type EditorialCopy = {
   process: {
     label: string;
     steps: Array<{ number: string; title: string; body: string }>;
+  };
+  pricing?: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    footnote: string;
+    tiers: EditorialPricingTier[];
   };
   feature: {
     label: string;
@@ -261,6 +279,22 @@ export function buildServiceEditorial(
           number: step.number,
           title: step.title[locale],
           body: step.body[locale],
+        })),
+      },
+      pricing: {
+        eyebrow: copy.pricing.eyebrow[locale],
+        title: copy.pricing.title[locale],
+        lede: copy.pricing.lede[locale],
+        footnote: copy.pricing.footnote[locale],
+        tiers: copy.pricing.tiers.map((tier) => ({
+          name: tier.name[locale],
+          priceFrom: tier.priceFrom,
+          priceTo: tier.priceTo[locale],
+          description: tier.description[locale],
+          features: tier.features.map((feature) => feature[locale]),
+          cta: tier.cta[locale],
+          featured: tier.featured,
+          badge: tier.badge?.[locale],
         })),
       },
       feature: {

@@ -1,5 +1,16 @@
 export type LocaleCopy = { en: string; es: string };
 
+export type WebDesignPricingTier = {
+  name: LocaleCopy;
+  priceFrom: string;
+  priceTo: LocaleCopy;
+  description: LocaleCopy;
+  features: LocaleCopy[];
+  cta: LocaleCopy;
+  featured?: boolean;
+  badge?: LocaleCopy;
+};
+
 export type WebDesignPageCopy = {
   displayTitle: LocaleCopy;
   lede: LocaleCopy;
@@ -16,6 +27,13 @@ export type WebDesignPageCopy = {
       title: LocaleCopy;
       body: LocaleCopy;
     }>;
+  };
+  pricing: {
+    eyebrow: LocaleCopy;
+    title: LocaleCopy;
+    lede: LocaleCopy;
+    footnote: LocaleCopy;
+    tiers: WebDesignPricingTier[];
   };
   afterLaunch: {
     label: LocaleCopy;
@@ -93,6 +111,101 @@ export const webDesignPage: WebDesignPageCopy = {
         body: {
           en: 'Ship, monitor, and stay available — content changes and security updates never stall.',
           es: 'Publicamos, monitoreamos y seguimos disponibles — los cambios de contenido y las actualizaciones de seguridad no se estancan.',
+        },
+      },
+    ],
+  },
+  pricing: {
+    eyebrow: {
+      en: 'Web design packages',
+      es: 'Paquetes de diseño web',
+    },
+    title: {
+      en: 'Website design & redesign pricing',
+      es: 'Precios de diseño y rediseño web',
+    },
+    lede: {
+      en: 'Transparent flat-rate packages for South Florida businesses',
+      es: 'Paquetes a tarifa plana, transparentes, para empresas del sur de Florida',
+    },
+    footnote: {
+      en: 'All packages include discovery, design, development, SEO setup, testing & launch support. Final price depends on exact scope.',
+      es: 'Todos los paquetes incluyen descubrimiento, diseño, desarrollo, configuración SEO, pruebas y soporte de lanzamiento. El precio final depende del alcance exacto.',
+    },
+    tiers: [
+      {
+        name: { en: 'Basic / Starter', es: 'Básico / Inicial' },
+        priceFrom: '$2,000',
+        priceTo: { en: '– $6,000', es: '– $6,000' },
+        description: {
+          en: '5–8 page brochure site, template-based (WordPress or similar), responsive, basic forms & SEO.',
+          es: 'Sitio folleto de 5–8 páginas, basado en plantilla (WordPress o similar), responsivo, formularios básicos y SEO.',
+        },
+        features: [
+          { en: 'Template-based design', es: 'Diseño basado en plantilla' },
+          { en: 'Fully responsive', es: 'Totalmente responsivo' },
+          { en: 'Basic forms & SEO', es: 'Formularios básicos y SEO' },
+        ],
+        cta: {
+          en: 'Get a Basic package quote',
+          es: 'Pedir cotización del paquete Básico',
+        },
+      },
+      {
+        name: { en: 'Professional', es: 'Profesional' },
+        priceFrom: '$6,000',
+        priceTo: { en: '– $15,000', es: '– $15,000' },
+        description: {
+          en: 'Custom design, 8–15 pages, solid UX, CMS, on-page SEO, forms & light integrations. The sweet spot for most local businesses.',
+          es: 'Diseño a medida, 8–15 páginas, UX sólido, CMS, SEO on-page, formularios e integraciones ligeras. El punto ideal para la mayoría de negocios locales.',
+        },
+        features: [
+          { en: 'Custom design', es: 'Diseño a medida' },
+          { en: 'CMS + solid UX', es: 'CMS + UX sólido' },
+          { en: 'On-page SEO included', es: 'SEO on-page incluido' },
+          { en: 'Light integrations', es: 'Integraciones ligeras' },
+        ],
+        cta: {
+          en: 'Get a Professional package quote',
+          es: 'Pedir cotización del paquete Profesional',
+        },
+        featured: true,
+        badge: { en: 'Most Popular', es: 'Más popular' },
+      },
+      {
+        name: { en: 'Advanced', es: 'Avanzado' },
+        priceFrom: '$15,000',
+        priceTo: { en: '– $40,000+', es: '– $40,000+' },
+        description: {
+          en: 'E-commerce, memberships, custom functionality, advanced animations, CRM integrations, multi-language & heavy SEO.',
+          es: 'Comercio electrónico, membresías, funcionalidad a medida, animaciones avanzadas, integraciones CRM, multiidioma y SEO intensivo.',
+        },
+        features: [
+          { en: 'E-commerce / memberships', es: 'Comercio electrónico / membresías' },
+          { en: 'Custom functionality', es: 'Funcionalidad a medida' },
+          { en: 'CRM & advanced integrations', es: 'CRM e integraciones avanzadas' },
+        ],
+        cta: {
+          en: 'Get an Advanced package quote',
+          es: 'Pedir cotización del paquete Avanzado',
+        },
+      },
+      {
+        name: { en: 'Enterprise', es: 'Empresarial' },
+        priceFrom: '$40,000',
+        priceTo: { en: '– $100k+', es: '– $100k+' },
+        description: {
+          en: 'Large sites, custom platforms, heavy integrations, and high-traffic systems.',
+          es: 'Sitios grandes, plataformas a medida, integraciones complejas y sistemas de alto tráfico.',
+        },
+        features: [
+          { en: 'Custom platforms', es: 'Plataformas a medida' },
+          { en: 'Complex integrations', es: 'Integraciones complejas' },
+          { en: 'High-traffic architecture', es: 'Arquitectura para alto tráfico' },
+        ],
+        cta: {
+          en: 'Talk with us about Enterprise scope',
+          es: 'Hablar con nosotros sobre alcance Empresarial',
         },
       },
     ],
