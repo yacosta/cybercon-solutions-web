@@ -2,7 +2,7 @@
 
 > Managed IT, cybersecurity, cloud, and AI for South Florida businesses. We catch issues early and treat security as the baseline.
 
-Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida. Contact: info@cybercon-solutions.com · (305) 320-5335. Legal mailing address: 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139. Request any HTML page with `Accept: text/markdown` for a Markdown variant.
+Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida. Contact: info@cybercon-solutions.com. Legal mailing address: 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139. Request any HTML page with `Accept: text/markdown` for a Markdown variant.
 
 ## Site
 
@@ -13,7 +13,7 @@ Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida.
 - [Free site check](https://cybercon-solutions.com/services/web-design-development/#site-check): Lite A–F website health check on the Web Design & Development page
 - [Free breach check](https://cybercon-solutions.com/services/cybersecurity/#breach-check): Lite Have I Been Pwned email exposure check on the Cybersecurity page
 - [Blog](https://cybercon-solutions.com/blog/): Enterprise AI, IT, and cybersecurity insights
-- [Contact](https://cybercon-solutions.com/contact/): Contact form, phone, and mailing details
+- [Contact](https://cybercon-solutions.com/contact/): Contact form, email, and mailing details
 - [Privacy Policy](https://cybercon-solutions.com/privacy/): Privacy and data practices
 - [Accessibility Statement](https://cybercon-solutions.com/accessibility/): Accessibility approach and feedback
 - [Terms and Conditions](https://cybercon-solutions.com/terms/): Website terms of use

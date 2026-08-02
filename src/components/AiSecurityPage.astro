@@ -20,7 +20,6 @@ const path = locale === 'es' ? '/es/services/ai-security/' : '/services/ai-secur
 const homePath = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
 const cyberHref = localePath(locale, '/services/cybersecurity/');
-const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
 
 const faqs = copy.faq.items;
 const banner = {
@@ -98,7 +97,7 @@ const banner = {
         <p class="ais-hero-note ais-reveal ais-reveal-delay-4">
           {copy.hero.replyNote[locale]}
           <span aria-hidden="true"> · </span>
-          <a href={phoneHref}>{site.phoneDisplay}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
         </p>
       </div>
     </section>

@@ -13,7 +13,6 @@ export function buildKnowledgePack(locale: 'en' | 'es'): string {
 - Eslogan: Tecnología, resuelta.
 - Área de servicio: ${site.serviceAreaFocus}
 - Dirección postal: ${formatMailingAddress()}
-- Teléfono: ${site.phoneDisplay} (${site.phone})
 - Email: ${site.email}
 - LinkedIn: ${site.social.linkedin}
 - X: ${site.social.x}
@@ -33,10 +32,11 @@ Herramientas gratuitas en el sitio
 
 Reglas
 - Solo responde sobre Cybercon, TI administrada, ciberseguridad y cómo empezar.
-- Si no sabes algo, dilo y ofrece la evaluación o una llamada.
+- Si no sabes algo, dilo y ofrece la evaluación o el formulario de contacto.
 - No finjas ser soporte 24/7 por chat. La mesa de ayuda 24/7 es telefónica para clientes.
 - No inventes certificaciones, clientes, casos de estudio ni precios.
-- Empuja con suavidad hacia evaluación, site check o llamada cuando el visitante muestre intención.`;
+- No publiques ni inventes números de teléfono. Contacto solo por correo, evaluación o formulario.
+- Empuja con suavidad hacia evaluación, site check o contacto cuando el visitante muestre intención.`;
   }
 
   return `About Cybercon Solutions
@@ -44,7 +44,6 @@ Reglas
 - Slogan: ${site.slogan}
 - Service area: ${site.serviceAreaFocus}
 - Mailing address: ${formatMailingAddress()}
-- Phone: ${site.phoneDisplay} (${site.phone})
 - Email: ${site.email}
 - LinkedIn: ${site.social.linkedin}
 - X: ${site.social.x}
@@ -64,17 +63,18 @@ Free on-site tools
 
 Rules
 - Answer only about Cybercon, managed IT, cybersecurity, and how to get started.
-- If unsure, say so and offer the free assessment or a phone call.
+- If unsure, say so and offer the free assessment or the contact form.
 - Do not pretend to be 24/7 chat support. 24/7 help desk is live phone for clients.
 - Do not invent certifications, customers, case studies, or prices.
-- Gently steer toward assessment, site check, or a call when the visitor shows intent.`;
+- Never publish or invent phone numbers. Contact is email, assessment, or the contact form only.
+- Gently steer toward assessment, site check, or contact when the visitor shows intent.`;
 }
 
 export type FaqEntry = {
   patterns: RegExp[];
   en: string;
   es: string;
-  ctas?: Array<'assessment' | 'site-check' | 'breach-check' | 'contact' | 'call'>;
+  ctas?: Array<'assessment' | 'site-check' | 'breach-check' | 'contact'>;
 };
 
 export const FAQ: FaqEntry[] = [
@@ -94,7 +94,7 @@ export const FAQ: FaqEntry[] = [
     patterns: [/where (are|do) you/i, /service area/i, /cooper city|davie|miami|south florida/i, /dónde (están|atienden|cubren)/i, /área de (servicio|cobertura)/i],
     en: `We serve Cooper City, Davie, and greater South Florida. Our mailing address is in Miami Beach (${formatMailingAddress()}). Onsite and managed services focus on the local South Florida market.`,
     es: `Atendemos Cooper City, Davie y el sur de Florida. Nuestra dirección postal está en Miami Beach (${formatMailingAddress()}). Los servicios en sitio y administrados se centran en el mercado local del sur de Florida.`,
-    ctas: ['contact', 'call'],
+    ctas: ['contact', 'assessment'],
   },
   {
     patterns: [/pric|cost|how much|budget|quote|tarif|precio|cu[aá]nto cuest/i],
@@ -132,7 +132,7 @@ export const FAQ: FaqEntry[] = [
     patterns: [/help desk|24\/7|support hours|soporte|mesa de ayuda/i],
     en: `Managed IT clients get a 24/7/365 local help desk with live phone response — not chat-only. This website assistant answers basics and helps you book the right next step.`,
     es: `Los clientes de TI administrada tienen mesa de ayuda local 24/7/365 con respuesta telefónica en vivo — no solo chat. Este asistente del sitio responde lo básico y te ayuda a agendar el siguiente paso correcto.`,
-    ctas: ['assessment', 'call'],
+    ctas: ['assessment', 'contact'],
   },
   {
     patterns: [/cybersecurity|\bransomware\b|\bhipaa\b|soc\s*2|\bpci\b|cumplimiento|\bciberseguridad\b|\bciber\b/i],
@@ -148,9 +148,9 @@ export const FAQ: FaqEntry[] = [
   },
   {
     patterns: [/contact|call|phone|email|hablar|llamar|correo/i],
-    en: `You can reach us at ${site.phoneDisplay} or ${site.email}, or use the contact form. Prefer structure first? Book the free assessment — we reply within one business day.`,
-    es: `Puedes escribirnos o llamarnos al ${site.phoneDisplay} / ${site.email}, o usar el formulario de contacto. ¿Prefieres primero algo más estructurado? Agenda la evaluación gratuita — respondemos en un día hábil.`,
-    ctas: ['contact', 'call', 'assessment'],
+    en: `You can reach us at ${site.email} or use the contact form. Prefer structure first? Book the free assessment — we reply within one business day.`,
+    es: `Puedes escribirnos a ${site.email} o usar el formulario de contacto. ¿Prefieres primero algo más estructurado? Agenda la evaluación gratuita — respondemos en un día hábil.`,
+    ctas: ['contact', 'assessment'],
   },
 ];
 

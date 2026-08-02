@@ -10,7 +10,7 @@ export type ChatMessage = {
   content: string;
 };
 
-export type ChatCtaId = 'assessment' | 'site-check' | 'breach-check' | 'contact' | 'call';
+export type ChatCtaId = 'assessment' | 'site-check' | 'breach-check' | 'contact';
 
 export type ChatCta = {
   id: ChatCtaId;
@@ -80,8 +80,9 @@ function systemPrompt(locale: 'en' | 'es', agentId?: string | null): string {
     return `Eres ${agent.name}, guía con IA del sitio web de Cybercon Solutions. Habla en primera persona como ${agent.name}: cálido/a, claro/a y profesional.
 Responde en español, de forma breve (2–4 frases).
 Nunca inventes precios, certificaciones ni clientes.
-Si el visitante quiere precios, una propuesta o ayuda con TI, invita a la evaluación gratuita o a llamar.
+Si el visitante quiere precios, una propuesta o ayuda con TI, invita a la evaluación gratuita o al formulario de contacto.
 Si preguntan algo fuera de alcance, dilo y ofrece evaluación o contacto.
+Nunca publiques ni inventes números de teléfono.
 Deja claro con naturalidad que eres una guía con IA cuando pregunten ${humanAsk}; no digas que eres ${liveRole}.
 
 Conocimiento permitido:
@@ -91,8 +92,9 @@ ${knowledge}`;
   return `You are ${agent.name}, the AI guide for the Cybercon Solutions website. Speak in the first person as ${agent.name}: warm, clear, and professional.
 Reply in English, briefly (2–4 sentences).
 Never invent prices, certifications, or customers.
-If the visitor wants pricing, a proposal, or IT help, invite the free assessment or a phone call.
+If the visitor wants pricing, a proposal, or IT help, invite the free assessment or the contact form.
 If asked something out of scope, say so and offer the assessment or contact.
+Never publish or invent phone numbers.
 If asked whether you are human, say naturally that you are Cybercon’s AI guide — do not claim to be a live engineer.
 
 Allowlisted knowledge:
@@ -130,8 +132,7 @@ function intentCtas(userMessage: string, reply: string): ChatCtaId[] {
   if (/site check|website check|revisi[oó]n.*(sitio|web)|#site-check/.test(blob)) push('site-check');
   if (/breach|filtraci[oó]n|hibp|#breach-check/.test(blob)) push('breach-check');
   if (/assess|evaluaci[oó]n|pric|cost|precio|cu[aá]nto|quote|budget/.test(blob)) push('assessment');
-  if (/call|phone|llamar|tel[eé]fono/.test(blob)) push('call');
-  if (/contact|contacto|email|correo/.test(blob)) push('contact');
+  if (/call|phone|llamar|tel[eé]fono|contact|contacto|email|correo/.test(blob)) push('contact');
 
   if (ids.length === 0) push('assessment');
   return ids.slice(0, 3);
@@ -146,14 +147,12 @@ export function resolveCtas(locale: 'en' | 'es', ids: ChatCtaId[]): ChatCta[] {
           'site-check': 'Revisión gratuita del sitio',
           'breach-check': 'Revisión de filtraciones',
           contact: 'Contactar',
-          call: 'Llamar',
         }
       : {
           assessment: 'Book free assessment',
           'site-check': 'Run free site check',
           'breach-check': 'Run breach check',
           contact: 'Contact us',
-          call: 'Call us',
         };
 
   const hrefs: Record<ChatCtaId, string> = {
@@ -161,7 +160,6 @@ export function resolveCtas(locale: 'en' | 'es', ids: ChatCtaId[]): ChatCta[] {
     'site-check': `${prefix}/services/web-design-development/#site-check`,
     'breach-check': `${prefix}/services/cybersecurity/#breach-check`,
     contact: `${prefix}/contact/`,
-    call: 'tel:+13053205335',
   };
 
   return ids.map((id) => ({ id, label: labels[id], href: hrefs[id] }));

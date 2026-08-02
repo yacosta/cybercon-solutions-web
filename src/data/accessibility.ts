@@ -11,9 +11,6 @@ export type AccessibilitySection = {
     mailing: string;
     emailLabel: string;
     email: string;
-    phoneLabel: string;
-    phoneDisplay: string;
-    phoneHref: string;
     formLabel: string;
     formHref: string;
     formDisplay: string;
@@ -28,8 +25,8 @@ export const accessibilityContent = {
     title: 'Accessibility Statement',
     eyebrow: 'Legal',
     /** ISO date for JSON-LD dateModified (keep in sync with lastUpdated copy). */
-    dateModified: '2026-08-01',
-    lastUpdated: 'Last updated: August 1, 2026',
+    dateModified: '2026-08-02',
+    lastUpdated: 'Last updated: August 2, 2026',
     intro:
       'Cybercon Solutions LLC (“Cybercon Solutions,” “we,” “us,” or “our”) is committed to improving digital accessibility for people with disabilities. This Accessibility Statement applies to cybercon-solutions.com (including the Spanish locale at /es/). Accessibility is an ongoing effort, and we continue to review and improve our website, content, and digital experiences over time.',
     sections: [
@@ -76,9 +73,6 @@ export const accessibilityContent = {
           mailing: '407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139, United States',
           emailLabel: 'Email',
           email: 'info@cybercon-solutions.com',
-          phoneLabel: 'Phone',
-          phoneDisplay: '(305) 320-5335',
-          phoneHref: 'tel:+1-305-320-5335',
           formLabel: 'Contact form',
           formHref: 'https://cybercon-solutions.com/contact/',
           formDisplay: 'cybercon-solutions.com/contact/',
@@ -97,8 +91,8 @@ export const accessibilityContent = {
       'Cómo Cybercon Solutions trabaja hacia WCAG 2.2 Nivel AA en cybercon-solutions.com, qué mejoramos y cómo reportar barreras de accesibilidad.',
     title: 'Declaración de accesibilidad',
     eyebrow: 'Legal',
-    dateModified: '2026-08-01',
-    lastUpdated: 'Última actualización: 1 de agosto de 2026',
+    dateModified: '2026-08-02',
+    lastUpdated: 'Última actualización: 2 de agosto de 2026',
     intro:
       'Cybercon Solutions LLC (“Cybercon Solutions”, “nosotros” o “nuestro”) se compromete a mejorar la accesibilidad digital para las personas con discapacidad. Esta Declaración de accesibilidad aplica a cybercon-solutions.com (incluida la versión en español en /es/). La accesibilidad es un esfuerzo continuo, y seguimos revisando y mejorando el sitio, el contenido y las experiencias digitales con el tiempo.',
     sections: [
@@ -145,9 +139,6 @@ export const accessibilityContent = {
           mailing: '407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139, Estados Unidos',
           emailLabel: 'Correo',
           email: 'info@cybercon-solutions.com',
-          phoneLabel: 'Teléfono',
-          phoneDisplay: '(305) 320-5335',
-          phoneHref: 'tel:+1-305-320-5335',
           formLabel: 'Formulario de contacto',
           formHref: 'https://cybercon-solutions.com/es/contact/',
           formDisplay: 'cybercon-solutions.com/es/contact/',

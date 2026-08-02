@@ -126,7 +126,6 @@ description: "Tell Cybercon what’s broken, what it’s costing you, or where y
 
 Tell us what’s broken — or what it’s costing you. Unpredictable IT spend, surprise invoices, or a team buried in routine tickets — we take that noise so you can run the business. Someone on our engineering team replies within one business day. No obligation.
 
-- Phone: ${site.phoneDisplay}
 - Email: ${site.email}
 - Service area: ${site.serviceAreaFocus}
 - Mailing address: ${formatMailingAddress()}
@@ -143,7 +142,6 @@ description: "Cuéntale a Cybercon qué falla, cuánto te está costando o dónd
 
 Cuéntanos qué falla — o cuánto te está costando. Gasto de TI impredecible, facturas sorpresa o un equipo enterrado en tickets rutinarios — nos llevamos ese ruido para que tú operes el negocio. Alguien de nuestro equipo de ingeniería responde en un día hábil. Sin compromiso.
 
-- Teléfono: ${site.phoneDisplay}
 - Correo: ${site.email}
 - Zona de servicio: Cooper City, Davie y el sur de Florida
 - Dirección postal: ${formatMailingAddress()}
@@ -219,7 +217,7 @@ Three phases. No surprises mid-project.
 
 ## Contact
 
-info@cybercon-solutions.com · (305) 320-5335 · Cooper City & Davie, Florida
+info@cybercon-solutions.com · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en Cooper City y Davie | Cybercon"
@@ -260,7 +258,7 @@ Tres fases. Sin sorpresas a mitad de camino.
 
 ## Contacto
 
-info@cybercon-solutions.com · (305) 320-5335 · Cooper City y Davie, Florida
+info@cybercon-solutions.com · Cooper City y Davie, Florida
 `,
   '/privacy/': privacyToMarkdown('en'),
   '/privacy': privacyToMarkdown('en'),
@@ -437,7 +435,6 @@ function accessibilityToMarkdown(locale: 'en' | 'es'): string {
         c.org,
         `${c.mailingLabel}: ${c.mailing}`,
         `${c.emailLabel}: ${c.email}`,
-        `${c.phoneLabel}: ${c.phoneDisplay}`,
         `${c.formLabel}: ${c.formHref}`,
         '',
       );
@@ -479,7 +476,6 @@ function termsToMarkdown(locale: 'en' | 'es'): string {
         c.org,
         `${c.mailingLabel}: ${c.mailing}`,
         `${c.emailLabel}: ${c.email}`,
-        `${c.phoneLabel}: ${c.phoneDisplay}`,
         '',
       );
     }

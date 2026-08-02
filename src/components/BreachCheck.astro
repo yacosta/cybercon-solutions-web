@@ -1,7 +1,6 @@
 ---
 import { turnstileSiteKey } from '../lib/turnstile';
 import { localePath, type Messages } from '../i18n';
-import { site } from '../lib/site';
 
 interface Props {
   locale: string;
@@ -12,7 +11,6 @@ interface Props {
 const { locale, t, variant = 'page' } = Astro.props;
 const siteKey = turnstileSiteKey();
 const assessmentHref = localePath(locale, '/assessment/');
-const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
 const copy = t.breachCheck;
 const TitleTag = variant === 'page' ? 'h1' : 'h2';
 ---
@@ -100,10 +98,7 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
             <div class="cta-block">
               <p class="cta-lede">{copy.ctaLede}</p>
               <div class="cta-row">
-                <a class="btn btn-primary" href={phoneHref} data-bc-call>
-                  {copy.callCta.replace('{phone}', site.phoneDisplay)}
-                </a>
-                <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
+                <a class="btn btn-primary" href={assessmentHref}>{copy.bookCta}</a>
               </div>
               <button type="button" class="text-link" data-bc-reset>{copy.checkAnother}</button>
             </div>
@@ -113,10 +108,7 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
             <h3 class="limit-title" data-bc-limit-title>{copy.limitTitle}</h3>
             <p class="limit-body" data-bc-limit-body>{copy.limitBody}</p>
             <div class="cta-row">
-              <a class="btn btn-primary" href={phoneHref}>
-                {copy.callCta.replace('{phone}', site.phoneDisplay)}
-              </a>
-              <a class="btn btn-secondary" href={assessmentHref}>{copy.bookCta}</a>
+              <a class="btn btn-primary" href={assessmentHref}>{copy.bookCta}</a>
             </div>
             <button type="button" class="text-link" data-bc-reset>{copy.checkAnother}</button>
           </div>

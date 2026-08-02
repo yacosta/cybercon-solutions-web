@@ -2,7 +2,6 @@
 import { en } from '../i18n/en';
 import { es } from '../i18n/es';
 import { turnstileSiteKey } from '../lib/turnstile';
-import { site } from '../lib/site';
 import { CHAT_AGENTS, getChatAgent } from '../lib/chat/agents';
 
 interface Props {
@@ -12,8 +11,6 @@ interface Props {
 
 const { locale } = Astro.props;
 const siteKey = turnstileSiteKey();
-const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
-const phoneDisplay = site.phoneDisplay;
 
 const catalogs = {
   en: en.chat,
@@ -26,14 +23,12 @@ const hrefs = {
     siteCheck: '/services/web-design-development/#site-check',
     breachCheck: '/services/cybersecurity/#breach-check',
     contact: '/contact/',
-    call: phoneHref,
   },
   es: {
     assessment: '/es/assessment/',
     siteCheck: '/es/services/web-design-development/#site-check',
     breachCheck: '/es/services/cybersecurity/#breach-check',
     contact: '/es/contact/',
-    call: phoneHref,
   },
 };
 
@@ -166,7 +161,7 @@ const agents = CHAT_AGENTS;
       {' '}
       <a data-chat-assessment-link href={hrefs[locale].assessment}>{initial.assessmentLink}</a>
       {' · '}
-      <a href={phoneHref}>{phoneDisplay}</a>
+      <a data-chat-contact-link href={hrefs[locale].contact}>{initial.ctaContact}</a>
     </p>
   </div>
 </div>
@@ -178,8 +173,6 @@ const agents = CHAT_AGENTS;
     catalogs,
     hrefs,
     siteKey,
-    phoneHref,
-    phoneDisplay,
     agents,
   }}
 >
@@ -242,6 +235,7 @@ const agents = CHAT_AGENTS;
     var inputLabelEl = root.querySelector('[data-chat-input-label]');
     var footnoteText = root.querySelector('[data-chat-footnote-text]');
     var assessmentLink = root.querySelector('[data-chat-assessment-link]');
+    var contactLink = root.querySelector('[data-chat-contact-link]');
 
     var messages = [];
     var busy = false;
@@ -283,6 +277,10 @@ const agents = CHAT_AGENTS;
       if (assessmentLink) {
         assessmentLink.textContent = copy.assessmentLink;
         assessmentLink.setAttribute('href', links.assessment);
+      }
+      if (contactLink) {
+        contactLink.textContent = copy.ctaContact;
+        contactLink.setAttribute('href', links.contact);
       }
       applyAvatars();
       root.querySelectorAll('[data-chat-lang]').forEach(function (btn) {
@@ -522,7 +520,7 @@ const agents = CHAT_AGENTS;
             copy.error,
             [
               { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
-              { id: 'call', label: copy.ctaCall, href: phoneHref },
+              { id: 'contact', label: copy.ctaContact, href: links.contact },
             ],
             { reveal: true },
           );
