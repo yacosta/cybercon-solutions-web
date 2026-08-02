@@ -66,7 +66,7 @@ Si tu huella de retail cruza países y vitrinas y quieres un proveedor para los 
 - [TI administrada que reporta como un CIO](/es/blog/managed-it-reports-like-cio/)
 - [TI para distribución, retail y manufactura](/es/industries/distribution-retail-manufacturing/)
 - [Servicios en la nube para operadores multi-sede](/es/services/cloud/)
-- [La agenda del CIO fraccionario: los primeros 90 días](/es/blog/fractional-cio-first-90-days/)
+- [Agenda del CIO fraccionario: primeros 90 días](/es/blog/fractional-cio-first-90-days/)
 
 ---
 

@@ -4,6 +4,9 @@ export type WebDesignPricingTier = {
   name: LocaleCopy;
   priceFrom: LocaleCopy;
   priceTo: LocaleCopy;
+  /** USD bounds for Offer JSON-LD; omit when price is quote-only (Enterprise). */
+  priceMinUsd?: number;
+  priceMaxUsd?: number;
   description: LocaleCopy;
   features: LocaleCopy[];
   cta: LocaleCopy;
@@ -137,6 +140,8 @@ export const webDesignPage: WebDesignPageCopy = {
         name: { en: 'Basic / Starter', es: 'Básico / Inicial' },
         priceFrom: { en: '$2,000', es: '$2,000' },
         priceTo: { en: '– $6,000', es: '– $6,000' },
+        priceMinUsd: 2000,
+        priceMaxUsd: 6000,
         description: {
           en: '5–8 page brochure site, template-based (WordPress or similar), responsive, basic forms & SEO.',
           es: 'Sitio folleto de 5–8 páginas, basado en plantilla (WordPress o similar), responsivo, formularios básicos y SEO.',
@@ -155,6 +160,8 @@ export const webDesignPage: WebDesignPageCopy = {
         name: { en: 'Professional', es: 'Profesional' },
         priceFrom: { en: '$6,000', es: '$6,000' },
         priceTo: { en: '– $15,000', es: '– $15,000' },
+        priceMinUsd: 6000,
+        priceMaxUsd: 15000,
         description: {
           en: 'Custom design, 8–15 pages, solid UX, CMS, on-page SEO, forms & light integrations. The sweet spot for most local businesses.',
           es: 'Diseño a medida, 8–15 páginas, UX sólido, CMS, SEO on-page, formularios e integraciones ligeras. El punto ideal para la mayoría de negocios locales.',
@@ -176,6 +183,8 @@ export const webDesignPage: WebDesignPageCopy = {
         name: { en: 'Advanced', es: 'Avanzado' },
         priceFrom: { en: '$15,000', es: '$15,000' },
         priceTo: { en: '– $40,000+', es: '– $40,000+' },
+        priceMinUsd: 15000,
+        priceMaxUsd: 40000,
         description: {
           en: 'E-commerce, memberships, custom functionality, advanced animations, CRM integrations, multi-language & heavy SEO.',
           es: 'Comercio electrónico, membresías, funcionalidad a medida, animaciones avanzadas, integraciones CRM, multiidioma y SEO intensivo.',

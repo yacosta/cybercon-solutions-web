@@ -1,5 +1,5 @@
 ---
-title: 'Adopción de IA empresarial y ROI: lo que realmente funciona'
+title: 'IA empresarial y ROI: lo que sí funciona'
 description: 'La mayoría de los pilotos de IA no impactan el P&G. Libro de tácticas: flujos, gobernanza, capacitación y métricas — con 25+ años en industrias reguladas.'
 pubDate: 2026-07-23
 banner: ai-consulting-brain

@@ -89,14 +89,14 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 - [$1.3M Saved: Healthcare Nonprofit IT Case Study](https://cybercon-solutions.com/blog/healthcare-nonprofit-it-transformation-case-study/)
 - [Education SaaS at City Scale: A Case Study](https://cybercon-solutions.com/blog/education-saas-city-scale-case-study/)
 - [Board-Funded AI for Nonprofits: A Case Study](https://cybercon-solutions.com/blog/nonprofit-board-funded-ai-case-study/)
-- [Enterprise AI Adoption and ROI: What Actually Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
+- [Enterprise AI Adoption & ROI: What Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
 - [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/blog/fractional-cio-first-90-days/)
 - [Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT](https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/)
-- [Managed IT That Reports Like a CIO](https://cybercon-solutions.com/blog/managed-it-reports-like-cio/)
+- [Managed IT Reports Like a CIO: SLAs & KPIs](https://cybercon-solutions.com/blog/managed-it-reports-like-cio/)
 `;
 
 const blogIndexEs = `---
-title: "Blog | Cybercon Solutions"
+title: "Blog de TI e IA | Cybercon Solutions"
 description: "Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida."
 ---
 
@@ -111,10 +111,10 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 - [$1,3M ahorrados: caso de TI en nonprofit de salud](https://cybercon-solutions.com/es/blog/healthcare-nonprofit-it-transformation-case-study/)
 - [SaaS educativa a escala de ciudad: un caso](https://cybercon-solutions.com/es/blog/education-saas-city-scale-case-study/)
 - [IA empresarial con ROI: caso en nonprofit](https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/)
-- [Adopción de IA empresarial y ROI: lo que realmente funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
-- [La agenda del CIO fraccionario: los primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
+- [IA empresarial y ROI: lo que sí funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
+- [Agenda del CIO fraccionario: primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
 - [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)
-- [TI administrada que reporta como un CIO: SLAs, KPIs y revisiones trimestrales que importan](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/)
+- [TI administrada que reporta como un CIO](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/)
 `;
 
 const contactEn = `---

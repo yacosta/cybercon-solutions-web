@@ -1,6 +1,6 @@
 ---
-title: 'Caso: TI híbrida para franquicia nacional de gimnasios'
-description: 'Cómo Cybercon Solutions operó el soporte de TI del día a día, la red híbrida y la ciberseguridad, y planificó la tecnología en la construcción y apertura de nuevos gimnasios.'
+title: 'Caso: TI híbrida para franquicia de gimnasios'
+description: 'Cómo Cybercon operó el soporte de TI diario, la red híbrida y la ciberseguridad, y planificó la tecnología al abrir nuevos gimnasios.'
 pubDate: 2026-08-04
 customerIndustry: fitness
 banner: cabling-network

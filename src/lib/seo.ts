@@ -1,6 +1,7 @@
 import { services } from '../data/services';
 import type { LocaleText } from '../data/service-details';
 import { getServiceDetails } from '../data/service-details';
+import { webDesignPage } from '../data/web-design-page';
 import { getServiceFeatureImagePath } from './service-editorial';
 import { absoluteUrl, formatMailingAddress, site } from './site';
 
@@ -224,6 +225,63 @@ export function serviceJsonLd(service: (typeof services)[number], locale: Locale
     provider: { '@id': `${site.url}/#organization` },
     areaServed: areaServedPlaces(),
     serviceType: service.title[locale],
+  };
+}
+
+/** Flat-rate web design packages as OfferCatalog (paired with the Service JSON-LD). */
+export function webDesignOfferCatalogJsonLd(locale: Locale) {
+  const path =
+    locale === 'es'
+      ? '/es/services/web-design-development/'
+      : '/services/web-design-development/';
+  const pricingUrl = absoluteUrl(`${path}#pricing`);
+  const catalogName =
+    locale === 'es' ? 'Paquetes de diseño y rediseño web' : 'Website design & redesign packages';
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    '@id': `${absoluteUrl(path)}#pricing-offers`,
+    name: catalogName,
+    url: pricingUrl,
+    numberOfItems: webDesignPage.pricing.tiers.length,
+    itemListElement: webDesignPage.pricing.tiers.map((tier, index) => {
+      const offer: Record<string, unknown> = {
+        '@type': 'Offer',
+        position: index + 1,
+        name: tier.name[locale],
+        description: tier.description[locale],
+        url: pricingUrl,
+        seller: { '@id': `${site.url}/#organization` },
+        areaServed: areaServedPlaces(),
+        itemOffered: {
+          '@type': 'Service',
+          name: tier.name[locale],
+          description: tier.description[locale],
+          provider: { '@id': `${site.url}/#organization` },
+          url: absoluteUrl(path),
+        },
+      };
+
+      if (tier.priceMinUsd != null) {
+        offer.priceCurrency = 'USD';
+        offer.price = String(tier.priceMinUsd);
+        offer.priceSpecification = {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'USD',
+          minPrice: tier.priceMinUsd,
+          ...(tier.priceMaxUsd != null ? { maxPrice: tier.priceMaxUsd } : {}),
+        };
+      } else {
+        offer.priceSpecification = {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'USD',
+          description: tier.priceFrom[locale],
+        };
+      }
+
+      return offer;
+    }),
   };
 }
 

@@ -61,7 +61,7 @@ Si tu organización de servicios profesionales o de entrega quiere ese tipo de a
 
 ## Lecturas relacionadas
 
-- [La agenda del CIO fraccionario: los primeros 90 días](/es/blog/fractional-cio-first-90-days/)
+- [Agenda del CIO fraccionario: primeros 90 días](/es/blog/fractional-cio-first-90-days/)
 - [TI para legal y servicios profesionales](/es/industries/legal-professional-services/)
 - [Ciberseguridad para equipos de cara al cliente](/es/services/cybersecurity/)
 - [Consultoría de TI para entrega secuenciada](/es/services/it-consulting/)

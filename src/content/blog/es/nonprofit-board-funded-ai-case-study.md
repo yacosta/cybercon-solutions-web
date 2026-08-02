@@ -101,7 +101,7 @@ Si tu junta pregunta por IA mientras los silos y las preguntas de acceso siguen 
 
 ## Lecturas relacionadas
 
-- [Adopción de IA empresarial y ROI: lo que realmente funciona](/es/blog/enterprise-ai-adoption-roi/)
+- [IA empresarial y ROI: lo que sí funciona](/es/blog/enterprise-ai-adoption-roi/)
 - [Zero Trust para TI de mercado medio: un despliegue práctico](/es/blog/zero-trust-mid-market-rollout/)
 - [Consultoría de IA para equipos del Sur de Florida](/es/services/ai-consulting/)
 - [TI pensada para educación y organizaciones sin fines de lucro](/es/industries/education-nonprofits/)

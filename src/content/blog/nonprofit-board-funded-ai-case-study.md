@@ -101,7 +101,7 @@ If your board is asking about AI while the silos and access questions are still 
 
 ## Related reading
 
-- [Enterprise AI adoption and ROI: what actually works](/blog/enterprise-ai-adoption-roi/)
+- [Enterprise AI Adoption & ROI: What Works](/blog/enterprise-ai-adoption-roi/)
 - [Zero Trust for mid-market IT: a practical rollout](/blog/zero-trust-mid-market-rollout/)
 - [AI consulting for South Florida teams](/services/ai-consulting/)
 - [IT built for education and nonprofits](/industries/education-nonprofits/)
