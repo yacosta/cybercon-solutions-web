@@ -75,7 +75,7 @@ Si tu red de clínicas o sedes de servicios sociales necesita un proveedor de co
 - [Zero Trust para TI de mercado medio: un despliegue práctico](/es/blog/zero-trust-mid-market-rollout/)
 - [TI administrada que reporta como un CIO](/es/blog/managed-it-reports-like-cio/)
 - [TI pensada para salud y clínicas](/es/industries/healthcare-clinics/)
-- [La agenda del CIO fraccionario: los primeros 90 días](/es/blog/fractional-cio-first-90-days/)
+- [Agenda del CIO fraccionario: primeros 90 días](/es/blog/fractional-cio-first-90-days/)
 
 ---
 

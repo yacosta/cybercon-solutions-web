@@ -31,7 +31,7 @@ export const es: Messages = {
     title: 'Contacto',
     metaTitle: 'Contacto Cybercon Solutions | TI Sur de Florida',
     description:
-      'Cuéntale a Cybercon qué falla, cuánto te está costando o dónde tu equipo necesita refuerzo. Cooper City, Davie y el Sur de Florida. Respondemos en un día hábil.',
+      'Cuéntale a Cybercon qué falla, cuánto cuesta o dónde necesitas refuerzo. Cooper City, Davie y Sur de Florida. Respondemos en un día hábil.',
     eyebrow: 'Cybercon Solutions',
     heading: 'Cuéntanos qué falla — o cuánto te está costando.',
     lede:
@@ -154,7 +154,7 @@ export const es: Messages = {
   blog: {
     nav: 'Blog',
     eyebrow: 'Blog',
-    indexTitle: 'Blog | Cybercon Solutions',
+    indexTitle: 'Blog de TI e IA | Cybercon Solutions',
     indexDescription:
       'Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida: ROI medible, gobernanza y disciplina operativa.',
     indexHeading: 'Perspectivas para líderes de tecnología',

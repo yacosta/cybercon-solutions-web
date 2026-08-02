@@ -8,7 +8,7 @@ import type { Service } from '../data/services';
 import { getServiceDetails } from '../data/service-details';
 import { buildServiceEditorial } from '../lib/service-editorial';
 import { getMessages, localePath } from '../i18n';
-import { faqPageJsonLd, jsonLdScript, serviceJsonLd } from '../lib/seo';
+import { faqPageJsonLd, jsonLdScript, serviceJsonLd, webDesignOfferCatalogJsonLd } from '../lib/seo';
 
 interface Props {
   locale: 'en' | 'es';
@@ -51,6 +51,12 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
   <Fragment slot="head">
     <script type="application/ld+json" set:html={jsonLdScript(serviceJsonLd(service, locale))} />
     <script type="application/ld+json" set:html={jsonLdScript(faqPageJsonLd(details.faqs, locale))} />
+    {showSiteCheck && (
+      <script
+        type="application/ld+json"
+        set:html={jsonLdScript(webDesignOfferCatalogJsonLd(locale))}
+      />
+    )}
   </Fragment>
 
   <Header slot="header" locale={locale} t={t} variant="light" />

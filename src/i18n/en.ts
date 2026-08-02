@@ -29,7 +29,7 @@ export const en = {
     title: 'Contact',
     metaTitle: 'Contact Cybercon Solutions | South Florida IT',
     description:
-      'Tell Cybercon what’s broken, what it’s costing you, or where your team needs backup. Cooper City, Davie, and South Florida. We reply within one business day.',
+      'Tell Cybercon what’s broken, what it’s costing, or where you need backup. Cooper City, Davie & South Florida. Reply within one business day.',
     eyebrow: 'Cybercon Solutions',
     heading: 'Tell us what’s broken — or what it’s costing you.',
     lede:

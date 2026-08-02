@@ -1,5 +1,5 @@
 ---
-title: 'La agenda del CIO fraccionario: los primeros 90 días'
+title: 'Agenda del CIO fraccionario: primeros 90 días'
 description: 'Libro de tácticas de 90 días para CIO fraccionario o virtual: estabilizar riesgo, mapear gasto, entregar una victoria y dejar un plan estratégico financiable.'
 pubDate: 2026-07-26
 banner: it-consulting-gears
