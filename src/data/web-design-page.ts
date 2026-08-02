@@ -52,8 +52,8 @@ export type WebDesignPageCopy = {
 /** Editorial layout copy for /services/web-design-development/ */
 export const webDesignPage: WebDesignPageCopy = {
   displayTitle: {
-    en: 'Web design & development.',
-    es: 'Diseño y desarrollo web.',
+    en: 'Web design & redesign.',
+    es: 'Diseño y rediseño web.',
   },
   lede: {
     en: 'Accessible, on-brand websites and custom applications — designed, built, hosted securely, and supported after launch. For South Florida businesses whose current site undersells the quality of their real-world work.',
@@ -234,16 +234,16 @@ export const webDesignPage: WebDesignPageCopy = {
   },
   cta: {
     title: {
-      en: 'Want to know what your IT actually costs?',
-      es: '¿Quieres saber lo que realmente cuesta tu TI?',
+      en: 'Ready for a site that matches how you actually sell?',
+      es: '¿Listo para un sitio que refleje cómo vendes de verdad?',
     },
     body: {
-      en: 'Book a free assessment, or run the free site check first if you want a quick technical skim.',
-      es: 'Agenda una evaluación gratuita, o haz primero la revisión gratuita del sitio si quieres un vistazo técnico rápido.',
+      en: 'Book a free assessment to scope design, redesign, or a custom build — or run the free site check first for a quick technical skim.',
+      es: 'Agenda una evaluación gratuita para definir diseño, rediseño o un desarrollo a medida — o haz primero la revisión gratuita del sitio para un vistazo técnico rápido.',
     },
     button: {
-      en: 'See what your IT actually costs',
-      es: 'Mira lo que realmente cuesta tu TI',
+      en: 'Book a web design assessment',
+      es: 'Agendar evaluación de diseño web',
     },
   },
 };
