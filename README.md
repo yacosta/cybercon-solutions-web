@@ -17,7 +17,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 - Free lite breach check on Cybersecurity (`/services/cybersecurity/#breach-check`, short URL `/breach-check/` redirects) → `/api/breach-check` — Have I Been Pwned email exposure snapshot + assessment CTA; Attio lead capture
 - Lead-assist chat widget sitewide → `/api/chat` — rotating AI guides (**Sophia**, **Luci**, **Gabriella**, **Angel**) with headshots; in-widget language toggle; allowlisted Cybercon knowledge (Gemini/OpenAI/Anthropic or FAQ fallback); CTA chips to assessment / site check / contact; optional Attio lead when a work email appears
 - Privacy & Cookie Policy (`/privacy/`, `/es/privacy/`) + consent banner with prior opt-in for non-essential cookies (`cybercon_consent` / `cybercon-consent-v1`)
-- Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`) with Google Consent Mode v2 defaults denied
+- Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`, Apollo.io website tracker) with Google Consent Mode v2 defaults denied
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
 - ADA: skip link, landmarks, labels, focus styles, reduced-motion hero fallback
 - Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, Markdown negotiation (`Accept: text/markdown`), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
@@ -26,7 +26,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 
 ### Cookie consent & ePrivacy (prior consent)
 
-Non-essential cookies and trackers (Google Analytics; optional Zaraz tools) must not run until the visitor accepts them in the banner. Rejecting non-essential cookies leaves only strictly necessary ones (consent preference, Turnstile on forms, client-area session).
+Non-essential cookies and trackers (Google Analytics; Apollo.io website tracker; optional Zaraz tools) must not run until the visitor accepts them in the banner. Rejecting non-essential cookies leaves only strictly necessary ones (consent preference, Turnstile on forms, client-area session).
 
 | Piece | Behavior |
 |-------|----------|
@@ -126,6 +126,7 @@ Set these on the **Worker** `cybercon-solutions-web` (not GitHub Actions secrets
 | `ATTIO_API_KEY` | **Required for CRM** | Upserts form submitters to Attio as People/Companies (prospects) |
 | `ATTIO_PROSPECTS_LIST_ID` | Optional | Attio People list ID/slug to add each prospect into |
 | `PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 ID; loads only after Accept analytics |
+| `PUBLIC_APOLLO_APP_ID` | Optional | Apollo.io website tracker app ID; defaults on; set `off` to disable; loads only after Accept analytics |
 | `AUTH0_DOMAIN` | For client area | e.g. `your-tenant.auth0.com` |
 | `AUTH0_CLIENT_ID` | For client area | |
 | `AUTH0_CLIENT_SECRET` | For client area | Secret |

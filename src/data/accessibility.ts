@@ -58,7 +58,7 @@ export const accessibilityContent = {
       },
       {
         heading: 'Third-party content and tools',
-        body: 'Some features or content may rely on third-party platforms, plugins, or embedded tools that are not fully controlled by Cybercon Solutions. These may include Cloudflare Turnstile (form bot protection), Pagefind (site search), optional Google Analytics (only after consent), Auth0 (client-area sign-in), the Have I Been Pwned breach-check lookup, and the on-site chat assistant when AI providers are configured.',
+        body: 'Some features or content may rely on third-party platforms, plugins, or embedded tools that are not fully controlled by Cybercon Solutions. These may include Cloudflare Turnstile (form bot protection), Pagefind (site search), optional Google Analytics and Apollo.io website tracking (only after consent), Auth0 (client-area sign-in), the Have I Been Pwned breach-check lookup, and the on-site chat assistant when AI providers are configured.',
         after:
           'While we work to choose and maintain tools that support accessibility, we cannot guarantee the accessibility of third-party content, integrations, or vendor-controlled features.',
       },
@@ -127,7 +127,7 @@ export const accessibilityContent = {
       },
       {
         heading: 'Contenido y herramientas de terceros',
-        body: 'Algunas funciones o contenidos pueden depender de plataformas, plugins o herramientas integradas de terceros que Cybercon Solutions no controla por completo. Pueden incluir Cloudflare Turnstile (protección antibots en formularios), Pagefind (búsqueda del sitio), Google Analytics opcional (solo tras consentimiento), Auth0 (inicio de sesión del área de clientes), la consulta de filtraciones Have I Been Pwned y el asistente de chat del sitio cuando hay proveedores de IA configurados.',
+        body: 'Algunas funciones o contenidos pueden depender de plataformas, plugins o herramientas integradas de terceros que Cybercon Solutions no controla por completo. Pueden incluir Cloudflare Turnstile (protección antibots en formularios), Pagefind (búsqueda del sitio), Google Analytics y el rastreador web de Apollo.io opcionales (solo tras consentimiento), Auth0 (inicio de sesión del área de clientes), la consulta de filtraciones Have I Been Pwned y el asistente de chat del sitio cuando hay proveedores de IA configurados.',
         after:
           'Aunque buscamos elegir y mantener herramientas que apoyen la accesibilidad, no podemos garantizar la accesibilidad del contenido de terceros, integraciones o funciones controladas por proveedores.',
       },
