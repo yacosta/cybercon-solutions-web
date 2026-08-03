@@ -1,0 +1,50 @@
+---
+/**
+ * Apollo.io website tracker — company identification (global) and person-level
+ * (U.S. only when enabled in Apollo). Loads only after cybercon-consent-v1 === "accept".
+ *
+ * App ID is public (client-side). Override with PUBLIC_APOLLO_APP_ID; set to "off" to disable.
+ */
+import { CONSENT_STORAGE_KEY } from '../lib/consent';
+
+const DEFAULT_APOLLO_APP_ID = '6a6e50678e136000204b9146';
+const envAppId = (import.meta.env.PUBLIC_APOLLO_APP_ID as string | undefined)?.trim();
+const disabled = envAppId === 'off' || envAppId === 'false' || envAppId === '0';
+const apolloAppId = disabled ? '' : envAppId || DEFAULT_APOLLO_APP_ID;
+---
+
+{apolloAppId && (
+  <script define:vars={{ apolloAppId, STORAGE_KEY: CONSENT_STORAGE_KEY }} is:inline>
+    (function () {
+      var loaded = false;
+
+      function loadApollo() {
+        if (loaded || !apolloAppId) return;
+        loaded = true;
+        var n = Math.random().toString(36).substring(7);
+        var o = document.createElement('script');
+        o.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + n;
+        o.async = true;
+        o.defer = true;
+        o.onload = function () {
+          if (window.trackingFunctions && typeof window.trackingFunctions.onLoad === 'function') {
+            window.trackingFunctions.onLoad({ appId: apolloAppId });
+          }
+        };
+        document.head.appendChild(o);
+      }
+
+      function maybeLoad(value) {
+        if (value === 'accept') loadApollo();
+      }
+
+      try {
+        maybeLoad(localStorage.getItem(STORAGE_KEY));
+      } catch (e) {}
+
+      window.addEventListener('cybercon:consent', function (e) {
+        maybeLoad(e.detail && e.detail.value);
+      });
+    })();
+  </script>
+)}
