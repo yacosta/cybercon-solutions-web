@@ -22,6 +22,8 @@ import enterpriseIntegrationMposCaseStudy from '../content/blog/enterprise-integ
 import enterpriseIntegrationMposCaseStudyEs from '../content/blog/es/enterprise-integration-mpos-case-study.md?raw';
 import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rollout.md?raw';
 import zeroTrustMidMarketRolloutEs from '../content/blog/es/zero-trust-mid-market-rollout.md?raw';
+import endpointSecurityBeyondTheEndpoint from '../content/blog/endpoint-security-beyond-the-endpoint.md?raw';
+import endpointSecurityBeyondTheEndpointEs from '../content/blog/es/endpoint-security-beyond-the-endpoint.md?raw';
 import { formatMailingAddress, site } from './site';
 
 function industriesMarkdown(locale: 'en' | 'es'): string {
@@ -92,6 +94,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 - [Enterprise AI Adoption & ROI: What Works](https://cybercon-solutions.com/blog/enterprise-ai-adoption-roi/)
 - [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/blog/fractional-cio-first-90-days/)
 - [Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT](https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/)
+- [Endpoint Security Has Moved Beyond the Endpoint](https://cybercon-solutions.com/blog/endpoint-security-beyond-the-endpoint/)
 - [Managed IT Reports Like a CIO: SLAs & KPIs](https://cybercon-solutions.com/blog/managed-it-reports-like-cio/)
 `;
 
@@ -114,6 +117,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 - [IA empresarial y ROI: lo que sí funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
 - [Agenda del CIO fraccionario: primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
 - [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)
+- [Seguridad de endpoints más allá del dispositivo](https://cybercon-solutions.com/es/blog/endpoint-security-beyond-the-endpoint/)
 - [TI administrada que reporta como un CIO](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/)
 `;
 
@@ -350,6 +354,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRollout,
   '/es/blog/zero-trust-mid-market-rollout/': zeroTrustMidMarketRolloutEs,
   '/es/blog/zero-trust-mid-market-rollout': zeroTrustMidMarketRolloutEs,
+  '/blog/endpoint-security-beyond-the-endpoint/': endpointSecurityBeyondTheEndpoint,
+  '/blog/endpoint-security-beyond-the-endpoint': endpointSecurityBeyondTheEndpoint,
+  '/es/blog/endpoint-security-beyond-the-endpoint/': endpointSecurityBeyondTheEndpointEs,
+  '/es/blog/endpoint-security-beyond-the-endpoint': endpointSecurityBeyondTheEndpointEs,
   '/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
   '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCioEs,
