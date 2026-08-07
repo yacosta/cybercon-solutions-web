@@ -1,5 +1,6 @@
 ---
 import { localePath, type Messages } from '../i18n';
+import { industryPath } from '../data/industries';
 
 interface Props {
   locale: 'en' | 'es';
@@ -30,12 +31,31 @@ const posterWebpSrcset =
 const posterJpgSrcset =
   '/videos/hero-poster-768.jpg 768w, /videos/hero-poster-960.jpg 960w, /videos/hero-poster.jpg 1280w';
 const posterSizes = '100vw';
+
+const personaDefs = [
+  { id: 'healthcare', slug: 'healthcare-clinics', copy: t.hero.personas.healthcare },
+  { id: 'legal', slug: 'legal-professional-services', copy: t.hero.personas.legal },
+  { id: 'financial', slug: 'financial-services-insurance', copy: t.hero.personas.financial },
+  { id: 'nonprofit', slug: 'education-nonprofits', copy: t.hero.personas.nonprofit },
+] as const;
+
+const personaPayload = personaDefs.map((persona) => ({
+  id: persona.id,
+  lede: persona.copy.lede,
+  cta: persona.copy.cta,
+  assessmentHref: `${assessmentHref}?industry=${persona.slug}`,
+  industryHref: industryPath(locale, persona.slug),
+}));
 ---
 
 <section
   class="hero"
   aria-labelledby="hero-title"
   aria-describedby="hero-lede"
+  data-hero
+  data-default-lede={t.hero.lede}
+  data-default-cta={t.hero.cta}
+  data-default-cta-href={assessmentHref}
 >
   <div class="hero-media">
     {/*
@@ -76,9 +96,44 @@ const posterSizes = '100vw';
   <div class="hero-content">
     <p class="eyebrow">{t.hero.eyebrow}</p>
     <h1 id="hero-title">{t.hero.title}</h1>
-    <p id="hero-lede" class="lede">{t.hero.lede}</p>
+
+    <div class="hero-personas" data-hero-personas>
+      <p class="hero-personas-label" id="hero-personas-label">{t.hero.personasLabel}</p>
+      <div
+        class="hero-persona-tabs"
+        role="tablist"
+        aria-labelledby="hero-personas-label"
+        data-hero-tablist
+      >
+        {
+          personaDefs.map((persona, index) => (
+            <button
+              type="button"
+              class="hero-persona-tab"
+              role="tab"
+              id={`hero-persona-${persona.id}`}
+              data-persona={persona.id}
+              aria-selected="false"
+              aria-controls="hero-lede"
+              tabindex={index === 0 ? 0 : -1}
+            >
+              {persona.copy.label}
+            </button>
+          ))
+        }
+      </div>
+      <script
+        type="application/json"
+        data-hero-persona-data
+        set:html={JSON.stringify(personaPayload)}
+      />
+    </div>
+
+    <p id="hero-lede" class="lede" data-hero-lede role="tabpanel" aria-live="polite">
+      {t.hero.lede}
+    </p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href={assessmentHref}>{t.hero.cta}</a>
+      <a class="btn btn-primary" href={assessmentHref} data-hero-cta>{t.hero.cta}</a>
       <a class="btn btn-ghost" href={siteCheckHref}>{t.hero.ctaSecondary}</a>
       <p class="status">
         <span class="status-dot" aria-hidden="true"></span>
@@ -122,10 +177,155 @@ const posterSizes = '100vw';
     }
   }
 
+  /**
+   * @typedef {{ id: string, lede: string, cta: string, assessmentHref: string, industryHref: string }} PersonaCopy
+   */
+
+  function initHeroPersonas() {
+    const hero = document.querySelector('[data-hero]');
+    if (!(hero instanceof HTMLElement)) return;
+
+    const tablist = hero.querySelector('[data-hero-tablist]');
+    const ledeEl = hero.querySelector('[data-hero-lede]');
+    const ctaEl = hero.querySelector('[data-hero-cta]');
+    const dataEl = hero.querySelector('[data-hero-persona-data]');
+    if (
+      !(tablist instanceof HTMLElement) ||
+      !(ledeEl instanceof HTMLElement) ||
+      !(ctaEl instanceof HTMLAnchorElement) ||
+      !(dataEl instanceof HTMLScriptElement)
+    ) {
+      return;
+    }
+
+    /** @type {PersonaCopy[]} */
+    let personas = [];
+    try {
+      personas = JSON.parse(dataEl.textContent || '[]');
+    } catch {
+      return;
+    }
+    if (!Array.isArray(personas) || personas.length === 0) return;
+
+    const byId = new Map(personas.map((persona) => [persona.id, persona]));
+    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]')).filter(
+      (el) => el instanceof HTMLButtonElement,
+    );
+    if (tabs.length === 0) return;
+
+    const defaults = {
+      lede: hero.dataset.defaultLede || ledeEl.textContent || '',
+      cta: hero.dataset.defaultCta || ctaEl.textContent || '',
+      href: hero.dataset.defaultCtaHref || ctaEl.getAttribute('href') || '/',
+    };
+
+    const storageKey = 'cybercon-hero-persona';
+
+    /**
+     * @param {string | null} personaId
+     * @param {{ persist?: boolean }} [opts]
+     */
+    function selectPersona(personaId, opts = {}) {
+      const persona = personaId ? byId.get(personaId) : undefined;
+      const activeId = persona ? persona.id : null;
+
+      for (const tab of tabs) {
+        const selected = tab.dataset.persona === activeId;
+        tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+        tab.tabIndex = selected || (!activeId && tab === tabs[0]) ? 0 : -1;
+        tab.classList.toggle('is-active', selected);
+      }
+
+      if (persona) {
+        ledeEl.textContent = persona.lede;
+        ctaEl.textContent = persona.cta;
+        ctaEl.href = persona.assessmentHref;
+        hero.dataset.activePersona = persona.id;
+        if (opts.persist !== false) {
+          try {
+            sessionStorage.setItem(storageKey, persona.id);
+          } catch {
+            /* private mode */
+          }
+        }
+      } else {
+        ledeEl.textContent = defaults.lede;
+        ctaEl.textContent = defaults.cta;
+        ctaEl.href = defaults.href;
+        delete hero.dataset.activePersona;
+        if (opts.persist !== false) {
+          try {
+            sessionStorage.removeItem(storageKey);
+          } catch {
+            /* private mode */
+          }
+        }
+      }
+    }
+
+    tablist.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const tab = target.closest('[role="tab"]');
+      if (!(tab instanceof HTMLButtonElement) || !tablist.contains(tab)) return;
+      const id = tab.dataset.persona || null;
+      const already = tab.getAttribute('aria-selected') === 'true';
+      selectPersona(already ? null : id);
+    });
+
+    tablist.addEventListener('keydown', (event) => {
+      if (!(event instanceof KeyboardEvent)) return;
+      const currentIndex = tabs.findIndex((tab) => tab.tabIndex === 0);
+      if (currentIndex < 0) return;
+
+      let nextIndex = currentIndex;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+        nextIndex = (currentIndex + 1) % tabs.length;
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+        nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+      } else if (event.key === 'Home') {
+        nextIndex = 0;
+      } else if (event.key === 'End') {
+        nextIndex = tabs.length - 1;
+      } else if (event.key === 'Enter' || event.key === ' ') {
+        const tab = tabs[currentIndex];
+        const id = tab.dataset.persona || null;
+        const already = tab.getAttribute('aria-selected') === 'true';
+        event.preventDefault();
+        selectPersona(already ? null : id);
+        return;
+      } else {
+        return;
+      }
+
+      event.preventDefault();
+      const next = tabs[nextIndex];
+      for (const tab of tabs) tab.tabIndex = -1;
+      next.tabIndex = 0;
+      next.focus();
+    });
+
+    let initial = null;
+    try {
+      initial = sessionStorage.getItem(storageKey);
+    } catch {
+      initial = null;
+    }
+    if (initial && byId.has(initial)) {
+      selectPersona(initial, { persist: false });
+    }
+  }
+
   if (document.readyState === 'complete') {
     setTimeout(loadHeroVideo, 200);
   } else {
     window.addEventListener('load', () => setTimeout(loadHeroVideo, 200), { once: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroPersonas, { once: true });
+  } else {
+    initHeroPersonas();
   }
 </script>
 
@@ -194,11 +394,68 @@ const posterSizes = '100vw';
     text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
   }
 
+  .hero-personas {
+    margin: 0 0 1rem;
+  }
+
+  .hero-personas-label {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--secondary-dark);
+  }
+
+  .hero-persona-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.15rem;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .hero-persona-tab {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin: 0 0 -1px;
+    padding: 0.55rem 0.7rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .hero-persona-tab:hover,
+  .hero-persona-tab:focus-visible {
+    color: var(--white);
+  }
+
+  .hero-persona-tab:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  .hero-persona-tab.is-active,
+  .hero-persona-tab[aria-selected='true'] {
+    color: var(--white);
+    border-bottom-color: var(--coral);
+  }
+
   .lede {
     color: var(--secondary-dark);
     font-size: clamp(1rem, 1.4vw, 1.125rem);
     line-height: 1.65;
     margin-bottom: 1.5rem;
+    /* Reserve space for the longest persona lede to limit CLS on swap */
+    min-height: 6.6em;
   }
 
   .hero-actions {
@@ -241,9 +498,24 @@ const posterSizes = '100vw';
     border: 0;
   }
 
+  @media (max-width: 480px) {
+    .hero-persona-tab {
+      padding: 0.5rem 0.55rem;
+      font-size: 0.8125rem;
+    }
+
+    .lede {
+      min-height: 8.2em;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .hero-video {
       display: none !important;
+    }
+
+    .hero-persona-tab {
+      transition: none;
     }
   }
 </style>

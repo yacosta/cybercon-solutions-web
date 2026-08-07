@@ -69,6 +69,33 @@ export const en = {
     status: 'Serving South Florida businesses',
     cta: 'See what your IT actually costs',
     ctaSecondary: 'Run the free site check',
+    personasLabel: 'I work in',
+    personas: {
+      healthcare: {
+        label: 'Healthcare',
+        lede:
+          'Care teams should not have to be the IT department. HIPAA-aware access, monitoring, and restore tests — so shared workstations and slow front-desk systems stop stealing the afternoon from patients.',
+        cta: 'See what clinic IT actually costs',
+      },
+      legal: {
+        label: 'Legal',
+        lede:
+          'Billable hours do not wait on a frozen laptop. Confidentiality-first IT, live support, and secure remote access so privilege stays protected and filings do not stall on a ticket queue.',
+        cta: 'See what law firm IT actually costs',
+      },
+      financial: {
+        label: 'Financial',
+        lede:
+          'Client confidence is earned in every login and every restore. Audit-ready controls, monitoring, and identity that hold up to scrutiny without making your team fight the tools.',
+        cta: 'See what finance IT actually costs',
+      },
+      nonprofit: {
+        label: 'Nonprofit',
+        lede:
+          'Mission work should not depend on whoever happens to know the passwords. Steady, secure IT with predictable per-user pricing for schools, churches, and nonprofits that cannot afford surprise invoices.',
+        cta: 'See what nonprofit IT actually costs',
+      },
+    },
   },
   form: {
     eyebrow: 'Cybercon Solutions',

@@ -186,6 +186,8 @@ const isSplit = layout === 'split';
         email: String(data.get('email') ?? ''),
         locale,
         turnstileToken,
+        // Preserve persona / campaign query (e.g. ?industry=healthcare-clinics) in CRM source.
+        source: window.location.href,
       }),
     });
 

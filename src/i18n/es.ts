@@ -71,6 +71,33 @@ export const es: Messages = {
     status: 'Atendemos empresas del sur de Florida',
     cta: 'Mira lo que realmente cuesta tu TI',
     ctaSecondary: 'Haz la revisión gratuita del sitio',
+    personasLabel: 'Trabajo en',
+    personas: {
+      healthcare: {
+        label: 'Salud',
+        lede:
+          'Los equipos clínicos no deberían ser el departamento de TI. Acceso consciente de HIPAA, monitoreo y pruebas de restauración — para que las contraseñas compartidas y los sistemas lentos en recepción dejen de quitar la tarde a los pacientes.',
+        cta: 'Mira lo que realmente cuesta la TI de tu clínica',
+      },
+      legal: {
+        label: 'Legal',
+        lede:
+          'Las horas facturables no esperan a un computador congelado. TI centrada en la confidencialidad, soporte en vivo y acceso remoto seguro para que el privilegio se proteja y las presentaciones no se frenen en una cola de tickets.',
+        cta: 'Mira lo que realmente cuesta la TI de tu bufete',
+      },
+      financial: {
+        label: 'Finanzas',
+        lede:
+          'La confianza del cliente se gana en cada inicio de sesión y cada restauración. Controles listos para auditoría, monitoreo e identidad que resisten el escrutinio sin hacer pelear al equipo con las herramientas.',
+        cta: 'Mira lo que realmente cuesta la TI financiera',
+      },
+      nonprofit: {
+        label: 'Nonprofit',
+        lede:
+          'El trabajo misional no debería depender de quien sepa las contraseñas. TI estable y segura con precio predecible por usuario para escuelas, iglesias y organizaciones sin fines de lucro que no pueden costear facturas sorpresa.',
+        cta: 'Mira lo que realmente cuesta la TI de tu nonprofit',
+      },
+    },
   },
   form: {
     eyebrow: 'Cybercon Solutions',
