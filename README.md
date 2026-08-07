@@ -13,6 +13,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 ## Features
 
 - EN / ES homepage with full-bleed hero video (server racks), assessment form + Turnstile
+- Homepage CRO orchestrator (`src/lib/cro.ts` + `CroOrchestrator.astro`) — sticky C/V1/V2 arms for active experiments (persona tabs, sticky mobile CTA, problem selector, case-study proof). QA: `/?cro-001=V2&cro=debug`
 - Free lite website check on Web Design & Development (`/services/web-design-development/#site-check`, short URL `/site-check/` redirects) → `/api/site-check` — surface teaser (live fetch, BuiltWith, Gemini/OpenAI/Anthropic or heuristic) that surfaces one finding and CTAs to call / book a deeper assessment; Attio lead capture
 - Free lite breach check on Cybersecurity (`/services/cybersecurity/#breach-check`, short URL `/breach-check/` redirects) → `/api/breach-check` — Have I Been Pwned email exposure snapshot + assessment CTA; Attio lead capture
 - Lead-assist chat widget sitewide → `/api/chat` — rotating AI guides (**Sophia**, **Luci**, **Gabriella**, **Angel**) with headshots; in-widget language toggle; allowlisted Cybercon knowledge (Gemini/OpenAI/Anthropic or FAQ fallback); CTA chips to assessment / site check / contact; optional Attio lead when a work email appears

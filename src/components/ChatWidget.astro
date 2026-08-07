@@ -616,7 +616,8 @@ const agents = CHAT_AGENTS;
   .chat-root {
     position: fixed;
     right: max(1rem, env(safe-area-inset-right));
-    bottom: max(1rem, env(safe-area-inset-bottom));
+    /* Lift above CRO sticky mobile CTA when --cro-sticky-mobile-cta-offset is set. */
+    bottom: calc(max(1rem, env(safe-area-inset-bottom)) + var(--cro-sticky-mobile-cta-offset, 0px));
     z-index: 40;
     display: grid;
     justify-items: end;

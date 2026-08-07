@@ -1,0 +1,262 @@
+---
+import { localePath, type Messages } from '../../i18n';
+import { site } from '../../lib/site';
+
+interface Props {
+  locale: string;
+  t: Messages;
+  variant?: 'v1' | 'v2';
+  visible?: boolean;
+}
+
+const { locale, t, variant = 'v1', visible = false } = Astro.props;
+const copy = t.cro.stickyMobileCta;
+const assessmentHref = localePath(locale, '/assessment/');
+const phoneHref = `tel:${site.phone}`;
+const callLabel = copy.call.replaceAll('{phone}', site.phoneDisplay);
+const isV2 = variant === 'v2';
+---
+
+<aside
+  class:list={['sticky-mobile-cta', `sticky-mobile-cta--${variant}`]}
+  data-cro-component="sticky-mobile-cta"
+  data-cro-experiment="cro-002"
+  data-variant={variant}
+  data-cro-visible={visible ? 'true' : undefined}
+  aria-label={copy.barLabel}
+  hidden={!visible}
+>
+  <div class="sticky-mobile-cta-inner">
+    <a class="sticky-mobile-cta-primary btn btn-primary" href={assessmentHref} data-cro-cta="assessment">
+      {copy.primary}
+    </a>
+    <a
+      class="sticky-mobile-cta-call"
+      href={phoneHref}
+      data-cro-cta="call"
+      data-cro-v2-only
+      hidden={!isV2}
+    >
+      {callLabel}
+    </a>
+  </div>
+</aside>
+
+<script>
+  function initStickyMobileCta() {
+    const roots = document.querySelectorAll('[data-cro-component="sticky-mobile-cta"]');
+    if (!roots.length) return;
+
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    let syncing = false;
+
+    function armValue(root) {
+      const host = root.closest('[data-cro-arm]');
+      if (!host) return '';
+      return (host.getAttribute('data-cro-arm') || '').toUpperCase();
+    }
+
+    function isArmed(root) {
+      if (root.getAttribute('data-cro-visible') === 'true') return true;
+      const arm = armValue(root);
+      return arm === 'V1' || arm === 'V2';
+    }
+
+    function syncVariantUi(root) {
+      const showCall = armValue(root) === 'V2';
+      const nextVariant = showCall ? 'v2' : 'v1';
+      const call = root.querySelector('[data-cro-v2-only]');
+      if (call instanceof HTMLElement) {
+        if (showCall) call.removeAttribute('hidden');
+        else call.setAttribute('hidden', '');
+      }
+      root.classList.toggle('sticky-mobile-cta--v2', showCall);
+      root.classList.toggle('sticky-mobile-cta--v1', !showCall);
+      if (root.getAttribute('data-variant') !== nextVariant) {
+        root.setAttribute('data-variant', nextVariant);
+      }
+    }
+
+    function clearOffsets() {
+      document.documentElement.style.removeProperty('--cro-sticky-mobile-cta-offset');
+      document.body.classList.remove('has-sticky-mobile-cta');
+    }
+
+    function applyOffsets(root) {
+      if (root.hasAttribute('hidden') || !mobileQuery.matches) {
+        clearOffsets();
+        return;
+      }
+      const height = Math.ceil(root.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--cro-sticky-mobile-cta-offset', `${height}px`);
+      document.body.classList.add('has-sticky-mobile-cta');
+    }
+
+    function syncRoot(root) {
+      syncVariantUi(root);
+      const armed = isArmed(root);
+      if (armed) {
+        if (root.hasAttribute('hidden')) root.removeAttribute('hidden');
+      } else if (!root.hasAttribute('hidden')) {
+        root.setAttribute('hidden', '');
+      }
+      window.requestAnimationFrame(function () {
+        applyOffsets(root);
+      });
+    }
+
+    function syncAll() {
+      if (syncing) return;
+      syncing = true;
+      try {
+        roots.forEach(syncRoot);
+        const anyVisible = Array.from(roots).some(function (root) {
+          return !root.hasAttribute('hidden') && mobileQuery.matches;
+        });
+        if (!anyVisible) clearOffsets();
+      } finally {
+        syncing = false;
+      }
+    }
+
+    syncAll();
+
+    if (typeof mobileQuery.addEventListener === 'function') {
+      mobileQuery.addEventListener('change', syncAll);
+    } else if (typeof mobileQuery.addListener === 'function') {
+      mobileQuery.addListener(syncAll);
+    }
+    window.addEventListener('resize', syncAll, { passive: true });
+
+    // Observe arm signals only — never `hidden`/`data-variant` (we write those; observing them loops).
+    const observer = new MutationObserver(syncAll);
+    roots.forEach(function (root) {
+      observer.observe(root, {
+        attributes: true,
+        attributeFilter: ['data-cro-visible', 'data-cro-arm'],
+      });
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-cro-002'],
+    });
+    document.addEventListener('cro:assigned', function (event) {
+      if (!(event instanceof CustomEvent)) return;
+      if (event.detail?.id && event.detail.id !== 'cro-002') return;
+      syncAll();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStickyMobileCta, { once: true });
+  } else {
+    initStickyMobileCta();
+  }
+</script>
+
+<style>
+  .sticky-mobile-cta {
+    display: none;
+    position: fixed;
+    inset: auto 0 0 0;
+    z-index: 30;
+    padding: 0.75rem var(--page-gutter) calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    background: var(--cream);
+    border-top: 1px solid color-mix(in srgb, var(--border) 45%, transparent);
+    box-shadow: 0 -8px 24px rgba(15, 44, 76, 0.08);
+  }
+
+  .sticky-mobile-cta[hidden] {
+    display: none !important;
+  }
+
+  .sticky-mobile-cta-inner {
+    display: flex;
+    align-items: stretch;
+    gap: 0.625rem;
+    max-width: var(--page-max);
+    margin-inline: auto;
+  }
+
+  .sticky-mobile-cta-primary {
+    flex: 1 1 auto;
+    min-height: 44px;
+    width: 100%;
+    background: var(--coral);
+    border-color: var(--coral);
+    color: var(--white);
+    text-align: center;
+    padding-inline: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .sticky-mobile-cta-primary:hover {
+    background: var(--button-red-hover);
+    border-color: var(--button-red-hover);
+  }
+
+  .sticky-mobile-cta-primary:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-focus);
+  }
+
+  .sticky-mobile-cta-call {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.625rem 0.875rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--navy);
+    color: var(--navy);
+    background: var(--white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .sticky-mobile-cta-call[hidden] {
+    display: none !important;
+  }
+
+  .sticky-mobile-cta-call:hover {
+    background: color-mix(in srgb, var(--navy) 6%, var(--white));
+  }
+
+  .sticky-mobile-cta-call:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+    box-shadow: var(--shadow-focus);
+  }
+
+  .sticky-mobile-cta--v1 .sticky-mobile-cta-inner {
+    display: grid;
+  }
+
+  @media (max-width: 768px) {
+    .sticky-mobile-cta:not([hidden]) {
+      display: block;
+    }
+
+    :global(body.has-sticky-mobile-cta) {
+      padding-bottom: var(--cro-sticky-mobile-cta-offset, 0px);
+    }
+  }
+
+  @media (min-width: 769px) {
+    .sticky-mobile-cta,
+    .sticky-mobile-cta:not([hidden]) {
+      display: none !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sticky-mobile-cta {
+      box-shadow: none;
+    }
+  }
+</style>

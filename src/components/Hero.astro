@@ -97,7 +97,17 @@ const personaPayload = personaDefs.map((persona) => ({
     <p class="eyebrow">{t.hero.eyebrow}</p>
     <h1 id="hero-title">{t.hero.title}</h1>
 
-    <div class="hero-personas" data-hero-personas>
+    {/*
+      CRO-001: Control keeps the generic hero (this block stays hidden).
+      Orchestrator reveals for V1 (assessment CTA) / V2 (industry-page CTA).
+    */}
+    <div
+      class="hero-personas"
+      data-hero-personas
+      data-cro-experiment="cro-001"
+      data-cro-component="hero-personas"
+      hidden
+    >
       <p class="hero-personas-label" id="hero-personas-label">{t.hero.personasLabel}</p>
       <div
         class="hero-persona-tabs"
@@ -237,9 +247,14 @@ const personaPayload = personaDefs.map((persona) => ({
       }
 
       if (persona) {
+        const arm = (
+          hero.querySelector('[data-cro-experiment="cro-001"]')?.getAttribute('data-cro-arm') ||
+          document.documentElement.getAttribute('data-cro-001') ||
+          'V1'
+        ).toUpperCase();
         ledeEl.textContent = persona.lede;
         ctaEl.textContent = persona.cta;
-        ctaEl.href = persona.assessmentHref;
+        ctaEl.href = arm === 'V2' ? persona.industryHref : persona.assessmentHref;
         hero.dataset.activePersona = persona.id;
         if (opts.persist !== false) {
           try {
@@ -305,15 +320,39 @@ const personaPayload = personaDefs.map((persona) => ({
       next.focus();
     });
 
-    let initial = null;
-    try {
-      initial = sessionStorage.getItem(storageKey);
-    } catch {
-      initial = null;
+    function armIsTreatment() {
+      const host = hero.querySelector('[data-cro-experiment="cro-001"]');
+      const arm = (
+        (host instanceof HTMLElement && host.getAttribute('data-cro-arm')) ||
+        document.documentElement.getAttribute('data-cro-001') ||
+        ''
+      ).toUpperCase();
+      return arm === 'V1' || arm === 'V2';
     }
-    if (initial && byId.has(initial)) {
-      selectPersona(initial, { persist: false });
+
+    function restoreStoredPersona() {
+      if (!armIsTreatment()) return;
+      let initial = null;
+      try {
+        initial = sessionStorage.getItem(storageKey);
+      } catch {
+        initial = null;
+      }
+      if (initial && byId.has(initial)) {
+        selectPersona(initial, { persist: false });
+      }
     }
+
+    restoreStoredPersona();
+    document.addEventListener('cro:assigned', (event) => {
+      if (!(event instanceof CustomEvent)) return;
+      if (event.detail?.id !== 'cro-001') return;
+      if (event.detail?.arm === 'C') {
+        selectPersona(null, { persist: false });
+      } else {
+        restoreStoredPersona();
+      }
+    });
   }
 
   if (document.readyState === 'complete') {

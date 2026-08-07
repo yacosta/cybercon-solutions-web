@@ -381,6 +381,77 @@ export const en = {
     otherLocale: 'Español',
     otherLocaleHref: '/es/',
   },
+  cro: {
+    caseStudyProof: {
+      eyebrow: 'Customer outcomes',
+      title: 'Proof from real engagements.',
+      lede: 'Pick an industry. One outcome from a published customer story.',
+      filtersLabel: 'Filter customer stories by industry',
+      stories: {
+        'healthcare-nonprofit-it-transformation-case-study': {
+          stat: '$1.3M Saved',
+          badge: 'Healthcare nonprofit',
+          linkText: 'Read how a healthcare nonprofit saved $1.3M',
+        },
+        'nonprofit-board-funded-ai-case-study': {
+          stat: '~5,000 hours/year',
+          badge: 'Environmental nonprofit',
+          linkText: 'Read how a nonprofit reclaimed ~5,000 staff hours a year',
+        },
+        'education-saas-city-scale-case-study': {
+          stat: '145,000 families',
+          badge: 'Education nonprofit',
+          linkText: 'Read how education SaaS reached 145,000 families',
+        },
+        'retail-it-six-countries-case-study': {
+          stat: '6 countries',
+          badge: 'Premium retail',
+          linkText: 'Read how retail IT ran across six countries',
+        },
+        'enterprise-integration-mpos-case-study': {
+          stat: '$2M+ delivery',
+          badge: 'Professional services',
+          linkText: 'Read how enterprise integration and mPOS shipped at scale',
+        },
+        'gym-franchise-hybrid-it-case-study': {
+          stat: 'National franchise',
+          badge: 'Fitness franchise',
+          linkText: 'Read how hybrid IT kept a national gym franchise running',
+        },
+      },
+    },
+    problemSelector: {
+      eyebrow: 'Start here',
+      title: 'What’s your biggest IT problem?',
+      lede: 'Name the friction that costs you the most this week. We’ll route you to the service that usually fixes it.',
+      selectLabel: 'Choose your biggest IT problem',
+      paths: {
+        cybersecurity: {
+          label: 'Cybersecurity gaps',
+          summary:
+            'Shared clinic or office passwords, MFA still optional, or a restore you’ve never actually run — the quiet gaps that turn a normal Tuesday into an incident call.',
+          cta: 'See cybersecurity & compliance services',
+        },
+        downtime: {
+          label: 'Downtime & unmanaged IT',
+          summary:
+            'A frozen laptop eats a billable afternoon, the ticket pile never shrinks, and break/fix invoices show up whenever someone just needs to work.',
+          cta: 'See managed IT services',
+        },
+        complianceAi: {
+          label: 'Compliance & AI readiness',
+          summary:
+            'Audit questions you can’t answer cleanly yet — or staff already pasting client data into public AI tools outside IT’s control.',
+          cta: 'See AI security services',
+        },
+      },
+    },
+    stickyMobileCta: {
+      barLabel: 'Get started',
+      primary: 'Get a free IT assessment',
+      call: 'Call {phone}',
+    },
+  },
 } as const;
 
 export type Messages = typeof en;

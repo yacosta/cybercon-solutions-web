@@ -134,6 +134,18 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Do not try to “fix” Zaraz caching by vendoring or proxying `s.js` in the Astro app.
 - As of the initial fix, the zone had **zero** Response Header Transform rules — the deploy step / dashboard rule is what creates the first one.
 
+## Homepage CRO experiments
+
+Active homepage conversion tests are orchestrated client-side (sticky C / V1 / V2 arms):
+
+- Registry: `src/lib/cro.ts` (weights default **C 25% / V1 30% / V2 45%**; inactive IDs stay registered for later).
+- Orchestrator: `src/components/cro/CroOrchestrator.astro` on EN/ES homepages — sets `data-cro-00N` on `<html>`, `data-cro-arm` on `[data-cro-experiment]`, reveals V1/V2 panels (`[data-cro-arm-show]`).
+- Treatments live under `src/components/cro/` and stay **hidden for Control** (no-JS / C = baseline homepage).
+- QA: force arms with query params, e.g. `/?cro-001=V2&cro-002=V1&cro=debug`.
+- Sticky mobile CTA must **not** MutationObserver-watch attributes it writes (`hidden` / `data-variant`) — that loops and freezes the tab.
+- Do **not** load analytics for assignment — first-party `localStorage` only; keep Consent Mode / Zaraz prior-consent rules unchanged.
+- When adding CRO-005+, register in `CRO_EXPERIMENTS`, ship both arm panels behind `hidden`, and keep LCP / descriptive CTAs / EN+ES voice rules above.
+
 ## Cookie consent / ePrivacy (prior consent)
 
 Non-essential cookies and trackers must not run until the visitor opts in (ePrivacy / GDPR).
