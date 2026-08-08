@@ -278,8 +278,6 @@ const addressLines =
   }
 
   .footer-links a,
-  .footer-legal a,
-  .cookie-reset,
   .footer-contact-list a {
     color: #b6c7d6;
     text-decoration: underline;
@@ -288,6 +286,17 @@ const addressLines =
     font-size: 0.9375rem;
     font-weight: 500;
     line-height: 1.45;
+  }
+
+  .footer-legal a,
+  .cookie-reset {
+    color: #b6c7d6;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
   }
 
   .footer-areas li {
@@ -338,6 +347,7 @@ const addressLines =
   .footer-copy,
   .footer-legal {
     margin: 0;
+    font-family: var(--font-body);
     font-size: 0.875rem;
     line-height: 1.5;
     color: #b6c7d6;
@@ -408,7 +418,6 @@ const addressLines =
     background: none;
     border: none;
     padding: 0;
-    font: inherit;
     cursor: pointer;
     min-height: 44px;
   }
