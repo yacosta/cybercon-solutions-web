@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cybercon-solutions.com/schemas/website-assessment-findings.json",
+  "title": "Cybercon website deep assessment findings",
+  "type": "object",
+  "required": ["meta", "executiveSummary", "scores", "priorityFixes", "sections"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["domain", "assessmentDate"],
+      "properties": {
+        "domain": { "type": "string" },
+        "clientName": { "type": "string" },
+        "url": { "type": "string" },
+        "assessmentDate": { "type": "string", "description": "ISO date YYYY-MM-DD" },
+        "assessor": { "type": "string", "default": "Cybercon Solutions" },
+        "locales": { "type": "array", "items": { "type": "string" } },
+        "confidential": { "type": "boolean", "default": true }
+      }
+    },
+    "executiveSummary": { "type": "string" },
+    "scores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["area", "grade"],
+        "properties": {
+          "area": { "type": "string" },
+          "grade": {
+            "type": "string",
+            "description": "A–F letter grade, or N when not assessable yet"
+          },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "priorityFixes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "severity"],
+        "properties": {
+          "title": { "type": "string" },
+          "severity": { "enum": ["high", "medium", "low"] },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "grade": { "type": "string" },
+          "summary": { "type": "string" },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["title"],
+              "properties": {
+                "severity": { "enum": ["high", "medium", "low", "info"] },
+                "title": { "type": "string" },
+                "evidence": { "type": "string" },
+                "recommendation": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "nextStep": { "type": "string" }
+  }
+}

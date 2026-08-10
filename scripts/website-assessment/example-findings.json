@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "domain": "example-client.com",
+    "clientName": "Example Client LLC",
+    "url": "https://example-client.com",
+    "assessmentDate": "2026-07-27",
+    "assessor": "Cybercon Solutions",
+    "locales": ["en"],
+    "confidential": true
+  },
+  "executiveSummary": "The public site presents clearly and loads with a workable mobile layout, but search metadata, cookie consent, and form privacy disclosures need attention before a broader marketing push. Accessibility basics are partly in place; several interactive controls lack visible focus and name clarity. Security headers and TLS look sound for a brochure site. This is a sample packet — replace with live evidence for a real engagement.",
+  "scores": [
+    { "area": "SEO", "grade": "C", "note": "Thin meta descriptions; missing sitemap discovery path" },
+    { "area": "Speed", "grade": "B", "note": "Acceptable LCP on mid-tier mobile; hero not prioritized" },
+    { "area": "Privacy policy", "grade": "C", "note": "Policy exists but outdated contact and form coverage" },
+    { "area": "Cookie consent", "grade": "D", "note": "Analytics load before choice" },
+    { "area": "Accessibility (WCAG)", "grade": "C", "note": "Focus and link-name gaps on primary CTAs" },
+    { "area": "Security", "grade": "B", "note": "HTTPS + HSTS; tighten CSP later" },
+    { "area": "GDPR", "grade": "N", "note": "EU traffic not confirmed — needs discovery" },
+    { "area": "CCPA", "grade": "C", "note": "No clear “Do Not Sell / Share” path if ads run" },
+    { "area": "ADA / Section 508", "grade": "C", "note": "Same WCAG barriers; no Section 508 claim needed yet" }
+  ],
+  "priorityFixes": [
+    {
+      "title": "Gate marketing cookies until consent",
+      "severity": "high",
+      "detail": "Defer analytics and ad tags until the visitor accepts non-essential cookies; keep a reject path as easy as accept."
+    },
+    {
+      "title": "Refresh privacy policy + form notices",
+      "severity": "high",
+      "detail": "Name processors, retention, and how to exercise California privacy rights; link the notice next to every lead form."
+    },
+    {
+      "title": "Fix CTA link names and keyboard focus",
+      "severity": "medium",
+      "detail": "Replace bare “Learn more” with destination topics; ensure a 2px visible focus ring on interactive controls."
+    }
+  ],
+  "sections": [
+    {
+      "id": "seo",
+      "title": "SEO",
+      "grade": "C",
+      "summary": "Titles exist on the homepage but several service URLs share near-duplicate descriptions.",
+      "findings": [
+        {
+          "severity": "medium",
+          "title": "Duplicate meta descriptions",
+          "evidence": "Three service templates reuse the same 140-character description.",
+          "recommendation": "Write unique descriptions that name the service and locality."
+        }
+      ]
+    },
+    {
+      "id": "speed",
+      "title": "Speed",
+      "grade": "B",
+      "summary": "Lab LCP is roughly in the “needs improvement” band on mobile; images are the main weight.",
+      "findings": [
+        {
+          "severity": "medium",
+          "title": "Hero image not prioritized",
+          "evidence": "LCP candidate is lazy-loaded and not preloaded.",
+          "recommendation": "Use fetchpriority=\"high\" on the LCP image; preload the format the picture element selects."
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "title": "Privacy policy",
+      "grade": "C",
+      "summary": "A privacy page is linked in the footer but still references an old phone number.",
+      "findings": [
+        {
+          "severity": "high",
+          "title": "Stale contact details",
+          "evidence": "Privacy page lists a disconnected phone for privacy requests.",
+          "recommendation": "Update contact channels and document form processors."
+        }
+      ]
+    },
+    {
+      "id": "cookies",
+      "title": "Cookie consent",
+      "grade": "D",
+      "summary": "Third-party tags fire on first paint.",
+      "findings": [
+        {
+          "severity": "high",
+          "title": "Analytics before consent",
+          "evidence": "Network log shows analytics beacon before banner interaction.",
+          "recommendation": "Load non-essential scripts only after affirmative consent."
+        }
+      ]
+    },
+    {
+      "id": "a11y",
+      "title": "Accessibility (WCAG)",
+      "grade": "C",
+      "summary": "Structure is mostly semantic; interaction polish is missing.",
+      "findings": [
+        {
+          "severity": "medium",
+          "title": "Bare “Learn more” links",
+          "evidence": "Four identical anchors in the services grid.",
+          "recommendation": "Include the destination topic in each accessible name."
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "title": "Security",
+      "grade": "B",
+      "summary": "TLS and HSTS are present; contact form posts over HTTPS.",
+      "findings": [
+        {
+          "severity": "low",
+          "title": "No Content-Security-Policy yet",
+          "evidence": "Response headers omit CSP.",
+          "recommendation": "Add a staged CSP after inventorying third parties."
+        }
+      ]
+    },
+    {
+      "id": "gdpr",
+      "title": "GDPR",
+      "grade": "N",
+      "summary": "Insufficient evidence of EU residents as a primary audience.",
+      "findings": [
+        {
+          "severity": "info",
+          "title": "Scope not confirmed",
+          "evidence": "No geo or market data provided for this sample.",
+          "recommendation": "Confirm EU traffic and processing roles before claiming GDPR readiness."
+        }
+      ]
+    },
+    {
+      "id": "ccpa",
+      "title": "CCPA",
+      "grade": "C",
+      "summary": "California rights language is thin if advertising pixels are in use.",
+      "findings": [
+        {
+          "severity": "medium",
+          "title": "Missing consumer request path",
+          "evidence": "Privacy page lacks a clear Do Not Sell/Share or request method.",
+          "recommendation": "Add a request channel and document ad/analytics sharing."
+        }
+      ]
+    },
+    {
+      "id": "ada",
+      "title": "ADA / Section 508",
+      "grade": "C",
+      "summary": "Public-facing barriers track the WCAG findings; no government-specific claim required for this sample.",
+      "findings": [
+        {
+          "severity": "medium",
+          "title": "Task-blocking focus gaps",
+          "evidence": "Primary CTA loses visible focus in Chrome keyboard nav.",
+          "recommendation": "Restore a visible focus indicator and retest the lead form path."
+        }
+      ]
+    }
+  ],
+  "nextStep": "Schedule a Cybercon free assessment follow-up to turn these fixes into a sequenced remediation plan on Web Design & Development."
+}
