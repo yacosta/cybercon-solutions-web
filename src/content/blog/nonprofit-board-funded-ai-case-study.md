@@ -101,6 +101,7 @@ If your board is asking about AI while the silos and access questions are still 
 
 ## Related reading
 
+- [A Digital and Tech Strategy the Board Can Fund: A Miami Nonprofit Case Study](/blog/miami-nonprofit-digital-tech-strategy-case-study/)
 - [Enterprise AI Adoption & ROI: What Works](/blog/enterprise-ai-adoption-roi/)
 - [Zero Trust for mid-market IT: a practical rollout](/blog/zero-trust-mid-market-rollout/)
 - [AI consulting for South Florida teams](/services/ai-consulting/)
