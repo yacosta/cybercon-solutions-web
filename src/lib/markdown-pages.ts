@@ -12,6 +12,8 @@ import managedItReportsLikeCio from '../content/blog/managed-it-reports-like-cio
 import managedItReportsLikeCioEs from '../content/blog/es/managed-it-reports-like-cio.md?raw';
 import nonprofitBoardFundedAiCaseStudy from '../content/blog/nonprofit-board-funded-ai-case-study.md?raw';
 import nonprofitBoardFundedAiCaseStudyEs from '../content/blog/es/nonprofit-board-funded-ai-case-study.md?raw';
+import miamiNonprofitDigitalTechStrategyCaseStudy from '../content/blog/miami-nonprofit-digital-tech-strategy-case-study.md?raw';
+import miamiNonprofitDigitalTechStrategyCaseStudyEs from '../content/blog/es/miami-nonprofit-digital-tech-strategy-case-study.md?raw';
 import educationSaasCityScaleCaseStudy from '../content/blog/education-saas-city-scale-case-study.md?raw';
 import educationSaasCityScaleCaseStudyEs from '../content/blog/es/education-saas-city-scale-case-study.md?raw';
 import healthcareNonprofitItTransformationCaseStudy from '../content/blog/healthcare-nonprofit-it-transformation-case-study.md?raw';
@@ -326,6 +328,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/nonprofit-board-funded-ai-case-study': nonprofitBoardFundedAiCaseStudy,
   '/es/blog/nonprofit-board-funded-ai-case-study/': nonprofitBoardFundedAiCaseStudyEs,
   '/es/blog/nonprofit-board-funded-ai-case-study': nonprofitBoardFundedAiCaseStudyEs,
+  '/blog/miami-nonprofit-digital-tech-strategy-case-study/': miamiNonprofitDigitalTechStrategyCaseStudy,
+  '/blog/miami-nonprofit-digital-tech-strategy-case-study': miamiNonprofitDigitalTechStrategyCaseStudy,
+  '/es/blog/miami-nonprofit-digital-tech-strategy-case-study/': miamiNonprofitDigitalTechStrategyCaseStudyEs,
+  '/es/blog/miami-nonprofit-digital-tech-strategy-case-study': miamiNonprofitDigitalTechStrategyCaseStudyEs,
   '/blog/education-saas-city-scale-case-study/': educationSaasCityScaleCaseStudy,
   '/blog/education-saas-city-scale-case-study': educationSaasCityScaleCaseStudy,
   '/es/blog/education-saas-city-scale-case-study/': educationSaasCityScaleCaseStudyEs,
