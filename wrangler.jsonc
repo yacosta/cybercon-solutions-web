@@ -14,7 +14,10 @@
 		// Non-slash HTML requests still 307 here; privacy (and peers) get 301 via public/_redirects.
 		"html_handling": "force-trailing-slash",
 		// Serve prerendered 404.html for unknown static routes.
-		"not_found_handling": "404-page"
+		"not_found_handling": "404-page",
+		// Homepage is prerendered, so ASSETS would 200 `/?page_id=82` unless the
+		// Worker runs first. Scoped to `/` + `/es/` only (not every path).
+		"run_worker_first": ["/", "/es/", "/es", "/index.php"]
 	},
 	"observability": {
 		"enabled": true

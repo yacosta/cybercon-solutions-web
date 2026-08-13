@@ -3,9 +3,11 @@
  *
  * The prerendered homepage ignores the query string and returns 200 with full
  * homepage HTML + canonical `/`. Google still treats `/?page_id=82` as its own
- * URL (soft 404 / thin duplicate). `_redirects` cannot match query strings —
- * production 301s are the zone Single Redirect (`npm run cf:wp-query-redirect`).
- * This helper covers `astro dev` and any SSR request that reaches middleware.
+ * URL (soft 404 / thin duplicate). `_redirects` cannot match query strings.
+ *
+ * Production: `scripts/wrap-worker-wp-query.mjs` wraps the Worker fetch
+ * (`run_worker_first` on `/` and `/es/`) so this 301 runs before ASSETS.
+ * `astro dev` uses the same helper via middleware. Keep both in sync.
  */
 
 const WP_ID_PARAMS = ['page_id', 'p', 'attachment_id'] as const;
@@ -13,7 +15,7 @@ const WP_ID_PARAMS = ['page_id', 'p', 'attachment_id'] as const;
 export function wordpressQueryRedirectPath(url: URL): string | null {
   const hasWpId = WP_ID_PARAMS.some((key) => {
     const value = url.searchParams.get(key);
-    return value !== null && /^\d+$/.test(value);
+    return value !== null && /^[0-9]+$/.test(value);
   });
   if (!hasWpId) return null;
 
