@@ -95,7 +95,7 @@ Add these **GitHub repository secrets** (Settings → Secrets and variables → 
 
 | Secret | Notes |
 |--------|--------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. For the Zaraz cache-header step, also add **Zone → Transform Rules → Edit** (and **Account → Account Rulesets → Read**). |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. For the Zaraz cache-header step, also add **Zone → Transform Rules → Edit** (and **Account → Account Rulesets → Read**). For the WordPress `/?page_id=` 301 step, add **Zone → Redirect Rules → Edit**. |
 | `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID (`61ffaf16829b400974986c7576f6165d`) |
 
 Zone ID for `cybercon-solutions.com` is `41a145bf2688a227f9e321a31055fe19` (wired into `deploy.yml` for the Zaraz cache step; not a secret).
@@ -109,6 +109,29 @@ If that step fails (token missing Transform Rules Edit), create the rule once in
 1. Rules → Overview → Create rule → **Modify response header**
 2. When: `(starts_with(http.request.uri.path, "/cdn-cgi/zaraz/s.js"))`
 3. Then: Set static → `Cache-Control` = `public, max-age=604800` (7 days)
+
+#### Legacy WordPress URLs (GSC crawl errors)
+
+Path leftovers live in `public/_redirects` (301, not 404/5xx):
+
+| Old URL | Destination |
+|---------|-------------|
+| `/home/` | `/` |
+| `/under-construction/` | `/` |
+| `/comments/feed/`, `/feed/` | `/blog/` |
+| `/phone-systems/` | `/services/managed-it/` (legacy VoIP page — not a live URL to index) |
+| `/wp-admin/admin-ajax.php` | leave 404 (WordPress backend stub) |
+
+`/?page_id=82` (and `?p=`) cannot be matched in `_redirects` — query matching is unsupported. The prerendered homepage would 200 the same HTML, which GSC flags as a soft 404. Deploy runs `npm run cf:wp-query-redirect` to upsert a **Single Redirect** (301 to `/` or `/es/`, query dropped).
+
+If that step fails (token missing Redirect Rules Edit), create the rule once in the dashboard:
+
+1. Rules → Redirect Rules → Create rule
+2. When: `(http.request.uri.path in {"/" "/es" "/es/" "/index.php"} and http.request.uri.query matches "(^|&)(page_id|p|attachment_id)=[0-9]+")`
+3. Then: Dynamic URL → `concat("https://cybercon-solutions.com", starts_with(http.request.uri.path, "/es") ? "/es/" : "/")`
+4. Status **301**; **Preserve query string** off
+
+If Googlebot still sees **403** on a URL that already 301s in `_redirects` (historically `/phone-systems/`), it is zone WAF / Super Bot Fight / leftover WordPress **Automatic Platform Optimization** (`cf-apo-via` on HTML responses) — skip Googlebot in the firewall and disable APO (this site is a Worker, not WordPress). Do not add a new page for a retired slug.
 
 Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
 

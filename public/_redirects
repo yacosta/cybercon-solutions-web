@@ -227,6 +227,8 @@
 /managed-backups-disaster-recovery/ /services/backup-disaster-recovery/ 301
 
 # --- Cabling / phone ---
+# /phone-systems/ is a legacy WordPress service URL (GSC "403" after Wordfence/WAF).
+# It is not a live page — 301 to Managed IT so Googlebot follows to indexable content.
 /low-voltage-cabling /services/managed-it/ 301
 /low-voltage-cabling/ /services/managed-it/ 301
 /managed-phone-services /services/managed-it/ 301
@@ -296,6 +298,9 @@
 /jobs-cybercon-solutions/ / 301
 /faq / 301
 /faq/ / 301
+# Exact /home/ (GSC 404) — do not splat /home/*; /home/web-design-development etc. stay below/above.
+/home / 301
+/home/ / 301
 /home/faq / 301
 /home/faq/ / 301
 /home/about-us / 301
@@ -373,6 +378,17 @@
 /home/404-error / 301
 /home/404-error/ / 301
 
+# GSC leftovers from the WordPress site (404 / 5xx). 301 so Google stops recrawling dead URLs.
+# `/?page_id=82` cannot be matched here (Workers _redirects ignore query strings) —
+# see scripts/ensure-wp-query-redirect.mjs / `npm run cf:wp-query-redirect`.
+/under-construction / 301
+/under-construction/ / 301
+/comments/feed /blog/ 301
+/comments/feed/ /blog/ 301
+/feed /blog/ 301
+/feed/ /blog/ 301
+/index.php / 301
+
 # Case-study / portfolio leftovers from the old template site
 /bank-costa-rica / 301
 /bank-costa-rica/ / 301
@@ -431,6 +447,8 @@
 /category/* / 301
 /tag/* / 301
 /author/* / 301
+/comments/* /blog/ 301
+/feed/* /blog/ 301
 /2015/* / 301
 /2016/* / 301
 /2018/* / 301
