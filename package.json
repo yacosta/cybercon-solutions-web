@@ -14,7 +14,8 @@
     "generate-types": "wrangler types",
     "deploy": "npm run build && wrangler deploy",
     "cf:deploy": "wrangler deploy",
-    "cf:zaraz-cache": "node scripts/ensure-zaraz-cache-header.mjs"
+    "cf:zaraz-cache": "node scripts/ensure-zaraz-cache-header.mjs",
+    "cf:wp-query-redirect": "node scripts/ensure-wp-query-redirect.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.1.3",

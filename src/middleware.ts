@@ -5,6 +5,7 @@ import {
   SESSION_COOKIE,
 } from './lib/auth0';
 import { getPageMarkdown } from './lib/markdown-pages';
+import { wordpressQueryRedirectPath } from './lib/wp-query-redirect';
 
 const agentLinkHeader = [
   '</.well-known/api-catalog>; rel="api-catalog"',
@@ -14,6 +15,18 @@ const agentLinkHeader = [
   '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',
   '</.well-known/mcp/server-card.json>; rel="mcp"',
 ].join(', ');
+
+const wpQueryRedirectMiddleware = defineMiddleware(async (context, next) => {
+  const method = context.request.method;
+  if (method !== 'GET' && method !== 'HEAD') {
+    return next();
+  }
+  const dest = wordpressQueryRedirectPath(context.url);
+  if (dest) {
+    return context.redirect(dest, 301);
+  }
+  return next();
+});
 
 const markdownMiddleware = defineMiddleware(async (context, next) => {
   const accept = context.request.headers.get('accept') ?? '';
@@ -94,7 +107,11 @@ const authMiddleware = defineMiddleware(async (context, next) => {
   return next();
 });
 
-export const onRequest = sequence(markdownMiddleware, authMiddleware);
+export const onRequest = sequence(
+  wpQueryRedirectMiddleware,
+  markdownMiddleware,
+  authMiddleware,
+);
 
 declare namespace App {
   interface Locals {
