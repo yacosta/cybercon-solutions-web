@@ -4,6 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import Hero from '../../components/Hero.astro';
+import CroOrchestrator from '../../components/cro/CroOrchestrator.astro';
+import CaseStudyProofBar from '../../components/cro/CaseStudyProofBar.astro';
+import ProblemSelector from '../../components/cro/ProblemSelector.astro';
+import StickyMobileCta from '../../components/cro/StickyMobileCta.astro';
 import AssessmentForm from '../../components/AssessmentForm.astro';
 import ServicesGrid from '../../components/ServicesGrid.astro';
 import EngagementWorks from '../../components/EngagementWorks.astro';
@@ -29,7 +33,18 @@ const t = getMessages(locale);
     <Header locale={locale} t={t} variant="dark" />
   </div>
 
+  <CroOrchestrator />
+
   <Hero locale={locale} t={t} />
+
+  <div data-cro-experiment="cro-004" hidden>
+    <div data-cro-arm-show="V1" hidden>
+      <CaseStudyProofBar locale={locale} t={t} variant="v1" />
+    </div>
+    <div data-cro-arm-show="V2" hidden>
+      <CaseStudyProofBar locale={locale} t={t} variant="v2" />
+    </div>
+  </div>
 
   <IndustriesSection locale={locale} t={t} />
 
@@ -43,7 +58,18 @@ const t = getMessages(locale);
 
   <EngagementWorks t={t} />
 
+  <div data-cro-experiment="cro-003" hidden>
+    <div data-cro-arm-show="V1" hidden>
+      <ProblemSelector locale={locale} t={t} variant="v1" />
+    </div>
+    <div data-cro-arm-show="V2" hidden>
+      <ProblemSelector locale={locale} t={t} variant="v2" />
+    </div>
+  </div>
+
   <AssessmentForm locale={locale} t={t} />
+
+  <StickyMobileCta locale={locale} t={t} variant="v1" />
 
   <Footer slot="footer" locale={locale} t={t} />
 </BaseLayout>

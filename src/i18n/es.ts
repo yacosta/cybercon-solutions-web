@@ -71,6 +71,33 @@ export const es: Messages = {
     status: 'Atendemos empresas del sur de Florida',
     cta: 'Mira lo que realmente cuesta tu TI',
     ctaSecondary: 'Haz la revisión gratuita del sitio',
+    personasLabel: 'Trabajo en',
+    personas: {
+      healthcare: {
+        label: 'Salud',
+        lede:
+          'Los equipos clínicos no deberían ser el departamento de TI. Acceso consciente de HIPAA, monitoreo y pruebas de restauración — para que las contraseñas compartidas y los sistemas lentos en recepción dejen de quitar la tarde a los pacientes.',
+        cta: 'Mira lo que realmente cuesta la TI de tu clínica',
+      },
+      legal: {
+        label: 'Legal',
+        lede:
+          'Las horas facturables no esperan a un computador congelado. TI centrada en la confidencialidad, soporte en vivo y acceso remoto seguro para que el privilegio se proteja y las presentaciones no se frenen en una cola de tickets.',
+        cta: 'Mira lo que realmente cuesta la TI de tu bufete',
+      },
+      financial: {
+        label: 'Finanzas',
+        lede:
+          'La confianza del cliente se gana en cada inicio de sesión y cada restauración. Controles listos para auditoría, monitoreo e identidad que resisten el escrutinio sin hacer pelear al equipo con las herramientas.',
+        cta: 'Mira lo que realmente cuesta la TI financiera',
+      },
+      nonprofit: {
+        label: 'Nonprofit',
+        lede:
+          'El trabajo misional no debería depender de quien sepa las contraseñas. TI estable y segura con precio predecible por usuario para escuelas, iglesias y organizaciones sin fines de lucro que no pueden costear facturas sorpresa.',
+        cta: 'Mira lo que realmente cuesta la TI de tu nonprofit',
+      },
+    },
   },
   form: {
     eyebrow: 'Cybercon Solutions',
@@ -355,5 +382,76 @@ export const es: Messages = {
     homeEs: 'Inicio en español',
     otherLocale: 'English',
     otherLocaleHref: '/',
+  },
+  cro: {
+    caseStudyProof: {
+      eyebrow: 'Resultados de clientes',
+      title: 'Prueba de proyectos reales.',
+      lede: 'Elige una industria. Un resultado de una historia de cliente publicada.',
+      filtersLabel: 'Filtrar historias de clientes por industria',
+      stories: {
+        'healthcare-nonprofit-it-transformation-case-study': {
+          stat: '$1,3M ahorrados',
+          badge: 'Nonprofit de salud',
+          linkText: 'Lee cómo un nonprofit de salud ahorró $1,3M',
+        },
+        'nonprofit-board-funded-ai-case-study': {
+          stat: '~5.000 horas/año',
+          badge: 'Nonprofit ambiental',
+          linkText: 'Lee cómo un nonprofit recuperó ~5.000 horas de personal al año',
+        },
+        'education-saas-city-scale-case-study': {
+          stat: '145.000 familias',
+          badge: 'Nonprofit de educación',
+          linkText: 'Lee cómo una SaaS educativa llegó a 145.000 familias',
+        },
+        'retail-it-six-countries-case-study': {
+          stat: '6 países',
+          badge: 'Retail premium',
+          linkText: 'Lee cómo la TI de retail operó en seis países',
+        },
+        'enterprise-integration-mpos-case-study': {
+          stat: '+$2M en entrega',
+          badge: 'Servicios profesionales',
+          linkText: 'Lee cómo se entregaron integración empresarial y mPOS a escala',
+        },
+        'gym-franchise-hybrid-it-case-study': {
+          stat: 'Franquicia nacional',
+          badge: 'Franquicia de fitness',
+          linkText: 'Lee cómo la TI híbrida mantuvo operando una franquicia nacional de gimnasios',
+        },
+      },
+    },
+    problemSelector: {
+      eyebrow: 'Empieza aquí',
+      title: '¿Cuál es tu mayor problema de TI?',
+      lede: 'Nombra la fricción que más te cuesta esta semana. Te llevamos al servicio que suele resolverla.',
+      selectLabel: 'Elige tu mayor problema de TI',
+      paths: {
+        cybersecurity: {
+          label: 'Vacíos de ciberseguridad',
+          summary:
+            'Contraseñas compartidas en la clínica u oficina, MFA todavía opcional o una restauración que nunca has probado de verdad — los vacíos silenciosos que convierten un martes normal en una llamada de incidente.',
+          cta: 'Ver servicios de ciberseguridad y cumplimiento',
+        },
+        downtime: {
+          label: 'Caídas y TI sin gestión',
+          summary:
+            'Un computador congelado se come una tarde facturable, la cola de tickets no baja y aparecen facturas por falla cada vez que alguien solo necesita trabajar.',
+          cta: 'Ver servicios de TI administrados',
+        },
+        complianceAi: {
+          label: 'Cumplimiento y preparación para IA',
+          summary:
+            'Preguntas de auditoría que aún no puedes responder con claridad — o colaboradores que ya pegan datos de clientes en herramientas de IA públicas por fuera del control de TI.',
+          cta: 'Ver servicios de seguridad de IA',
+        },
+      },
+    },
+    stickyMobileCta: {
+      barLabel: 'Empezar',
+      primary: 'Obtén una evaluación gratuita de TI',
+      call: 'Llama al {phone}',
+    },
   },
 };

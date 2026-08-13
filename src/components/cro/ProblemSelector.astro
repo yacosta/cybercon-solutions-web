@@ -1,0 +1,307 @@
+---
+import type { Messages } from '../../i18n';
+import { servicePath } from '../../data/services';
+
+interface Props {
+  locale: string;
+  t: Messages;
+  variant: 'v1' | 'v2';
+}
+
+const { locale, t, variant } = Astro.props;
+const copy = t.cro.problemSelector;
+
+const paths = [
+  {
+    id: 'cybersecurity',
+    slug: 'cybersecurity',
+    label: copy.paths.cybersecurity.label,
+    summary: copy.paths.cybersecurity.summary,
+    cta: copy.paths.cybersecurity.cta,
+  },
+  {
+    id: 'downtime',
+    slug: 'managed-it',
+    label: copy.paths.downtime.label,
+    summary: copy.paths.downtime.summary,
+    cta: copy.paths.downtime.cta,
+  },
+  {
+    id: 'complianceAi',
+    slug: 'ai-security',
+    label: copy.paths.complianceAi.label,
+    summary: copy.paths.complianceAi.summary,
+    cta: copy.paths.complianceAi.cta,
+  },
+].map((path) => ({
+  ...path,
+  href: servicePath(locale, path.slug),
+}));
+
+const defaultPath = paths[0];
+const titleId = `problem-selector-title-${variant}`;
+---
+
+<section
+  class:list={['problem-selector', `problem-selector--${variant}`]}
+  data-cro-component="problem-selector"
+  data-variant={variant}
+  aria-labelledby={titleId}
+>
+  <div class="container">
+    <header class="problem-selector-head">
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h2 id={titleId}>{copy.title}</h2>
+      <p class="problem-selector-lede">{copy.lede}</p>
+    </header>
+
+    {
+      variant === 'v1' ? (
+        <ul class="problem-selector-list">
+          {paths.map((path) => (
+            <li class="problem-selector-row">
+              <div class="problem-selector-copy">
+                <h3 class="problem-selector-label">{path.label}</h3>
+                <p class="problem-selector-summary">{path.summary}</p>
+              </div>
+              <a class="btn btn-primary problem-selector-cta" href={path.href}>
+                {path.cta}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="problem-selector-v2" data-problem-selector-v2>
+          <div
+            class="problem-selector-segments"
+            role="radiogroup"
+            aria-label={copy.selectLabel}
+          >
+            {paths.map((path, index) => (
+              <button
+                type="button"
+                class:list={['problem-selector-segment', { 'is-active': index === 0 }]}
+                role="radio"
+                aria-checked={index === 0 ? 'true' : 'false'}
+                data-path-id={path.id}
+                tabindex={index === 0 ? 0 : -1}
+              >
+                {path.label}
+              </button>
+            ))}
+          </div>
+          <div class="problem-selector-panel" data-problem-panel>
+            <p class="problem-selector-summary" data-problem-summary>{defaultPath.summary}</p>
+            <a class="btn btn-primary problem-selector-cta" href={defaultPath.href} data-problem-cta>
+              {defaultPath.cta}
+            </a>
+          </div>
+          <script
+            type="application/json"
+            data-problem-paths
+            set:html={JSON.stringify(
+              paths.map((path) => ({
+                id: path.id,
+                summary: path.summary,
+                cta: path.cta,
+                href: path.href,
+              })),
+            )}
+          />
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<script>
+  function initProblemSelectorV2() {
+    const roots = document.querySelectorAll('[data-problem-selector-v2]');
+    roots.forEach((root) => {
+      if (!(root instanceof HTMLElement)) return;
+      const dataEl = root.querySelector('[data-problem-paths]');
+      const summaryEl = root.querySelector('[data-problem-summary]');
+      const ctaEl = root.querySelector('[data-problem-cta]');
+      const group = root.querySelector('[role="radiogroup"]');
+      if (
+        !(dataEl instanceof HTMLScriptElement) ||
+        !(summaryEl instanceof HTMLElement) ||
+        !(ctaEl instanceof HTMLAnchorElement) ||
+        !(group instanceof HTMLElement)
+      ) {
+        return;
+      }
+
+      let paths = [];
+      try {
+        paths = JSON.parse(dataEl.textContent || '[]');
+      } catch {
+        return;
+      }
+      const byId = new Map(paths.map((path) => [path.id, path]));
+      const radios = Array.from(group.querySelectorAll('[role="radio"]')).filter(
+        (el) => el instanceof HTMLButtonElement,
+      );
+
+      function select(id) {
+        const path = byId.get(id);
+        if (!path) return;
+        for (const radio of radios) {
+          const selected = radio.dataset.pathId === id;
+          radio.setAttribute('aria-checked', selected ? 'true' : 'false');
+          radio.tabIndex = selected ? 0 : -1;
+          radio.classList.toggle('is-active', selected);
+        }
+        summaryEl.textContent = path.summary;
+        ctaEl.textContent = path.cta;
+        ctaEl.href = path.href;
+      }
+
+      group.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const radio = target.closest('[role="radio"]');
+        if (!(radio instanceof HTMLButtonElement) || !group.contains(radio)) return;
+        select(radio.dataset.pathId);
+      });
+
+      group.addEventListener('keydown', (event) => {
+        if (!(event instanceof KeyboardEvent)) return;
+        const current = radios.findIndex((radio) => radio.tabIndex === 0);
+        if (current < 0) return;
+        let next = current;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (current + 1) % radios.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp')
+          next = (current - 1 + radios.length) % radios.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = radios.length - 1;
+        else return;
+        event.preventDefault();
+        const radio = radios[next];
+        select(radio.dataset.pathId);
+        radio.focus();
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProblemSelectorV2, { once: true });
+  } else {
+    initProblemSelectorV2();
+  }
+</script>
+
+<style>
+  .problem-selector {
+    background: var(--cream);
+    padding: var(--section-pad-y) 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.08);
+  }
+
+  .problem-selector-head {
+    max-width: 40rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  .problem-selector h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0.75rem;
+    color: var(--navy);
+  }
+
+  .problem-selector-lede {
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 1.015rem;
+    line-height: 1.6;
+  }
+
+  .problem-selector-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .problem-selector-row {
+    display: grid;
+    gap: 1rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  @media (min-width: 720px) {
+    .problem-selector-row {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  }
+
+  .problem-selector-label {
+    margin: 0 0 0.35rem;
+    font-size: 1.0625rem;
+    color: var(--navy);
+  }
+
+  .problem-selector-summary {
+    margin: 0;
+    color: var(--body-muted);
+    line-height: 1.6;
+  }
+
+  .problem-selector-cta {
+    justify-self: start;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .problem-selector-segments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.14);
+  }
+
+  .problem-selector-segment {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    margin: 0 0 -1px;
+    padding: 0.65rem 0.8rem;
+    color: var(--body-muted);
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .problem-selector-segment:hover,
+  .problem-selector-segment:focus-visible,
+  .problem-selector-segment.is-active,
+  .problem-selector-segment[aria-checked='true'] {
+    color: var(--navy);
+  }
+
+  .problem-selector-segment.is-active,
+  .problem-selector-segment[aria-checked='true'] {
+    border-bottom-color: var(--coral);
+  }
+
+  .problem-selector-segment:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+
+  .problem-selector-panel {
+    display: grid;
+    gap: 1rem;
+    max-width: 40rem;
+  }
+
+  .problem-selector-panel .problem-selector-cta {
+    justify-self: start;
+  }
+</style>

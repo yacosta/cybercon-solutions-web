@@ -1,0 +1,149 @@
+---
+/**
+ * Client-side CRO orchestrator.
+ * Sticky C/V1/V2 arms for active experiments; reveals `[data-cro-experiment]` treatments.
+ * QA: `?cro-001=V2&cro-002=V1&cro=debug`
+ */
+import { CRO_EXPERIMENTS, CRO_STORAGE_PREFIX } from '../../lib/cro';
+
+const catalog = CRO_EXPERIMENTS.map((experiment) => ({
+  id: experiment.id,
+  name: experiment.name,
+  components: experiment.components,
+  active: experiment.active,
+  weights: experiment.weights,
+}));
+---
+
+<script define:vars={{ catalog, storagePrefix: CRO_STORAGE_PREFIX }}>
+  /** @typedef {'C' | 'V1' | 'V2'} CroArm */
+
+  /** @param {string | null | undefined} value */
+  function parseArm(value) {
+    if (!value) return null;
+    const normalized = String(value).trim().toUpperCase();
+    if (normalized === 'C' || normalized === 'CONTROL') return 'C';
+    if (normalized === 'V1' || normalized === '1') return 'V1';
+    if (normalized === 'V2' || normalized === '2') return 'V2';
+    return null;
+  }
+
+  /** @param {Record<string, number>} weights @returns {CroArm} */
+  function drawArm(weights) {
+    const entries = Object.entries(weights).filter(([, weight]) => weight > 0);
+    if (!entries.length) return 'C';
+    const total = entries.reduce((sum, [, weight]) => sum + weight, 0);
+    let ticket = Math.random() * total;
+    for (const [arm, weight] of entries) {
+      ticket -= weight;
+      if (ticket <= 0) return /** @type {CroArm} */ (arm);
+    }
+    return /** @type {CroArm} */ (entries[entries.length - 1][0]);
+  }
+
+  /**
+   * @param {{ id: string, active: boolean, weights: Record<string, number> }} experiment
+   * @param {URLSearchParams} params
+   * @returns {CroArm}
+   */
+  function assignArm(experiment, params) {
+    const fromQuery = parseArm(params.get(experiment.id));
+    if (fromQuery) {
+      try {
+        localStorage.setItem(`${storagePrefix}${experiment.id}`, fromQuery);
+      } catch {
+        /* private mode */
+      }
+      return fromQuery;
+    }
+    if (!experiment.active) return 'C';
+    try {
+      const stored = parseArm(localStorage.getItem(`${storagePrefix}${experiment.id}`));
+      if (stored) return stored;
+    } catch {
+      /* private mode */
+    }
+    const drawn = drawArm(experiment.weights);
+    try {
+      localStorage.setItem(`${storagePrefix}${experiment.id}`, drawn);
+    } catch {
+      /* private mode */
+    }
+    return drawn;
+  }
+
+  /** @param {string} experimentId @param {CroArm} arm */
+  function applyExperiment(experimentId, arm) {
+    document.documentElement.setAttribute(`data-${experimentId}`, arm);
+
+    const roots = document.querySelectorAll(
+      `[data-cro-experiment="${experimentId}"], [data-cro-experiment-id="${experimentId}"]`,
+    );
+
+    for (const root of roots) {
+      if (!(root instanceof HTMLElement)) continue;
+      root.setAttribute('data-cro-arm', arm);
+
+      if (arm === 'C') {
+        root.setAttribute('hidden', '');
+        root.setAttribute('data-cro-active', 'false');
+      } else {
+        root.removeAttribute('hidden');
+        root.setAttribute('data-cro-active', 'true');
+      }
+
+      const panels = root.querySelectorAll('[data-cro-arm-show]');
+      for (const panel of panels) {
+        if (!(panel instanceof HTMLElement)) continue;
+        const show = (panel.getAttribute('data-cro-arm-show') || '').toUpperCase();
+        if (arm !== 'C' && show === arm) panel.removeAttribute('hidden');
+        else panel.setAttribute('hidden', '');
+      }
+    }
+
+    document.dispatchEvent(
+      new CustomEvent('cro:assigned', {
+        detail: { id: experimentId, arm },
+      }),
+    );
+  }
+
+  /** @param {Record<string, CroArm>} assignments */
+  function renderDebug(assignments) {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('cro') !== 'force' && params.get('cro') !== 'debug') return;
+
+    let chip = document.getElementById('cro-debug-chip');
+    if (!chip) {
+      chip = document.createElement('aside');
+      chip.id = 'cro-debug-chip';
+      chip.setAttribute('aria-label', 'CRO debug');
+      chip.style.cssText =
+        'position:fixed;right:0.75rem;bottom:0.75rem;z-index:60;max-width:16rem;padding:0.65rem 0.75rem;border-radius:9px;background:rgba(15,44,76,0.94);color:#fff;font:600 0.7rem/1.35 ui-monospace,monospace;box-shadow:0 8px 24px rgba(0,0,0,0.28);pointer-events:none;';
+      document.body.appendChild(chip);
+    }
+
+    chip.textContent = Object.entries(assignments)
+      .map(([id, arm]) => `${id}: ${arm}`)
+      .join('\n');
+  }
+
+  function initCro() {
+    const params = new URLSearchParams(window.location.search);
+    /** @type {Record<string, CroArm>} */
+    const assignments = {};
+    for (const experiment of catalog) {
+      const arm = assignArm(experiment, params);
+      assignments[experiment.id] = arm;
+      applyExperiment(experiment.id, arm);
+    }
+    window.__CRO__ = { assignments, experiments: catalog };
+    renderDebug(assignments);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCro, { once: true });
+  } else {
+    initCro();
+  }
+</script>

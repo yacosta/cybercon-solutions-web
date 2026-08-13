@@ -69,6 +69,33 @@ export const en = {
     status: 'Serving South Florida businesses',
     cta: 'See what your IT actually costs',
     ctaSecondary: 'Run the free site check',
+    personasLabel: 'I work in',
+    personas: {
+      healthcare: {
+        label: 'Healthcare',
+        lede:
+          'Care teams should not have to be the IT department. HIPAA-aware access, monitoring, and restore tests — so shared workstations and slow front-desk systems stop stealing the afternoon from patients.',
+        cta: 'See what clinic IT actually costs',
+      },
+      legal: {
+        label: 'Legal',
+        lede:
+          'Billable hours do not wait on a frozen laptop. Confidentiality-first IT, live support, and secure remote access so privilege stays protected and filings do not stall on a ticket queue.',
+        cta: 'See what law firm IT actually costs',
+      },
+      financial: {
+        label: 'Financial',
+        lede:
+          'Client confidence is earned in every login and every restore. Audit-ready controls, monitoring, and identity that hold up to scrutiny without making your team fight the tools.',
+        cta: 'See what finance IT actually costs',
+      },
+      nonprofit: {
+        label: 'Nonprofit',
+        lede:
+          'Mission work should not depend on whoever happens to know the passwords. Steady, secure IT with predictable per-user pricing for schools, churches, and nonprofits that cannot afford surprise invoices.',
+        cta: 'See what nonprofit IT actually costs',
+      },
+    },
   },
   form: {
     eyebrow: 'Cybercon Solutions',
@@ -353,6 +380,77 @@ export const en = {
     homeEs: 'Spanish homepage',
     otherLocale: 'Español',
     otherLocaleHref: '/es/',
+  },
+  cro: {
+    caseStudyProof: {
+      eyebrow: 'Customer outcomes',
+      title: 'Proof from real engagements.',
+      lede: 'Pick an industry. One outcome from a published customer story.',
+      filtersLabel: 'Filter customer stories by industry',
+      stories: {
+        'healthcare-nonprofit-it-transformation-case-study': {
+          stat: '$1.3M Saved',
+          badge: 'Healthcare nonprofit',
+          linkText: 'Read how a healthcare nonprofit saved $1.3M',
+        },
+        'nonprofit-board-funded-ai-case-study': {
+          stat: '~5,000 hours/year',
+          badge: 'Environmental nonprofit',
+          linkText: 'Read how a nonprofit reclaimed ~5,000 staff hours a year',
+        },
+        'education-saas-city-scale-case-study': {
+          stat: '145,000 families',
+          badge: 'Education nonprofit',
+          linkText: 'Read how education SaaS reached 145,000 families',
+        },
+        'retail-it-six-countries-case-study': {
+          stat: '6 countries',
+          badge: 'Premium retail',
+          linkText: 'Read how retail IT ran across six countries',
+        },
+        'enterprise-integration-mpos-case-study': {
+          stat: '$2M+ delivery',
+          badge: 'Professional services',
+          linkText: 'Read how enterprise integration and mPOS shipped at scale',
+        },
+        'gym-franchise-hybrid-it-case-study': {
+          stat: 'National franchise',
+          badge: 'Fitness franchise',
+          linkText: 'Read how hybrid IT kept a national gym franchise running',
+        },
+      },
+    },
+    problemSelector: {
+      eyebrow: 'Start here',
+      title: 'What’s your biggest IT problem?',
+      lede: 'Name the friction that costs you the most this week. We’ll route you to the service that usually fixes it.',
+      selectLabel: 'Choose your biggest IT problem',
+      paths: {
+        cybersecurity: {
+          label: 'Cybersecurity gaps',
+          summary:
+            'Shared clinic or office passwords, MFA still optional, or a restore you’ve never actually run — the quiet gaps that turn a normal Tuesday into an incident call.',
+          cta: 'See cybersecurity & compliance services',
+        },
+        downtime: {
+          label: 'Downtime & unmanaged IT',
+          summary:
+            'A frozen laptop eats a billable afternoon, the ticket pile never shrinks, and break/fix invoices show up whenever someone just needs to work.',
+          cta: 'See managed IT services',
+        },
+        complianceAi: {
+          label: 'Compliance & AI readiness',
+          summary:
+            'Audit questions you can’t answer cleanly yet — or staff already pasting client data into public AI tools outside IT’s control.',
+          cta: 'See AI security services',
+        },
+      },
+    },
+    stickyMobileCta: {
+      barLabel: 'Get started',
+      primary: 'Get a free IT assessment',
+      call: 'Call {phone}',
+    },
   },
 } as const;
 
