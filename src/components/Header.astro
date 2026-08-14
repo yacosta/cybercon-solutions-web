@@ -16,26 +16,71 @@ const loc = locale === 'es' ? 'es' : 'en';
 const homeHref = localePath(locale, '/');
 const searchHref = localePath(locale, '/search/');
 const blogHref = localePath(locale, '/blog/');
+const aboutHref = localePath(locale, '/about/');
+const assessmentHref = localePath(locale, '/assessment/');
 const contactHref = localePath(locale, '/contact/');
 const path = Astro.url.pathname;
 const onHome = path === '/' || path === '/es' || path === '/es/';
 const onBlog = path === '/blog' || path.startsWith('/blog/') || path === '/es/blog' || path.startsWith('/es/blog/');
+const onAbout =
+  path === '/about' ||
+  path.startsWith('/about/') ||
+  path === '/es/about' ||
+  path.startsWith('/es/about/');
+const onAssessment =
+  path === '/assessment' ||
+  path.startsWith('/assessment/') ||
+  path === '/es/assessment' ||
+  path.startsWith('/es/assessment/');
 const onContact =
   path === '/contact' ||
   path.startsWith('/contact/') ||
   path === '/es/contact' ||
   path.startsWith('/es/contact/');
-const onServices = path.includes('/services/');
 const onIndustries = path.includes('/industries');
 const customerGroups = await getCustomerStoryGroups(loc, path);
 const onCustomers = customerGroups.some((group) => group.papers.some((paper) => paper.current));
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
-const serviceLinks = services.map((service) => ({
-  href: servicePath(locale, service.slug),
-  title: service.title[loc],
-  current: path.includes(`/services/${service.slug}`),
-}));
+
+// Core managed-services menu vs. the separate Projects & Innovation menu (advisory/digital work).
+const coreServiceSlugs = [
+  'managed-it',
+  'cybersecurity',
+  'cloud',
+  'backup-disaster-recovery',
+  'it-consulting',
+] as const;
+const projectServiceSlugs = [
+  'ai-security',
+  'ai-consulting',
+  'ai-integration',
+  'conversational-ai',
+  'web-design-development',
+] as const;
+
+const navServiceLabel = (slug: string, title: string) => {
+  if (slug === 'managed-it') return t.nav.managedIt;
+  if (slug === 'cybersecurity') return t.nav.cybersecurity;
+  return title;
+};
+
+const buildServiceLinks = (slugs: readonly string[]) =>
+  slugs
+    .map((slug) => services.find((service) => service.slug === slug))
+    .filter((service): service is (typeof services)[number] => Boolean(service))
+    .map((service) => ({
+      href: servicePath(locale, service.slug),
+      title: navServiceLabel(service.slug, service.title[loc]),
+      current: path.includes(`/services/${service.slug}`),
+    }));
+
+const serviceLinks = buildServiceLinks(coreServiceSlugs);
+const projectLinks = buildServiceLinks(projectServiceSlugs);
+const onServices = serviceLinks.some((service) => service.current);
+const onProjects = projectLinks.some((service) => service.current);
+const onResources = (onBlog && !onCustomers) || onAbout;
+
 const industryLinks = industries.map((industry) => ({
   href: industryPath(locale, industry.slug),
   title: industry.title[loc],
@@ -79,6 +124,41 @@ const industryLinks = industries.map((industry) => ({
           >
             {
               serviceLinks.map((service) => (
+                <li>
+                  <a
+                    href={service.href}
+                    class:list={[{ active: service.current }]}
+                    aria-current={service.current ? 'page' : undefined}
+                  >
+                    {service.title}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button
+            type="button"
+            class:list={['nav-link', 'nav-dropdown-toggle', { active: onProjects }]}
+            data-nav-dropdown-toggle
+            aria-expanded="false"
+            aria-controls="nav-projects-menu"
+            aria-haspopup="true"
+          >
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span>{t.nav.projects}</span>
+          </button>
+          <ul
+            id="nav-projects-menu"
+            class="nav-dropdown-menu"
+            data-nav-dropdown-menu
+            aria-label={t.nav.projectsMenu}
+            hidden
+          >
+            {
+              projectLinks.map((service) => (
                 <li>
                   <a
                     href={service.href}
@@ -148,6 +228,7 @@ const industryLinks = industries.map((industry) => ({
             aria-label={t.nav.customersMenu}
             hidden
           >
+            <p class="nav-results-note">{t.nav.resultsNote}</p>
             {
               customerGroups.length === 0 ? (
                 <p class="nav-customers-empty">{t.nav.customersEmpty}</p>
@@ -196,14 +277,45 @@ const industryLinks = industries.map((industry) => ({
           </div>
         </div>
 
-        <a
-          href={blogHref}
-          class:list={['nav-link', { active: onBlog && !onCustomers }]}
-          aria-current={onBlog && !onCustomers ? 'page' : undefined}
-        >
-          <span class="nav-dot" aria-hidden="true"></span>
-          <span>{t.blog.nav}</span>
-        </a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button
+            type="button"
+            class:list={['nav-link', 'nav-dropdown-toggle', { active: onResources }]}
+            data-nav-dropdown-toggle
+            aria-expanded="false"
+            aria-controls="nav-resources-menu"
+            aria-haspopup="true"
+          >
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span>{t.nav.resources}</span>
+          </button>
+          <ul
+            id="nav-resources-menu"
+            class="nav-dropdown-menu"
+            data-nav-dropdown-menu
+            aria-label={t.nav.resourcesMenu}
+            hidden
+          >
+            <li>
+              <a
+                href={blogHref}
+                class:list={[{ active: onBlog && !onCustomers }]}
+                aria-current={onBlog && !onCustomers ? 'page' : undefined}
+              >
+                {t.blog.nav}
+              </a>
+            </li>
+            <li>
+              <a
+                href={aboutHref}
+                class:list={[{ active: onAbout }]}
+                aria-current={onAbout ? 'page' : undefined}
+              >
+                {t.nav.about}
+              </a>
+            </li>
+          </ul>
+        </div>
 
         <a
           href={contactHref}
@@ -216,6 +328,14 @@ const industryLinks = industries.map((industry) => ({
       </nav>
 
       <div class="header-tools">
+        <a
+          href={assessmentHref}
+          class:list={['nav-cta', { active: onAssessment }]}
+          aria-current={onAssessment ? 'page' : undefined}
+        >
+          {t.nav.assessment}
+        </a>
+
         <div class="header-search" data-header-search>
           <div class="search-pill" data-search-pill>
             <button
@@ -307,9 +427,29 @@ const industryLinks = industries.map((industry) => ({
         <span class="nav-dot" aria-hidden="true"></span>
         <span>{t.nav.home}</span>
       </a>
+      <a
+        href={assessmentHref}
+        class:list={['menu-panel-cta', { active: onAssessment }]}
+        aria-current={onAssessment ? 'page' : undefined}
+      >
+        {t.nav.assessment}
+      </a>
       <p class="menu-panel-label">{t.nav.services}</p>
       {
         serviceLinks.map((service) => (
+          <a
+            href={service.href}
+            class:list={['menu-panel-link', 'is-service', { active: service.current }]}
+            aria-current={service.current ? 'page' : undefined}
+          >
+            <span class="nav-dot" aria-hidden="true"></span>
+            <span>{service.title}</span>
+          </a>
+        ))
+      }
+      <p class="menu-panel-label">{t.nav.projects}</p>
+      {
+        projectLinks.map((service) => (
           <a
             href={service.href}
             class:list={['menu-panel-link', 'is-service', { active: service.current }]}
@@ -334,6 +474,7 @@ const industryLinks = industries.map((industry) => ({
         ))
       }
       <p class="menu-panel-label">{t.nav.customers}</p>
+      <p class="nav-results-note menu-results-note">{t.nav.resultsNote}</p>
       {
         customerGroups.length === 0 ? (
           <p class="menu-panel-empty">{t.nav.customersEmpty}</p>
@@ -378,13 +519,22 @@ const industryLinks = industries.map((industry) => ({
           })
         )
       }
+      <p class="menu-panel-label">{t.nav.resources}</p>
       <a
         href={blogHref}
-        class:list={['menu-panel-link', { active: onBlog && !onCustomers }]}
+        class:list={['menu-panel-link', 'is-service', { active: onBlog && !onCustomers }]}
         aria-current={onBlog && !onCustomers ? 'page' : undefined}
       >
         <span class="nav-dot" aria-hidden="true"></span>
         <span>{t.blog.nav}</span>
+      </a>
+      <a
+        href={aboutHref}
+        class:list={['menu-panel-link', 'is-service', { active: onAbout }]}
+        aria-current={onAbout ? 'page' : undefined}
+      >
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>{t.nav.about}</span>
       </a>
       <a
         href={contactHref}
@@ -874,6 +1024,29 @@ const industryLinks = industries.map((industry) => ({
     padding: 0.35rem;
   }
 
+  .nav-results-note {
+    margin: 0.15rem 0.35rem 0.6rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.06);
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--coral);
+  }
+
+  .site-header.light .nav-results-note {
+    background: rgba(15, 44, 76, 0.05);
+  }
+
+  .menu-results-note {
+    margin: -0.15rem 0 0.5rem;
+    padding: 0;
+    background: none;
+  }
+
   .nav-customers-empty,
   .menu-panel-empty {
     margin: 0;
@@ -996,6 +1169,36 @@ const industryLinks = industries.map((industry) => ({
     gap: 0.65rem;
   }
 
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0 1rem;
+    border-radius: 999px;
+    background: var(--button-red);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .nav-cta:hover,
+  .nav-cta:focus-visible {
+    background: var(--button-red-hover);
+    color: var(--white);
+  }
+
+  .nav-cta:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 3px;
+  }
+
   .lang {
     display: inline-flex;
     align-items: center;
@@ -1104,6 +1307,36 @@ const industryLinks = industries.map((industry) => ({
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--coral);
+  }
+
+  .menu-panel-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    margin: 0.35rem 0 0.5rem;
+    padding: 0 1.25rem;
+    border-radius: 999px;
+    background: var(--button-red);
+    color: var(--white);
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .menu-panel-cta:hover,
+  .menu-panel-cta:focus-visible {
+    background: var(--button-red-hover);
+    color: var(--white);
+  }
+
+  .menu-panel-cta:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 3px;
   }
 
   .menu-panel-link {
@@ -1343,7 +1576,8 @@ const industryLinks = industries.map((industry) => ({
 
   @media (max-width: 1080px) {
     .site-nav,
-    .lang {
+    .lang,
+    .nav-cta {
       display: none;
     }
 

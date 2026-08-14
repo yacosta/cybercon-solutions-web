@@ -50,7 +50,7 @@ export type EditorialCopy = {
     };
   };
   included: string[];
-  faqs: Array<{ question: string; answer: string }>;
+  faqs: Array<{ question: string; answer: string; id?: string }>;
   faqLabel: string;
   cta: { title: string; body: string; button: string };
 };
@@ -194,6 +194,32 @@ export const SERVICE_FEATURE_MEDIA: Record<string, FeatureMediaConfig> = {
   },
 };
 
+type ServiceCtaCopy = { title: LocaleText; body: LocaleText; button: LocaleText };
+type LocaleText = { en: string; es: string };
+
+/**
+ * Per-service CTA overrides. Most services share the universal IT cost & risk
+ * review CTA (t.servicePage.*), but a service whose buying decision isn't "cut
+ * my IT bill" needs its own framing — e.g. AI consulting sells on ROI/readiness,
+ * not cost reduction. Add slugs here only when the universal framing is wrong.
+ */
+export const SERVICE_CTA_OVERRIDES: Record<string, ServiceCtaCopy> = {
+  'ai-consulting': {
+    title: {
+      en: 'Want an honest read on AI ROI?',
+      es: '¿Quieres una lectura honesta del ROI de la IA?',
+    },
+    body: {
+      en: 'Book a free AI readiness & ROI review. We’ll show where AI helps — and where it doesn’t — before you spend a dollar.',
+      es: 'Agenda una revisión gratuita de preparación y ROI de IA. Te mostramos dónde ayuda la IA — y dónde no — antes de gastar un dólar.',
+    },
+    button: {
+      en: 'Get a free AI readiness & ROI review',
+      es: 'Solicita una revisión gratuita de preparación y ROI de IA',
+    },
+  },
+};
+
 /** Absolute site path to the full-size feature JPG for a service (for JSON-LD). */
 export function getServiceFeatureImagePath(slug: string): string | undefined {
   const config = SERVICE_FEATURE_MEDIA[slug];
@@ -309,6 +335,7 @@ export function buildServiceEditorial(
       faqs: details.faqs.map((faq) => ({
         question: faq.question[locale],
         answer: faq.answer[locale],
+        id: faq.id,
       })),
       faqLabel: copy.faqLabel[locale],
       cta: {
@@ -363,12 +390,25 @@ export function buildServiceEditorial(
     faqs: details.faqs.map((faq) => ({
       question: faq.question[locale],
       answer: faq.answer[locale],
+      id: faq.id,
     })),
     faqLabel: t.servicePage.faqTitle,
-    cta: {
-      title: t.servicePage.ctaTitle,
-      body: t.servicePage.ctaBody,
-      button: t.servicePage.cta,
-    },
+    cta: buildCta(service.slug, locale, t),
+  };
+}
+
+function buildCta(slug: string, locale: 'en' | 'es', t: Messages): EditorialCopy['cta'] {
+  const override = SERVICE_CTA_OVERRIDES[slug];
+  if (override) {
+    return {
+      title: override.title[locale],
+      body: override.body[locale],
+      button: override.button[locale],
+    };
+  }
+  return {
+    title: t.servicePage.ctaTitle,
+    body: t.servicePage.ctaBody,
+    button: t.servicePage.cta,
   };
 }

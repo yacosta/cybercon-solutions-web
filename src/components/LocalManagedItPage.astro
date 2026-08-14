@@ -1,0 +1,338 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import type { LocalPage } from '../data/local-pages';
+import { localPagePath } from '../data/local-pages';
+import { getMessages, localePath } from '../i18n';
+import {
+  faqPageJsonLd,
+  jsonLdScript,
+  localManagedItServiceJsonLd,
+  webPageJsonLd,
+} from '../lib/seo';
+import { formatMailingAddress, site } from '../lib/site';
+
+interface Props {
+  locale: 'en' | 'es';
+  page: LocalPage;
+}
+
+const { locale, page } = Astro.props;
+const t = getMessages(locale);
+const path = localPagePath(locale, page.slug);
+const homePath = localePath(locale, '/');
+const managedItPath = localePath(locale, '/services/managed-it/');
+const assessmentHref = localePath(locale, '/assessment/');
+const mailingAddress = formatMailingAddress();
+---
+
+<BaseLayout
+  locale={locale}
+  title={page.metaTitle[locale]}
+  description={page.metaDescription[locale]}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
+    { name: t.nav.managedIt, path: managedItPath },
+    { name: page.place, path },
+  ]}
+>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        webPageJsonLd({ name: page.metaTitle[locale], description: page.metaDescription[locale], path, locale }),
+      )}
+    />
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        localManagedItServiceJsonLd({
+          path,
+          locale,
+          name: page.h1[locale],
+          description: page.metaDescription[locale],
+          place: page.place,
+        }),
+      )}
+    />
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(faqPageJsonLd(page.faqs, locale))}
+    />
+  </Fragment>
+
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="local-page container page" data-pagefind-body>
+    <nav class="local-breadcrumb" aria-label={locale === 'es' ? 'Ruta de navegación' : 'Breadcrumb'}>
+      <a href={homePath}>{locale === 'es' ? 'Inicio' : 'Home'}</a>
+      <span aria-hidden="true">/</span>
+      <a href={managedItPath}>{t.nav.managedIt}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{page.place}</span>
+    </nav>
+
+    <header class="local-hero">
+      <p class="eyebrow">{page.eyebrow[locale]}</p>
+      <h1>{page.h1[locale]}</h1>
+      <p class="lede">{page.lede[locale]}</p>
+      <div class="local-actions">
+        <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+        <a class="phone-link" href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+      </div>
+    </header>
+
+    <section class="local-block" aria-labelledby="local-onsite">
+      <h2 id="local-onsite">{page.onsite.title[locale]}</h2>
+      <p>{page.onsite.body[locale]}</p>
+    </section>
+
+    <section class="local-block" aria-labelledby="local-industries">
+      <h2 id="local-industries">{page.industries.title[locale]}</h2>
+      <ul class="industry-grid">
+        {page.industries.items.map((item) => (
+          <li>
+            <h3>{item.title[locale]}</h3>
+            <p>{item.body[locale]}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="local-block" aria-labelledby="local-context">
+      <h2 id="local-context">{page.local.title[locale]}</h2>
+      {page.local.paragraphs.map((paragraph) => <p>{paragraph[locale]}</p>)}
+    </section>
+
+    <section class="local-block" aria-labelledby="local-faq">
+      <h2 id="local-faq">{t.servicePage.faqTitle}</h2>
+      <dl class="faq-list">
+        {page.faqs.map((faq) => (
+          <div class="faq-row">
+            <dt>{faq.question[locale]}</dt>
+            <dd>{faq.answer[locale]}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <p class="local-mailing-note">
+      {t.contact.mailingLabel}: {mailingAddress}
+      {' — '}
+      {locale === 'es'
+        ? `enfoque operativo en ${site.serviceAreaFocus}.`
+        : `operating focus is ${site.serviceAreaFocus}.`}
+    </p>
+
+    <section class="local-cta" aria-labelledby="local-cta-title">
+      <h2 id="local-cta-title">{page.cta.title[locale]}</h2>
+      <p>{page.cta.body[locale]}</p>
+      <div class="local-cta-actions">
+        <a class="btn btn-primary" href={assessmentHref}>{t.servicePage.cta}</a>
+        <a class="text-link" href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+      </div>
+    </section>
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .local-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+    margin: 1.5rem 0 1rem;
+    font-size: 0.8125rem;
+    color: var(--muted-blue);
+  }
+
+  .local-breadcrumb a {
+    color: var(--muted-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .local-breadcrumb a:hover {
+    color: var(--coral);
+  }
+
+  .local-breadcrumb [aria-current='page'] {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .local-hero {
+    margin-bottom: 0.5rem;
+  }
+
+  .local-hero h1 {
+    margin: 0.5rem 0 0.85rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--navy);
+    max-width: none;
+  }
+
+  .local-hero .lede {
+    margin: 0 0 1.5rem;
+    max-width: 60ch;
+    color: var(--body-muted);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+
+  .local-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.35rem;
+    align-items: center;
+  }
+
+  .phone-link {
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .phone-link:hover {
+    color: var(--coral);
+    text-decoration: underline;
+  }
+
+  .text-link {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--button-red);
+    text-decoration: none;
+  }
+
+  .text-link:hover,
+  .text-link:focus-visible {
+    text-decoration: underline;
+  }
+
+  .local-block {
+    padding-block: 1.75rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .local-block h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+    color: var(--navy);
+  }
+
+  .local-block > p {
+    margin: 0 0 1rem;
+    max-width: 68ch;
+    color: var(--body-muted);
+    line-height: 1.65;
+  }
+
+  .industry-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 800px) {
+    .industry-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem 2rem;
+    }
+  }
+
+  .industry-grid h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .industry-grid p {
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 0.975rem;
+    line-height: 1.55;
+  }
+
+  .faq-list {
+    margin: 0;
+  }
+
+  .faq-row {
+    padding-block: 1rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.1);
+  }
+
+  .faq-row:last-child {
+    border-bottom: 1px solid rgba(15, 44, 76, 0.1);
+  }
+
+  .faq-row dt {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.35rem;
+  }
+
+  .faq-row dd {
+    margin: 0;
+    max-width: 48rem;
+    color: var(--body-muted);
+    line-height: 1.55;
+  }
+
+  .local-mailing-note {
+    margin: 1.5rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+    max-width: 68ch;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--muted-blue);
+  }
+
+  .local-cta {
+    margin-top: 1.5rem;
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius-md);
+  }
+
+  .local-cta h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  }
+
+  .local-cta p {
+    margin: 0 0 1.25rem;
+    color: var(--secondary-dark);
+    max-width: 40rem;
+  }
+
+  .local-cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.85rem 1.25rem;
+  }
+
+  .local-cta .text-link {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .local-cta .text-link:hover {
+    color: var(--white);
+  }
+</style>

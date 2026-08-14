@@ -8,6 +8,7 @@ import { breadcrumbJsonLd, jsonLdScript, organizationJsonLd, websiteJsonLd } fro
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
 import ApolloTracker from '../components/ApolloTracker.astro';
+import AttributionTracker from '../components/AttributionTracker.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { CONSENT_COOKIE_NAME, CONSENT_STORAGE_KEY } from '../lib/consent';
 
@@ -178,6 +179,7 @@ const structuredData = [
     </style>
     <Analytics />
     <ApolloTracker />
+    <AttributionTracker />
     <slot name="head" />
     <script is:inline>
       // WebMCP (browser agent tools) — imperative registration when available

@@ -1,8 +1,9 @@
 ---
 title: 'A Digital and Tech Strategy the Board Can Fund: A Miami Nonprofit Case Study'
-description: 'How Cybercon Solutions partnered with Miami nonprofit technology leaders to update their Digital and Tech Strategy for 2026–2029 — with phased funding, AI scoping, and Zero Trust in the plan.'
+description: 'Before founding Cybercon Solutions, Yezid Acosta led a Miami nonprofit’s Digital and Tech Strategy for 2026–2029 — phased funding, AI scoping, Zero Trust.'
 pubDate: 2026-08-12
 customerIndustry: nonprofit
+storyAttribution: founder-leadership
 banner: it-consulting-gears
 bannerAlt:
   en: 'Interlocking gears and circuit patterns representing strategic IT planning and operational systems'
@@ -11,7 +12,7 @@ bannerAlt:
 
 The mission hadn't changed. Everything around it had. Leadership wanted a technology plan that would survive budget season, not just an IT wish list. Staff wanted systems that kept pace with programs instead of trailing them. The internal IT team wanted room to grow instead of another year of firefighting. And AI kept arriving in board conversations the way it arrives everywhere now — half opportunity, half homework nobody had scoped.
 
-That was the brief when Cybercon Solutions partnered with the technology leaders at a leading Miami, FL nonprofit to develop and update their Digital and Tech Strategy for 2026–2029 — [IT consulting](/services/it-consulting/) as a working relationship, not a binder. What follows is what we built together and why the updated plan looks different from the one it replaced.
+That was the brief Yezid Acosta carried as an internal technology leader at a leading Miami, FL nonprofit, before founding Cybercon Solutions, developing and updating their Digital and Tech Strategy for 2026–2029. What follows is what he built and why the updated plan looks different from the one it replaced.
 
 ## Why the old plan stopped fitting
 
@@ -19,11 +20,11 @@ Nothing was broken, exactly. That's what made it easy to postpone.
 
 The organization had a digital strategy, and people did real work under it. The audit proved it: 16 of the 30 proposed projects in the old plan were completed. That's delivery, not drift. But the same audit surfaced the other side of the ledger — 3 of the 30 no longer fit the organization's direction and needed to come out of the plan entirely. And a plan written even a few years ago predates the questions a nonprofit board asks in 2026. Where does AI fit — and where doesn't it? Is cybersecurity a line item or a design constraint? Do we keep renting every technical capability, or do we build some of it in-house? The old document didn't answer those questions because nobody was asking them when it was written.
 
-The quieter problem was sequencing. Initiatives competed for the same attention and the same dollars without an order the board could reason about. Work got done; strategy got deferred. If you've led a nonprofit through the last few years — the same pattern we see across [education and nonprofit IT](/industries/education-nonprofits/) — none of this will sound exotic. Same collision, different logo.
+The quieter problem was sequencing. Initiatives competed for the same attention and the same dollars without an order the board could reason about. Work got done; strategy got deferred. If you've led a nonprofit through the last few years — the same pattern Cybercon sees across [education and nonprofit IT](/industries/education-nonprofits/) — none of this will sound exotic. Same collision, different logo.
 
 ## Updating the strategy for 2026–2029
 
-We worked with their technology leaders to develop and update the Digital and Tech Strategy for 2026–2029 — not a rewrite for its own sake, but a plan restructured around what the next three years will actually demand.
+He worked with the organization's leadership to develop and update the Digital and Tech Strategy for 2026–2029 — not a rewrite for its own sake, but a plan restructured around what the next three years will actually demand.
 
 The update started with an honest accounting of the old plan: 16 projects delivered and closed, 3 retired because the organization had moved past them, and the remainder re-sequenced into the new horizon. Then the plan grew where the next three years demand it — 20 additional AI projects, scoped and added. Retiring the 3 that no longer fit was as important as adding the 20 that do. A plan that only ever grows isn't a strategy; it's a backlog.
 
@@ -41,13 +42,13 @@ Scoping means asking, workflow by workflow, where AI features would change a rea
 
 The centerpiece is a move to a Zero Trust model — implemented so it doesn't stop people from working. That caveat is the whole game. A Zero Trust rollout that locks staff out of the files they need on a deadline doesn't produce security; it produces workarounds, and workarounds are where the real risk lives. So the plan phases in identity and access discipline, data classification, and verification habits in an order that tightens control without breaking the workday. Staff keep moving. The attack surface shrinks anyway.
 
-That sequencing is deliberate, and it's the same one we walk through in our practical [zero-trust rollout for mid-market IT](/blog/zero-trust-mid-market-rollout/).
+That sequencing is deliberate, and it's the same one Cybercon walks through in its practical [zero-trust rollout for mid-market IT](/blog/zero-trust-mid-market-rollout/).
 
 ## Building in-house IT instead of renting everything
 
 The strategy also commits to something a lot of nonprofit plans avoid saying out loud: continuing to build and develop the in-house IT capability.
 
-That's the right call, and it's worth being plain about why. An internal team that knows the mission, the people, and the systems is an asset no vendor replaces. The plan invests in that team — its skills, its scope, its seat at the table — and positions outside partners like us as depth and reinforcement, not a substitute. We take on the work that shouldn't consume internal hours so their team can execute on the strategy itself. A partner who plans your team's growth into the strategy is telling you something about the partnership.
+That's the right call, and it's worth being plain about why. An internal team that knows the mission, the people, and the systems is an asset no vendor replaces. The plan invests in that team — its skills, its scope, its seat at the table — and positions outside partners as depth and reinforcement, not a substitute. Bringing in outside help for work that shouldn't consume internal hours lets the internal team execute on the strategy itself. A plan that builds your own team's growth into the strategy is telling you something about how technology leadership should work.
 
 ## What the updated strategy covers
 
@@ -81,13 +82,13 @@ And invest in your own IT people. A three-year strategy executed by a team that'
 
 You don't need a longer document. You need one your board can fund in phases and your team can execute in order.
 
-## How Cybercon Solutions partnered with their tech leaders
+## How this experience shapes Cybercon's approach
 
-Cybercon Solutions worked alongside the organization's technology leaders on strategy development, AI feature scoping, security architecture, and the sequencing that makes a multi-year plan fundable. The internal team owns the strategy; we strengthened the leaders already on the ground.
+This is founder leadership experience — the strategy development, AI feature scoping, security architecture, and multi-year sequencing Yezid Acosta led as an internal technology leader before founding Cybercon Solutions, not a Cybercon customer engagement.
 
-That's the consulting model we use with other tech leadership teams across South Florida — fractional or project-based support, security hardening, and technology plans scored in what shipped and what risk came off the table.
+It's the [IT consulting](/services/it-consulting/) model Cybercon now brings to other tech leadership teams across South Florida — fractional or project-based support, security hardening, and technology plans scored in what shipped and what risk came off the table, built to strengthen the leaders already on the ground rather than replace them.
 
-They didn't need another assessment gathering dust. They needed a strategy for 2026–2029 that answers the questions their board is actually asking — AI, security, and the team to carry it — in an order everyone can trust.
+That nonprofit didn't need another assessment gathering dust. It needed a strategy for 2026–2029 that answers the questions its board is actually asking — AI, security, and the team to carry it — in an order everyone can trust.
 
 If your digital strategy predates the questions your board is asking now, [start with a cost-and-risk assessment](/assessment/) — or read how we approach [fractional CIO work in the first 90 days](/blog/fractional-cio-first-90-days/).
 
@@ -100,4 +101,4 @@ If your digital strategy predates the questions your board is asking now, [start
 
 ---
 
-*Client name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Details describe work delivered by Cybercon Solutions in partnership with the client's technology leaders.*
+*Employer name and identifying marks are omitted pursuant to confidentiality and non-disclosure obligations. Details describe results Yezid Acosta achieved as an internal technology leader before founding Cybercon Solutions — not a Cybercon Solutions customer engagement.*

@@ -21,6 +21,14 @@ const blog = defineCollection({
      * from the Blog index listing.
      */
     customerIndustry: z.string().optional(),
+    /**
+     * Attribution for "customer story" posts: `founder-leadership` marks results
+     * achieved by Yezid Acosta as an internal technology executive (CIO/CISO or
+     * equivalent) before founding Cybercon Solutions — not a Cybercon customer
+     * engagement. Leave unset (or use another value) for posts that describe a
+     * contracted Cybercon Solutions delivery.
+     */
+    storyAttribution: z.string().optional(),
   }),
 });
 

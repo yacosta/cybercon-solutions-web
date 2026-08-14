@@ -1,0 +1,187 @@
+---
+import { localePath, type Messages } from '../i18n';
+import { getCustomerStoryGroups } from '../lib/blog';
+
+interface Props {
+  locale: 'en' | 'es';
+  t: Messages;
+}
+
+const { locale, t } = Astro.props;
+const loc = locale === 'es' ? 'es' : 'en';
+const groups = await getCustomerStoryGroups(loc);
+const stories = groups
+  .flatMap((g) => g.papers.map((p) => ({ ...p, industry: g.industry.label[loc] })))
+  .slice(0, 3);
+const managedItHref = localePath(locale, '/services/managed-it/');
+const aboutHref = localePath(locale, '/about/');
+---
+
+<section class="evidence" aria-labelledby="evidence-title">
+  <div class="container">
+    <p class="eyebrow">{t.evidence.eyebrow}</p>
+    <h2 id="evidence-title">{t.evidence.title}</h2>
+    <p class="lede">{t.evidence.lede}</p>
+
+    <div class="evidence-grid">
+      <article class="leadership-card">
+        <p class="eyebrow">{t.leadership.eyebrow}</p>
+        <h3>{t.leadership.title}</h3>
+        <p class="leader-name">{t.leadership.name}</p>
+        <p class="leader-role">{t.leadership.role}</p>
+        <p>{t.leadership.body}</p>
+        <a class="btn btn-primary" href={aboutHref}>{t.leadership.cta}</a>
+      </article>
+
+      <div class="stories">
+        {stories.map((story) => (
+          <article>
+            <p class="story-industry">{story.industry}</p>
+            <h3>
+              <a href={story.href}>{story.title}</a>
+            </h3>
+            <a class="story-link" href={story.href}>{t.evidence.cta}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <aside class="qbr" aria-labelledby="qbr-title">
+      <h3 id="qbr-title">{t.evidence.qbrTitle}</h3>
+      <p>{t.evidence.qbrBody}</p>
+      <a href={`${managedItHref}#sample-qbr`}>{t.evidence.qbrCta}</a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .evidence {
+    background:
+      radial-gradient(ellipse 50% 45% at 100% 0%, rgba(15, 44, 76, 0.06), transparent 55%),
+      var(--cream);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .evidence h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0.75rem;
+    color: var(--navy);
+    max-width: 24ch;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    max-width: 44rem;
+    margin: 0 0 2rem;
+  }
+
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .leadership-card {
+    background: var(--white);
+    padding: 1.5rem 1.6rem;
+    border: 1px solid rgba(15, 44, 76, 0.08);
+  }
+
+  .leadership-card h3 {
+    margin: 0.35rem 0 0.75rem;
+    font-size: 1.35rem;
+    color: var(--navy);
+  }
+
+  .leader-name {
+    margin: 0;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .leader-role {
+    margin: 0.15rem 0 0.85rem;
+    color: var(--coral);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .leadership-card > p:not(.leader-name):not(.leader-role):not(.eyebrow) {
+    color: var(--body-muted);
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+  }
+
+  .stories {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .stories article {
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+    padding-top: 1rem;
+  }
+
+  .story-industry {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .stories h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+
+  .stories h3 a {
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .stories h3 a:hover {
+    color: var(--coral);
+  }
+
+  .story-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .qbr {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .qbr h3 {
+    margin: 0 0 0.5rem;
+    color: var(--navy);
+  }
+
+  .qbr p {
+    margin: 0 0 0.75rem;
+    color: var(--body-muted);
+    max-width: 40rem;
+  }
+
+  .qbr a {
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  @media (max-width: 860px) {
+    .evidence-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

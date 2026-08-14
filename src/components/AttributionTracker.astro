@@ -1,0 +1,106 @@
+---
+/**
+ * Client-side attribution capture + consent-aware funnel events.
+ * Included from BaseLayout so forms and tel/mailto links can share one source.
+ */
+import { ATTRIBUTION_STORAGE_KEY } from '../lib/analytics-events';
+
+const STORAGE_KEY = ATTRIBUTION_STORAGE_KEY;
+---
+
+<script define:vars={{ STORAGE_KEY }} is:inline>
+  (function () {
+    function readParams() {
+      try {
+        return new URLSearchParams(window.location.search);
+      } catch (e) {
+        return new URLSearchParams();
+      }
+    }
+
+    function load() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function save(data) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      } catch (e) {}
+    }
+
+    function trackPage() {
+      var params = readParams();
+      var data = load();
+      var path = window.location.pathname + window.location.search;
+      if (!data.firstLanding) data.firstLanding = path;
+      data.lastLanding = path;
+      if (!data.referrer && document.referrer) data.referrer = String(document.referrer).slice(0, 500);
+      var map = {
+        utm_source: 'utmSource',
+        utm_medium: 'utmMedium',
+        utm_campaign: 'utmCampaign',
+        utm_content: 'utmContent',
+        utm_term: 'utmTerm',
+      };
+      Object.keys(map).forEach(function (key) {
+        var v = params.get(key);
+        if (v) data[map[key]] = v.slice(0, 200);
+      });
+      if (/\/services\//.test(window.location.pathname)) {
+        data.servicePage = window.location.pathname;
+      }
+      save(data);
+    }
+
+    function trackEvent(name, detail) {
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', name, detail || {});
+        }
+      } catch (e) {}
+    }
+
+    window.cyberconAttribution = {
+      get: function () {
+        return load();
+      },
+      setFlag: function (key, value) {
+        var data = load();
+        data[key] = value;
+        save(data);
+      },
+      setCta: function (cta) {
+        var data = load();
+        data.cta = cta;
+        save(data);
+      },
+      track: trackEvent,
+    };
+
+    trackPage();
+
+    document.addEventListener(
+      'click',
+      function (event) {
+        var target = event.target;
+        if (!(target instanceof Element)) return;
+        var a = target.closest('a');
+        if (!(a instanceof HTMLAnchorElement)) return;
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('tel:') === 0) {
+          trackEvent('phone_clicked', { href: href });
+        } else if (href.indexOf('mailto:') === 0) {
+          trackEvent('email_clicked', { href: href });
+        } else if (href.indexOf('calendly.com') !== -1 || a.hasAttribute('data-calendar-link')) {
+          trackEvent('meeting_scheduler_opened', { href: href });
+        }
+      },
+      true,
+    );
+  })();
+</script>

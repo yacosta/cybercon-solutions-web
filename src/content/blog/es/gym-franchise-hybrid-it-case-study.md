@@ -1,8 +1,9 @@
 ---
 title: 'Caso: TI híbrida para franquicia de gimnasios'
-description: 'Cómo Cybercon operó el soporte de TI diario, la red híbrida y la ciberseguridad, y planificó la tecnología al abrir nuevos gimnasios.'
+description: 'Antes de fundar Cybercon Solutions, Yezid Acosta lideró TI diaria, red híbrida, ciberseguridad y planificación tecnológica de nuevos gimnasios.'
 pubDate: 2026-08-04
 customerIndustry: fitness
+storyAttribution: founder-leadership
 banner: cabling-network
 bannerAlt:
   en: 'Network cabling and connectivity pathways representing hybrid gym infrastructure'
@@ -11,11 +12,11 @@ bannerAlt:
 
 Una franquicia nacional de gimnasios no puede pausar membresías porque el Wi-Fi murió en el check-in. Recepciones, entrenadores, cámaras, control de acceso y sistemas corporativos comparten una sola red híbrida — y cada sede nueva tiene que abrir con tecnología que ya encaje en el estándar.
 
-Cybercon Solutions brindó **soporte de TI del día a día**, gestionó la **red y la ciberseguridad** en ese entorno híbrido, y participó en la **planificación y construcción de gimnasios** para que la tecnología correcta quedara en los planos — no improvisada después del drywall. También ayudamos en el **acondicionamiento de nuevos gimnasios** para que el día de apertura fuera un día de operaciones, no una semana de tickets de emergencia.
+Antes de fundar Cybercon Solutions, Yezid Acosta lideró la TI de una franquicia nacional de fitness: **soporte de TI del día a día**, la **red y la ciberseguridad** de ese entorno híbrido, y un lugar en la **planificación y construcción de gimnasios** para que la tecnología correcta quedara en los planos — no improvisada después del drywall. También trabajó en el **acondicionamiento de nuevos gimnasios** para que el día de apertura fuera un día de operaciones, no una semana de tickets de emergencia.
 
-Así corrió la alianza de verdad.
+Así corrió ese liderazgo de verdad.
 
-## Lo que encontramos
+## Lo que encontró
 
 Las sedes de franquicia mezclan estándares corporativos con realidad local: computadores compartidos en recepción, Wi-Fi de miembros junto a VLANs de personal, aplicaciones en la nube hablando con equipos en sitio, y proveedores que instalan cámaras o control de acceso sin preguntar quién es dueño del switch.
 
@@ -25,13 +26,13 @@ Esa es la presión multi-sede de consumo cercana a lo que vemos en [TI para dist
 
 ## Soporte de TI del día a día que mantiene los clubes abiertos
 
-Cybercon Solutions operó la TI diaria de la franquicia: tickets, dispositivos, cuentas, impresoras y las fallas chicas que impiden cobrar o registrar miembros.
+Operó la TI diaria de la franquicia: tickets, dispositivos, cuentas, impresoras y las fallas chicas que impiden cobrar o registrar miembros.
 
 La TI de gimnasio falla en formas ordinarias que se sienten enormes en la hora pico del lunes: un computador congelado en recepción, una contraseña incorrecta tras un cambio de personal, un circuito sin dueño. El modelo operativo tenía que tratar eso como eventos de ingreso, no como backlog.
 
 ## Red híbrida y ciberseguridad como un solo trabajo
 
-Gestionamos la red híbrida y la ciberseguridad juntas — equipos en las sedes, identidad y aplicaciones en la nube en HQ, y los caminos entre ambos.
+Gestionó la red híbrida y la ciberseguridad juntas — equipos en las sedes, identidad y aplicaciones en la nube en HQ, y los caminos entre ambos.
 
 La segmentación evitó que el Wi-Fi de miembros se volviera un pase libre a los sistemas del personal. El monitoreo y los parches cubrieron los endpoints y el equipo de red del que dependen los clubes. Cuando algo se veía mal, la responsabilidad era clara: escalar una vez, con contexto, no tres proveedores señalándose entre sí.
 
@@ -39,7 +40,7 @@ La [ciberseguridad](/es/services/cybersecurity/) y la [TI administrada](/es/serv
 
 ## Planificar la construcción para que la tecnología no sea un remiendo
 
-Cybercon Solutions participó en la planificación y construcción de gimnasios para que la red, el cableado, la cobertura Wi-Fi, las cámaras de seguridad, el control de acceso y los sistemas del personal quedaran contemplados antes de que el plano se congelara.
+Participó en la planificación y construcción de gimnasios para que la red, el cableado, la cobertura Wi-Fi, las cámaras de seguridad, el control de acceso y los sistemas del personal quedaran contemplados antes de que el plano se congelara.
 
 Eso significó sentarse con quienes diseñaban el club — no esperar a una lista de pendientes que diga “TI por definir.” Los puntos de red, el espacio del closet, las rutas de circuitos y los alcances de proveedores salen más baratos cuando se deciden con el GC, no después de la pintura.
 
@@ -47,7 +48,7 @@ La misma disciplina de [TI para construcción e inmobiliario](/es/industries/con
 
 ## Ayuda en el acondicionamiento de nuevos gimnasios
 
-Cuando se acondicionaban gimnasios nuevos, estuvimos en el lado tecnológico de la apertura — coordinando trabajo de baja tensión y red, validando el estándar híbrido y asegurando que check-in, pagos y acceso del personal funcionaran antes del corte de cinta.
+Cuando se acondicionaban gimnasios nuevos, estuvo en el lado tecnológico de la apertura — coordinando trabajo de baja tensión y red, validando el estándar híbrido y asegurando que check-in, pagos y acceso del personal funcionaran antes del corte de cinta.
 
 Una franquicia crece repitiendo un patrón. Cada club nuevo que abre sin un stack local improvisado es una excepción permanente menos para que el helpdesk memorice.
 
@@ -67,11 +68,11 @@ Pon la tecnología en el paquete de construcción, no en la carpeta de “lo vem
 
 Si tus clubes suman sedes más rápido de lo que TI puede estandarizarlas, [empieza con una evaluación de costo y riesgo](/es/assessment/).
 
-## Cómo Cybercon Solutions se asoció
+## Cómo esta experiencia moldea el enfoque de Cybercon
 
-Cybercon Solutions fue el proveedor de TI del día a día de una franquicia nacional de gimnasios: operaciones de red híbrida y ciberseguridad, aporte tecnológico durante la planificación y construcción, y ayuda en sitio en el acondicionamiento de nuevos gimnasios. Los instaladores locales y proveedores de la franquicia siguieron donde correspondían — bajo un estándar que los clubes pudieran operar de verdad.
+Esta es experiencia de liderazgo del fundador — el liderazgo de TI del día a día y de red híbrida que Yezid Acosta ejerció para una franquicia nacional de gimnasios antes de fundar Cybercon Solutions, no un proyecto de clientes de Cybercon. Moldea cómo Cybercon opera hoy la TI de marcas de fitness multi-sede: operaciones de red híbrida y ciberseguridad, aporte tecnológico durante la planificación y construcción, y ayuda en sitio en nuevos acondicionamientos, con instaladores locales y proveedores de la franquicia en la mezcla bajo un estándar que los clubes puedan operar de verdad.
 
-Si operas una marca de fitness multi-sede y quieres TI que aparezca tanto en la hora pico de la mañana como en el próximo acondicionamiento, [háblanos de una evaluación](/es/assessment/).
+Si operas una marca de fitness multi-sede y quieres TI liderada por alguien que de verdad ha operado esa hora pico de la mañana y el próximo acondicionamiento, [háblanos de una evaluación](/es/assessment/).
 
 ## Lecturas relacionadas
 
@@ -82,4 +83,4 @@ Si operas una marca de fitness multi-sede y quieres TI que aparezca tanto en la 
 
 ---
 
-*El nombre del cliente y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen el trabajo entregado por Cybercon Solutions en alianza con los líderes de tecnología del cliente.*
+*El nombre del empleador y los datos identificadores se omiten conforme a obligaciones de confidencialidad y no divulgación (NDA). Las cifras y el detalle operativo describen resultados logrados por Yezid Acosta como líder interno de TI antes de fundar Cybercon Solutions — no un proyecto de clientes de Cybercon Solutions.*

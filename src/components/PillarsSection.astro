@@ -1,0 +1,165 @@
+---
+import { localePath, type Messages } from '../i18n';
+import { services, servicePath } from '../data/services';
+
+interface Props {
+  locale: 'en' | 'es';
+  t: Messages;
+}
+
+const { locale, t } = Astro.props;
+const loc = locale === 'es' ? 'es' : 'en';
+
+const projectSlugs = [
+  'ai-security',
+  'ai-consulting',
+  'ai-integration',
+  'conversational-ai',
+  'web-design-development',
+] as const;
+
+const projectLinks = projectSlugs
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is (typeof services)[number] => Boolean(s))
+  .map((s) => ({
+    href: servicePath(locale, s.slug),
+    title: s.title[loc],
+  }));
+---
+
+<section class="pillars" aria-labelledby="pillars-title">
+  <div class="container">
+    <p class="eyebrow">{t.pillars.eyebrow}</p>
+    <h2 id="pillars-title">{t.pillars.title}</h2>
+    <p class="lede">{t.pillars.lede}</p>
+
+    <div class="pillar-grid">
+      {t.pillars.items.map((pillar) => (
+        <article class="pillar">
+          <h3>{pillar.title}</h3>
+          <p>{pillar.body}</p>
+          <a href={localePath(locale, pillar.href)}>{pillar.link}</a>
+        </article>
+      ))}
+    </div>
+
+    <div class="projects">
+      <p class="projects-eyebrow">{t.pillars.projectsEyebrow}</p>
+      <h3 class="projects-title">{t.pillars.projectsTitle}</h3>
+      <p class="projects-lede">{t.pillars.projectsLede}</p>
+      <ul class="project-links">
+        {projectLinks.map((link) => (
+          <li>
+            <a href={link.href}>{link.title}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pillars {
+    background: var(--white);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .pillars h2 {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    margin: 0.5rem 0 0.75rem;
+    color: var(--navy);
+  }
+
+  .lede {
+    color: var(--body-muted);
+    max-width: 44rem;
+    margin: 0 0 2rem;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pillar {
+    padding: 0;
+    border-top: 3px solid var(--coral);
+    padding-top: 1.15rem;
+  }
+
+  .pillar h3 {
+    margin: 0 0 0.65rem;
+    font-size: 1.35rem;
+    color: var(--navy);
+  }
+
+  .pillar p {
+    margin: 0 0 1rem;
+    color: var(--body-muted);
+    line-height: 1.6;
+    font-size: 0.975rem;
+  }
+
+  .pillar a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .projects {
+    margin-top: 2.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.1);
+  }
+
+  .projects-eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .projects-title {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--navy);
+  }
+
+  .projects-lede {
+    margin: 0 0 1rem;
+    color: var(--body-muted);
+    max-width: 42rem;
+    font-size: 0.95rem;
+  }
+
+  .project-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.25rem;
+  }
+
+  .project-links a {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(15, 44, 76, 0.2);
+  }
+
+  .project-links a:hover {
+    color: var(--coral);
+    border-bottom-color: var(--coral);
+  }
+
+  @media (max-width: 800px) {
+    .pillar-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
