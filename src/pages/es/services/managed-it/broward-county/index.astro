@@ -1,0 +1,9 @@
+---
+export const prerender = true;
+import LocalManagedItPage from '../../../../../components/LocalManagedItPage.astro';
+import { getLocalPage } from '../../../../../data/local-pages';
+
+const page = getLocalPage('broward-county')!;
+---
+
+<LocalManagedItPage locale="es" page={page} />

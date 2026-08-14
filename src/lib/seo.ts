@@ -20,8 +20,8 @@ function areaServedPlaces() {
       containedInPlace: { '@type': 'State', name: 'Florida' },
     },
     {
-      '@type': 'City',
-      name: 'Miami Beach',
+      '@type': 'AdministrativeArea',
+      name: 'Broward County',
       containedInPlace: { '@type': 'State', name: 'Florida' },
     },
     {
@@ -40,13 +40,13 @@ const orgCopy: Record<
   { description: string; catalogName: string; contactType: string; slogan: string }
 > = {
   en: {
-    description: `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Mailing address is in Miami Beach, Florida (${formatMailingAddress()}). Onsite and managed services focus on ${site.serviceAreaFocus}.`,
+    description: `Proactive managed IT for growing organizations, with security as the baseline: endpoint and server management, cybersecurity, backup and disaster recovery, and compliance, at a predictable monthly rate. Service-area business: onsite and managed services focus on ${site.serviceAreaFocus}. Mailing address only (no customer visits): ${formatMailingAddress()}.`,
     catalogName: 'Managed IT Services',
     contactType: 'sales',
     slogan: site.slogan,
   },
   es: {
-    description: `TI administrada proactiva para organizaciones en crecimiento, con la seguridad como base: gestión de endpoints y servidores, ciberseguridad, copia de seguridad y recuperación ante desastres, y cumplimiento, a una tarifa mensual predecible. La dirección postal está en Miami Beach, Florida (${formatMailingAddress()}). Los servicios gestionados y en sitio se centran en Cooper City, Davie y el sur de Florida.`,
+    description: `TI administrada proactiva para organizaciones en crecimiento, con la seguridad como base: gestión de endpoints y servidores, ciberseguridad, copia de seguridad y recuperación ante desastres, y cumplimiento, a una tarifa mensual predecible. Área de servicio: Cooper City, Davie, el condado de Broward y el sur de Florida. Dirección postal únicamente (sin visitas de clientes): ${formatMailingAddress()}.`,
     catalogName: 'Servicios de TI administrada',
     contactType: 'sales',
     slogan: 'Tecnología, resuelta.',
@@ -77,7 +77,12 @@ export function organizationJsonLd(locale: Locale = 'en') {
       addressRegion: site.address.region,
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
+      description:
+        locale === 'es'
+          ? 'Dirección postal únicamente — no hay visitas de clientes en esta ubicación.'
+          : 'Mailing address only — no customer visits at this location.',
     },
+    founder: { '@id': `${site.url}/#founder` },
     areaServed: areaServedPlaces(),
     knowsAbout: [...site.knowsAbout],
     sameAs: [site.social.linkedin, site.social.x],
@@ -228,6 +233,29 @@ export function serviceJsonLd(service: (typeof services)[number], locale: Locale
   };
 }
 
+/** Service JSON-LD for a single-city Managed IT landing page (areaServed narrowed to that place). */
+export function localManagedItServiceJsonLd(opts: {
+  path: string;
+  locale: Locale;
+  name: string;
+  description: string;
+  place: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: [
+      { '@type': 'City', name: opts.place, containedInPlace: { '@type': 'State', name: 'Florida' } },
+      ...areaServedPlaces(),
+    ],
+    serviceType: opts.name,
+  };
+}
+
 /** Flat-rate web design packages as OfferCatalog (paired with the Service JSON-LD). */
 export function webDesignOfferCatalogJsonLd(locale: Locale) {
   const path =
@@ -320,9 +348,12 @@ export function articleJsonLd(opts: {
     dateModified: opts.dateModified.toISOString(),
     inLanguage: opts.locale === 'es' ? 'es-US' : 'en-US',
     author: {
-      '@type': 'Organization',
-      name: site.name,
-      url: site.url,
+      '@type': 'Person',
+      '@id': `${site.url}/#founder`,
+      name: site.founder.name,
+      jobTitle: opts.locale === 'es' ? site.founder.roleEs : site.founder.role,
+      url: absoluteUrl(opts.locale === 'es' ? site.founder.aboutPathEs : site.founder.aboutPath),
+      worksFor: { '@id': `${site.url}/#organization` },
     },
     publisher: {
       '@type': 'Organization',
@@ -336,6 +367,20 @@ export function articleJsonLd(opts: {
       '@type': 'WebPage',
       '@id': absoluteUrl(opts.path),
     },
+  };
+}
+
+export function founderPersonJsonLd(locale: Locale = 'en') {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${site.url}/#founder`,
+    name: site.founder.name,
+    jobTitle: locale === 'es' ? site.founder.roleEs : site.founder.role,
+    url: absoluteUrl(locale === 'es' ? site.founder.aboutPathEs : site.founder.aboutPath),
+    worksFor: { '@id': `${site.url}/#organization` },
+    knowsAbout: [...site.knowsAbout],
+    sameAs: [site.social.linkedin],
   };
 }
 
