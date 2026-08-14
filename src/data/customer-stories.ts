@@ -1,9 +1,14 @@
 import type { LocaleText } from './service-details';
 
 /**
- * Customer-story industries for the “Our Customers” nav accordion.
- * Posts opt in via frontmatter `customerIndustry` matching `id`; those posts
- * stay off the Blog index and surface only under Our Customers.
+ * Results / founder-leadership-experience industries for the nav accordion
+ * (nav label moving from “Our Customers” to “Results”). Most of these posts
+ * describe founder leadership experience — results Yezid Acosta achieved as
+ * an internal CIO/CISO before founding Cybercon Solutions, not contracted
+ * Cybercon Solutions customer engagements (see frontmatter `storyAttribution:
+ * founder-leadership` on the individual posts). Posts opt in via frontmatter
+ * `customerIndustry` matching `id`; those posts stay off the Blog index and
+ * surface only under this accordion.
  */
 export type CustomerIndustry = {
   id: string;
