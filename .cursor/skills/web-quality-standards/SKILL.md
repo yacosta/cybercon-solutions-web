@@ -149,6 +149,27 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - Policy copy: `src/data/privacy.ts` must stay aligned with the banner behavior (include Apollo when the tracker ships).
 - When fixing a new Cookiebot / GDPR / ePrivacy audit finding, update this section in the same PR.
 
+## Commercial trust & positioning non-negotiables
+
+These came out of the commercial-readiness overhaul (fake-success forms, thin local pages, unauthenticated health data, overclaiming CTAs). Follow them on every related change.
+
+- **Lead delivery never returns `ok` without a configured production sink.** `src/lib/lead-delivery.ts` must return `503` (`"Lead delivery is temporarily unavailable"`) when neither Attio nor Web3Forms is configured. Console-only "delivery" (`[lead-delivery][dev]`) is allowed **only** under `import.meta.env.DEV` (local `astro dev`) — never in a deployed Worker. Both `/api/assessment` and `/api/contact` go through this shared path; do not reintroduce a route-local fallback that logs and returns `{ ok: true }`.
+- **Case studies built on the founder's pre-Cybercon career must use `storyAttribution: 'founder-leadership'`** (see `src/data/customer-stories.ts` / blog frontmatter) and must not claim the results as Cybercon Solutions customer delivery. Present them as the founder's leadership experience, not a Cybercon engagement.
+- **Homepage leads with managed IT + cybersecurity as pillars**, not ten equal service tiles. AI/cloud/consulting services stay real and linked, but the primary above-the-fold narrative is "managed IT + security as the baseline" — do not flatten it back into a uniform services grid as the first thing visitors see.
+- **Assessment/CTA copy must not promise an instant cost calculator or number** unless one actually exists on the page. "Get a free IT cost & risk review" (a human review) is fine; "instant quote," "calculate your savings," or similar self-serve-pricing claims are not, unless a real calculator ships with the CTA.
+- **LocalBusiness/Organization JSON-LD:** the mailing address (`site.address` in `src/lib/site.ts`) is a Miami Beach PMB and must carry a `description` clarifying no customer visits (see `organizationJsonLd` in `src/lib/seo.ts`); `areaServed` describes the service area (Cooper City, Davie, Broward County, South Florida), not the mailing address's city. New local landing pages (`src/data/local-pages.ts`, `LocalManagedItPage.astro`) must repeat this distinction in visible copy, not just JSON-LD.
+- **Public `GET /api/health` stays minimal** (`{ ok, time }` only) — no dependency flags, no secrets exposure. Detailed dependency status lives at `GET /api/health/detail`, gated by `HEALTH_DETAIL_TOKEN`. Do not add fields to the public route; add them to the detail route instead.
+- **`/client` fails closed without Auth0.** When `AUTH0_DOMAIN`/`AUTH0_CLIENT_ID`/etc. are not configured, `src/middleware.ts` must return a `503` for `/client/*`, never a fake login page or a client area that silently skips auth.
+
+## Local landing pages (per-city Managed IT)
+
+`/services/managed-it/{cooper-city,davie,broward-county}/` (+ `/es/` mirrors) via `src/components/LocalManagedItPage.astro` + `src/data/local-pages.ts`:
+
+- Each page needs a genuinely distinct H1/lede/local-context section per city — no thin "find & replace the city name" templates. Mention specific local landmarks/character (see existing entries) so the page reads as locally written, not programmatically generated.
+- Reuse `t.servicePage.cta` (or `t.hero.cta`) for the assessment CTA label so wording stays consistent sitewide; do not invent a new generic CTA string per city.
+- Every page states the mailing-PMB/no-visits distinction near the FAQ or footer area (not just in JSON-LD).
+- New cities need non-slash + `.html` **301**s in `public/_redirects` (see the block near other `/services/managed-it/*` rules) and a visible breadcrumb nav (Home → Managed IT → City) in addition to the `breadcrumbs` prop passed to `BaseLayout` for `BreadcrumbList` JSON-LD.
+
 ## Checklist before finishing UI/perf/SEO work
 
 - [ ] No generic repeated link labels (“Learn more”) without topic names
@@ -172,6 +193,10 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 - [ ] Web design pricing page keeps `OfferCatalog` JSON-LD aligned with visible tiers
 - [ ] Zaraz `s.js` still has a browser Cache-Control (dashboard rule or `cf:zaraz-cache`)
 - [ ] Non-essential analytics/trackers still gated behind prior consent (banner + Consent Mode defaults denied)
+- [ ] Lead-capture routes (`/api/assessment`, `/api/contact`) still refuse silent success (503) with no configured sink outside `astro dev`
+- [ ] Founder-career case studies still marked `storyAttribution: 'founder-leadership'` and do not claim Cybercon customer delivery
+- [ ] New local landing pages have distinct, non-templated local content per city plus non-slash/`.html` 301s in `_redirects`
+- [ ] Public `/api/health` response stays `{ ok, time }` only; no new dependency/secret fields added there
 - [ ] `npm run build` passes (primary validation gate)
 
 ## Related files
@@ -189,3 +214,8 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 | WordPress query 301s | `scripts/wrap-worker-wp-query.mjs`, `wrangler.jsonc` `run_worker_first`, `src/lib/wp-query-redirect.ts`, `src/middleware.ts`, `public/_redirects` |
 | Cookie consent / ePrivacy | `CookieBanner.astro`, `Analytics.astro`, `ApolloTracker.astro`, `BaseLayout.astro`, `src/lib/consent.ts`, `src/data/privacy.ts` |
 | Privacy SEO / sitemap | `PrivacyPage.astro`, `privacyPolicyJsonLd` in `src/lib/seo.ts`, `astro.config.mjs` sitemap serialize, `public/_redirects`, `wrangler.jsonc` `html_handling` |
+| Lead delivery fail-closed | `src/lib/lead-delivery.ts`, `src/pages/api/assessment.ts`, `src/pages/api/contact.ts`, `src/lib/form-rate-limit.ts` |
+| Local landing pages | `src/data/local-pages.ts`, `src/components/LocalManagedItPage.astro`, `src/pages/services/managed-it/{cooper-city,davie,broward-county}/`, ES mirrors under `src/pages/es/services/managed-it/` |
+| Health checks | `src/pages/api/health.ts` (public, minimal), `src/pages/api/health/detail.ts` (authenticated) |
+| Client-area auth fail-closed | `src/middleware.ts`, `src/lib/auth0.ts` |
+| CI smoke checks | `scripts/ci-smoke-checks.mjs`, `.github/workflows/ci.yml` |
