@@ -6,7 +6,7 @@ export type ServiceDetails = {
   audience: LocaleText;
   overview: LocaleText;
   process: { title: LocaleText; body: LocaleText }[];
-  faqs: { question: LocaleText; answer: LocaleText }[];
+  faqs: { question: LocaleText; answer: LocaleText; id?: string }[];
 };
 
 export const serviceDetails: Record<string, ServiceDetails> = {
@@ -91,6 +91,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
       },
       {
+        id: 'sample-qbr',
         question: {
           en: 'Can I see a sample quarterly business review?',
           es: '¿Puedo ver una revisión trimestral de muestra?',

@@ -190,7 +190,7 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
       <h2 id="wd-faq-title" class="wd-label">{copy.faqLabel}</h2>
       <dl class="wd-faq-list">
         {copy.faqs.map((faq) => (
-          <div class="wd-faq-row">
+          <div class="wd-faq-row" id={faq.id}>
             <dt>{faq.question}</dt>
             <dd>{faq.answer}</dd>
           </div>
