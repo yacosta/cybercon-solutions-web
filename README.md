@@ -100,6 +100,16 @@ Add these **GitHub repository secrets** (Settings → Secrets and variables → 
 
 Zone ID for `cybercon-solutions.com` is `41a145bf2688a227f9e321a31055fe19` (wired into `deploy.yml` for the Zaraz cache step; not a secret).
 
+#### CI smoke checks
+
+After `npm run build`, `ci.yml` runs `node scripts/ci-smoke-checks.mjs` — a small, dependency-free script that guards against regressions that have shipped before: a stale "coming soon" placeholder build, a missing detailed-health/about route, a rolled-back security header, or `src/lib/lead-delivery.ts` silently reporting success with no configured sink. It also runs `npm audit --omit=dev --audit-level=high` with `continue-on-error: true` (informational only).
+
+**Recommended next steps for CI** (intentionally not added yet — heavier deps/setup than this pass covers):
+
+- **Playwright** for real end-to-end coverage of the assessment/contact forms, `#site-check`, and `#breach-check` against a running preview build.
+- **axe-core** (via `@axe-core/playwright` or a standalone CLI) for automated accessibility regressions on key templates (homepage, service pages, blog).
+- **Lighthouse CI** to track Core Web Vitals (especially homepage LCP) and fail on budget regressions.
+
 #### Zaraz `s.js` browser cache (Lighthouse)
 
 `/cdn-cgi/zaraz/s.js` is injected by Cloudflare Zaraz — it is **not** covered by `public/_headers`. Deploy runs `npm run cf:zaraz-cache` to upsert a Response Header Transform (`Cache-Control: public, max-age=604800`).

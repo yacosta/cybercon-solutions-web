@@ -39,3 +39,14 @@ jobs:
       # Cloudflare, so this validates the deploy config with no credentials.
       - name: Validate Cloudflare Worker bundle
         run: npx wrangler deploy --dry-run
+
+      # Fast, dependency-free regression guards (placeholder copy, security
+      # headers, lead-delivery fail-closed behavior). Not a substitute for
+      # real e2e/a11y/perf testing — see README "Recommended next steps".
+      - name: CI smoke checks
+        run: node scripts/ci-smoke-checks.mjs
+
+      # Best-effort dependency audit — informational only, does not block CI.
+      - name: npm audit (production dependencies)
+        run: npm audit --omit=dev --audit-level=high
+        continue-on-error: true
