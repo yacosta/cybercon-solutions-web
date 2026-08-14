@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getMessages, localePath } from '../i18n';
+import { founderPersonJsonLd, jsonLdScript, webPageJsonLd } from '../lib/seo';
+import { site } from '../lib/site';
+
+interface Props {
+  locale: 'en' | 'es';
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const path = localePath(locale, '/about/');
+const assessmentHref = localePath(locale, '/assessment/');
+const resultsHref = localePath(locale, '/blog/healthcare-nonprofit-it-transformation-case-study/');
+---
+
+<BaseLayout
+  locale={locale}
+  title={t.about.metaTitle}
+  description={t.about.metaDescription}
+  path={path}
+  breadcrumbs={[
+    { name: locale === 'es' ? 'Inicio' : 'Home', path: localePath(locale, '/') },
+    { name: t.nav.about, path },
+  ]}
+>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        webPageJsonLd({
+          name: t.about.metaTitle,
+          description: t.about.metaDescription,
+          path,
+          locale,
+        }),
+      )}
+    />
+    <script type="application/ld+json" set:html={jsonLdScript(founderPersonJsonLd(locale))} />
+  </Fragment>
+
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <article class="about page container" data-pagefind-body>
+    <p class="eyebrow">{t.about.eyebrow}</p>
+    <h1>{t.about.title}</h1>
+    <p class="lede">{t.about.lede}</p>
+
+    <div class="about-grid">
+      <div class="about-copy">
+        {t.about.body.map((para) => (
+          <p>{para}</p>
+        ))}
+        <p class="founder-line">
+          <strong>{site.founder.name}</strong>
+          <span aria-hidden="true"> · </span>
+          {locale === 'es' ? site.founder.roleEs : site.founder.role}
+        </p>
+      </div>
+
+      <aside class="credentials" aria-labelledby="credentials-title">
+        <h2 id="credentials-title">{t.about.credentialsTitle}</h2>
+        <ul>
+          {t.about.credentials.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+
+    <div class="about-actions">
+      <a class="btn btn-primary" href={assessmentHref}>{t.about.assessmentCta}</a>
+      <a class="text-link" href={resultsHref}>{t.about.resultsCta}</a>
+    </div>
+  </article>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .about {
+    padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(3rem, 7vw, 5rem);
+  }
+
+  .about h1 {
+    font-size: clamp(2rem, 4vw, 2.85rem);
+    margin: 0.4rem 0 1rem;
+    max-width: 18ch;
+    color: var(--navy);
+  }
+
+  .lede {
+    max-width: 42rem;
+    color: var(--body-muted);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    margin: 0 0 2rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .about-copy p {
+    color: var(--body-muted);
+    line-height: 1.7;
+    margin: 0 0 1rem;
+    max-width: 40rem;
+  }
+
+  .founder-line {
+    color: var(--navy) !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .credentials {
+    background: var(--cream);
+    border: 1px solid rgba(15, 44, 76, 0.08);
+    padding: 1.35rem 1.4rem;
+  }
+
+  .credentials h2 {
+    margin: 0 0 0.85rem;
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .credentials ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .credentials li {
+    padding-left: 1rem;
+    position: relative;
+    color: var(--body-muted);
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  .credentials li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--coral);
+  }
+
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: center;
+    margin-top: 2.25rem;
+  }
+
+  .text-link {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  @media (max-width: 800px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

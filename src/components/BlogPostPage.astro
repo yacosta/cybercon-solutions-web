@@ -35,6 +35,7 @@ const assessmentHref = localePath(locale, '/assessment/');
 const ogImage = absoluteUrl(banner.jpg);
 const isCustomerStory = Boolean(post.data.customerIndustry);
 const sectionEyebrow = isCustomerStory ? t.nav.customers : t.blog.eyebrow;
+const aboutHref = localePath(locale, '/about/');
 ---
 
 <BaseLayout
@@ -99,6 +100,11 @@ const sectionEyebrow = isCustomerStory ? t.nav.customers : t.blog.eyebrow;
           <time datetime={post.data.pubDate.toISOString()}>{published}</time>
           <span aria-hidden="true">·</span>
           <a href={blogIndexPath}>{t.blog.allPosts}</a>
+        </p>
+        <p class="blog-byline">
+          {t.blog.writtenBy}
+          {' '}
+          <a href={aboutHref}>{t.blog.authorLink}</a>
         </p>
       </header>
 
@@ -173,6 +179,19 @@ const sectionEyebrow = isCustomerStory ? t.nav.customers : t.blog.eyebrow;
 
   .blog-meta a:hover {
     color: var(--coral);
+  }
+
+  .blog-byline {
+    margin: 0.65rem 0 0;
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+  }
+
+  .blog-byline a {
+    color: var(--navy);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
   }
 
   .blog-prose {

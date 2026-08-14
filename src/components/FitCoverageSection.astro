@@ -1,0 +1,64 @@
+---
+import type { Messages } from '../i18n';
+
+interface Props {
+  t: Messages;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="fit-coverage" aria-labelledby="fit-title">
+  <div class="container fit-grid">
+    <div>
+      <p class="eyebrow">{t.fit.eyebrow}</p>
+      <h2 id="fit-title">{t.fit.title}</h2>
+      <p>{t.fit.body}</p>
+    </div>
+    <div>
+      <p class="eyebrow">{t.coverage.eyebrow}</p>
+      <h2 id="coverage-title">{t.coverage.title}</h2>
+      <p>{t.coverage.body}</p>
+      <p class="mailing-note">{t.coverage.mailingNote}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .fit-coverage {
+    background: var(--white);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .fit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+
+  .fit-coverage h2 {
+    font-size: clamp(1.45rem, 2.4vw, 1.85rem);
+    margin: 0.4rem 0 0.85rem;
+    color: var(--navy);
+  }
+
+  .fit-coverage p {
+    margin: 0;
+    color: var(--body-muted);
+    line-height: 1.65;
+  }
+
+  .mailing-note {
+    margin-top: 0.85rem !important;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--navy) !important;
+  }
+
+  @media (max-width: 800px) {
+    .fit-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

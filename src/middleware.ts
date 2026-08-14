@@ -65,6 +65,29 @@ const markdownMiddleware = defineMiddleware(async (context, next) => {
   headers.set('x-content-type-options', 'nosniff');
   headers.set('referrer-policy', 'strict-origin-when-cross-origin');
   headers.set('permissions-policy', 'geolocation=(), microphone=(), camera=()');
+  headers.set('x-frame-options', 'DENY');
+  headers.set('cross-origin-opener-policy', 'same-origin');
+  // Report-Only CSP — tighten to enforce after live violation review.
+  if (!headers.has('content-security-policy-report-only')) {
+    headers.set(
+      'content-security-policy-report-only',
+      [
+        "default-src 'self'",
+        "base-uri 'self'",
+        "object-src 'none'",
+        "frame-ancestors 'none'",
+        "form-action 'self'",
+        "img-src 'self' data: blob: https:",
+        "font-src 'self' data:",
+        "style-src 'self' 'unsafe-inline'",
+        "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://assets.apollo.io https://cdnjs.cloudflare.com",
+        "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://challenges.cloudflare.com https://api.web3forms.com https://*.apollo.io https://generativelanguage.googleapis.com",
+        "frame-src 'self' https://challenges.cloudflare.com https://calendly.com https://*.calendly.com",
+        "media-src 'self' blob:",
+        "worker-src 'self' blob:",
+      ].join('; '),
+    );
+  }
 
   return new Response(response.body, {
     status: response.status,
@@ -96,10 +119,19 @@ const authMiddleware = defineMiddleware(async (context, next) => {
       pathname === '/client/callback/' ||
       pathname === '/client/logout/';
 
+    // Fail closed: without Auth0, the portal is unavailable (no placeholder leak).
+    if (!auth0Configured()) {
+      return new Response('Client portal is temporarily unavailable.', {
+        status: 503,
+        headers: {
+          'content-type': 'text/plain; charset=utf-8',
+          'cache-control': 'no-store',
+          'x-robots-tag': 'noindex',
+        },
+      });
+    }
+
     if (!user && !isPublicClientRoute) {
-      if (!auth0Configured()) {
-        return next();
-      }
       return context.redirect('/client/login');
     }
   }

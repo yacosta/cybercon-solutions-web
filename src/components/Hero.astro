@@ -19,7 +19,7 @@ const videoLabel =
     : 'Decorative video: network engineer walking through server racks and working on a server';
 
 const assessmentHref = localePath(locale, '/assessment/');
-const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
+const managedItHref = localePath(locale, '/services/managed-it/');
 
 /** Responsive LCP poster — AVIF/WebP + width variants beat the old 86KiB PNG-as-JPG. */
 const posterJpg = '/videos/hero-poster.jpg';
@@ -75,11 +75,12 @@ const posterSizes = '100vw';
 
   <div class="hero-content">
     <p class="eyebrow">{t.hero.eyebrow}</p>
+    <p class="hero-tagline">{t.hero.tagline}</p>
     <h1 id="hero-title">{t.hero.title}</h1>
     <p id="hero-lede" class="lede">{t.hero.lede}</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href={assessmentHref}>{t.hero.cta}</a>
-      <a class="btn btn-ghost" href={siteCheckHref}>{t.hero.ctaSecondary}</a>
+      <a class="btn btn-ghost" href={managedItHref}>{t.hero.ctaSecondary}</a>
       <p class="status">
         <span class="status-dot" aria-hidden="true"></span>
         {t.hero.status}
@@ -186,12 +187,21 @@ const posterSizes = '100vw';
   }
 
   .hero h1 {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
-    line-height: 1.06;
+    font-size: clamp(2.05rem, 4.4vw, 3.15rem);
+    line-height: 1.08;
     letter-spacing: -0.02em;
-    margin: 0.75rem 0 1rem;
+    margin: 0.35rem 0 1rem;
     color: var(--white);
     text-shadow: 0 1px 18px rgba(0, 0, 0, 0.35);
+  }
+
+  .hero-tagline {
+    margin: 0.35rem 0 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.92);
   }
 
   .lede {

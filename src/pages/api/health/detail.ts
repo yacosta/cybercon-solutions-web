@@ -1,0 +1,75 @@
+import type { APIRoute } from 'astro';
+import { attioConfigured } from '../../../lib/attio';
+import { auth0Configured } from '../../../lib/auth0';
+import { chatAiStatus } from '../../../lib/chat';
+import { runtimeEnv } from '../../../lib/env';
+import { leadDeliveryConfigured } from '../../../lib/lead-delivery';
+import { siteCheckAiStatus } from '../../../lib/site-check';
+
+export const prerender = false;
+
+/**
+ * Detailed dependency health for operators.
+ * Requires header: Authorization: Bearer <HEALTH_DETAIL_TOKEN>
+ * or ?token=<HEALTH_DETAIL_TOKEN> (prefer header).
+ */
+export const GET: APIRoute = async ({ request, url }) => {
+  const expected = runtimeEnv('HEALTH_DETAIL_TOKEN');
+  if (!expected) {
+    return Response.json(
+      { error: 'Detailed health is not configured' },
+      { status: 404 },
+    );
+  }
+
+  const auth = request.headers.get('authorization') ?? '';
+  const bearer = auth.toLowerCase().startsWith('bearer ')
+    ? auth.slice(7).trim()
+    : '';
+  const queryToken = url.searchParams.get('token')?.trim() ?? '';
+  const provided = bearer || queryToken;
+
+  if (!provided || provided !== expected) {
+    return Response.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  const auth0Vars = {
+    AUTH0_DOMAIN: Boolean(runtimeEnv('AUTH0_DOMAIN')),
+    AUTH0_CLIENT_ID: Boolean(runtimeEnv('AUTH0_CLIENT_ID')),
+    AUTH0_CLIENT_SECRET: Boolean(runtimeEnv('AUTH0_CLIENT_SECRET')),
+    AUTH0_BASE_URL: Boolean(runtimeEnv('AUTH0_BASE_URL')),
+    SESSION_SECRET: Boolean(runtimeEnv('SESSION_SECRET')),
+  };
+
+  const ai = siteCheckAiStatus();
+  const chatAi = chatAiStatus();
+
+  return Response.json({
+    ok: true,
+    service: 'cybercon-solutions-web',
+    time: new Date().toISOString(),
+    leadDelivery: leadDeliveryConfigured(),
+    attio: attioConfigured(),
+    turnstile: Boolean(runtimeEnv('TURNSTILE_SECRET_KEY')),
+    web3forms: Boolean(runtimeEnv('WEB3FORMS_ACCESS_KEY')),
+    auth0: auth0Configured(),
+    auth0Vars,
+    siteCheck: {
+      aiProvider: ai.provider,
+      gemini: ai.gemini,
+      openai: ai.openai,
+      anthropic: ai.anthropic,
+      builtwith: Boolean(runtimeEnv('BUILTWITH_API_KEY')),
+      webhook: Boolean(runtimeEnv('SITE_CHECK_WEBHOOK_URL')),
+    },
+    breachCheck: {
+      hibp: Boolean(runtimeEnv('HIBP_API_KEY')),
+    },
+    chat: {
+      aiProvider: chatAi.provider,
+      gemini: chatAi.gemini,
+      openai: chatAi.openai,
+      anthropic: chatAi.anthropic,
+    },
+  });
+};
