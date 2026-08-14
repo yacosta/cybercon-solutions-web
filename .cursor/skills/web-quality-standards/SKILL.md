@@ -153,6 +153,8 @@ Non-essential cookies and trackers must not run until the visitor opts in (ePriv
 
 These came out of the commercial-readiness overhaul (fake-success forms, thin local pages, unauthenticated health data, overclaiming CTAs). Follow them on every related change.
 
+**Full playbook (priority order, anti-patterns, ship checklist):** `.cursor/skills/commercial-web-readiness/SKILL.md` (rule: `.cursor/rules/commercial-web-readiness.mdc`). Use that skill for feature marketing / conversion work; keep the bullets below as the short Cybercon-specific anchors.
+
 - **Lead delivery never returns `ok` without a configured production sink.** `src/lib/lead-delivery.ts` must return `503` (`"Lead delivery is temporarily unavailable"`) when neither Attio nor Web3Forms is configured. Console-only "delivery" (`[lead-delivery][dev]`) is allowed **only** under `import.meta.env.DEV` (local `astro dev`) — never in a deployed Worker. Both `/api/assessment` and `/api/contact` go through this shared path; do not reintroduce a route-local fallback that logs and returns `{ ok: true }`.
 - **Case studies built on the founder's pre-Cybercon career must use `storyAttribution: 'founder-leadership'`** (see `src/data/customer-stories.ts` / blog frontmatter) and must not claim the results as Cybercon Solutions customer delivery. Present them as the founder's leadership experience, not a Cybercon engagement.
 - **Homepage leads with managed IT + cybersecurity as pillars**, not ten equal service tiles. AI/cloud/consulting services stay real and linked, but the primary above-the-fold narrative is "managed IT + security as the baseline" — do not flatten it back into a uniform services grid as the first thing visitors see.
