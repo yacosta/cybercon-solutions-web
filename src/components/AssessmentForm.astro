@@ -1,7 +1,7 @@
 ---
 import { turnstileSiteKey } from '../lib/turnstile';
 import { localePath, type Messages } from '../i18n';
-import { site } from '../lib/site';
+import { calendarBookingUrl, site } from '../lib/site';
 
 interface Props {
   locale: string;
@@ -13,8 +13,8 @@ interface Props {
 const { locale, t, layout = 'inline' } = Astro.props;
 const siteKey = turnstileSiteKey();
 const privacyHref = localePath(locale, '/privacy/');
-const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
 const isSplit = layout === 'split';
+const calendarUrl = calendarBookingUrl();
 ---
 
 <section
@@ -34,10 +34,6 @@ const isSplit = layout === 'split';
             {t.form.title}
           </h1>
           <p class="lede capture-reveal capture-reveal-delay-2">{t.form.lede}</p>
-          <p class="site-check-prompt capture-reveal capture-reveal-delay-2">
-            {t.form.siteCheckLede}{' '}
-            <a href={siteCheckHref}>{t.form.siteCheckCta}</a>
-          </p>
           <p class="capture-inline capture-reveal capture-reveal-delay-3">
             <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
             <span aria-hidden="true">·</span>
@@ -48,10 +44,6 @@ const isSplit = layout === 'split';
         <>
           <h2 id="assessment-title">{t.form.title}</h2>
           <p class="lede">{t.form.lede}</p>
-          <p class="site-check-prompt">
-            {t.form.siteCheckLede}{' '}
-            <a href={siteCheckHref}>{t.form.siteCheckCta}</a>
-          </p>
         </>
       )
     }
@@ -93,6 +85,73 @@ const isSplit = layout === 'split';
             placeholder={t.form.emailPlaceholder}
           />
         </div>
+
+        <fieldset id="assessment-step-2" class="optional-step">
+          <legend>{t.form.step2Title}</legend>
+          <div class="optional-grid" id="assessment-step2-fields">
+            <div class="field">
+              <label for="assessment-employees">{t.form.employees}</label>
+              <input
+                id="assessment-employees"
+                name="employees"
+                type="number"
+                min="0"
+                inputmode="numeric"
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="assessment-locations">{t.form.locations}</label>
+              <input
+                id="assessment-locations"
+                name="locations"
+                type="number"
+                min="0"
+                inputmode="numeric"
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="assessment-challenge">{t.form.challenge}</label>
+              <input id="assessment-challenge" name="challenge" type="text" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="assessment-service-interest">{t.form.serviceInterest}</label>
+              <input
+                id="assessment-service-interest"
+                name="serviceInterest"
+                type="text"
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="assessment-current-it-model">{t.form.currentItModel}</label>
+              <input
+                id="assessment-current-it-model"
+                name="currentItModel"
+                type="text"
+                autocomplete="off"
+              />
+            </div>
+            <div class="field">
+              <label for="assessment-desired-start">{t.form.desiredStart}</label>
+              <input id="assessment-desired-start" name="desiredStart" type="text" autocomplete="off" />
+            </div>
+            <div class="field">
+              <label for="assessment-phone">{t.form.phone}</label>
+              <input id="assessment-phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+          <button
+            type="button"
+            class="step2-skip"
+            id="assessment-step2-skip"
+            aria-expanded="true"
+            aria-controls="assessment-step2-fields"
+          >
+            {t.form.step2Skip}
+          </button>
+        </fieldset>
 
         {
           isSplit && (
@@ -140,6 +199,20 @@ const isSplit = layout === 'split';
         <div class="check" aria-hidden="true">✓</div>
         <h2>{t.form.thanksTitle}</h2>
         <p>{t.form.thanksBody}</p>
+        {
+          calendarUrl && (
+            <a
+              class="btn btn-primary thanks-cta"
+              href={calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-calendar-link
+            >
+              {t.form.thanksSchedule}
+              <span class="sr-only"> ({t.form.thanksScheduleHint})</span>
+            </a>
+          )
+        }
       </div>
     </div>
   </div>
@@ -151,6 +224,22 @@ const isSplit = layout === 'split';
   const form = document.getElementById('assessment-form');
   const thanks = document.getElementById('assessment-thanks');
   const errorEl = document.getElementById('form-error');
+  const step2Fields = document.getElementById('assessment-step2-fields');
+  const step2Skip = document.getElementById('assessment-step2-skip');
+
+  form?.addEventListener(
+    'focusin',
+    () => {
+      window.cyberconAttribution?.track?.('assessment_started');
+    },
+    { once: true },
+  );
+
+  step2Skip?.addEventListener('click', () => {
+    if (step2Fields) step2Fields.hidden = true;
+    step2Skip.setAttribute('aria-expanded', 'false');
+    step2Skip.hidden = true;
+  });
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -158,6 +247,12 @@ const isSplit = layout === 'split';
 
     errorEl.hidden = true;
     const data = new FormData(form);
+
+    const optional = (name) => {
+      const raw = data.get(name);
+      const value = typeof raw === 'string' ? raw.trim() : '';
+      return value || undefined;
+    };
 
     if (requireAgree) {
       const agree = form.querySelector('#assessment-agree');
@@ -177,24 +272,46 @@ const isSplit = layout === 'split';
       return;
     }
 
-    const response = await fetch('/api/assessment', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', accept: 'application/json' },
-      body: JSON.stringify({
-        name: String(data.get('name') ?? ''),
-        company: String(data.get('company') ?? ''),
-        email: String(data.get('email') ?? ''),
-        locale,
-        turnstileToken,
-      }),
-    });
+    const attribution = window.cyberconAttribution?.get?.() ?? undefined;
 
-    if (!response.ok) {
+    window.cyberconAttribution?.track?.('assessment_submitted');
+
+    let response;
+    try {
+      response = await fetch('/api/assessment/', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({
+          name: String(data.get('name') ?? ''),
+          company: String(data.get('company') ?? ''),
+          email: String(data.get('email') ?? ''),
+          phone: optional('phone'),
+          employees: optional('employees'),
+          locations: optional('locations'),
+          challenge: optional('challenge'),
+          serviceInterest: optional('serviceInterest'),
+          currentItModel: optional('currentItModel'),
+          desiredStart: optional('desiredStart'),
+          locale,
+          turnstileToken,
+          attribution,
+        }),
+      });
+    } catch {
+      window.cyberconAttribution?.track?.('assessment_delivery_failed', { status: 0 });
       errorEl.textContent = messages.error;
       errorEl.hidden = false;
       return;
     }
 
+    if (!response.ok) {
+      window.cyberconAttribution?.track?.('assessment_delivery_failed', { status: response.status });
+      errorEl.textContent = response.status === 503 ? messages.unavailable : messages.error;
+      errorEl.hidden = false;
+      return;
+    }
+
+    window.cyberconAttribution?.track?.('assessment_delivery_success');
     form.hidden = true;
     thanks.hidden = false;
     thanks.focus();
@@ -220,22 +337,7 @@ const isSplit = layout === 'split';
     color: var(--body-muted);
     font-size: 1rem;
     max-width: 40rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .site-check-prompt {
-    color: var(--body-muted);
-    font-size: 0.9375rem;
-    max-width: 40rem;
-    margin: 0 0 1.75rem;
-    line-height: 1.55;
-  }
-
-  .site-check-prompt a {
-    color: var(--navy);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 0.12em;
+    margin-bottom: 1.5rem;
   }
 
   .form:not(.form-split):not([hidden]),
@@ -253,6 +355,10 @@ const isSplit = layout === 'split';
 
   .form:not(.form-split) .field {
     min-width: 0;
+  }
+
+  .form:not(.form-split) .optional-step {
+    grid-column: 1 / -1;
   }
 
   .form:not(.form-split) .turnstile-wrap {
@@ -298,6 +404,10 @@ const isSplit = layout === 'split';
     max-width: 40rem;
   }
 
+  .thanks-cta {
+    margin-top: 0.25rem;
+  }
+
   .check {
     width: 52px;
     height: 52px;
@@ -308,6 +418,61 @@ const isSplit = layout === 'split';
     color: var(--white);
     font-size: 1.625rem;
     font-weight: 700;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* --- Optional step 2 (employees, locations, challenge, etc.) --- */
+  .optional-step {
+    border: 0;
+    margin: 0;
+    padding: 0.35rem 0 0;
+  }
+
+  .optional-step legend {
+    padding: 0;
+    margin: 0 0 0.85rem;
+    width: 100%;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .optional-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .optional-grid[hidden] {
+    display: none;
+  }
+
+  .step2-skip {
+    margin-top: 0.85rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--body-muted);
+    font-size: 0.8125rem;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+  }
+
+  .step2-skip:hover,
+  .step2-skip:focus-visible {
+    color: var(--coral);
   }
 
   /* --- Nicepage-style split layout (assessment landing) --- */
@@ -429,6 +594,14 @@ const isSplit = layout === 'split';
     box-shadow: var(--shadow-focus);
   }
 
+  .form-split .optional-step legend {
+    font-size: 1rem;
+  }
+
+  .form-split .optional-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .agree {
     display: flex;
     gap: 0.65rem;
@@ -546,6 +719,12 @@ const isSplit = layout === 'split';
     .form:not(.form-split) .btn-primary,
     .form:not(.form-split) .micro {
       grid-column: 1;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .optional-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

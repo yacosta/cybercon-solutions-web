@@ -22,6 +22,21 @@ const FREE_EMAIL_DOMAINS = new Set([
   'yandex.com',
 ]);
 
+export interface LeadAttribution {
+  firstLanding?: string;
+  lastLanding?: string;
+  referrer?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+  utmContent?: string;
+  utmTerm?: string;
+  cta?: string;
+  servicePage?: string;
+  siteCheckCompleted?: boolean;
+  breachCheckCompleted?: boolean;
+}
+
 export interface AssessmentProspect {
   name: string;
   company: string;
@@ -33,6 +48,14 @@ export interface AssessmentProspect {
   message?: string;
   /** Prefer this domain for Company match (e.g. scanned site), over the email domain. */
   companyDomain?: string;
+  phone?: string;
+  employees?: string;
+  locations?: string;
+  challenge?: string;
+  serviceInterest?: string;
+  currentItModel?: string;
+  desiredStart?: string;
+  attribution?: LeadAttribution;
 }
 
 interface AttioRecord {
@@ -202,7 +225,28 @@ async function createAssessmentNote(
           `Email: ${prospect.email}`,
           `Locale: ${locale}`,
           `Source: ${source}`,
+          ...(prospect.phone?.trim() ? [`Phone: ${prospect.phone.trim()}`] : []),
+          ...(prospect.employees?.trim() ? [`Employees: ${prospect.employees.trim()}`] : []),
+          ...(prospect.locations?.trim() ? [`Locations: ${prospect.locations.trim()}`] : []),
+          ...(prospect.challenge?.trim() ? [`Challenge: ${prospect.challenge.trim()}`] : []),
+          ...(prospect.serviceInterest?.trim()
+            ? [`Service interest: ${prospect.serviceInterest.trim()}`]
+            : []),
+          ...(prospect.currentItModel?.trim()
+            ? [`Current IT model: ${prospect.currentItModel.trim()}`]
+            : []),
+          ...(prospect.desiredStart?.trim()
+            ? [`Desired start: ${prospect.desiredStart.trim()}`]
+            : []),
           ...(prospect.message?.trim() ? [`Message:\n${prospect.message.trim()}`] : []),
+          ...(prospect.attribution
+            ? [
+                'Attribution:',
+                ...Object.entries(prospect.attribution)
+                  .filter(([, v]) => v !== undefined && v !== '')
+                  .map(([k, v]) => `  ${k}: ${String(v)}`),
+              ]
+            : []),
         ].join('\n'),
       },
     }),

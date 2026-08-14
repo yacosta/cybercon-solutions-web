@@ -1,9 +1,36 @@
 import type { APIRoute } from 'astro';
-import { attioConfigured, createAssessmentProspect } from '../../lib/attio';
-import { runtimeEnv } from '../../lib/env';
-import { verifyTurnstile } from '../../lib/turnstile-verify';
+import { deliverLead } from '../../lib/lead-delivery';
+import type { LeadAttribution } from '../../lib/attio';
+import {
+  checkFormRateLimits,
+  incrementFormRateLimits,
+} from '../../lib/form-rate-limit';
+import { requireTurnstile } from '../../lib/turnstile-gate';
 
 export const prerender = false;
+
+function parseAttribution(raw: unknown): LeadAttribution | undefined {
+  if (!raw || typeof raw !== 'object') return undefined;
+  const a = raw as Record<string, unknown>;
+  const str = (k: string) =>
+    typeof a[k] === 'string' && a[k].trim() ? String(a[k]).trim().slice(0, 500) : undefined;
+  const bool = (k: string) => (typeof a[k] === 'boolean' ? a[k] : undefined);
+  const out: LeadAttribution = {
+    firstLanding: str('firstLanding'),
+    lastLanding: str('lastLanding'),
+    referrer: str('referrer'),
+    utmSource: str('utmSource'),
+    utmMedium: str('utmMedium'),
+    utmCampaign: str('utmCampaign'),
+    utmContent: str('utmContent'),
+    utmTerm: str('utmTerm'),
+    cta: str('cta'),
+    servicePage: str('servicePage'),
+    siteCheckCompleted: bool('siteCheckCompleted'),
+    breachCheckCompleted: bool('breachCheckCompleted'),
+  };
+  return Object.values(out).some((v) => v !== undefined) ? out : undefined;
+}
 
 export const POST: APIRoute = async ({ request, clientAddress }) => {
   let body: {
@@ -14,6 +41,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     turnstileToken?: string;
     source?: string;
     message?: string;
+    phone?: string;
+    employees?: string;
+    locations?: string;
+    challenge?: string;
+    serviceInterest?: string;
+    currentItModel?: string;
+    desiredStart?: string;
+    attribution?: unknown;
   };
 
   try {
@@ -29,6 +64,14 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   const turnstileToken = body.turnstileToken?.trim() ?? '';
   const source = body.source?.trim() || 'https://cybercon-solutions.com/assessment/';
   const message = body.message?.trim() || undefined;
+  const phone = body.phone?.trim() || undefined;
+  const employees = body.employees?.trim() || undefined;
+  const locations = body.locations?.trim() || undefined;
+  const challenge = body.challenge?.trim() || undefined;
+  const serviceInterest = body.serviceInterest?.trim() || undefined;
+  const currentItModel = body.currentItModel?.trim() || undefined;
+  const desiredStart = body.desiredStart?.trim() || undefined;
+  const attribution = parseAttribution(body.attribution);
 
   if (!name || !company || !email) {
     return Response.json({ error: 'Missing required fields' }, { status: 400 });
@@ -38,68 +81,38 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     return Response.json({ error: 'Invalid email' }, { status: 400 });
   }
 
-  const secret = runtimeEnv('TURNSTILE_SECRET_KEY');
-  if (secret) {
-    const ok = await verifyTurnstile(turnstileToken, clientAddress);
-    if (!ok) {
-      return Response.json({ error: 'Turnstile verification failed' }, { status: 400 });
-    }
+  const rate = await checkFormRateLimits(clientAddress);
+  if (!rate.allowed) {
+    return Response.json({ error: 'Too many requests. Try again tomorrow.' }, { status: 429 });
   }
 
-  const accessKey = runtimeEnv('WEB3FORMS_ACCESS_KEY');
-  let delivered = false;
-
-  // Primary sink: Attio CRM (People + Companies + note). Requires ATTIO_API_KEY
-  // on the Cloudflare Worker (Settings → Variables and Secrets).
-  if (attioConfigured()) {
-    const prospectOk = await createAssessmentProspect({
-      name,
-      company,
-      email,
-      locale,
-      source,
-      message,
-    });
-    if (!prospectOk) {
-      return Response.json({ error: 'CRM delivery failed' }, { status: 502 });
-    }
-    delivered = true;
-  } else {
-    console.warn(
-      '[assessment] ATTIO_API_KEY not configured — skipping CRM upsert. Set it on the Worker and confirm GET /api/health → "attio": true',
-    );
+  const turnstile = await requireTurnstile(turnstileToken, clientAddress);
+  if (!turnstile.ok) {
+    return Response.json({ error: turnstile.error }, { status: turnstile.status });
   }
 
-  if (accessKey) {
-    const formRes = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `Assessment request — ${company}`,
-        from_name: 'Cybercon Solutions Website',
-        name,
-        company,
-        email,
-        locale,
-        source,
-        message: message ?? '',
-      }),
-    });
-    if (!formRes.ok) {
-      // If Attio already stored the prospect, don't fail the user on email delivery.
-      if (!delivered) {
-        return Response.json({ error: 'Delivery failed' }, { status: 502 });
-      }
-      console.error('[assessment] web3forms failed after Attio success', formRes.status);
-    } else {
-      delivered = true;
-    }
+  const result = await deliverLead({
+    name,
+    company,
+    email,
+    locale,
+    source,
+    message,
+    phone,
+    employees,
+    locations,
+    challenge,
+    serviceInterest,
+    currentItModel,
+    desiredStart,
+    attribution,
+    emailSubject: `Assessment request — ${company}`,
+  });
+
+  if (!result.ok) {
+    return Response.json({ error: result.error }, { status: result.status });
   }
 
-  if (!delivered) {
-    console.log('[assessment]', { name, company, email, locale, source, message });
-  }
-
-  return Response.json({ ok: true });
+  await incrementFormRateLimits(clientAddress);
+  return Response.json({ ok: true, via: result.via });
 };
