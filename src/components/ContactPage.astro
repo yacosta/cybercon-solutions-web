@@ -178,24 +178,40 @@ const mailingAddress = formatMailingAddress();
       return;
     }
 
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', accept: 'application/json' },
-      body: JSON.stringify({
-        name: String(data.get('name') ?? ''),
-        company: String(data.get('company') ?? ''),
-        email: String(data.get('email') ?? ''),
-        message: String(data.get('message') ?? ''),
-        locale,
-        turnstileToken,
-      }),
-    });
+    const attribution = window.cyberconAttribution?.get?.() ?? undefined;
 
-    if (!response.ok) {
+    window.cyberconAttribution?.track?.('contact_submitted');
+
+    let response;
+    try {
+      response = await fetch('/api/contact/', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({
+          name: String(data.get('name') ?? ''),
+          company: String(data.get('company') ?? ''),
+          email: String(data.get('email') ?? ''),
+          message: String(data.get('message') ?? ''),
+          locale,
+          turnstileToken,
+          attribution,
+        }),
+      });
+    } catch {
+      window.cyberconAttribution?.track?.('contact_delivery_failed', { status: 0 });
       errorEl.textContent = messages.error;
       errorEl.hidden = false;
       return;
     }
+
+    if (!response.ok) {
+      window.cyberconAttribution?.track?.('contact_delivery_failed', { status: response.status });
+      errorEl.textContent = messages.error;
+      errorEl.hidden = false;
+      return;
+    }
+
+    window.cyberconAttribution?.track?.('contact_delivery_success');
 
     form.hidden = true;
     thanks.hidden = false;

@@ -67,6 +67,8 @@ const addressLines =
                   </>
                 ))
               }
+              <br />
+              <span class="footer-mailing-note">{t.footer.mailing}</span>
             </span>
           </li>
           <li>
@@ -172,6 +174,8 @@ const addressLines =
         </a>
       </div>
       <p class="footer-legal">
+        <a href={localePath(locale, '/about/')}>{t.footer.about}</a>
+        <span class="divider" aria-hidden="true">|</span>
         <a href={localePath(locale, '/privacy/')}>{t.footer.privacy}</a>
         <span class="divider" aria-hidden="true">|</span>
         <a href={localePath(locale, '/accessibility/')}>{t.footer.accessibility}</a>
@@ -252,6 +256,14 @@ const addressLines =
   .footer-contact-list strong {
     color: var(--white);
     font-weight: 700;
+  }
+
+  .footer-mailing-note {
+    display: inline-block;
+    margin-top: 0.35rem;
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: rgba(182, 199, 214, 0.85);
   }
 
   .footer-icon {
