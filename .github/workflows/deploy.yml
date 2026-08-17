@@ -55,6 +55,17 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: 41a145bf2688a227f9e321a31055fe19
 
+      # Drop stale HTML/assets at the edge so new Worker deploys are visible
+      # immediately (HTML is cacheable with must-revalidate; PoPs can still HIT).
+      # Token needs Zone → Cache Purge; continue-on-error so missing permission
+      # does not block Worker deploys.
+      - name: Purge Cloudflare edge cache
+        continue-on-error: true
+        run: npm run cf:purge-cache
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: 41a145bf2688a227f9e321a31055fe19
+
       # Optional: zone Single Redirect for `/?page_id=` (Worker wrapper already 301s).
       # Token needs Zone → Redirect Rules Edit; continue-on-error so missing
       # permissions do not block Worker deploys.

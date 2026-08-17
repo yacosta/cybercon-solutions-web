@@ -95,7 +95,7 @@ Add these **GitHub repository secrets** (Settings → Secrets and variables → 
 
 | Secret | Notes |
 |--------|--------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. For the Zaraz cache-header step, also add **Zone → Transform Rules → Edit** (and **Account → Account Rulesets → Read**). |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. For the Zaraz cache-header step, also add **Zone → Transform Rules → Edit** (and **Account → Account Rulesets → Read**). For post-deploy edge purge (`npm run cf:purge-cache`), add **Zone → Cache Purge**. |
 | `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID (`61ffaf16829b400974986c7576f6165d`) |
 
 Zone ID for `cybercon-solutions.com` is `41a145bf2688a227f9e321a31055fe19` (wired into `deploy.yml` for the Zaraz cache step; not a secret).
