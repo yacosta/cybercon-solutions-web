@@ -19,9 +19,6 @@ export const en = {
     servicesMenu: 'Services menu',
     managedIt: 'Managed IT',
     cybersecurity: 'Cybersecurity',
-    cloudBackupStrategy: 'Cloud, Backup & Strategy',
-    projects: 'Projects & Innovation',
-    projectsMenu: 'Projects and innovation menu',
     industries: 'Industries',
     customers: 'Results',
     customersMenu: 'Results and leadership experience menu',
@@ -127,7 +124,7 @@ export const en = {
     eyebrow: 'How we work',
     title: 'Run. Protect. Plan.',
     lede:
-      'Three pillars—not ten equal cards. Managed IT and cybersecurity first; advisory and digital projects when they serve the operating model.',
+      'Three pillars—not ten equal cards. Managed IT and cybersecurity first. Cloud, backup, AI, and web design stay under Services.',
     items: [
       {
         title: 'Run',
@@ -148,10 +145,6 @@ export const en = {
         link: 'What’s included in IT Consulting',
       },
     ],
-    projectsEyebrow: 'Also available',
-    projectsTitle: 'Advisory & digital projects',
-    projectsLede:
-      'AI consulting, integration, conversational AI, and web design sit here—useful when they support the managed stack, not as the primary pitch.',
   },
   evidence: {
     eyebrow: 'Evidence',

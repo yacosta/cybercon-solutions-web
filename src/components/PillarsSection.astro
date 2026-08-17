@@ -1,6 +1,5 @@
 ---
 import { localePath, type Messages } from '../i18n';
-import { services, servicePath } from '../data/services';
 
 interface Props {
   locale: 'en' | 'es';
@@ -8,23 +7,6 @@ interface Props {
 }
 
 const { locale, t } = Astro.props;
-const loc = locale === 'es' ? 'es' : 'en';
-
-const projectSlugs = [
-  'ai-security',
-  'ai-consulting',
-  'ai-integration',
-  'conversational-ai',
-  'web-design-development',
-] as const;
-
-const projectLinks = projectSlugs
-  .map((slug) => services.find((s) => s.slug === slug))
-  .filter((s): s is (typeof services)[number] => Boolean(s))
-  .map((s) => ({
-    href: servicePath(locale, s.slug),
-    title: s.title[loc],
-  }));
 ---
 
 <section class="pillars" aria-labelledby="pillars-title">
@@ -41,19 +23,6 @@ const projectLinks = projectSlugs
           <a href={localePath(locale, pillar.href)}>{pillar.link}</a>
         </article>
       ))}
-    </div>
-
-    <div class="projects">
-      <p class="projects-eyebrow">{t.pillars.projectsEyebrow}</p>
-      <h3 class="projects-title">{t.pillars.projectsTitle}</h3>
-      <p class="projects-lede">{t.pillars.projectsLede}</p>
-      <ul class="project-links">
-        {projectLinks.map((link) => (
-          <li>
-            <a href={link.href}>{link.title}</a>
-          </li>
-        ))}
-      </ul>
     </div>
   </div>
 </section>
@@ -108,53 +77,8 @@ const projectLinks = projectSlugs
     text-underline-offset: 0.12em;
   }
 
-  .projects {
-    margin-top: 2.75rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid rgba(15, 44, 76, 0.1);
-  }
-
-  .projects-eyebrow {
-    margin: 0 0 0.35rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+  .pillar a:hover {
     color: var(--coral);
-    font-weight: 600;
-  }
-
-  .projects-title {
-    margin: 0 0 0.5rem;
-    font-size: 1.2rem;
-    color: var(--navy);
-  }
-
-  .projects-lede {
-    margin: 0 0 1rem;
-    color: var(--body-muted);
-    max-width: 42rem;
-    font-size: 0.95rem;
-  }
-
-  .project-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem 1.25rem;
-  }
-
-  .project-links a {
-    color: var(--navy);
-    font-weight: 500;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(15, 44, 76, 0.2);
-  }
-
-  .project-links a:hover {
-    color: var(--coral);
-    border-bottom-color: var(--coral);
   }
 
   @media (max-width: 800px) {

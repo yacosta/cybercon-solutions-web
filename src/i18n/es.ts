@@ -21,9 +21,6 @@ export const es: Messages = {
     servicesMenu: 'Menú de servicios',
     managedIt: 'TI administrada',
     cybersecurity: 'Ciberseguridad',
-    cloudBackupStrategy: 'Nube, copias de seguridad y estrategia',
-    projects: 'Proyectos e innovación',
-    projectsMenu: 'Menú de proyectos e innovación',
     industries: 'Industrias',
     customers: 'Resultados',
     customersMenu: 'Menú de resultados y experiencia de liderazgo',
@@ -129,7 +126,7 @@ export const es: Messages = {
     eyebrow: 'Cómo trabajamos',
     title: 'Operar. Proteger. Planificar.',
     lede:
-      'Tres pilares — no diez tarjetas iguales. Primero TI administrada y ciberseguridad; asesoría y proyectos digitales cuando aportan al modelo operativo.',
+      'Tres pilares — no diez tarjetas iguales. Primero TI administrada y ciberseguridad. Nube, copias de seguridad, IA y diseño web quedan en Servicios.',
     items: [
       {
         title: 'Operar',
@@ -150,10 +147,6 @@ export const es: Messages = {
         link: 'Qué incluye la asesoría de TI',
       },
     ],
-    projectsEyebrow: 'También disponible',
-    projectsTitle: 'Asesoría y proyectos digitales',
-    projectsLede:
-      'Consultoría de IA, integración, IA conversacional y diseño web están aquí — útiles cuando respaldan el stack administrado, no como la oferta principal.',
   },
   evidence: {
     eyebrow: 'Evidencia',
