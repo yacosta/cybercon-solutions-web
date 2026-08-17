@@ -183,8 +183,8 @@ export const services: Service[] = [
     slug: 'web-design-development',
     title: { en: 'Web Design & Development', es: 'Diseño y Desarrollo Web' },
     summary: {
-      en: 'Accessible, on-brand sites and custom applications with secure hosting and ongoing support.',
-      es: 'Sitios accesibles y con tu marca, aplicaciones a medida, hosting seguro y soporte continuo.',
+      en: 'Fixed-scope websites at published prices, plus custom apps. You own the domain and files — hosting and care after launch are optional.',
+      es: 'Sitios de alcance fijo a precio publicado, más aplicaciones a medida. El dominio y los archivos son tuyos — el hosting y el cuidado después del lanzamiento son opcionales.',
     },
     items: [
       {

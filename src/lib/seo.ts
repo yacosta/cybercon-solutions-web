@@ -256,7 +256,7 @@ export function localManagedItServiceJsonLd(opts: {
   };
 }
 
-/** Flat-rate web design packages as OfferCatalog (paired with the Service JSON-LD). */
+/** Published web design packages as OfferCatalog (paired with the Service JSON-LD). */
 export function webDesignOfferCatalogJsonLd(locale: Locale) {
   const path =
     locale === 'es'
@@ -264,7 +264,7 @@ export function webDesignOfferCatalogJsonLd(locale: Locale) {
       : '/services/web-design-development/';
   const pricingUrl = absoluteUrl(`${path}#pricing`);
   const catalogName =
-    locale === 'es' ? 'Paquetes de diseño y rediseño web' : 'Website design & redesign packages';
+    locale === 'es' ? 'Precios de sitios web' : 'Website pricing';
 
   return {
     '@context': 'https://schema.org',

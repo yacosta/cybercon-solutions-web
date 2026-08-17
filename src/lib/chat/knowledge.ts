@@ -18,7 +18,7 @@ export function buildKnowledgePack(locale: 'en' | 'es'): string {
 - LinkedIn: ${site.social.linkedin}
 - X: ${site.social.x}
 - Respuesta: un ingeniero de nuestro equipo responde en un día hábil
-- Modelo: precio predecible por usuario (no cobro por falla). No inventes precios exactos en dólares.
+- Modelo: precio predecible por usuario (no cobro por falla) para TI administrada. Sitios web de alcance fijo a precio publicado: Esencial una página $750; Crecimiento cinco páginas $1,150 o diez páginas $1,500; a medida (comercio electrónico, portales, apps, multiidioma) es cotización con alcance por escrito. No inventes otros precios en dólares.
 
 Servicios
 ${serviceLines}
@@ -49,7 +49,7 @@ Reglas
 - LinkedIn: ${site.social.linkedin}
 - X: ${site.social.x}
 - Response time: we reply within one business day
-- Pricing model: predictable per-user (not break/fix). Never invent dollar prices.
+- Pricing model: predictable per-user (not break/fix) for managed IT. Website design is published fixed-scope pricing: Essential one-page $750; Growth five pages $1,150 or ten pages $1,500; Custom (e-commerce, portals, apps, multi-language) is a written scoped quote. Never invent other dollar prices.
 
 Services
 ${serviceLines}
@@ -95,6 +95,14 @@ export const FAQ: FaqEntry[] = [
     en: `We serve Cooper City, Davie, and greater South Florida. Our mailing address is in Miami Beach (${formatMailingAddress()}). Onsite and managed services focus on the local South Florida market.`,
     es: `Atendemos Cooper City, Davie y el sur de Florida. Nuestra dirección postal está en Miami Beach (${formatMailingAddress()}). Los servicios en sitio y administrados se centran en el mercado local del sur de Florida.`,
     ctas: ['contact', 'call'],
+  },
+  {
+    patterns: [
+      /website.*(pric|cost|quote)|web (design|site).*(pric|cost|quote)|how much.*(website|web design|site)|sitio web.*(precio|cuesta|cotiz)|diseño web.*(precio|cuesta|cotiz)|cu[aá]nto.*(sitio|diseño web)/i,
+    ],
+    en: `Website prices are published and fixed-scope: Essential one-page sites are $750; Growth is $1,150 for five pages or $1,500 for ten. Custom work (e-commerce, member portals, integrations, web apps, multi-language) is a written scoped quote — you approve the number before we build. You own domain, files, and hosting from day one.`,
+    es: `Los precios de sitios web están publicados y son de alcance fijo: Esencial de una página cuesta $750; Crecimiento es $1,150 por cinco páginas o $1,500 por diez. El trabajo a medida (comercio electrónico, portales de miembros, integraciones, aplicaciones web, multiidioma) es una cotización con alcance por escrito — apruebas el número antes de construir. Dominio, archivos y hosting quedan a tu nombre desde el primer día.`,
+    ctas: ['assessment', 'site-check'],
   },
   {
     patterns: [/pric|cost|how much|budget|quote|tarif|precio|cu[aá]nto cuest/i],

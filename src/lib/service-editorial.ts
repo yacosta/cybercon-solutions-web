@@ -3,6 +3,11 @@ import type { ServiceDetails } from './service-details';
 import { webDesignPage } from '../data/web-design-page';
 import type { Messages } from '../i18n/en';
 
+export type EditorialPricingSharedInclusion = {
+  title: string;
+  body: string;
+};
+
 export type EditorialPricingTier = {
   name: string;
   priceFrom: string;
@@ -31,7 +36,11 @@ export type EditorialCopy = {
     eyebrow: string;
     title: string;
     lede: string;
-    footnote: string;
+    footnote?: string;
+    shared?: {
+      title: string;
+      items: EditorialPricingSharedInclusion[];
+    };
     tiers: EditorialPricingTier[];
   };
   feature: {
@@ -52,7 +61,7 @@ export type EditorialCopy = {
   included: string[];
   faqs: Array<{ question: string; answer: string; id?: string }>;
   faqLabel: string;
-  cta: { title: string; body: string; button: string };
+  cta: { title: string; body: string; button: string; secondary?: string };
 };
 
 function sentences(text: string): string[] {
@@ -311,7 +320,14 @@ export function buildServiceEditorial(
         eyebrow: copy.pricing.eyebrow[locale],
         title: copy.pricing.title[locale],
         lede: copy.pricing.lede[locale],
-        footnote: copy.pricing.footnote[locale],
+        footnote: copy.pricing.footnote?.[locale],
+        shared: {
+          title: copy.pricing.shared.title[locale],
+          items: copy.pricing.shared.items.map((item) => ({
+            title: item.title[locale],
+            body: item.body[locale],
+          })),
+        },
         tiers: copy.pricing.tiers.map((tier) => ({
           name: tier.name[locale],
           priceFrom: tier.priceFrom[locale],
@@ -342,6 +358,7 @@ export function buildServiceEditorial(
         title: copy.cta.title[locale],
         body: copy.cta.body[locale],
         button: copy.cta.button[locale],
+        secondary: copy.cta.secondary[locale],
       },
     };
   }
