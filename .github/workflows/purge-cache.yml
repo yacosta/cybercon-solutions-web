@@ -25,4 +25,5 @@ jobs:
         run: npm run cf:purge-cache
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_API_TOKEN: ${{ secrets.CLOUDFLARE_ZONE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: 41a145bf2688a227f9e321a31055fe19
