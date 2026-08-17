@@ -16,7 +16,7 @@ export const en = {
     searchAllResults: 'View all results',
     home: 'Home',
     services: 'Services',
-    servicesMenu: 'Core services menu',
+    servicesMenu: 'Services menu',
     managedIt: 'Managed IT',
     cybersecurity: 'Cybersecurity',
     cloudBackupStrategy: 'Cloud, Backup & Strategy',

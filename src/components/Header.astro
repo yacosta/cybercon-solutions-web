@@ -37,48 +37,18 @@ const onContact =
   path.startsWith('/contact/') ||
   path === '/es/contact' ||
   path.startsWith('/es/contact/');
+const onServices = path.includes('/services/');
 const onIndustries = path.includes('/industries');
 const customerGroups = await getCustomerStoryGroups(loc, path);
 const onCustomers = customerGroups.some((group) => group.papers.some((paper) => paper.current));
 const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
 const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
 
-// Core managed-services menu vs. the separate Projects & Innovation menu (advisory/digital work).
-const coreServiceSlugs = [
-  'managed-it',
-  'cybersecurity',
-  'cloud',
-  'backup-disaster-recovery',
-  'it-consulting',
-] as const;
-const projectServiceSlugs = [
-  'ai-security',
-  'ai-consulting',
-  'ai-integration',
-  'conversational-ai',
-  'web-design-development',
-] as const;
-
-const navServiceLabel = (slug: string, title: string) => {
-  if (slug === 'managed-it') return t.nav.managedIt;
-  if (slug === 'cybersecurity') return t.nav.cybersecurity;
-  return title;
-};
-
-const buildServiceLinks = (slugs: readonly string[]) =>
-  slugs
-    .map((slug) => services.find((service) => service.slug === slug))
-    .filter((service): service is (typeof services)[number] => Boolean(service))
-    .map((service) => ({
-      href: servicePath(locale, service.slug),
-      title: navServiceLabel(service.slug, service.title[loc]),
-      current: path.includes(`/services/${service.slug}`),
-    }));
-
-const serviceLinks = buildServiceLinks(coreServiceSlugs);
-const projectLinks = buildServiceLinks(projectServiceSlugs);
-const onServices = serviceLinks.some((service) => service.current);
-const onProjects = projectLinks.some((service) => service.current);
+const serviceLinks = services.map((service) => ({
+  href: servicePath(locale, service.slug),
+  title: service.title[loc],
+  current: path.includes(`/services/${service.slug}`),
+}));
 const onResources = (onBlog && !onCustomers) || onAbout;
 
 const industryLinks = industries.map((industry) => ({
@@ -124,41 +94,6 @@ const industryLinks = industries.map((industry) => ({
           >
             {
               serviceLinks.map((service) => (
-                <li>
-                  <a
-                    href={service.href}
-                    class:list={[{ active: service.current }]}
-                    aria-current={service.current ? 'page' : undefined}
-                  >
-                    {service.title}
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-
-        <div class="nav-dropdown" data-nav-dropdown>
-          <button
-            type="button"
-            class:list={['nav-link', 'nav-dropdown-toggle', { active: onProjects }]}
-            data-nav-dropdown-toggle
-            aria-expanded="false"
-            aria-controls="nav-projects-menu"
-            aria-haspopup="true"
-          >
-            <span class="nav-dot" aria-hidden="true"></span>
-            <span>{t.nav.projects}</span>
-          </button>
-          <ul
-            id="nav-projects-menu"
-            class="nav-dropdown-menu"
-            data-nav-dropdown-menu
-            aria-label={t.nav.projectsMenu}
-            hidden
-          >
-            {
-              projectLinks.map((service) => (
                 <li>
                   <a
                     href={service.href}
@@ -437,19 +372,6 @@ const industryLinks = industries.map((industry) => ({
       <p class="menu-panel-label">{t.nav.services}</p>
       {
         serviceLinks.map((service) => (
-          <a
-            href={service.href}
-            class:list={['menu-panel-link', 'is-service', { active: service.current }]}
-            aria-current={service.current ? 'page' : undefined}
-          >
-            <span class="nav-dot" aria-hidden="true"></span>
-            <span>{service.title}</span>
-          </a>
-        ))
-      }
-      <p class="menu-panel-label">{t.nav.projects}</p>
-      {
-        projectLinks.map((service) => (
           <a
             href={service.href}
             class:list={['menu-panel-link', 'is-service', { active: service.current }]}
@@ -970,8 +892,8 @@ const industryLinks = industries.map((industry) => ({
     margin: 0;
     padding: 0.4rem;
     list-style: none;
-    min-width: min(18rem, 88vw);
-    max-height: min(70vh, 28rem);
+    min-width: min(22rem, 88vw);
+    max-height: min(75vh, 36rem);
     overflow-y: auto;
     background: rgba(15, 44, 76, 0.96);
     border: 1px solid rgba(255, 255, 255, 0.12);

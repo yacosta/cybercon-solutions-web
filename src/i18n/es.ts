@@ -18,7 +18,7 @@ export const es: Messages = {
     searchAllResults: 'Ver todos los resultados',
     home: 'Inicio',
     services: 'Servicios',
-    servicesMenu: 'Menú de servicios principales',
+    servicesMenu: 'Menú de servicios',
     managedIt: 'TI administrada',
     cybersecurity: 'Ciberseguridad',
     cloudBackupStrategy: 'Nube, copias de seguridad y estrategia',
