@@ -6,7 +6,8 @@
  * must-revalidate). Set CF_PURGE_HOSTS=1 to purge only production hostnames.
  *
  * Required env:
- *   CLOUDFLARE_API_TOKEN or CLOUDFLARE_ZONE_API_TOKEN — Zone → Cache Purge
+ *   CLOUDFLARE_FLUSH_CACHE (preferred) or CLOUDFLARE_ZONE_API_TOKEN or
+ *   CLOUDFLARE_API_TOKEN — Zone → Cache Purge
  *   CLOUDFLARE_ZONE_ID — zone id for cybercon-solutions.com
  *                        (default: 41a145bf2688a227f9e321a31055fe19)
  *
@@ -32,11 +33,9 @@ const PERMISSION_HELP = [
   'purge_cache returns 401 code 10000 unless the token has Zone → Cache Purge → Purge.',
   'Zaraz transform / WP redirect 403 until those zone permissions are added too.',
   '',
-  'Fix — edit the GitHub CLOUDFLARE_API_TOKEN, or add CLOUDFLARE_ZONE_API_TOKEN:',
-  '  Cloudflare dashboard → My Profile → API Tokens → Edit',
-  '  Add: Zone → Cache Purge → Purge',
-  '  Keep: Zone → Zone → Read (already working)',
-  '  Zone Resources: Include → cybercon-solutions.com',
+  'Fix — set GitHub secret CLOUDFLARE_FLUSH_CACHE (production environment or repo)',
+  '  to a token with Zone → Cache Purge → Purge and Zone Resources including',
+  '  cybercon-solutions.com. The Workers CLOUDFLARE_API_TOKEN cannot purge.',
   '',
   'Dashboard fallback (no token change):',
   '  Caching → Configuration → Purge Cache → Purge Everything',
@@ -46,7 +45,7 @@ const PERMISSION_HELP = [
 ].join('\n');
 
 if (!present) {
-  console.error(['Missing CLOUDFLARE_API_TOKEN (or CLOUDFLARE_ZONE_API_TOKEN).', '', PERMISSION_HELP].join('\n'));
+  console.error(['Missing CLOUDFLARE_FLUSH_CACHE (or CLOUDFLARE_API_TOKEN).', '', PERMISSION_HELP].join('\n'));
   process.exit(1);
 }
 
