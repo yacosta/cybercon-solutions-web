@@ -35,7 +35,9 @@ const secondaryCtaHref = showBreachCheck
   : showSiteCheck
     ? '#site-check'
     : siteCheckHref;
-const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servicePage.ctaSecondary;
+const secondaryCtaLabel = showBreachCheck
+  ? t.breachCheck.ctaSecondary
+  : copy.cta.secondary ?? t.servicePage.ctaSecondary;
 ---
 
 <BaseLayout
@@ -159,7 +161,22 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
               </article>
             ))}
           </div>
-          <p class="wd-pricing-footnote">{copy.pricing.footnote}</p>
+          {copy.pricing.shared && (
+            <div class="wd-pricing-shared">
+              <h3 class="wd-pricing-shared-title">{copy.pricing.shared.title}</h3>
+              <ul class="wd-pricing-shared-list">
+                {copy.pricing.shared.items.map((item) => (
+                  <li>
+                    <h4 class="wd-pricing-shared-item-title">{item.title}</h4>
+                    <p>{item.body}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {copy.pricing.footnote && (
+            <p class="wd-pricing-footnote">{copy.pricing.footnote}</p>
+          )}
         </div>
       </section>
     )}
@@ -509,14 +526,15 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
   }
 
   .wd-pricing-head h2 {
-    margin: 0;
+    margin: 0 auto;
+    max-width: 40rem;
     font-size: clamp(1.75rem, 3vw, 2.35rem);
     letter-spacing: -0.02em;
   }
 
   .wd-pricing-lede {
     margin: 1rem auto 0;
-    max-width: 36rem;
+    max-width: 44rem;
     color: var(--body-muted);
     font-size: 1.05rem;
     line-height: 1.55;
@@ -536,7 +554,7 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
 
   @media (min-width: 1100px) {
     .wd-pricing-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.35rem;
       align-items: stretch;
     }
@@ -678,6 +696,52 @@ const secondaryCtaLabel = showBreachCheck ? t.breachCheck.ctaSecondary : t.servi
     font-size: 0.875rem;
     line-height: 1.55;
     color: var(--muted-blue);
+  }
+
+  .wd-pricing-shared {
+    margin-top: clamp(2rem, 4vw, 2.75rem);
+    padding: clamp(1.5rem, 3vw, 2rem);
+    background: var(--white);
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: var(--radius-md);
+  }
+
+  .wd-pricing-shared-title {
+    margin: 0 0 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .wd-pricing-shared-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .wd-pricing-shared-list p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--body-muted);
+  }
+
+  .wd-pricing-shared-item-title {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--navy);
+  }
+
+  @media (min-width: 860px) {
+    .wd-pricing-shared-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem 2rem;
+    }
   }
 
   .wd-after {

@@ -752,16 +752,16 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Diseño y rediseño web en el Sur de Florida | Cybercon',
     },
     metaDescription: {
-      en: 'Website design & redesign for South Florida — flat-rate packages, accessible builds, secure hosting, and support for Cooper City & Davie.',
-      es: 'Diseño y rediseño web en el sur de Florida — paquetes a tarifa plana, sitios accesibles, hosting seguro y soporte para Cooper City y Davie.',
+      en: 'Website design for South Florida — Essential $750, Growth from $1,150. You own domain and files. Free 60-second security snapshot.',
+      es: 'Diseño web en el sur de Florida — Esencial $750, Crecimiento desde $1,150. El dominio y los archivos son tuyos. Instantánea de seguridad en 60 s.',
     },
     audience: {
-      en: 'Businesses that need a credible web presence or a focused custom application, with hosting and support included. Aimed at South Florida organizations that care about accessibility, brand consistency, and secure operations. Choose this when your current site undersells the quality of your real-world service delivery. We also plan analytics consent and basic SEO foundations so the new site can be found and measured after launch without bolting tools on later.',
-      es: 'Empresas que necesitan presencia web creíble o una aplicación a medida enfocada, con hosting y soporte incluidos. Orientado a organizaciones del sur de Florida que cuidan accesibilidad, marca y operación segura. Elige esto cuando tu sitio actual vende por debajo de la calidad de tu servicio en la vida real. También planificamos consentimiento de analítica y bases SEO básicas para que el sitio nuevo se pueda encontrar y medir tras el lanzamiento sin improvisar herramientas después.',
+      en: 'Businesses that need a credible web presence or a focused custom application, with ownership of domain, files, and hosting from day one. Aimed at South Florida organizations that care about accessibility, brand consistency, and secure operations. Choose this when your current site undersells the quality of your real-world service delivery. After launch you can run it yourself or have us host, monitor, and patch it.',
+      es: 'Empresas que necesitan presencia web creíble o una aplicación a medida enfocada, con dominio, archivos y hosting a su nombre desde el primer día. Orientado a organizaciones del sur de Florida que cuidan accesibilidad, marca y operación segura. Elige esto cuando tu sitio actual vende por debajo de la calidad de tu servicio en la vida real. Después del lanzamiento lo puedes operar tú o nosotros lo alojamos, monitoreamos y parcheamos.',
     },
     overview: {
-      en: 'We design and build accessible, on-brand sites and custom applications, then host them securely with ongoing support. UX work focuses on clarity: visitors should understand what you offer and how to contact you without friction.\n\nAfter launch we stay available for updates and security hygiene. Projects commonly support Cooper City and Davie businesses that want a durable site, not a one-off brochure that ages poorly.',
-      es: 'Diseñamos y construimos sitios accesibles y con tu marca, y aplicaciones a medida; luego los alojamos de forma segura con soporte continuo. El UX busca claridad: el visitante debe entender qué ofreces y cómo contactarte sin fricción.\n\nTras el lanzamiento seguimos disponibles para actualizaciones e higiene de seguridad. Los proyectos suelen apoyar a empresas de Cooper City y Davie que quieren un sitio duradero, no un folleto que envejece mal.',
+      en: 'We design and build accessible, on-brand sites and custom applications at published, fixed-scope prices. UX work focuses on clarity: visitors should understand what you offer and how to contact you without friction.\n\nYou own everything at launch. Run it yourself, or have us host and care for it. Projects commonly support Cooper City and Davie businesses that want a durable site, not a one-off brochure that ages poorly.',
+      es: 'Diseñamos y construimos sitios accesibles y con tu marca, y aplicaciones a medida, a precios publicados de alcance fijo. El UX busca claridad: el visitante debe entender qué ofreces y cómo contactarte sin fricción.\n\nAl lanzar, todo es tuyo. Lo operas tú, o nosotros lo alojamos y cuidamos. Los proyectos suelen apoyar a empresas de Cooper City y Davie que quieren un sitio duradero, no un folleto que envejece mal.',
     },
     process: [
       {
@@ -793,8 +793,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Cuánto cuesta el diseño o rediseño de un sitio web?',
         },
         answer: {
-          en: 'Starter brochure sites typically run $2,000–$6,000. Most local businesses land in the Professional range at $6,000–$15,000. Advanced builds with e-commerce or heavier integrations start around $15,000. Enterprise platforms are scoped after we talk — no fixed public price. Final cost depends on pages, CMS needs, and integrations.',
-          es: 'Los sitios folleto iniciales suelen ir de $2,000 a $6,000. La mayoría de negocios locales cae en el rango Profesional de $6,000 a $15,000. Los proyectos avanzados con comercio electrónico o integraciones más pesadas parten cerca de $15,000. Las plataformas empresariales se cotizan después de conversar — sin precio público fijo. El costo final depende de páginas, necesidades de CMS e integraciones.',
+          en: 'Essential one-page sites are $750. Growth sites are $1,150 for five pages, or $1,500 for ten with dedicated service and location pages. Custom work — e-commerce, member portals, integrations, web apps, multi-language — is a written scoped quote: you approve the number before we build. Domain, files, and hosting are in your name from day one.',
+          es: 'Los sitios de una página Esencial cuestan $750. Los de Crecimiento son $1,150 por cinco páginas, o $1,500 por diez con páginas dedicadas de servicios y ubicaciones. El trabajo a medida — comercio electrónico, portales de miembros, integraciones, aplicaciones web, multiidioma — es una cotización con alcance por escrito: apruebas el número antes de construir. Dominio, archivos y hosting quedan a tu nombre desde el primer día.',
         },
       },
       {
@@ -803,8 +803,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Solo diseñan sitios de marketing?',
         },
         answer: {
-          en: 'No. We build accessible, on-brand sites and custom applications, with secure hosting and ongoing support.',
-          es: 'No. Construimos sitios accesibles y con tu marca, y aplicaciones a medida, con hosting seguro y soporte continuo.',
+          en: 'No. We build accessible, on-brand sites and custom applications. Hosting and ongoing care are optional after launch.',
+          es: 'No. Construimos sitios accesibles y con tu marca, y aplicaciones a medida. El hosting y el cuidado continuo son opcionales después del lanzamiento.',
         },
       },
       {
@@ -823,8 +823,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
           es: '¿Dan soporte al sitio después del lanzamiento?',
         },
         answer: {
-          en: 'Yes. Ongoing support is part of the offering.',
-          es: 'Sí. El soporte continuo forma parte de la oferta.',
+          en: 'Yes. Run it yourself — no platform fee and no lock-in. Or have us host, monitor, patch, and update it on a monthly care plan, cancel anytime. Two revision rounds and a recorded walkthrough are included at handoff.',
+          es: 'Sí. Lo operas tú — sin tarifa de plataforma ni atadura. O nosotros lo alojamos, monitoreamos, parcheamos y actualizamos en un plan mensual de cuidado; lo cancelas cuando quieras. Dos rondas de revisión y un recorrido grabado van en el traspaso.',
         },
       },
       {
