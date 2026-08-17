@@ -16,6 +16,8 @@
  *   npm run cf:zaraz-cache
  */
 
+import { cloudflareApiToken, cloudflareAuthHeaders } from './lib/cloudflare-api-token.mjs';
+
 const DEFAULT_ZONE_ID = '41a145bf2688a227f9e321a31055fe19';
 
 const RULE_REF = 'zaraz_sjs_browser_cache_control';
@@ -27,8 +29,8 @@ const CACHE_CONTROL = 'public, max-age=604800';
 const PHASE = 'http_response_headers_transform';
 const API = 'https://api.cloudflare.com/client/v4';
 
-const token = process.env.CLOUDFLARE_API_TOKEN;
-const zoneId = process.env.CLOUDFLARE_ZONE_ID || DEFAULT_ZONE_ID;
+const { token } = cloudflareApiToken();
+const zoneId = (process.env.CLOUDFLARE_ZONE_ID || DEFAULT_ZONE_ID).trim();
 
 if (!token) {
   console.error(
@@ -65,10 +67,7 @@ const desiredRule = {
 async function cf(path, { method = 'GET', body } = {}) {
   const res = await fetch(`${API}${path}`, {
     method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
+    headers: cloudflareAuthHeaders(token),
     body: body ? JSON.stringify(body) : undefined,
   });
   const json = await res.json().catch(() => ({}));

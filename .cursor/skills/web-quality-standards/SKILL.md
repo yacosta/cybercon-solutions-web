@@ -133,6 +133,7 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - **Zaraz** (`/cdn-cgi/zaraz/s.js`) is Cloudflare-injected, not a Worker asset — `_headers` cannot set its TTL.
 - Zone ID `41a145bf2688a227f9e321a31055fe19` (`cybercon-solutions.com`) is wired into deploy + `scripts/ensure-zaraz-cache-header.mjs`.
 - Deploy upserts a Response Header Transform so browsers get `Cache-Control: public, max-age=604800` on that path. API token needs **Transform Rules → Edit**; otherwise create the same rule in the dashboard (README → “Zaraz s.js browser cache”).
+- After deploy, flush zone cache with `npm run cf:purge-cache` (`purge_everything`). A Workers-only token 401s zone APIs — add **Zone → Cache Purge** (and include this zone in token resources) or set `CLOUDFLARE_ZONE_API_TOKEN`. Dashboard: Caching → Configuration → Purge Cache. Query strings do not bust HTML.
 - Do not try to “fix” Zaraz caching by vendoring or proxying `s.js` in the Astro app.
 - As of the initial fix, the zone had **zero** Response Header Transform rules — the deploy step / dashboard rule is what creates the first one.
 
@@ -211,6 +212,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 | Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |
+| Zone cache purge | `scripts/purge-cloudflare-cache.mjs`, deploy.yml, `purge-cache.yml` |
 | WordPress query 301s | `scripts/wrap-worker-wp-query.mjs`, `wrangler.jsonc` `run_worker_first`, `src/lib/wp-query-redirect.ts`, `src/middleware.ts`, `public/_redirects` |
 | Cookie consent / ePrivacy | `CookieBanner.astro`, `Analytics.astro`, `ApolloTracker.astro`, `BaseLayout.astro`, `src/lib/consent.ts`, `src/data/privacy.ts` |
 | Privacy SEO / sitemap | `PrivacyPage.astro`, `privacyPolicyJsonLd` in `src/lib/seo.ts`, `astro.config.mjs` sitemap serialize, `public/_redirects`, `wrangler.jsonc` `html_handling` |
