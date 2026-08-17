@@ -4,21 +4,34 @@
  * Wrangler trims CLOUDFLARE_API_TOKEN; raw fetch does not. A trailing newline
  * in the GitHub secret deploys fine and 401s zone APIs.
  *
- * Optional CLOUDFLARE_ZONE_API_TOKEN lets the Workers deploy token stay
- * account-scoped while zone Cache Purge / Transform / Redirect use a
- * zone-capable token.
+ * Preference order:
+ *   CLOUDFLARE_FLUSH_CACHE     — Cache Purge token (GitHub secret)
+ *   CLOUDFLARE_ZONE_API_TOKEN  — optional zone-capable token
+ *   CLOUDFLARE_API_TOKEN       — Workers deploy token (often lacks Cache Purge)
  */
 
+const TOKEN_ENV_KEYS = [
+  'CLOUDFLARE_FLUSH_CACHE',
+  'CLOUDFLARE_ZONE_API_TOKEN',
+  'CLOUDFLARE_API_TOKEN',
+];
+
 export function cloudflareApiToken() {
-  const zoneRaw = process.env.CLOUDFLARE_ZONE_API_TOKEN ?? '';
-  const deployRaw = process.env.CLOUDFLARE_API_TOKEN ?? '';
-  const raw = zoneRaw.trim() ? zoneRaw : deployRaw;
-  const source = zoneRaw.trim() ? 'CLOUDFLARE_ZONE_API_TOKEN' : 'CLOUDFLARE_API_TOKEN';
+  for (const source of TOKEN_ENV_KEYS) {
+    const raw = process.env[source] ?? '';
+    if (!raw.trim()) continue;
+    return {
+      token: raw.trim(),
+      source,
+      hadWhitespace: raw !== raw.trim(),
+      present: true,
+    };
+  }
   return {
-    token: raw.trim(),
-    source,
-    hadWhitespace: raw.length > 0 && raw !== raw.trim(),
-    present: Boolean(raw.trim()),
+    token: '',
+    source: 'CLOUDFLARE_FLUSH_CACHE',
+    hadWhitespace: false,
+    present: false,
   };
 }
 

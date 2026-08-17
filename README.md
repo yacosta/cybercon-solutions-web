@@ -95,8 +95,9 @@ Add these **GitHub repository secrets** (Settings → Secrets and variables → 
 
 | Secret | Notes |
 |--------|--------|
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. That template is account-scoped and **cannot** call zone APIs (purge / Zaraz transform / redirects return 401 code 10000). Either add zone permissions to the same token (below) or set `CLOUDFLARE_ZONE_API_TOKEN`. |
-| `CLOUDFLARE_ZONE_API_TOKEN` | Optional. Zone-capable token when the Workers token must stay account-scoped. Needs **Zone → Cache Purge** (and **Zone → Zone → Read**). For Zaraz: **Zone → Transform Rules → Edit** + **Account → Account Rulesets → Read**. Zone Resources must include `cybercon-solutions.com`. |
+| `CLOUDFLARE_FLUSH_CACHE` | **Zone cache purge.** API token with **Zone → Cache Purge → Purge** (and **Zone → Zone → Read**). Zone Resources must include `cybercon-solutions.com`. Deploy reads this first for `npm run cf:purge-cache`. Put it on the **`production` environment** (or repo secrets — both are visible to `deploy.yml`). |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. That template is account-scoped and **cannot** call zone APIs (purge / Zaraz transform / redirects return 401 code 10000). |
+| `CLOUDFLARE_ZONE_API_TOKEN` | Optional fallback zone token. For Zaraz: **Zone → Transform Rules → Edit** + **Account → Account Rulesets → Read**. |
 | `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID (`61ffaf16829b400974986c7576f6165d`) |
 
 Zone ID for `cybercon-solutions.com` is `41a145bf2688a227f9e321a31055fe19` (wired into `deploy.yml` for the Zaraz cache step; not a secret).
@@ -115,7 +116,7 @@ After `npm run build`, `ci.yml` runs `node scripts/ci-smoke-checks.mjs` — a sm
 
 HTML is cacheable (`Cache-Control: public, max-age=0, must-revalidate`). Edge PoPs can still serve `cf-cache-status: HIT` after a Worker deploy until the zone cache is flushed. Deploy runs `npm run cf:purge-cache` (`purge_everything` for zone `41a145bf2688a227f9e321a31055fe19`).
 
-If that step fails with **401 Authentication error (code 10000)**, the GitHub token can deploy Workers but is missing zone access. Add **Zone → Cache Purge → Purge** and **Zone → Zone → Read** on the token, with **Zone Resources → Include → cybercon-solutions.com**, or create a separate `CLOUDFLARE_ZONE_API_TOKEN` secret (repo or the `production` environment).
+If that step fails with **401 Authentication error (code 10000)**, the Workers `CLOUDFLARE_API_TOKEN` cannot purge. Set **`CLOUDFLARE_FLUSH_CACHE`** (repo or the `production` environment) to a token with **Zone → Cache Purge → Purge**.
 
 Dashboard fallback: Caching → Configuration → Purge Cache → **Purge Everything** (or Custom Purge → Hostname `cybercon-solutions.com` and `www.cybercon-solutions.com`). Query strings are not part of this zone’s cache key — `?v=` will not bust HTML.
 
