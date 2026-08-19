@@ -103,10 +103,20 @@ function mergeVary(existing: string | null, value: string): string {
   return [...parts].join(', ');
 }
 
+function isEnClientPath(pathname: string): boolean {
+  return pathname === '/client' || pathname.startsWith('/client/');
+}
+
+function isEsClientPath(pathname: string): boolean {
+  return pathname === '/es/client' || pathname.startsWith('/es/client/');
+}
+
 const authMiddleware = defineMiddleware(async (context, next) => {
   const pathname = context.url.pathname;
+  const isEsClient = isEsClientPath(pathname);
+  const isClientArea = isEnClientPath(pathname) || isEsClient;
 
-  if (pathname.startsWith('/client')) {
+  if (isClientArea) {
     const token = context.cookies.get(SESSION_COOKIE)?.value;
     const user = await readSessionToken(token);
     context.locals.user = user;
@@ -121,7 +131,10 @@ const authMiddleware = defineMiddleware(async (context, next) => {
 
     // Fail closed: without Auth0, the portal is unavailable (no placeholder leak).
     if (!auth0Configured()) {
-      return new Response('Client portal is temporarily unavailable.', {
+      const body = isEsClient
+        ? 'El portal de clientes no está disponible temporalmente.'
+        : 'Client portal is temporarily unavailable.';
+      return new Response(body, {
         status: 503,
         headers: {
           'content-type': 'text/plain; charset=utf-8',

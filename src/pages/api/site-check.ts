@@ -59,12 +59,18 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   const domain = normalizeDomain(body.domain ?? '');
   if (!domain) {
-    return Response.json({ error: 'Enter a valid domain (e.g. example.com)' }, { status: 400 });
+    return Response.json(
+      { error: 'Enter a valid domain (e.g. example.com)', code: 'invalid_domain' },
+      { status: 400 },
+    );
   }
 
   const email = normalizeEmail(body.email);
   if (!email || !isValidEmail(email)) {
-    return Response.json({ error: 'Enter a valid work email' }, { status: 400 });
+    return Response.json(
+      { error: 'Enter a valid work email', code: 'invalid_email' },
+      { status: 400 },
+    );
   }
 
   const limits = await checkRateLimits(clientAddress || 'unknown');

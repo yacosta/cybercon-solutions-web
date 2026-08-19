@@ -17,6 +17,7 @@ export const es: Messages = {
     searchUnavailable: 'La búsqueda no está disponible ahora. Inténtalo de nuevo en un momento.',
     searchAllResults: 'Ver todos los resultados',
     home: 'Inicio',
+    homeAria: 'Inicio de Cybercon Solutions',
     services: 'Servicios',
     servicesMenu: 'Menú de servicios',
     managedIt: 'TI administrada',
@@ -351,6 +352,12 @@ export const es: Messages = {
     dashboard: 'Tu panel',
     placeholder:
       'Inicia sesión en tu portal de soporte para ver tickets, documentos y detalles de la cuenta. Contáctanos si necesitas acceso.',
+    signedInAsPrefix: 'Sesión iniciada como',
+    authFailed: 'No se pudo iniciar sesión. Inténtalo de nuevo.',
+    auth0Missing:
+      'Auth0 aún no está configurado. Agrega AUTH0_* y SESSION_SECRET en el Worker de Cloudflare (Variables and Secrets).',
+    envHint:
+      'Variables requeridas: AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_BASE_URL, SESSION_SECRET',
   },
   siteCheck: {
     nav: 'Revisión del sitio',

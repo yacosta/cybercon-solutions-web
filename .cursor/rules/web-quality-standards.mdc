@@ -28,4 +28,4 @@ Non-negotiables (details in the skill):
 - Assessment/CTA copy must not promise an instant cost calculator unless one ships with the CTA.
 - LocalBusiness schema: mailing PMB address carries a "no customer visits" description; `areaServed` is the service area, not the mailing city.
 - Public `GET /api/health` stays minimal (`{ ok, time }`); detailed dependency status is at `/api/health/detail`, gated by `HEALTH_DETAIL_TOKEN`.
-- `/client` fails closed (503) without Auth0 configured — never a fake login or auth-skipped client area.
+- `/client` and `/es/client` fail closed (503) without Auth0 configured — never a fake login or auth-skipped client area. Auth0 login/callback/logout stay on English `/client/*` routes.

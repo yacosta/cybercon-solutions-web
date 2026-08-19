@@ -1,6 +1,6 @@
 ---
 import { turnstileSiteKey } from '../lib/turnstile';
-import { localePath, type Messages } from '../i18n';
+import { getMessages, localePath, type Messages } from '../i18n';
 import { site } from '../lib/site';
 
 interface Props {
@@ -16,6 +16,16 @@ const assessmentHref = localePath(locale, '/assessment/');
 const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
 const copy = t.siteCheck;
 const TitleTag = variant === 'page' ? 'h1' : 'h2';
+const emailErrorTokens = [
+  'Enter a valid work email',
+  getMessages('en').siteCheck.errorEmail,
+  getMessages('es').siteCheck.errorEmail,
+];
+const domainErrorTokens = [
+  'Enter a valid domain (e.g. example.com)',
+  getMessages('en').siteCheck.errorDomain,
+  getMessages('es').siteCheck.errorDomain,
+];
 ---
 
 <section
@@ -206,6 +216,8 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
   define:vars={{
     locale,
     copy,
+    emailErrorTokens,
+    domainErrorTokens,
     requireTurnstile: Boolean(siteKey),
     phoneDisplay: site.phoneDisplay,
     visitorLimit: 1,
@@ -556,14 +568,16 @@ const TitleTag = variant === 'page' ? 'h1' : 'h2';
         if (!response.ok) {
           const payload = await response.json().catch(() => ({}));
           stopScanningUi();
-          if (payload.error === 'Enter a valid work email') {
+          const errorCode = typeof payload.code === 'string' ? payload.code : '';
+          const errorText = typeof payload.error === 'string' ? payload.error : '';
+          if (errorCode === 'invalid_email' || emailErrorTokens.includes(errorText)) {
             showView('email');
             setError(copy.errorEmail, 'email');
             return;
           }
           showView('idle');
           setError(
-            payload.error === 'Enter a valid domain (e.g. example.com)'
+            errorCode === 'invalid_domain' || domainErrorTokens.includes(errorText)
               ? copy.errorDomain
               : copy.errorGeneric,
           );

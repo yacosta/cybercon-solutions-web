@@ -2,12 +2,14 @@
 interface Props {
   variant?: 'dark' | 'light';
   href?: string;
+  /** Accessible name; must include visible “CYBERCON SOLUTIONS” (WCAG 2.5.3). */
+  homeLabel?: string;
 }
 
-const { variant = 'dark', href = '/' } = Astro.props;
+const { variant = 'dark', href = '/', homeLabel = 'Cybercon Solutions home' } = Astro.props;
 ---
 
-<a href={href} class:list={['wordmark', variant]} aria-label="Cybercon Solutions home">
+<a href={href} class:list={['wordmark', variant]} aria-label={homeLabel}>
   <img
     src="/cybercon-mark.svg"
     alt=""
