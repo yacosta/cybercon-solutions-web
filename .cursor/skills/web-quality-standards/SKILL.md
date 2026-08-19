@@ -69,7 +69,9 @@ When writing or editing homepage, service, industry, assessment/contact, chat, o
    - `journey` / customer journey → **recorrido** / **recorrido del cliente** (prefer over *viaje del cliente*).
    - `counsel` → **asesor jurídico** / **abogado asesor**; General Counsel → **director jurídico** / **vicepresidente jurídico**.
    - `tabletop` / *tabletopeado* → **ejercicio de simulación de mesa** / **simulacro de escritorio** (never the Spanglish verb).
-   - Keep EN + ES in sync when strings change.
+   - Keep EN + ES in sync when strings change. Every `en` string needs a true one-to-one `es` pair (same meaning, Colombian Spanish). Scan `src/data/*.ts` for `es === en`, meaning drift, and leftover English in ES: `nonprofit`, marketing `copy`, `Briefing`, `FAQ` (use **Preguntas frecuentes**), `IR` (use **respuesta a incidentes**), `introduce(s)` (use **ingresa**). Nav labels like Retail/Fitness are untranslated if identical — use **Comercio minorista** / **Gimnasios**.
+   - In healthcare copy, English *providers* are clínicos (**médicos** / **profesionales de la salud**), not **proveedores** (vendors).
+   - HIBP sample `dataClasses` in `src/lib/breach-check/sample.ts` must be translated for the ES sample (`Email addresses` → **Direcciones de correo**, `Passwords` → **Contraseñas**, etc.). Leave the EN sample in English.
 
 ## Color contrast (brand coral)
 
@@ -184,6 +186,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - [ ] Titles ≤~60 chars and meta descriptions ≤~155–160 after copy edits (especially ES glossary expansions)
 - [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
 - [ ] ES user-facing strings use Colombian Spanish per skill glossary (`computador`/`celular`/`correo`, `proveedor`, `sin rodeos`, `libro de tácticas`, `stack tecnológico`; security: `incidente de seguridad` / `vacío(s)` / `filtración`; no Spainisms or B2B slang)
+- [ ] EN/ES data pairs are one-to-one: no leftover English in ES (`nonprofit`, `copy`, `FAQ`, `introduce`); healthcare *providers* ≠ `proveedores`; HIBP sample `dataClasses` translated for ES
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`
