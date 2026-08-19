@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { getMessages, localePath } from '../i18n';
+import { auth0Configured } from '../lib/auth0';
+
+interface Props {
+  locale: 'en' | 'es';
+}
+
+const { locale } = Astro.props;
+const t = getMessages(locale);
+const user = Astro.locals.user;
+const configured = auth0Configured();
+const error = Astro.url.searchParams.get('error');
+const path = localePath(locale, '/client/');
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t.client.title} | Cybercon`}
+  description={t.client.lede}
+  path={path}
+  noindex={true}
+>
+  <Header slot="header" locale={locale} t={t} variant="light" />
+
+  <div class="client container page">
+    <p class="eyebrow">{t.client.title}</p>
+    <h1>{user ? t.client.welcome : t.client.dashboard}</h1>
+    <p class="lede">{t.client.lede}</p>
+
+    {error && (
+      <p class="error" role="alert">
+        {error === 'auth0_not_configured' ? t.client.auth0Missing : t.client.authFailed}
+      </p>
+    )}
+
+    {user ? (
+      <div class="panel">
+        <p>
+          {t.client.signedInAsPrefix} <strong>{user.name ?? user.email ?? user.sub}</strong>
+        </p>
+        <p class="muted">{t.client.placeholder}</p>
+        <a class="btn btn-primary" href="/client/logout">{t.client.logout}</a>
+      </div>
+    ) : configured ? (
+      <a class="btn btn-primary" href="/client/login">{t.client.login}</a>
+    ) : (
+      <div class="panel">
+        <p>{t.client.placeholder}</p>
+        <p class="muted">{t.client.envHint}</p>
+      </div>
+    )}
+  </div>
+
+  <Footer slot="footer" locale={locale} t={t} />
+</BaseLayout>
+
+<style>
+  .client h1 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.35rem 0 0.75rem;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    max-width: 36rem;
+  }
+
+  .panel {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid rgba(15, 44, 76, 0.12);
+    border-radius: 12px;
+    max-width: 32rem;
+    background: var(--white);
+  }
+
+  .muted {
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+  }
+
+  .error {
+    color: var(--button-red);
+  }
+</style>

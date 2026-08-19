@@ -25,7 +25,7 @@ export const localPages: LocalPage[] = [
     place: 'Cooper City',
     metaTitle: {
       en: 'Managed IT Support in Cooper City, FL | Cybercon Solutions',
-      es: 'Soporte de TI administrada en Cooper City, FL | Cybercon Solutions',
+      es: 'TI administrada en Cooper City, FL | Cybercon Solutions',
     },
     metaDescription: {
       en: 'Local managed IT and cybersecurity for Cooper City, FL businesses — help desk, monitoring, onsite support, and predictable per-user pricing. Free assessment.',
@@ -136,11 +136,11 @@ export const localPages: LocalPage[] = [
     place: 'Davie',
     metaTitle: {
       en: 'Managed IT Support in Davie, FL | Cybercon Solutions',
-      es: 'Soporte de TI administrada en Davie, FL | Cybercon Solutions',
+      es: 'TI administrada en Davie, FL | Cybercon Solutions',
     },
     metaDescription: {
       en: 'Managed IT and cybersecurity for Davie, FL businesses near Nova Southeastern University — help desk, monitoring, onsite support, and predictable pricing.',
-      es: 'TI administrada y ciberseguridad para empresas de Davie, FL cerca de Nova Southeastern University — mesa de ayuda, monitoreo, soporte en sitio y precio predecible.',
+      es: 'TI y ciberseguridad para empresas de Davie cerca de Nova Southeastern University: mesa de ayuda, monitoreo, soporte en sitio y precio predecible.',
     },
     eyebrow: { en: 'Managed IT in Davie, FL', es: 'TI administrada en Davie, FL' },
     h1: {
@@ -176,7 +176,7 @@ export const localPages: LocalPage[] = [
           },
         },
         {
-          title: { en: 'Healthcare & allied health offices', es: 'Consultorios de salud y salud aliada' },
+          title: { en: 'Healthcare & allied health offices', es: 'Consultorios de salud y terapias' },
           body: {
             en: 'HIPAA-aware endpoint and identity management for the physical therapy, chiropractic, and specialty practices clustered around Davie’s medical corridors.',
             es: 'Gestión de endpoints e identidad consciente de HIPAA para las prácticas de fisioterapia, quiropráctica y especialidades agrupadas en los corredores médicos de Davie.',
@@ -247,11 +247,11 @@ export const localPages: LocalPage[] = [
     place: 'Broward County',
     metaTitle: {
       en: 'Managed IT Support in Broward County, FL | Cybercon Solutions',
-      es: 'Soporte de TI administrada en el condado de Broward, FL | Cybercon Solutions',
+      es: 'TI administrada en Broward County | Cybercon Solutions',
     },
     metaDescription: {
       en: 'Managed IT and cybersecurity across Broward County — Fort Lauderdale, Plantation, Sunrise, Pembroke Pines, and more. Help desk, monitoring, onsite support.',
-      es: 'TI administrada y ciberseguridad en todo el condado de Broward — Fort Lauderdale, Plantation, Sunrise, Pembroke Pines y más. Mesa de ayuda, monitoreo, soporte en sitio.',
+      es: 'TI y ciberseguridad en el condado de Broward — Fort Lauderdale, Plantation, Sunrise, Pembroke Pines y más. Mesa de ayuda, monitoreo y soporte en sitio.',
     },
     eyebrow: { en: 'Managed IT across Broward County, FL', es: 'TI administrada en el condado de Broward, FL' },
     h1: {
@@ -311,7 +311,7 @@ export const localPages: LocalPage[] = [
         },
         {
           en: 'That breadth is why we built our service model around per-user pricing and standardized monitoring rather than a single-office retainer: a business with three locations across the county pays one predictable rate and gets one reporting baseline, instead of reconciling three separate vendor invoices and three different security postures at renewal time.',
-          es: 'Esa amplitud es la razón por la que diseñamos nuestro modelo de servicio con precio por usuario y monitoreo estandarizado, en lugar de un contrato de una sola oficina: un negocio con tres sedes en el condado paga una tarifa predecible y obtiene una sola base de reportes, en lugar de conciliar tres facturas de proveedores distintos y tres posturas de seguridad diferentes al momento de renovar.',
+          es: 'Esa amplitud es la razón por la que diseñamos nuestro modelo de servicio con precio por usuario y monitoreo estandarizado, en lugar de un contrato de honorarios de una sola oficina: un negocio con tres sedes en el condado paga una tarifa predecible y obtiene una sola base de reportes, en lugar de conciliar tres facturas de proveedores distintos y tres posturas de seguridad diferentes al momento de renovar.',
         },
       ],
     },

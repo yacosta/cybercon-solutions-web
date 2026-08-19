@@ -136,7 +136,7 @@ export const termsContent = {
       },
       {
         heading: 'Enlaces a terceros',
-        body: 'El Sitio puede incluir enlaces a sitios de terceros, incluidas plataformas de redes sociales, documentación de proveedores y recursos de socios. Esos enlaces se ofrecen solo por conveniencia. No controlamos ni somos responsables del contenido, las prácticas de privacidad ni la disponibilidad de ningún sitio de terceros enlazado.',
+        body: 'El Sitio puede incluir enlaces a sitios de terceros, incluidas plataformas de redes sociales, documentación de proveedores y recursos de colaboradores. Esos enlaces se ofrecen solo por conveniencia. No controlamos ni somos responsables del contenido, las prácticas de privacidad ni la disponibilidad de ningún sitio de terceros enlazado.',
       },
       {
         heading: 'Sin asesoría profesional',

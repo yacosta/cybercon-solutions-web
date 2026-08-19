@@ -62,9 +62,9 @@ Normalmente ordenamos el trabajo en cuatro cubetas:
 
 **Aparca con fecha.** Buenas ideas que no se ganan un slot este trimestre. Escríbelas con una fecha de revisitación para que no reaparezcan como emboscadas de pasillo.
 
-Luego elige **una victoria visible** que pueda llegar dentro de la ventana de 90 días. No un programa de transformación. Un resultado concreto: prueba de restore completada y documentada, MFA aplicado a todo el acceso remoto, un proveedor consolidado, un inventario de admins obsoleto limpio. Algo que alguien pueda decir en voz alta en una reunión de liderazgo sin una nota al pie.
+Luego elige **una victoria visible** que pueda llegar dentro de la ventana de 90 días. No un programa de transformación. Un resultado concreto: prueba de restauración completada y documentada, MFA aplicado a todo el acceso remoto, un proveedor consolidado, un inventario de admins obsoleto limpio. Algo que alguien pueda decir en voz alta en una reunión de liderazgo sin una nota al pie.
 
-Los dueños no recuerdan tu framework. Recuerdan el martes en que hiciste desaparecer un problema crónico. Y si la empresa quiere copilots de IA, un rebuild de CRM y un refresh de Wi-Fi en el mismo trimestre con presupuesto delgado, alguien tiene que decir cuáles dos esperan. Dílo con amabilidad. Dílo con números. Dílo lo bastante temprano para que la decepción no se convierta en desconfianza.
+Los dueños no recuerdan tu marco. Recuerdan el martes en que hiciste desaparecer un problema crónico. Y si la empresa quiere copilots de IA, una reconstrucción de CRM y una renovación de Wi-Fi en el mismo trimestre con presupuesto delgado, alguien tiene que decir cuáles dos esperan. Dílo con amabilidad. Dílo con números. Dílo lo bastante temprano para que la decepción no se convierta en desconfianza.
 
 ## Días 61–90: Instala el ritmo operativo
 
@@ -78,7 +78,7 @@ Ponemos tres rituales en su lugar:
 
 **Una revisión trimestral de negocio.** Progreso contra el plan estratégico. Gasto versus plan. Incidentes y casi-incidentes. Renovaciones próximas. Decisiones que necesita el negocio. Si tu QBR es un museo de diapositivas de logos de proveedores, cancélalo y empieza de nuevo.
 
-También prueba la continuidad bajo presión. ¿Quién cubre cuando el CIO fraccionario no está disponible? ¿Quién posee las escalaciones de proveedores? ¿Qué está documentado lo bastante bien para que un nuevo MSP o un hire interno no parta del folklore? Si la respuesta depende enteramente del inbox de una persona, no has construido liderazgo. Has construido dependencia con mejor vocabulario.
+También prueba la continuidad bajo presión. ¿Quién cubre cuando el CIO fraccionario no está disponible? ¿Quién posee las escalaciones de proveedores? ¿Qué está documentado lo bastante bien para que un nuevo MSP o una contratación interna no parta del folklore? Si la respuesta depende enteramente del buzón de una persona, no has construido liderazgo. Has construido dependencia con mejor vocabulario.
 
 Los mejores resultados a 90 días se ven casi poco espectaculares desde fuera: menos sorpresas, dueños más claros, un presupuesto que calza con la realidad y un equipo de liderazgo que puede explicar prioridades tecnológicas sin pedir disculpas. Esa calma es el producto.
 
@@ -92,13 +92,13 @@ Una lista corta de trampas en las que nos negamos a caer — y te recomendamos n
 
 **No externalices el juicio al proveedor más ruidoso.** Los proveedores suelen ser excelentes en lo que venden. Rara vez tienen incentivo para decirte que compres menos. Un CIO fraccionario que sella cotizaciones con un sello de goma es un servicio de reenvío caro.
 
-**No escondas malas noticias por rapport.** Si fallan las pruebas de restore, dilo. Si no se cumplen los requisitos del ciberseguro, dilo. Si la cuenta admin “temporal” compartida lleva tres años de temporal, dilo. La confianza muere más rápido por honestidad atrasada que por claridad incómoda.
+**No escondas malas noticias por quedar bien.** Si fallan las pruebas de restauración, dilo. Si no se cumplen los requisitos del ciberseguro, dilo. Si la cuenta admin “temporal” compartida lleva tres años de temporal, dilo. La confianza muere más rápido por honestidad atrasada que por claridad incómoda.
 
-**No prometas un CIO de tiempo completo a diez horas por semana.** Alcance los outcomes a las horas compradas. Expande después si la relación lo gana. Sobreprometer es cómo los modelos fraccionarios se ganan una mala reputación que no merecen.
+**No prometas un CIO de tiempo completo a diez horas por semana.** Alcance los resultados a las horas compradas. Expande después si la relación lo gana. Sobreprometer es cómo los modelos fraccionarios se ganan una mala reputación que no merecen.
 
 ## El cuadro de mando que pertenece frente al liderazgo
 
-Mantén el readout de 90 días lo bastante apretado para un dueño ocupado o un comité de junta. Cinco líneas ganan a cincuenta.
+Mantén el informe de 90 días lo bastante apretado para un dueño ocupado o un comité de junta. Cinco líneas ganan a cincuenta.
 
 - **Postura de riesgo:** vacíos críticos cerradas, ítems abiertos con dueños y fechas
 - **Claridad de gasto:** qué pagamos, qué usamos, renovaciones dentro de 180 días
@@ -120,13 +120,13 @@ Esa es la diferencia entre asesoría que parece ocupada y apoyo real de liderazg
 
 ## Para quién es este modelo (y para quién no)
 
-El soporte de CIO fraccionario y virtual encaja en organizaciones que necesitan juicio senior sin un asiento ejecutivo de tiempo completo — negocios en crecimiento, operadores multi-sitio, organizaciones sin fines de lucro con obligaciones reales de cumplimiento, equipos de ownership cansados de que la tecnología solo llegue como emergencia. Los operadores del Sur de Florida con los que trabajamos suelen sentarse exactamente en ese hueco: demasiado complejos para “solo consigue un MSP”, todavía no listos para un hire permanente de CIO.
+El soporte de CIO fraccionario y virtual encaja en organizaciones que necesitan juicio senior sin un asiento ejecutivo de tiempo completo — negocios en crecimiento, operadores multi-sitio, organizaciones sin fines de lucro con obligaciones reales de cumplimiento, equipos de dueños cansados de que la tecnología solo llegue como emergencia. Los operadores del Sur de Florida con los que trabajamos suelen sentarse exactamente en ese hueco: demasiado complejos para “solo consigue un MSP”, todavía no listos para una contratación permanente de CIO.
 
 Es un mal fit si el liderazgo quiere un yes-person para una compra ya decidida, si nadie va a poseer las decisiones después de las recomendaciones, o si el pedido real es administración hands-on 24/7 disfrazada de estrategia. Nombrar ese desajuste temprano le ahorra a todos dinero y cara.
 
 ## Empieza antes de que la próxima renovación te fuerce la mano
 
-El peor momento para contratar ayuda de CIO fraccionario es la semana en que vence una renovación mayor, aterriza un cuestionario de seguridad de un cliente o falla un restore durante una outage. El mejor momento es más callado: cuando el liderazgo siente que la empresa ha crecido más allá de la toma informal de decisiones de TI y quiere unos primeros 90 días que produzcan claridad, no ruido.
+El peor momento para contratar ayuda de CIO fraccionario es la semana en que vence una renovación mayor, aterriza un cuestionario de seguridad de un cliente o falla una restauración durante una interrupción. El mejor momento es más callado: cuando el liderazgo siente que la empresa ha crecido más allá de la toma informal de decisiones de TI y quiere unos primeros 90 días que produzcan claridad, no ruido.
 
 Mapea la realidad. Estabiliza lo que puede dolorte. Financia un plan secuenciado. Entrega una victoria visible. Instala un ritmo que puedas mantener.
 

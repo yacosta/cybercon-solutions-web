@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'TI y ciberseguridad en Cooper City y Davie | Cybercon',
     description:
-      'TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y soporte del SOC. Revisión del sitio o evaluación.',
+      'TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y seguridad con soporte del SOC. Revisión gratuita o evaluación.',
   },
   nav: {
     search: 'Buscar',
@@ -17,6 +17,7 @@ export const es: Messages = {
     searchUnavailable: 'La búsqueda no está disponible ahora. Inténtalo de nuevo en un momento.',
     searchAllResults: 'Ver todos los resultados',
     home: 'Inicio',
+    homeAria: 'Inicio de Cybercon Solutions',
     services: 'Servicios',
     servicesMenu: 'Menú de servicios',
     managedIt: 'TI administrada',
@@ -49,8 +50,8 @@ export const es: Messages = {
     company: 'Empresa',
     optional: '(opcional)',
     message: 'Mensaje',
-    namePlaceholder: 'Escribe tu nombre',
-    emailPlaceholder: 'Escribe un correo válido',
+    namePlaceholder: 'Ingresa tu nombre',
+    emailPlaceholder: 'Ingresa un correo válido',
     companyPlaceholder: 'Rivera Logistics, Inc.',
     messagePlaceholder: '¿Qué falla, crece o no está claro?',
     agreePrefix: 'Acepto la',
@@ -73,7 +74,7 @@ export const es: Messages = {
   hero: {
     eyebrow: 'TI administrada y ciberseguridad para el Sur de Florida',
     title: 'Menos sorpresas de TI. Seguridad más sólida. Un solo proveedor responsable.',
-    tagline: 'Tecnología, resuelta.',
+    tagline: 'Tecnología, gestionada.',
     lede:
       'Cybercon ofrece soporte proactivo, ciberseguridad, copias de seguridad, gestión en la nube y asesoría a nivel de CIO para empresas en crecimiento y organizaciones sin fines de lucro en todo el Sur de Florida — a un costo mensual predecible.',
     status: 'Servicio en Cooper City, Davie y el condado de Broward',
@@ -98,7 +99,7 @@ export const es: Messages = {
     items: [
       {
         title: 'Los tickets quedan sin resolver',
-        body: 'Los mismos problemas se repiten. Nadie es responsable de la causa raíz — ni del tiempo que toma resolverla.',
+        body: 'Los mismos problemas se reabren. Nadie es responsable de la causa raíz — ni del tiempo que toma resolverla.',
       },
       {
         title: 'El gasto de TI es impredecible',
@@ -142,7 +143,7 @@ export const es: Messages = {
       },
       {
         title: 'Planificar',
-        body: 'Asesoría de vCIO, presupuesto, planes estratégicos, gestión de proveedores, QBR y gobernanza de IA — con un ingeniero que puede liderar la conversación sobre el P&G.',
+        body: 'Asesoría de vCIO, presupuesto, planes estratégicos, gestión de proveedores, QBR y gobernanza de IA — con un ingeniero que puede hacerse cargo de la conversación sobre el P&G.',
         href: '/es/services/it-consulting/',
         link: 'Qué incluye la asesoría de TI',
       },
@@ -184,9 +185,9 @@ export const es: Messages = {
   form: {
     eyebrow: 'Cybercon Solutions',
     title: 'Solicita una revisión gratuita de costo y riesgo en TI.',
-    metaTitle: 'Revisión gratuita de TI: costo y riesgo | Cybercon',
+    metaTitle: 'Revisión gratuita de costo y riesgo en TI | Cybercon',
     metaDescription:
-      'Agenda una revisión gratuita de costo y riesgo en TI para el Sur de Florida. TI administrada, ciberseguridad y CIO fraccional — un día hábil.',
+      'Agenda una revisión gratuita de costo y riesgo para empresas del Sur de Florida. TI administrada, ciberseguridad y CIO fraccional — respuesta en un día hábil.',
     cardTitle: 'Agendar mi revisión gratuita',
     lede:
       'Cuéntanos quién eres. Revisaremos el gasto, los vacíos de cobertura y qué retirar — y te responderemos con próximos pasos claros. Sin recorrido de jerga técnica. Sin compromiso.',
@@ -211,9 +212,9 @@ export const es: Messages = {
     currentItModel: 'Proveedor actual o modelo interno de TI',
     desiredStart: 'Fecha deseada de inicio',
     phone: 'Teléfono',
-    namePlaceholder: 'Escribe tu nombre',
-    companyPlaceholder: 'Escribe tu empresa',
-    emailPlaceholder: 'Escribe un correo válido',
+    namePlaceholder: 'Ingresa tu nombre',
+    companyPlaceholder: 'Ingresa tu empresa',
+    emailPlaceholder: 'Ingresa un correo válido',
     agreePrefix: 'Acepto la',
     agreeLink: 'Política de privacidad y cookies',
     agreeSuffix: '.',
@@ -224,14 +225,14 @@ export const es: Messages = {
   },
   services: {
     eyebrow: 'Lo que gestionamos',
-    title: 'Un solo proveedor para el stack tecnológico. Una factura que puedes planificar.',
+    title: 'TI administrada y ciberseguridad — con estrategia cuando la necesitas.',
     lede:
-      'TI administrada proactiva con precio por usuario — sin sorpresas por fallas. Nos ocupamos del parcheo, el monitoreo y la mesa de ayuda para que tu gente no tenga que hacer de TI. Cuando algo serio ocurre, escalamos contigo.',
+      'TI administrada proactiva con precio por usuario — sin sorpresas por fallas. La seguridad como base. Asesoría y proyectos digitales cuando apoyan el modelo operativo.',
     learnMoreAbout: '{name}: qué incluye',
   },
   engagement: {
-    eyebrow: 'Cómo trabajamos juntos',
-    title: 'Tres fases. Sin sorpresas a mitad de camino.',
+    eyebrow: 'Cómo funciona un proyecto',
+    title: 'Tres fases. Sin sorpresas a mitad del proyecto.',
     steps: [
       {
         number: '01',
@@ -246,7 +247,7 @@ export const es: Messages = {
       {
         number: '03',
         title: 'Ejecución',
-        body: 'Llevamos el trabajo, reportamos con la cadencia que elijas y respondemos hasta el cierre — y después, si nos mantienes.',
+        body: 'Llevamos el trabajo, reportamos con la cadencia que elijas y quedamos responsables hasta el visto bueno — y después, si nos mantienes.',
       },
     ],
   },
@@ -300,7 +301,7 @@ export const es: Messages = {
     eyebrow: 'Blog',
     indexTitle: 'Blog de TI e IA | Cybercon Solutions',
     indexDescription:
-      'Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida: ROI medible, gobernanza y disciplina operativa.',
+      'Notas prácticas sobre TI administrada, ciberseguridad e IA empresarial para líderes del Sur de Florida — ROI medible, gobernanza y disciplina operativa.',
     indexHeading: 'Perspectivas para líderes de tecnología',
     indexLede:
       'Notas para ejecutivos y juntas: flujos que llegan a producción, gobernanza que sostiene y métricas que aguantan la temporada de presupuestos.',
@@ -351,19 +352,25 @@ export const es: Messages = {
     dashboard: 'Tu panel',
     placeholder:
       'Inicia sesión en tu portal de soporte para ver tickets, documentos y detalles de la cuenta. Contáctanos si necesitas acceso.',
+    signedInAsPrefix: 'Sesión iniciada como',
+    authFailed: 'No se pudo iniciar sesión. Inténtalo de nuevo.',
+    auth0Missing:
+      'Auth0 aún no está configurado. Agrega AUTH0_* y SESSION_SECRET en el Worker de Cloudflare (Variables and Secrets).',
+    envHint:
+      'Variables requeridas: AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_BASE_URL, SESSION_SECRET',
   },
   siteCheck: {
     nav: 'Revisión del sitio',
     metaTitle: 'Revisión lite gratuita del sitio | Cybercon Solutions',
     metaDescription:
-      'Revisión gratuita del sitio (~60 s): un hallazgo claro y luego una evaluación más profunda. Parte de diseño web en Cooper City y Davie, FL.',
+      'Revisión gratuita de superficie del sitio (~60 s): un hallazgo claro y luego una evaluación más profunda. Parte de diseño web en Cooper City y Davie, FL.',
     eyebrow: 'Revisión lite gratuita · ~60 segundos',
     title: 'Una mirada rápida a tu sitio web.',
-    lede: 'Ingresa tu dominio. Miramos el sitio desde afuera, compartimos un hallazgo real y dejamos lo profundo para una llamada corta — donde también podemos hablar de correcciones.',
+    lede: 'Ingresa tu dominio. Miramos el sitio en vivo desde afuera, compartimos un hallazgo real y dejamos lo profundo para una llamada corta — donde también podemos hablar de correcciones.',
     domainLabel: 'Dominio de tu sitio web',
     domainPlaceholder: 'tuempresa.com',
     continue: 'Continuar',
-    emailStepTitle: '¿A dónde te contactamos?',
+    emailStepTitle: '¿A dónde te enviamos el seguimiento?',
     emailStepLede: 'Un correo de trabajo — y luego ejecutamos la revisión lite.',
     emailLabel: 'Correo de trabajo',
     emailPlaceholder: 'tu@empresa.com',
@@ -372,7 +379,7 @@ export const es: Messages = {
     disclosure: 'Tu correo y el dominio revisado se registran para poder dar seguimiento.',
     sampleLink: 'Ver un informe de ejemplo',
     sampleBanner: 'Ejemplo ilustrativo — un avance lite, no una evaluación completa.',
-    scanningTitle: 'Ejecutando una revisión lite…',
+    scanningTitle: 'Ejecutando una revisión lite de superficie…',
     scanningHint: 'Es un vistazo rápido — no una auditoría completa.',
     statusMessages: [
       'Obteniendo la página de inicio en vivo…',
@@ -388,17 +395,17 @@ export const es: Messages = {
     moreItems: 'Anotamos {n} elementos más que vale la pena revisar en un pase más profundo',
     ctaLede: '¿Quieres el panorama completo — y un plan claro para corregir lo importante?',
     callCta: 'Llamar {phone}',
-    bookCta: 'Reservar mi evaluación gratuita',
+    bookCta: 'Agendar mi evaluación gratuita',
     scanAnother: 'Revisar otro sitio',
     limitTitle: 'Alcanzaste el límite de revisiones lite de hoy',
     limitBody:
-      'No hay problema — el siguiente paso útil es una conversación en vivo. Reserva una evaluación gratuita de 30 minutos: vamos más a fondo y, si quieres, hablamos de correcciones.',
+      'No hay problema — el siguiente paso útil es una conversación en vivo. Agenda una evaluación gratuita de 30 minutos: vamos más a fondo y, si quieres, hablamos de correcciones.',
     limitGlobalTitle: 'El cupo de revisiones lite de hoy está lleno',
     limitGlobalBody:
-      'Mantenemos este avance limitado para poder responder bien. Reserva una evaluación y un ingeniero revisará tu sitio contigo.',
+      'Mantenemos este avance limitado para poder responder bien. Agenda una evaluación y un ingeniero revisará tu sitio contigo.',
     errorGeneric: 'Algo salió mal al ejecutar la revisión. Inténtalo de nuevo en un momento.',
-    errorDomain: 'Introduce un dominio válido (p. ej. tuempresa.com).',
-    errorEmail: 'Introduce un correo de trabajo válido (p. ej. tu@empresa.com).',
+    errorDomain: 'Ingresa un dominio válido (p. ej. tuempresa.com).',
+    errorEmail: 'Ingresa un correo de trabajo válido (p. ej. tu@empresa.com).',
     turnstileError: 'Completa la verificación, por favor.',
     adminTitle: 'Registro de revisiones',
     adminEmpty: 'Aún no hay revisiones registradas en este navegador.',
@@ -412,7 +419,7 @@ export const es: Messages = {
     ctaSecondary: 'Revisar exposición a filtraciones',
     eyebrow: 'Revisión lite gratuita · Have I Been Pwned',
     title: '¿Tu correo de trabajo ha estado en una filtración?',
-    lede: 'Introduce un correo de trabajo. Consultamos Have I Been Pwned por filtraciones conocidas, te damos un panorama claro de exposición y dejamos el trabajo profundo de identidad y MFA para una llamada corta.',
+    lede: 'Ingresa un correo de trabajo. Consultamos Have I Been Pwned por filtraciones conocidas, te damos un panorama claro de exposición y dejamos el trabajo profundo de identidad y MFA para una llamada corta.',
     emailLabel: 'Correo de trabajo',
     emailPlaceholder: 'tu@empresa.com',
     submit: 'Revisar mi exposición',
@@ -435,16 +442,16 @@ export const es: Messages = {
     moreBreaches: '{n} filtraciones más no listadas aquí — vale la pena una revisión más profunda',
     ctaLede: '¿Quieres un plan para MFA, identidad y próximos pasos?',
     callCta: 'Llamar {phone}',
-    bookCta: 'Reservar mi evaluación gratuita',
+    bookCta: 'Agendar mi evaluación gratuita',
     checkAnother: 'Revisar otro correo',
     limitTitle: 'Alcanzaste el límite de revisiones de filtraciones de hoy',
     limitBody:
-      'No hay problema — el siguiente paso útil es una conversación en vivo. Reserva una evaluación gratuita de 30 minutos: revisamos exposición y endurecimiento contigo.',
+      'No hay problema — el siguiente paso útil es una conversación en vivo. Agenda una evaluación gratuita de 30 minutos: revisamos exposición y endurecimiento contigo.',
     limitGlobalTitle: 'El cupo de revisiones de filtraciones de hoy está lleno',
     limitGlobalBody:
-      'Mantenemos este avance limitado para poder responder bien. Reserva una evaluación y un ingeniero revisará la exposición contigo.',
+      'Mantenemos este avance limitado para poder responder bien. Agenda una evaluación y un ingeniero revisará la exposición contigo.',
     errorGeneric: 'Algo salió mal al ejecutar la revisión. Inténtalo de nuevo en un momento.',
-    errorEmail: 'Introduce un correo de trabajo válido (p. ej. tu@empresa.com).',
+    errorEmail: 'Ingresa un correo de trabajo válido (p. ej. tu@empresa.com).',
     turnstileError: 'Completa la verificación, por favor.',
   },
   cookies: {
@@ -452,7 +459,7 @@ export const es: Messages = {
     body: 'Usamos cookies estrictamente necesarias para operar este sitio. Las cookies de analítica opcionales y rastreadores similares permanecen desactivados hasta que aceptes. Puedes rechazar las no esenciales y seguir usando el sitio.',
     accept: 'Aceptar analítica',
     decline: 'Rechazar no esenciales',
-    policy: 'Política de Privacidad y Cookies',
+    policy: 'Política de privacidad y cookies',
   },
   chat: {
     /** `{name}` se reemplaza con la guía IA de la sesión (Sophia, Luci, Gabriella o Angel). */
@@ -463,37 +470,37 @@ export const es: Messages = {
     title: '{name}',
     close: 'Cerrar chat',
     welcome:
-      'Hola, soy {name} — Agente de soporte. Puedo responder lo básico sobre nuestros servicios, cobertura en el sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita — respondemos en un día hábil.',
+      'Hola, soy {name} — Agente de soporte. Puedo responder lo básico sobre nuestros servicios, cobertura en el Sur de Florida y cómo empezar. Para precios o un plan a medida, lo mejor es la evaluación gratuita — respondemos en un día hábil.',
     suggestions: [
       '¿Qué hace Cybercon?',
       '¿Dónde atienden?',
       '¿Cómo funciona el precio?',
       '¿Qué es la evaluación gratuita?',
     ],
-    placeholder: 'Pregúntale a {name} por servicios, cobertura o siguientes pasos…',
+    placeholder: 'Pregúntale a {name} sobre servicios, cobertura o siguientes pasos…',
     inputLabel: 'Tu mensaje',
     send: 'Enviar',
-    footnote: '{name} es guía con IA — no es soporte de tickets en vivo.',
-    assessmentLink: 'Reservar evaluación gratuita',
+    footnote: '{name} es una guía con IA — no es soporte de tickets en vivo.',
+    assessmentLink: 'Agendar evaluación gratuita',
     askEmail:
-      '¿Quieres seguimiento humano? Comparte un correo de trabajo aquí, o reserva la evaluación gratuita y un ingeniero responde en un día hábil.',
-    error: 'Algo salió mal. Inténtalo de nuevo o reserva la evaluación gratuita.',
-    ctaAssessment: 'Reservar evaluación gratuita',
-    ctaSiteCheck: 'Revisión gratuita del sitio',
-    ctaContact: 'Contactar',
-    ctaCall: 'Llamar',
+      '¿Quieres seguimiento humano? Comparte un correo de trabajo aquí, o agenda la evaluación gratuita. Un ingeniero de nuestro equipo responde en un día hábil.',
+    error: 'Algo salió mal. Inténtalo de nuevo o agenda la evaluación gratuita.',
+    ctaAssessment: 'Agendar evaluación gratuita',
+    ctaSiteCheck: 'Haz la revisión gratuita del sitio',
+    ctaContact: 'Contáctanos',
+    ctaCall: 'Llámanos',
     avatarAlt: 'Retrato de {name}, guía con IA de Cybercon',
   },
   notFound: {
     title: 'Página no encontrada | Cybercon',
     description:
-      'Esa página no existe. Explora servicios de TI administrada y ciberseguridad en el Sur de Florida, o solicita una evaluación gratuita.',
+      'Esa página no existe. Explora servicios de TI administrada y ciberseguridad en el Sur de Florida, o agenda una evaluación gratuita.',
     kicker: '404',
     heading: 'Página no encontrada',
     lede: 'Ese enlace no coincide con una página de este sitio. Prueba una de estas opciones o vuelve al inicio.',
     home: 'Ir al inicio',
     services: 'Ver servicios',
-    assessment: 'Solicitar evaluación gratuita',
+    assessment: 'Agendar una evaluación gratuita',
     privacy: 'Privacidad y cookies',
     search: 'Buscar en el sitio',
     popular: 'Páginas populares',

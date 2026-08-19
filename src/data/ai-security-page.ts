@@ -157,7 +157,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     items: [
       {
-        value: { en: 'SOC-backed', es: 'Con SOC' },
+        value: { en: 'SOC-backed', es: 'Con soporte del SOC' },
         label: {
           en: '24/7 monitoring when alerts matter',
           es: 'Monitoreo 24/7 cuando las alertas importan',
@@ -281,7 +281,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         detail: {
           en: 'We harden identity providers, review privileged roles, and watch for anomalous sign-ins — including AI apps that request broad OAuth scopes. Compromised identity is still the shortest path into copilots and SaaS data.',
-          es: 'Endurecemos proveedores de identidad, revisamos roles privilegiados y vigilamos inicios anómalos — incluidas apps de IA que piden scopes OAuth amplios. La identidad comprometida sigue siendo el camino más corto a copilots y datos SaaS.',
+          es: 'Endurecemos proveedores de identidad, revisamos roles privilegiados y vigilamos inicios anómalos — incluidas apps de IA que piden permisos OAuth amplios. La identidad comprometida sigue siendo el camino más corto a copilots y datos SaaS.',
         },
       },
       {
@@ -293,7 +293,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         detail: {
           en: 'AI makes phishing copy and deepfake voice notes cheaper. We layer filtering, reporting workflows, and awareness so suspicious mail is caught early — and mailbox rules that forward data to personal AI tools get reviewed.',
-          es: 'La IA abarata el copy de phishing y las notas de voz deepfake. Apilamos filtrado, flujos de reporte y concientización para atrapar correo sospechoso a tiempo — y revisamos reglas de buzón que reenvían datos a herramientas de IA personales.',
+          es: 'La IA abarata los textos de phishing y las notas de voz deepfake. Apilamos filtrado, flujos de reporte y concientización para atrapar correo sospechoso a tiempo — y revisamos reglas de buzón que reenvían datos a herramientas de IA personales.',
         },
       },
       {
@@ -313,7 +313,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         name: { en: 'Data & AI', es: 'Datos e IA' },
         summary: {
           en: 'Guardrails for what may enter public models, copilots, and automations.',
-          es: 'Barandillas sobre qué puede entrar en modelos públicos, copilots y automatizaciones.',
+          es: 'Parámetros de seguridad sobre qué puede entrar en modelos públicos, copilots y automatizaciones.',
         },
         detail: {
           en: 'Policies alone do not stop paste-into-ChatGPT. We classify sensitive data types, restrict high-risk tools, and monitor workflows where AI touches customer, patient, or financial records.',
@@ -369,7 +369,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
     },
     lede: {
       en: 'Unified-platform clarity for MSP-backed South Florida teams: the right controls, automated detection where it helps, and reporting clients and boards can understand.',
-      es: 'Claridad de plataforma unificada para equipos del sur de Florida respaldados por MSP: los controles correctos, detección automatizada donde ayuda e informes que clientes y juntas entienden.',
+      es: 'Claridad de plataforma unificada para equipos del sur de Florida con soporte de MSP: los controles correctos, detección automatizada donde ayuda e informes que clientes y juntas entienden.',
     },
     steps: [
       {
@@ -482,7 +482,7 @@ export const aiSecurityPage: AiSecurityPageCopy = {
         },
         options: [
           { id: 'ready', label: { en: 'Yes — playbook and owners defined', es: 'Sí — libro de tácticas y responsables definidos' }, score: 2 },
-          { id: 'partial', label: { en: 'We would improvise from general IR', es: 'Improvisaríamos desde IR general' }, score: 1 },
+          { id: 'partial', label: { en: 'We would improvise from general IR', es: 'Improvisaríamos desde la respuesta a incidentes general' }, score: 1 },
           { id: 'none', label: { en: 'No AI-specific plan', es: 'Sin plan específico para IA' }, score: 0 },
         ],
       },

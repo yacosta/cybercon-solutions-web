@@ -69,7 +69,9 @@ When writing or editing homepage, service, industry, assessment/contact, chat, o
    - `journey` / customer journey → **recorrido** / **recorrido del cliente** (prefer over *viaje del cliente*).
    - `counsel` → **asesor jurídico** / **abogado asesor**; General Counsel → **director jurídico** / **vicepresidente jurídico**.
    - `tabletop` / *tabletopeado* → **ejercicio de simulación de mesa** / **simulacro de escritorio** (never the Spanglish verb).
-   - Keep EN + ES in sync when strings change.
+   - Keep EN + ES in sync when strings change. Every `en` string needs a true one-to-one `es` pair (same meaning, Colombian Spanish). Scan `src/data/*.ts` for `es === en`, meaning drift, and leftover English in ES: `nonprofit`, marketing `copy`, `Briefing`, `FAQ` (use **Preguntas frecuentes**), `IR` (use **respuesta a incidentes**), `introduce(s)` (use **ingresa**). Nav labels like Retail/Fitness are untranslated if identical — use **Comercio minorista** / **Gimnasios**.
+   - In healthcare copy, English *providers* are clínicos (**médicos** / **profesionales de la salud**), not **proveedores** (vendors).
+   - HIBP sample `dataClasses` in `src/lib/breach-check/sample.ts` must be translated for the ES sample (`Email addresses` → **Direcciones de correo**, `Passwords` → **Contraseñas**, etc.). Leave the EN sample in English.
 
 ## Color contrast (brand coral)
 
@@ -108,6 +110,8 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 - Preserve heading order; one logical `h1` per page.
 - Interactive controls need visible `:focus-visible` styles (site uses coral focus rings).
 - Prefer real text over text-in-images for headlines and CTAs.
+- **Wordmark accessible name (WCAG 2.5.3 Label in Name).** `src/components/Wordmark.astro` takes `homeLabel` (default EN “Cybercon Solutions home”). Header/Footer must pass a locale-specific label that still contains the visible lockup **CYBERCON SOLUTIONS** (ES: “Inicio de Cybercon Solutions”). Do not set an aria-label that contradicts or omits the visible brand text.
+- **Spanish `/es/` pages must not leak English chrome.** Wordmark `aria-label`, client-area signed-in/error/env copy (`src/components/ClientPage.astro`), and SiteCheck validation errors (`src/components/SiteCheck.astro`) use locale strings. SiteCheck matches API `code` (`invalid_email` / `invalid_domain`) or both EN and ES error strings — never show the raw English API `error` on ES pages.
 
 ## SEO baselines
 
@@ -160,7 +164,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - **Assessment/CTA copy must not promise an instant cost calculator or number** unless one actually exists on the page. "Get a free IT cost & risk review" (a human review) is fine; "instant quote," "calculate your savings," or similar self-serve-pricing claims are not, unless a real calculator ships with the CTA.
 - **LocalBusiness/Organization JSON-LD:** the mailing address (`site.address` in `src/lib/site.ts`) is a Miami Beach PMB and must carry a `description` clarifying no customer visits (see `organizationJsonLd` in `src/lib/seo.ts`); `areaServed` describes the service area (Cooper City, Davie, Broward County, South Florida), not the mailing address's city. New local landing pages (`src/data/local-pages.ts`, `LocalManagedItPage.astro`) must repeat this distinction in visible copy, not just JSON-LD.
 - **Public `GET /api/health` stays minimal** (`{ ok, time }` only) — no dependency flags, no secrets exposure. Detailed dependency status lives at `GET /api/health/detail`, gated by `HEALTH_DETAIL_TOKEN`. Do not add fields to the public route; add them to the detail route instead.
-- **`/client` fails closed without Auth0.** When `AUTH0_DOMAIN`/`AUTH0_CLIENT_ID`/etc. are not configured, `src/middleware.ts` must return a `503` for `/client/*`, never a fake login page or a client area that silently skips auth.
+- **`/client` and `/es/client` fail closed without Auth0.** When `AUTH0_DOMAIN`/`AUTH0_CLIENT_ID`/etc. are not configured, `src/middleware.ts` must return a `503` for `/client/*` and `/es/client/*`, never a fake login page or a client area that silently skips auth. Unauthenticated visitors redirect to `/client/login`. Do **not** invent `/es/client/login|callback|logout` unless those API routes exist and Auth0 + middleware are updated together — callbacks stay on the English `/client/login`, `/client/callback`, and `/client/logout` routes. `/es/client/` is a 1:1 noindex Spanish client area (`src/pages/es/client/index.astro` → `ClientPage` with `locale="es"`).
 
 ## Local landing pages (per-city Managed IT)
 
@@ -182,6 +186,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - [ ] Titles ≤~60 chars and meta descriptions ≤~155–160 after copy edits (especially ES glossary expansions)
 - [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
 - [ ] ES user-facing strings use Colombian Spanish per skill glossary (`computador`/`celular`/`correo`, `proveedor`, `sin rodeos`, `libro de tácticas`, `stack tecnológico`; security: `incidente de seguridad` / `vacío(s)` / `filtración`; no Spainisms or B2B slang)
+- [ ] EN/ES data pairs are one-to-one: no leftover English in ES (`nonprofit`, `copy`, `FAQ`, `introduce`); healthcare *providers* ≠ `proveedores`; HIBP sample `dataClasses` translated for ES
 - [ ] New blog posts have matching `src/content/blog/es/<slug>.md` bodies (not English-only under `/es/`)
 - [ ] Sitemap entries that have `en-US`/`es-US` also include `x-default` (see `astro.config.mjs` serialize)
 - [ ] `/privacy` and `/es/privacy` (no slash) 301 to the slashed canonicals in `_redirects`
@@ -198,6 +203,10 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - [ ] Founder-career case studies still marked `storyAttribution: 'founder-leadership'` and do not claim Cybercon customer delivery
 - [ ] New local landing pages have distinct, non-templated local content per city plus non-slash/`.html` 301s in `_redirects`
 - [ ] Public `/api/health` response stays `{ ok, time }` only; no new dependency/secret fields added there
+- [ ] Wordmark `aria-label` includes visible “CYBERCON SOLUTIONS” in both locales (`homeLabel` from Header/Footer)
+- [ ] `/es/client/` exists as a 1:1 noindex Spanish client area; Auth0 login/logout stay `/client/login` and `/client/logout`
+- [ ] Middleware 503s `/es/client` without Auth0 (Spanish body OK); unauthenticated users go to `/client/login`
+- [ ] SiteCheck maps email/domain API errors via `code` or EN+ES strings, not English-only exact match
 - [ ] `npm run build` passes (primary validation gate)
 
 ## Related files
@@ -219,5 +228,5 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 | Lead delivery fail-closed | `src/lib/lead-delivery.ts`, `src/pages/api/assessment.ts`, `src/pages/api/contact.ts`, `src/lib/form-rate-limit.ts` |
 | Local landing pages | `src/data/local-pages.ts`, `src/components/LocalManagedItPage.astro`, `src/pages/services/managed-it/{cooper-city,davie,broward-county}/`, ES mirrors under `src/pages/es/services/managed-it/` |
 | Health checks | `src/pages/api/health.ts` (public, minimal), `src/pages/api/health/detail.ts` (authenticated) |
-| Client-area auth fail-closed | `src/middleware.ts`, `src/lib/auth0.ts` |
+| Client-area auth fail-closed | `src/middleware.ts`, `src/lib/auth0.ts`, `src/components/ClientPage.astro`, `src/pages/client/`, `src/pages/es/client/` |
 | CI smoke checks | `scripts/ci-smoke-checks.mjs`, `.github/workflows/ci.yml` |

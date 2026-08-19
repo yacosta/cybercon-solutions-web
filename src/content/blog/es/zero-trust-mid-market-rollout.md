@@ -31,7 +31,7 @@ Olvida los slogans por un minuto. En la práctica, Zero Trust responde cuatro pr
 
 Ese es todo el modelo. Certificados de VPN de 2019, contraseñas admin compartidas en una nota adhesiva y "están dentro del edificio, así que pueden ver el file share" fallan en cada una de esas preguntas.
 
-Fíjate en lo que no está en la lista: un requisito de sacar Active Directory el próximo trimestre, comprar siete plataformas que se traslapan o anunciar una transformación digital. Zero Trust de mercado medio trata principalmente de cerrar los vacíos que los atacantes ya abusan — robo de credenciales, acceso remoto sin MFA, redes planas, laptops no administradas y derechos admin repartidos como dulces.
+Fíjate en lo que no está en la lista: un requisito de sacar Active Directory el próximo trimestre, comprar siete plataformas que se traslapan o anunciar una transformación digital. Zero Trust de mercado medio trata principalmente de cerrar los vacíos que los atacantes ya abusan — robo de credenciales, acceso remoto sin MFA, redes planas, computadores portátiles no administrados y derechos admin repartidos como dulces.
 
 ## Por qué los equipos de mercado medio se equivocan
 
@@ -39,7 +39,7 @@ Aparecen dos modos de fallo constantemente.
 
 **Modo de fallo uno: programas de mero cumplimiento.** El liderazgo compra una "suite Zero Trust", enciende un subconjunto de funciones, nunca limpia identidad y declara victoria en una presentación. Seis meses después, las cuentas de servicio todavía tienen derechos permanentes de Domain Admin, los teléfonos personales siguen sincronizando correo corporativo sin controles y nadie ha probado qué pasa cuando una cuenta cae en phishing.
 
-**Modo de fallo dos: parálisis.** El equipo lee un framework empresarial, ve cien controles y decide que no puede empezar hasta que existan presupuesto, planta de personal y un inventario perfecto de activos. Mientras tanto, el acceso remoto todavía acepta inicios de sesión solo con contraseña.
+**Modo de fallo dos: parálisis.** El equipo lee un marco empresarial, ve cien controles y decide que no puede empezar hasta que existan presupuesto, planta de personal y un inventario perfecto de activos. Mientras tanto, el acceso remoto todavía acepta inicios de sesión solo con contraseña.
 
 El *Cost of a Data Breach Report 2025* de IBM pone la filtración promedio en EE. UU. en 10,22 millones de dólares, con salud todavía como el sector más costoso [[1]](#sources). Puede que las empresas de mercado medio nunca vean esa cifra exacta — pero el downtime por ransomware, los cuestionarios de clientes fallidos y las exclusiones de seguros son lo bastante caros. Esperar un programa perfecto no es prudencia. Es demora con mejor papelería.
 
@@ -71,7 +71,7 @@ Si solo haces bien una fase, que sea esta.
 
 **Inventaría y endurece cuentas de servicio / API keys.** Rota cualquier cosa antigua. Elimina las que no se usan. Documenta dueños. Las filtraciones modernas a menudo empiezan con un token olvidado que nunca expiró.
 
-**Arregla joiner-mover-leaver.** El acceso de nuevos empleados debería ser intencional. Los cambios de rol deberían revocar lo que ya no se necesita. Las terminaciones deberían quitar acceso el mismo día — incluyendo VPN, SaaS y drives compartidos. Si offboarding es conocimiento tribal, escríbelo y pruébalo en la próxima salida.
+**Arregla altas, cambios y bajas.** El acceso de nuevos empleados debería ser intencional. Los cambios de rol deberían revocar lo que ya no se necesita. Las terminaciones deberían quitar acceso el mismo día — incluyendo VPN, SaaS y unidades compartidas. Si la salida de personal es conocimiento tribal, escríbela y pruébala en la próxima salida.
 
 Al final de la fase 1, una contraseña robada no debería bastar para llegar al correo, el acceso remoto y las herramientas admin. Eso solo ya es más Zero Trust que la mitad de los programas con marca que auditamos.
 
@@ -79,7 +79,7 @@ Al final de la fase 1, una contraseña robada no debería bastar para llegar al 
 
 Identidad sin salud del dispositivo es una puerta principal pulida en una casa sin cerraduras en las ventanas.
 
-No necesitas que cada laptop esté inscrita en un sistema de postura de nivel militar el día uno. Sí necesitas respuestas a:
+No necesitas que cada computador portátil esté inscrito en un sistema de postura de nivel militar el día uno. Sí necesitas respuestas a:
 
 - ¿Los dispositivos de la empresa están administrados (Intune, Jamf o equivalente)?
 - ¿El cifrado de disco está activado?
@@ -89,7 +89,7 @@ No necesitas que cada laptop esté inscrita en un sistema de postura de nivel mi
 
 Para muchas organizaciones de mercado medio, la victoria es aburrida: **dispositivos administrados para el personal que toca sistemas sensibles, EDR en todos los lugares donde viven esos dispositivos y acceso condicional que bloquee inicios de sesión riesgosos desde endpoints desconocidos o no saludables.**
 
-Bring-your-own-device es una decisión de negocio, no una falla moral — pero necesita un límite. Teléfonos personales revisando correo pueden estar bien con protección de apps. Laptops personales entrando remoto a finanzas normalmente no. Escribe la regla. Hazla cumplir con controles, no con memorandos. Y si ya pagas por funciones de seguridad de Microsoft 365 o Google Workspace que nunca activaste, empieza ahí antes de comprar otro logo.
+Traer el dispositivo propio (BYOD) es una decisión de negocio, no una falla moral — pero necesita un límite. Teléfonos personales revisando correo pueden estar bien con protección de apps. Computadores portátiles personales entrando remoto a finanzas normalmente no. Escribe la regla. Hazla cumplir con controles, no con memorandos. Y si ya pagas por funciones de seguridad de Microsoft 365 o Google Workspace que nunca activaste, empieza ahí antes de comprar otro logo.
 
 ## Fase 3: Menor privilegio y segmentación de red que encaja con tu tamaño (semanas 8–16)
 
@@ -99,7 +99,7 @@ Aquí es donde los diagramas empresariales intimidan a los equipos de mercado me
 
 **Menor privilegio para sistemas.** Las redes planas donde cada workstation puede hablar con cada servidor son el parque favorito del ransomware. No necesitas microsegmentación en 400 aplicaciones para mejorar esto. Empieza con cortes gruesos:
 
-- Las workstations de usuarios no deberían llegar libremente a controladores de dominio, servidores de copia de seguridad y sistemas industriales o clínicos.
+- Las estaciones de trabajo de usuarios no deberían llegar libremente a controladores de dominio, servidores de copia de seguridad y sistemas industriales o clínicos.
 - El Wi-Fi de invitados no debería compartir vecindario con finanzas.
 - El acceso remoto de proveedores debería aterrizar en una zona limitada, no en "VPN completo como un empleado."
 
@@ -115,13 +115,13 @@ Realidad de mercado medio: probablemente no puedes operar un SOC 24/7 interno. E
 
 Visibilidad mínima útil:
 
-- Logs de identidad (MFA fallido, impossible travel, nuevas reglas de inbox, cambios de rol admin)
+- Logs de identidad (MFA fallido, impossible travel, nuevas reglas de buzón, cambios de rol admin)
 - Alertas de endpoint que alguien reconoce, no solo almacena
 - Sesiones de acceso remoto privilegiado
 - Fallas de trabajos de respaldo y eventos de borrado inesperado
 - Acciones críticas de admin en SaaS
 
-Luego escribe un checklist corto de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a un asesor jurídico o a un proveedor forense. Practícalo una vez. Los planes en papel que nunca se han probado con un ejercicio de simulación de mesa fallan con cortesía bajo presión.
+Luego escribe una lista corta de incidentes: a quién se llama, cómo aíslas un host, cómo restableces identidad, cómo decides si involucrar a un asesor jurídico o a un proveedor forense. Practícalo una vez. Los planes en papel que nunca se han probado con un ejercicio de simulación de mesa fallan con cortesía bajo presión.
 
 Los frameworks de cumplimiento (HIPAA, SOC 2, PCI DSS, GLBA) se mapean limpiamente a esta fase si documentas qué recopilas y por qué. Auditores y ciberaseguradoras piden evidencia de control, no poesía sobre modelos de madurez Zero Trust.
 
@@ -133,13 +133,13 @@ Si quieres algo que puedas poner frente a un dueño o comité de junta el próxi
 - Lista de joyas de la corona e inventario de acceso remoto
 - Aplicación de MFA en correo, VPN/ZTNA y portales admin
 - Separación de cuentas privilegiadas para TI
-- Prueba del checklist de offboarding en la próxima salida (o un simulacro de escritorio si no hay ninguna)
+- Prueba de la lista de salida de personal en la próxima salida (o un simulacro de escritorio si no hay ninguna)
 
 **Días 31–60**
 - Vacíos de cobertura EDR cerrados en dispositivos administrados
 - Requisitos de acceso condicional / dispositivo para apps sensibles
 - Limpieza de cuentas compartidas y obsoletas
-- Ruta de admin de respaldos endurecida; una prueba de restore documentada
+- Ruta de admin de respaldos endurecida; una prueba de restauración documentada
 
 **Días 61–90**
 - Segmentación gruesa de red o acceso para copias de seguridad y servidores críticos
@@ -159,7 +159,7 @@ También rechaza métricas de vanidad. "Porcentaje de Zero Trust adoptado" no si
 - Porcentaje de endpoints con EDR sano y reportando
 - Número de admins globales/de dominio permanentes (baja la tendencia)
 - Tiempo para revocar acceso después de una terminación
-- Si las copias de seguridad son inmutables o están protegidos de otra forma, y si los restores se prueban
+- Si las copias de seguridad son inmutables o están protegidos de otra forma, y si las restauraciones se prueban
 - Tiempo medio para reconocer alertas críticas de identidad/endpoint
 
 Cinco métricas honestas superan a un gráfico arcoíris de madurez.
@@ -172,7 +172,7 @@ Alguien tiene que decir no con una razón de negocio, ofrecer una alternativa m�
 
 ## Empieza donde los atacantes ya empiezan
 
-Los atacantes no necesitan tu diagrama de arquitectura future-state. Necesitan una identidad susceptible de phishing, un camino plano hacia las copias de seguridad o una cuenta olvidada de acceso remoto.
+Los atacantes no necesitan tu diagrama de arquitectura del estado futuro. Necesitan una identidad susceptible de phishing, un camino plano hacia las copias de seguridad o una cuenta olvidada de acceso remoto.
 
 Así que empieza ahí. Demuestra identidad. Prefiere dispositivos sanos. Reduce acceso. Observa las rutas críticas. Documenta lo suficiente para que aseguradoras, clientes y auditores vean un programa real — no una calcomanía en un firewall.
 

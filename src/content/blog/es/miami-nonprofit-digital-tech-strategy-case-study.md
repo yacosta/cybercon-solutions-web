@@ -26,7 +26,7 @@ El problema más callado era la secuencia. Las iniciativas competían por la mis
 
 Trabajó con la dirección de la organización para desarrollar y actualizar la Estrategia Digital y de Tecnología 2026–2029 — no una reescritura por reescribir, sino un plan reestructurado alrededor de lo que los próximos tres años realmente van a exigir.
 
-La actualización empezó con un inventario honesto del plan anterior: 16 proyectos entregados y cerrados, 3 retirados porque la organización ya los había superado, y el resto reordenado en el nuevo horizonte. Después el plan creció donde los próximos tres años lo piden — 20 proyectos adicionales de IA, acotados y añadidos. Retirar los 3 que ya no encajaban fue tan importante como añadir los 20 que sí. Un plan que solo crece no es una estrategia; es un backlog.
+La actualización empezó con un inventario honesto del plan anterior: 16 proyectos entregados y cerrados, 3 retirados porque la organización ya los había superado, y el resto reordenado en el nuevo horizonte. Después el plan creció donde los próximos tres años lo piden — 20 proyectos adicionales de IA, acotados y añadidos. Retirar los 3 que ya no encajaban fue tan importante como añadir los 20 que sí. Un plan que solo crece no es una estrategia; es una cola de pendientes.
 
 El otro cambio de fondo es que el plan ahora avanza de forma estratégica en vez de reactiva. El trabajo se secuencia en fases que la junta puede financiar y revisar, y cada fase gana la siguiente. Los directores ven qué va primero, qué desbloquea y qué se les pide aprobar. Ese orden importa más que cualquier iniciativa suelta del documento. Una estrategia que la junta puede interrogar es una estrategia que la junta financiará.
 

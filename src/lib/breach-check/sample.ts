@@ -19,7 +19,9 @@ export function getSampleResult(locale: 'en' | 'es'): BreachCheckResult {
         name: 'Adobe',
         title: 'Adobe',
         breachDate: '2013-10-04',
-        dataClasses: ['Email addresses', 'Password hints', 'Passwords', 'Usernames'],
+        dataClasses: es
+          ? ['Direcciones de correo', 'Pistas de contraseña', 'Contraseñas', 'Nombres de usuario']
+          : ['Email addresses', 'Password hints', 'Passwords', 'Usernames'],
         isVerified: true,
         isSensitive: false,
       },
@@ -27,7 +29,7 @@ export function getSampleResult(locale: 'en' | 'es'): BreachCheckResult {
         name: 'LinkedIn',
         title: 'LinkedIn',
         breachDate: '2012-05-05',
-        dataClasses: ['Email addresses', 'Passwords'],
+        dataClasses: es ? ['Direcciones de correo', 'Contraseñas'] : ['Email addresses', 'Passwords'],
         isVerified: true,
         isSensitive: false,
       },
@@ -35,7 +37,7 @@ export function getSampleResult(locale: 'en' | 'es'): BreachCheckResult {
         name: 'Collection1',
         title: 'Collection #1',
         breachDate: '2019-01-07',
-        dataClasses: ['Email addresses', 'Passwords'],
+        dataClasses: es ? ['Direcciones de correo', 'Contraseñas'] : ['Email addresses', 'Passwords'],
         isVerified: false,
         isSensitive: false,
       },

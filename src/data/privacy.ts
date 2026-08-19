@@ -137,7 +137,7 @@ export const privacyContent = {
         blocks: [
           {
             sub: 'Información que nos das',
-            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Cuando usas la revisión gratuita de filtraciones en la página de Ciberseguridad (o la misma revisión en Seguridad de IA), recopilamos el correo de trabajo que introduces para consultar filtraciones conocidas y dar seguimiento. Cuando completas la revisión gratuita de preparación en seguridad de IA y eliges enviar tu resultado, recopilamos tu nombre, empresa, correo de trabajo y la puntuación/respuestas de preparación para dar seguimiento. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
+            body: 'Cuando envías el formulario de evaluación o de contacto, recopilamos el nombre completo, el correo de trabajo y (si los indicas) el nombre de la empresa y el mensaje. Cuando usas la revisión gratuita de filtraciones en la página de Ciberseguridad (o la misma revisión en Seguridad de IA), recopilamos el correo de trabajo que ingresas para consultar filtraciones conocidas y dar seguimiento. Cuando completas la revisión gratuita de preparación en seguridad de IA y eliges enviar tu resultado, recopilamos tu nombre, empresa, correo de trabajo y la puntuación/respuestas de preparación para dar seguimiento. Los usamos solo para responder a tu solicitud y contactarte sobre los servicios que pediste.',
           },
           {
             sub: 'Información recopilada automáticamente',
@@ -198,12 +198,12 @@ export const privacyContent = {
         ],
       },
       {
-        heading: '5. Cesión y proveedores',
+        heading: '5. Compartir datos y proveedores',
         body: 'No vendemos ni alquilamos tu información personal. Solo la compartimos con proveedores que la procesan en nuestro nombre:',
         list: [
           'Attio — nuestro CRM; guarda tu solicitud de evaluación, contacto, revisión de sitio o de filtraciones como prospecto (contacto/empresa) para el seguimiento.',
           'Web3Forms (o equivalente) — puede entregar tu envío de formulario por correo.',
-          'Have I Been Pwned — cuando usas la revisión gratuita de filtraciones, enviamos el correo que introduces a la API de Have I Been Pwned para consultar filtraciones conocidas. No enviamos contraseñas.',
+          'Have I Been Pwned — cuando usas la revisión gratuita de filtraciones, enviamos el correo que ingresas a la API de Have I Been Pwned para consultar filtraciones conocidas. No enviamos contraseñas.',
           'Cloudflare — alojamiento (Cloudflare Workers), protección antibots (Turnstile) y CDN.',
           'Auth0 — autenticación del área de clientes.',
           'Google — analítica, solo si consientes.',

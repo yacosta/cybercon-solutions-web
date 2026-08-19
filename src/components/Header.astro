@@ -60,7 +60,7 @@ const industryLinks = industries.map((industry) => ({
 
 <header class:list={['site-header', variant]} data-site-header>
   <div class="header-inner">
-    <Wordmark variant={variant} href={homeHref} />
+    <Wordmark variant={variant} href={homeHref} homeLabel={t.nav.homeAria} />
 
     <div class="header-right">
       <nav class="site-nav" data-desktop-nav aria-label={locale === 'es' ? 'Principal' : 'Primary'}>

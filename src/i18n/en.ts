@@ -15,6 +15,7 @@ export const en = {
     searchUnavailable: 'Search isn’t available right now. Try again in a moment.',
     searchAllResults: 'View all results',
     home: 'Home',
+    homeAria: 'Cybercon Solutions home',
     services: 'Services',
     servicesMenu: 'Services menu',
     managedIt: 'Managed IT',
@@ -348,6 +349,12 @@ export const en = {
     dashboard: 'Your dashboard',
     placeholder:
       'Sign in to your support portal to view tickets, documents, and account details. Contact us if you need access.',
+    signedInAsPrefix: 'Signed in as',
+    authFailed: 'Sign-in failed. Please try again.',
+    auth0Missing:
+      'Auth0 is not configured yet. Add AUTH0_* and SESSION_SECRET on the Cloudflare Worker (Variables and Secrets).',
+    envHint:
+      'Required env: AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_BASE_URL, SESSION_SECRET',
   },
   siteCheck: {
     nav: 'Site check',
