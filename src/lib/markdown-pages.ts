@@ -26,6 +26,10 @@ import zeroTrustMidMarketRollout from '../content/blog/zero-trust-mid-market-rol
 import zeroTrustMidMarketRolloutEs from '../content/blog/es/zero-trust-mid-market-rollout.md?raw';
 import endpointSecurityBeyondTheEndpoint from '../content/blog/endpoint-security-beyond-the-endpoint.md?raw';
 import endpointSecurityBeyondTheEndpointEs from '../content/blog/es/endpoint-security-beyond-the-endpoint.md?raw';
+import emailSecuritySpfDkimDmarc from '../content/blog/email-security-spf-dkim-dmarc.md?raw';
+import emailSecuritySpfDkimDmarcEs from '../content/blog/es/email-security-spf-dkim-dmarc.md?raw';
+import gymFranchiseHybridItCaseStudy from '../content/blog/gym-franchise-hybrid-it-case-study.md?raw';
+import gymFranchiseHybridItCaseStudyEs from '../content/blog/es/gym-franchise-hybrid-it-case-study.md?raw';
 import { formatMailingAddress, site } from './site';
 
 function industriesMarkdown(locale: 'en' | 'es'): string {
@@ -97,6 +101,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 - [The Fractional CIO Agenda: First 90 Days](https://cybercon-solutions.com/blog/fractional-cio-first-90-days/)
 - [Zero Trust Without the Buzzwords: A Practical Rollout for Mid-Market IT](https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/)
 - [Endpoint Security Has Moved Beyond the Endpoint](https://cybercon-solutions.com/blog/endpoint-security-beyond-the-endpoint/)
+- [Email Security That Actually Stops Spoofing: SPF, DKIM, and DMARC](https://cybercon-solutions.com/blog/email-security-spf-dkim-dmarc/)
 - [Managed IT Reports Like a CIO: SLAs & KPIs](https://cybercon-solutions.com/blog/managed-it-reports-like-cio/)
 `;
 
@@ -120,6 +125,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 - [Agenda del CIO fraccionario: primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
 - [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)
 - [Seguridad de endpoints más allá del dispositivo](https://cybercon-solutions.com/es/blog/endpoint-security-beyond-the-endpoint/)
+- [Seguridad del correo que sí frena la suplantación: SPF, DKIM y DMARC](https://cybercon-solutions.com/es/blog/email-security-spf-dkim-dmarc/)
 - [TI administrada que reporta como un CIO](https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/)
 `;
 
@@ -364,6 +370,14 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/endpoint-security-beyond-the-endpoint': endpointSecurityBeyondTheEndpoint,
   '/es/blog/endpoint-security-beyond-the-endpoint/': endpointSecurityBeyondTheEndpointEs,
   '/es/blog/endpoint-security-beyond-the-endpoint': endpointSecurityBeyondTheEndpointEs,
+  '/blog/email-security-spf-dkim-dmarc/': emailSecuritySpfDkimDmarc,
+  '/blog/email-security-spf-dkim-dmarc': emailSecuritySpfDkimDmarc,
+  '/es/blog/email-security-spf-dkim-dmarc/': emailSecuritySpfDkimDmarcEs,
+  '/es/blog/email-security-spf-dkim-dmarc': emailSecuritySpfDkimDmarcEs,
+  '/blog/gym-franchise-hybrid-it-case-study/': gymFranchiseHybridItCaseStudy,
+  '/blog/gym-franchise-hybrid-it-case-study': gymFranchiseHybridItCaseStudy,
+  '/es/blog/gym-franchise-hybrid-it-case-study/': gymFranchiseHybridItCaseStudyEs,
+  '/es/blog/gym-franchise-hybrid-it-case-study': gymFranchiseHybridItCaseStudyEs,
   '/blog/managed-it-reports-like-cio/': managedItReportsLikeCio,
   '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCioEs,
