@@ -117,10 +117,10 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 ## Entradas
 
 - [Integración empresarial y mPOS: un caso](https://cybercon-solutions.com/es/blog/enterprise-integration-mpos-case-study/)
-- [Caso: TI de retail en seis países](https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/)
-- [$1,3M ahorrados: caso de TI en nonprofit de salud](https://cybercon-solutions.com/es/blog/healthcare-nonprofit-it-transformation-case-study/)
+- [Caso: TI de comercio en seis países](https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/)
+- [$1,3M ahorrados: caso de TI en una ONG de salud](https://cybercon-solutions.com/es/blog/healthcare-nonprofit-it-transformation-case-study/)
 - [SaaS educativa a escala de ciudad: un caso](https://cybercon-solutions.com/es/blog/education-saas-city-scale-case-study/)
-- [IA empresarial con ROI: caso en nonprofit](https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/)
+- [IA empresarial con ROI: caso en una ONG](https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/)
 - [IA empresarial y ROI: lo que sí funciona](https://cybercon-solutions.com/es/blog/enterprise-ai-adoption-roi/)
 - [Agenda del CIO fraccionario: primeros 90 días](https://cybercon-solutions.com/es/blog/fractional-cio-first-90-days/)
 - [Zero Trust sin jerga: un despliegue práctico para TI de mercado medio](https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/)

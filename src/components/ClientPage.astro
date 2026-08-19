@@ -15,22 +15,6 @@ const user = Astro.locals.user;
 const configured = auth0Configured();
 const error = Astro.url.searchParams.get('error');
 const path = localePath(locale, '/client/');
-
-const authFailed =
-  t.client.authFailed ??
-  (locale === 'es' ? 'No se pudo iniciar sesión. Inténtalo de nuevo.' : 'Sign-in failed. Please try again.');
-const auth0Missing =
-  t.client.auth0Missing ??
-  (locale === 'es'
-    ? 'Auth0 aún no está configurado. Agrega AUTH0_* y SESSION_SECRET en el Worker de Cloudflare (Variables and Secrets).'
-    : 'Auth0 is not configured yet. Add AUTH0_* and SESSION_SECRET on the Cloudflare Worker (Variables and Secrets).');
-const signedInAsPrefix =
-  t.client.signedInAsPrefix ?? (locale === 'es' ? 'Sesión iniciada como' : 'Signed in as');
-const envHint =
-  t.client.envHint ??
-  (locale === 'es'
-    ? 'Variables requeridas: AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_BASE_URL, SESSION_SECRET'
-    : 'Required env: AUTH0_DOMAIN, AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_BASE_URL, SESSION_SECRET');
 ---
 
 <BaseLayout
@@ -49,14 +33,14 @@ const envHint =
 
     {error && (
       <p class="error" role="alert">
-        {error === 'auth0_not_configured' ? auth0Missing : authFailed}
+        {error === 'auth0_not_configured' ? t.client.auth0Missing : t.client.authFailed}
       </p>
     )}
 
     {user ? (
       <div class="panel">
         <p>
-          {signedInAsPrefix} <strong>{user.name ?? user.email ?? user.sub}</strong>
+          {t.client.signedInAsPrefix} <strong>{user.name ?? user.email ?? user.sub}</strong>
         </p>
         <p class="muted">{t.client.placeholder}</p>
         <a class="btn btn-primary" href="/client/logout">{t.client.logout}</a>
@@ -66,7 +50,7 @@ const envHint =
     ) : (
       <div class="panel">
         <p>{t.client.placeholder}</p>
-        <p class="muted">{envHint}</p>
+        <p class="muted">{t.client.envHint}</p>
       </div>
     )}
   </div>

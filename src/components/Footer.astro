@@ -48,11 +48,7 @@ const addressLines =
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <Wordmark
-          variant="dark"
-          href={homeHref}
-          homeLabel={locale === 'es' ? 'Inicio de Cybercon Solutions' : 'Cybercon Solutions home'}
-        />
+        <Wordmark variant="dark" href={homeHref} homeLabel={t.nav.homeAria} />
         <p class="footer-blurb">{t.footer.blurb}</p>
         <ul class="footer-contact-list">
           <li>
