@@ -35,7 +35,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
         body: {
           en: 'We review your current stack, support pain points, and coverage gaps. You’ll get a written summary of where you stand and what to tackle first.',
-          es: 'Revisamos tu stack tecnológico actual, los dolores de soporte y los huecos de cobertura. Recibes un resumen escrito de dónde estás y qué conviene abordar primero.',
+          es: 'Revisamos tu stack tecnológico actual, los dolores de soporte y los vacíos de cobertura. Recibes un resumen escrito de dónde estás y qué conviene abordar primero.',
         },
       },
       {
@@ -203,7 +203,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     overview: {
       en: 'AI Security from Cybercon Solutions helps Cooper City and Davie businesses adopt AI without exposing intellectual property, sensitive data, or compliance gaps. We combine AI usage governance, data-leakage controls, and continuous oversight with unified workspace security across identity, email, endpoints, awareness, and exposure.\n\nTraditional cybersecurity still matters — endpoints, identity, email — but it was not designed to answer which AI tools are allowed, with which data, and who can prove it. We close that gap with enforceable policies, monitoring of AI-enabled workflows, and SOC-backed response when something looks wrong.',
-      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o vacíos de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concientización y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos ese vacío con políticas aplicables, monitoreo de flujos con IA y respuesta respaldada por SOC cuando algo falla.',
+      es: 'La Seguridad de IA de Cybercon Solutions ayuda a empresas en Cooper City y Davie a adoptar IA sin exponer propiedad intelectual, datos sensibles o vacíos de cumplimiento. Combinamos gobernanza del uso de IA, control de filtraciones y supervisión continua con seguridad unificada del espacio de trabajo en identidad, correo, endpoints, concientización y exposición.\n\nLa ciberseguridad tradicional sigue importando — endpoints, identidad, correo — pero no fue diseñada para responder qué herramientas de IA están permitidas, con qué datos y quién puede demostrarlo. Cerramos ese vacío con políticas aplicables, monitoreo de flujos con IA y respuesta con soporte del SOC cuando algo falla.',
     },
     process: [
       {
@@ -214,7 +214,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         },
       },
       {
-        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar pautas de control y controles' },
+        title: { en: '2. Deploy guardrails & controls', es: '2. Desplegar pautas y controles' },
         body: {
           en: 'Approve tools, restrict high-risk AI workflows, and unify identity, email, endpoint, and exposure protections.',
           es: 'Aprobamos herramientas, restringimos flujos de IA de alto riesgo y unificamos protecciones de identidad, correo, endpoint y exposición.',
@@ -345,7 +345,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     process: [
       {
-        title: { en: '1. Current-state briefing', es: '1. Briefing del estado actual' },
+        title: { en: '1. Current-state briefing', es: '1. Informe del estado actual' },
         body: {
           en: 'We review systems, vendors, risks, and spending so advice starts from reality, not a template.',
           es: 'Revisamos sistemas, proveedores, riesgos y gasto para que el consejo parta de la realidad, no de una plantilla.',
@@ -413,7 +413,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   'backup-disaster-recovery': {
     metaTitle: {
       en: 'Backup & DR in South Florida | Cybercon',
-      es: 'Copia de seguridad | Sur de Florida | Cybercon',
+      es: 'Copia de seguridad y DR | Sur de Florida | Cybercon',
     },
     metaDescription: {
       en: 'Automated backups, off-site replication, and recovery validation for South Florida businesses so an outage does not become a crisis.',
@@ -421,7 +421,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Organizations that cannot afford prolonged downtime or silent backup failures. Fits South Florida offices that need proven recovery, not just a backup checkbox. If you are unsure whether last night’s backup would restore payroll or patient files today, that uncertainty is the problem we solve.',
-      es: 'Organizaciones que no pueden permitirse caídas largas o copias de seguridad que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo un ejercicio de mero cumplimiento. Si no estás seguro de que el respaldo de anoche restauraría nómina o archivos críticos hoy, esa incertidumbre es el problema que resolvemos.',
+      es: 'Organizaciones que no pueden permitirse caídas largas o copias de seguridad que fallan en silencio. Encaja en oficinas del sur de Florida que necesitan recuperación comprobada, no solo un ejercicio de mero cumplimiento. Si no estás seguro de que la copia de seguridad de anoche restauraría la nómina o los archivos de pacientes hoy, esa incertidumbre es el problema que resolvemos.',
     },
     overview: {
       en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed.\n\nDisaster recovery planning focuses on clear recovery points and realistic timelines. When something fails, the goal is a controlled restore, not improvisation under pressure.',
@@ -505,7 +505,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
     },
     audience: {
       en: 'Leaders curious about AI but wary of hype. Built for South Florida organizations that want a clear roadmap and an honest ROI read before buying tools. Use this when leadership wants a decision memo before committing budget.',
-      es: 'Líderes curiosos por la IA pero recelosos del bombo. Pensado para organizaciones del sur de Florida que quieren un plan estratégico claro y un ROI honesto antes de comprar herramientas. Úsalo cuando la dirección quiera un memo de decisión antes de comprometer presupuesto.',
+      es: 'Líderes curiosos por la IA pero recelosos del bombo. Pensado para organizaciones del sur de Florida que quieren un plan estratégico claro y un ROI honesto antes de comprar herramientas. Úsalo cuando la dirección quiera un memorando de decisión antes de comprometer presupuesto.',
     },
     overview: {
       en: 'We build practical AI roadmaps and run readiness and ROI assessments that say where AI fits and where it does not. Work starts with highest-value, lower-risk opportunities so early projects teach your team without putting core operations at stake.\n\nAdvice stays grounded in your stack, data quality, and capacity. Serving Cooper City, Davie, and greater South Florida, we keep recommendations implementable by the people who will own them.',
@@ -698,7 +698,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
         title: { en: '3. Measure & refine', es: '3. Medir y refinar' },
         body: {
           en: 'Review containment, escalations, and gaps. Improve answers without hiding failures.',
-          es: 'Revisamos contención, escalados y huecos. Mejoramos respuestas sin ocultar fallos.',
+          es: 'Revisamos contención, escalados y vacíos. Mejoramos respuestas sin ocultar fallos.',
         },
       },
     ],
@@ -830,7 +830,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       {
         question: {
           en: 'Do you write the website copy too?',
-          es: '¿También redactan el copy del sitio?',
+          es: '¿También redactan los textos del sitio?',
         },
         answer: {
           en: 'We help structure pages and clarify messaging. Final claims stay yours — we will not invent offers or credentials you did not approve.',

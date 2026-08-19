@@ -262,12 +262,12 @@ export const webDesignPage: WebDesignPageCopy = {
     },
     imageAlt: {
       en: 'Flat-lay web design workspace with sketchbook wireframes and a phone mockup',
-      es: 'Espacio de trabajo de diseño web con wireframes en un sketchbook y un mockup en el teléfono',
+      es: 'Espacio de trabajo de diseño web con bocetos de estructura en un cuaderno y una maqueta en el celular',
     },
   },
   faqLabel: {
     en: 'FAQ',
-    es: 'FAQ',
+    es: 'Preguntas frecuentes',
   },
   cta: {
     title: {

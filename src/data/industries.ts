@@ -37,7 +37,7 @@ export const industries: Industry[] = [
     },
     overview: {
       en: 'Cooper City and Davie practices run on shared charts, imaging, billing, and remote access — all under HIPAA expectations. We treat security as the baseline: monitoring, patching, backups, and identity done in a way your staff can actually live with. When something breaks, an engineer answers — not a ticket that sits until Monday.',
-      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, copias de seguridad e identidad de forma que el personal pueda vivir. Cuando algo falla, responde un ingeniero — no un ticket que espera hasta el lunes.',
+      es: 'Las prácticas de Cooper City y Davie dependen de historias clínicas, imagenología, facturación y acceso remoto — todo bajo expectativas de HIPAA. Tratamos la seguridad como la base: monitoreo, parches, copias de seguridad e identidad de forma que el personal pueda convivir con ella. Cuando algo falla, responde un ingeniero — no un ticket que espera hasta el lunes.',
     },
     challengesLabel: { en: 'What clinics feel every week', es: 'Lo que las clínicas sienten cada semana' },
     challenges: [
@@ -61,10 +61,10 @@ export const industries: Industry[] = [
     helpLabel: { en: 'How we help healthcare teams', es: 'Cómo ayudamos a equipos de salud' },
     help: [
       {
-        title: { en: 'Secure access that fits the floor', es: 'Acceso seguro que encaja en la planta' },
+        title: { en: 'Secure access that fits the floor', es: 'Acceso seguro que encaja en el consultorio' },
         body: {
           en: 'Identity, MFA, and remote access set up for providers and staff who move between rooms, sites, and home.',
-          es: 'Identidad, MFA y acceso remoto configurados para proveedores y personal que se mueven entre salas, sedes y casa.',
+          es: 'Identidad, MFA y acceso remoto configurados para médicos y personal que se mueven entre salas, sedes y casa.',
         },
       },
       {
@@ -122,7 +122,7 @@ export const industries: Industry[] = [
     },
     lede: {
       en: 'Billable hours do not wait on a frozen laptop. We keep confidential work protected and systems responsive so your team stays on client work.',
-      es: 'Las horas facturables no esperan a un computador congelado. Protegemos el trabajo confidencial y mantenemos los sistemas responsivos para que el equipo se centre en el cliente.',
+      es: 'Las horas facturables no esperan a un computador congelado. Protegemos el trabajo confidencial y mantenemos los sistemas con respuesta rápida para que el equipo se centre en el cliente.',
     },
     overview: {
       en: 'Law firms and professional practices live on documents, email, and deadlines. Privilege and client trust leave little room for loose access or slow recovery. We run managed IT and security for South Florida firms that need confidentiality without friction — secure remote work, fast support, and clear ownership when something breaks mid-matter.',
@@ -292,11 +292,11 @@ export const industries: Industry[] = [
     },
     metaTitle: {
       en: 'IT for Schools, Churches & Nonprofits | Cybercon',
-      es: 'TI para escuelas, iglesias y nonprofit | Cybercon',
+      es: 'TI para escuelas, iglesias y ONG | Cybercon',
     },
     metaDescription: {
       en: 'Affordable, secure managed IT for South Florida schools, churches, foundations, and nonprofits — predictable pricing and support that fits mission work.',
-      es: 'TI asequible y segura para escuelas, iglesias y nonprofit en el Sur de Florida: precio predecible y soporte misional.',
+      es: 'TI asequible y segura para escuelas, iglesias, fundaciones y ONG en el Sur de Florida: precio predecible y soporte a la misión.',
     },
     lede: {
       en: 'Mission work should not depend on whoever happens to know passwords. We give schools, churches, and nonprofits IT that is steady, secure, and priced to plan around.',
@@ -306,7 +306,7 @@ export const industries: Industry[] = [
       en: 'Education and nonprofit teams in Cooper City and Davie often stretch a small staff across fundraising, programs, and “also IT.” Budgets are real constraints. We provide managed IT and cybersecurity with clear per-user pricing, sensible security defaults, and patient support — so volunteers and staff can stay on the mission instead of chasing printers and phishing emails.',
       es: 'Los equipos educativos y sin fines de lucro en Cooper City y Davie suelen estirar un personal pequeño entre recaudación, programas y “también TI”. Los presupuestos son reales. Ofrecemos TI administrada y ciberseguridad con precio claro por usuario, configuración de seguridad sensata por defecto y soporte paciente — para que voluntarios y personal se queden en la misión en vez de perseguir impresoras y phishing.',
     },
-    challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Vacíos comunes en escuelas y nonprofit' },
+    challengesLabel: { en: 'Common nonprofit & school gaps', es: 'Vacíos comunes en escuelas y ONG' },
     challenges: [
       {
         en: 'Shared mailboxes and departed volunteers who still have access.',
@@ -427,7 +427,7 @@ export const industries: Industry[] = [
         title: { en: 'Field-ready devices', es: 'Dispositivos listos para campo' },
         body: {
           en: 'Laptops and mobiles managed with patching, encryption, and remote wipe when a device walks off a site.',
-          es: 'Portátiles y celulares gestionados con parches, cifrado y borrado remoto cuando un dispositivo se pierde en obra.',
+          es: 'Computadores portátiles y celulares gestionados con parches, cifrado y borrado remoto cuando un dispositivo se pierde en obra.',
         },
       },
       {
@@ -463,26 +463,26 @@ export const industries: Industry[] = [
   },
   {
     slug: 'distribution-retail-manufacturing',
-    title: { en: 'Distribution, retail & manufacturing', es: 'Distribución, retail y manufactura' },
+    title: { en: 'Distribution, retail & manufacturing', es: 'Distribución, comercio y manufactura' },
     summary: {
       en: 'Uptime for warehouses, storefronts, and light industrial ops in Davie and nearby — inventory, connectivity, and recovery that work.',
       es: 'Disponibilidad para bodegas, tiendas e industria ligera en Davie y alrededores: inventario, conectividad y recuperación que funcionan.',
     },
     metaTitle: {
       en: 'IT for Distribution, Retail & Manufacturing | Cybercon',
-      es: 'TI para distribución, retail y manufactura | Cybercon',
+      es: 'TI para distribución, comercio y manufactura | Cybercon',
     },
     metaDescription: {
       en: 'Managed IT for South Florida warehouses, retailers, and light manufacturing — uptime, inventory systems, and recovery that keep product moving.',
-      es: 'TI para bodegas, retail e industria ligera en el Sur de Florida: disponibilidad, inventario y recuperación.',
+      es: 'TI para bodegas, comercio e industria ligera en el Sur de Florida: disponibilidad, inventario y recuperación.',
     },
     lede: {
       en: 'When scanners, POS, or the ERP stop, the floor stops. We keep distribution and retail technology running so product keeps moving.',
-      es: 'Cuando se detienen los escáneres, el POS o el ERP, se detiene el piso. Mantenemos la tecnología de distribución y retail en marcha para que el producto siga moviéndose.',
+      es: 'Cuando se detienen los escáneres, el POS o el ERP, se detiene el piso. Mantenemos la tecnología de distribución y comercio en marcha para que el producto siga moviéndose.',
     },
     overview: {
       en: 'Davie and greater South Florida host warehouses, light manufacturing, and retail operations that live on scanners, POS, ERP, and internet links. Minutes of downtime show up in labor and lost sales. Cybercon provides proactive managed IT, network reliability, and recovery planning for operators who need the floor online — not a lecture about the cloud.',
-      es: 'Davie y el Sur de Florida albergan bodegas, industria ligera y retail que viven de escáneres, POS, ERP y enlaces de internet. Minutos de caída se ven en mano de obra y ventas perdidas. Cybercon ofrece TI administrada proactiva, fiabilidad de red y planificación de recuperación para operadores que necesitan el piso en línea — no una charla sobre la nube.',
+      es: 'Davie y el Sur de Florida albergan bodegas, industria ligera y comercio que viven de escáneres, POS, ERP y enlaces de internet. Minutos de caída se ven en mano de obra y ventas perdidas. Cybercon ofrece TI administrada proactiva, fiabilidad de red y planificación de recuperación para operadores que necesitan el piso en línea — no una charla sobre la nube.',
     },
     challengesLabel: { en: 'What stops the floor', es: 'Lo que detiene el piso' },
     challenges: [
