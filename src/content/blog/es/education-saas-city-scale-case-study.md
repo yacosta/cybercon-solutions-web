@@ -24,7 +24,7 @@ Si operas [TI para educación u organizaciones sin fines de lucro](/es/industrie
 
 ## Liderazgo de plataforma a escala de ciudad
 
-Como líder de tecnología, dirigió la infraestructura tecnológica detrás de la plataforma del programa. El trabajo no era un rebuild desde cero. Era mantener un sistema en vivo sano mientras la curva de inscripción apuntaba a escala de toda la ciudad.
+Como líder de tecnología, dirigió la infraestructura tecnológica detrás de la plataforma del programa. El trabajo no era una reconstrucción desde cero. Era mantener un sistema en vivo sano mientras la curva de inscripción apuntaba a escala de toda la ciudad.
 
 Eso significó planificación de capacidad, coordinación de proveedores, disciplina de integración y un camino claro para lo que tenía que funcionar el día uno frente a lo que podía esperar. Crecer sin arquitectura es solo una lista más larga de caídas.
 

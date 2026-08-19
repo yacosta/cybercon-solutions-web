@@ -10,9 +10,9 @@ bannerAlt:
   es: 'Cableado de red y rutas de conectividad que representan infraestructura híbrida de gimnasios'
 ---
 
-Una franquicia nacional de gimnasios no puede pausar membresías porque el Wi-Fi murió en el check-in. Recepciones, entrenadores, cámaras, control de acceso y sistemas corporativos comparten una sola red híbrida — y cada sede nueva tiene que abrir con tecnología que ya encaje en el estándar.
+Una franquicia nacional de gimnasios no puede pausar membresías porque el Wi-Fi murió en el registro de entrada. Recepciones, entrenadores, cámaras, control de acceso y sistemas corporativos comparten una sola red híbrida — y cada sede nueva tiene que abrir con tecnología que ya encaje en el estándar.
 
-Antes de fundar Cybercon Solutions, Yezid Acosta lideró la TI de una franquicia nacional de fitness: **soporte de TI del día a día**, la **red y la ciberseguridad** de ese entorno híbrido, y un lugar en la **planificación y construcción de gimnasios** para que la tecnología correcta quedara en los planos — no improvisada después del drywall. También trabajó en el **acondicionamiento de nuevos gimnasios** para que el día de apertura fuera un día de operaciones, no una semana de tickets de emergencia.
+Antes de fundar Cybercon Solutions, Yezid Acosta lideró la TI de una franquicia nacional de fitness: **soporte de TI del día a día**, la **red y la ciberseguridad** de ese entorno híbrido, y un lugar en la **planificación y construcción de gimnasios** para que la tecnología correcta quedara en los planos — no improvisada después de los paneles de yeso. También trabajó en el **acondicionamiento de nuevos gimnasios** para que el día de apertura fuera un día de operaciones, no una semana de tickets de emergencia.
 
 Así corrió ese liderazgo de verdad.
 
@@ -28,11 +28,11 @@ Esa es la presión multi-sede de consumo cercana a lo que vemos en [TI para dist
 
 Operó la TI diaria de la franquicia: tickets, dispositivos, cuentas, impresoras y las fallas chicas que impiden cobrar o registrar miembros.
 
-La TI de gimnasio falla en formas ordinarias que se sienten enormes en la hora pico del lunes: un computador congelado en recepción, una contraseña incorrecta tras un cambio de personal, un circuito sin dueño. El modelo operativo tenía que tratar eso como eventos de ingreso, no como backlog.
+La TI de gimnasio falla en formas ordinarias que se sienten enormes en la hora pico del lunes: un computador congelado en recepción, una contraseña incorrecta tras un cambio de personal, un circuito sin dueño. El modelo operativo tenía que tratar eso como eventos de ingreso, no como cola de pendientes.
 
 ## Red híbrida y ciberseguridad como un solo trabajo
 
-Gestionó la red híbrida y la ciberseguridad juntas — equipos en las sedes, identidad y aplicaciones en la nube en HQ, y los caminos entre ambos.
+Gestionó la red híbrida y la ciberseguridad juntas — equipos en las sedes, identidad y aplicaciones en la nube en la sede, y los caminos entre ambos.
 
 La segmentación evitó que el Wi-Fi de miembros se volviera un pase libre a los sistemas del personal. El monitoreo y los parches cubrieron los endpoints y el equipo de red del que dependen los clubes. Cuando algo se veía mal, la responsabilidad era clara: escalar una vez, con contexto, no tres proveedores señalándose entre sí.
 
@@ -42,15 +42,15 @@ La [ciberseguridad](/es/services/cybersecurity/) y la [TI administrada](/es/serv
 
 Participó en la planificación y construcción de gimnasios para que la red, el cableado, la cobertura Wi-Fi, las cámaras de seguridad, el control de acceso y los sistemas del personal quedaran contemplados antes de que el plano se congelara.
 
-Eso significó sentarse con quienes diseñaban el club — no esperar a una lista de pendientes que diga “TI por definir.” Los puntos de red, el espacio del closet, las rutas de circuitos y los alcances de proveedores salen más baratos cuando se deciden con el GC, no después de la pintura.
+Eso significó sentarse con quienes diseñaban el club — no esperar a una lista de pendientes que diga “TI por definir.” Los puntos de red, el espacio del closet, las rutas de circuitos y los alcances de proveedores salen más baratos cuando se deciden con el contratista general, no después de la pintura.
 
 La misma disciplina de [TI para construcción e inmobiliario](/es/industries/construction-real-estate/) aplica: primero la realidad de campo, luego un corte que funcione el día uno.
 
 ## Ayuda en el acondicionamiento de nuevos gimnasios
 
-Cuando se acondicionaban gimnasios nuevos, estuvo en el lado tecnológico de la apertura — coordinando trabajo de baja tensión y red, validando el estándar híbrido y asegurando que check-in, pagos y acceso del personal funcionaran antes del corte de cinta.
+Cuando se acondicionaban gimnasios nuevos, estuvo en el lado tecnológico de la apertura — coordinando trabajo de baja tensión y red, validando el estándar híbrido y asegurando que el registro de entrada, pagos y acceso del personal funcionaran antes del corte de cinta.
 
-Una franquicia crece repitiendo un patrón. Cada club nuevo que abre sin un stack local improvisado es una excepción permanente menos para que el helpdesk memorice.
+Una franquicia crece repitiendo un patrón. Cada club nuevo que abre sin un stack tecnológico local improvisado es una excepción permanente menos para que la mesa de ayuda memorice.
 
 ## Cómo se veía “bien”
 
@@ -58,7 +58,7 @@ Una franquicia crece repitiendo un patrón. Cada club nuevo que abre sin un stac
 | --- | --- |
 | Soporte | TI del día a día para operaciones de club y corporativas |
 | Red | Red híbrida club + nube gestionada como un solo entorno |
-| Seguridad | Controles de ciberseguridad alineados a rutas de invitados, personal y HQ |
+| Seguridad | Controles de ciberseguridad alineados a rutas de invitados, personal y sede |
 | Planificación | Requisitos tecnológicos en la planificación y construcción de gimnasios |
 | Crecimiento | Ayuda práctica en el acondicionamiento y apertura de nuevos gimnasios |
 

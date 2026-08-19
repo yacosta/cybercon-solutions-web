@@ -12,7 +12,7 @@ Finanzas recibe un correo que parece venir del CEO. El dominio es el de ustedes.
 
 Eso no es una historia sobre contraseñas débiles. No es una historia sobre antivirus. Es una historia sobre **suplantación del correo** (*email spoofing*): un atacante usa el nombre de tu dominio en el campo Remitente sin iniciar sesión nunca en tu tenant de Microsoft 365 o Google Workspace. El mensaje nunca salió de tus buzones. Solo afirmó haberlo hecho.
 
-La mayoría de las organizaciones de mercado medio todavía tratan esto como un tema técnico de nicho. No lo es. La suplantación del dominio es cómo el fraude de facturas, la impersonación de proveedores y el “fraude del CEO” siguen llegando a bandejas de entrada que, por lo demás, se ven bien protegidas. El MFA no lo detiene. La detección en el endpoint no lo detiene. Un filtro antispam vistoso, solo, no lo detiene. Lo que lo detiene — o al menos lo hace mucho más difícil para que extraños abusen de tu marca en el correo — es un trío de registros DNS que la mayoría de los equipos de liderazgo ha oído una vez y nunca verificó: **SPF, DKIM y DMARC**.
+La mayoría de las organizaciones de mercado medio todavía tratan esto como un tema técnico de nicho. No lo es. La suplantación del dominio es cómo el fraude de facturas, la suplantación de proveedores y el “fraude del CEO” siguen llegando a bandejas de entrada que, por lo demás, se ven bien protegidas. El MFA no lo detiene. La detección en el endpoint no lo detiene. Un filtro antispam vistoso, solo, no lo detiene. Lo que lo detiene — o al menos lo hace mucho más difícil para que extraños abusen de tu marca en el correo — es un trío de registros DNS que la mayoría de los equipos de liderazgo ha oído una vez y nunca verificó: **SPF, DKIM y DMARC**.
 
 Esta guía es la versión práctica. No un club de lectura de estándares. No un programa empresarial con un equipo de doce personas de seguridad del correo. Un panorama claro de qué hace cada control, por qué “activamos algo en Microsoft” no es lo mismo que aplicar una política, cómo las organizaciones rompen su propio correo al intentar arreglar esto, y una secuencia que Cybercon usa con equipos del Sur de Florida y de mercado medio que necesitan resistencia a la suplantación sin romper remitentes legítimos.
 
@@ -41,7 +41,7 @@ Piensa en SPF, DKIM y DMARC como tres preguntas que un sistema receptor puede ha
 
 Fíjate que el último es la capa de política. SPF y DKIM son evidencia. DMARC es la decisión. Por eso organizaciones con “SPF configurado” y “DKIM habilitado” siguen siendo suplantadas: sin aplicación de DMARC, muchos receptores tratan las fallas como avisos. El disfraz sigue funcionando.
 
-También fíjate en la palabra **alineación**. Esto tropieza a más equipos de TI que cualquier otro detalle. Un mensaje puede pasar SPF por un dominio de flujo de correo que no es el que ve el lector humano. Un mensaje puede pasar DKIM por un dominio de firma que no es tu Remitente visible. A DMARC le importa si la identidad autenticada coincide con la marca que el destinatario cree estar leyendo. Sin alineación, un “pass” es una tecnicidad, no protección.
+También fíjate en la palabra **alineación**. Esto tropieza a más equipos de TI que cualquier otro detalle. Un mensaje puede pasar SPF por un dominio de flujo de correo que no es el que ve el lector humano. Un mensaje puede pasar DKIM por un dominio de firma que no es tu Remitente visible. A DMARC le importa si la identidad autenticada coincide con la marca que el destinatario cree estar leyendo. Sin alineación, un “aprobado” es una tecnicidad, no protección.
 
 ## SPF: la lista de invitados de servidores que pueden enviar como ustedes
 
@@ -58,9 +58,9 @@ Lo difícil no es la sintaxis. Lo difícil es el **inventario**. La mayoría de 
 - Microsoft 365 / Google Workspace (correo principal)
 - Herramientas de marketing (boletines, campañas)
 - Plataformas de facturación y cobro
-- CRM y sistemas de fundraising
+- CRM y sistemas de recaudación de fondos
 - Notificaciones de RR. HH. / nómina
-- Alertas de ticketing y monitoreo
+- Alertas de tickets y monitoreo
 - Herramientas “temporales” que alguien conectó hace dos años y olvidó
 
 Si publicas un SPF estricto antes de terminar ese inventario, el correo legítimo empieza a fallar. Si dejas SPF abierto para siempre, los suplantes siguen usando los vacíos. El trabajo es encontrar cada sistema que pone tu dominio en el correo saliente y luego codificar esa realidad en DNS.
@@ -129,7 +129,7 @@ Imagina una organización sin fines de lucro con Microsoft 365, MFA activo y un 
 
 Un atacante no registra nada sofisticado. Redacta mensajes que afirman venir de la dirección del director de desarrollo en el dominio real de la organización. Como DMARC solo monitorea, muchos sistemas receptores todavía entregan a donantes y miembros de junta. Unos cuantos son cuidadosos. Una persona está ocupada. Un donativo destinado a la organización se desvía. La organización pasa semanas deshaciendo banca, confianza de donantes y una conversación de junta que nunca debió ser necesaria.
 
-Ahora cambia un solo control: DMARC en `p=reject` con DKIM alineado para Microsoft 365 y la plataforma de fundraising. La misma suplantación falla la autenticación frente a la política. Los receptores la rechazan. El miembro de junta ocupado nunca ve el disfraz.
+Ahora cambia un solo control: DMARC en `p=reject` con DKIM alineado para Microsoft 365 y la plataforma de recaudación de fondos. La misma suplantación falla la autenticación frente a la política. Los receptores la rechazan. El miembro de junta ocupado nunca ve el disfraz.
 
 Esa es la diferencia que hacen estos registros. No teórica. Operativa.
 
@@ -140,7 +140,7 @@ Sé honesto con el liderazgo sobre la cobertura:
 - **Los buzones comprometidos** siguen enviando correo autenticado. DMARC no te salva de una cuenta de CFO phisheada. Eso es identidad, protección de sesión, monitoreo de anomalías y respuesta rápida.
 - **Los dominios parecidos** (`tuemprsaa.com`, `tuempresa-mail.com`) son otra pelea: monitoreo de marca, alertas de registro, capacitación que enseña a leer dominios con cuidado y filtrado que puntúa imitaciones.
 - **Ataques de nombre visible** (“Nombre del CEO” mostrado mientras la dirección real no tiene relación) siguen engañando a lectores apurados cuando el dominio real no está involucrado. Aquí importan la concientización y las advertencias del cliente de correo.
-- **El compromiso de un proveedor / socio comercial** puede enviar correo “legítimo” desde un dominio externo de confianza. Tu DMARC no controla su dominio. El riesgo de proveedores y los procedimientos de verificación para cambios de pago siguen importando.
+- **El compromiso de un proveedor comercial** puede enviar correo “legítimo” desde un dominio externo de confianza. Tu DMARC no controla su dominio. El riesgo de proveedores y los procedimientos de verificación para cambios de pago siguen importando.
 
 SPF/DKIM/DMARC son cómo evitas que desconocidos usen *tu* dominio. Repite esa frase en los QBR para que el control no se confunda con un programa completo anti-phishing.
 
@@ -176,7 +176,7 @@ Si quieres una lectura externa rápida, usa la [revisión de seguridad del domin
 ### Semanas 7–10: Aplicar política
 
 - Pasa DMARC a `p=quarantine` cuando los remitentes aprobados estén lo bastante limpios como para que el correo de negocio no desaparezca en silencio hacia no deseados.
-- Comunica con finanzas, RR. HH. y fundraising antes del corte. Ellos sienten primero las fallas de correo.
+- Comunica con finanzas, RR. HH. y recaudación de fondos antes del corte. Ellos sienten primero las fallas de correo.
 - Monitorea tickets de mesa de ayuda y reportes DMARC a diario durante una semana.
 - Avanza a `p=reject` en el dominio corporativo principal cuando la cuarentena sea aburrida: es decir, las fallas son hostiles o despreciables, no tu plataforma de facturación.
 
