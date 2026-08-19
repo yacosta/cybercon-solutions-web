@@ -113,7 +113,7 @@ Ponle límite de tiempo. Sesenta minutos es suficiente cuando el paquete salió 
 
 Ya sea que trabajes con Cybercon o evalúes a otro proveedor, usa esto como filtro.
 
-**Pide un QBR de ejemplo con decisiones reales (anonimizadas).** Si solo muestran screenshots de dashboards, sigue entrevistando. Aquí está el nuestro — un paquete completo anonimizado con tendencias de SLA/KPI, briefs de incidentes, riesgos priorizados y cinco decisiones en reunión (aprobadas, diferidas y declinadas):
+**Pide un QBR de ejemplo con decisiones reales (anonimizadas).** Si solo muestran capturas de tableros, sigue entrevistando. Aquí está el nuestro — un paquete completo anonimizado con tendencias de SLA/KPI, briefs de incidentes, riesgos priorizados y cinco decisiones en reunión (aprobadas, diferidas y declinadas):
 
 **[Descarga QBR de ejemplo (PDF)](/downloads/cybercon-sample-qbr-anonymized.pdf)** — Harborline Services Group (composite ficticio), revisión Q2 2026.
 
