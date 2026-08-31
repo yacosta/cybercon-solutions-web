@@ -11,10 +11,14 @@ export default defineConfig({
   compressHTML: false,
   // Canonical URLs use trailing slashes; pair with Workers html_handling + _redirects 301s.
   trailingSlash: 'always',
+  // Auth0 cookies handle /client; do not auto-provision Cloudflare KV for Astro sessions.
+  session: false,
   adapter: cloudflare({
     platformProxy: { enabled: true },
     // Default prerenderEnvironment is workerd so `cloudflare:workers` env
     // bindings resolve the same way as production (Node cannot load that module).
+    // Site uses static <img>, not astro:assets — skip IMAGES binding.
+    imageService: 'passthrough',
   }),
   i18n: {
     defaultLocale: 'en',
@@ -62,5 +66,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    // Cloudflare adapter 14.2.5 omits these from SSR optimizeDeps.include.
+    // A cold Vite cache then discovers them mid-request and workerd crashes
+    // (withastro/astro#17788). User-level include is merged into the adapter list.
+    optimizeDeps: {
+      include: ['astro/assets/services/noop', 'astro/logger/json'],
+    },
   },
 });
