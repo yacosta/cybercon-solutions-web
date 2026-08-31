@@ -66,5 +66,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    // Cloudflare adapter 14.2.5 omits these from SSR optimizeDeps.include.
+    // A cold Vite cache then discovers them mid-request and workerd crashes
+    // (withastro/astro#17788). User-level include is merged into the adapter list.
+    optimizeDeps: {
+      include: ['astro/assets/services/noop', 'astro/logger/json'],
+    },
   },
 });
