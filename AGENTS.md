@@ -6,7 +6,15 @@ For UI, SEO, Core Web Vitals (LCP), color contrast, cache lifetimes, accessibili
 
 (Also enforced via `.cursor/rules/web-quality-standards.mdc`.)
 
-When fixing a new Lighthouse/SEO/a11y/brand/copy-voice audit finding, update that skill in the same PR so the rule sticks for future agents.
+## Commercial web readiness
+
+For lead capture, CRM delivery, proof attribution, homepage/nav positioning, CTA/funnel honesty, About/leadership proof, local SEO address honesty, health/client fail-closed behavior, and conversion events on feature marketing work, follow:
+
+`.cursor/skills/commercial-web-readiness/SKILL.md`
+
+(Also enforced via `.cursor/rules/commercial-web-readiness.mdc`.)
+
+When fixing a new Lighthouse/SEO/a11y/brand/copy-voice **or** commercial/credibility audit finding, update the matching skill in the same PR so the rule sticks for future agents.
 
 ## Development
 
