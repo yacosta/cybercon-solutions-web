@@ -79,4 +79,5 @@ Send `Accept: text/markdown` to receive Markdown versions of HTML pages (`Conten
 - Auth for agents: https://cybercon-solutions.com/auth.md
 - MCP server card: https://cybercon-solutions.com/.well-known/mcp/server-card.json
 - OpenAPI: https://cybercon-solutions.com/openapi.json
-- Sitemap: https://cybercon-solutions.com/sitemap-index.xml
+- Sitemap (XML): https://cybercon-solutions.com/sitemap-index.xml
+- Sitemap (plain text, one URL per line): https://cybercon-solutions.com/sitemap.txt

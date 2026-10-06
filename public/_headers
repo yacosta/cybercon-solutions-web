@@ -15,6 +15,11 @@
 /llms.txt
   Content-Type: text/plain; charset=utf-8
 
+# Plain-text sitemap: one absolute URL per line. text/plain so agents
+# do not treat the file as binary the way application/xml sometimes is.
+/sitemap.txt
+  Content-Type: text/plain; charset=utf-8
+
 /llms-full.txt
   Content-Type: text/plain; charset=utf-8
 

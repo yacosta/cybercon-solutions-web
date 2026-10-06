@@ -330,6 +330,7 @@ export const en = {
     privacy: 'Privacy & Cookies',
     accessibility: 'Accessibility',
     terms: 'Terms',
+    sitemap: 'Sitemap',
     cookies: 'Cookie settings',
     search: 'Search',
     siteCheck: 'Free site check',

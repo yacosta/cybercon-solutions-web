@@ -30,6 +30,7 @@ GET /.well-known/oauth-authorization-server
 
 - `GET /llms.txt` — curated map
 - `GET /llms-full.txt` — longer summary
+- `GET /sitemap.txt` — plain-text URL list (one canonical URL per line)
 - `GET /openapi.json` — public HTTP API
 - `Accept: text/markdown` on HTML pages — Markdown variants
 - `GET /api/health` — health check
