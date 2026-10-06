@@ -48,7 +48,7 @@ Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida.
 - [MCP server card](https://cybercon-solutions.com/.well-known/mcp/server-card.json): Model Context Protocol card
 - [OpenAPI](https://cybercon-solutions.com/openapi.json): Public HTTP API description
 - [Sitemap](https://cybercon-solutions.com/sitemap-index.xml): XML sitemap index (hreflang + lastmod)
-- [Plain-text sitemap](https://cybercon-solutions.com/sitemap.txt): One canonical URL per line, UTF-8, no header. Same indexable pages as the XML sitemap. Fetch any listed URL with `Accept: text/markdown` for the Markdown variant.
+- [Plain-text sitemap](https://cybercon-solutions.com/sitemap.txt): One canonical URL per line, UTF-8, no header. Same indexable pages as the XML sitemap. Send `Accept: text/markdown` on a listed URL when you want Markdown; pages that have a variant return `text/markdown`.
 
 ## Optional
 
