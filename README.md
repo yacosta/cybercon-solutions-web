@@ -8,7 +8,7 @@ Astro site for [cybercon-solutions.com](https://cybercon-solutions.com) — mana
 
 ## Cutover note
 
-Production should serve this Astro Worker (`cybercon-solutions-web`), not the older static coming-soon HTML. After merge to `main`, trigger the Cloudflare Workers Git deploy (or `npm run deploy` with Wrangler auth). Confirm `/services/managed-it/`, `/sitemap-index.xml`, and `/llms.txt` return 200.
+Production should serve this Astro Worker (`cybercon-solutions-web`), not the older static coming-soon HTML. After merge to `main`, trigger the Cloudflare Workers Git deploy (or `npm run deploy` with Wrangler auth). Confirm `/services/managed-it/`, `/sitemap-index.xml`, `/sitemap.txt`, and `/llms.txt` return 200.
 
 ## Features
 
@@ -20,7 +20,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`, Apollo.io website tracker) with Google Consent Mode v2 defaults denied
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
 - ADA: skip link, landmarks, labels, focus styles, reduced-motion hero fallback
-- Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, Markdown negotiation (`Accept: text/markdown`), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
+- Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, plain-text `sitemap.txt` (one URL per line, `text/plain`), Markdown negotiation (`Accept: text/markdown`), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
 - Pagefind site search
 - Auth0-protected `/client/` area
 
@@ -255,7 +255,7 @@ npm run dev
 ```
 
 ```bash
-npm run build    # astro build + pagefind
+npm run build    # astro build + sitemap.txt + pagefind
 npm run preview
 ```
 
@@ -285,7 +285,7 @@ src/
   pages/        /, /es/, /services/, /privacy/, /client/, /api/, /search/
   lib/          auth0, turnstile, seo, markdown-pages, site-check/
 public/
-  robots.txt, llms.txt, auth.md, openapi.json, _headers, .assetsignore
+  robots.txt, sitemap.txt, llms.txt, auth.md, openapi.json, _headers, .assetsignore
   .well-known/  api-catalog, mcp, agent-skills, cats.txt, web-bot-auth JWKS
   videos/       hero-server-racks.webm, hero-poster.{avif,webp,jpg} (+ 768/960w)
 ```

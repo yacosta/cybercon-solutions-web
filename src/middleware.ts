@@ -12,6 +12,7 @@ const agentLinkHeader = [
   '</llms.txt>; rel="service-doc"; type="text/plain"',
   '</auth.md>; rel="service-doc"; type="text/markdown"',
   '</sitemap-index.xml>; rel="describedby"',
+  '</sitemap.txt>; rel="describedby"; type="text/plain"',
   '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',
   '</.well-known/mcp/server-card.json>; rel="mcp"',
 ].join(', ');

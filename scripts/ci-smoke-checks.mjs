@@ -10,7 +10,7 @@
  * Usage: node scripts/ci-smoke-checks.mjs
  */
 
-import { readFile } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
@@ -86,12 +86,103 @@ async function checkLeadDeliveryFailsClosed() {
   ok(label);
 }
 
+function extractLocs(xml) {
+  const locs = [];
+  const re = /<loc>\s*([^<]+?)\s*<\/loc>/g;
+  for (const match of xml.matchAll(re)) {
+    locs.push(
+      match[1]
+        .trim()
+        .replaceAll('&amp;', '&')
+        .replaceAll('&lt;', '<')
+        .replaceAll('&gt;', '>')
+        .replaceAll('&quot;', '"')
+        .replaceAll('&apos;', "'"),
+    );
+  }
+  return locs;
+}
+
+async function checkPlainTextSitemap() {
+  const label = 'sitemap.txt matches XML locs and stays a bare URL list';
+  const txtPath = path.join(root, 'dist/client/sitemap.txt');
+  const publicPath = path.join(root, 'public/sitemap.txt');
+  if (!existsSync(txtPath) || !existsSync(publicPath)) {
+    fail(`${label} — dist/client/sitemap.txt or public/sitemap.txt missing`);
+    return;
+  }
+
+  const built = await readFile(txtPath, 'utf8');
+  const published = await readFile(publicPath, 'utf8');
+  if (built !== published) {
+    fail(`${label} — public/sitemap.txt differs from dist/client/sitemap.txt`);
+    return;
+  }
+  if (!built.endsWith('\n') || built.includes('\n\n') || built.startsWith('\n')) {
+    fail(`${label} — file must be one URL per line with a single trailing newline`);
+    return;
+  }
+
+  const lines = built.trimEnd().split('\n');
+  const bad = lines.filter(
+    (line) =>
+      !line.startsWith('https://cybercon-solutions.com/') ||
+      line.includes(' ') ||
+      line.includes('/search') ||
+      line.includes('/client') ||
+      line.includes('/api/') ||
+      line.includes('/404') ||
+      (line !== 'https://cybercon-solutions.com/' && !line.endsWith('/')),
+  );
+  if (bad.length > 0) {
+    fail(`${label} — unexpected lines: ${bad.slice(0, 5).join(', ')}`);
+    return;
+  }
+  if (lines[0] !== 'https://cybercon-solutions.com/') {
+    fail(`${label} — first URL must be the homepage`);
+    return;
+  }
+
+  const clientDir = path.join(root, 'dist/client');
+  const names = await readdir(clientDir);
+  const xmlUrls = new Set();
+  for (const name of names) {
+    if (!name.startsWith('sitemap') || !name.endsWith('.xml')) continue;
+    const xml = await readFile(path.join(clientDir, name), 'utf8');
+    if (xml.includes('<sitemapindex')) continue;
+    for (const loc of extractLocs(xml)) xmlUrls.add(loc);
+  }
+  const txtUrls = new Set(lines);
+  const missing = [...xmlUrls].filter((url) => !txtUrls.has(url));
+  const extra = [...txtUrls].filter((url) => !xmlUrls.has(url));
+  if (missing.length || extra.length) {
+    fail(
+      `${label} — drift vs XML (missing ${missing.length}, extra ${extra.length})`,
+    );
+    return;
+  }
+
+  const robots = await readFile(path.join(root, 'public/robots.txt'), 'utf8');
+  const headers = await readFile(path.join(root, 'public/_headers'), 'utf8');
+  if (!robots.includes('Sitemap: https://cybercon-solutions.com/sitemap.txt')) {
+    fail(`${label} — robots.txt is missing the sitemap.txt directive`);
+    return;
+  }
+  if (!headers.includes('/sitemap.txt') || !headers.includes('text/plain; charset=utf-8')) {
+    fail(`${label} — _headers must serve sitemap.txt as text/plain`);
+    return;
+  }
+
+  ok(`${label} (${lines.length} URLs)`);
+}
+
 async function main() {
   console.log('Running CI smoke checks…');
   await checkHomepageBuiltAndNotPlaceholder();
   await checkHealthDetailOrAboutPresent();
   await checkSecurityHeaders();
   await checkLeadDeliveryFailsClosed();
+  await checkPlainTextSitemap();
 
   if (failures.length > 0) {
     console.error('\nSmoke checks failed:');

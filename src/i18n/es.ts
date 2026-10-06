@@ -333,6 +333,7 @@ export const es: Messages = {
     privacy: 'Privacidad y cookies',
     accessibility: 'Accesibilidad',
     terms: 'Términos',
+    sitemap: 'Mapa del sitio',
     cookies: 'Configuración de cookies',
     search: 'Buscar',
     siteCheck: 'Revisión gratuita del sitio',

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/wrap-worker-wp-query.mjs && npm run pagefind",
+    "build": "astro build && node scripts/write-sitemap-txt.mjs && node scripts/wrap-worker-wp-query.mjs && npm run pagefind",
     "pagefind": "pagefind --site dist/client --output-path dist/client/pagefind",
     "preview": "astro preview",
     "astro": "astro",

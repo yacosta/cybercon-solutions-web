@@ -69,3 +69,4 @@ Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
 
 Sitemap: https://cybercon-solutions.com/sitemap-index.xml
+Sitemap: https://cybercon-solutions.com/sitemap.txt
