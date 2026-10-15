@@ -1,0 +1,31 @@
+---
+description: >-
+  Always apply commercial web readiness for lead capture, proof attribution,
+  MSP positioning, funnel honesty, and ops fail-closed behavior on feature
+  marketing sites.
+alwaysApply: true
+---
+
+# Commercial web readiness
+
+When editing lead forms, CRM/email delivery, homepage/nav IA, case studies,
+About/leadership, CTAs, local SEO/LocalBusiness, health endpoints, client
+portals, or conversion analytics, read and follow:
+
+`.cursor/skills/commercial-web-readiness/SKILL.md`
+
+(Also see `.cursor/skills/web-quality-standards/SKILL.md` for LCP, a11y, contrast, Zaraz, Co Spanish.)
+
+**Keep the skill current:** when fixing a new commercial/credibility finding, update that skill (and this short list if non-negotiable) in the same PR.
+
+Non-negotiables (details in the skill):
+
+- Production lead endpoints never return `{ ok: true }` on console-only delivery — require Attio and/or Web3Forms (or equivalent durable sink); Attio failure must try the fallback before failing the user.
+- Turnstile is required in production for public forms; missing secret fails closed.
+- Founder-career results are never labeled as company “customers” without documentation — use explicit founder-leadership attribution.
+- Homepage first impression states the primary recurring offer (for Cybercon: managed IT + cybersecurity); secondary projects stay nested.
+- CTA copy must match what the page delivers (no fake instant cost calculator).
+- Mailing/PMB addresses are labeled no customer visits; `areaServed` is the real service area.
+- Public `/api/health` is `{ ok, time }` only; detail is authenticated.
+- Protected `/client` (or equivalent) fails closed when auth is unconfigured.
+- Prefer the skill’s priority order: revenue → credibility → positioning → proof → funnel → traffic.
