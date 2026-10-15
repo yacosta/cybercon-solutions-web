@@ -12,6 +12,18 @@
 /.well-known/mcp/server-card.json
   Content-Type: application/json; charset=utf-8
 
+# Cursor rule — force download so browsers save as .mdc
+/.well-known/agent-skills/project-orchestrator/project-orchestrator.mdc
+  Content-Type: text/markdown; charset=utf-8
+  Content-Disposition: attachment; filename="project-orchestrator.mdc"
+  Cache-Control: public, max-age=86400
+
+/.well-known/agent-skills/project-orchestrator/SKILL.md
+  Content-Type: text/markdown; charset=utf-8
+
+/.well-known/agent-skills/project-orchestrator/references.md
+  Content-Type: text/markdown; charset=utf-8
+
 /llms.txt
   Content-Type: text/plain; charset=utf-8
 

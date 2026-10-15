@@ -9,6 +9,12 @@
       "name": "cybercon-assessment",
       "description": "How to help a visitor request a free technology assessment from Cybercon Solutions.",
       "path": "/.well-known/agent-skills/cybercon-assessment/SKILL.md"
+    },
+    {
+      "name": "project-orchestrator",
+      "description": "User-global multi-agent orchestration: assess complexity, parallel Task workers, verify, and integrate. Includes a downloadable Cursor rule (.mdc).",
+      "path": "/.well-known/agent-skills/project-orchestrator/SKILL.md",
+      "rule": "/.well-known/agent-skills/project-orchestrator/project-orchestrator.mdc"
     }
   ]
 }
