@@ -205,6 +205,75 @@ Website forms already call Attio when `ATTIO_API_KEY` is present. Production is 
 
 Do **not** put the Attio key in GitHub. Only the Worker needs it.
 
+### Internal: Attio ↔ Notion (ops wiki, not the website)
+
+Keep **Attio** as the CRM of record for website leads. Connect **Notion** only for internal docs/ops (playbooks, prospect checklists, meeting notes). Do **not** send form posts from the website to Notion.
+
+Official help: [Attio Notion app](https://attio.com/help/apps/automations-apps/notion-app)
+
+**1. Install the Notion app in Attio** (workspace admin)
+
+1. Attio → workspace name → **Workspace settings → Apps**
+2. Open **Notion** → **Install**
+
+**2. Create a Notion connector + store the token in Attio**
+
+1. In the [Notion developer portal](https://www.notion.so/my-integrations) (or Attio’s linked “New connection” flow), create a connection with **Access token** auth
+2. Enable content capabilities: **Read**, **Insert**, **Update**, plus **Read user information**
+3. Mark it installable in your Notion workspace; copy the token
+4. Attio → **Workspace settings → Apps → Notion → Workspace connection → Connect** → paste the token
+
+**3. Share Notion pages with the connector**
+
+Notion only exposes pages you explicitly share:
+
+1. Open the parent page or database in Notion → **⋯ → Connections → Add connections**
+2. Add your Attio/Notion connector
+
+**Recommended Cybercon starter setup**
+
+Notion database **Website prospects** (target schema):
+
+| Property | Type | Notes |
+|----------|------|--------|
+| **Name** | Title | Mapped from Person full name |
+| **Email** | Email | Add in Notion if missing, then map Person email |
+| **Company** | Text | Mapped from linked Company name |
+| **Source URL** | URL | Set as a **static** value in the workflow (not a Person field) |
+| **Attio URL** | URL | Mapped from Person Attio URL |
+
+**Live workflow (Attio → Notion)** — `Website prospect → Notion` is **On**:
+
+| Notion field | Mapping |
+|--------------|---------|
+| Title (Name) | Person full name |
+| Company | Linked Company → Name |
+| Attio URL | Person Attio URL |
+| Source URL | *(fill next — see below)* |
+| Email | *(add property in Notion first — see below)* |
+
+**If the Person is in Attio but not in Notion**
+
+1. Attio → that workflow → **Runs**: did it fire? Any red error?
+2. Notion → **Website prospects** → **⋯ → Connections** → confirm the Attio Notion connector is added.
+3. **Upsert caveat (most common):** the website uses Attio’s email upsert. A **repeat email updates** an existing Person and does **not** fire **Record created**.  
+   - Quick test: submit `/assessment/` with a **brand-new email**.  
+   - Or change the trigger to also catch updates, e.g. **Record updated** on People (filter: Description contains `Website prospect`), or **Attribute value changed** on Description.
+4. Manually: open the Person in Attio → run the workflow once (if the UI offers **Run** / **Test**) to backfill Notion for that record.
+
+**Finish Email + Source URL**
+
+1. **Email:** In Notion → Website prospects → add property **Email** (type Email). Re-open the Attio workflow action so it reloads the schema, then map **Email** → Person’s email address.
+2. **Source URL:** Edit the same Notion action → set **Source URL** to the literal  
+   `https://cybercon-solutions.com/assessment/`  
+   (do not map from a Person attribute — website source is not a standard Attio People field).
+3. You do **not** need `ATTIO_PROSPECTS_LIST_ID` or a custom Source attribute for this; a static Source URL is enough for assessment leads.
+4. Test: submit https://cybercon-solutions.com/assessment/ with a **new email** → new row in **Website prospects**.
+
+Optional later: **Create page** under a “Won deals” parent when a deal stage changes; **Add content to page** for meeting notes.
+
+No website or Cloudflare secrets are required for Attio ↔ Notion.
+
 ### Auth0 client area (`/client/`)
 
 The login UI and OAuth routes are already in the app. You only need an Auth0 Application + Worker secrets.
