@@ -1,4 +1,4 @@
-# Legacy WordPress / MSP-template URLs → current Astro pages (301).
+# Retired URLs → current pages (301).
 # Applied by Cloudflare Workers static assets. Keep specific rules before splats.
 # See: https://developers.cloudflare.com/workers/static-assets/redirects/
 
@@ -243,8 +243,7 @@
 /managed-backups-disaster-recovery/ /services/backup-disaster-recovery/ 301
 
 # --- Cabling / phone ---
-# /phone-systems/ is a legacy WordPress service URL (GSC "403" after Wordfence/WAF).
-# It is not a live page — 301 to Managed IT so Googlebot follows to indexable content.
+# /phone-systems/ is a retired service URL. It is not a live page — 301 to Managed IT.
 /low-voltage-cabling /services/managed-it/ 301
 /low-voltage-cabling/ /services/managed-it/ 301
 /managed-phone-services /services/managed-it/ 301
@@ -394,9 +393,7 @@
 /home/404-error / 301
 /home/404-error/ / 301
 
-# GSC leftovers from the WordPress site (404 / 5xx). 301 so Google stops recrawling dead URLs.
-# `/?page_id=82` cannot be matched here (Workers _redirects ignore query strings) —
-# see scripts/ensure-wp-query-redirect.mjs / `npm run cf:wp-query-redirect`.
+# Retired URLs that still 404 in Search Console. 301 so Google stops recrawling them.
 /under-construction / 301
 /under-construction/ / 301
 /comments/feed /blog/ 301

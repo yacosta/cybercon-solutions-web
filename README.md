@@ -95,7 +95,7 @@ Add these **GitHub repository secrets** (Settings → Secrets and variables → 
 
 | Secret | Notes |
 |--------|--------|
-| `CLOUDFLARE_FLUSH_CACHE` | **Zone cache purge.** API token with **Zone → Cache Purge → Purge** (and **Zone → Zone → Read**). Zone Resources must include `cybercon-solutions.com`. Deploy reads this first for `npm run cf:purge-cache`. Put it on the **`production` environment** (or repo secrets — both are visible to `deploy.yml`). |
+| `CLOUDFLARE_FLUSH_CACHE` | **Zone token.** API token with **Zone → Cache Purge → Purge**, **Zone → Transform Rules → Edit**, and **Zone → Zone → Read**. Zone Resources must include `cybercon-solutions.com`. Deploy reads this first for `npm run cf:purge-cache` and `npm run cf:zaraz-cache`. Put it on the **`production` environment** (or repo secrets — both are visible to `deploy.yml`). |
 | `CLOUDFLARE_API_TOKEN` | Cloudflare API token with the **Edit Cloudflare Workers** template permissions. That template is account-scoped and **cannot** call zone APIs (purge / Zaraz transform / redirects return 401 code 10000). |
 | `CLOUDFLARE_ZONE_API_TOKEN` | Optional fallback zone token. For Zaraz: **Zone → Transform Rules → Edit** + **Account → Account Rulesets → Read**. |
 | `CLOUDFLARE_ACCOUNT_ID` | Target Cloudflare account ID (`61ffaf16829b400974986c7576f6165d`) |
@@ -122,7 +122,7 @@ Dashboard fallback: Caching → Configuration → Purge Cache → **Purge Everyt
 
 #### Zaraz `s.js` browser cache (Lighthouse)
 
-`/cdn-cgi/zaraz/s.js` is injected by Cloudflare Zaraz — it is **not** covered by `public/_headers`. Deploy runs `npm run cf:zaraz-cache` to upsert a Response Header Transform (`Cache-Control: public, max-age=604800`).
+`/cdn-cgi/zaraz/s.js` is injected by Cloudflare Zaraz — it is **not** covered by `public/_headers`. Deploy runs `npm run cf:zaraz-cache` with `CLOUDFLARE_FLUSH_CACHE` to upsert a Response Header Transform (`Cache-Control: public, max-age=604800`). The Workers `CLOUDFLARE_API_TOKEN` returns 401 on that zone API.
 
 If that step fails (token missing Transform Rules Edit), create the rule once in the dashboard:
 
@@ -130,23 +130,18 @@ If that step fails (token missing Transform Rules Edit), create the rule once in
 2. When: `(starts_with(http.request.uri.path, "/cdn-cgi/zaraz/s.js"))`
 3. Then: Set static → `Cache-Control` = `public, max-age=604800` (7 days)
 
-#### Legacy WordPress URLs (GSC crawl errors)
+#### Retired URLs
 
-Path leftovers live in `public/_redirects` (301, not 404/5xx):
+Old paths live in `public/_redirects` (301, not 404/5xx):
 
 | Old URL | Destination |
 |---------|-------------|
 | `/home/` | `/` |
 | `/under-construction/` | `/` |
 | `/comments/feed/`, `/feed/` | `/blog/` |
-| `/phone-systems/` | `/services/managed-it/` (legacy VoIP page — not a live URL to index) |
-| `/wp-admin/admin-ajax.php` | leave 404 (WordPress backend stub) |
+| `/phone-systems/` | `/services/managed-it/` (retired service URL — not a live page to index) |
 
-`/?page_id=82` (and `?p=`) cannot be matched in `_redirects` — query matching is unsupported. The prerendered homepage would 200 the same HTML, which GSC flags as a soft 404. **`npm run build` wraps the Worker** (`scripts/wrap-worker-wp-query.mjs`) so GitHub `wrangler deploy` 301s those URLs to `/` or `/es/` without extra Cloudflare token scopes. `run_worker_first` is limited to `/` and `/es/` so other prerendered pages stay static-first.
-
-`npm run cf:wp-query-redirect` can still upsert a zone Single Redirect if the token later gains **Redirect Rules Edit**; it is optional (the Worker wrapper is the source of truth).
-
-If Googlebot still sees **403** on a URL that already 301s in `_redirects` (historically `/phone-systems/`), it is zone WAF / Super Bot Fight / leftover WordPress **Automatic Platform Optimization** (`cf-apo-via` on HTML responses) — skip Googlebot in the firewall and disable APO (this site is a Worker, not WordPress). Do not add a new page for a retired slug.
+Keep `/home/` exact. A `/home/*` splat would override the more specific `/home/web-design-development` rules. Do not add a new page for a retired slug.
 
 Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
 

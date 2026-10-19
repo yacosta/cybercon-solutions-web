@@ -46,12 +46,14 @@ jobs:
 
       # Zaraz `/cdn-cgi/zaraz/s.js` is not a Worker asset — set browser Cache-Control
       # via a Response Header Transform Rule so Lighthouse cache-lifetime audits pass.
-      # Zone ID for cybercon-solutions.com (not secret). Token needs Transform Rules Edit;
+      # Zone ID for cybercon-solutions.com (not secret). Prefer CLOUDFLARE_FLUSH_CACHE
+      # (the Workers token 401s zone rulesets). Token needs Transform Rules Edit.
       # continue-on-error so missing permissions do not block Worker deploys.
       - name: Ensure Zaraz s.js browser cache header
         continue-on-error: true
         run: npm run cf:zaraz-cache
         env:
+          CLOUDFLARE_FLUSH_CACHE: ${{ secrets.CLOUDFLARE_FLUSH_CACHE || vars.CLOUDFLARE_FLUSH_CACHE }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_API_TOKEN: ${{ secrets.CLOUDFLARE_ZONE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: 41a145bf2688a227f9e321a31055fe19
@@ -65,17 +67,6 @@ jobs:
         run: npm run cf:purge-cache
         env:
           CLOUDFLARE_FLUSH_CACHE: ${{ secrets.CLOUDFLARE_FLUSH_CACHE || vars.CLOUDFLARE_FLUSH_CACHE }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_API_TOKEN: ${{ secrets.CLOUDFLARE_ZONE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: 41a145bf2688a227f9e321a31055fe19
-
-      # Optional: zone Single Redirect for `/?page_id=` (Worker wrapper already 301s).
-      # Token needs Zone → Redirect Rules Edit; continue-on-error so missing
-      # permissions do not block Worker deploys.
-      - name: Ensure WordPress query permalink 301
-        continue-on-error: true
-        run: npm run cf:wp-query-redirect
-        env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_API_TOKEN: ${{ secrets.CLOUDFLARE_ZONE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: 41a145bf2688a227f9e321a31055fe19

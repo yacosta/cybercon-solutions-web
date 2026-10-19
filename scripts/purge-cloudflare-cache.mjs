@@ -31,7 +31,7 @@ const hostsOnly = process.env.CF_PURGE_HOSTS === '1';
 const PERMISSION_HELP = [
   'Deploy token can wrangler-deploy and (as of 2026-08-17) GET this zone, but POST',
   'purge_cache returns 401 code 10000 unless the token has Zone → Cache Purge → Purge.',
-  'Zaraz transform / WP redirect 403 until those zone permissions are added too.',
+  'Zaraz transform 403 until Zone → Transform Rules → Edit is added too.',
   '',
   'Fix — set GitHub secret CLOUDFLARE_FLUSH_CACHE (production environment or repo)',
   '  to a token with Zone → Cache Purge → Purge and Zone Resources including',
