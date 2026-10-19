@@ -270,7 +270,7 @@ export const en = {
     ctaSecondary: 'See what managed IT includes',
   },
   about: {
-    metaTitle: 'About Yezid Acosta | Cybercon Solutions',
+    metaTitle: 'About Yezid Acosta, CIO and Founder | Cybercon Solutions',
     metaDescription:
       'Yezid Acosta, CIO/CISO and Founder of Cybercon Solutions — 25+ years leading security, infrastructure, cloud, and IT operations for South Florida organizations.',
     eyebrow: 'About',
@@ -296,7 +296,7 @@ export const en = {
   blog: {
     nav: 'Blog',
     eyebrow: 'Blog',
-    indexTitle: 'Blog | Cybercon Solutions',
+    indexTitle: 'Notes on Managed IT, Cybersecurity & AI | Cybercon',
     indexDescription:
       'Practical notes on managed IT, cybersecurity, and enterprise AI for South Florida leaders — measured ROI, governance, and operating discipline.',
     indexHeading: 'Insights for technology leaders',

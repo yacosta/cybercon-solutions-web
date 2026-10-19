@@ -1,6 +1,6 @@
 ---
-title: 'Seguridad del correo que sí frena la suplantación: SPF, DKIM y DMARC'
-description: 'Por qué “tenemos Microsoft 365” no es autenticación del correo. Guía práctica de mercado medio sobre SPF, DKIM y DMARC: alineación, aplicación de políticas y un despliegue que frena la suplantación del dominio.'
+title: 'Seguridad del correo: SPF, DKIM y DMARC'
+description: 'Microsoft 365 no es autenticación del correo. Guía práctica de mercado medio sobre SPF, DKIM y DMARC que frena la suplantación del dominio.'
 pubDate: 2026-08-10
 banner: cybersecurity-lock
 bannerAlt:

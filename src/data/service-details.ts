@@ -254,7 +254,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   cloud: {
     metaTitle: {
-      en: 'Cloud Services in South Florida | Cybercon',
+      en: 'Cloud Services and Architecture | Cybercon Solutions',
       es: 'Servicios de nube en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -328,7 +328,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'it-consulting': {
     metaTitle: {
-      en: 'IT Consulting in South Florida | Cybercon',
+      en: 'IT Consulting and Virtual CIO in Florida | Cybercon',
       es: 'Consultoría de TI en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -412,7 +412,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'backup-disaster-recovery': {
     metaTitle: {
-      en: 'Backup & DR in South Florida | Cybercon',
+      en: 'Backup and Disaster Recovery in Florida | Cybercon',
       es: 'Copia de seguridad y DR | Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -496,7 +496,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'ai-consulting': {
     metaTitle: {
-      en: 'AI Consulting in South Florida | Cybercon',
+      en: 'AI Consulting and Strategy, South Florida | Cybercon',
       es: 'Consultoría de IA en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -580,7 +580,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'ai-integration': {
     metaTitle: {
-      en: 'AI Integration in South Florida | Cybercon',
+      en: 'AI Integration and Automation in Florida | Cybercon',
       es: 'Integración de IA en el Sur de Florida | Cybercon',
     },
     metaDescription: {

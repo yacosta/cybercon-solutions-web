@@ -26,15 +26,17 @@ const copy = buildServiceEditorial(service, details, locale, t);
 const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
 const homePath = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
-const siteCheckHref = `${localePath(locale, '/services/web-design-development/')}#site-check`;
 const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 const showSiteCheck = service.slug === 'web-design-development';
 const showBreachCheck = service.slug === 'cybersecurity';
+const managedItIncluded = `${localePath(locale, '/services/managed-it/')}#included`;
 const secondaryCtaHref = showBreachCheck
   ? '#breach-check'
   : showSiteCheck
     ? '#site-check'
-    : siteCheckHref;
+    : service.slug === 'managed-it'
+      ? '#included'
+      : managedItIncluded;
 const secondaryCtaLabel = showBreachCheck
   ? t.breachCheck.ctaSecondary
   : copy.cta.secondary ?? t.servicePage.ctaSecondary;
@@ -195,7 +197,7 @@ const secondaryCtaLabel = showBreachCheck
         {featureBodyParas.map((paragraph) => <p>{paragraph}</p>)}
       </div>
       {copy.included.length > 0 && (
-        <ul class="wd-included">
+        <ul class="wd-included" id="included">
           {copy.included.map((item) => (
             <li>{item}</li>
           ))}

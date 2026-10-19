@@ -52,7 +52,7 @@ export const site = {
   ogImage: '/og-image.png',
   social: {
     linkedin: 'https://www.linkedin.com/company/cybercon-solutions-llc',
-    x: 'https://x.com/cybercon-solutions',
+    // TODO(owner): verify X/Twitter handle (cannot contain hyphens)
   },
 } as const;
 

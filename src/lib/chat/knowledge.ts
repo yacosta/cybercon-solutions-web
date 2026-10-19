@@ -16,7 +16,6 @@ export function buildKnowledgePack(locale: 'en' | 'es'): string {
 - Teléfono: ${site.phoneDisplay} (${site.phone})
 - Email: ${site.email}
 - LinkedIn: ${site.social.linkedin}
-- X: ${site.social.x}
 - Respuesta: un ingeniero de nuestro equipo responde en un día hábil
 - Modelo: precio predecible por usuario (no cobro por falla) para TI administrada. Sitios web de alcance fijo a precio publicado: Esencial una página $750; Crecimiento cinco páginas $1,150 o diez páginas $1,500; a medida (comercio electrónico, portales, apps, multiidioma) es cotización con alcance por escrito. No inventes otros precios en dólares.
 
@@ -47,7 +46,6 @@ Reglas
 - Phone: ${site.phoneDisplay} (${site.phone})
 - Email: ${site.email}
 - LinkedIn: ${site.social.linkedin}
-- X: ${site.social.x}
 - Response time: we reply within one business day
 - Pricing model: predictable per-user (not break/fix) for managed IT. Website design is published fixed-scope pricing: Essential one-page $750; Growth five pages $1,150 or ten pages $1,500; Custom (e-commerce, portals, apps, multi-language) is a written scoped quote. Never invent other dollar prices.
 

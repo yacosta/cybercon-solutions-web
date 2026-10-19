@@ -2,7 +2,7 @@ export type PrivacyLocale = 'en' | 'es';
 
 export const privacyContent = {
   en: {
-    metaTitle: 'Privacy & Cookie Policy | Cybercon',
+    metaTitle: 'Privacy and Cookie Policy | Cybercon Solutions LLC',
     metaDescription:
       'How Cybercon Solutions collects, uses, and protects your information. Cookie categories, analytics consent, Turnstile, CCPA rights, and contact details.',
     title: 'Privacy & Cookie Policy',
@@ -119,7 +119,7 @@ export const privacyContent = {
     ],
   },
   es: {
-    metaTitle: 'Política de Privacidad y Cookies | Cybercon',
+    metaTitle: 'Política de privacidad y cookies | Cybercon Solutions',
     metaDescription:
       'Cómo Cybercon Solutions recopila, usa y protege tu información. Categorías de cookies, consentimiento de analítica, Turnstile, derechos CCPA y contacto.',
     title: 'Política de Privacidad y Cookies',

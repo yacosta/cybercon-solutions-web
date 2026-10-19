@@ -23,14 +23,14 @@ const catalogs = {
 const hrefs = {
   en: {
     assessment: '/assessment/',
-    siteCheck: '/services/web-design-development/#site-check',
+    siteCheck: '/services/web-design-development/',
     breachCheck: '/services/cybersecurity/#breach-check',
     contact: '/contact/',
     call: phoneHref,
   },
   es: {
     assessment: '/es/assessment/',
-    siteCheck: '/es/services/web-design-development/#site-check',
+    siteCheck: '/es/services/web-design-development/',
     breachCheck: '/es/services/cybersecurity/#breach-check',
     contact: '/es/contact/',
     call: phoneHref,
@@ -262,7 +262,7 @@ const agents = CHAT_AGENTS;
     function defaultCtas() {
       return [
         { id: 'assessment', label: copy.ctaAssessment, href: links.assessment },
-        { id: 'site-check', label: copy.ctaSiteCheck, href: links.siteCheck },
+        { id: 'site-check', label: copy.ctaSiteCheck, href: links.siteCheck + '#' + 'site-check' },
         { id: 'contact', label: copy.ctaContact, href: links.contact },
       ];
     }

@@ -82,7 +82,7 @@ function servicesMarkdown(locale: 'en' | 'es'): string {
 }
 
 const blogIndexEn = `---
-title: "Blog | Cybercon Solutions"
+title: "Notes on Managed IT, Cybersecurity & AI | Cybercon"
 description: "Practical notes on enterprise AI, managed IT, and cybersecurity for South Florida leaders."
 ---
 
@@ -106,7 +106,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 `;
 
 const blogIndexEs = `---
-title: "Blog de TI e IA | Cybercon Solutions"
+title: "Blog de TI administrada, ciberseguridad e IA | Cybercon"
 description: "Notas prácticas sobre IA empresarial, TI administrada y ciberseguridad para líderes del Sur de Florida."
 ---
 
@@ -235,7 +235,7 @@ info@cybercon-solutions.com · (754) 300-9786 · Cooper City & Davie, Florida
 `,
   '/es/': `---
 title: "TI y ciberseguridad en Cooper City y Davie | Cybercon"
-description: "TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y soporte del SOC. Revisión del sitio o evaluación."
+description: "TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y soporte del SOC. Revisión gratuita o evaluación."
 ---
 
 # Cybercon Solutions

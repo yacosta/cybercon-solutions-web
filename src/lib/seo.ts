@@ -85,7 +85,7 @@ export function organizationJsonLd(locale: Locale = 'en') {
     founder: { '@id': `${site.url}/#founder` },
     areaServed: areaServedPlaces(),
     knowsAbout: [...site.knowsAbout],
-    sameAs: [site.social.linkedin, site.social.x],
+    sameAs: [site.social.linkedin],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: copy.contactType,

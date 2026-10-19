@@ -25,7 +25,7 @@ export const industries: Industry[] = [
     },
     metaTitle: {
       en: 'Healthcare IT & HIPAA Support | Cybercon Solutions',
-      es: 'TI para salud y HIPAA | Cybercon Solutions',
+      es: 'TI para clínicas y apoyo HIPAA | Cybercon Solutions',
     },
     metaDescription: {
       en: 'Managed IT and cybersecurity for South Florida clinics and healthcare practices — secure access, HIPAA-aware controls, and clear incident handling.',
@@ -292,7 +292,7 @@ export const industries: Industry[] = [
     },
     metaTitle: {
       en: 'IT for Schools, Churches & Nonprofits | Cybercon',
-      es: 'TI para escuelas, iglesias y ONG | Cybercon',
+      es: 'TI para escuelas, iglesias y ONG | Cybercon Solutions',
     },
     metaDescription: {
       en: 'Affordable, secure managed IT for South Florida schools, churches, foundations, and nonprofits — predictable pricing and support that fits mission work.',
@@ -474,7 +474,7 @@ export const industries: Industry[] = [
     },
     metaDescription: {
       en: 'Managed IT for South Florida warehouses, retailers, and light manufacturing — uptime, inventory systems, and recovery that keep product moving.',
-      es: 'TI para bodegas, comercio e industria ligera en el Sur de Florida: disponibilidad, inventario y recuperación.',
+      es: 'TI para bodegas, comercio e industria ligera en el Sur de Florida: disponibilidad, inventario y recuperación para que el producto siga moviéndose.',
     },
     lede: {
       en: 'When scanners, POS, or the ERP stop, the floor stops. We keep distribution and retail technology running so product keeps moving.',
