@@ -12,6 +12,7 @@ import {
   postDescription,
   postTitle,
 } from '../lib/blog';
+import { blogIndexJsonLd, jsonLdScript } from '../lib/seo';
 
 interface Props {
   locale: 'en' | 'es';
@@ -34,6 +35,20 @@ const homePath = localePath(locale, '/');
     { name: t.blog.nav, path },
   ]}
 >
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={jsonLdScript(
+        blogIndexJsonLd({
+          name: t.blog.indexTitle,
+          description: t.blog.indexDescription,
+          path,
+          locale,
+        }),
+      )}
+    />
+  </Fragment>
+
   <Header slot="header" locale={locale} t={t} variant="light" />
 
   <section class="blog-index container page" data-pagefind-body>

@@ -7,6 +7,86 @@ import { absoluteUrl, formatMailingAddress, site } from './site';
 
 type Locale = 'en' | 'es';
 
+/** JSON-LD node. `@type` may be a single type or a list; extra schema properties are allowed. */
+export type JsonLdNode = {
+  '@context'?: string;
+  '@type'?: string | string[];
+  '@id'?: string;
+  [key: string]: unknown;
+};
+
+const UNION_ARRAY_KEYS = new Set(['@type', 'sameAs', 'knowsAbout']);
+
+function asList(value: unknown): unknown[] {
+  if (value == null) return [];
+  return Array.isArray(value) ? value : [value];
+}
+
+function unionValues(base: unknown, extra: unknown, key: string): unknown {
+  const seen = new Set<string>();
+  const merged: unknown[] = [];
+  for (const item of [...asList(base), ...asList(extra)]) {
+    const signature = typeof item === 'string' ? `s:${item}` : `j:${JSON.stringify(item)}`;
+    if (seen.has(signature)) continue;
+    seen.add(signature);
+    merged.push(item);
+  }
+  if (key === '@type') {
+    const baseWasArray = Array.isArray(base);
+    const extraWasArray = Array.isArray(extra);
+    if (merged.length === 1 && !baseWasArray && !extraWasArray) return merged[0];
+    return merged;
+  }
+  return merged;
+}
+
+function isPlainObject(value: unknown): value is JsonLdNode {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+/** Later defined values win. `undefined` does not overwrite. Union-merge listed arrays. */
+export function mergeJsonLdNodes(base: JsonLdNode, extra: JsonLdNode): JsonLdNode {
+  const out: JsonLdNode = { ...base };
+  for (const [key, value] of Object.entries(extra)) {
+    if (value === undefined) continue;
+    if (UNION_ARRAY_KEYS.has(key)) {
+      out[key] = unionValues(out[key], value, key);
+      continue;
+    }
+    if (isPlainObject(value) && isPlainObject(out[key])) {
+      out[key] = mergeJsonLdNodes(out[key], value);
+      continue;
+    }
+    out[key] = value;
+  }
+  return out;
+}
+
+/**
+ * Combine nodes into one @graph. Nodes that share an @id are merged
+ * instead of replaced, so a later `@type: "Organization"` cannot drop
+ * `["LocalBusiness", "ProfessionalService"]`.
+ */
+export function buildConnectedGraph(nodes: JsonLdNode[]): JsonLdNode {
+  const byId = new Map<string, JsonLdNode>();
+  const anonymous: JsonLdNode[] = [];
+  for (const node of nodes) {
+    const { '@context': _context, ...rest } = node;
+    const current = rest as JsonLdNode;
+    const id = typeof current['@id'] === 'string' ? current['@id'] : '';
+    if (!id) {
+      anonymous.push(current);
+      continue;
+    }
+    const previous = byId.get(id);
+    byId.set(id, previous ? mergeJsonLdNodes(previous, current) : current);
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [...byId.values(), ...anonymous],
+  };
+}
+
 function areaServedPlaces() {
   return [
     {
@@ -55,6 +135,9 @@ const orgCopy: Record<
 
 export function organizationJsonLd(locale: Locale = 'en') {
   const copy = orgCopy[locale];
+  // TODO(owner): Google Business Profile URL and Google Maps URL (hasMap); verify against PMB service-area rules
+  // TODO(owner): GeoCoordinates (geo) and openingHoursSpecification
+  // TODO(owner): third-party directory URLs for sameAs (Clutch, etc.)
   return {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'ProfessionalService'],
@@ -336,6 +419,10 @@ export function articleJsonLd(opts: {
   datePublished: Date;
   dateModified: Date;
   locale: Locale;
+  /** Named entities rendered as about/mentions. Omit when empty. */
+  entities?: string[];
+  /** Sources rendered as citation. Omit when empty. */
+  sources?: string[];
 }) {
   return {
     '@context': 'https://schema.org',
@@ -355,22 +442,48 @@ export function articleJsonLd(opts: {
       url: absoluteUrl(opts.locale === 'es' ? site.founder.aboutPathEs : site.founder.aboutPath),
       worksFor: { '@id': `${site.url}/#organization` },
     },
-    publisher: {
-      '@type': 'Organization',
-      name: site.name,
-      logo: {
-        '@type': 'ImageObject',
-        url: absoluteUrl('/cybercon-mark.svg'),
-      },
-    },
+    publisher: { '@id': `${site.url}/#organization` },
     mainEntityOfPage: {
       '@type': 'WebPage',
       '@id': absoluteUrl(opts.path),
     },
+    ...(opts.entities && opts.entities.length
+      ? {
+          about: opts.entities.map((name) => ({ '@type': 'Thing', name })),
+          mentions: opts.entities.map((name) => ({ '@type': 'Thing', name })),
+        }
+      : {}),
+    ...(opts.sources && opts.sources.length
+      ? {
+          citation: opts.sources.map((source) =>
+            /^https?:\/\//i.test(source) ? source : { '@type': 'CreativeWork', name: source },
+          ),
+        }
+      : {}),
+  };
+}
+
+export function blogIndexJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  locale: Locale;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['Blog', 'CollectionPage'],
+    '@id': `${absoluteUrl(opts.path)}#webpage`,
+    name: opts.name,
+    description: opts.description,
+    url: absoluteUrl(opts.path),
+    inLanguage: opts.locale === 'es' ? 'es-US' : 'en-US',
+    isPartOf: { '@id': `${site.url}/#website` },
+    about: { '@id': `${site.url}/#organization` },
   };
 }
 
 export function founderPersonJsonLd(locale: Locale = 'en') {
+  // TODO(owner): personal LinkedIn URL and certifications/credentials for Yezid Acosta
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -380,10 +493,12 @@ export function founderPersonJsonLd(locale: Locale = 'en') {
     url: absoluteUrl(locale === 'es' ? site.founder.aboutPathEs : site.founder.aboutPath),
     worksFor: { '@id': `${site.url}/#organization` },
     knowsAbout: [...site.knowsAbout],
-    sameAs: [site.social.linkedin],
   };
 }
 
 export function jsonLdScript(data: unknown): string {
-  return JSON.stringify(data).replace(/</g, '\\u003c');
+  return JSON.stringify(data)
+    .replace(/</g, '\\u003c')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
 }

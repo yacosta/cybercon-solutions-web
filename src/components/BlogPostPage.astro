@@ -68,6 +68,8 @@ const aboutHref = localePath(locale, '/about/');
           datePublished: post.data.pubDate,
           dateModified: post.data.updatedDate ?? post.data.pubDate,
           locale,
+          entities: post.data.entities,
+          sources: post.data.sources,
         }),
       )}
     />
