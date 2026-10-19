@@ -8,6 +8,7 @@ import { aiSecurityPage } from '../data/ai-security-page';
 import { getMessages, localePath } from '../i18n';
 import { site } from '../lib/site';
 import { faqPageJsonLd, jsonLdScript, webPageJsonLd } from '../lib/seo';
+import lastmodManifest from '../data/lastmod.json';
 
 interface Props {
   locale: 'en' | 'es';
@@ -21,6 +22,19 @@ const homePath = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
 const cyberHref = localePath(locale, '/services/cybersecurity/');
 const phoneHref = `tel:${site.phone.replace(/\+/g, '')}`;
+const reviewedIso = (lastmodManifest.urls as Record<string, string>)[path];
+const reviewedLabel = reviewedIso
+  ? new Intl.DateTimeFormat(locale === 'es' ? 'es-US' : 'en-US', {
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(new Date(reviewedIso))
+  : '';
+const reviewedLine = reviewedLabel
+  ? locale === 'es'
+    ? `Última revisión: ${reviewedLabel}`
+    : `Last reviewed: ${reviewedLabel}`
+  : '';
 
 const faqs = copy.faq.items;
 const banner = {
@@ -91,6 +105,7 @@ const banner = {
         <p class="ais-eyebrow ais-reveal ais-reveal-delay-1">{copy.hero.eyebrow[locale]}</p>
         <h1 id="ais-hero-title" class="ais-reveal ais-reveal-delay-2">{copy.hero.title[locale]}</h1>
         <p class="ais-hero-lede ais-reveal ais-reveal-delay-3">{copy.hero.lede[locale]}</p>
+        {reviewedLine && <p class="ais-reviewed">{reviewedLine}</p>}
         <div class="ais-hero-actions ais-reveal ais-reveal-delay-4">
           <a class="btn btn-primary" href={assessmentHref}>{copy.hero.cta[locale]}</a>
           <a class="ais-text-link" href="#ai-readiness">{copy.hero.ctaSecondary[locale]}</a>
@@ -425,6 +440,12 @@ const banner = {
     line-height: 1.55;
     color: rgba(255, 255, 255, 0.9);
     max-width: 38rem;
+  }
+
+  .ais-reviewed {
+    margin: -0.75rem 0 1.25rem;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 0.8125rem;
   }
 
   .ais-hero-actions {

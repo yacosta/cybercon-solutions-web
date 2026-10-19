@@ -50,8 +50,8 @@ function explicitSlugDates(source) {
   let match;
   while ((match = re.exec(source))) {
     const before = source.slice(0, match.index);
-    const keys = [...before.matchAll(/'([a-z0-9-]+)':\s*\{/g)];
-    const slug = keys.at(-1)?.[1];
+    const keys = [...before.matchAll(/^  (?:'([a-z0-9-]+)'|([A-Za-z][A-Za-z0-9-]*)): \{/gm)];
+    const slug = keys.at(-1)?.[1] ?? keys.at(-1)?.[2];
     if (slug) dates[slug] = match[1];
   }
   return dates;
@@ -121,3 +121,9 @@ if (/<lastmod>[^<]*<\/lastmod>/.test(index)) {
 }
 await writeFile(indexPath, index);
 console.log(`apply-sitemap-lastmod: index lastmod ${newest.value}`);
+
+// Astro emits prerendered feeds under dist/client. Mirror the paths the
+// verifier checks (`dist/rss.xml`, `dist/es/rss.xml`).
+await mkdir(path.join(root, 'dist/es'), { recursive: true });
+await copyFile(path.join(clientDir, 'rss.xml'), path.join(root, 'dist/rss.xml'));
+await copyFile(path.join(clientDir, 'es/rss.xml'), path.join(root, 'dist/es/rss.xml'));

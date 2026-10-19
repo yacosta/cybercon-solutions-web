@@ -9,6 +9,7 @@ import { getServiceDetails } from '../data/service-details';
 import { buildServiceEditorial } from '../lib/service-editorial';
 import { getMessages, localePath } from '../i18n';
 import { faqPageJsonLd, jsonLdScript, serviceJsonLd, webDesignOfferCatalogJsonLd } from '../lib/seo';
+import lastmodManifest from '../data/lastmod.json';
 
 interface Props {
   locale: 'en' | 'es';
@@ -40,6 +41,21 @@ const secondaryCtaHref = showBreachCheck
 const secondaryCtaLabel = showBreachCheck
   ? t.breachCheck.ctaSecondary
   : copy.cta.secondary ?? t.servicePage.ctaSecondary;
+const manifestUrls = lastmodManifest.urls as Record<string, string>;
+const reviewedIso = details.lastReviewed ?? manifestUrls[path];
+const reviewedLabel = reviewedIso
+  ? new Intl.DateTimeFormat(locale === 'es' ? 'es-US' : 'en-US', {
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(new Date(reviewedIso))
+  : '';
+const reviewedLine = reviewedLabel
+  ? locale === 'es'
+    ? `Última revisión: ${reviewedLabel}`
+    : `Last reviewed: ${reviewedLabel}`
+  : '';
+const directAnswer = details.directAnswer?.[locale];
 ---
 
 <BaseLayout
@@ -84,8 +100,10 @@ const secondaryCtaLabel = showBreachCheck
 
     <section class="wd-hero wd-hero-cta-split container" aria-labelledby="wd-hero-title">
       <h1 id="wd-hero-title" class="wd-hero-title">{copy.displayTitle}</h1>
+      {directAnswer && <p class="wd-direct-answer" data-direct-answer>{directAnswer}</p>}
       <div class="wd-hero-copy">
         <p class="wd-hero-lede">{copy.lede}</p>
+        {reviewedLine && <p class="wd-reviewed">{reviewedLine}</p>}
       </div>
       <div class="wd-hero-cta-col">
         <div class="wd-hero-actions">
@@ -357,6 +375,22 @@ const secondaryCtaLabel = showBreachCheck
     line-height: 1.05;
     max-width: 16ch;
     margin: 0 0 1.25rem;
+  }
+
+  .wd-direct-answer {
+    grid-column: 1 / -1;
+    margin: 0.35rem 0 0;
+    max-width: 46rem;
+    color: var(--body);
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .wd-reviewed {
+    margin: 0.85rem 0 0;
+    color: var(--muted-blue);
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
   }
 
   .wd-hero-lede {

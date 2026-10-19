@@ -48,6 +48,7 @@ function industryPageMarkdown(slug: string, locale: 'en' | 'es'): string | null 
     .map((item) => `### ${item.title[locale]}\n\n${item.body[locale]}`)
     .join('\n\n');
   const challenges = industry.challenges.map((item) => `- ${item[locale]}`).join('\n');
+  const directAnswer = industry.directAnswer?.[locale];
   return `---
 title: "${industry.metaTitle[locale]}"
 description: "${industry.metaDescription[locale]}"
@@ -55,7 +56,7 @@ description: "${industry.metaDescription[locale]}"
 
 # ${industry.title[locale]}
 
-${industry.lede[locale]}
+${directAnswer ? `${directAnswer}\n\n` : ''}${industry.lede[locale]}
 
 ${industry.overview[locale]}
 
@@ -519,6 +520,42 @@ function termsToMarkdown(locale: 'en' | 'es'): string {
   }
 
   return parts.join('\n');
+}
+
+function servicePageMarkdown(slug: string, locale: 'en' | 'es'): string | null {
+  const service = services.find((item) => item.slug === slug);
+  const details = getServiceDetails(slug);
+  if (!service || !details) return null;
+  const directAnswer = details.directAnswer?.[locale];
+  const faqs = details.faqs
+    .map((faq) => `### ${faq.question[locale]}\n\n${faq.answer[locale]}`)
+    .join('\n\n');
+  return `---
+title: "${details.metaTitle[locale]}"
+description: "${details.metaDescription[locale]}"
+---
+
+# ${service.title[locale]}
+
+${directAnswer ? `${directAnswer}\n\n` : ''}${details.overview[locale]}
+
+## ${locale === 'es' ? 'Preguntas frecuentes' : 'FAQ'}
+
+${faqs}
+`;
+}
+
+for (const service of services) {
+  const enPage = servicePageMarkdown(service.slug, 'en');
+  const esPage = servicePageMarkdown(service.slug, 'es');
+  if (enPage) {
+    pages[`/services/${service.slug}/`] = enPage;
+    pages[`/services/${service.slug}`] = enPage;
+  }
+  if (esPage) {
+    pages[`/es/services/${service.slug}/`] = esPage;
+    pages[`/es/services/${service.slug}`] = esPage;
+  }
 }
 
 export function getPageMarkdown(pathname: string): string | null {

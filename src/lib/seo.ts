@@ -3,6 +3,7 @@ import type { LocaleText } from '../data/service-details';
 import { getServiceDetails } from '../data/service-details';
 import { webDesignPage } from '../data/web-design-page';
 import { getServiceFeatureImagePath } from './service-editorial';
+import lastmodManifest from '../data/lastmod.json';
 import { absoluteUrl, formatMailingAddress, site } from './site';
 
 type Locale = 'en' | 'es';
@@ -303,6 +304,8 @@ export function serviceJsonLd(service: (typeof services)[number], locale: Locale
   const path = locale === 'es' ? `/es/services/${service.slug}/` : `/services/${service.slug}/`;
   const details = getServiceDetails(service.slug);
   const imagePath = getServiceFeatureImagePath(service.slug);
+  const manifestUrls = lastmodManifest.urls as Record<string, string>;
+  const dateModified = details?.lastReviewed ?? manifestUrls[path];
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -313,6 +316,7 @@ export function serviceJsonLd(service: (typeof services)[number], locale: Locale
     provider: { '@id': `${site.url}/#organization` },
     areaServed: areaServedPlaces(),
     serviceType: service.title[locale],
+    ...(dateModified ? { dateModified } : {}),
   };
 }
 

@@ -6,6 +6,8 @@ export type Industry = {
   summary: LocaleText;
   metaTitle: LocaleText;
   metaDescription: LocaleText;
+  /** 40–60 word answer-first paragraph. Claims must already appear on this page. */
+  directAnswer?: LocaleText;
   lede: LocaleText;
   overview: LocaleText;
   challengesLabel: LocaleText;
