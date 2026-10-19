@@ -17,7 +17,8 @@
     "cf:zaraz-cache": "node scripts/ensure-zaraz-cache-header.mjs",
     "cf:purge-cache": "node scripts/purge-cloudflare-cache.mjs",
     "cf:wp-query-redirect": "node scripts/ensure-wp-query-redirect.mjs",
-    "seo:lengths": "node scripts/seo-lengths.mjs"
+    "seo:lengths": "node scripts/seo-lengths.mjs",
+    "seo:verify": "node scripts/seo-verify.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.2.5",
