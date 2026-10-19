@@ -8,7 +8,8 @@
  * "Use efficient cache lifetimes" when Cache-Control is missing.
  *
  * Required env:
- *   CLOUDFLARE_API_TOKEN  — needs Zone Transform Rules Edit (+ Account Rulesets Read)
+ *   CLOUDFLARE_FLUSH_CACHE or CLOUDFLARE_ZONE_API_TOKEN — Zone Transform Rules Edit
+ *   CLOUDFLARE_API_TOKEN is only a fallback; the Workers token 401s this API
  *   CLOUDFLARE_ZONE_ID    — zone id for cybercon-solutions.com
  *                           (default: 41a145bf2688a227f9e321a31055fe19)
  *

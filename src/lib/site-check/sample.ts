@@ -49,7 +49,7 @@ export function getSampleResult(locale: SiteCheckLocale | string = 'en'): SiteCh
       ? 'La política de privacidad todavía contiene texto de plantilla sin terminar donde deberían ir el título de la página y el correo de contacto. Los visitantes lo notan — y es el tipo de corrección que mapearíamos en una llamada breve de evaluación.'
       : 'The privacy policy still contains unfinished template text where a page title and contact email should be. Visitors notice that — and it is the kind of fix we would map on a short assessment call.',
     additional_findings_count: 4,
-    tech_chips: ['WordPress', 'MySQL', 'PHP', 'Cloudflare'],
+    tech_chips: ['Cloudflare', 'HTTPS'],
     sample: true,
   };
 }
