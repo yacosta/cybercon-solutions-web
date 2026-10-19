@@ -1,5 +1,5 @@
 ---
-title: 'Una estrategia digital y de tecnología que la junta puede financiar: caso en un nonprofit de Miami'
+title: 'Caso: estrategia digital de una ONG en Miami'
 description: 'Antes de fundar Cybercon Solutions, Yezid Acosta lideró la actualización de la Estrategia Digital y de Tecnología 2026–2029 de un nonprofit de Miami.'
 pubDate: 2026-08-12
 customerIndustry: nonprofit

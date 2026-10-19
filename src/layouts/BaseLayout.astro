@@ -4,7 +4,7 @@ import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?
 import soraLatin700 from '@fontsource/sora/files/sora-latin-700-normal.woff2?url';
 import { getMessages, localePath } from '../i18n';
 import { absoluteUrl, site } from '../lib/site';
-import { breadcrumbJsonLd, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
+import { breadcrumbJsonLd, buildConnectedGraph, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
 import ApolloTracker from '../components/ApolloTracker.astro';
@@ -56,11 +56,11 @@ const htmlLang = locale === 'es' ? 'es' : 'en';
 const ogImageWidth = ogImagePath ? '1280' : '1200';
 const ogImageHeight = ogImagePath ? '854' : '630';
 
-const structuredData = [
+const structuredData = buildConnectedGraph([
   organizationJsonLd(locale),
   websiteJsonLd(locale),
   ...(breadcrumbs?.length ? [breadcrumbJsonLd(breadcrumbs)] : []),
-];
+]);
 ---
 
 <!doctype html>
@@ -119,6 +119,12 @@ const structuredData = [
     <link rel="icon" type="image/svg+xml" href="/cybercon-mark.svg" />
     <link rel="icon" href="/cybercon-mark.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={locale === 'es' ? 'Blog de Cybercon Solutions (RSS)' : 'Cybercon Solutions blog (RSS)'}
+      href={locale === 'es' ? '/es/rss.xml' : '/rss.xml'}
+    />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="sitemap" type="text/plain" href="/sitemap.txt" title="Plain-text sitemap" />
 
@@ -126,9 +132,7 @@ const structuredData = [
     <link rel="preload" href={interLatin400} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={soraLatin700} as="font" type="font/woff2" crossorigin />
 
-    {structuredData.map((data) => (
-      <script type="application/ld+json" set:html={jsonLdScript(data)} />
-    ))}
+    <script type="application/ld+json" set:html={jsonLdScript(structuredData)} />
 
     {/*
       Google Consent Mode v2 defaults: deny non-essential storage before any tags.

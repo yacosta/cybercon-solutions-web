@@ -1,5 +1,5 @@
 ---
-title: 'A Digital and Tech Strategy the Board Can Fund: A Miami Nonprofit Case Study'
+title: 'Miami Nonprofit Tech Strategy Case Study'
 description: 'Before founding Cybercon Solutions, Yezid Acosta led a Miami nonprofit’s Digital and Tech Strategy for 2026–2029 — phased funding, AI scoping, Zero Trust.'
 pubDate: 2026-08-12
 customerIndustry: nonprofit

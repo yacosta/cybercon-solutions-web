@@ -1,6 +1,6 @@
 ---
-title: 'Caso: TI de retail en seis países'
-description: 'Antes de fundar Cybercon Solutions, Yezid Acosta lideró TI de retail en seis países y 50+ boutiques — estándares, proveedores y vínculo con la HQ global.'
+title: 'Caso de estudio: TI de comercio en seis países'
+description: 'Antes de fundar Cybercon Solutions, Yezid Acosta lideró TI de comercio en seis países y 50+ boutiques — estándares, proveedores y vínculo con la HQ global.'
 pubDate: 2026-08-03
 customerIndustry: retail
 storyAttribution: founder-leadership

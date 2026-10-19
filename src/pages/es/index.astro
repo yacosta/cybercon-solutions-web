@@ -12,6 +12,7 @@ import FitCoverageSection from '../../components/FitCoverageSection.astro';
 import AssessmentForm from '../../components/AssessmentForm.astro';
 import IndustriesSection from '../../components/IndustriesSection.astro';
 import { getMessages } from '../../i18n';
+import { jsonLdScript, webPageJsonLd } from '../../lib/seo';
 
 const locale = 'es' as const;
 const t = getMessages(locale);
@@ -26,6 +27,18 @@ const t = getMessages(locale);
     imagesrcset="/videos/hero-poster-768.avif 768w, /videos/hero-poster-960.avif 960w, /videos/hero-poster.avif 1280w"
     imagesizes="100vw"
     fetchpriority="high"
+  />
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={jsonLdScript(
+      webPageJsonLd({
+        name: t.meta.title,
+        description: t.meta.description,
+        path: '/es/',
+        locale,
+      }),
+    )}
   />
 
   <div slot="header" class="hero-shell">

@@ -4,7 +4,7 @@ export const es: Messages = {
   meta: {
     title: 'TI y ciberseguridad en Cooper City y Davie | Cybercon',
     description:
-      'TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y seguridad con soporte del SOC. Revisión gratuita o evaluación.',
+      'TI predecible por usuario en el Sur de Florida — sin sorpresas por fallas. Mesa 24/7, monitoreo y soporte del SOC. Revisión gratuita o evaluación.',
   },
   nav: {
     search: 'Buscar',
@@ -132,19 +132,19 @@ export const es: Messages = {
       {
         title: 'Operar',
         body: 'Mesa de ayuda, monitoreo, parcheo, gestión de dispositivos y soporte en sitio — para que tu gente no tenga que hacer de TI.',
-        href: '/es/services/managed-it/',
+        href: '/services/managed-it/',
         link: 'Qué incluye la TI administrada',
       },
       {
         title: 'Proteger',
         body: 'Endpoint, identidad, correo, monitoreo del SOC, copias de seguridad, recuperación y cumplimiento, ajustados a cómo operas de verdad.',
-        href: '/es/services/cybersecurity/',
+        href: '/services/cybersecurity/',
         link: 'Qué incluye la ciberseguridad',
       },
       {
         title: 'Planificar',
         body: 'Asesoría de vCIO, presupuesto, planes estratégicos, gestión de proveedores, QBR y gobernanza de IA — con un ingeniero que puede hacerse cargo de la conversación sobre el P&G.',
-        href: '/es/services/it-consulting/',
+        href: '/services/it-consulting/',
         link: 'Qué incluye la asesoría de TI',
       },
     ],
@@ -273,7 +273,7 @@ export const es: Messages = {
     ctaSecondary: 'Mira qué incluye la TI administrada',
   },
   about: {
-    metaTitle: 'Sobre Yezid Acosta | Cybercon Solutions',
+    metaTitle: 'Sobre Yezid Acosta, fundador de Cybercon Solutions',
     metaDescription:
       'Yezid Acosta, CIO/CISO y fundador de Cybercon Solutions — más de 25 años liderando seguridad, infraestructura, nube y operaciones de TI en el Sur de Florida.',
     eyebrow: 'Nosotros',
@@ -299,7 +299,7 @@ export const es: Messages = {
   blog: {
     nav: 'Blog',
     eyebrow: 'Blog',
-    indexTitle: 'Blog de TI e IA | Cybercon Solutions',
+    indexTitle: 'Blog de TI administrada, ciberseguridad e IA | Cybercon',
     indexDescription:
       'Notas prácticas sobre TI administrada, ciberseguridad e IA empresarial para líderes del Sur de Florida — ROI medible, gobernanza y disciplina operativa.',
     indexHeading: 'Perspectivas para líderes de tecnología',

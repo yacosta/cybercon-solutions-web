@@ -1,6 +1,6 @@
 ---
-title: 'Email Security That Actually Stops Spoofing: SPF, DKIM, and DMARC'
-description: 'Why “we have Microsoft 365” is not email authentication. A practical mid-market guide to SPF, DKIM, and DMARC — alignment, enforcement, and a rollout that stops domain spoofing.'
+title: 'Email Security with SPF, DKIM, and DMARC'
+description: 'Microsoft 365 alone is not email authentication. A practical mid-market guide to SPF, DKIM, and DMARC that stops domain spoofing.'
 pubDate: 2026-08-10
 banner: cybersecurity-lock
 bannerAlt:

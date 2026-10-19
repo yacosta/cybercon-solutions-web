@@ -22,7 +22,7 @@ export type AccessibilitySection = {
 
 export const accessibilityContent = {
   en: {
-    metaTitle: 'Accessibility Statement | Cybercon',
+    metaTitle: 'Website Accessibility Statement | Cybercon Solutions',
     metaDescription:
       'How Cybercon Solutions works toward WCAG 2.2 Level AA on cybercon-solutions.com, what we are improving, and how to report accessibility barriers.',
     title: 'Accessibility Statement',
@@ -92,7 +92,7 @@ export const accessibilityContent = {
     ] satisfies AccessibilitySection[],
   },
   es: {
-    metaTitle: 'Declaración de accesibilidad | Cybercon',
+    metaTitle: 'Declaración de accesibilidad del sitio | Cybercon Solutions',
     metaDescription:
       'Cómo Cybercon Solutions trabaja hacia WCAG 2.2 Nivel AA en cybercon-solutions.com, qué mejoramos y cómo reportar barreras de accesibilidad.',
     title: 'Declaración de accesibilidad',

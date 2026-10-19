@@ -3,6 +3,10 @@ export type LocaleText = { en: string; es: string };
 export type ServiceDetails = {
   metaTitle: LocaleText;
   metaDescription: LocaleText;
+  /** ISO date (YYYY-MM-DD) when the visible service page was last reviewed. */
+  lastReviewed?: string;
+  /** 40–60 word answer-first paragraph. Claims must already appear on this page. */
+  directAnswer?: LocaleText;
   audience: LocaleText;
   overview: LocaleText;
   process: { title: LocaleText; body: LocaleText }[];
@@ -11,6 +15,12 @@ export type ServiceDetails = {
 
 export const serviceDetails: Record<string, ServiceDetails> = {
   'managed-it': {
+    lastReviewed: '2026-10-19',
+    // TODO(owner): publish a "from $X per user/month" range and matching Offer markup
+    directAnswer: {
+      en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida. Pricing is packaged per user so monthly costs stay predictable.',
+      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI tercerizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda en sitio para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.',
+    },
     metaTitle: {
       en: 'Managed IT Services in South Florida | Cybercon',
       es: 'TI administrada en el Sur de Florida | Cybercon',
@@ -24,8 +34,8 @@ export const serviceDetails: Record<string, ServiceDetails> = {
       es: 'Organizaciones en crecimiento en Cooper City, Davie y zonas cercanas del sur de Florida que quieren un proveedor de TI fiable sin armar un departamento interno completo. Encaja cuando las facturas por falla son impredecibles, los tickets se alargan o la dirección necesita un solo equipo responsable de la tecnología diaria.',
     },
     overview: {
-      en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida.\n\nPricing is packaged per user so monthly costs stay predictable. You get proactive maintenance instead of waiting for the next outage, and a clear owner when priorities compete.',
-      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI tercerizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda en sitio para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.\n\nEl precio va por usuario para que el costo mensual sea predecible. Obtienes mantenimiento proactivo en lugar de esperar la próxima caída, y un responsable claro cuando hay prioridades en conflicto.',
+      en: 'Cybercon Solutions runs managed IT as your outsourced IT department: we monitor endpoints and servers, patch on a schedule, and answer when something breaks. Support is local and available 24/7/365 by phone, with onsite help for hardware failures, network issues, rollouts, and office moves across South Florida.\n\nYour outsourced IT department, packaged per user. Pricing is packaged per user so monthly costs stay predictable. You get proactive maintenance instead of waiting for the next outage, and a clear owner when priorities compete.',
+      es: 'Cybercon Solutions opera la TI administrada como tu departamento de TI tercerizado: monitoreamos endpoints y servidores, aplicamos parches con calendario y respondemos cuando algo falla. El soporte es local y está disponible 24/7/365 por teléfono, con ayuda en sitio para fallos de hardware, red, despliegues y mudanzas de oficina en el sur de Florida.\n\nTu departamento de TI tercerizado, con paquete por usuario. El precio va por usuario para que el costo mensual sea predecible. Obtienes mantenimiento proactivo en lugar de esperar la próxima caída, y un responsable claro cuando hay prioridades en conflicto.',
     },
     process: [
       {
@@ -105,6 +115,11 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   },
 
   cybersecurity: {
+    lastReviewed: '2026-10-19',
+    directAnswer: {
+      en: 'We combine endpoint protection (EDR/XDR), firewalls, and layered threat detection with 24/7 SOC monitoring, SIEM logging, and incident response. Compliance support maps your environment to HIPAA, SOC 2, PCI DSS, and GLBA. We size controls for growing South Florida businesses that need security that fits operations, not a binder on a shelf.',
+      es: 'Combinamos protección de endpoints (EDR/XDR), firewalls y detección en capas con monitoreo SOC 24/7, registro SIEM y respuesta a incidentes. El apoyo al cumplimiento alinea tu entorno con HIPAA, SOC 2, PCI DSS y GLBA. Dimensionamos controles para empresas en crecimiento del sur de Florida que necesitan seguridad operable, no un manual que nadie usa.',
+    },
     metaTitle: {
       en: 'Cybersecurity & Compliance in South Florida | Cybercon',
       es: 'Ciberseguridad y cumplimiento | Sur de Florida | Cybercon',
@@ -254,7 +269,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   cloud: {
     metaTitle: {
-      en: 'Cloud Services in South Florida | Cybercon',
+      en: 'Cloud Services and Architecture | Cybercon Solutions',
       es: 'Servicios de nube en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -328,7 +343,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'it-consulting': {
     metaTitle: {
-      en: 'IT Consulting in South Florida | Cybercon',
+      en: 'IT Consulting and Virtual CIO in Florida | Cybercon',
       es: 'Consultoría de TI en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -411,8 +426,13 @@ export const serviceDetails: Record<string, ServiceDetails> = {
   },
 
   'backup-disaster-recovery': {
+    lastReviewed: '2026-10-19',
+    directAnswer: {
+      en: 'We implement automated backups, off-site replication, and recovery validation so you know restores work before you need them. Protection covers the systems that keep Cooper City and Davie operations running, with monitoring so failures do not go unnoticed. Disaster recovery planning focuses on clear recovery points and realistic timelines.',
+      es: 'Implementamos copias de seguridad automatizadas, replicación externa y validación de recuperación para saber que las restauraciones funcionan antes de necesitarlas. La protección cubre los sistemas que mantienen la operación en Cooper City y Davie, con monitoreo para que los fallos no pasen desapercibidos. La planificación ante desastres se centra en puntos de recuperación claros y plazos realistas.',
+    },
     metaTitle: {
-      en: 'Backup & DR in South Florida | Cybercon',
+      en: 'Backup and Disaster Recovery in Florida | Cybercon',
       es: 'Copia de seguridad y DR | Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -496,7 +516,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'ai-consulting': {
     metaTitle: {
-      en: 'AI Consulting in South Florida | Cybercon',
+      en: 'AI Consulting and Strategy, South Florida | Cybercon',
       es: 'Consultoría de IA en el Sur de Florida | Cybercon',
     },
     metaDescription: {
@@ -580,7 +600,7 @@ export const serviceDetails: Record<string, ServiceDetails> = {
 
   'ai-integration': {
     metaTitle: {
-      en: 'AI Integration in South Florida | Cybercon',
+      en: 'AI Integration and Automation in Florida | Cybercon',
       es: 'Integración de IA en el Sur de Florida | Cybercon',
     },
     metaDescription: {

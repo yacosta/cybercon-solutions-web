@@ -115,7 +115,12 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
 
 ## SEO baselines
 
-- Unique, descriptive titles and meta descriptions per locale. Prefer **≤60 characters** for titles and **≤155–160** for meta descriptions (SERP soft caps); when humanizing ES copy, re-trim metas — glossary expansions (`copia de seguridad`, `libro de tácticas`, longer industry phrasing) often push ES past EN. Blog post `<title>` tags append ` | Cybercon` in `BlogPostPage.astro` — keep frontmatter titles short enough that the full string stays ≤60.
+- Unique, descriptive titles and meta descriptions per locale. Soft targets are **50–60** characters for `<title>` and **120–155** for meta descriptions. Hard limits (enforced by `npm run seo:lengths` / `seo:verify`) are **45–70** and **110–165**. Never truncate mid-word or with ellipses. When humanizing ES copy, re-trim metas — glossary expansions (`copia de seguridad`, `libro de tácticas`, longer industry phrasing) often push ES past EN. Blog post `<title>` tags append ` | Cybercon` in `BlogPostPage.astro` — keep frontmatter titles short enough that the full string stays inside the hard max.
+- `localePath` must stay idempotent: strip a leading `/es` before prefixing Spanish paths, and leave `#anchors` and external URLs unchanged. Do not hardcode `/es/es/`.
+- Do not publish `https://x.com/cybercon-solutions` (hyphenated handles are invalid). Social profile URLs live on `site.social` in `src/lib/site.ts`.
+- Sitemap `<lastmod>` comes from blog `updatedDate ?? pubDate`, an explicit `lastReviewed`, or `src/data/lastmod.json`. Never stamp build time (`new Date()`). Refresh the manifest with `node scripts/update-lastmod.mjs` only when visible content changes; shallow clones keep the committed file.
+- Service/industry `directAnswer` (when present) is a 40–60 word paragraph immediately under the H1 (`data-direct-answer`) and the same paragraph under the Markdown H1. Claims must already appear on that page.
+- JSON-LD `@id`s stay `<site>/#organization`, `<site>/#website`, `<site>/#founder`, and `<canonical>#webpage` (home is `https://cybercon-solutions.com/#webpage`). `buildConnectedGraph` union-merges shared `@id`s so `@type` arrays are not downgraded. `jsonLdScript` escapes `<`, U+2028, and U+2029.
 - After EN/ES wording changes, re-check service/industry/blog metas for length, glossary leftovers in title tags/FAQ JSON-LD, and title↔H1 keyword alignment (e.g. keep *cumplimiento* / *recuperación ante desastres* in ES ranking copy when the H1 includes them).
 - **Blog index titles must differ by locale.** EN may use `Blog | Cybercon Solutions`; ES must be localized (e.g. `Blog de TI e IA | Cybercon Solutions`) in `src/i18n/es.ts` and the `markdown-pages.ts` ES blog index frontmatter — do not ship identical EN/ES index titles.
 - Internal links: descriptive anchors (see above); avoid duplicate identical CTAs to different URLs.
@@ -184,7 +189,8 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
 - [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
 - [ ] EN and ES copy/templates updated together when user-facing strings change
-- [ ] Titles ≤~60 chars and meta descriptions ≤~155–160 after copy edits (especially ES glossary expansions)
+- [ ] Titles and meta descriptions pass `npm run seo:lengths` (hard 45–70 / 110–165; no mid-word ellipses)
+- [ ] `npm run seo:verify` passes after `npm run build` (no `/es/es/`, no hyphenated X URL, distinct sitemap lastmod, RSS alternates)
 - [ ] New/edited marketing copy matches industry-page specificity (no SEO-echo third paragraphs; no theater/deck/demo denial stack; engineer-reply trust line once per surface)
 - [ ] ES user-facing strings use Colombian Spanish per skill glossary (`computador`/`celular`/`correo`, `proveedor`, `sin rodeos`, `libro de tácticas`, `stack tecnológico`; security: `incidente de seguridad` / `vacío(s)` / `filtración`; no Spainisms or B2B slang)
 - [ ] EN/ES data pairs are one-to-one: no leftover English in ES (`nonprofit`, `copy`, `FAQ`, `introduce`); healthcare *providers* ≠ `proveedores`; HIBP sample `dataClasses` translated for ES
@@ -232,3 +238,4 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 | Health checks | `src/pages/api/health.ts` (public, minimal), `src/pages/api/health/detail.ts` (authenticated) |
 | Client-area auth fail-closed | `src/middleware.ts`, `src/lib/auth0.ts`, `src/components/ClientPage.astro`, `src/pages/client/`, `src/pages/es/client/` |
 | CI smoke checks | `scripts/ci-smoke-checks.mjs`, `.github/workflows/ci.yml` |
+| SEO length + verify | `scripts/seo-lengths.mjs`, `scripts/seo-verify.mjs`, `scripts/apply-sitemap-lastmod.mjs`, `scripts/update-lastmod.mjs`, `src/data/lastmod.json` |

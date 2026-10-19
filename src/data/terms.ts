@@ -19,7 +19,7 @@ export type TermsSection = {
 
 export const termsContent = {
   en: {
-    metaTitle: 'Terms and Conditions | Cybercon',
+    metaTitle: 'Website Terms and Conditions of Use | Cybercon Solutions',
     metaDescription:
       'Terms governing use of cybercon-solutions.com: acceptable use, intellectual property, disclaimers, liability limits, and Florida governing law.',
     title: 'Terms and Conditions',
@@ -99,7 +99,7 @@ export const termsContent = {
     ] satisfies TermsSection[],
   },
   es: {
-    metaTitle: 'Términos y condiciones | Cybercon',
+    metaTitle: 'Términos y condiciones de uso del sitio | Cybercon',
     metaDescription:
       'Términos de uso de cybercon-solutions.com: uso aceptable, propiedad intelectual, exclusiones de responsabilidad, límites de responsabilidad y ley de Florida.',
     title: 'Términos y condiciones',

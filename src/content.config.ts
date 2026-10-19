@@ -8,6 +8,10 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
+    /** Named entities for BlogPosting about/mentions. Leave empty rather than inventing. */
+    entities: z.array(z.string()).optional(),
+    /** Sources rendered as citation. Leave empty rather than inventing. */
+    sources: z.array(z.string()).optional(),
     /** Basename under /images/ (uses existing -768/-960/full responsive set). */
     banner: z.string(),
     bannerAlt: z.object({
