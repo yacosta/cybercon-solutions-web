@@ -40,6 +40,7 @@ export default defineConfig({
         !page.includes('/client/') &&
         !page.includes('/api/') &&
         !page.includes('/search') &&
+        !page.includes('/rss') &&
         !page.includes('/404'),
       // Astro's i18n sitemap omits x-default; Google expects it alongside en-US / es-US.
       serialize(item) {
@@ -51,8 +52,6 @@ export default defineConfig({
         return {
           ...item,
           links: links.length ? links : undefined,
-          // Signal freshness so GSC revalidates after policy/SEO fixes.
-          lastmod: item.lastmod ?? new Date().toISOString(),
         };
       },
     }),

@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/write-sitemap-txt.mjs && node scripts/wrap-worker-wp-query.mjs && npm run pagefind",
+    "build": "astro build && node scripts/apply-sitemap-lastmod.mjs && node scripts/write-sitemap-txt.mjs && node scripts/wrap-worker-wp-query.mjs && npm run pagefind",
     "pagefind": "pagefind --site dist/client --output-path dist/client/pagefind",
     "preview": "astro preview",
     "astro": "astro",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.2.5",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/inter": "^5.3.0",

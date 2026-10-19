@@ -119,6 +119,12 @@ const structuredData = buildConnectedGraph([
     <link rel="icon" type="image/svg+xml" href="/cybercon-mark.svg" />
     <link rel="icon" href="/cybercon-mark.ico" sizes="any" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={locale === 'es' ? 'Blog de Cybercon Solutions (RSS)' : 'Cybercon Solutions blog (RSS)'}
+      href={locale === 'es' ? '/es/rss.xml' : '/rss.xml'}
+    />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="sitemap" type="text/plain" href="/sitemap.txt" title="Plain-text sitemap" />
 
