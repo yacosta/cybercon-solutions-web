@@ -4,8 +4,8 @@ description: 'If a computer is hot, slow, or acting strangely, stop sensitive wo
 pubDate: 2026-10-21
 banner: cybersecurity-lock
 bannerAlt:
-  en: 'Digital padlock and circuit-style lines representing a security review of a computer'
-  es: 'Candado digital y líneas tipo circuito que representan una revisión de seguridad de un computador'
+  en: 'Person in a hood at a computer, with a padlock and a map of network connections'
+  es: 'Persona con capucha frente a un computador, con un candado y un mapa de conexiones de red'
 ---
 
 If a computer is hot, slow, or acting strangely, stop using it for sensitive work and call us before changing anything.
