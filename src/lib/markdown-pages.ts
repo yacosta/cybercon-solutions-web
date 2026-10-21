@@ -28,6 +28,8 @@ import endpointSecurityBeyondTheEndpoint from '../content/blog/endpoint-security
 import endpointSecurityBeyondTheEndpointEs from '../content/blog/es/endpoint-security-beyond-the-endpoint.md?raw';
 import emailSecuritySpfDkimDmarc from '../content/blog/email-security-spf-dkim-dmarc.md?raw';
 import emailSecuritySpfDkimDmarcEs from '../content/blog/es/email-security-spf-dkim-dmarc.md?raw';
+import suspectedCompromiseClientChecklist from '../content/blog/suspected-compromise-client-checklist.md?raw';
+import suspectedCompromiseClientChecklistEs from '../content/blog/es/suspected-compromise-client-checklist.md?raw';
 import gymFranchiseHybridItCaseStudy from '../content/blog/gym-franchise-hybrid-it-case-study.md?raw';
 import gymFranchiseHybridItCaseStudyEs from '../content/blog/es/gym-franchise-hybrid-it-case-study.md?raw';
 import { formatMailingAddress, site } from './site';
@@ -93,6 +95,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
+- [Suspected Compromise: Client Checklist](https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/)
 - [Enterprise Integration & mPOS: A Case Study](https://cybercon-solutions.com/blog/enterprise-integration-mpos-case-study/)
 - [Case Study: Retail IT Across Six Countries](https://cybercon-solutions.com/blog/retail-it-six-countries-case-study/)
 - [$1.3M Saved: Healthcare Nonprofit IT Case Study](https://cybercon-solutions.com/blog/healthcare-nonprofit-it-transformation-case-study/)
@@ -117,6 +120,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
+- [Sospecha de compromiso: lista del cliente](https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/)
 - [Integración empresarial y mPOS: un caso](https://cybercon-solutions.com/es/blog/enterprise-integration-mpos-case-study/)
 - [Caso: TI de comercio en seis países](https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/)
 - [$1,3M ahorrados: caso de TI en una ONG de salud](https://cybercon-solutions.com/es/blog/healthcare-nonprofit-it-transformation-case-study/)
@@ -375,6 +379,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/email-security-spf-dkim-dmarc': emailSecuritySpfDkimDmarc,
   '/es/blog/email-security-spf-dkim-dmarc/': emailSecuritySpfDkimDmarcEs,
   '/es/blog/email-security-spf-dkim-dmarc': emailSecuritySpfDkimDmarcEs,
+  '/blog/suspected-compromise-client-checklist/': suspectedCompromiseClientChecklist,
+  '/blog/suspected-compromise-client-checklist': suspectedCompromiseClientChecklist,
+  '/es/blog/suspected-compromise-client-checklist/': suspectedCompromiseClientChecklistEs,
+  '/es/blog/suspected-compromise-client-checklist': suspectedCompromiseClientChecklistEs,
   '/blog/gym-franchise-hybrid-it-case-study/': gymFranchiseHybridItCaseStudy,
   '/blog/gym-franchise-hybrid-it-case-study': gymFranchiseHybridItCaseStudy,
   '/es/blog/gym-franchise-hybrid-it-case-study/': gymFranchiseHybridItCaseStudyEs,
