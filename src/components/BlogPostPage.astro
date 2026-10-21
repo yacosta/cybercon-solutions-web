@@ -252,6 +252,28 @@ const aboutHref = localePath(locale, '/about/');
     margin-top: 0.4rem;
   }
 
+  .blog-prose ul.check-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .blog-prose ul.check-list li {
+    position: relative;
+    padding-left: 1.65rem;
+  }
+
+  .blog-prose ul.check-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 2px solid var(--navy);
+    border-radius: 2px;
+    background: var(--white);
+  }
+
   .blog-prose hr {
     margin: 2rem 0;
     border: 0;
