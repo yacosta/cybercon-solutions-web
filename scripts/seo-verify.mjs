@@ -9,6 +9,7 @@
 import { execSync } from 'node:child_process';
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { findCanonicalRedirectGaps } from './check-canonical-redirects.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const distDir = path.join(root, 'dist');
@@ -130,6 +131,13 @@ function xmlWellFormed(xml) {
   }
   return stack.length ? `unclosed <${stack.at(-1)}>` : null;
 }
+
+console.log('seo:verify check 0 — canonical redirect 301s');
+const redirectGaps = findCanonicalRedirectGaps(
+  await readFile(path.join(root, 'public/sitemap.txt'), 'utf8'),
+  await readFile(path.join(root, 'public/_redirects'), 'utf8'),
+);
+for (const gap of redirectGaps) fail(gap);
 
 console.log('seo:verify check 1 — seo:lengths');
 try {

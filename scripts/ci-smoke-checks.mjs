@@ -13,6 +13,7 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { findCanonicalRedirectGaps } from './check-canonical-redirects.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const failures = [];
@@ -176,6 +177,19 @@ async function checkPlainTextSitemap() {
   ok(`${label} (${lines.length} URLs)`);
 }
 
+async function checkCanonicalRedirects() {
+  const label = 'sitemap URLs have static 301s for non-slash, .html, and index.html';
+  const gaps = findCanonicalRedirectGaps(
+    await readFile(path.join(root, 'public/sitemap.txt'), 'utf8'),
+    await readFile(path.join(root, 'public/_redirects'), 'utf8'),
+  );
+  if (gaps.length > 0) {
+    fail(`${label} — ${gaps.slice(0, 8).join('; ')}`);
+    return;
+  }
+  ok(label);
+}
+
 async function main() {
   console.log('Running CI smoke checks…');
   await checkHomepageBuiltAndNotPlaceholder();
@@ -183,6 +197,7 @@ async function main() {
   await checkSecurityHeaders();
   await checkLeadDeliveryFailsClosed();
   await checkPlainTextSitemap();
+  await checkCanonicalRedirects();
 
   if (failures.length > 0) {
     console.error('\nSmoke checks failed:');

@@ -3,7 +3,7 @@ import '../styles/global.css';
 import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import soraLatin700 from '@fontsource/sora/files/sora-latin-700-normal.woff2?url';
 import { getMessages, localePath } from '../i18n';
-import { absoluteUrl, site } from '../lib/site';
+import { absoluteUrl, canonicalPath, site } from '../lib/site';
 import { breadcrumbJsonLd, buildConnectedGraph, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
@@ -40,11 +40,13 @@ const {
 const t = getMessages(locale);
 const pageTitle = title ?? t.meta.title;
 const pageDescription = description ?? t.meta.description;
-const canonical = absoluteUrl(path);
-const normalizedPath = path.replace(/\/$/, '') || '/';
+const canonicalPathname = canonicalPath(path);
+const canonical = absoluteUrl(canonicalPathname);
+const normalizedPath = canonicalPathname.replace(/\/$/, '') || '/';
 const is404Page = normalizedPath === '/404' || normalizedPath === '/es/404';
-const enUrl = absoluteUrl(path.replace(/^\/es/, '') || '/');
-const esUrl = absoluteUrl(path.startsWith('/es') ? path : path === '/' ? '/es/' : `/es${path}`);
+const enPath = canonicalPath(canonicalPathname.replace(/^\/es(?=\/|$)/, '') || '/');
+const enUrl = absoluteUrl(enPath);
+const esUrl = absoluteUrl(enPath === '/' ? '/es/' : `/es${enPath}`);
 const ogImage = absoluteUrl(ogImagePath ?? site.ogImage);
 const defaultOgImageAlt =
   locale === 'es'
