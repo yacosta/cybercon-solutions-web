@@ -56,10 +56,50 @@ export const site = {
   },
 } as const;
 
+/**
+ * Directory path on this site, with a trailing slash.
+ * Strips `.html` / `index.html`. Leaves asset filenames (`/og-image.png`) alone.
+ * Preserves a query string and hash.
+ */
+export function canonicalPath(path = '/'): string {
+  if (!path) return '/';
+  let hash = '';
+  let query = '';
+  let pathname = path;
+  const hashAt = pathname.indexOf('#');
+  if (hashAt !== -1) {
+    hash = pathname.slice(hashAt);
+    pathname = pathname.slice(0, hashAt);
+  }
+  const queryAt = pathname.indexOf('?');
+  if (queryAt !== -1) {
+    query = pathname.slice(queryAt);
+    pathname = pathname.slice(0, queryAt);
+  }
+  if (!pathname.startsWith('/')) pathname = `/${pathname}`;
+  if (pathname.endsWith('/index.html')) pathname = pathname.slice(0, -'index.html'.length);
+  else if (pathname.endsWith('.html')) pathname = pathname.slice(0, -'.html'.length);
+  if (pathname === '/index') pathname = '/';
+  else if (pathname.endsWith('/index')) pathname = pathname.slice(0, -'index'.length);
+  const isFile = /\/[^/]+\.[a-z0-9]{1,8}$/i.test(pathname);
+  if (!isFile && !pathname.endsWith('/')) pathname = `${pathname}/`;
+  pathname = pathname.replace(/\/{2,}/g, '/') || '/';
+  return `${pathname}${query}${hash}`;
+}
+
+/** Absolute URL on the primary domain. Directory paths always end with `/`. */
 export function absoluteUrl(path = '/'): string {
   const base = site.url.replace(/\/$/, '');
-  if (!path || path === '/') return `${base}/`;
-  return path.startsWith('http') ? path : `${base}${path.startsWith('/') ? path : `/${path}`}`;
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    try {
+      const url = new URL(path);
+      if (url.origin !== base) return path;
+      return `${base}${canonicalPath(`${url.pathname}${url.search}${url.hash}`)}`;
+    } catch {
+      return path;
+    }
+  }
+  return `${base}${canonicalPath(path)}`;
 }
 
 export function formatMailingAddress(): string {

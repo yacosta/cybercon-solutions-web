@@ -2,11 +2,13 @@
 # Applied by Cloudflare Workers static assets. Keep specific rules before splats.
 # See: https://developers.cloudflare.com/workers/static-assets/redirects/
 
-# --- .html legacy URLs (GSC "Page with redirect", Jul 2026) ---
-# Workers html_handling issues *temporary* 307 for /page.html → /page/. Override with
-# permanent 301 so Google consolidates to the trailing-slash canonical.
+# --- .html legacy URLs (GSC "Page with redirect") ---
+# Workers html_handling issues *temporary* 307 for /page, /page.html, and
+# /page/index.html → /page/. Override with permanent 301 so Google consolidates
+# to the trailing-slash canonical. Spanish homepage: /es and /es.html → /es/.
 # Static rules only (no /*.html splat): dynamic rules must stay at the end of this
 # file or Cloudflare counts later static rows toward the 100-dynamic limit.
+# scripts/check-canonical-redirects.mjs fails the build if a sitemap URL is missing one.
 /index.html / 301
 /es/index.html /es/ 301
 /privacy.html /privacy/ 301
@@ -450,6 +452,111 @@
 /vmware-releases-security-updates-for-cloud-director / 301
 /vmware-releases-security-updates-for-cloud-director/ / 301
 
+# --- Canonical variants html_handling would 307 ---
+# Every sitemap URL needs static 301s for the non-slash path, the `.html` path,
+# and `/path/index.html`. `/es` and `/es.html` are the Spanish homepage.
+# Utility pages (/404/, /search/, /es/search/) stay out of the sitemap and noindex.
+# Enforced by scripts/check-canonical-redirects.mjs. No /*.html splat — it would
+# make later static rows count toward the 100 dynamic-rule limit.
+/about/index.html /about/ 301
+/accessibility/index.html /accessibility/ 301
+/assessment/index.html /assessment/ 301
+/blog/index.html /blog/ 301
+/blog/education-saas-city-scale-case-study/index.html /blog/education-saas-city-scale-case-study/ 301
+/blog/email-security-spf-dkim-dmarc /blog/email-security-spf-dkim-dmarc/ 301
+/blog/email-security-spf-dkim-dmarc.html /blog/email-security-spf-dkim-dmarc/ 301
+/blog/email-security-spf-dkim-dmarc/index.html /blog/email-security-spf-dkim-dmarc/ 301
+/blog/endpoint-security-beyond-the-endpoint/index.html /blog/endpoint-security-beyond-the-endpoint/ 301
+/blog/enterprise-ai-adoption-roi/index.html /blog/enterprise-ai-adoption-roi/ 301
+/blog/enterprise-integration-mpos-case-study/index.html /blog/enterprise-integration-mpos-case-study/ 301
+/blog/fractional-cio-first-90-days/index.html /blog/fractional-cio-first-90-days/ 301
+/blog/gym-franchise-hybrid-it-case-study/index.html /blog/gym-franchise-hybrid-it-case-study/ 301
+/blog/healthcare-nonprofit-it-transformation-case-study/index.html /blog/healthcare-nonprofit-it-transformation-case-study/ 301
+/blog/managed-it-reports-like-cio/index.html /blog/managed-it-reports-like-cio/ 301
+/blog/miami-nonprofit-digital-tech-strategy-case-study /blog/miami-nonprofit-digital-tech-strategy-case-study/ 301
+/blog/miami-nonprofit-digital-tech-strategy-case-study.html /blog/miami-nonprofit-digital-tech-strategy-case-study/ 301
+/blog/miami-nonprofit-digital-tech-strategy-case-study/index.html /blog/miami-nonprofit-digital-tech-strategy-case-study/ 301
+/blog/nonprofit-board-funded-ai-case-study/index.html /blog/nonprofit-board-funded-ai-case-study/ 301
+/blog/retail-it-six-countries-case-study/index.html /blog/retail-it-six-countries-case-study/ 301
+/blog/suspected-compromise-client-checklist/index.html /blog/suspected-compromise-client-checklist/ 301
+/blog/zero-trust-mid-market-rollout/index.html /blog/zero-trust-mid-market-rollout/ 301
+/contact/index.html /contact/ 301
+/industries/construction-real-estate/index.html /industries/construction-real-estate/ 301
+/industries/distribution-retail-manufacturing/index.html /industries/distribution-retail-manufacturing/ 301
+/industries/education-nonprofits/index.html /industries/education-nonprofits/ 301
+/industries/financial-services-insurance/index.html /industries/financial-services-insurance/ 301
+/industries/healthcare-clinics/index.html /industries/healthcare-clinics/ 301
+/industries/legal-professional-services/index.html /industries/legal-professional-services/ 301
+/privacy/index.html /privacy/ 301
+/services/ai-consulting/index.html /services/ai-consulting/ 301
+/services/ai-integration/index.html /services/ai-integration/ 301
+/services/ai-security/index.html /services/ai-security/ 301
+/services/backup-disaster-recovery/index.html /services/backup-disaster-recovery/ 301
+/services/cloud/index.html /services/cloud/ 301
+/services/conversational-ai/index.html /services/conversational-ai/ 301
+/services/cybersecurity/index.html /services/cybersecurity/ 301
+/services/it-consulting/index.html /services/it-consulting/ 301
+/services/managed-it/index.html /services/managed-it/ 301
+/services/managed-it/broward-county/index.html /services/managed-it/broward-county/ 301
+/services/managed-it/cooper-city/index.html /services/managed-it/cooper-city/ 301
+/services/managed-it/davie/index.html /services/managed-it/davie/ 301
+/services/web-design-development/index.html /services/web-design-development/ 301
+/terms/index.html /terms/ 301
+/es /es/ 301
+/es.html /es/ 301
+/es/about/index.html /es/about/ 301
+/es/accessibility/index.html /es/accessibility/ 301
+/es/assessment/index.html /es/assessment/ 301
+/es/blog/index.html /es/blog/ 301
+/es/blog/education-saas-city-scale-case-study/index.html /es/blog/education-saas-city-scale-case-study/ 301
+/es/blog/email-security-spf-dkim-dmarc /es/blog/email-security-spf-dkim-dmarc/ 301
+/es/blog/email-security-spf-dkim-dmarc.html /es/blog/email-security-spf-dkim-dmarc/ 301
+/es/blog/email-security-spf-dkim-dmarc/index.html /es/blog/email-security-spf-dkim-dmarc/ 301
+/es/blog/endpoint-security-beyond-the-endpoint/index.html /es/blog/endpoint-security-beyond-the-endpoint/ 301
+/es/blog/enterprise-ai-adoption-roi/index.html /es/blog/enterprise-ai-adoption-roi/ 301
+/es/blog/enterprise-integration-mpos-case-study/index.html /es/blog/enterprise-integration-mpos-case-study/ 301
+/es/blog/fractional-cio-first-90-days/index.html /es/blog/fractional-cio-first-90-days/ 301
+/es/blog/gym-franchise-hybrid-it-case-study/index.html /es/blog/gym-franchise-hybrid-it-case-study/ 301
+/es/blog/healthcare-nonprofit-it-transformation-case-study/index.html /es/blog/healthcare-nonprofit-it-transformation-case-study/ 301
+/es/blog/managed-it-reports-like-cio/index.html /es/blog/managed-it-reports-like-cio/ 301
+/es/blog/miami-nonprofit-digital-tech-strategy-case-study /es/blog/miami-nonprofit-digital-tech-strategy-case-study/ 301
+/es/blog/miami-nonprofit-digital-tech-strategy-case-study.html /es/blog/miami-nonprofit-digital-tech-strategy-case-study/ 301
+/es/blog/miami-nonprofit-digital-tech-strategy-case-study/index.html /es/blog/miami-nonprofit-digital-tech-strategy-case-study/ 301
+/es/blog/nonprofit-board-funded-ai-case-study/index.html /es/blog/nonprofit-board-funded-ai-case-study/ 301
+/es/blog/retail-it-six-countries-case-study/index.html /es/blog/retail-it-six-countries-case-study/ 301
+/es/blog/suspected-compromise-client-checklist/index.html /es/blog/suspected-compromise-client-checklist/ 301
+/es/blog/zero-trust-mid-market-rollout/index.html /es/blog/zero-trust-mid-market-rollout/ 301
+/es/contact/index.html /es/contact/ 301
+/es/industries/construction-real-estate/index.html /es/industries/construction-real-estate/ 301
+/es/industries/distribution-retail-manufacturing/index.html /es/industries/distribution-retail-manufacturing/ 301
+/es/industries/education-nonprofits/index.html /es/industries/education-nonprofits/ 301
+/es/industries/financial-services-insurance/index.html /es/industries/financial-services-insurance/ 301
+/es/industries/healthcare-clinics/index.html /es/industries/healthcare-clinics/ 301
+/es/industries/legal-professional-services/index.html /es/industries/legal-professional-services/ 301
+/es/privacy/index.html /es/privacy/ 301
+/es/services/ai-consulting/index.html /es/services/ai-consulting/ 301
+/es/services/ai-integration/index.html /es/services/ai-integration/ 301
+/es/services/ai-security/index.html /es/services/ai-security/ 301
+/es/services/backup-disaster-recovery/index.html /es/services/backup-disaster-recovery/ 301
+/es/services/cloud/index.html /es/services/cloud/ 301
+/es/services/conversational-ai/index.html /es/services/conversational-ai/ 301
+/es/services/cybersecurity/index.html /es/services/cybersecurity/ 301
+/es/services/it-consulting/index.html /es/services/it-consulting/ 301
+/es/services/managed-it/index.html /es/services/managed-it/ 301
+/es/services/managed-it/broward-county/index.html /es/services/managed-it/broward-county/ 301
+/es/services/managed-it/cooper-city/index.html /es/services/managed-it/cooper-city/ 301
+/es/services/managed-it/davie/index.html /es/services/managed-it/davie/ 301
+/es/services/web-design-development/index.html /es/services/web-design-development/ 301
+/es/terms/index.html /es/terms/ 301
+/404 /404/ 301
+/404.html /404/ 301
+/404/index.html /404/ 301
+/search /search/ 301
+/search.html /search/ 301
+/search/index.html /search/ 301
+/es/search /es/search/ 301
+/es/search.html /es/search/ 301
+/es/search/index.html /es/search/ 301
 # --- Dynamic (splat) rules ---
 # Must stay LAST: once the parser sees a splat, every later rule counts
 # against the 100 dynamic-rule limit (workers-shared parseRedirects).

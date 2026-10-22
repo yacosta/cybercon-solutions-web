@@ -1,6 +1,7 @@
 ---
 import Wordmark from './Wordmark.astro';
 import { localePath, type Messages } from '../i18n';
+import { canonicalPath } from '../lib/site';
 import { services, servicePath } from '../data/services';
 import { industries, industryPath } from '../data/industries';
 import { getCustomerStoryGroups } from '../lib/blog';
@@ -41,8 +42,10 @@ const onServices = path.includes('/services/');
 const onIndustries = path.includes('/industries');
 const customerGroups = await getCustomerStoryGroups(loc, path);
 const onCustomers = customerGroups.some((group) => group.papers.some((paper) => paper.current));
-const enHref = locale === 'es' ? path.replace(/^\/es/, '') || '/' : path;
-const esHref = locale === 'es' ? path : path === '/' ? '/es/' : `/es${path}`;
+const normalizedPath = canonicalPath(path);
+const enHref =
+  locale === 'es' ? canonicalPath(normalizedPath.replace(/^\/es(?=\/|$)/, '') || '/') : normalizedPath;
+const esHref = localePath('es', enHref);
 
 const serviceLinks = services.map((service) => ({
   href: servicePath(locale, service.slug),
@@ -521,6 +524,25 @@ const industryLinks = industries.map((industry) => ({
     let requestId = 0;
     let debounceTimer = 0;
 
+    // Pagefind sometimes emits /page, /page.html, or /page/index.html. Those 301
+    // to the trailing-slash canonical; link the canonical directly.
+    const toDirectoryUrl = (href) => {
+      try {
+        const parsed = new URL(href, window.location.origin);
+        if (parsed.origin !== window.location.origin) return href;
+        let pathname = parsed.pathname;
+        if (pathname.endsWith('/index.html')) pathname = pathname.slice(0, -'index.html'.length);
+        else if (pathname.endsWith('.html')) pathname = `${pathname.slice(0, -'.html'.length)}/`;
+        if (pathname !== '/' && !pathname.endsWith('/') && !/\/[^/]+\.[a-z0-9]+$/i.test(pathname)) {
+          pathname = `${pathname}/`;
+        }
+        if (!pathname.startsWith('/')) pathname = `/${pathname}`;
+        return `${pathname}${parsed.search}${parsed.hash}`;
+      } catch {
+        return href;
+      }
+    };
+
     const setOpen = (next) => {
       open = next;
       root.classList.toggle('is-open', next);
@@ -563,7 +585,7 @@ const industryLinks = industries.map((industry) => ({
       const links = items
         .map(
           (item) =>
-            `<a href="${item.href}" role="option" class="search-result">${item.title}</a>`,
+            `<a href="${toDirectoryUrl(item.href)}" role="option" class="search-result">${item.title}</a>`,
         )
         .join('');
       const more = `<a href="${searchHref}?q=${encodeURIComponent(term)}" class="search-more">${labels.allResults}</a>`;

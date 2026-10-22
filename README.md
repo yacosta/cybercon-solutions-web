@@ -143,6 +143,8 @@ Old paths live in `public/_redirects` (301, not 404/5xx):
 
 Keep `/home/` exact. A `/home/*` splat would override the more specific `/home/web-design-development` rules. Do not add a new page for a retired slug.
 
+Indexable URLs use a trailing slash. Cloudflare `html_handling: force-trailing-slash` would **307** `/page`, `/page.html`, and `/page/index.html`. `public/_redirects` overrides those with **301**s so Search Console can consolidate them. `npm run build` runs `scripts/check-canonical-redirects.mjs` and fails if any `sitemap.txt` URL (including `/es/`) is missing one of those static 301s, or if the rule sits below the first splat. `/404/`, `/search/`, and `/es/search/` are noindex and stay out of the sitemap; their non-canonical variants still 301.
+
 Runtime variables/secrets (Turnstile, Web3Forms, Auth0, `SESSION_SECRET`) are **not** needed by the workflows — set those on the Worker itself (table below). GitHub Actions is an alternative to the dashboard **Workers Builds** Git integration above; use one or the other to avoid double deploys.
 
 ### Environment variables (Workers → Settings → Variables and Secrets)
