@@ -273,7 +273,7 @@ export const es: Messages = {
     ctaSecondary: 'Mira qué incluye la TI administrada',
   },
   about: {
-    metaTitle: 'Sobre Yezid Acosta, fundador de Cybercon Solutions',
+    metaTitle: 'Yezid Acosta, CIO/CISO y fundador | Cybercon Solutions',
     metaDescription:
       'Yezid Acosta, CIO/CISO y fundador de Cybercon Solutions — más de 25 años liderando seguridad, infraestructura, nube y operaciones de TI en el Sur de Florida.',
     eyebrow: 'Nosotros',
