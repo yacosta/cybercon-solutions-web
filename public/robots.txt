@@ -68,5 +68,6 @@ User-agent: meta-externalagent
 Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
 
+Sitemap: https://cybercon-solutions.com/sitemap.xml
 Sitemap: https://cybercon-solutions.com/sitemap-index.xml
 Sitemap: https://cybercon-solutions.com/sitemap.txt

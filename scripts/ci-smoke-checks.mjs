@@ -169,8 +169,29 @@ async function checkPlainTextSitemap() {
     fail(`${label} — robots.txt is missing the sitemap.txt directive`);
     return;
   }
+  if (!robots.includes('Sitemap: https://cybercon-solutions.com/sitemap.xml')) {
+    fail(`${label} — robots.txt is missing the sitemap.xml directive`);
+    return;
+  }
   if (!headers.includes('/sitemap.txt') || !headers.includes('text/plain; charset=utf-8')) {
     fail(`${label} — _headers must serve sitemap.txt as text/plain`);
+    return;
+  }
+
+  const sitemapXml = path.join(clientDir, 'sitemap.xml');
+  const sitemapIndex = path.join(clientDir, 'sitemap-index.xml');
+  if (!existsSync(sitemapXml) || !existsSync(sitemapIndex)) {
+    fail(`${label} — dist/client/sitemap.xml or sitemap-index.xml missing`);
+    return;
+  }
+  const xmlAlias = await readFile(sitemapXml, 'utf8');
+  const xmlIndex = await readFile(sitemapIndex, 'utf8');
+  if (xmlAlias !== xmlIndex) {
+    fail(`${label} — sitemap.xml must match sitemap-index.xml`);
+    return;
+  }
+  if (!xmlAlias.includes('<sitemapindex') && !xmlAlias.includes('<urlset')) {
+    fail(`${label} — sitemap.xml is not a valid sitemap document`);
     return;
   }
 

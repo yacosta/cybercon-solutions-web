@@ -130,6 +130,7 @@ const structuredData = buildConnectedGraph([
       href={locale === 'es' ? '/es/rss.xml' : '/rss.xml'}
     />
     {markdownUrl && <link rel="alternate" type="text/markdown" href={markdownUrl} />}
+    <link rel="sitemap" href="/sitemap.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="sitemap" type="text/plain" href="/sitemap.txt" title="Plain-text sitemap" />
 

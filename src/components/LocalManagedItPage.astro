@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
 import type { LocalPage } from '../data/local-pages';
-import { localPagePath } from '../data/local-pages';
+import { localPagePath, localPages } from '../data/local-pages';
 import { getMessages, localePath } from '../i18n';
 import {
   faqPageJsonLd,
@@ -25,6 +25,11 @@ const homePath = localePath(locale, '/');
 const managedItPath = localePath(locale, '/services/managed-it/');
 const assessmentHref = localePath(locale, '/assessment/');
 const mailingAddress = formatMailingAddress();
+const nearbyAreas = localPages.filter((entry) => entry.slug !== page.slug);
+const nearbyLabel = (entry: LocalPage) => {
+  if (locale === 'es' && entry.slug === 'broward-county') return 'Condado de Broward';
+  return entry.place;
+};
 ---
 
 <BaseLayout
@@ -125,6 +130,28 @@ const mailingAddress = formatMailingAddress();
         ? `enfoque operativo en ${site.serviceAreaFocus}.`
         : `operating focus is ${site.serviceAreaFocus}.`}
     </p>
+
+    <nav class="local-nearby" aria-labelledby="local-nearby-title">
+      <h2 id="local-nearby-title">{t.servicePage.nearbyAreasTitle}</h2>
+      <ul>
+        {
+          nearbyAreas.map((entry) => (
+            <li>
+              <a href={localPagePath(locale, entry.slug)}>
+                {locale === 'es'
+                  ? `TI administrada en ${nearbyLabel(entry)}`
+                  : `Managed IT in ${nearbyLabel(entry)}`}
+              </a>
+            </li>
+          ))
+        }
+        <li>
+          <a href={managedItPath}>
+            {locale === 'es' ? 'TI administrada (resumen)' : 'Managed IT overview'}
+          </a>
+        </li>
+      </ul>
+    </nav>
 
     <section class="local-cta" aria-labelledby="local-cta-title">
       <h2 id="local-cta-title">{page.cta.title[locale]}</h2>
@@ -298,6 +325,41 @@ const mailingAddress = formatMailingAddress();
     font-size: 0.875rem;
     line-height: 1.55;
     color: var(--muted-blue);
+  }
+
+  .local-nearby {
+    margin: 1.5rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(15, 44, 76, 0.12);
+  }
+
+  .local-nearby h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+    color: var(--navy);
+  }
+
+  .local-nearby ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.25rem;
+  }
+
+  .local-nearby a {
+    color: var(--button-red);
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .local-nearby a:hover,
+  .local-nearby a:focus-visible {
+    color: var(--coral);
   }
 
   .local-cta {
