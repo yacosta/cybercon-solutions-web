@@ -29,10 +29,10 @@ GET /.well-known/oauth-authorization-server
 ## Step 2 — Public content (no auth)
 
 - `GET /llms.txt` — curated map
-- `GET /llms-full.txt` — longer summary
+- `GET /llms-full.txt` — full Markdown text of the key pages
 - `GET /sitemap.txt` — plain-text URL list (one canonical URL per line)
 - `GET /openapi.json` — public HTTP API
-- `Accept: text/markdown` on HTML pages — Markdown variants
+- `GET /md/<path>.md` — Markdown version of any page (e.g. `/md/services/managed-it.md`, `/md/index.md`)
 - `GET /api/health` — health check
 
 ## Step 3 — Human client area

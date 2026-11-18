@@ -13,4 +13,4 @@ Summarize Cybercon Solutions offerings for South Florida SMBs.
 ## Sources
 
 - https://cybercon-solutions.com/llms.txt
-- https://cybercon-solutions.com/ (Accept: text/markdown)
+- https://cybercon-solutions.com/md/index.md (Markdown version of the homepage)

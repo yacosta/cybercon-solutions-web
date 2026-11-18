@@ -1,25 +1,39 @@
 # Cybercon Solutions
 
-> Managed IT, cybersecurity, cloud, and AI for South Florida businesses. We catch issues early and treat security as the baseline.
+> Managed IT, cybersecurity, cloud, and AI for South Florida businesses and nonprofits with roughly 15–150 employees. Founder-led, based in Cooper City, Florida. We catch issues early and treat security as the baseline.
 
-Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida. Contact: info@cybercon-solutions.com · (754) 300-9786. Legal mailing address: 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139. Request any HTML page with `Accept: text/markdown` for a Markdown variant.
+Cybercon Solutions LLC serves Cooper City, Davie, and Broward County, Florida, onsite and remote, in English and Spanish. Contact: info@cybercon-solutions.com · (754) 300-9786. Legal mailing address (no customer visits): 407 Lincoln Rd. Suite 6H PMB 7209, Miami Beach, FL 33139.
 
-## Site
+Every page listed here has a Markdown version: swap the page path for `/md/<path>.md` (for example https://cybercon-solutions.com/md/services/managed-it.md; the homepage is https://cybercon-solutions.com/md/index.md). Each HTML page also links its Markdown version with `<link rel="alternate" type="text/markdown">`.
 
-- [Homepage](https://cybercon-solutions.com/): English homepage and free assessment
-- [Spanish homepage](https://cybercon-solutions.com/es/): Sitio en español
-- [Free IT assessment](https://cybercon-solutions.com/assessment/): Dedicated assessment landing and form
-- [Spanish assessment](https://cybercon-solutions.com/es/assessment/): Evaluación de TI gratuita
-- [Free site check](https://cybercon-solutions.com/services/web-design-development/#site-check): Lite A–F website health check on the Web Design & Development page
-- [Free breach check](https://cybercon-solutions.com/services/cybersecurity/#breach-check): Lite Have I Been Pwned email exposure check on the Cybersecurity page
-- [Blog](https://cybercon-solutions.com/blog/): Enterprise AI, IT, and cybersecurity insights
-- [RSS (English)](https://cybercon-solutions.com/rss.xml): English blog feed
-- [RSS (español)](https://cybercon-solutions.com/es/rss.xml): Feed del blog en español
-- [Contact](https://cybercon-solutions.com/contact/): Contact form, phone, and mailing details
-- [Privacy Policy](https://cybercon-solutions.com/privacy/): Privacy and data practices
-- [Accessibility Statement](https://cybercon-solutions.com/accessibility/): Accessibility approach and feedback
-- [Terms and Conditions](https://cybercon-solutions.com/terms/): Website terms of use
-- [Search](https://cybercon-solutions.com/search/): On-site Pagefind search
+## About
+
+- [Founder: Yezid Acosta](https://cybercon-solutions.com/about/): CIO/CISO and Founder; 25+ years leading security, infrastructure, cloud, compliance, and IT operations. Engagements are founder-led.
+
+## Pricing
+
+- Managed IT: flat per-user monthly packages, no per-incident trip charges. Dollar figures are quoted after a free assessment and are not published. Details: https://cybercon-solutions.com/services/managed-it/
+- [Web Design & Development](https://cybercon-solutions.com/services/web-design-development/): Essential website $750 (fixed price); Growth website from $1,150; custom web projects scoped and quoted.
+- [Free IT cost & risk assessment](https://cybercon-solutions.com/assessment/): no-cost starting point; a real engineer replies within one business day.
+
+## Services
+
+- [Managed IT Services](https://cybercon-solutions.com/services/managed-it/): Help desk, monitoring, patching, and onsite support
+- [Cybersecurity & Compliance](https://cybercon-solutions.com/services/cybersecurity/): EDR/XDR, SOC, HIPAA, SOC 2, PCI DSS, GLBA
+- [AI Security](https://cybercon-solutions.com/services/ai-security/): AI tool governance, data-leakage prevention, workspace security
+- [Cloud Services & Architecture](https://cybercon-solutions.com/services/cloud/): Microsoft 365, Google Workspace, Entra ID
+- [IT Consulting & Strategic Leadership](https://cybercon-solutions.com/services/it-consulting/): vCIO, roadmaps, risk, budgets, QBRs
+- [Backup & Disaster Recovery](https://cybercon-solutions.com/services/backup-disaster-recovery/): Backups, replication, recovery validation
+- [AI Consulting & Strategy](https://cybercon-solutions.com/services/ai-consulting/): Practical AI roadmaps and ROI assessment
+- [AI Integration & Automation](https://cybercon-solutions.com/services/ai-integration/): Connect AI to ERP, CRM, and existing stack
+- [Conversational AI & Voice](https://cybercon-solutions.com/services/conversational-ai/): Chatbots and AI voice systems
+- [Web Design & Development](https://cybercon-solutions.com/services/web-design-development/): Fixed-scope websites and custom web projects
+
+## Locations
+
+- [Managed IT in Cooper City, FL](https://cybercon-solutions.com/services/managed-it/cooper-city/): Home base; same-day onsite response is typical
+- [Managed IT in Davie, FL](https://cybercon-solutions.com/services/managed-it/davie/)
+- [Managed IT in Broward County, FL](https://cybercon-solutions.com/services/managed-it/broward-county/): County-wide coverage and multi-office standardization
 
 ## Industries
 
@@ -30,33 +44,46 @@ Cybercon Solutions LLC serves Cooper City, Davie, and surrounding South Florida.
 - [Construction & real estate](https://cybercon-solutions.com/industries/construction-real-estate/)
 - [Distribution, retail & manufacturing](https://cybercon-solutions.com/industries/distribution-retail-manufacturing/)
 
-## Services
+## Case studies
 
-- [Managed IT Services](https://cybercon-solutions.com/services/managed-it/): Help desk, monitoring, and onsite support
-- [Cybersecurity & Compliance](https://cybercon-solutions.com/services/cybersecurity/): EDR/XDR, SOC, HIPAA, SOC 2, PCI DSS, GLBA
-- [Cloud Services & Architecture](https://cybercon-solutions.com/services/cloud/): Microsoft 365, Google Workspace, Entra ID
-- [IT Consulting & Virtual CIO](https://cybercon-solutions.com/services/it-consulting/): Roadmaps, risk, budgets, QBRs
-- [Backup & Disaster Recovery](https://cybercon-solutions.com/services/backup-disaster-recovery/): Backups, replication, recovery validation
-- [AI Consulting & Strategy](https://cybercon-solutions.com/services/ai-consulting/): Practical AI roadmaps and ROI assessment
-- [AI Integration & Automation](https://cybercon-solutions.com/services/ai-integration/): Connect AI to ERP, CRM, and existing stack
-- [Conversational AI & Voice](https://cybercon-solutions.com/services/conversational-ai/): Chatbots and AI voice systems
-- [Web Design & Development](https://cybercon-solutions.com/services/web-design-development/): Published fixed-scope prices — Essential $750, Growth from $1,150 — plus custom apps
+Founder-leadership results: work Yezid Acosta led as an internal CIO/CISO before founding Cybercon Solutions. These are not Cybercon Solutions client engagements.
+
+- [A digital and tech strategy the board can fund (Miami nonprofit)](https://cybercon-solutions.com/blog/miami-nonprofit-digital-tech-strategy-case-study/)
+- [Board-funded AI for nonprofits](https://cybercon-solutions.com/blog/nonprofit-board-funded-ai-case-study/)
+- [$1.3M saved: healthcare nonprofit IT transformation](https://cybercon-solutions.com/blog/healthcare-nonprofit-it-transformation-case-study/)
+- [Education SaaS at city scale](https://cybercon-solutions.com/blog/education-saas-city-scale-case-study/)
+- [Retail IT across six countries](https://cybercon-solutions.com/blog/retail-it-six-countries-case-study/)
+- [Enterprise integration and mPOS](https://cybercon-solutions.com/blog/enterprise-integration-mpos-case-study/)
+- [National gym franchise hybrid IT](https://cybercon-solutions.com/blog/gym-franchise-hybrid-it-case-study/)
+
+## Site
+
+- [Homepage](https://cybercon-solutions.com/): English homepage and free assessment
+- [Spanish homepage](https://cybercon-solutions.com/es/): Sitio en español
+- [Free site check](https://cybercon-solutions.com/services/web-design-development/#site-check): Lite A–F website health check
+- [Free breach check](https://cybercon-solutions.com/services/cybersecurity/#breach-check): Lite Have I Been Pwned email exposure check
+- [Blog](https://cybercon-solutions.com/blog/): Managed IT, cybersecurity, and AI articles
+- [RSS (English)](https://cybercon-solutions.com/rss.xml): English blog feed
+- [RSS (español)](https://cybercon-solutions.com/es/rss.xml): Feed del blog en español
+- [Contact](https://cybercon-solutions.com/contact/): Contact form, phone, and mailing details
 
 ## Agent discovery
 
-- [Full text map](https://cybercon-solutions.com/llms-full.txt): Longer site summary for AI agents
+- [Full text](https://cybercon-solutions.com/llms-full.txt): Full Markdown text of the key pages, generated at build time
 - [API catalog](https://cybercon-solutions.com/.well-known/api-catalog): Linkset of machine-readable endpoints
 - [Auth for agents](https://cybercon-solutions.com/auth.md): OAuth/Auth0 discovery guidance
 - [MCP server card](https://cybercon-solutions.com/.well-known/mcp/server-card.json): Model Context Protocol card
 - [OpenAPI](https://cybercon-solutions.com/openapi.json): Public HTTP API description
 - [Sitemap](https://cybercon-solutions.com/sitemap-index.xml): XML sitemap index (hreflang + lastmod)
-- [Plain-text sitemap](https://cybercon-solutions.com/sitemap.txt): One canonical URL per line, UTF-8, no header. Same indexable pages as the XML sitemap. Send `Accept: text/markdown` on a listed URL when you want Markdown; pages that have a variant return `text/markdown`.
+- [Plain-text sitemap](https://cybercon-solutions.com/sitemap.txt): One canonical URL per line, UTF-8, no header
 
 ## Optional
 
-- [Spanish privacy](https://cybercon-solutions.com/es/privacy/): Política de privacidad en español
-- [Spanish accessibility](https://cybercon-solutions.com/es/accessibility/): Declaración de accesibilidad en español
-- [Spanish terms](https://cybercon-solutions.com/es/terms/): Términos y condiciones en español
+- [Spanish assessment](https://cybercon-solutions.com/es/assessment/): Evaluación de TI gratuita
+- [Privacy Policy](https://cybercon-solutions.com/privacy/): Privacy and data practices
+- [Accessibility Statement](https://cybercon-solutions.com/accessibility/): Accessibility approach and feedback
+- [Terms and Conditions](https://cybercon-solutions.com/terms/): Website terms of use
+- [Search](https://cybercon-solutions.com/search/): On-site Pagefind search
 - [Health check](https://cybercon-solutions.com/api/health): Simple API health endpoint
 - [Site check API](https://cybercon-solutions.com/api/site-check): POST lite website health check (domain → grade + finding)
 - [Breach check API](https://cybercon-solutions.com/api/breach-check): POST lite Have I Been Pwned email exposure check

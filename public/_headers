@@ -26,6 +26,13 @@
 /auth.md
   Content-Type: text/markdown; charset=utf-8
 
+# Static Markdown twins of HTML pages (built by src/pages/md/[...path].ts).
+# noindex so search engines keep ranking the HTML page, not its twin.
+/md/*
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+  Cache-Control: public, max-age=3600
+
 /openapi.json
   Content-Type: application/vnd.oai.openapi+json; charset=utf-8
 

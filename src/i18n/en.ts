@@ -270,7 +270,7 @@ export const en = {
     ctaSecondary: 'See what managed IT includes',
   },
   about: {
-    metaTitle: 'About Yezid Acosta, CIO and Founder | Cybercon Solutions',
+    metaTitle: 'Yezid Acosta, CIO/CISO and Founder | Cybercon Solutions',
     metaDescription:
       'Yezid Acosta, CIO/CISO and Founder of Cybercon Solutions — 25+ years leading security, infrastructure, cloud, and IT operations for South Florida organizations.',
     eyebrow: 'About',

@@ -4,6 +4,7 @@ import interLatin400 from '@fontsource/inter/files/inter-latin-400-normal.woff2?
 import soraLatin700 from '@fontsource/sora/files/sora-latin-700-normal.woff2?url';
 import { getMessages, localePath } from '../i18n';
 import { absoluteUrl, canonicalPath, site } from '../lib/site';
+import { markdownUrlFor } from '../lib/markdown-pages';
 import { breadcrumbJsonLd, buildConnectedGraph, jsonLdScript, organizationJsonLd, websiteJsonLd } from '../lib/seo';
 import CookieBanner from '../components/CookieBanner.astro';
 import Analytics from '../components/Analytics.astro';
@@ -48,6 +49,7 @@ const enPath = canonicalPath(canonicalPathname.replace(/^\/es(?=\/|$)/, '') || '
 const enUrl = absoluteUrl(enPath);
 const esUrl = absoluteUrl(enPath === '/' ? '/es/' : `/es${enPath}`);
 const ogImage = absoluteUrl(ogImagePath ?? site.ogImage);
+const markdownUrl = is404Page ? null : markdownUrlFor(canonicalPathname);
 const defaultOgImageAlt =
   locale === 'es'
     ? `${site.name}: Tecnología, resuelta. Detectamos problemas a tiempo, con la seguridad como base.`
@@ -127,6 +129,7 @@ const structuredData = buildConnectedGraph([
       title={locale === 'es' ? 'Blog de Cybercon Solutions (RSS)' : 'Cybercon Solutions blog (RSS)'}
       href={locale === 'es' ? '/es/rss.xml' : '/rss.xml'}
     />
+    {markdownUrl && <link rel="alternate" type="text/markdown" href={markdownUrl} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="sitemap" type="text/plain" href="/sitemap.txt" title="Plain-text sitemap" />
 

@@ -20,7 +20,7 @@ Production should serve this Astro Worker (`cybercon-solutions-web`), not the ol
 - Analytics gated behind consent (`PUBLIC_GA_MEASUREMENT_ID`, Apollo.io website tracker) with Google Consent Mode v2 defaults denied
 - SEO: meta, OG/Twitter, JSON-LD, sitemap, hreflang
 - ADA: skip link, landmarks, labels, focus styles, reduced-motion hero fallback
-- Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, plain-text `sitemap.txt` (one URL per line, `text/plain`), Markdown negotiation (`Accept: text/markdown`), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
+- Agent-ready (isitagentready.com): `robots.txt` + Content Signals + AI bot rules, `llms.txt`, plain-text `sitemap.txt` (one URL per line, `text/plain`), static Markdown twins at `/md/<path>.md` (linked via `rel="alternate" type="text/markdown"`; `Accept: text/markdown` only reaches dynamic routes, since prerendered pages are served before the Worker), Link headers, API catalog, auth.md, MCP server card, Agent Skills, WebMCP tools, Web Bot Auth JWKS
 - Pagefind site search
 - Auth0-protected `/client/` area
 

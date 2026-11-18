@@ -35,6 +35,9 @@ import gymFranchiseHybridItCaseStudyEs from '../content/blog/es/gym-franchise-hy
 import howSmallBusinessAvoidsDowntime from '../content/blog/how-small-business-avoids-downtime.md?raw';
 import howSmallBusinessAvoidsDowntimeEs from '../content/blog/es/how-small-business-avoids-downtime.md?raw';
 import { formatMailingAddress, site } from './site';
+import { en as enMessages } from '../i18n/en';
+import { es as esMessages } from '../i18n/es';
+import { localPages, type LocalPage } from '../data/local-pages';
 
 function industriesMarkdown(locale: 'en' | 'es'): string {
   return industries
@@ -401,6 +404,83 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/es/blog/how-small-business-avoids-downtime': howSmallBusinessAvoidsDowntimeEs,
 };
 
+function aboutMarkdown(locale: 'en' | 'es'): string {
+  const a = (locale === 'es' ? esMessages : enMessages).about;
+  const base = `https://cybercon-solutions.com${locale === 'es' ? '/es' : ''}`;
+  return `---
+title: "${a.metaTitle}"
+description: "${a.metaDescription}"
+---
+
+# ${a.title}
+
+${a.lede}
+
+${a.body.join('\n\n')}
+
+## ${a.credentialsTitle}
+
+${a.credentials.map((item) => `- ${item}`).join('\n')}
+
+## ${locale === 'es' ? 'Enlaces' : 'Links'}
+
+- ${a.resultsCta}: ${base}/blog/
+- ${a.assessmentCta}: ${base}/assessment/
+- LinkedIn: https://www.linkedin.com/company/cybercon-solutions-llc
+`;
+}
+
+function localPageMarkdown(page: LocalPage, locale: 'en' | 'es'): string {
+  const base = `https://cybercon-solutions.com${locale === 'es' ? '/es' : ''}`;
+  const industriesList = page.industries.items
+    .map((item) => `### ${item.title[locale]}\n\n${item.body[locale]}`)
+    .join('\n\n');
+  const faqs = page.faqs
+    .map((faq) => `### ${faq.question[locale]}\n\n${faq.answer[locale]}`)
+    .join('\n\n');
+  return `---
+title: "${page.metaTitle[locale]}"
+description: "${page.metaDescription[locale]}"
+---
+
+# ${page.h1[locale]}
+
+${page.lede[locale]}
+
+## ${page.onsite.title[locale]}
+
+${page.onsite.body[locale]}
+
+## ${page.industries.title[locale]}
+
+${industriesList}
+
+## ${page.local.title[locale]}
+
+${page.local.paragraphs.map((para) => para[locale]).join('\n\n')}
+
+## ${locale === 'es' ? 'Preguntas frecuentes' : 'FAQ'}
+
+${faqs}
+
+## ${page.cta.title[locale]}
+
+${page.cta.body[locale]} ${base}/assessment/
+`;
+}
+
+for (const locale of ['en', 'es'] as const) {
+  const prefix = locale === 'es' ? '/es' : '';
+  const about = aboutMarkdown(locale);
+  pages[`${prefix}/about/`] = about;
+  pages[`${prefix}/about`] = about;
+  for (const page of localPages) {
+    const md = localPageMarkdown(page, locale);
+    pages[`${prefix}/services/managed-it/${page.slug}/`] = md;
+    pages[`${prefix}/services/managed-it/${page.slug}`] = md;
+  }
+}
+
 for (const industry of industries) {
   const en = industryPageMarkdown(industry.slug, 'en');
   const es = industryPageMarkdown(industry.slug, 'es');
@@ -579,4 +659,24 @@ export function getPageMarkdown(pathname: string): string | null {
   const withSlash = normalized.endsWith('/') ? normalized : `${normalized}/`;
   const withoutSlash = withSlash === '/' ? '/' : withSlash.slice(0, -1);
   return pages[withSlash] ?? pages[withoutSlash] ?? pages[pathname] ?? null;
+}
+
+/** Canonical (trailing-slash) paths that have a Markdown variant. */
+export function listMarkdownPaths(): string[] {
+  return Object.keys(pages).filter((key) => key.endsWith('/'));
+}
+
+/**
+ * Static Markdown URL for a canonical page path, e.g.
+ * `/services/managed-it/` → `/md/services/managed-it.md`, `/` → `/md/index.md`.
+ * Prerendered pages are served as static assets before the Worker runs, so
+ * Accept-header negotiation cannot reach them; these files are the reliable path.
+ */
+export function markdownUrlFor(pathname: string): string | null {
+  const withSlash = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  if (!pages[withSlash]) return null;
+  const trimmed = withSlash.replace(/^\/|\/$/g, '');
+  if (trimmed === '') return '/md/index.md';
+  if (trimmed === 'es') return '/md/es/index.md';
+  return `/md/${trimmed}.md`;
 }
