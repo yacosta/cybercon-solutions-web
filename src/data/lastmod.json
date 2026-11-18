@@ -122,7 +122,9 @@
     "src/i18n/index.ts": "2026-07-26T03:21:17+00:00",
     "src/lib/seo.ts": "2026-08-17T16:40:31+00:00",
     "src/lib/markdown-pages.ts": "2026-08-19T02:26:23+00:00",
-    "src/lib/blog.ts": "2026-08-01T02:12:23+00:00"
+    "src/lib/blog.ts": "2026-08-01T02:12:23+00:00",
+    "src/content/blog/how-small-business-avoids-downtime.md": "2026-11-18T17:52:55+00:00",
+    "src/content/blog/es/how-small-business-avoids-downtime.md": "2026-11-18T17:52:55+00:00"
   },
   "urls": {
     "/": "2026-08-14T19:06:24+00:00",
@@ -133,8 +135,8 @@
     "/es/accessibility/": "2026-08-01T02:42:02+00:00",
     "/assessment/": "2026-07-26T03:11:54+00:00",
     "/es/assessment/": "2026-07-26T03:11:54+00:00",
-    "/blog/": "2026-07-23T14:18:08+00:00",
-    "/es/blog/": "2026-07-23T14:18:08+00:00",
+    "/blog/": "2026-11-18T17:52:55+00:00",
+    "/es/blog/": "2026-11-18T17:52:55+00:00",
     "/contact/": "2026-07-26T02:49:32+00:00",
     "/es/contact/": "2026-07-26T02:49:32+00:00",
     "/privacy/": "2026-07-20T11:49:52-04:00",
@@ -204,6 +206,8 @@
     "/es/blog/miami-nonprofit-digital-tech-strategy-case-study/": "2026-08-19T02:20:29+00:00",
     "/es/blog/nonprofit-board-funded-ai-case-study/": "2026-08-14T18:04:28+00:00",
     "/es/blog/retail-it-six-countries-case-study/": "2026-08-14T18:04:28+00:00",
-    "/es/blog/zero-trust-mid-market-rollout/": "2026-08-19T02:20:29+00:00"
+    "/es/blog/zero-trust-mid-market-rollout/": "2026-08-19T02:20:29+00:00",
+    "/blog/how-small-business-avoids-downtime/": "2026-11-18T17:52:55+00:00",
+    "/es/blog/how-small-business-avoids-downtime/": "2026-11-18T17:52:55+00:00"
   }
 }

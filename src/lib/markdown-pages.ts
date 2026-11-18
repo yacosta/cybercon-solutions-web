@@ -32,6 +32,8 @@ import suspectedCompromiseClientChecklist from '../content/blog/suspected-compro
 import suspectedCompromiseClientChecklistEs from '../content/blog/es/suspected-compromise-client-checklist.md?raw';
 import gymFranchiseHybridItCaseStudy from '../content/blog/gym-franchise-hybrid-it-case-study.md?raw';
 import gymFranchiseHybridItCaseStudyEs from '../content/blog/es/gym-franchise-hybrid-it-case-study.md?raw';
+import howSmallBusinessAvoidsDowntime from '../content/blog/how-small-business-avoids-downtime.md?raw';
+import howSmallBusinessAvoidsDowntimeEs from '../content/blog/es/how-small-business-avoids-downtime.md?raw';
 import { formatMailingAddress, site } from './site';
 
 function industriesMarkdown(locale: 'en' | 'es'): string {
@@ -95,6 +97,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
+- [How Small Businesses Avoid Downtime in 2026](https://cybercon-solutions.com/blog/how-small-business-avoids-downtime/)
 - [Suspected Compromise: Client Checklist](https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/)
 - [Enterprise Integration & mPOS: A Case Study](https://cybercon-solutions.com/blog/enterprise-integration-mpos-case-study/)
 - [Case Study: Retail IT Across Six Countries](https://cybercon-solutions.com/blog/retail-it-six-countries-case-study/)
@@ -120,6 +123,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
+- [Cómo una pyme evita caídas de TI en 2026](https://cybercon-solutions.com/es/blog/how-small-business-avoids-downtime/)
 - [Sospecha de compromiso: lista del cliente](https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/)
 - [Integración empresarial y mPOS: un caso](https://cybercon-solutions.com/es/blog/enterprise-integration-mpos-case-study/)
 - [Caso: TI de comercio en seis países](https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/)
@@ -391,6 +395,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/managed-it-reports-like-cio': managedItReportsLikeCio,
   '/es/blog/managed-it-reports-like-cio/': managedItReportsLikeCioEs,
   '/es/blog/managed-it-reports-like-cio': managedItReportsLikeCioEs,
+  '/blog/how-small-business-avoids-downtime/': howSmallBusinessAvoidsDowntime,
+  '/blog/how-small-business-avoids-downtime': howSmallBusinessAvoidsDowntime,
+  '/es/blog/how-small-business-avoids-downtime/': howSmallBusinessAvoidsDowntimeEs,
+  '/es/blog/how-small-business-avoids-downtime': howSmallBusinessAvoidsDowntimeEs,
 };
 
 for (const industry of industries) {
