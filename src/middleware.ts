@@ -10,6 +10,7 @@ const agentLinkHeader = [
   '</.well-known/api-catalog>; rel="api-catalog"',
   '</llms.txt>; rel="service-doc"; type="text/plain"',
   '</auth.md>; rel="service-doc"; type="text/markdown"',
+  '</sitemap.xml>; rel="describedby"',
   '</sitemap-index.xml>; rel="describedby"',
   '</sitemap.txt>; rel="describedby"; type="text/plain"',
   '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',

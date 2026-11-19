@@ -10,6 +10,7 @@ import { buildServiceEditorial } from '../lib/service-editorial';
 import { getMessages, localePath } from '../i18n';
 import { faqPageJsonLd, jsonLdScript, serviceJsonLd, webDesignOfferCatalogJsonLd } from '../lib/seo';
 import lastmodManifest from '../data/lastmod.json';
+import { localPages, localPagePath } from '../data/local-pages';
 
 interface Props {
   locale: 'en' | 'es';
@@ -30,6 +31,7 @@ const assessmentHref = localePath(locale, '/assessment/');
 const featureBodyParas = copy.feature.body.split(/\n\n+/).filter(Boolean);
 const showSiteCheck = service.slug === 'web-design-development';
 const showBreachCheck = service.slug === 'cybersecurity';
+const showLocalAreas = service.slug === 'managed-it';
 const managedItIncluded = `${localePath(locale, '/services/managed-it/')}#included`;
 const secondaryCtaHref = showBreachCheck
   ? '#breach-check'
@@ -56,6 +58,17 @@ const reviewedLine = reviewedLabel
     : `Last reviewed: ${reviewedLabel}`
   : '';
 const directAnswer = details.directAnswer?.[locale];
+const localAreaLinks = showLocalAreas
+  ? localPages.map((page) => ({
+      href: localPagePath(locale, page.slug),
+      label:
+        locale === 'es'
+          ? page.slug === 'broward-county'
+            ? 'TI administrada en el condado de Broward'
+            : `TI administrada en ${page.place}`
+          : `Managed IT in ${page.place}`,
+    }))
+  : [];
 ---
 
 <BaseLayout
@@ -222,6 +235,21 @@ const directAnswer = details.directAnswer?.[locale];
         </ul>
       )}
     </section>
+
+    {
+      showLocalAreas && (
+        <section class="wd-local-areas container" aria-labelledby="wd-local-areas-title">
+          <h2 id="wd-local-areas-title" class="wd-label">{t.servicePage.localAreasTitle}</h2>
+          <ul class="wd-local-areas-list">
+            {localAreaLinks.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <section class="wd-faq container" aria-labelledby="wd-faq-title">
       <h2 id="wd-faq-title" class="wd-label">{copy.faqLabel}</h2>
@@ -837,6 +865,33 @@ const directAnswer = details.directAnswer?.[locale];
     .wd-included {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+  }
+
+  .wd-local-areas {
+    padding-block: clamp(2rem, 4vw, 3rem);
+  }
+
+  .wd-local-areas-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .wd-local-areas-list a {
+    color: var(--button-red);
+    font-family: var(--font-heading);
+    font-size: 0.975rem;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+  }
+
+  .wd-local-areas-list a:hover,
+  .wd-local-areas-list a:focus-visible {
+    color: var(--coral);
   }
 
   .wd-faq {

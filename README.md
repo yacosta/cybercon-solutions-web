@@ -8,7 +8,7 @@ Astro site for [cybercon-solutions.com](https://cybercon-solutions.com) — mana
 
 ## Cutover note
 
-Production should serve this Astro Worker (`cybercon-solutions-web`), not the older static coming-soon HTML. After merge to `main`, trigger the Cloudflare Workers Git deploy (or `npm run deploy` with Wrangler auth). Confirm `/services/managed-it/`, `/sitemap-index.xml`, `/sitemap.txt`, and `/llms.txt` return 200.
+Production should serve this Astro Worker (`cybercon-solutions-web`), not the older static coming-soon HTML. After merge to `main`, trigger the Cloudflare Workers Git deploy (or `npm run deploy` with Wrangler auth). Confirm `/services/managed-it/`, `/sitemap.xml`, `/sitemap-index.xml`, `/sitemap.txt`, and `/llms.txt` return 200.
 
 ## Features
 

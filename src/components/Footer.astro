@@ -4,6 +4,7 @@ import { localePath, type Messages } from '../i18n';
 import { site } from '../lib/site';
 import { services, servicePath } from '../data/services';
 import { industries, industryPath } from '../data/industries';
+import { localPagePath } from '../data/local-pages';
 
 interface Props {
   locale: string;
@@ -16,6 +17,11 @@ const homeHref = localePath(locale, '/');
 const assessmentHref = localePath(locale, '/assessment/');
 const newWindowHint = locale === 'es' ? '(se abre en una pestaña nueva)' : '(opens in a new tab)';
 const heartLabel = locale === 'es' ? 'cariño' : 'love';
+
+const areaItems = t.footer.areas.map((area) => ({
+  label: area.label,
+  href: area.slug ? localPagePath(locale, area.slug) : undefined,
+}));
 
 const serviceGroups = [
   ['managed-it', 'cybersecurity', 'backup-disaster-recovery', 'it-consulting'],
@@ -127,7 +133,13 @@ const addressLines =
       <div class="footer-col">
         <h2 id="footer-areas-heading" class="footer-heading">{t.footer.areasHeading}</h2>
         <ul class="footer-links footer-areas" aria-labelledby="footer-areas-heading">
-          {t.footer.areas.map((area) => <li>{area}</li>)}
+          {
+            areaItems.map((area) => (
+              <li>
+                {area.href ? <a href={area.href}>{area.label}</a> : area.label}
+              </li>
+            ))
+          }
         </ul>
         <a class="footer-cta" href={assessmentHref}>{t.footer.cta}</a>
       </div>
@@ -308,6 +320,12 @@ const addressLines =
     font-size: 0.9375rem;
     font-weight: 500;
     line-height: 1.45;
+  }
+
+  .footer-areas a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
   }
 
   .footer-rule {

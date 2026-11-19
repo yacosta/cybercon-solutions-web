@@ -89,9 +89,9 @@ export const FAQ: FaqEntry[] = [
     ctas: ['assessment', 'contact'],
   },
   {
-    patterns: [/where (are|do) you/i, /service area/i, /cooper city|davie|miami|south florida/i, /dónde (están|atienden|cubren)/i, /área de (servicio|cobertura)/i],
-    en: `We serve Cooper City, Davie, and greater South Florida. Our mailing address is in Miami Beach (${formatMailingAddress()}). Onsite and managed services focus on the local South Florida market.`,
-    es: `Atendemos Cooper City, Davie y el sur de Florida. Nuestra dirección postal está en Miami Beach (${formatMailingAddress()}). Los servicios en sitio y administrados se centran en el mercado local del sur de Florida.`,
+    patterns: [/where (are|do) you/i, /service area/i, /cooper city|davie|broward|miami|south florida/i, /dónde (están|atienden|cubren)/i, /área de (servicio|cobertura)/i],
+    en: `We serve Cooper City, Davie, and Broward County across greater South Florida. See local pages for Cooper City, Davie, and Broward County managed IT. Our mailing address is in Miami Beach (${formatMailingAddress()}).`,
+    es: `Atendemos Cooper City, Davie y el condado de Broward en el sur de Florida. Mira las páginas locales de TI administrada para Cooper City, Davie y el condado de Broward. Nuestra dirección postal está en Miami Beach (${formatMailingAddress()}).`,
     ctas: ['contact', 'call'],
   },
   {

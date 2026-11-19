@@ -120,6 +120,9 @@ if (/<lastmod>[^<]*<\/lastmod>/.test(index)) {
   index = index.replace('</loc>', `</loc><lastmod>${newest.value}</lastmod>`);
 }
 await writeFile(indexPath, index);
+// Conventional /sitemap.xml alias — SEO tools and Search Console often probe
+// this path first. Keep sitemap-index.xml as Astro's canonical emit.
+await copyFile(indexPath, path.join(clientDir, 'sitemap.xml'));
 console.log(`apply-sitemap-lastmod: index lastmod ${newest.value}`);
 
 // Astro emits prerendered feeds under dist/client. Mirror the paths the
