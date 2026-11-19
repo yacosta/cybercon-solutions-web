@@ -100,9 +100,11 @@ Homepage hero (`src/components/Hero.astro`) is the LCP surface:
    - Never `loading="lazy"` on the LCP image
 2. **Do not set `video[poster]`** when a full-bleed poster `<img>` already covers the hero. A video poster paints above the image and becomes an unprioritized LCP request (fails “fetchpriority=high should be applied”).
 3. Keep the video transparent until playback starts (e.g. `.hero-video { opacity: 0 }` → `.is-playing`), then fade in after `play()` resolves.
-4. **Preload must match the format `<picture>` actually selects.** If AVIF is first `<source>`, preload AVIF with `imagesrcset` + `imagesizes="100vw"` + `fetchpriority="high"` (see `src/pages/index.astro` and `src/pages/es/index.astro`). Do not preload WebP while Chrome picks AVIF.
+4. **Preload must match the format `<picture>` actually selects.** If AVIF is first `<source>`, preload AVIF with `imagesrcset` + `imagesizes` + `fetchpriority="high"` (homepage: `src/pages/index.astro` / `es/index.astro`; service/blog/AI Security banners preload AVIF the same way). Do not preload WebP while Chrome picks AVIF.
 5. Skip heavy hero video on narrow viewports / Save-Data / `prefers-reduced-motion` (existing behavior — keep it).
-6. On other pages where a banner/feature image is LCP (`ServicePage`, `BlogPostPage`), keep `fetchpriority="high"` on that image and avoid lazy-loading it. Prefer a matching `<link rel="preload" as="image">` when the LCP URL is known early.
+6. **Content photos ship AVIF → WebP → JPG** at 768 / 960 / 1280 (`bannerImage` in `src/lib/blog.ts`, `responsiveImage` in `src/lib/service-editorial.ts`, plus `AiSecurityPage` / CTA desk markup). New raster families need all three formats and widths before shipping.
+7. On pages where a banner/feature image is LCP (`ServicePage`, `BlogPostPage`, `AiSecurityPage`), keep `fetchpriority="high"`, `loading="eager"`, and a matching AVIF `<link rel="preload" as="image">` in the head slot. Decorative LCP still uses `alt=""`; put meaningful alt on `og:image:alt` when the visible image is decorative (AI Security).
+8. **Chat avatars:** JPG fallbacks must be the sized `*-avatar-160.jpg` (~160px), never the full `*-source.jpg` upload. Keep Luci/Gabriella sized like Sophia/Angel (`src/lib/chat/agents.ts`).
 
 ## Accessibility baselines
 
@@ -192,7 +194,9 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - [ ] Coral/text accents still meet AA on cream and white
 - [ ] LCP image has `fetchpriority="high"` and is not lazy-loaded
 - [ ] No `video[poster]` competing with a hero LCP `<img>`
-- [ ] Hero preload `type` / `imagesrcset` matches the winning `<picture>` source
+- [ ] Hero / service / blog / AI Security preload `type` / `imagesrcset` matches the winning `<picture>` source (AVIF today)
+- [ ] New content photo families include 768/960/1280 AVIF + WebP + JPG
+- [ ] Chat avatar JPG fallbacks use `*-avatar-160.jpg`, not `*-source.jpg`
 - [ ] EN and ES copy/templates updated together when user-facing strings change
 - [ ] Titles and meta descriptions pass `npm run seo:lengths` (hard 45–70 / 110–165; no mid-word ellipses)
 - [ ] `npm run seo:verify` passes after `npm run build` (no `/es/es/`, no hyphenated X URL, distinct sitemap lastmod, RSS alternates)
@@ -231,6 +235,8 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 | Coral token | `src/styles/tokens.css` |
 | Hero LCP | `src/components/Hero.astro` |
 | Hero preload | `src/pages/index.astro`, `src/pages/es/index.astro` |
+| Content LCP AVIF + preload | `ServicePage.astro`, `BlogPostPage.astro`, `AiSecurityPage.astro`, `src/lib/blog.ts`, `src/lib/service-editorial.ts` |
+| Chat avatars | `src/lib/chat/agents.ts`, `ChatWidget.astro` |
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
 | Marketing copy / voice | `src/i18n/{en,es}.ts`, `src/data/service-details.ts`, `src/data/industries.ts`, `src/data/services.ts`, `src/lib/markdown-pages.ts` |
 | Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |

@@ -43,7 +43,10 @@ const banner = {
     '/images/cybersecurity-lock-768.jpg 768w, /images/cybersecurity-lock-960.jpg 960w, /images/cybersecurity-lock.jpg 1280w',
   webpSrcset:
     '/images/cybersecurity-lock-768.webp 768w, /images/cybersecurity-lock-960.webp 960w, /images/cybersecurity-lock.webp 1280w',
+  avifSrcset:
+    '/images/cybersecurity-lock-768.avif 768w, /images/cybersecurity-lock-960.avif 960w, /images/cybersecurity-lock.avif 1280w',
 };
+const bannerAlt = copy.hero.imageAlt[locale];
 ---
 
 <BaseLayout
@@ -51,6 +54,8 @@ const banner = {
   title={copy.metaTitle[locale]}
   description={copy.metaDescription[locale]}
   path={path}
+  ogImagePath={banner.jpg}
+  ogImageAlt={bannerAlt}
   breadcrumbs={[
     { name: locale === 'es' ? 'Inicio' : 'Home', path: homePath },
     { name: copy.breadcrumb[locale], path },
@@ -60,8 +65,8 @@ const banner = {
     <link
       rel="preload"
       as="image"
-      type="image/webp"
-      imagesrcset={banner.webpSrcset}
+      type="image/avif"
+      imagesrcset={banner.avifSrcset}
       imagesizes="100vw"
       fetchpriority="high"
     />
@@ -85,6 +90,7 @@ const banner = {
     <section class="ais-hero" aria-labelledby="ais-hero-title">
       <div class="ais-hero-media" aria-hidden="true">
         <picture>
+          <source type="image/avif" srcset={banner.avifSrcset} sizes="100vw" />
           <source type="image/webp" srcset={banner.webpSrcset} sizes="100vw" />
           <img
             src={banner.jpg}

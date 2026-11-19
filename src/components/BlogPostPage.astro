@@ -30,6 +30,7 @@ const homePath = localePath(locale, '/');
 const blogIndexPath = blogPath(locale);
 const banner = bannerImage(post.data.banner);
 const bannerAlt = post.data.bannerAlt[locale];
+const bannerSizes = '(min-width: 1120px) 1120px, calc(100vw - 2rem)';
 const published = formatPostDate(post.data.pubDate, locale);
 const assessmentHref = localePath(locale, '/assessment/');
 const ogImage = absoluteUrl(banner.jpg);
@@ -53,6 +54,14 @@ const aboutHref = localePath(locale, '/about/');
   ]}
 >
   <Fragment slot="head">
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset={banner.avifSrcset}
+      imagesizes={bannerSizes}
+      fetchpriority="high"
+    />
     <meta property="article:published_time" content={post.data.pubDate.toISOString()} />
     {post.data.updatedDate && (
       <meta property="article:modified_time" content={post.data.updatedDate.toISOString()} />
@@ -81,16 +90,18 @@ const aboutHref = localePath(locale, '/about/');
     <div class="blog-post-inner container">
       <figure class="blog-banner">
         <picture>
-          <source type="image/webp" srcset={banner.webpSrcset} sizes="(min-width: 1120px) 1120px, calc(100vw - 2rem)" />
+          <source type="image/avif" srcset={banner.avifSrcset} sizes={bannerSizes} />
+          <source type="image/webp" srcset={banner.webpSrcset} sizes={bannerSizes} />
           <img
             src={banner.jpg}
             srcset={banner.jpgSrcset}
-            sizes="(min-width: 1120px) 1120px, calc(100vw - 2rem)"
+            sizes={bannerSizes}
             alt={bannerAlt}
             width={banner.width}
             height={banner.height}
-            decoding="async"
+            decoding="sync"
             fetchpriority="high"
+            loading="eager"
           />
         </picture>
       </figure>

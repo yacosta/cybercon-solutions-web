@@ -82,6 +82,14 @@ const localAreaLinks = showLocalAreas
   ]}
 >
   <Fragment slot="head">
+    <link
+      rel="preload"
+      as="image"
+      type="image/avif"
+      imagesrcset={copy.feature.image.avifSrcset}
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <script type="application/ld+json" set:html={jsonLdScript(serviceJsonLd(service, locale))} />
     <script type="application/ld+json" set:html={jsonLdScript(faqPageJsonLd(details.faqs, locale))} />
     {showSiteCheck && (
@@ -97,6 +105,7 @@ const localAreaLinks = showLocalAreas
   <article class="wd" data-pagefind-body>
     <figure class="wd-banner">
       <picture>
+        <source type="image/avif" srcset={copy.feature.image.avifSrcset} sizes="100vw" />
         <source type="image/webp" srcset={copy.feature.image.webpSrcset} sizes="100vw" />
         <img
           src={copy.feature.image.jpg}
@@ -105,8 +114,9 @@ const localAreaLinks = showLocalAreas
           alt={copy.feature.imageAlt}
           width={copy.feature.image.width}
           height={copy.feature.image.height}
-          decoding="async"
+          decoding="sync"
           fetchpriority="high"
+          loading="eager"
         />
       </picture>
     </figure>
@@ -276,6 +286,11 @@ const localAreaLinks = showLocalAreas
       </div>
       <figure class="wd-cta-media" aria-hidden="true">
         <picture>
+          <source
+            type="image/avif"
+            srcset="/images/service-cta-desk-768.avif 768w, /images/service-cta-desk-960.avif 960w, /images/service-cta-desk.avif 1280w"
+            sizes="(max-width: 860px) 100vw, 55vw"
+          />
           <source
             type="image/webp"
             srcset="/images/service-cta-desk-768.webp 768w, /images/service-cta-desk-960.webp 960w, /images/service-cta-desk.webp 1280w"
