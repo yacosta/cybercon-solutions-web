@@ -170,6 +170,10 @@
 /blog/nginx2root-nginx-http2-vulnerabilities-small-business.html /blog/nginx2root-nginx-http2-vulnerabilities-small-business/ 301
 /es/blog/nginx2root-nginx-http2-vulnerabilities-small-business /es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/ 301
 /es/blog/nginx2root-nginx-http2-vulnerabilities-small-business.html /es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/ 301
+/blog/wordpress-7-1-5-quiet-tax-astro /blog/wordpress-7-1-5-quiet-tax-astro/ 301
+/blog/wordpress-7-1-5-quiet-tax-astro.html /blog/wordpress-7-1-5-quiet-tax-astro/ 301
+/es/blog/wordpress-7-1-5-quiet-tax-astro /es/blog/wordpress-7-1-5-quiet-tax-astro/ 301
+/es/blog/wordpress-7-1-5-quiet-tax-astro.html /es/blog/wordpress-7-1-5-quiet-tax-astro/ 301
 
 
 # --- Priority survivors called out in SEO audit ---
@@ -489,6 +493,7 @@
 /blog/suspected-compromise-client-checklist/index.html /blog/suspected-compromise-client-checklist/ 301
 /blog/how-small-business-avoids-downtime/index.html /blog/how-small-business-avoids-downtime/ 301
 /blog/nginx2root-nginx-http2-vulnerabilities-small-business/index.html /blog/nginx2root-nginx-http2-vulnerabilities-small-business/ 301
+/blog/wordpress-7-1-5-quiet-tax-astro/index.html /blog/wordpress-7-1-5-quiet-tax-astro/ 301
 /blog/zero-trust-mid-market-rollout/index.html /blog/zero-trust-mid-market-rollout/ 301
 /contact/index.html /contact/ 301
 /industries/construction-real-estate/index.html /industries/construction-real-estate/ 301
@@ -537,6 +542,7 @@
 /es/blog/suspected-compromise-client-checklist/index.html /es/blog/suspected-compromise-client-checklist/ 301
 /es/blog/how-small-business-avoids-downtime/index.html /es/blog/how-small-business-avoids-downtime/ 301
 /es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/index.html /es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/ 301
+/es/blog/wordpress-7-1-5-quiet-tax-astro/index.html /es/blog/wordpress-7-1-5-quiet-tax-astro/ 301
 /es/blog/zero-trust-mid-market-rollout/index.html /es/blog/zero-trust-mid-market-rollout/ 301
 /es/contact/index.html /es/contact/ 301
 /es/industries/construction-real-estate/index.html /es/industries/construction-real-estate/ 301

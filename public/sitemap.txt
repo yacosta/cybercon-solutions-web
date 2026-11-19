@@ -18,6 +18,7 @@ https://cybercon-solutions.com/blog/nginx2root-nginx-http2-vulnerabilities-small
 https://cybercon-solutions.com/blog/nonprofit-board-funded-ai-case-study/
 https://cybercon-solutions.com/blog/retail-it-six-countries-case-study/
 https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/
+https://cybercon-solutions.com/blog/wordpress-7-1-5-quiet-tax-astro/
 https://cybercon-solutions.com/blog/zero-trust-mid-market-rollout/
 https://cybercon-solutions.com/contact/
 https://cybercon-solutions.com/industries/construction-real-estate/
@@ -61,6 +62,7 @@ https://cybercon-solutions.com/es/blog/nginx2root-nginx-http2-vulnerabilities-sm
 https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/
 https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/
 https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/
+https://cybercon-solutions.com/es/blog/wordpress-7-1-5-quiet-tax-astro/
 https://cybercon-solutions.com/es/blog/zero-trust-mid-market-rollout/
 https://cybercon-solutions.com/es/contact/
 https://cybercon-solutions.com/es/industries/construction-real-estate/

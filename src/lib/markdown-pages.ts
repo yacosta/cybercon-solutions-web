@@ -36,6 +36,8 @@ import howSmallBusinessAvoidsDowntime from '../content/blog/how-small-business-a
 import howSmallBusinessAvoidsDowntimeEs from '../content/blog/es/how-small-business-avoids-downtime.md?raw';
 import nginx2rootNginxHttp2VulnerabilitiesSmallBusiness from '../content/blog/nginx2root-nginx-http2-vulnerabilities-small-business.md?raw';
 import nginx2rootNginxHttp2VulnerabilitiesSmallBusinessEs from '../content/blog/es/nginx2root-nginx-http2-vulnerabilities-small-business.md?raw';
+import wordpress715QuietTaxAstro from '../content/blog/wordpress-7-1-5-quiet-tax-astro.md?raw';
+import wordpress715QuietTaxAstroEs from '../content/blog/es/wordpress-7-1-5-quiet-tax-astro.md?raw';
 import { formatMailingAddress, site } from './site';
 import { en as enMessages } from '../i18n/en';
 import { es as esMessages } from '../i18n/es';
@@ -102,6 +104,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
+- [WordPress 7.1.5: The Quiet Tax on Small Sites](https://cybercon-solutions.com/blog/wordpress-7-1-5-quiet-tax-astro/)
 - [NGINX2Root: Critical NGINX Flaws Businesses Should Patch](https://cybercon-solutions.com/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
 - [How Small Businesses Avoid Downtime in 2026](https://cybercon-solutions.com/blog/how-small-business-avoids-downtime/)
 - [Suspected Compromise: Client Checklist](https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/)
@@ -129,6 +132,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
+- [WordPress 7.1.5: impuesto silencioso en pymes](https://cybercon-solutions.com/es/blog/wordpress-7-1-5-quiet-tax-astro/)
 - [NGINX2Root: fallas de NGINX que toda pyme debe parchear](https://cybercon-solutions.com/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
 - [Cómo una pyme evita caídas de TI en 2026](https://cybercon-solutions.com/es/blog/how-small-business-avoids-downtime/)
 - [Sospecha de compromiso: lista del cliente](https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/)
@@ -410,6 +414,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/nginx2root-nginx-http2-vulnerabilities-small-business': nginx2rootNginxHttp2VulnerabilitiesSmallBusiness,
   '/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/': nginx2rootNginxHttp2VulnerabilitiesSmallBusinessEs,
   '/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business': nginx2rootNginxHttp2VulnerabilitiesSmallBusinessEs,
+  '/blog/wordpress-7-1-5-quiet-tax-astro/': wordpress715QuietTaxAstro,
+  '/blog/wordpress-7-1-5-quiet-tax-astro': wordpress715QuietTaxAstro,
+  '/es/blog/wordpress-7-1-5-quiet-tax-astro/': wordpress715QuietTaxAstroEs,
+  '/es/blog/wordpress-7-1-5-quiet-tax-astro': wordpress715QuietTaxAstroEs,
 };
 
 function aboutMarkdown(locale: 'en' | 'es'): string {
