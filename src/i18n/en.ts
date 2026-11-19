@@ -121,6 +121,13 @@ export const en = {
       },
     ],
   },
+  latestInsights: {
+    eyebrow: 'Latest insights',
+    title: 'Insights from the field',
+    lede:
+      'Practical guidance on security, uptime, and IT leadership — written by our CIO/CISO.',
+    seeAll: 'See all insights →',
+  },
   pillars: {
     eyebrow: 'How we work',
     title: 'Run. Protect. Plan.',

@@ -102,7 +102,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
-- [NGINX2Root: Critical NGINX Flaws for Business](https://cybercon-solutions.com/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
+- [NGINX2Root: Critical NGINX Flaws Businesses Should Patch](https://cybercon-solutions.com/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
 - [How Small Businesses Avoid Downtime in 2026](https://cybercon-solutions.com/blog/how-small-business-avoids-downtime/)
 - [Suspected Compromise: Client Checklist](https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/)
 - [Enterprise Integration & mPOS: A Case Study](https://cybercon-solutions.com/blog/enterprise-integration-mpos-case-study/)
@@ -129,7 +129,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
-- [NGINX2Root: fallas críticas de NGINX para pymes](https://cybercon-solutions.com/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
+- [NGINX2Root: fallas de NGINX que toda pyme debe parchear](https://cybercon-solutions.com/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
 - [Cómo una pyme evita caídas de TI en 2026](https://cybercon-solutions.com/es/blog/how-small-business-avoids-downtime/)
 - [Sospecha de compromiso: lista del cliente](https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/)
 - [Integración empresarial y mPOS: un caso](https://cybercon-solutions.com/es/blog/enterprise-integration-mpos-case-study/)

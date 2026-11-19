@@ -54,6 +54,34 @@ export async function getBlogIndexPosts(locale: BlogLocale = 'en'): Promise<Blog
   return posts.filter((post) => !post.data.customerIndustry);
 }
 
+/**
+ * Newest insight posts for the homepage (and similar surfaces).
+ * Excludes drafts, case studies (`customerIndustry`), and future-dated posts.
+ */
+export async function getLatestInsightPosts(
+  locale: BlogLocale = 'en',
+  limit = 3,
+  now: Date = new Date(),
+): Promise<BlogPost[]> {
+  const cutoff = now.valueOf();
+  const posts = await getBlogIndexPosts(locale);
+  return posts.filter((post) => post.data.pubDate.valueOf() <= cutoff).slice(0, limit);
+}
+
+/** Estimated reading time from markdown body (~220 wpm). Minimum 1 minute. */
+export function estimateReadMinutes(body: string, wpm = 220): number {
+  const words = body
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/`[^`]*`/g, ' ')
+    .replace(/!\[[^\]]*]\([^)]*\)/g, ' ')
+    .replace(/\[[^\]]*]\([^)]*\)/g, ' ')
+    .replace(/[#>*_~|-]/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / wpm));
+}
+
 export async function getPublishedPost(
   slug: string,
   locale: BlogLocale,
