@@ -34,6 +34,8 @@ import gymFranchiseHybridItCaseStudy from '../content/blog/gym-franchise-hybrid-
 import gymFranchiseHybridItCaseStudyEs from '../content/blog/es/gym-franchise-hybrid-it-case-study.md?raw';
 import howSmallBusinessAvoidsDowntime from '../content/blog/how-small-business-avoids-downtime.md?raw';
 import howSmallBusinessAvoidsDowntimeEs from '../content/blog/es/how-small-business-avoids-downtime.md?raw';
+import nginx2rootNginxHttp2VulnerabilitiesSmallBusiness from '../content/blog/nginx2root-nginx-http2-vulnerabilities-small-business.md?raw';
+import nginx2rootNginxHttp2VulnerabilitiesSmallBusinessEs from '../content/blog/es/nginx2root-nginx-http2-vulnerabilities-small-business.md?raw';
 import { formatMailingAddress, site } from './site';
 import { en as enMessages } from '../i18n/en';
 import { es as esMessages } from '../i18n/es';
@@ -100,6 +102,7 @@ Insights for technology leaders: workflows that ship, governance that accelerate
 
 ## Posts
 
+- [NGINX2Root: Critical NGINX Flaws for Business](https://cybercon-solutions.com/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
 - [How Small Businesses Avoid Downtime in 2026](https://cybercon-solutions.com/blog/how-small-business-avoids-downtime/)
 - [Suspected Compromise: Client Checklist](https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/)
 - [Enterprise Integration & mPOS: A Case Study](https://cybercon-solutions.com/blog/enterprise-integration-mpos-case-study/)
@@ -126,6 +129,7 @@ Perspectivas para líderes de tecnología: flujos que llegan a producción, gobe
 
 ## Entradas
 
+- [NGINX2Root: fallas críticas de NGINX para pymes](https://cybercon-solutions.com/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/)
 - [Cómo una pyme evita caídas de TI en 2026](https://cybercon-solutions.com/es/blog/how-small-business-avoids-downtime/)
 - [Sospecha de compromiso: lista del cliente](https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/)
 - [Integración empresarial y mPOS: un caso](https://cybercon-solutions.com/es/blog/enterprise-integration-mpos-case-study/)
@@ -402,6 +406,10 @@ Encuentra páginas y servicios en cybercon-solutions.com con la búsqueda del si
   '/blog/how-small-business-avoids-downtime': howSmallBusinessAvoidsDowntime,
   '/es/blog/how-small-business-avoids-downtime/': howSmallBusinessAvoidsDowntimeEs,
   '/es/blog/how-small-business-avoids-downtime': howSmallBusinessAvoidsDowntimeEs,
+  '/blog/nginx2root-nginx-http2-vulnerabilities-small-business/': nginx2rootNginxHttp2VulnerabilitiesSmallBusiness,
+  '/blog/nginx2root-nginx-http2-vulnerabilities-small-business': nginx2rootNginxHttp2VulnerabilitiesSmallBusiness,
+  '/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/': nginx2rootNginxHttp2VulnerabilitiesSmallBusinessEs,
+  '/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business': nginx2rootNginxHttp2VulnerabilitiesSmallBusinessEs,
 };
 
 function aboutMarkdown(locale: 'en' | 'es'): string {

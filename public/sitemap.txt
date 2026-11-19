@@ -14,6 +14,7 @@ https://cybercon-solutions.com/blog/healthcare-nonprofit-it-transformation-case-
 https://cybercon-solutions.com/blog/how-small-business-avoids-downtime/
 https://cybercon-solutions.com/blog/managed-it-reports-like-cio/
 https://cybercon-solutions.com/blog/miami-nonprofit-digital-tech-strategy-case-study/
+https://cybercon-solutions.com/blog/nginx2root-nginx-http2-vulnerabilities-small-business/
 https://cybercon-solutions.com/blog/nonprofit-board-funded-ai-case-study/
 https://cybercon-solutions.com/blog/retail-it-six-countries-case-study/
 https://cybercon-solutions.com/blog/suspected-compromise-client-checklist/
@@ -56,6 +57,7 @@ https://cybercon-solutions.com/es/blog/healthcare-nonprofit-it-transformation-ca
 https://cybercon-solutions.com/es/blog/how-small-business-avoids-downtime/
 https://cybercon-solutions.com/es/blog/managed-it-reports-like-cio/
 https://cybercon-solutions.com/es/blog/miami-nonprofit-digital-tech-strategy-case-study/
+https://cybercon-solutions.com/es/blog/nginx2root-nginx-http2-vulnerabilities-small-business/
 https://cybercon-solutions.com/es/blog/nonprofit-board-funded-ai-case-study/
 https://cybercon-solutions.com/es/blog/retail-it-six-countries-case-study/
 https://cybercon-solutions.com/es/blog/suspected-compromise-client-checklist/
