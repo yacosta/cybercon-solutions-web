@@ -1,8 +1,8 @@
 ---
 title: 'NGINX2Root: Critical NGINX Flaws for Business'
 description: 'Critical NGINX2Root flaws could expose websites and customer data. How small businesses can check, patch, and verify servers—and when to get help.'
-pubDate: 2026-11-18
-updatedDate: 2026-11-18
+pubDate: 2026-11-19
+updatedDate: 2026-11-19
 banner: nginx2root
 bannerAlt:
   en: 'NGINX logo connected by binary code to a red security alert shield in a data center'

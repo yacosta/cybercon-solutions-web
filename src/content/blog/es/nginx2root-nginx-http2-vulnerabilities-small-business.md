@@ -1,8 +1,8 @@
 ---
 title: 'NGINX2Root: fallas críticas de NGINX para pymes'
 description: 'Las fallas críticas NGINX2Root pueden exponer sitios y datos de clientes. Cómo revisar, parchear y verificar servidores—y cuándo pedir ayuda.'
-pubDate: 2026-11-18
-updatedDate: 2026-11-18
+pubDate: 2026-11-19
+updatedDate: 2026-11-19
 banner: nginx2root
 bannerAlt:
   en: 'NGINX logo connected by binary code to a red security alert shield in a data center'
