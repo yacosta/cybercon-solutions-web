@@ -71,6 +71,11 @@ const homePath = localePath(locale, '/');
               <div class="blog-row-media" aria-hidden="true">
                 <picture>
                   <source
+                    type="image/avif"
+                    srcset={banner.avifSrcset}
+                    sizes="(max-width: 720px) 100vw, 220px"
+                  />
+                  <source
                     type="image/webp"
                     srcset={banner.webpSrcset}
                     sizes="(max-width: 720px) 100vw, 220px"

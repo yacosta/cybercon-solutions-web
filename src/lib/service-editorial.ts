@@ -54,6 +54,7 @@ export type EditorialCopy = {
       jpg: string;
       jpgSrcset: string;
       webpSrcset: string;
+      avifSrcset: string;
       width: number;
       height: number;
     };
@@ -108,6 +109,7 @@ function responsiveImage(basename: string): EditorialCopy['feature']['image'] {
     jpg: `/images/${basename}.jpg`,
     jpgSrcset: `/images/${basename}-768.jpg 768w, /images/${basename}-960.jpg 960w, /images/${basename}.jpg 1280w`,
     webpSrcset: `/images/${basename}-768.webp 768w, /images/${basename}-960.webp 960w, /images/${basename}.webp 1280w`,
+    avifSrcset: `/images/${basename}-768.avif 768w, /images/${basename}-960.avif 960w, /images/${basename}.avif 1280w`,
     width: 1280,
     height: 854,
   };
@@ -260,6 +262,8 @@ function buildFeature(
     jpgSrcset: '/videos/hero-poster-768.jpg 768w, /videos/hero-poster-960.jpg 960w, /videos/hero-poster.jpg 1280w',
     webpSrcset:
       '/videos/hero-poster-768.webp 768w, /videos/hero-poster-960.webp 960w, /videos/hero-poster.webp 1280w',
+    avifSrcset:
+      '/videos/hero-poster-768.avif 768w, /videos/hero-poster-960.avif 960w, /videos/hero-poster.avif 1280w',
     width: 1280,
     height: 720,
   };

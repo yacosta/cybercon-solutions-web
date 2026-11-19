@@ -34,6 +34,7 @@ export function bannerImage(basename: string) {
     jpg: `/images/${basename}.jpg`,
     jpgSrcset: `/images/${basename}-768.jpg 768w, /images/${basename}-960.jpg 960w, /images/${basename}.jpg 1280w`,
     webpSrcset: `/images/${basename}-768.webp 768w, /images/${basename}-960.webp 960w, /images/${basename}.webp 1280w`,
+    avifSrcset: `/images/${basename}-768.avif 768w, /images/${basename}-960.avif 960w, /images/${basename}.avif 1280w`,
     width: 1280,
     height: 854,
   };
