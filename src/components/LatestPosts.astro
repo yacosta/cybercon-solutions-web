@@ -1,0 +1,157 @@
+---
+import type { Messages } from '../i18n';
+import {
+  blogPath,
+  blogSlug,
+  estimateReadMinutes,
+  getLatestInsightPosts,
+  type BlogLocale,
+} from '../lib/blog';
+
+interface Props {
+  locale: BlogLocale;
+  t: Messages;
+  limit?: number;
+}
+
+const { locale, t, limit = 3 } = Astro.props;
+const posts = await getLatestInsightPosts(locale, limit);
+
+if (posts.length === 0) {
+  return;
+}
+
+const readLabel = (minutes: number) =>
+  locale === 'es'
+    ? minutes === 1
+      ? '1 min de lectura'
+      : `${minutes} min de lectura`
+    : minutes === 1
+      ? '1 min read'
+      : `${minutes} min read`;
+---
+
+<section class="latest-insights" aria-labelledby="latest-insights-title">
+  <div class="container">
+    <p class="eyebrow">{t.latestInsights.eyebrow}</p>
+    <h2 id="latest-insights-title">{t.latestInsights.title}</h2>
+    <p class="lede">{t.latestInsights.lede}</p>
+
+    <ul class="insight-grid">
+      {posts.map((post) => {
+        const href = blogPath(locale, blogSlug(post));
+        const minutes = estimateReadMinutes(post.body);
+        return (
+          <li>
+            <a class="insight-card" href={href}>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              <span class="insight-meta">{readLabel(minutes)}</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <p class="insight-all">
+      <a href={blogPath(locale)}>{t.latestInsights.seeAll}</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .latest-insights {
+    background: var(--white);
+    padding: var(--section-pad-y) 0;
+  }
+
+  .latest-insights h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin: 0.5rem 0 0.75rem;
+    color: var(--navy);
+    max-width: 24ch;
+  }
+
+  .lede {
+    color: var(--body-muted);
+    max-width: 44rem;
+    margin: 0 0 2rem;
+  }
+
+  .insight-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+
+  .insight-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--cream);
+    border: 1px solid rgba(15, 44, 76, 0.08);
+    padding: 1.35rem 1.4rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .insight-card:hover {
+    border-color: rgba(192, 57, 43, 0.35);
+  }
+
+  .insight-card:hover h3 {
+    color: var(--coral);
+  }
+
+  .insight-card h3 {
+    margin: 0 0 0.55rem;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--navy);
+    transition: color 0.15s ease;
+  }
+
+  .insight-card p {
+    margin: 0;
+    color: var(--body-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex: 1;
+  }
+
+  .insight-meta {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--coral);
+  }
+
+  .insight-all {
+    margin: 1.75rem 0 0;
+  }
+
+  .insight-all a {
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .insight-all a:hover {
+    color: var(--coral);
+  }
+
+  @media (max-width: 900px) {
+    .insight-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

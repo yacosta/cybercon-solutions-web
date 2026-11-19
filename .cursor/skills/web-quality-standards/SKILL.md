@@ -174,6 +174,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - **Lead delivery never returns `ok` without a configured production sink.** `src/lib/lead-delivery.ts` must return `503` (`"Lead delivery is temporarily unavailable"`) when neither Attio nor Web3Forms is configured. Console-only "delivery" (`[lead-delivery][dev]`) is allowed **only** under `import.meta.env.DEV` (local `astro dev`) — never in a deployed Worker. Both `/api/assessment` and `/api/contact` go through this shared path; do not reintroduce a route-local fallback that logs and returns `{ ok: true }`.
 - **Case studies built on the founder's pre-Cybercon career must use `storyAttribution: 'founder-leadership'`** (see `src/data/customer-stories.ts` / blog frontmatter) and must not claim the results as Cybercon Solutions customer delivery. Present them as the founder's leadership experience, not a Cybercon engagement.
 - **Homepage leads with managed IT + cybersecurity as pillars**, not ten equal service tiles. AI/cloud/consulting services stay real and linked, but the primary above-the-fold narrative is "managed IT + security as the baseline" — do not flatten it back into a uniform services grid as the first thing visitors see.
+- **Homepage “Latest insights”** (`LatestPosts.astro`, after Evidence / before FitCoverage): build-time from `getLatestInsightPosts` — exclude drafts, future `pubDate`, and case studies (`customerIndustry`). **No dates on homepage cards** (dates stay on the blog index and posts). Text-only cards with the post title as the link. If the locale has zero insight posts, hide the section (do not show EN cards under an ES heading). Problem-card secondary links live in `src/data/problem-post-links.ts` (omit when the ES twin is missing).
 - **Assessment/CTA copy must not promise an instant cost calculator or number** unless one actually exists on the page. "Get a free IT cost & risk review" (a human review) is fine; "instant quote," "calculate your savings," or similar self-serve-pricing claims are not, unless a real calculator ships with the CTA.
 - **LocalBusiness/Organization JSON-LD:** the mailing address (`site.address` in `src/lib/site.ts`) is a Miami Beach PMB and must carry a `description` clarifying no customer visits (see `organizationJsonLd` in `src/lib/seo.ts`); `areaServed` describes the service area (Cooper City, Davie, Broward County, South Florida), not the mailing address's city. New local landing pages (`src/data/local-pages.ts`, `LocalManagedItPage.astro`) must repeat this distinction in visible copy, not just JSON-LD.
 - **Public `GET /api/health` stays minimal** (`{ ok, time }` only) — no dependency flags, no secrets exposure. Detailed dependency status lives at `GET /api/health/detail`, gated by `HEALTH_DETAIL_TOKEN`. Do not add fields to the public route; add them to the detail route instead.
@@ -217,6 +218,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 - [ ] Non-essential analytics/trackers still gated behind prior consent (banner + Consent Mode defaults denied)
 - [ ] Lead-capture routes (`/api/assessment`, `/api/contact`) still refuse silent success (503) with no configured sink outside `astro dev`
 - [ ] Founder-career case studies still marked `storyAttribution: 'founder-leadership'` and do not claim Cybercon customer delivery
+- [ ] Homepage Latest insights (`LatestPosts`) stays after Evidence, omits dates/drafts/future/case studies, and hides when the locale has no insight posts
 - [ ] New local landing pages have distinct, non-templated local content per city plus non-slash/`.html` 301s in `_redirects`
 - [ ] Public `/api/health` response stays `{ ok, time }` only; no new dependency/secret fields added there
 - [ ] Wordmark `aria-label` includes visible “CYBERCON SOLUTIONS” in both locales (`homeLabel` from Header/Footer)
@@ -240,6 +242,7 @@ These came out of the commercial-readiness overhaul (fake-success forms, thin lo
 | Services/industries links | `ServicesGrid.astro`, `IndustriesSection.astro`, `src/i18n/{en,es}.ts` |
 | Marketing copy / voice | `src/i18n/{en,es}.ts`, `src/data/service-details.ts`, `src/data/industries.ts`, `src/data/services.ts`, `src/lib/markdown-pages.ts` |
 | Blog EN/ES bodies | `src/content/blog/`, `src/content/blog/es/`, `src/lib/blog.ts` |
+| Homepage Latest insights | `LatestPosts.astro`, `getLatestInsightPosts` in `src/lib/blog.ts`, `src/data/problem-post-links.ts` |
 | Global focus / eyebrow | `src/styles/global.css` |
 | Zaraz browser cache | `scripts/ensure-zaraz-cache-header.mjs`, deploy.yml |
 | Zone cache purge | `scripts/purge-cloudflare-cache.mjs`, deploy.yml, `purge-cache.yml` |

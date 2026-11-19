@@ -28,6 +28,7 @@ Non-negotiables (details in the skill):
 - Lead delivery (`src/lib/lead-delivery.ts`) must never return `ok` in production without a configured sink (Attio or Web3Forms) — console-only success is dev-only.
 - Founder-career case studies use `storyAttribution: 'founder-leadership'` and never claim Cybercon customer delivery.
 - Homepage leads with managed IT/cybersecurity as pillars, not a flat ten-item services grid above the fold.
+- Homepage Latest insights (`LatestPosts`) sits after Evidence: no dates on cards; exclude drafts, future posts, and case studies; hide the section when the locale has no insight posts.
 - Assessment/CTA copy must not promise an instant cost calculator unless one ships with the CTA.
 - LocalBusiness schema: mailing PMB address carries a "no customer visits" description; `areaServed` is the service area, not the mailing city.
 - Public `GET /api/health` stays minimal (`{ ok, time }`); detailed dependency status is at `/api/health/detail`, gated by `HEALTH_DETAIL_TOKEN`.

@@ -123,6 +123,13 @@ export const es: Messages = {
       },
     ],
   },
+  latestInsights: {
+    eyebrow: 'Últimas ideas',
+    title: 'Ideas desde el terreno',
+    lede:
+      'Guía práctica sobre seguridad, continuidad y liderazgo de TI, escrita por nuestro CIO/CISO.',
+    seeAll: 'Ver todos los artículos →',
+  },
   pillars: {
     eyebrow: 'Cómo trabajamos',
     title: 'Operar. Proteger. Planificar.',

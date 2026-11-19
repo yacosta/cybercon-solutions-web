@@ -8,6 +8,7 @@ import TrustStrip from '../components/TrustStrip.astro';
 import ProblemsSection from '../components/ProblemsSection.astro';
 import PillarsSection from '../components/PillarsSection.astro';
 import EvidenceSection from '../components/EvidenceSection.astro';
+import LatestPosts from '../components/LatestPosts.astro';
 import FitCoverageSection from '../components/FitCoverageSection.astro';
 import AssessmentForm from '../components/AssessmentForm.astro';
 import IndustriesSection from '../components/IndustriesSection.astro';
@@ -47,9 +48,10 @@ const t = getMessages(locale);
 
   <Hero locale={locale} t={t} />
   <TrustStrip locale={locale} t={t} />
-  <ProblemsSection t={t} />
+  <ProblemsSection locale={locale} t={t} />
   <PillarsSection locale={locale} t={t} />
   <EvidenceSection locale={locale} t={t} />
+  <LatestPosts locale={locale} t={t} />
   <FitCoverageSection t={t} />
   <IndustriesSection locale={locale} t={t} />
   <AssessmentForm locale={locale} t={t} />

@@ -1,5 +1,5 @@
 ---
-title: 'NGINX2Root: fallas críticas de NGINX para pymes'
+title: 'NGINX2Root: fallas de NGINX que toda pyme debe parchear'
 description: 'Las fallas críticas NGINX2Root pueden exponer sitios y datos de clientes. Cómo revisar, parchear y verificar servidores—y cuándo pedir ayuda.'
 pubDate: 2026-11-19
 updatedDate: 2026-11-19
